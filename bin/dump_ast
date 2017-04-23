@@ -1,0 +1,8 @@
+#!/usr/bin/env js -s
+
+var source = arguments.join(' ');
+var program = Reflect.parse(source, {
+  loc: false,
+});
+
+print(JSON.stringify(program, null, 2));
