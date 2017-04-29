@@ -9,28 +9,24 @@
 #include <boost/optional.hpp>
 #include <boost/variant.hpp>
 
-class Token
-{
+class Token {
 
-  struct Empty {};
-  struct Keyword { std::string value; };
-  struct Punctuator { std::string value; };
+  struct Empty {
+  };
+  struct Keyword {
+    std::string value;
+  };
+  struct Punctuator {
+    std::string value;
+  };
 
-  using Value = boost::variant<
-    Empty,
-    Identifier,
-    Keyword,
-    Punctuator,
-    NullLiteral,
-    BooleanLiteral,
-    NumericLiteral,
-    StringLiteral,
-    RegularExpressionLiteral
-  >;
+  using Value = boost::variant<Empty, Identifier, Keyword, Punctuator,
+                               NullLiteral, BooleanLiteral, NumericLiteral,
+                               StringLiteral, RegularExpressionLiteral>;
 
   Value value;
 
-  static Value value_from_string(const std::string&);
+  static Value value_from_string(const std::string &);
 
   Token(Value value) : value(value) {}
 
@@ -38,31 +34,29 @@ class Token
   struct print_visitor;
 
 public:
-
   bool preceded_by_line_terminator = false;
 
-  struct DebugInfo
-  {
+  struct DebugInfo {
     virtual std::string syntax_error_at() const = 0;
   };
 
   std::shared_ptr<DebugInfo> debug_info;
 
   Token() = default;
-  Token(const Token&) = default;
-  Token(Token&&) = default;
-  Token& operator=(const Token&) = default;
-  Token& operator=(Token&&) = default;
-  Token(const char* str);
-  Token(const std::string& str);
+  Token(const Token &) = default;
+  Token(Token &&) = default;
+  Token &operator=(const Token &) = default;
+  Token &operator=(Token &&) = default;
+  Token(const char *str);
+  Token(const std::string &str);
 
   template <typename It> Token(It f, It l)
-    // Determines the type of the range [f, l). Passing in anything but a valid
-    // Identifier, Keyword, FutureReservedKeyword, Punctuator, NullLiteral or
-    // BooleanLiteral is undefined behaviour.
+  // Determines the type of the range [f, l). Passing in anything but a valid
+  // Identifier, Keyword, FutureReservedKeyword, Punctuator, NullLiteral or
+  // BooleanLiteral is undefined behaviour.
   {
     if (std::any_of(f, l, [](auto cp) { return cp >= 128; })) {
-      value = Identifier { std::u16string{f, l} };
+      value = Identifier{std::u16string{f, l}};
     }
     else {
       value = value_from_string({f, l});
@@ -71,8 +65,8 @@ public:
 
   static Token identifier(std::string value);
   static Token identifier(std::u16string value);
-  static Token keyword(const std::string& value);
-  static Token punctuator(const std::string& value);
+  static Token keyword(const std::string &value);
+  static Token punctuator(const std::string &value);
   static Token null_literal();
   static Token boolean_literal(bool value);
   static Token numeric_literal(double value);
@@ -92,38 +86,33 @@ public:
 
   bool is_identifier_name() const;
 
-  bool any_of(const std::vector<Token>& tokens) const
+  bool any_of(const std::vector<Token> &tokens) const
   {
     return std::find(tokens.begin(), tokens.end(), *this) != tokens.end();
   }
 
-  template <typename... Args> bool any_of(Args&&... args) const
+  template <typename... Args> bool any_of(Args &&... args) const
   {
-    return any_of(std::vector<Token> { std::forward<Args>(args)... });
+    return any_of(std::vector<Token>{std::forward<Args>(args)...});
   }
 
-  boost::optional<const std::u16string&> to_identifier() const;
-  boost::optional<const std::string&> to_keyword() const;
-  boost::optional<const std::string&> to_punctuator() const;
-  boost::optional<const bool&> to_boolean_literal() const;
-  boost::optional<const double&> to_numeric_literal() const;
-  boost::optional<const std::u16string&> to_string_literal() const;
+  boost::optional<const std::u16string &> to_identifier() const;
+  boost::optional<const std::string &> to_keyword() const;
+  boost::optional<const std::string &> to_punctuator() const;
+  boost::optional<const bool &> to_boolean_literal() const;
+  boost::optional<const double &> to_numeric_literal() const;
+  boost::optional<const std::u16string &> to_string_literal() const;
 
-  bool operator==(const Token& other) const;
+  bool operator==(const Token &other) const;
   // bool operator!=(const Token& other) const { return value != other.value; }
-  void print(std::ostream&) const;
-
+  void print(std::ostream &) const;
 
   operator bool() const;
   operator double() const;
   operator std::string() const;
   operator std::u16string() const;
-
-
-
-
 };
 
-std::ostream& operator<<(std::ostream& out, const Token& token);
+std::ostream &operator<<(std::ostream &out, const Token &token);
 
 #endif

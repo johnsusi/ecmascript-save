@@ -3,7 +3,7 @@
 
 #include "ast.h"
 
-Program eval(const std::string&);
-Program eval(const std::u16string&);
+Program eval(const std::string &);
+Program eval(const std::u16string &);
 
 #endif

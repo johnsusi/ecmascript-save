@@ -6,30 +6,33 @@
 #include <boost/optional.hpp>
 #include <boost/variant.hpp>
 
-struct This {};
-struct Identifier { std::u16string value; };
-struct NullLiteral {};
-struct BooleanLiteral { bool value; };
-struct NumericLiteral { double value; };
-struct StringLiteral { std::u16string value; };
-struct RegularExpressionLiteral {};
-using Literal = boost::variant<
-  NullLiteral,
-  BooleanLiteral,
-  NumericLiteral,
-  StringLiteral,
-  RegularExpressionLiteral
->;
+struct This {
+};
+struct Identifier {
+  std::u16string value;
+};
+struct NullLiteral {
+};
+struct BooleanLiteral {
+  bool value;
+};
+struct NumericLiteral {
+  double value;
+};
+struct StringLiteral {
+  std::u16string value;
+};
+struct RegularExpressionLiteral {
+};
+using Literal = boost::variant<NullLiteral, BooleanLiteral, NumericLiteral,
+                               StringLiteral, RegularExpressionLiteral>;
 struct ArrayLiteral;
 struct ObjectLiteral;
-using PrimaryExpression = boost::variant<
-  This,
-  Identifier,
-  Literal,
-  boost::recursive_wrapper<ArrayLiteral>,
-  boost::recursive_wrapper<ObjectLiteral>
-  // ( expression )
->;
+using PrimaryExpression = boost::variant<This, Identifier, Literal,
+                                         boost::recursive_wrapper<ArrayLiteral>,
+                                         boost::recursive_wrapper<ObjectLiteral>
+                                         // ( expression )
+                                         >;
 struct MemberExpression;
 struct NewExpression;
 struct CallExpression;
@@ -39,106 +42,85 @@ struct BinaryExpression;
 struct ConditionalExpression;
 struct Arguments;
 
-using Expression = boost::variant<
-  This,
-  Identifier,
-  boost::recursive_wrapper<ArrayLiteral>,
-  boost::recursive_wrapper<ObjectLiteral>,
-  NullLiteral,
-  BooleanLiteral,
-  NumericLiteral,
-  StringLiteral,
-  RegularExpressionLiteral,
-  boost::recursive_wrapper<MemberExpression>,
-  boost::recursive_wrapper<NewExpression>,
-  boost::recursive_wrapper<CallExpression>,
-  boost::recursive_wrapper<PostfixExpression>,
-  boost::recursive_wrapper<UnaryExpression>,
-  boost::recursive_wrapper<BinaryExpression>,
-  boost::recursive_wrapper<ConditionalExpression>,
-  boost::recursive_wrapper<Arguments>
->;
+using Expression =
+    boost::variant<This, Identifier, boost::recursive_wrapper<ArrayLiteral>,
+                   boost::recursive_wrapper<ObjectLiteral>, NullLiteral,
+                   BooleanLiteral, NumericLiteral, StringLiteral,
+                   RegularExpressionLiteral,
+                   boost::recursive_wrapper<MemberExpression>,
+                   boost::recursive_wrapper<NewExpression>,
+                   boost::recursive_wrapper<CallExpression>,
+                   boost::recursive_wrapper<PostfixExpression>,
+                   boost::recursive_wrapper<UnaryExpression>,
+                   boost::recursive_wrapper<BinaryExpression>,
+                   boost::recursive_wrapper<ConditionalExpression>,
+                   boost::recursive_wrapper<Arguments>>;
 
 using PropertyName = boost::variant<
-  // IdentifierName,
-  StringLiteral,
-  NumericLiteral
->;
+    // IdentifierName,
+    StringLiteral, NumericLiteral>;
 
-struct PropertyAssignment
-{
+struct PropertyAssignment {
   enum class Kind { INIT, GET, SET } kind;
   PropertyName name;
   Expression value;
 };
 
-struct ArrayLiteral
-{
+struct ArrayLiteral {
   std::vector<Expression> elements;
 };
 
-struct ObjectLiteral
-{
+struct ObjectLiteral {
   std::vector<PropertyAssignment> declarations;
 };
 
-struct MemberExpression
-{
+struct MemberExpression {
   Expression object;
   Expression property;
 };
 
 using ArgumentList = std::vector<Expression>;
 
-struct Arguments
-{
+struct Arguments {
   ArgumentList list;
 };
 
-struct NewExpression
-{
+struct NewExpression {
   Expression callee;
   Arguments arguments;
 };
 
-struct CallExpression
-{
+struct CallExpression {
   Expression callee;
   Arguments arguments;
 };
 
-struct PostfixExpression
-{
+struct PostfixExpression {
   std::string op;
   Expression lhs;
 };
 
-struct UnaryExpression
-{
+struct UnaryExpression {
   std::string op;
   Expression rhs;
 };
 
-struct BinaryExpression
-{
+struct BinaryExpression {
   std::string op;
   Expression lhs;
   Expression rhs;
 };
 
-struct ConditionalExpression
-{
+struct ConditionalExpression {
   Expression test, consequent, alternate;
 };
 
-struct VariableDeclaration
-{
+struct VariableDeclaration {
   Identifier identifier;
   boost::optional<Expression> initializer;
 };
 
 using VariableDeclarationList = std::vector<VariableDeclaration>;
-
 
 struct Block;
 struct VariableStatement;
@@ -149,12 +131,11 @@ struct DoWhileStatement;
 struct WhileStatement;
 struct ForStatement;
 struct ForInStatement;
-using IterationStatement = boost::variant<
-  boost::recursive_wrapper<DoWhileStatement>,
-  boost::recursive_wrapper<WhileStatement>,
-  boost::recursive_wrapper<ForStatement>,
-  boost::recursive_wrapper<ForInStatement>
->;
+using IterationStatement =
+    boost::variant<boost::recursive_wrapper<DoWhileStatement>,
+                   boost::recursive_wrapper<WhileStatement>,
+                   boost::recursive_wrapper<ForStatement>,
+                   boost::recursive_wrapper<ForInStatement>>;
 struct ContinueStatement;
 struct BreakStatement;
 struct ReturnStatement;
@@ -165,164 +146,138 @@ struct ThrowStatement;
 struct TryStatement;
 struct DebuggerStatement;
 
-using Statement = boost::variant<
-  boost::recursive_wrapper<Block>,
-  boost::recursive_wrapper<VariableStatement>,
-  boost::recursive_wrapper<EmptyStatement>,
-  boost::recursive_wrapper<ExpressionStatement>,
-  boost::recursive_wrapper<IfStatement>,
-  // boost::recursive_wrapper<IterationStatement>,
-  boost::recursive_wrapper<DoWhileStatement>,
-  boost::recursive_wrapper<WhileStatement>,
-  boost::recursive_wrapper<ForStatement>,
-  boost::recursive_wrapper<ForInStatement>,
-  boost::recursive_wrapper<ContinueStatement>,
-  boost::recursive_wrapper<BreakStatement>,
-  boost::recursive_wrapper<ReturnStatement>,
-  boost::recursive_wrapper<WithStatement>,
-  boost::recursive_wrapper<LabelledStatement>,
-  boost::recursive_wrapper<SwitchStatement>,
-  boost::recursive_wrapper<ThrowStatement>,
-  boost::recursive_wrapper<TryStatement>,
-  boost::recursive_wrapper<DebuggerStatement>
->;
+using Statement =
+    boost::variant<boost::recursive_wrapper<Block>,
+                   boost::recursive_wrapper<VariableStatement>,
+                   boost::recursive_wrapper<EmptyStatement>,
+                   boost::recursive_wrapper<ExpressionStatement>,
+                   boost::recursive_wrapper<IfStatement>,
+                   // boost::recursive_wrapper<IterationStatement>,
+                   boost::recursive_wrapper<DoWhileStatement>,
+                   boost::recursive_wrapper<WhileStatement>,
+                   boost::recursive_wrapper<ForStatement>,
+                   boost::recursive_wrapper<ForInStatement>,
+                   boost::recursive_wrapper<ContinueStatement>,
+                   boost::recursive_wrapper<BreakStatement>,
+                   boost::recursive_wrapper<ReturnStatement>,
+                   boost::recursive_wrapper<WithStatement>,
+                   boost::recursive_wrapper<LabelledStatement>,
+                   boost::recursive_wrapper<SwitchStatement>,
+                   boost::recursive_wrapper<ThrowStatement>,
+                   boost::recursive_wrapper<TryStatement>,
+                   boost::recursive_wrapper<DebuggerStatement>>;
 
 using StatementList = std::vector<Statement>;
 
-struct Block
-{
+struct Block {
   StatementList body;
 };
 
-struct VariableStatement
-{
+struct VariableStatement {
 };
 
-struct EmptyStatement
-{
+struct EmptyStatement {
 };
 
-struct ExpressionStatement
-{
+struct ExpressionStatement {
   Expression expression;
 };
 
-struct IfStatement
-{
+struct IfStatement {
   Expression test;
   Statement consequent;
   boost::optional<Statement> alternate;
 };
 
-struct DoWhileStatement
-{
+struct DoWhileStatement {
   Statement body;
   Expression test;
 };
 
-struct WhileStatement
-{
+struct WhileStatement {
   Expression test;
   Statement body;
 };
 
-struct ForStatement
-{
+struct ForStatement {
 };
 
-struct ForInStatement
-{
+struct ForInStatement {
 };
 
-struct ContinueStatement
-{
+struct ContinueStatement {
   boost::optional<Identifier> label;
 };
 
-struct BreakStatement
-{
+struct BreakStatement {
   boost::optional<Identifier> label;
 };
 
-struct ReturnStatement
-{
+struct ReturnStatement {
   boost::optional<Expression> argument;
 };
 
-struct WithStatement
-{
+struct WithStatement {
   Expression object;
   Statement body;
 };
 
-struct LabelledStatement
-{
+struct LabelledStatement {
   Identifier label;
   Statement body;
 };
 
-struct SwitchStatement
-{
+struct SwitchStatement {
   Expression discriminant;
   // CaseBlock cases;
 };
 
-struct ThrowStatement
-{
+struct ThrowStatement {
   Expression argument;
 };
 
-struct TryStatement
-{
+struct TryStatement {
   Block block;
   boost::optional<Block> handler;
   boost::optional<Block> finalizer;
 };
 
-struct DebuggerStatement
-{
+struct DebuggerStatement {
 };
 
 struct FunctionDeclaration;
 
-using SourceElement = boost::variant<
-  Statement,
-  boost::recursive_wrapper<FunctionDeclaration>
->;
+using SourceElement =
+    boost::variant<Statement, boost::recursive_wrapper<FunctionDeclaration>>;
 
 using SourceElements = std::vector<SourceElement>;
 
-
 using FormalParameterList = std::vector<Identifier>;
 
-struct FunctionBody
-{
+struct FunctionBody {
   SourceElements elements;
 };
 
-struct FunctionDeclaration
-{
+struct FunctionDeclaration {
   Identifier id;
   FormalParameterList params;
   FunctionBody body;
 };
 
-struct FunctionExpression
-{
+struct FunctionExpression {
   boost::optional<Identifier> id;
   FormalParameterList params;
   FunctionBody body;
 };
 
-struct Program
-{
+struct Program {
   SourceElements elements;
 };
 
-std::string normalize(const std::string&);
-std::string to_string(const Program&);
-bool operator==(const Program&, const std::string&);
+std::string normalize(const std::string &);
+std::string to_string(const Program &);
+bool operator==(const Program &, const std::string &);
 
-std::ostream& operator<<(std::ostream&, const Program&);
+std::ostream &operator<<(std::ostream &, const Program &);
 
 #endif

@@ -30,23 +30,21 @@ bool is_unicode_connector_punctuation(int cp);
 bool is_single_escape_character(int cp);
 
 // 7.6.1.1
-bool is_keyword(const std::string& token);
+bool is_keyword(const std::string &token);
 
 // 7.6.1.2
-bool is_future_reserved_word(const std::string& token);
+bool is_future_reserved_word(const std::string &token);
 
 // 7.7
-bool is_punctuator(const std::string& token);
+bool is_punctuator(const std::string &token);
 
 // 7.8.1
-bool is_null_literal(const std::string& str);
+bool is_null_literal(const std::string &str);
 
 // 7.8.2
-bool is_boolean_literal(const std::string&);
+bool is_boolean_literal(const std::string &);
 
-template <typename T>
-class LexicalGrammar
-{
+template <typename T> class LexicalGrammar {
 public:
   std::u16string buffer;
   Matcher<T, std::u16string::const_iterator> match;
@@ -54,15 +52,13 @@ public:
 
   Token token_value;
 
-  template <typename It> LexicalGrammar(It begin, It end)
-    : buffer(begin, end), match(buffer.begin(), buffer.end())
+  template <typename It>
+  LexicalGrammar(It begin, It end)
+      : buffer(begin, end), match(buffer.begin(), buffer.end())
   {
   }
 
-  void syntax_error()
-  {
-    throw std::runtime_error("Syntax Error");
-  }
+  void syntax_error() { throw std::runtime_error("Syntax Error"); }
   // Lexical Grammar
 
   // 6
@@ -75,69 +71,69 @@ public:
   InputElement input_element_div()
   {
     auto match_start = match.mark();
-    if (white_space()) return InputElement::white_space();
-    if (line_terminator()) return InputElement::line_terminator();
-    if (comment()) return InputElement::comment(std::u16string {match_start, match.mark()});
-    if (token() || div_punctuator()) return InputElement::token(std::move(token_value));
+    if (white_space())
+      return InputElement::white_space();
+    if (line_terminator())
+      return InputElement::line_terminator();
+    if (comment())
+      return InputElement::comment(std::u16string{match_start, match.mark()});
+    if (token() || div_punctuator())
+      return InputElement::token(std::move(token_value));
     return InputElement::empty();
   }
 
   InputElement input_element_reg_exp()
   {
     auto match_start = match.mark();
-    if (white_space()) return InputElement::white_space();
-    if (line_terminator()) return InputElement::line_terminator();
-    if (comment()) return InputElement::comment(std::u16string{match_start, match.mark()});
-    if (token() || regular_expression_literal()) return InputElement::token(std::move(token_value));
+    if (white_space())
+      return InputElement::white_space();
+    if (line_terminator())
+      return InputElement::line_terminator();
+    if (comment())
+      return InputElement::comment(std::u16string{match_start, match.mark()});
+    if (token() || regular_expression_literal())
+      return InputElement::token(std::move(token_value));
     return InputElement::empty();
   }
 
   // 7.2 White Space
-  bool white_space()
-  {
-    return match(is_white_space);
-  }
+  bool white_space() { return match(is_white_space); }
 
   // 7.3 Line Terminators
-  bool line_terminator()
-  {
-    return match(is_line_terminator);
-  }
+  bool line_terminator() { return match(is_line_terminator); }
 
   bool line_terminator_sequence()
   {
     return match([&](auto cp) {
       switch (cp) {
-        case 0x000D: // Carriage Return <CR>
-          match(0x000A);
-        case 0x000A: // Line Feed <LF>
-        case 0x2028: // Line separator <LS>
-        case 0x2029: // Paragraph separator <PS>
-          return true;
-        default:
-          return false;
+      case 0x000D: // Carriage Return <CR>
+        match(0x000A);
+      case 0x000A: // Line Feed <LF>
+      case 0x2028: // Line separator <LS>
+      case 0x2029: // Paragraph separator <PS>
+        return true;
+      default:
+        return false;
       }
     });
   }
 
   // 7.4 Comments
-  bool comment()
-  {
-    return multi_line_comment() || single_line_comment();
-  }
+  bool comment() { return multi_line_comment() || single_line_comment(); }
 
   bool multi_line_comment()
   {
-    return match([&]{
+    return match([&] {
       return match('/') && match('*') && multi_line_comment_chars_opt() &&
-        match('*') && match('/');
+             match('*') && match('/');
     });
   }
 
   bool multi_line_comment_chars()
   {
-    return match([this]{
-      return (multi_line_not_asterisk_char() && multi_line_comment_chars_opt()) ||
+    return match([this] {
+      return (multi_line_not_asterisk_char() &&
+              multi_line_comment_chars_opt()) ||
              (match('*') && post_asterisk_comment_chars());
     });
   }
@@ -151,48 +147,48 @@ public:
   bool post_asterisk_comment_chars()
   {
     return match.any_of(
-      [this]{ return match('*') && post_asterisk_comment_chars(); },
-      [this]{ return multi_line_not_forward_slash_or_asterisk_char() &&
-        multi_line_comment_chars_opt(); }
-    );
+        [this] { return match('*') && post_asterisk_comment_chars(); },
+        [this] {
+          return multi_line_not_forward_slash_or_asterisk_char() &&
+                 multi_line_comment_chars_opt();
+        });
   }
 
   bool multi_line_not_asterisk_char()
   {
-    return match([this]{ return !match('*') && source_character(); });
+    return match([this] { return !match('*') && source_character(); });
   }
 
   bool multi_line_not_forward_slash_or_asterisk_char()
   {
     return match([](auto cp) {
       switch (cp) {
-        case '/':
-        case '*':
-          return false;
-        default:
-          return true;
+      case '/':
+      case '*':
+        return false;
+      default:
+        return true;
       }
     });
   }
 
   bool single_line_comment()
   {
-    return match([this]{
+    return match([this] {
       return match('/') && match('/') && single_line_comment_chars();
     });
   }
 
   bool single_line_comment_chars()
   {
-    while (single_line_comment_char());
+    while (single_line_comment_char())
+      ;
     return true;
   }
 
   bool single_line_comment_char()
   {
-    return match([this]{
-      return !line_terminator() && source_character();
-    });
+    return match([this] { return !line_terminator() && source_character(); });
   }
 
   // 7.5 Tokens
@@ -209,11 +205,12 @@ public:
       return true;
     }
     if (numeric_literal()) {
-      token_value = Token::numeric_literal( std::strtod(std::string{i, match.mark()}.c_str(), nullptr) );
+      token_value = Token::numeric_literal(
+          std::strtod(std::string{i, match.mark()}.c_str(), nullptr));
       return true;
     }
     if (string_literal()) {
-      token_value = Token::string_literal( {i+1, match.mark()-1} );
+      token_value = Token::string_literal({i + 1, match.mark() - 1});
       return true;
     }
     return false;
@@ -222,39 +219,31 @@ public:
   bool identifier_name()
   {
     if (identifier_start()) {
-      while (identifier_part());
+      while (identifier_part())
+        ;
       return true;
     }
     return false;
   }
 
-  bool identifier_start() {
-    return unicode_letter() || match('$') || match('_') || match([this]{
-      return match('\\') && unicode_escape_sequence();
-    });
+  bool identifier_start()
+  {
+    return unicode_letter() || match('$') || match('_') ||
+           match([this] { return match('\\') && unicode_escape_sequence(); });
   }
 
   bool identifier_part()
   {
     return identifier_start() || unicode_combining_mark() || unicode_digit() ||
-      unicode_connector_punctuation() || match(0x200C) /* <ZWNJ> */ ||
-      match(0x200D) /* <ZWJ> */;
+           unicode_connector_punctuation() || match(0x200C) /* <ZWNJ> */ ||
+           match(0x200D) /* <ZWJ> */;
   }
 
-  bool unicode_letter()
-  {
-    return match(is_unicode_letter);
-  }
+  bool unicode_letter() { return match(is_unicode_letter); }
 
-  bool unicode_combining_mark()
-  {
-    return match(is_unicode_combining_mark);
-  }
+  bool unicode_combining_mark() { return match(is_unicode_combining_mark); }
 
-  bool unicode_digit()
-  {
-    return match(is_unicode_digit);
-  }
+  bool unicode_digit() { return match(is_unicode_digit); }
 
   bool unicode_connector_punctuation()
   {
@@ -264,35 +253,34 @@ public:
   bool reserved_word()
   {
     return keyword() || future_reserved_word() || null_literal() ||
-      boolean_literal();
+           boolean_literal();
   }
 
   bool keyword()
   {
     return match.any_of("break", "case", "catch", "continue", "debugger",
-      "default", "delete", "do", "else", "finally", "for", "function", "if",
-      "in", "instanceof", "new", "return", "switch", "this", "throw", "try",
-      "typeof", "var", "void", "while", "with");
+                        "default", "delete", "do", "else", "finally", "for",
+                        "function", "if", "in", "instanceof", "new", "return",
+                        "switch", "this", "throw", "try", "typeof", "var",
+                        "void", "while", "with");
   }
 
   bool future_reserved_word()
   {
-    return match.any_of( "class", "enum", "extends", "super", "const", "export",
-      "import", "implements", "let", "private", "public", "interface",
-      "package", "protected", "static");
+    return match.any_of("class", "enum", "extends", "super", "const", "export",
+                        "import", "implements", "let", "private", "public",
+                        "interface", "package", "protected", "static");
   }
 
   // 7.7
   bool punctuator()
   {
     return match.any_of(
-      // Note: Must match longer strings first
-      ">>>=",
-      "<<=", ">>=", ">>>", "!==", "===",
-      "!=", "%=", "&&", "&=", "*", "*=", "++", "+=", "--", "-=", "<<",  "<=",
-      "==",  ">=", ">>", "^=", "|=", "||",
-      "!", "%", "&", "?", "+",  ",", "-",  ".", ":", ";", "=", ">", "<", "(",
-      ")", "[", "]", "^",  "{", "|",  "}", "~");
+        // Note: Must match longer strings first
+        ">>>=", "<<=", ">>=", ">>>", "!==", "===", "!=", "%=", "&&", "&=", "*",
+        "*=", "++", "+=", "--", "-=", "<<", "<=", "==", ">=", ">>",
+        "^=", "|=", "||", "!", "%", "&", "?", "+", ",", "-", ".", ":", ";", "=",
+        ">", "<", "(", ")", "[", "]", "^", "{", "|", "}", "~");
   }
 
   bool div_punctuator()
@@ -308,7 +296,7 @@ public:
   bool literal()
   {
     return null_literal() || boolean_literal() || numeric_literal() ||
-      string_literal() || regular_expression_literal();
+           string_literal() || regular_expression_literal();
   }
 
   // 7.8.1
@@ -332,14 +320,16 @@ public:
       token_value = Token::boolean_literal(false);
       return true;
     }
-    else return false;
+    else
+      return false;
   }
 
   // 7.8.3
   bool numeric_literal()
   {
     if (hex_integer_literal() || decimal_literal()) {
-      if (identifier_start() || decimal_digit()) syntax_error();
+      if (identifier_start() || decimal_digit())
+        syntax_error();
       return true;
     }
     return false;
@@ -347,31 +337,34 @@ public:
 
   bool decimal_literal()
   {
-    return match([&]{
-      if (decimal_integer_literal() && match('.')) {
-        decimal_digits();
-        exponent_part();
-        return true;
-      }
-      return false;
-    }) || match([&]{
-      if (match('.') && decimal_digits()) {
-        exponent_part();
-        return true;
-      }
-      return false;
-    }) || match([&]{
-      if (decimal_integer_literal()) {
-        exponent_part();
-        return true;
-      }
-      return false;
-    });
+    return match([&] {
+             if (decimal_integer_literal() && match('.')) {
+               decimal_digits();
+               exponent_part();
+               return true;
+             }
+             return false;
+           }) ||
+           match([&] {
+             if (match('.') && decimal_digits()) {
+               exponent_part();
+               return true;
+             }
+             return false;
+           }) ||
+           match([&] {
+             if (decimal_integer_literal()) {
+               exponent_part();
+               return true;
+             }
+             return false;
+           });
   }
 
   bool decimal_integer_literal()
   {
-    if (match('0')) return true;
+    if (match('0'))
+      return true;
     if (match(is_non_zero_digit)) {
       decimal_digits();
       return true;
@@ -393,67 +386,68 @@ public:
     return false;
   }
 
-  bool decimal_digit()
-  {
-    return match(is_decimal_digit);
-  }
+  bool decimal_digit() { return match(is_decimal_digit); }
 
   bool exponent_part()
   {
     if (exponent_indicator()) {
-      if (!signed_integer()) syntax_error();
+      if (!signed_integer())
+        syntax_error();
       // exponent_value = decimal_value;
       return true;
     }
     return false;
   }
 
-  bool exponent_indicator() {
-    return match([](auto cp) {
-      return cp == 'e' || cp == 'E';
-    });
+  bool exponent_indicator()
+  {
+    return match([](auto cp) { return cp == 'e' || cp == 'E'; });
   }
 
   bool signed_integer()
   {
 
     if (match("+")) {
-      if (!decimal_digits()) syntax_error();
+      if (!decimal_digits())
+        syntax_error();
       return true;
     }
     if (match("-")) {
-      if (!decimal_digits()) syntax_error();
+      if (!decimal_digits())
+        syntax_error();
     }
     return decimal_digits();
   }
 
   bool hex_integer_literal()
   {
-    if (!match("0x") && !match("0X")) return false;
-    if (!hex_digits()) syntax_error();
+    if (!match("0x") && !match("0X"))
+      return false;
+    if (!hex_digits())
+      syntax_error();
     return true;
   }
 
   bool hex_digits()
   {
-    if (!hex_digit()) return false;
-    while (hex_digit());
+    if (!hex_digit())
+      return false;
+    while (hex_digit())
+      ;
     return true;
   }
 
-  bool hex_digit()
-  {
-    return match(is_hex_digit);
-  }
+  bool hex_digit() { return match(is_hex_digit); }
 
   // 7.8.4
   bool string_literal()
   {
-    if (match([&]{
-      return match('"') && double_string_characters(), match('"');
-    }) || match([&]{
-      return match('\'') && single_string_characters(), match('\'');
-    })) {
+    if (match([&] {
+          return match('"') && double_string_characters(), match('"');
+        }) ||
+        match([&] {
+          return match('\'') && single_string_characters(), match('\'');
+        })) {
       return true;
     }
     return false;
@@ -461,15 +455,19 @@ public:
 
   bool double_string_characters()
   {
-    if (!double_string_character()) return false;
-    while (double_string_character());
+    if (!double_string_character())
+      return false;
+    while (double_string_character())
+      ;
     return true;
   }
 
   bool single_string_characters()
   {
-    if (!single_string_character()) return false;
-    while (single_string_character());
+    if (!single_string_character())
+      return false;
+    while (single_string_character())
+      ;
     return true;
   }
 
@@ -477,9 +475,12 @@ public:
   {
     return match([&](auto cp) {
       switch (cp) {
-        case '"': return false;
-        case '\\': return escape_sequence() || line_terminator_sequence();
-        default:   return !is_line_terminator(cp);
+      case '"':
+        return false;
+      case '\\':
+        return escape_sequence() || line_terminator_sequence();
+      default:
+        return !is_line_terminator(cp);
       }
     });
   }
@@ -488,18 +489,20 @@ public:
   {
     return match([&](auto cp) {
       switch (cp) {
-        case '\'': return false;
-        case '\\': return escape_sequence() || line_terminator_sequence();
-        default:   return !is_line_terminator(cp);
+      case '\'':
+        return false;
+      case '\\':
+        return escape_sequence() || line_terminator_sequence();
+      default:
+        return !is_line_terminator(cp);
       }
     });
   }
 
   bool escape_sequence()
   {
-    return match([this]{
-      return character_escape_sequence() ||
-             hex_escape_sequence() ||
+    return match([this] {
+      return character_escape_sequence() || hex_escape_sequence() ||
              unicode_escape_sequence() ||
              (match('0') && !match(is_decimal_digit));
     });
@@ -510,43 +513,40 @@ public:
     return single_escape_character() || non_escape_character();
   }
 
-  bool single_escape_character()
-  {
-    return match(is_single_escape_character);
-  }
+  bool single_escape_character() { return match(is_single_escape_character); }
 
   bool non_escape_character()
   {
-    return match([this]{
+    return match([this] {
       return !escape_character() && !line_terminator() && source_character();
     });
   }
 
   bool escape_character()
   {
-    return single_escape_character() || decimal_digit() || match('x') || match('u');
+    return single_escape_character() || decimal_digit() || match('x') ||
+           match('u');
   }
 
   bool hex_escape_sequence()
   {
-    return match([this]{
-      return match('x') && hex_digit() && hex_digit();
-    });
+    return match([this] { return match('x') && hex_digit() && hex_digit(); });
   }
 
   bool unicode_escape_sequence()
   {
     return match([this] {
-      return match('u') && hex_digit() && hex_digit() && hex_digit() && hex_digit();
+      return match('u') && hex_digit() && hex_digit() && hex_digit() &&
+             hex_digit();
     });
   }
 
   // 7.8.5
   bool regular_expression_literal()
   {
-    return match([this]{
+    return match([this] {
       return match('/') && regular_expression_body() && match('/') &&
-        regular_expression_flags();
+             regular_expression_flags();
     });
   }
 
@@ -557,66 +557,72 @@ public:
 
   bool regular_expression_chars()
   {
-    while (regular_expression_char());
+    while (regular_expression_char())
+      ;
     return true;
   }
 
   bool regular_expression_first_char()
   {
     return match.any_of(
-      [this]{ return !match.any_of('*', '\\', '/', '[') && regular_expression_non_terminator(); },
-      [this]{ return regular_expression_backslash_sequence(); },
-      [this]{ return regular_expression_class(); }
-    );
+        [this] {
+          return !match.any_of('*', '\\', '/', '[') &&
+                 regular_expression_non_terminator();
+        },
+        [this] { return regular_expression_backslash_sequence(); },
+        [this] { return regular_expression_class(); });
   }
 
   bool regular_expression_char()
   {
     return match.any_of(
-      [this]{ return !match.any_of('\\', '/', '[') && regular_expression_non_terminator(); },
-      [this]{ return regular_expression_backslash_sequence(); },
-      [this]{ return regular_expression_class(); }
-    );
+        [this] {
+          return !match.any_of('\\', '/', '[') &&
+                 regular_expression_non_terminator();
+        },
+        [this] { return regular_expression_backslash_sequence(); },
+        [this] { return regular_expression_class(); });
   }
 
   bool regular_expression_backslash_sequence()
   {
-    return match([this]{
-      return match('\\') && regular_expression_non_terminator();
-    });
+    return match(
+        [this] { return match('\\') && regular_expression_non_terminator(); });
   }
 
   bool regular_expression_non_terminator()
   {
-    return match([this]{
-      return !line_terminator() && source_character();
-    });
+    return match([this] { return !line_terminator() && source_character(); });
   }
 
   bool regular_expression_class()
   {
-    return match([this]{
+    return match([this] {
       return match('[') && regular_expression_class_chars() && match(']');
     });
   }
 
   bool regular_expression_class_chars()
   {
-    while (regular_expression_class_char());
+    while (regular_expression_class_char())
+      ;
     return true;
   }
 
   bool regular_expression_class_char()
   {
     return match.any_of(
-      [this]{ return !match.any_of(']', '\\') && regular_expression_non_terminator(); },
-      [this]{ return regular_expression_backslash_sequence(); }
-    );
+        [this] {
+          return !match.any_of(']', '\\') &&
+                 regular_expression_non_terminator();
+        },
+        [this] { return regular_expression_backslash_sequence(); });
   }
 
   bool regular_expression_flags()
   {
-    while (identifier_part());
+    while (identifier_part())
+      ;
     return true;
   }
 };

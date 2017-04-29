@@ -14,7 +14,7 @@
 template <class F, size_t... Is>
 constexpr auto index_apply_impl(F f, std::index_sequence<Is...>)
 {
-  return f(std::integral_constant<size_t, Is> {}...);
+  return f(std::integral_constant<size_t, Is>{}...);
 }
 
 template <size_t N, class F> constexpr auto index_apply(F f)
@@ -22,96 +22,83 @@ template <size_t N, class F> constexpr auto index_apply(F f)
   return index_apply_impl(f, std::make_index_sequence<N>{});
 }
 
-template <typename T>
-struct get
-{
-  static T invoke(Expression& expr) {
-    return boost::get<T>(expr);
-  }
+template <typename T> struct get {
+  static T invoke(Expression &expr) { return boost::get<T>(expr); }
 };
 
-template <>
-struct get<Expression>
-{
-  static Expression invoke(Expression& expr) {
+template <> struct get<Expression> {
+  static Expression invoke(Expression &expr)
+  {
     return std::forward<Expression>(expr);
   }
 };
 
 // 11.3
-bool is_assignment_operator(const std::string&);
+bool is_assignment_operator(const std::string &);
 
-class BasicParser
-{
+class BasicParser {
 protected:
   Matcher<Token, std::vector<Token>::iterator> match;
 
 public:
-
-  template <typename It>
-  BasicParser(It begin, It end) : match(begin, end) {}
+  template <typename It> BasicParser(It begin, It end) : match(begin, end) {}
 
   bool no_line_terminator_here()
   {
-    return match.peek([](const Token& token) { return !token.preceded_by_line_terminator; });
+    return match.peek(
+        [](const Token &token) { return !token.preceded_by_line_terminator; });
   }
 
   // 7.9
   bool automatic_semicolon_insertion()
   {
-    if (match(";")) return true;
-    if (no_line_terminator_here() && !match.peek("}")) return false; // 7.9.1
+    if (match(";"))
+      return true;
+    if (no_line_terminator_here() && !match.peek("}"))
+      return false; // 7.9.1
     return true;
   }
 
-
   bool syntax_error(std::string what = {})
   {
-    throw std::runtime_error("SyntaxError: " + what + "\n" + match.matching()->debug_info->syntax_error_at());
+    throw std::runtime_error("SyntaxError: " + what + "\n" +
+                             match.matching()->debug_info->syntax_error_at());
   }
 };
 
-template <typename Node>
-class Builder
-{
+template <typename Node> class Builder {
 
   std::vector<Node> stack;
 
 public:
-
-  void push(Node&& node)
+  void push(Node &&node)
   {
-    std::cout << "Pushing " << boost::core::demangle(typeid(Node).name()) << "\n";
+    std::cout << "Pushing " << boost::core::demangle(typeid(Node).name())
+              << "\n";
     stack.push_back(node);
   }
 
-  template <typename T, typename... Args>
-  void push(Args&&... args)
+  template <typename T, typename... Args> void push(Args &&... args)
   {
     std::cout << "Pushing " << boost::core::demangle(typeid(T).name()) << "\n";
-    stack.push_back(T { std::forward<Args>(args)... });
+    stack.push_back(T{std::forward<Args>(args)...});
   }
 
-  template <typename T, std::size_t N>
-  void replace()
+  template <typename T, std::size_t N> void replace()
   {
     index_apply<N>([&](auto... Is) {
-      T value {
-        get<T>(*(stack.end() - (N - Is))).value...
-      };
+      T value{get<T>(*(stack.end() - (N - Is))).value...};
       stack.resize(stack.size() - N);
       stack.push_back(std::move(value));
     });
   }
 
   template <typename T, typename... Ts, typename... Args>
-  void replace(Args&&... args)
+  void replace(Args &&... args)
   {
     index_apply<sizeof...(Ts)>([&](auto... Is) {
-      T value {
-        get<Ts>::invoke(*(stack.end() - (sizeof...(Ts) - Is)))...,
-        std::forward<Args>(args)...
-      };
+      T value{get<Ts>::invoke(*(stack.end() - (sizeof...(Ts) - Is)))...,
+              std::forward<Args>(args)...};
       stack.resize(stack.size() - sizeof...(Ts));
       stack.push_back(std::move(value));
     });
@@ -123,22 +110,17 @@ public:
     stack.pop_back();
     return value;
   }
-
 };
 
-class ExpressionBuilder
-{
+class ExpressionBuilder {
   std::vector<Expression> stack;
-public:
-  void push(Expression&& value)
-  {
-    stack.push_back(value);
-  }
 
-  template <typename T, typename... Args>
-  void push(Args&&... args)
+public:
+  void push(Expression &&value) { stack.push_back(value); }
+
+  template <typename T, typename... Args> void push(Args &&... args)
   {
-    stack.push_back(T { std::forward<Args>(args)... });
+    stack.push_back(T{std::forward<Args>(args)...});
   }
 
   Expression pop()
@@ -147,70 +129,79 @@ public:
     stack.pop_back();
     return expr;
   }
-
 };
 
-class ExpressionParser : public BasicParser, private Builder<Expression>
-{
+class ExpressionParser : public BasicParser, private Builder<Expression> {
 public:
-
   template <typename... Args>
-  ExpressionParser(Args&&... args) : BasicParser(std::forward<Args>(args)...) {}
+  ExpressionParser(Args &&... args) : BasicParser(std::forward<Args>(args)...)
+  {
+  }
 
   boost::optional<Identifier> identifier()
   {
-    if (!match([](const auto& token) { return token.is_identifier(); })) return {};
-    return Identifier { match };
+    if (!match([](const auto &token) { return token.is_identifier(); }))
+      return {};
+    return Identifier{match};
   }
 
   // A.1
   bool identifier_name()
   {
-    return match([](const auto& token) { return token.is_identifier_name(); });
+    return match([](const auto &token) { return token.is_identifier_name(); });
   }
 
   bool literal()
   {
-         if (auto literal = null_literal())    push<NullLiteral>();
-    else if (auto literal = boolean_literal()) push<BooleanLiteral>(match);
-    else if (auto literal = numeric_literal()) push<NumericLiteral>(match);
-    else if (auto literal = string_literal())  push<StringLiteral>(match);
+    if (auto literal = null_literal())
+      push<NullLiteral>();
+    else if (auto literal = boolean_literal())
+      push<BooleanLiteral>(match);
+    else if (auto literal = numeric_literal())
+      push<NumericLiteral>(match);
+    else if (auto literal = string_literal())
+      push<StringLiteral>(match);
     // else if (regular_expression_literal())
-    else return false;
+    else
+      return false;
     return true;
   }
 
   bool null_literal()
   {
-    return match([](const auto& token) { return token.is_null_literal(); });
+    return match([](const auto &token) { return token.is_null_literal(); });
   }
 
   bool boolean_literal()
   {
-    return match([](const auto& token) { return token.is_boolean_literal(); });
+    return match([](const auto &token) { return token.is_boolean_literal(); });
   }
 
   bool numeric_literal()
   {
-    return match([](const auto& token) { return token.is_numeric_literal(); });
+    return match([](const auto &token) { return token.is_numeric_literal(); });
   }
 
   bool string_literal()
   {
-    return match([](const auto& token) { return token.is_string_literal(); });
+    return match([](const auto &token) { return token.is_string_literal(); });
   }
 
   bool regular_expression_literal()
   {
-    return match([](const auto& token) { return token.is_regular_expression_literal(); });
+    return match([](const auto &token) {
+      return token.is_regular_expression_literal();
+    });
   }
 
   // A.3
   bool primary_expression()
   {
     if (match("(")) {
-      if (!expression()) syntax_error();
-      if (!match(")")) syntax_error();
+      if (!expression())
+        syntax_error();
+      if (!match(")"))
+        syntax_error();
       return true;
     }
 
@@ -229,10 +220,13 @@ public:
   {
     if (match("[")) {
       if (element_list()) {
-        if (match(",")) elision_opt();
+        if (match(","))
+          elision_opt();
       }
-      else elision_opt();
-      if (!match("]")) syntax_error();
+      else
+        elision_opt();
+      if (!match("]"))
+        syntax_error();
       push<ArrayLiteral>();
       return true;
     }
@@ -242,22 +236,21 @@ public:
   bool element_list()
   {
     if (elision_opt() && assignment_expression()) {
-      if (match(",")) element_list();
+      if (match(","))
+        element_list();
       return true;
     }
     return false;
   }
 
-  bool elision_opt()
-  {
-    return elision(), true;
-  }
+  bool elision_opt() { return elision(), true; }
 
   bool elision()
   {
     if (match(",")) {
       push<Identifier>(u"undefined");
-      while (match(",")) push<Identifier>(u"undefined");
+      while (match(","))
+        push<Identifier>(u"undefined");
       return true;
     }
     return false;
@@ -268,7 +261,8 @@ public:
     if (match("{")) {
       property_name_and_value_list();
       match(",");
-      if (!match("}")) syntax_error();
+      if (!match("}"))
+        syntax_error();
       push<ObjectLiteral>();
       return true;
     }
@@ -278,33 +272,32 @@ public:
   bool property_name_and_value_list()
   {
     if (property_assignment()) {
-      while (match(",") && (property_assignment() || syntax_error()));
+      while (match(",") && (property_assignment() || syntax_error()))
+        ;
       return true;
     }
     return false;
   }
 
-  bool function_body()
-  {
-    return false;
-  }
+  bool function_body() { return false; }
 
   bool property_assignment()
   {
     if (match("get")) {
       return (property_name() && match("(") && match(")") && match("{") &&
-        function_body() && match("}")) || syntax_error();
-
+              function_body() && match("}")) ||
+             syntax_error();
     }
     else if (match("set")) {
       return (property_name() && match("(") && property_set_parameter_list() &&
-        match(")") && match("{") && function_body() && match("}")) ||
-        syntax_error();
+              match(")") && match("{") && function_body() && match("}")) ||
+             syntax_error();
     }
     else if (property_name()) {
       return (match(":") && assignment_expression()) || syntax_error();
     }
-    else return false;
+    else
+      return false;
   }
 
   bool property_name()
@@ -314,27 +307,29 @@ public:
 
   bool property_set_parameter_list()
   {
-    if (identifier()) return true;
+    if (identifier())
+      return true;
     return false;
   }
 
-  bool function_expression()
-  {
-    return false;
-  }
+  bool function_expression() { return false; }
 
   bool member_expression()
   {
-    if (!primary_expression() && !function_expression()) return false;
+    if (!primary_expression() && !function_expression())
+      return false;
     while (true) {
       if (match("[")) {
-        if (!expression() || !match("]")) syntax_error();
+        if (!expression() || !match("]"))
+          syntax_error();
       }
       if (match(".")) {
-        if (!identifier_name()) syntax_error();
+        if (!identifier_name())
+          syntax_error();
         push<Identifier>(match);
       }
-      else break;
+      else
+        break;
       replace<MemberExpression, Expression, Expression>();
     }
     return true;
@@ -343,29 +338,37 @@ public:
   bool new_expression()
   {
     if (match("new")) {
-      if (!new_expression()) syntax_error();
-      if (arguments()) replace<NewExpression, Expression, Arguments>();
-      else replace<NewExpression, Expression>();
+      if (!new_expression())
+        syntax_error();
+      if (arguments())
+        replace<NewExpression, Expression, Arguments>();
+      else
+        replace<NewExpression, Expression>();
       return true;
     }
-    else return member_expression();
+    else
+      return member_expression();
   }
 
   bool arguments()
   {
-    if (!match("(")) return false;
+    if (!match("("))
+      return false;
     auto list = argument_list();
-    if (!match(")")) syntax_error();
+    if (!match(")"))
+      syntax_error();
     push<Arguments>(list);
     return true;
   }
 
   ArgumentList argument_list()
   {
-    if (!assignment_expression()) return {};
-    ArgumentList list { pop() };
+    if (!assignment_expression())
+      return {};
+    ArgumentList list{pop()};
     while (match(",")) {
-      if (!assignment_expression()) syntax_error();
+      if (!assignment_expression())
+        syntax_error();
       list.push_back(pop());
     }
     return list;
@@ -373,7 +376,8 @@ public:
 
   bool left_hand_side_expression()
   {
-    if (!new_expression()) return false;
+    if (!new_expression())
+      return false;
     if (arguments()) {
       replace<CallExpression, Expression, Arguments>();
       while (true) {
@@ -383,17 +387,20 @@ public:
           continue;
         }
         else if (match("[")) {
-          if (!expression() || !match("]")) syntax_error();
+          if (!expression() || !match("]"))
+            syntax_error();
           replace<MemberExpression, Expression, Expression>();
           continue;
         }
         else if (match(".")) {
-          if (!identifier_name()) syntax_error();
+          if (!identifier_name())
+            syntax_error();
           push<Identifier>(match);
           replace<MemberExpression, Expression, Expression>();
           continue;
         }
-        else break;
+        else
+          break;
       }
     }
     return true;
@@ -403,7 +410,8 @@ public:
   {
     if (left_hand_side_expression()) {
       if (no_line_terminator_here()) {
-        if (match("++") || match("--")) push<PostfixExpression>(match, pop());
+        if (match("++") || match("--"))
+          push<PostfixExpression>(match, pop());
       }
       return true;
     }
@@ -413,10 +421,10 @@ public:
   bool unary_expression()
   {
     if (match("delete") || match("void") || match("typeof") || match("++") ||
-        match("--") || match("+") || match("-") || match("~") || match("!"))
-    {
+        match("--") || match("+") || match("-") || match("~") || match("!")) {
       std::string op = match;
-      if (!unary_expression()) syntax_error();
+      if (!unary_expression())
+        syntax_error();
       push<UnaryExpression>(op, pop());
       return true;
     }
@@ -426,11 +434,11 @@ public:
   bool multiplicative_expression()
   {
     if (unary_expression()) {
-      while (match("*") || match("/") || match("%"))
-      {
+      while (match("*") || match("/") || match("%")) {
         auto lhs = pop();
         std::string op = match;
-        if (!unary_expression()) syntax_error();
+        if (!unary_expression())
+          syntax_error();
         push<BinaryExpression>(op, lhs, pop());
       }
       return true;
@@ -441,11 +449,11 @@ public:
   bool additive_expression()
   {
     if (multiplicative_expression()) {
-      while (match("+") || match("-"))
-      {
+      while (match("+") || match("-")) {
         auto lhs = pop();
         std::string op = match;
-        if (!multiplicative_expression()) syntax_error();
+        if (!multiplicative_expression())
+          syntax_error();
         push<BinaryExpression>(op, lhs, pop());
       }
       return true;
@@ -456,11 +464,11 @@ public:
   bool shift_expression()
   {
     if (additive_expression()) {
-      while (match("<<") || match(">>") || match(">>>"))
-      {
+      while (match("<<") || match(">>") || match(">>>")) {
         std::string op = match;
         auto lhs = pop();
-        if (!additive_expression()) syntax_error();
+        if (!additive_expression())
+          syntax_error();
         push<BinaryExpression>(op, lhs, pop());
       }
       return true;
@@ -472,11 +480,11 @@ public:
   {
     if (shift_expression()) {
       while (match("<") || match(">") || match("<=") || match(">=") ||
-        match("instanceof") || match("in"))
-      {
+             match("instanceof") || match("in")) {
         std::string op = match;
         auto lhs = pop();
-        if (!shift_expression()) syntax_error();
+        if (!shift_expression())
+          syntax_error();
         push<BinaryExpression>(op, lhs, pop());
       }
       return true;
@@ -488,11 +496,11 @@ public:
   {
     if (shift_expression()) {
       while (match("<") || match(">") || match("<=") || match(">=") ||
-        match("instanceof"))
-      {
+             match("instanceof")) {
         std::string op = match;
         auto lhs = pop();
-        if (!shift_expression()) syntax_error();
+        if (!shift_expression())
+          syntax_error();
         push<BinaryExpression>(op, lhs, pop());
       }
       return true;
@@ -503,11 +511,11 @@ public:
   bool equality_expression()
   {
     if (relational_expression()) {
-      while (match("==") || match("!=") || match("===") || match("!=="))
-      {
+      while (match("==") || match("!=") || match("===") || match("!==")) {
         auto lhs = pop();
         std::string op = match;
-        if (!relational_expression()) syntax_error();
+        if (!relational_expression())
+          syntax_error();
         push<BinaryExpression>(op, lhs, pop());
       }
       return true;
@@ -518,11 +526,11 @@ public:
   bool equality_expression_no_in()
   {
     if (relational_expression()) {
-      while (match("==") || match("!=") || match("===") || match("!=="))
-      {
+      while (match("==") || match("!=") || match("===") || match("!==")) {
         std::string op = match;
         auto lhs = pop();
-        if (!relational_expression_no_in()) syntax_error();
+        if (!relational_expression_no_in())
+          syntax_error();
         push<BinaryExpression>(op, lhs, pop());
       }
       return true;
@@ -533,11 +541,11 @@ public:
   bool bitwise_and_expression()
   {
     if (equality_expression()) {
-      while (match("&"))
-      {
+      while (match("&")) {
         std::string op = match;
         auto lhs = pop();
-        if (!equality_expression()) syntax_error();
+        if (!equality_expression())
+          syntax_error();
         push<BinaryExpression>(op, lhs, pop());
       }
       return true;
@@ -548,11 +556,11 @@ public:
   bool bitwise_and_expression_no_in()
   {
     if (equality_expression_no_in()) {
-      while (match("&"))
-      {
+      while (match("&")) {
         std::string op = match;
         auto lhs = pop();
-        if (!equality_expression_no_in()) syntax_error();
+        if (!equality_expression_no_in())
+          syntax_error();
         push<BinaryExpression>(op, lhs, pop());
       }
       return true;
@@ -563,11 +571,11 @@ public:
   bool bitwise_xor_expression()
   {
     if (bitwise_and_expression()) {
-      while (match("^"))
-      {
+      while (match("^")) {
         std::string op = match;
         auto lhs = pop();
-        if (!bitwise_and_expression()) syntax_error();
+        if (!bitwise_and_expression())
+          syntax_error();
         push<BinaryExpression>(op, lhs, pop());
       }
       return true;
@@ -578,11 +586,11 @@ public:
   bool bitwise_xor_expression_no_in()
   {
     if (bitwise_and_expression_no_in()) {
-      while (match("^"))
-      {
+      while (match("^")) {
         std::string op = match;
         auto lhs = pop();
-        if (!bitwise_and_expression_no_in()) syntax_error();
+        if (!bitwise_and_expression_no_in())
+          syntax_error();
         push<BinaryExpression>(op, lhs, pop());
       }
       return true;
@@ -593,11 +601,11 @@ public:
   bool bitwise_or_expression()
   {
     if (bitwise_xor_expression()) {
-      while (match("|"))
-      {
+      while (match("|")) {
         std::string op = match;
         auto lhs = pop();
-        if (!bitwise_xor_expression()) syntax_error();
+        if (!bitwise_xor_expression())
+          syntax_error();
         push<BinaryExpression>(op, lhs, pop());
       }
       return true;
@@ -608,11 +616,11 @@ public:
   bool bitwise_or_expression_no_in()
   {
     if (bitwise_xor_expression_no_in()) {
-      while (match("|"))
-      {
+      while (match("|")) {
         std::string op = match;
         auto lhs = pop();
-        if (!bitwise_xor_expression_no_in()) syntax_error();
+        if (!bitwise_xor_expression_no_in())
+          syntax_error();
         push<BinaryExpression>(op, lhs, pop());
       }
       return true;
@@ -623,11 +631,11 @@ public:
   bool logical_and_expression()
   {
     if (bitwise_or_expression()) {
-      while (match("&&"))
-      {
+      while (match("&&")) {
         std::string op = match;
         auto lhs = pop();
-        if (!bitwise_or_expression()) syntax_error();
+        if (!bitwise_or_expression())
+          syntax_error();
         push<BinaryExpression>(op, lhs, pop());
       }
       return true;
@@ -638,11 +646,11 @@ public:
   bool logical_and_expression_no_in()
   {
     if (bitwise_or_expression_no_in()) {
-      while (match("&&"))
-      {
+      while (match("&&")) {
         std::string op = match;
         auto lhs = pop();
-        if (!bitwise_or_expression_no_in()) syntax_error();
+        if (!bitwise_or_expression_no_in())
+          syntax_error();
         push<BinaryExpression>(op, lhs, pop());
       }
       return true;
@@ -653,11 +661,11 @@ public:
   bool logical_or_expression()
   {
     if (logical_and_expression()) {
-      while (match("||"))
-      {
+      while (match("||")) {
         std::string op = match;
         auto lhs = pop();
-        if (!logical_and_expression()) syntax_error();
+        if (!logical_and_expression())
+          syntax_error();
         push<BinaryExpression>(op, lhs, pop());
       }
       return true;
@@ -668,11 +676,11 @@ public:
   bool logical_or_expression_no_in()
   {
     if (logical_and_expression_no_in()) {
-      while (match("||"))
-      {
+      while (match("||")) {
         std::string op = match;
         auto lhs = pop();
-        if (!logical_and_expression_no_in()) syntax_error();
+        if (!logical_and_expression_no_in())
+          syntax_error();
         push<BinaryExpression>(op, lhs, pop());
       }
       return true;
@@ -685,9 +693,11 @@ public:
     if (logical_or_expression()) {
       if (match("?")) {
         auto test = pop();
-        if (!assignment_expression()) syntax_error();
+        if (!assignment_expression())
+          syntax_error();
         auto consequent = pop();
-        if (!match(":") && assignment_expression()) syntax_error();
+        if (!match(":") && assignment_expression())
+          syntax_error();
         auto alternate = pop();
         push<ConditionalExpression>(test, consequent, alternate);
       }
@@ -701,9 +711,11 @@ public:
     if (logical_or_expression_no_in()) {
       if (match("?")) {
         auto test = pop();
-        if (!assignment_expression()) syntax_error();
+        if (!assignment_expression())
+          syntax_error();
         auto consequent = pop();
-        if (!match(":") && assignment_expression_no_in()) syntax_error();
+        if (!match(":") && assignment_expression_no_in())
+          syntax_error();
         auto alternate = pop();
         push<ConditionalExpression>(test, consequent, alternate);
       }
@@ -719,7 +731,8 @@ public:
         BinaryExpression expr;
         expr.lhs = pop();
         expr.op = *match.matched()->to_punctuator();
-        if (!assignment_expression()) syntax_error();
+        if (!assignment_expression())
+          syntax_error();
         expr.rhs = pop();
         push(expr);
       }
@@ -731,65 +744,52 @@ public:
   bool assignment_expression_no_in()
   {
     if (left_hand_side_expression()) {
-      if (match(is_assignment_operator)) return assignment_expression_no_in() || syntax_error();
+      if (match(is_assignment_operator))
+        return assignment_expression_no_in() || syntax_error();
       return true;
     }
     return conditional_expression_no_in();
   }
 
-  bool expression_opt()
-  {
-    return expression(), true;
-  }
+  bool expression_opt() { return expression(), true; }
 
   bool expression()
   {
     if (assignment_expression()) {
       if (match(",")) {
-        if (!assignment_expression()) syntax_error();
+        if (!assignment_expression())
+          syntax_error();
       }
       return true;
     }
     return false;
   }
 
-  bool expression_no_in_opt()
-  {
-    return expression_no_in(), true;
-  }
+  bool expression_no_in_opt() { return expression_no_in(), true; }
 
   bool expression_no_in()
   {
     if (assignment_expression_no_in()) {
-      while (match(",") && (assignment_expression_no_in() || syntax_error()));
+      while (match(",") && (assignment_expression_no_in() || syntax_error()))
+        ;
       return true;
     }
     return false;
   }
 
-  Expression pop_expression()
-  {
-    return pop();
-  }
-
+  Expression pop_expression() { return pop(); }
 };
 
-class StatementBuilder
-{
+class StatementBuilder {
 
   std::vector<Statement> stack;
 
 public:
+  void push(Statement &&stmt) { stack.push_back(stmt); }
 
-  void push(Statement&& stmt)
+  template <typename T, typename... Args> void push(Args &&... args)
   {
-    stack.push_back(stmt);
-  }
-
-  template <typename T, typename... Args>
-  void push(Args&&... args)
-  {
-    stack.push_back(T { std::forward<Args>(args)... });
+    stack.push_back(T{std::forward<Args>(args)...});
   }
 
   Statement pop()
@@ -800,33 +800,36 @@ public:
   }
 };
 
-class StatementParser : public ExpressionParser, private StatementBuilder
-{
+class StatementParser : public ExpressionParser, private StatementBuilder {
   using StatementBuilder::push;
   using StatementBuilder::pop;
 
   template <typename T> using optional = boost::optional<T>;
 
 public:
-
   template <typename... Args>
-  StatementParser(Args&&... args) : ExpressionParser(std::forward<Args>(args)...) {}
+  StatementParser(Args &&... args)
+      : ExpressionParser(std::forward<Args>(args)...)
+  {
+  }
 
   // A.4
   bool statement()
   {
     return block() || variable_statement() || empty_statement() ||
-      expression_statement() || if_statement() || iteration_statement() ||
-      continue_statement() || break_statement() || return_statement() ||
-      with_statement() || labelled_statement() || switch_statement() ||
-      throw_statement() || try_statement() || debugger_statement();
+           expression_statement() || if_statement() || iteration_statement() ||
+           continue_statement() || break_statement() || return_statement() ||
+           with_statement() || labelled_statement() || switch_statement() ||
+           throw_statement() || try_statement() || debugger_statement();
   }
 
   bool block()
   {
-    if (!match("{")) return false;
+    if (!match("{"))
+      return false;
     auto list = statement_list();
-    if (!match("}")) syntax_error();
+    if (!match("}"))
+      syntax_error();
     push<Block>(list);
     return true;
   }
@@ -834,14 +837,17 @@ public:
   StatementList statement_list()
   {
     StatementList list;
-    while (statement()) list.push_back(pop());
+    while (statement())
+      list.push_back(pop());
     return list;
   }
 
   bool variable_statement()
   {
-    if (!match("var")) return false;
-    if (!variable_declaration_list()) syntax_error();
+    if (!match("var"))
+      return false;
+    if (!variable_declaration_list())
+      syntax_error();
     push<VariableStatement>();
     return true;
   }
@@ -849,10 +855,12 @@ public:
   optional<VariableDeclarationList> variable_declaration_list()
   {
     if (auto decl = variable_declaration()) {
-      VariableDeclarationList list { *decl };
+      VariableDeclarationList list{*decl};
       while (match(",")) {
-        if (auto decl = variable_declaration()) list.push_back(*decl);
-        else syntax_error();
+        if (auto decl = variable_declaration())
+          list.push_back(*decl);
+        else
+          syntax_error();
       }
       return list;
     }
@@ -862,10 +870,12 @@ public:
   optional<VariableDeclarationList> variable_declaration_list_no_in()
   {
     if (auto decl = variable_declaration_no_in()) {
-      VariableDeclarationList list { *decl };
+      VariableDeclarationList list{*decl};
       while (match(",")) {
-        if (auto decl = variable_declaration_no_in()) list.push_back(*decl);
-        else syntax_error();
+        if (auto decl = variable_declaration_no_in())
+          list.push_back(*decl);
+        else
+          syntax_error();
       }
       return list;
     }
@@ -875,27 +885,26 @@ public:
   optional<VariableDeclaration> variable_declaration()
   {
     auto id = identifier();
-    if (!id) return {};
+    if (!id)
+      return {};
     if (initializer())
-      return VariableDeclaration { *id, pop_expression()};
+      return VariableDeclaration{*id, pop_expression()};
     else
-      return VariableDeclaration { *id };
+      return VariableDeclaration{*id};
   }
 
   optional<VariableDeclaration> variable_declaration_no_in()
   {
     auto id = identifier();
-    if (!id) return {};
+    if (!id)
+      return {};
     if (initializer_no_in())
-      return VariableDeclaration { *id, pop_expression()};
+      return VariableDeclaration{*id, pop_expression()};
     else
-      return VariableDeclaration { *id };
+      return VariableDeclaration{*id};
   }
 
-  bool initializer()
-  {
-    return match("=") && assignment_expression();
-  }
+  bool initializer() { return match("=") && assignment_expression(); }
 
   bool initializer_no_in()
   {
@@ -904,75 +913,77 @@ public:
 
   bool empty_statement()
   {
-    if (!match(";")) return false;
+    if (!match(";"))
+      return false;
     push<EmptyStatement>();
     return true;
   }
 
   bool expression_statement()
   {
-    if (match.peek("{") || match.peek("function") || !expression()) return false;
-    if (!automatic_semicolon_insertion()) syntax_error();
+    if (match.peek("{") || match.peek("function") || !expression())
+      return false;
+    if (!automatic_semicolon_insertion())
+      syntax_error();
     push<ExpressionStatement>(pop_expression());
     return true;
   }
 
   bool if_statement()
   {
-    if (!match("if")) return false;
-    if (!match("(") || !expression() || !match(")") || !statement()) syntax_error();
+    if (!match("if"))
+      return false;
+    if (!match("(") || !expression() || !match(")") || !statement())
+      syntax_error();
     auto expr = pop_expression();
     auto stmt = pop();
     if (match("else")) {
-      if (!statement()) syntax_error();
+      if (!statement())
+        syntax_error();
       push<IfStatement>(expr, stmt, pop());
     }
-    else push<IfStatement>(expr, stmt);
+    else
+      push<IfStatement>(expr, stmt);
     return true;
   }
 
   bool iteration_statement()
   {
     if (match("do")) {
-      if (
-        statement() &&
-        match("while") &&
-        match("(") &&
-        expression() &&
-        match(")") &&
-        automatic_semicolon_insertion()
-      ) {
+      if (statement() && match("while") && match("(") && expression() &&
+          match(")") && automatic_semicolon_insertion()) {
         Statement stmt = pop();
         Expression expr = pop_expression();
         push<DoWhileStatement>(stmt, expr);
         return true;
       }
-      else syntax_error();
+      else
+        syntax_error();
     }
     else if (match("while")) {
-      if (
-        match("(") &&
-        expression() &&
-        match(")") &&
-        statement()
-      ) {
+      if (match("(") && expression() && match(")") && statement()) {
         push<WhileStatement>(pop_expression(), pop());
         return true;
       }
-      else syntax_error();
+      else
+        syntax_error();
     }
     else if (match("for")) {
       // if (expression_no_in_op
       //   match("(") &&
       //   (
       //     match([this]{
-      //       return expression_no_in_opt() && match(";") && expression_opt() && match(";") && expression_opt();
+      //       return expression_no_in_opt() && match(";") && expression_opt()
+      //       && match(";") && expression_opt();
       //     }) || match([this]{
-      //       return match("var") && variable_declaration_list_no_in() && match(";") && expression_opt() && match(";") && expression_opt();
+      //       return match("var") && variable_declaration_list_no_in() &&
+      //       match(";") && expression_opt() && match(";") && expression_opt();
       //     }) || match([this]{
-      //       return left_hand_side_expression() && match("in") && expression();
+      //       return left_hand_side_expression() && match("in") &&
+      //       expression();
       //     }) || match([this]{
-      //       return match("var") && variable_declaration_no_in() && match("in") && expression();
+      //       return match("var") && variable_declaration_no_in() &&
+      //       match("in") && expression();
       //     })
       //   ) &&
       //   match(")") &&
@@ -985,13 +996,16 @@ public:
 
   bool continue_statement()
   {
-    if (!match("continue")) return false;
+    if (!match("continue"))
+      return false;
     if (no_line_terminator_here() && identifier()) {
-      if(!automatic_semicolon_insertion()) syntax_error();
+      if (!automatic_semicolon_insertion())
+        syntax_error();
       auto label = boost::get<Identifier>(pop_expression());
       push<ContinueStatement>(label);
     }
-    if(!automatic_semicolon_insertion()) syntax_error();
+    if (!automatic_semicolon_insertion())
+      syntax_error();
     push<ContinueStatement>();
     return true;
   }
@@ -999,14 +1013,15 @@ public:
   bool break_statement()
   {
     if (match("break")) {
-      if (no_line_terminator_here())
-      {
+      if (no_line_terminator_here()) {
         auto id = identifier();
-        if (!id || !automatic_semicolon_insertion()) syntax_error();
+        if (!id || !automatic_semicolon_insertion())
+          syntax_error();
         push<BreakStatement>(*id);
         return true;
       }
-      if (!automatic_semicolon_insertion()) syntax_error();
+      if (!automatic_semicolon_insertion())
+        syntax_error();
       push<BreakStatement>();
       return true;
     }
@@ -1016,14 +1031,15 @@ public:
   bool return_statement()
   {
     if (match("return")) {
-      if (no_line_terminator_here() && expression())
-      {
-        if (!automatic_semicolon_insertion()) syntax_error();
+      if (no_line_terminator_here() && expression()) {
+        if (!automatic_semicolon_insertion())
+          syntax_error();
         auto expr = pop_expression();
         push<ReturnStatement>(expr);
         return true;
       }
-      if (!automatic_semicolon_insertion()) syntax_error();
+      if (!automatic_semicolon_insertion())
+        syntax_error();
       push<ReturnStatement>();
       return true;
     }
@@ -1032,33 +1048,39 @@ public:
 
   bool with_statement()
   {
-    if (!match("with")) return false;
-    if (!match("(") || !expression() || !match(")") || !statement()) syntax_error();
+    if (!match("with"))
+      return false;
+    if (!match("(") || !expression() || !match(")") || !statement())
+      syntax_error();
     push<WithStatement>(pop_expression(), pop());
     return true;
   }
 
   bool switch_statement()
   {
-    if (!match("switch")) return false;
-    if (!match("(") || !expression() || !match(")") || !case_block()) syntax_error();
+    if (!match("switch"))
+      return false;
+    if (!match("(") || !expression() || !match(")") || !case_block())
+      syntax_error();
     push<SwitchStatement>(pop_expression());
     return true;
   }
 
   bool case_block()
   {
-    if (!match("{")) return false;
+    if (!match("{"))
+      return false;
     case_clauses();
-    if (default_clause()) case_clauses();
+    if (default_clause())
+      case_clauses();
     return match("}") || syntax_error("missing }");
-
   }
 
   bool case_clauses()
   {
     if (case_clause()) {
-      while (case_clause());
+      while (case_clause())
+        ;
       return true;
     }
     return false;
@@ -1088,73 +1110,73 @@ public:
   bool labelled_statement()
   {
     auto label = identifier();
-    if (!label) return false;
-    if (!match(":") || !statement()) syntax_error();
+    if (!label)
+      return false;
+    if (!match(":") || !statement())
+      syntax_error();
     push<LabelledStatement>(*label, pop());
     return true;
   }
 
   bool throw_statement()
   {
-    if (!match("throw")) return false;
+    if (!match("throw"))
+      return false;
     if (!no_line_terminator_here() || !expression() ||
-        !automatic_semicolon_insertion()) syntax_error();
+        !automatic_semicolon_insertion())
+      syntax_error();
     push<ThrowStatement>(pop_expression());
     return true;
   }
 
   bool try_statement()
   {
-    if (!match("try")) return false;
-    if (!block()) syntax_error();
-    auto stmt = TryStatement { boost::get<Block>(pop()) };
-    if (match("catch")) stmt.handler = boost::get<Block>(pop());
-    if (match("finally")) stmt.finalizer = boost::get<Block>(pop());
-    if (!stmt.handler && !stmt.finalizer) syntax_error();
+    if (!match("try"))
+      return false;
+    if (!block())
+      syntax_error();
+    auto stmt = TryStatement{boost::get<Block>(pop())};
+    if (match("catch"))
+      stmt.handler = boost::get<Block>(pop());
+    if (match("finally"))
+      stmt.finalizer = boost::get<Block>(pop());
+    if (!stmt.handler && !stmt.finalizer)
+      syntax_error();
     push(stmt);
     return true;
   }
 
   bool debugger_statement()
   {
-    if (!match("debugger")) return false;
-    if (!automatic_semicolon_insertion()) syntax_error();
+    if (!match("debugger"))
+      return false;
+    if (!automatic_semicolon_insertion())
+      syntax_error();
     push<DebuggerStatement>();
     return true;
   }
 
-  Statement pop_statement()
-  {
-    return pop();
-  }
+  Statement pop_statement() { return pop(); }
 };
 
 #include <boost/core/demangle.hpp>
 #include <typeinfo>
 
-
-class ProgramBuilder
-{
-  using Declaration = boost::variant<
-    SourceElement,
-    SourceElements,
-    Program
-  >;
+class ProgramBuilder {
+  using Declaration = boost::variant<SourceElement, SourceElements, Program>;
   std::vector<Declaration> stack;
 
 public:
-
-  void push(Declaration&& decl)
+  void push(Declaration &&decl)
   {
     std::cout << "Pushing Declaration\n";
     stack.push_back(decl);
   }
 
-  template <typename T, typename... Args>
-  void push(Args&&... args)
+  template <typename T, typename... Args> void push(Args &&... args)
   {
     std::cout << "Pushing " << boost::core::demangle(typeid(T).name()) << "\n";
-    stack.push_back(T { std::forward<Args>(args)... });
+    stack.push_back(T{std::forward<Args>(args)...});
   }
 
   Declaration pop()
@@ -1165,11 +1187,9 @@ public:
     stack.pop_back();
     return decl;
   }
-
 };
 
-class Parser : StatementParser, private ProgramBuilder
-{
+class Parser : StatementParser, private ProgramBuilder {
 
   using ProgramBuilder::push;
   using ProgramBuilder::pop;
@@ -1177,30 +1197,39 @@ class Parser : StatementParser, private ProgramBuilder
   // A.5
   bool function_declaration()
   {
-    if (!match("function")) return false;
+    if (!match("function"))
+      return false;
     FunctionDeclaration decl;
     if (auto id = identifier())
       decl.id = *id;
-    else syntax_error();
-    if (!match("(")) syntax_error();
+    else
+      syntax_error();
+    if (!match("("))
+      syntax_error();
     decl.params = formal_parameter_list();
-    if (!match(")") || !match("{")) syntax_error();
+    if (!match(")") || !match("{"))
+      syntax_error();
     decl.body = function_body();
-    if (!match("}")) syntax_error();
+    if (!match("}"))
+      syntax_error();
     push(decl);
     return true;
   }
 
   bool function_expression()
   {
-    if (!match("function")) return false;
+    if (!match("function"))
+      return false;
     FunctionExpression expr;
     expr.id = identifier();
-    if (!match("(")) syntax_error();
+    if (!match("("))
+      syntax_error();
     expr.params = formal_parameter_list();
-    if (!match(")") || !match("{")) syntax_error();
+    if (!match(")") || !match("{"))
+      syntax_error();
     expr.body = function_body();
-    if (!match("}")) syntax_error();
+    if (!match("}"))
+      syntax_error();
     // push(expr);
     return true;
   }
@@ -1210,59 +1239,47 @@ class Parser : StatementParser, private ProgramBuilder
     FormalParameterList list;
     while (auto id = identifier()) {
       list.push_back(*id);
-      if (!match(",")) break;
+      if (!match(","))
+        break;
     }
     return list;
   }
 
-  FunctionBody function_body()
-  {
-    return { source_elements() };
-  }
+  FunctionBody function_body() { return {source_elements()}; }
 
-  Program program()
-  {
-    return {source_elements()};
-  }
+  Program program() { return {source_elements()}; }
 
   SourceElements source_elements()
   {
     SourceElements list;
-    while (source_element()) list.push_back(pop_statement());
+    while (source_element())
+      list.push_back(pop_statement());
     return list;
   }
 
-  bool source_element()
-  {
-    return statement() || function_declaration();
-  }
+  bool source_element() { return statement() || function_declaration(); }
 
 public:
-
   template <typename... Args>
-  Parser(Args&&... args) : StatementParser(std::forward<Args>(args)...) {}
+  Parser(Args &&... args) : StatementParser(std::forward<Args>(args)...)
+  {
+  }
 
   Program parse()
   {
     try {
       return program();
     }
-    catch(...) {
+    catch (...) {
       syntax_error();
       return {};
     }
   }
-
 };
 
-template <typename It>
-Parser make_parser(It f, It l)
-{
-  return {f, l};
-}
+template <typename It> Parser make_parser(It f, It l) { return {f, l}; }
 
-template <typename Cont>
-auto make_parser(Cont&& cont)
+template <typename Cont> auto make_parser(Cont &&cont)
 {
   using std::begin;
   using std::end;

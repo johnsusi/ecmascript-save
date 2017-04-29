@@ -13,7 +13,7 @@ Program parse(std::string source)
   return parser.parse();
 }
 
-bool operator==(const boost::optional<Program>& lhs, const std::string& rhs)
+bool operator==(const boost::optional<Program> &lhs, const std::string &rhs)
 {
   return lhs && *lhs == rhs;
 }
@@ -21,9 +21,9 @@ bool operator==(const boost::optional<Program>& lhs, const std::string& rhs)
 TEST_CASE("7.9.2 Automatic Semicolon Insertion")
 {
 
-  REQUIRE_THROWS( parse("{ 1 2 } 3") );
+  REQUIRE_THROWS(parse("{ 1 2 } 3"));
 
-  REQUIRE( parse("{ 1\n2 } 3") == R"(
+  REQUIRE(parse("{ 1\n2 } 3") == R"(
     Program
       Block
         ExpressionStatement
@@ -34,9 +34,9 @@ TEST_CASE("7.9.2 Automatic Semicolon Insertion")
         3
   )");
 
-  REQUIRE_THROWS( parse("for (a; b\n)") );
+  REQUIRE_THROWS(parse("for (a; b\n)"));
 
-  REQUIRE( parse("return\na+b") == R"(
+  REQUIRE(parse("return\na+b") == R"(
     Program
       ReturnStatement
       ExpressionStatement
@@ -45,7 +45,7 @@ TEST_CASE("7.9.2 Automatic Semicolon Insertion")
           b
   )");
 
-  REQUIRE( parse("a=b\n++c") == R"(
+  REQUIRE(parse("a=b\n++c") == R"(
     Program
       ExpressionStatement
         =
@@ -55,5 +55,4 @@ TEST_CASE("7.9.2 Automatic Semicolon Insertion")
         ++
           c
   )");
-
 }

@@ -70,10 +70,11 @@
 //       auto rprim = ToPrimitive(rval);
 //       // 11.6.1.7
 //       if (Type(lprim) == string || Type(rprim) == string)
-//         return StringLiteral { ToString(lprim).value + ToString(rprim).value };
+//         return StringLiteral { ToString(lprim).value + ToString(rprim).value
+//         };
 //       // 11.6.1.8
-//       return NumericLiteral { ToNumber(lprim).value + ToNumber(rprim).value };
-
+//       return NumericLiteral { ToNumber(lprim).value + ToNumber(rprim).value
+//       };
 
 //       auto lhs = boost::get<NumericLiteral>(expr.lhs);
 //       auto rhs = boost::get<NumericLiteral>(expr.rhs);
@@ -107,14 +108,13 @@
 //   std::cout << r.value << std::endl;
 // }
 
-struct norm
-{
+struct norm {
   std::string str;
   norm(std::string str) : str(str) {}
-  operator const std::string&() const { return str; }
+  operator const std::string &() const { return str; }
 };
 
-std::ostream& operator<<(std::ostream& out, const norm& norm)
+std::ostream &operator<<(std::ostream &out, const norm &norm)
 {
   return out << normalize(norm.str);
 }
@@ -123,7 +123,7 @@ TEST_CASE("print")
 {
   Program program;
   program.elements.push_back(ReturnStatement{});
-  REQUIRE( program == norm(R"(
+  REQUIRE(program == norm(R"(
     Program
       ReturnStatement
   )"));

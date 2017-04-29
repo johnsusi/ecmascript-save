@@ -5,34 +5,34 @@
 
 #include <algorithm>
 #include <iterator>
-#include <string>
 #include <ostream>
+#include <string>
 
 #include <boost/variant.hpp>
 
-class InputElement
-{
-  struct Empty {};
-  struct Token { ::Token value; };
-  struct LineTerminator {};
-  struct Comment { std::u16string value; };
-  struct WhiteSpace {};
+class InputElement {
+  struct Empty {
+  };
+  struct Token {
+    ::Token value;
+  };
+  struct LineTerminator {
+  };
+  struct Comment {
+    std::u16string value;
+  };
+  struct WhiteSpace {
+  };
 
-  using Value = boost::variant<
-    Empty,
-    Token,
-    LineTerminator,
-    Comment,
-    WhiteSpace
-  >;
+  using Value =
+      boost::variant<Empty, Token, LineTerminator, Comment, WhiteSpace>;
 
   Value value;
 
   InputElement() = delete;
-  InputElement(Value&& value) : value(value) {}
+  InputElement(Value &&value) : value(value) {}
 
 public:
-
   static InputElement empty();
   static InputElement white_space();
   static InputElement line_terminator();
@@ -53,8 +53,6 @@ public:
 
   // std::string string_value()  const;
   // Token       token_value()   const;
-
-
 };
 
 #endif
