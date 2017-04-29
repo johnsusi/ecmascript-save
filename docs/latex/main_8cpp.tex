@@ -1,0 +1,59 @@
+\hypertarget{main_8cpp}{}\section{src/main.cpp File Reference}
+\label{main_8cpp}\index{src/main.\+cpp@{src/main.\+cpp}}
+{\ttfamily \#include \char`\"{}lexer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}parser.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}eval.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$iterator$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$gsl/gsl$>$}\newline
+{\ttfamily \#include $<$boost/filesystem.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/program\+\_\+options.\+hpp$>$}\newline
+Include dependency graph for main.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class T $>$ }\\\textbf{ std\+::ostream} \& \hyperlink{main_8cpp_a4b8db62a17e01a839e499a4c59112df5}{operator$<$$<$} (\textbf{ std\+::ostream} \&os, const \textbf{ std\+::vector}$<$ T $>$ \&v)
+\item 
+\textbf{ std\+::string} \hyperlink{main_8cpp_ac7cb8817f95534f11cea9241bd29a73d}{read\+\_\+file\+\_\+into\+\_\+string} (const fs\+::path \&filename)
+\item 
+\textbf{ std\+::string} \hyperlink{main_8cpp_a7c8c5c70fabe5f33e070d8d22896bea4}{read\+\_\+stdin\+\_\+into\+\_\+string} ()
+\item 
+int \hyperlink{main_8cpp_a217dbf8b442f20279ea00b898af96f52}{main} (int argc, const char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_a217dbf8b442f20279ea00b898af96f52}\label{main_8cpp_a217dbf8b442f20279ea00b898af96f52}} 
+\index{main.\+cpp@{main.\+cpp}!main@{main}}
+\index{main@{main}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{const char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{main_8cpp_a4b8db62a17e01a839e499a4c59112df5}\label{main_8cpp_a4b8db62a17e01a839e499a4c59112df5}} 
+\index{main.\+cpp@{main.\+cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\textbf{ std\+::ostream}\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{\textbf{ std\+::ostream} \&}]{os,  }\item[{const \textbf{ std\+::vector}$<$ T $>$ \&}]{v }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{main_8cpp_ac7cb8817f95534f11cea9241bd29a73d}\label{main_8cpp_ac7cb8817f95534f11cea9241bd29a73d}} 
+\index{main.\+cpp@{main.\+cpp}!read\+\_\+file\+\_\+into\+\_\+string@{read\+\_\+file\+\_\+into\+\_\+string}}
+\index{read\+\_\+file\+\_\+into\+\_\+string@{read\+\_\+file\+\_\+into\+\_\+string}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{read\+\_\+file\+\_\+into\+\_\+string()}{read\_file\_into\_string()}}
+{\footnotesize\ttfamily \textbf{ std\+::string} read\+\_\+file\+\_\+into\+\_\+string (\begin{DoxyParamCaption}\item[{const fs\+::path \&}]{filename }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{main_8cpp_a7c8c5c70fabe5f33e070d8d22896bea4}\label{main_8cpp_a7c8c5c70fabe5f33e070d8d22896bea4}} 
+\index{main.\+cpp@{main.\+cpp}!read\+\_\+stdin\+\_\+into\+\_\+string@{read\+\_\+stdin\+\_\+into\+\_\+string}}
+\index{read\+\_\+stdin\+\_\+into\+\_\+string@{read\+\_\+stdin\+\_\+into\+\_\+string}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{read\+\_\+stdin\+\_\+into\+\_\+string()}{read\_stdin\_into\_string()}}
+{\footnotesize\ttfamily \textbf{ std\+::string} read\+\_\+stdin\+\_\+into\+\_\+string (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+

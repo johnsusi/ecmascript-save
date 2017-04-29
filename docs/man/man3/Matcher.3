@@ -1,0 +1,137 @@
+.TH "Matcher< T, It >" 3 "Sat Apr 29 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Matcher< T, It >
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <matcher\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMatcher\fP (It begin, It end)"
+.br
+.ti -1c
+.RI "bool \fBmatch\fP (const T &value)"
+.br
+.ti -1c
+.RI "template<typename Pred > auto \fBmatch\fP (Pred &&pred) \-> decltype(pred(), bool())"
+.br
+.ti -1c
+.RI "template<typename Pred > auto \fBmatch\fP (Pred &&pred) \-> decltype(pred(*m_cur), bool())"
+.br
+.ti -1c
+.RI "bool \fBmatch\fP (const char *value)"
+.br
+.ti -1c
+.RI "bool \fBmatch\fP (const T &value, \fBstd::true_type\fP)"
+.br
+.ti -1c
+.RI "bool \fBmatch\fP (const char *value, \fBstd::false_type\fP)"
+.br
+.ti -1c
+.RI "template<typename Pred > auto \fBrmatch\fP (Pred &&pred) \-> decltype(pred(), bool())"
+.br
+.ti -1c
+.RI "template<typename Pred > auto \fBrmatch\fP (Pred &&pred) \-> decltype(pred(*m_cur), bool())"
+.br
+.ti -1c
+.RI "bool \fBpeek\fP (const T &value) const"
+.br
+.ti -1c
+.RI "template<typename Pred > auto \fBpeek\fP (Pred &&pred) const \-> decltype(pred(*m_cur), bool())"
+.br
+.ti -1c
+.RI "template<typename Arg , typename\&.\&.\&. Args> bool \fBany_of\fP (Arg &&arg, Args &&\&.\&.\&. args)"
+.br
+.ti -1c
+.RI "bool \fBany_of\fP ()"
+.br
+.ti -1c
+.RI "It \fBmark\fP () const"
+.br
+.ti -1c
+.RI "void \fBreset\fP (It \fBmark\fP)"
+.br
+.ti -1c
+.RI "void \fBreset\fP ()"
+.br
+.ti -1c
+.RI "template<typename\&.\&.\&. Args> bool \fBoperator()\fP (Args &&\&.\&.\&. args)"
+.br
+.ti -1c
+.RI "const T * \fBmatched\fP () const"
+.br
+.ti -1c
+.RI "const It \fBmatching\fP () const"
+.br
+.ti -1c
+.RI "\fBoperator const T *\fP () const"
+.br
+.ti -1c
+.RI "\fBoperator const T &\fP () const"
+.br
+.ti -1c
+.RI "template<typename U > \fBoperator U\fP () const"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<typename T, typename It> \fBMatcher\fP< T, It >::\fBMatcher\fP (It begin, It end)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "template<typename T, typename It> template<typename Arg , typename\&.\&.\&. Args> bool \fBMatcher\fP< T, It >::any_of (Arg && arg, Args &&\&.\&.\&. args)\fC [inline]\fP"
+
+.SS "template<typename T, typename It> bool \fBMatcher\fP< T, It >::any_of ()\fC [inline]\fP"
+
+.SS "template<typename T, typename It> It \fBMatcher\fP< T, It >::mark () const\fC [inline]\fP"
+
+.SS "template<typename T, typename It> bool \fBMatcher\fP< T, It >::match (const T & value)\fC [inline]\fP"
+
+.SS "template<typename T, typename It> template<typename Pred > auto \fBMatcher\fP< T, It >::match (Pred && pred) \-> decltype(pred(), bool())
+  \fC [inline]\fP"
+
+.SS "template<typename T, typename It> template<typename Pred > auto \fBMatcher\fP< T, It >::match (Pred && pred) \-> decltype(pred(*m_cur), bool())
+  \fC [inline]\fP"
+
+.SS "template<typename T, typename It> bool \fBMatcher\fP< T, It >::match (const char * value)\fC [inline]\fP"
+
+.SS "template<typename T, typename It> bool \fBMatcher\fP< T, It >::match (const T & value, \fBstd::true_type\fP)\fC [inline]\fP"
+
+.SS "template<typename T, typename It> bool \fBMatcher\fP< T, It >::match (const char * value, \fBstd::false_type\fP)\fC [inline]\fP"
+
+.SS "template<typename T, typename It> const T* \fBMatcher\fP< T, It >::matched () const\fC [inline]\fP"
+
+.SS "template<typename T, typename It> const It \fBMatcher\fP< T, It >::matching () const\fC [inline]\fP"
+
+.SS "template<typename T, typename It> \fBMatcher\fP< T, It >::operator const T & () const\fC [inline]\fP"
+
+.SS "template<typename T, typename It> \fBMatcher\fP< T, It >::operator const T * () const\fC [inline]\fP"
+
+.SS "template<typename T, typename It> template<typename U > \fBMatcher\fP< T, It >::operator U () const\fC [inline]\fP"
+
+.SS "template<typename T, typename It> template<typename\&.\&.\&. Args> bool \fBMatcher\fP< T, It >::operator() (Args &&\&.\&.\&. args)\fC [inline]\fP"
+
+.SS "template<typename T, typename It> bool \fBMatcher\fP< T, It >::peek (const T & value) const\fC [inline]\fP"
+
+.SS "template<typename T, typename It> template<typename Pred > auto \fBMatcher\fP< T, It >::peek (Pred && pred) const \-> decltype(pred(*m_cur), bool())
+  \fC [inline]\fP"
+
+.SS "template<typename T, typename It> void \fBMatcher\fP< T, It >::reset (It mark)\fC [inline]\fP"
+
+.SS "template<typename T, typename It> void \fBMatcher\fP< T, It >::reset ()\fC [inline]\fP"
+
+.SS "template<typename T, typename It> template<typename Pred > auto \fBMatcher\fP< T, It >::rmatch (Pred && pred) \-> decltype(pred(), bool())
+  \fC [inline]\fP"
+
+.SS "template<typename T, typename It> template<typename Pred > auto \fBMatcher\fP< T, It >::rmatch (Pred && pred) \-> decltype(pred(*m_cur), bool())
+  \fC [inline]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

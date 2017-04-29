@@ -1,0 +1,148 @@
+\hypertarget{lexer_8cpp}{}\section{src/lexer.cpp File Reference}
+\label{lexer_8cpp}\index{src/lexer.\+cpp@{src/lexer.\+cpp}}
+{\ttfamily \#include \char`\"{}lexer.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$unicode/errorcode.\+h$>$}\newline
+{\ttfamily \#include $<$unicode/normalizer2.\+h$>$}\newline
+{\ttfamily \#include $<$unicode/uchar.\+h$>$}\newline
+{\ttfamily \#include $<$unicode/unistr.\+h$>$}\newline
+Include dependency graph for lexer.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lexer_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ std\+::u16string} \hyperlink{lexer_8cpp_a9e230e1ab47b787562705c322044d2a0}{convert\+\_\+utf8\+\_\+to\+\_\+utf16} (const \textbf{ std\+::string} \&source)
+\item 
+bool \hyperlink{lexer_8cpp_a315b133087b7c8aececd5bb4bb038a33}{is\+\_\+white\+\_\+space} (int cp)
+\item 
+bool \hyperlink{lexer_8cpp_a380934175c0adfde2698f5b15a32eef1}{is\+\_\+line\+\_\+terminator} (int cp)
+\item 
+bool \hyperlink{lexer_8cpp_a9cefc40146b4aa1d5180daf8c09aef76}{is\+\_\+non\+\_\+zero\+\_\+digit} (int cp)
+\item 
+bool \hyperlink{lexer_8cpp_af6705427c418482a10880319f2440157}{is\+\_\+decimal\+\_\+digit} (int cp)
+\item 
+bool \hyperlink{lexer_8cpp_ab5142564f94422574c9696dd2643848f}{is\+\_\+hex\+\_\+digit} (int cp)
+\item 
+bool \hyperlink{lexer_8cpp_aab548932d0a5af9ce41ece5a9341167b}{is\+\_\+unicode\+\_\+letter} (int cp)
+\item 
+bool \hyperlink{lexer_8cpp_a77ceb9bedb3fcd420006ad82a4cb2869}{is\+\_\+unicode\+\_\+combining\+\_\+mark} (int cp)
+\item 
+bool \hyperlink{lexer_8cpp_a3d0438332c1c1a679199bcd3e3ee4748}{is\+\_\+unicode\+\_\+digit} (int cp)
+\item 
+bool \hyperlink{lexer_8cpp_a484f6eea02427eb2659a45d0e2d6b816}{is\+\_\+unicode\+\_\+connector\+\_\+punctuation} (int cp)
+\item 
+bool \hyperlink{lexer_8cpp_a4d04bee568c3bb7605c213dc6cab27db}{is\+\_\+single\+\_\+escape\+\_\+character} (int cp)
+\item 
+bool \hyperlink{lexer_8cpp_a565a9e3053200a1e165972e724788acf}{is\+\_\+keyword} (const \textbf{ std\+::string} \&token)
+\item 
+bool \hyperlink{lexer_8cpp_abafa8f3968318d8d7a9e5e61d4f0037b}{is\+\_\+future\+\_\+reserved\+\_\+word} (const \textbf{ std\+::string} \&token)
+\item 
+bool \hyperlink{lexer_8cpp_a3297fa97844b69aed3a2fe55d496edfb}{is\+\_\+punctuator} (const \textbf{ std\+::string} \&token)
+\item 
+bool \hyperlink{lexer_8cpp_a729accffc6b323bbb5224341f3175cb6}{is\+\_\+null\+\_\+literal} (const \textbf{ std\+::string} \&str)
+\item 
+bool \hyperlink{lexer_8cpp_aed55f5443b8d50d91939b6130f3767da}{is\+\_\+boolean\+\_\+literal} (const \textbf{ std\+::string} \&str)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{lexer_8cpp_a9e230e1ab47b787562705c322044d2a0}\label{lexer_8cpp_a9e230e1ab47b787562705c322044d2a0}} 
+\index{lexer.\+cpp@{lexer.\+cpp}!convert\+\_\+utf8\+\_\+to\+\_\+utf16@{convert\+\_\+utf8\+\_\+to\+\_\+utf16}}
+\index{convert\+\_\+utf8\+\_\+to\+\_\+utf16@{convert\+\_\+utf8\+\_\+to\+\_\+utf16}!lexer.\+cpp@{lexer.\+cpp}}
+\subsubsection{\texorpdfstring{convert\+\_\+utf8\+\_\+to\+\_\+utf16()}{convert\_utf8\_to\_utf16()}}
+{\footnotesize\ttfamily \textbf{ std\+::u16string} convert\+\_\+utf8\+\_\+to\+\_\+utf16 (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::string} \&}]{source }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexer_8cpp_aed55f5443b8d50d91939b6130f3767da}\label{lexer_8cpp_aed55f5443b8d50d91939b6130f3767da}} 
+\index{lexer.\+cpp@{lexer.\+cpp}!is\+\_\+boolean\+\_\+literal@{is\+\_\+boolean\+\_\+literal}}
+\index{is\+\_\+boolean\+\_\+literal@{is\+\_\+boolean\+\_\+literal}!lexer.\+cpp@{lexer.\+cpp}}
+\subsubsection{\texorpdfstring{is\+\_\+boolean\+\_\+literal()}{is\_boolean\_literal()}}
+{\footnotesize\ttfamily bool is\+\_\+boolean\+\_\+literal (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::string} \&}]{str }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexer_8cpp_af6705427c418482a10880319f2440157}\label{lexer_8cpp_af6705427c418482a10880319f2440157}} 
+\index{lexer.\+cpp@{lexer.\+cpp}!is\+\_\+decimal\+\_\+digit@{is\+\_\+decimal\+\_\+digit}}
+\index{is\+\_\+decimal\+\_\+digit@{is\+\_\+decimal\+\_\+digit}!lexer.\+cpp@{lexer.\+cpp}}
+\subsubsection{\texorpdfstring{is\+\_\+decimal\+\_\+digit()}{is\_decimal\_digit()}}
+{\footnotesize\ttfamily bool is\+\_\+decimal\+\_\+digit (\begin{DoxyParamCaption}\item[{int}]{cp }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexer_8cpp_abafa8f3968318d8d7a9e5e61d4f0037b}\label{lexer_8cpp_abafa8f3968318d8d7a9e5e61d4f0037b}} 
+\index{lexer.\+cpp@{lexer.\+cpp}!is\+\_\+future\+\_\+reserved\+\_\+word@{is\+\_\+future\+\_\+reserved\+\_\+word}}
+\index{is\+\_\+future\+\_\+reserved\+\_\+word@{is\+\_\+future\+\_\+reserved\+\_\+word}!lexer.\+cpp@{lexer.\+cpp}}
+\subsubsection{\texorpdfstring{is\+\_\+future\+\_\+reserved\+\_\+word()}{is\_future\_reserved\_word()}}
+{\footnotesize\ttfamily bool is\+\_\+future\+\_\+reserved\+\_\+word (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::string} \&}]{token }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexer_8cpp_ab5142564f94422574c9696dd2643848f}\label{lexer_8cpp_ab5142564f94422574c9696dd2643848f}} 
+\index{lexer.\+cpp@{lexer.\+cpp}!is\+\_\+hex\+\_\+digit@{is\+\_\+hex\+\_\+digit}}
+\index{is\+\_\+hex\+\_\+digit@{is\+\_\+hex\+\_\+digit}!lexer.\+cpp@{lexer.\+cpp}}
+\subsubsection{\texorpdfstring{is\+\_\+hex\+\_\+digit()}{is\_hex\_digit()}}
+{\footnotesize\ttfamily bool is\+\_\+hex\+\_\+digit (\begin{DoxyParamCaption}\item[{int}]{cp }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexer_8cpp_a565a9e3053200a1e165972e724788acf}\label{lexer_8cpp_a565a9e3053200a1e165972e724788acf}} 
+\index{lexer.\+cpp@{lexer.\+cpp}!is\+\_\+keyword@{is\+\_\+keyword}}
+\index{is\+\_\+keyword@{is\+\_\+keyword}!lexer.\+cpp@{lexer.\+cpp}}
+\subsubsection{\texorpdfstring{is\+\_\+keyword()}{is\_keyword()}}
+{\footnotesize\ttfamily bool is\+\_\+keyword (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::string} \&}]{token }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexer_8cpp_a380934175c0adfde2698f5b15a32eef1}\label{lexer_8cpp_a380934175c0adfde2698f5b15a32eef1}} 
+\index{lexer.\+cpp@{lexer.\+cpp}!is\+\_\+line\+\_\+terminator@{is\+\_\+line\+\_\+terminator}}
+\index{is\+\_\+line\+\_\+terminator@{is\+\_\+line\+\_\+terminator}!lexer.\+cpp@{lexer.\+cpp}}
+\subsubsection{\texorpdfstring{is\+\_\+line\+\_\+terminator()}{is\_line\_terminator()}}
+{\footnotesize\ttfamily bool is\+\_\+line\+\_\+terminator (\begin{DoxyParamCaption}\item[{int}]{cp }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexer_8cpp_a9cefc40146b4aa1d5180daf8c09aef76}\label{lexer_8cpp_a9cefc40146b4aa1d5180daf8c09aef76}} 
+\index{lexer.\+cpp@{lexer.\+cpp}!is\+\_\+non\+\_\+zero\+\_\+digit@{is\+\_\+non\+\_\+zero\+\_\+digit}}
+\index{is\+\_\+non\+\_\+zero\+\_\+digit@{is\+\_\+non\+\_\+zero\+\_\+digit}!lexer.\+cpp@{lexer.\+cpp}}
+\subsubsection{\texorpdfstring{is\+\_\+non\+\_\+zero\+\_\+digit()}{is\_non\_zero\_digit()}}
+{\footnotesize\ttfamily bool is\+\_\+non\+\_\+zero\+\_\+digit (\begin{DoxyParamCaption}\item[{int}]{cp }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexer_8cpp_a729accffc6b323bbb5224341f3175cb6}\label{lexer_8cpp_a729accffc6b323bbb5224341f3175cb6}} 
+\index{lexer.\+cpp@{lexer.\+cpp}!is\+\_\+null\+\_\+literal@{is\+\_\+null\+\_\+literal}}
+\index{is\+\_\+null\+\_\+literal@{is\+\_\+null\+\_\+literal}!lexer.\+cpp@{lexer.\+cpp}}
+\subsubsection{\texorpdfstring{is\+\_\+null\+\_\+literal()}{is\_null\_literal()}}
+{\footnotesize\ttfamily bool is\+\_\+null\+\_\+literal (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::string} \&}]{str }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexer_8cpp_a3297fa97844b69aed3a2fe55d496edfb}\label{lexer_8cpp_a3297fa97844b69aed3a2fe55d496edfb}} 
+\index{lexer.\+cpp@{lexer.\+cpp}!is\+\_\+punctuator@{is\+\_\+punctuator}}
+\index{is\+\_\+punctuator@{is\+\_\+punctuator}!lexer.\+cpp@{lexer.\+cpp}}
+\subsubsection{\texorpdfstring{is\+\_\+punctuator()}{is\_punctuator()}}
+{\footnotesize\ttfamily bool is\+\_\+punctuator (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::string} \&}]{token }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexer_8cpp_a4d04bee568c3bb7605c213dc6cab27db}\label{lexer_8cpp_a4d04bee568c3bb7605c213dc6cab27db}} 
+\index{lexer.\+cpp@{lexer.\+cpp}!is\+\_\+single\+\_\+escape\+\_\+character@{is\+\_\+single\+\_\+escape\+\_\+character}}
+\index{is\+\_\+single\+\_\+escape\+\_\+character@{is\+\_\+single\+\_\+escape\+\_\+character}!lexer.\+cpp@{lexer.\+cpp}}
+\subsubsection{\texorpdfstring{is\+\_\+single\+\_\+escape\+\_\+character()}{is\_single\_escape\_character()}}
+{\footnotesize\ttfamily bool is\+\_\+single\+\_\+escape\+\_\+character (\begin{DoxyParamCaption}\item[{int}]{cp }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexer_8cpp_a77ceb9bedb3fcd420006ad82a4cb2869}\label{lexer_8cpp_a77ceb9bedb3fcd420006ad82a4cb2869}} 
+\index{lexer.\+cpp@{lexer.\+cpp}!is\+\_\+unicode\+\_\+combining\+\_\+mark@{is\+\_\+unicode\+\_\+combining\+\_\+mark}}
+\index{is\+\_\+unicode\+\_\+combining\+\_\+mark@{is\+\_\+unicode\+\_\+combining\+\_\+mark}!lexer.\+cpp@{lexer.\+cpp}}
+\subsubsection{\texorpdfstring{is\+\_\+unicode\+\_\+combining\+\_\+mark()}{is\_unicode\_combining\_mark()}}
+{\footnotesize\ttfamily bool is\+\_\+unicode\+\_\+combining\+\_\+mark (\begin{DoxyParamCaption}\item[{int}]{cp }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexer_8cpp_a484f6eea02427eb2659a45d0e2d6b816}\label{lexer_8cpp_a484f6eea02427eb2659a45d0e2d6b816}} 
+\index{lexer.\+cpp@{lexer.\+cpp}!is\+\_\+unicode\+\_\+connector\+\_\+punctuation@{is\+\_\+unicode\+\_\+connector\+\_\+punctuation}}
+\index{is\+\_\+unicode\+\_\+connector\+\_\+punctuation@{is\+\_\+unicode\+\_\+connector\+\_\+punctuation}!lexer.\+cpp@{lexer.\+cpp}}
+\subsubsection{\texorpdfstring{is\+\_\+unicode\+\_\+connector\+\_\+punctuation()}{is\_unicode\_connector\_punctuation()}}
+{\footnotesize\ttfamily bool is\+\_\+unicode\+\_\+connector\+\_\+punctuation (\begin{DoxyParamCaption}\item[{int}]{cp }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexer_8cpp_a3d0438332c1c1a679199bcd3e3ee4748}\label{lexer_8cpp_a3d0438332c1c1a679199bcd3e3ee4748}} 
+\index{lexer.\+cpp@{lexer.\+cpp}!is\+\_\+unicode\+\_\+digit@{is\+\_\+unicode\+\_\+digit}}
+\index{is\+\_\+unicode\+\_\+digit@{is\+\_\+unicode\+\_\+digit}!lexer.\+cpp@{lexer.\+cpp}}
+\subsubsection{\texorpdfstring{is\+\_\+unicode\+\_\+digit()}{is\_unicode\_digit()}}
+{\footnotesize\ttfamily bool is\+\_\+unicode\+\_\+digit (\begin{DoxyParamCaption}\item[{int}]{cp }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexer_8cpp_aab548932d0a5af9ce41ece5a9341167b}\label{lexer_8cpp_aab548932d0a5af9ce41ece5a9341167b}} 
+\index{lexer.\+cpp@{lexer.\+cpp}!is\+\_\+unicode\+\_\+letter@{is\+\_\+unicode\+\_\+letter}}
+\index{is\+\_\+unicode\+\_\+letter@{is\+\_\+unicode\+\_\+letter}!lexer.\+cpp@{lexer.\+cpp}}
+\subsubsection{\texorpdfstring{is\+\_\+unicode\+\_\+letter()}{is\_unicode\_letter()}}
+{\footnotesize\ttfamily bool is\+\_\+unicode\+\_\+letter (\begin{DoxyParamCaption}\item[{int}]{cp }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexer_8cpp_a315b133087b7c8aececd5bb4bb038a33}\label{lexer_8cpp_a315b133087b7c8aececd5bb4bb038a33}} 
+\index{lexer.\+cpp@{lexer.\+cpp}!is\+\_\+white\+\_\+space@{is\+\_\+white\+\_\+space}}
+\index{is\+\_\+white\+\_\+space@{is\+\_\+white\+\_\+space}!lexer.\+cpp@{lexer.\+cpp}}
+\subsubsection{\texorpdfstring{is\+\_\+white\+\_\+space()}{is\_white\_space()}}
+{\footnotesize\ttfamily bool is\+\_\+white\+\_\+space (\begin{DoxyParamCaption}\item[{int}]{cp }\end{DoxyParamCaption})}
+

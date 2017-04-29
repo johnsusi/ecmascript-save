@@ -1,0 +1,95 @@
+.TH "src/parser.h" 3 "Sat Apr 29 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/parser.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'ast\&.h'\fP
+.br
+\fC#include 'matcher\&.h'\fP
+.br
+\fC#include 'token\&.h'\fP
+.br
+\fC#include <iostream>\fP
+.br
+\fC#include <memory>\fP
+.br
+\fC#include <sstream>\fP
+.br
+\fC#include <vector>\fP
+.br
+\fC#include <boost/core/demangle\&.hpp>\fP
+.br
+\fC#include <typeinfo>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBget< T >\fP"
+.br
+.ti -1c
+.RI "struct \fBget< Expression >\fP"
+.br
+.ti -1c
+.RI "class \fBBasicParser\fP"
+.br
+.ti -1c
+.RI "class \fBBuilder< Node >\fP"
+.br
+.ti -1c
+.RI "class \fBExpressionBuilder\fP"
+.br
+.ti -1c
+.RI "class \fBExpressionParser\fP"
+.br
+.ti -1c
+.RI "class \fBStatementBuilder\fP"
+.br
+.ti -1c
+.RI "class \fBStatementParser\fP"
+.br
+.ti -1c
+.RI "class \fBProgramBuilder\fP"
+.br
+.ti -1c
+.RI "class \fBParser\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<class F , size_t\&.\&.\&. Is> constexpr auto \fBindex_apply_impl\fP (F f, std::index_sequence< Is\&.\&.\&. >)"
+.br
+.ti -1c
+.RI "template<size_t N, class F > constexpr auto \fBindex_apply\fP (F f)"
+.br
+.ti -1c
+.RI "bool \fBis_assignment_operator\fP (const \fBstd::string\fP &)"
+.br
+.ti -1c
+.RI "template<typename It > \fBParser\fP \fBmake_parser\fP (It f, It l)"
+.br
+.ti -1c
+.RI "template<typename Cont > auto \fBmake_parser\fP (Cont &&cont)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "template<size_t N, class F > constexpr auto index_apply (F f)"
+
+.SS "template<class F , size_t\&.\&.\&. Is> constexpr auto index_apply_impl (F f, std::index_sequence< Is\&.\&.\&. >)"
+
+.SS "bool is_assignment_operator (const \fBstd::string\fP &)"
+
+.SS "template<typename It > \fBParser\fP make_parser (It f, It l)"
+
+.SS "template<typename Cont > auto make_parser (Cont && cont)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

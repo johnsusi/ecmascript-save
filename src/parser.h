@@ -8,7 +8,35 @@
 
 #include <iostream>
 #include <memory>
+#include <sstream>
 #include <vector>
+
+template <class F, size_t... Is>
+constexpr auto index_apply_impl(F f, std::index_sequence<Is...>)
+{
+  return f(std::integral_constant<size_t, Is> {}...);
+}
+
+template <size_t N, class F> constexpr auto index_apply(F f)
+{
+  return index_apply_impl(f, std::make_index_sequence<N>{});
+}
+
+template <typename T>
+struct get
+{
+  static T invoke(Expression& expr) {
+    return boost::get<T>(expr);
+  }
+};
+
+template <>
+struct get<Expression>
+{
+  static Expression invoke(Expression& expr) {
+    return std::forward<Expression>(expr);
+  }
+};
 
 // 11.3
 bool is_assignment_operator(const std::string&);
@@ -39,9 +67,63 @@ public:
 
   bool syntax_error(std::string what = {})
   {
-    std::cout << *match.matched() << std::endl;
-    throw std::runtime_error("SyntaxError: " + what);
+    throw std::runtime_error("SyntaxError: " + what + "\n" + match.matching()->debug_info->syntax_error_at());
   }
+};
+
+template <typename Node>
+class Builder
+{
+
+  std::vector<Node> stack;
+
+public:
+
+  void push(Node&& node)
+  {
+    std::cout << "Pushing " << boost::core::demangle(typeid(Node).name()) << "\n";
+    stack.push_back(node);
+  }
+
+  template <typename T, typename... Args>
+  void push(Args&&... args)
+  {
+    std::cout << "Pushing " << boost::core::demangle(typeid(T).name()) << "\n";
+    stack.push_back(T { std::forward<Args>(args)... });
+  }
+
+  template <typename T, std::size_t N>
+  void replace()
+  {
+    index_apply<N>([&](auto... Is) {
+      T value {
+        get<T>(*(stack.end() - (N - Is))).value...
+      };
+      stack.resize(stack.size() - N);
+      stack.push_back(std::move(value));
+    });
+  }
+
+  template <typename T, typename... Ts, typename... Args>
+  void replace(Args&&... args)
+  {
+    index_apply<sizeof...(Ts)>([&](auto... Is) {
+      T value {
+        get<Ts>::invoke(*(stack.end() - (sizeof...(Ts) - Is)))...,
+        std::forward<Args>(args)...
+      };
+      stack.resize(stack.size() - sizeof...(Ts));
+      stack.push_back(std::move(value));
+    });
+  }
+
+  Node pop()
+  {
+    auto value = stack.back();
+    stack.pop_back();
+    return value;
+  }
+
 };
 
 class ExpressionBuilder
@@ -68,7 +150,7 @@ public:
 
 };
 
-class ExpressionParser : public BasicParser, private ExpressionBuilder
+class ExpressionParser : public BasicParser, private Builder<Expression>
 {
 public:
 
@@ -84,7 +166,7 @@ public:
   // A.1
   bool identifier_name()
   {
-    return match([](const auto& token) { return token.is_identifier(); });
+    return match([](const auto& token) { return token.is_identifier_name(); });
   }
 
   bool literal()
@@ -240,71 +322,81 @@ public:
   {
     return false;
   }
+
   bool member_expression()
   {
-    if (primary_expression() || function_expression() || match([this]{
-      return match("new") && member_expression() && arguments();
-    })) {
-      while (true) {
-        if (match("[")) {
-          if (expression() && match("]")) continue;
-          else syntax_error();
-        }
-        if (match(".")) {
-          if (identifier_name()) continue;
-          else syntax_error();
-        }
-        return true;
+    if (!primary_expression() && !function_expression()) return false;
+    while (true) {
+      if (match("[")) {
+        if (!expression() || !match("]")) syntax_error();
       }
+      if (match(".")) {
+        if (!identifier_name()) syntax_error();
+        push<Identifier>(match);
+      }
+      else break;
+      replace<MemberExpression, Expression, Expression>();
     }
-    return false;
+    return true;
   }
 
   bool new_expression()
   {
-    return member_expression() || (match("new") && new_expression());
-  }
-
-  bool call_expression()
-  {
-    if (member_expression()) {
-      arguments() || syntax_error();
-      while (true) {
-        if (match("[")) {
-          (expression() && match("]")) || syntax_error();
-          continue;
-        }
-        if (match(".")) {
-          identifier_name() || syntax_error();
-          continue;
-        }
-        if (arguments()) continue;
-        return true;
-      }
+    if (match("new")) {
+      if (!new_expression()) syntax_error();
+      if (arguments()) replace<NewExpression, Expression, Arguments>();
+      else replace<NewExpression, Expression>();
+      return true;
     }
-    return false;
+    else return member_expression();
   }
 
   bool arguments()
   {
-    if (match("(")) {
-      return argument_list(), match(")") || syntax_error();
-    }
-    return false;
+    if (!match("(")) return false;
+    auto list = argument_list();
+    if (!match(")")) syntax_error();
+    push<Arguments>(list);
+    return true;
   }
 
-  bool argument_list()
+  ArgumentList argument_list()
   {
-    if (assignment_expression()) {
-      while (match(",") && (assignment_expression() || syntax_error()));
-      return true;
+    if (!assignment_expression()) return {};
+    ArgumentList list { pop() };
+    while (match(",")) {
+      if (!assignment_expression()) syntax_error();
+      list.push_back(pop());
     }
-    return false;
+    return list;
   }
 
   bool left_hand_side_expression()
   {
-    return new_expression() || call_expression();
+    if (!new_expression()) return false;
+    if (arguments()) {
+      replace<CallExpression, Expression, Arguments>();
+      while (true) {
+
+        if (arguments()) {
+          replace<CallExpression, Expression, Arguments>();
+          continue;
+        }
+        else if (match("[")) {
+          if (!expression() || !match("]")) syntax_error();
+          replace<MemberExpression, Expression, Expression>();
+          continue;
+        }
+        else if (match(".")) {
+          if (!identifier_name()) syntax_error();
+          push<Identifier>(match);
+          replace<MemberExpression, Expression, Expression>();
+          continue;
+        }
+        else break;
+      }
+    }
+    return true;
   }
 
   bool postfix_expression()
@@ -828,7 +920,7 @@ public:
   bool if_statement()
   {
     if (!match("if")) return false;
-    if (!match("(") && expression() && match(")") && statement()) syntax_error();
+    if (!match("(") || !expression() || !match(")") || !statement()) syntax_error();
     auto expr = pop_expression();
     auto stmt = pop();
     if (match("else")) {
@@ -1037,6 +1129,10 @@ public:
   }
 };
 
+#include <boost/core/demangle.hpp>
+#include <typeinfo>
+
+
 class ProgramBuilder
 {
   using Declaration = boost::variant<
@@ -1050,17 +1146,21 @@ public:
 
   void push(Declaration&& decl)
   {
+    std::cout << "Pushing Declaration\n";
     stack.push_back(decl);
   }
 
   template <typename T, typename... Args>
   void push(Args&&... args)
   {
+    std::cout << "Pushing " << boost::core::demangle(typeid(T).name()) << "\n";
     stack.push_back(T { std::forward<Args>(args)... });
   }
 
   Declaration pop()
   {
+    std::cout << "Popping Declaration\n";
+
     Declaration decl = stack.back();
     stack.pop_back();
     return decl;
@@ -1079,9 +1179,9 @@ class Parser : StatementParser, private ProgramBuilder
   {
     if (!match("function")) return false;
     FunctionDeclaration decl;
-    auto id = identifier();
-    if (!identifier()) syntax_error();
-    decl.id = *id;
+    if (auto id = identifier())
+      decl.id = *id;
+    else syntax_error();
     if (!match("(")) syntax_error();
     decl.params = formal_parameter_list();
     if (!match(")") || !match("{")) syntax_error();
@@ -1144,7 +1244,13 @@ public:
 
   Program parse()
   {
-    return program();
+    try {
+      return program();
+    }
+    catch(...) {
+      syntax_error();
+      return {};
+    }
   }
 
 };

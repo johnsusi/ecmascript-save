@@ -1,0 +1,393 @@
+\hypertarget{class_token}{}\section{Token Class Reference}
+\label{class_token}\index{Token@{Token}}
+
+
+{\ttfamily \#include $<$token.\+h$>$}
+
+
+
+Collaboration diagram for Token\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{class_token__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_token_1_1_debug_info}{Debug\+Info}
+\item 
+struct \hyperlink{struct_token_1_1equal__visitor}{equal\+\_\+visitor}
+\item 
+struct \hyperlink{struct_token_1_1print__visitor}{print\+\_\+visitor}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_token_a761bf97d165988a4250dc26500d36f89}{Token} ()=default
+\item 
+\hyperlink{class_token_a350ebd7ea16caa846b858ecdb1c273c6}{Token} (const \hyperlink{class_token}{Token} \&)=default
+\item 
+\hyperlink{class_token_afc9d412fe95cc74013031eb46eb5d924}{Token} (\hyperlink{class_token}{Token} \&\&)=default
+\item 
+\hyperlink{class_token}{Token} \& \hyperlink{class_token_a302f8febd87a9cca349ba76dfd782548}{operator=} (const \hyperlink{class_token}{Token} \&)=default
+\item 
+\hyperlink{class_token}{Token} \& \hyperlink{class_token_a4f45441b8d2dfe881c448377d4ca2cd4}{operator=} (\hyperlink{class_token}{Token} \&\&)=default
+\item 
+\hyperlink{class_token_a14690319b7df185a3899d4b2aedb59dc}{Token} (const char $\ast$str)
+\item 
+\hyperlink{class_token_a213c87418a6ff6375ab2298ee93acf43}{Token} (const \textbf{ std\+::string} \&str)
+\item 
+{\footnotesize template$<$typename It $>$ }\\\hyperlink{class_token_a3b8654007e4cd9b3074dbe8300cf67bf}{Token} (It f, It l)
+\item 
+bool \hyperlink{class_token_aaebab1fc38280c1e7714254916495103}{is\+\_\+empty} () const
+\item 
+bool \hyperlink{class_token_a3099586a66bb18eafee512ba32f3b75d}{is\+\_\+identifier} () const
+\item 
+bool \hyperlink{class_token_a73de586a62c6a20442a3d5218f248056}{is\+\_\+keyword} () const
+\item 
+bool \hyperlink{class_token_a3744fa3b281fc78d02eae4174119b93d}{is\+\_\+future\+\_\+reserved\+\_\+word} () const
+\item 
+bool \hyperlink{class_token_a9c6bbf326f7cec9fef706afe7ae018ad}{is\+\_\+punctuator} () const
+\item 
+bool \hyperlink{class_token_a164aae8af0eb44720bd198169349c5c6}{is\+\_\+null\+\_\+literal} () const
+\item 
+bool \hyperlink{class_token_a4a628c34f5ac213787a74b19a5d862d9}{is\+\_\+boolean\+\_\+literal} () const
+\item 
+bool \hyperlink{class_token_acf4f9a4d866ea0b67054b01cd4ea4f0f}{is\+\_\+numeric\+\_\+literal} () const
+\item 
+bool \hyperlink{class_token_ad11f807932449af30ca904eac2e4a350}{is\+\_\+string\+\_\+literal} () const
+\item 
+bool \hyperlink{class_token_a067bf14791d50fb4d98f3bb67de26307}{is\+\_\+regular\+\_\+expression\+\_\+literal} () const
+\item 
+bool \hyperlink{class_token_a00ae85f794f2c6a2da22b1454ecd4e84}{is\+\_\+identifier\+\_\+name} () const
+\item 
+bool \hyperlink{class_token_a45256af5fdc822d729ec7294d4edf52d}{any\+\_\+of} (const \textbf{ std\+::vector}$<$ \hyperlink{class_token}{Token} $>$ \&tokens) const
+\item 
+boost\+::optional$<$ const \textbf{ std\+::u16string} \& $>$ \hyperlink{class_token_a26d2e0e166ea03a4a7c2a7b77d456283}{to\+\_\+identifier} () const
+\item 
+boost\+::optional$<$ const \textbf{ std\+::string} \& $>$ \hyperlink{class_token_a4438811e8b488dc71a8ae518368cc962}{to\+\_\+keyword} () const
+\item 
+boost\+::optional$<$ const \textbf{ std\+::string} \& $>$ \hyperlink{class_token_ad68665bd46eea1e372e6ed9dade2f713}{to\+\_\+punctuator} () const
+\item 
+boost\+::optional$<$ const bool \& $>$ \hyperlink{class_token_a1be97c731f423827dd4725de8eb2a41f}{to\+\_\+boolean\+\_\+literal} () const
+\item 
+boost\+::optional$<$ const double \& $>$ \hyperlink{class_token_a6f9a344002940cb1ee6e29a7ae9a178a}{to\+\_\+numeric\+\_\+literal} () const
+\item 
+boost\+::optional$<$ const \textbf{ std\+::u16string} \& $>$ \hyperlink{class_token_a90405a7051a618d8f838bb2abee8709d}{to\+\_\+string\+\_\+literal} () const
+\item 
+bool \hyperlink{class_token_a20c14983ac6c11ffb89135e2cd91169f}{operator==} (const \hyperlink{class_token}{Token} \&other) const
+\item 
+void \hyperlink{class_token_a50f3ddd1f75c6ae38e0156dd16796a9e}{print} (\textbf{ std\+::ostream} \&) const
+\item 
+\hyperlink{class_token_a34140d60656a12bbfcdfbcf85e985133}{operator bool} () const
+\item 
+\hyperlink{class_token_a9d9ecf295a7bb23922db6ea5b9e97833}{operator double} () const
+\item 
+\hyperlink{class_token_a37a03ca940a3abaec1491c9306bafa2a}{operator std\+::string} () const
+\item 
+\hyperlink{class_token_a4a746b837b7c624604a093eef1e88b12}{operator std\+::u16string} () const
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_token}{Token} \hyperlink{class_token_a15dc839f68c100e6041c7ca089ea9005}{identifier} (\textbf{ std\+::string} value)
+\item 
+static \hyperlink{class_token}{Token} \hyperlink{class_token_a6233a8babfc11fbf5ad709d812c23bfd}{identifier} (\textbf{ std\+::u16string} value)
+\item 
+static \hyperlink{class_token}{Token} \hyperlink{class_token_a8c0612a3b0a9b6eb05dfd9e75aafcb33}{keyword} (const \textbf{ std\+::string} \&value)
+\item 
+static \hyperlink{class_token}{Token} \hyperlink{class_token_aef1c084308395ed9ad7328a6aa321e5a}{punctuator} (const \textbf{ std\+::string} \&value)
+\item 
+static \hyperlink{class_token}{Token} \hyperlink{class_token_a14d7666a206aae66e9d78b0c99db9c35}{null\+\_\+literal} ()
+\item 
+static \hyperlink{class_token}{Token} \hyperlink{class_token_a95cc3830383b9cfb05ae2b29ca776c41}{boolean\+\_\+literal} (bool value)
+\item 
+static \hyperlink{class_token}{Token} \hyperlink{class_token_ab457a4f53eef0512a5fd2ea0206e3c1e}{numeric\+\_\+literal} (double value)
+\item 
+static \hyperlink{class_token}{Token} \hyperlink{class_token_a51926fd7d348479bf923c6fce7650f35}{string\+\_\+literal} (\textbf{ std\+::u16string} value)
+\item 
+static \hyperlink{class_token}{Token} \hyperlink{class_token_a70cc5b1f483d5f8f58290e70867d542e}{regular\+\_\+expression\+\_\+literal} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{class_token_afac81ad105ee2e0ce26fa5c9adcf8e57}{preceded\+\_\+by\+\_\+line\+\_\+terminator} = false
+\item 
+\textbf{ std\+::shared\+\_\+ptr}$<$ \hyperlink{struct_token_1_1_debug_info}{Debug\+Info} $>$ \hyperlink{class_token_ae1c97965fb8e3c18c0b4e38b6d826266}{debug\+\_\+info}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_token_a761bf97d165988a4250dc26500d36f89}\label{class_token_a761bf97d165988a4250dc26500d36f89}} 
+\index{Token@{Token}!Token@{Token}}
+\index{Token@{Token}!Token@{Token}}
+\subsubsection{\texorpdfstring{Token()}{Token()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily Token\+::\+Token (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\mbox{\Hypertarget{class_token_a350ebd7ea16caa846b858ecdb1c273c6}\label{class_token_a350ebd7ea16caa846b858ecdb1c273c6}} 
+\index{Token@{Token}!Token@{Token}}
+\index{Token@{Token}!Token@{Token}}
+\subsubsection{\texorpdfstring{Token()}{Token()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily Token\+::\+Token (\begin{DoxyParamCaption}\item[{const \hyperlink{class_token}{Token} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\mbox{\Hypertarget{class_token_afc9d412fe95cc74013031eb46eb5d924}\label{class_token_afc9d412fe95cc74013031eb46eb5d924}} 
+\index{Token@{Token}!Token@{Token}}
+\index{Token@{Token}!Token@{Token}}
+\subsubsection{\texorpdfstring{Token()}{Token()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily Token\+::\+Token (\begin{DoxyParamCaption}\item[{\hyperlink{class_token}{Token} \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\mbox{\Hypertarget{class_token_a14690319b7df185a3899d4b2aedb59dc}\label{class_token_a14690319b7df185a3899d4b2aedb59dc}} 
+\index{Token@{Token}!Token@{Token}}
+\index{Token@{Token}!Token@{Token}}
+\subsubsection{\texorpdfstring{Token()}{Token()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily Token\+::\+Token (\begin{DoxyParamCaption}\item[{const char $\ast$}]{str }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_token_a213c87418a6ff6375ab2298ee93acf43}\label{class_token_a213c87418a6ff6375ab2298ee93acf43}} 
+\index{Token@{Token}!Token@{Token}}
+\index{Token@{Token}!Token@{Token}}
+\subsubsection{\texorpdfstring{Token()}{Token()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily Token\+::\+Token (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::string} \&}]{str }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_token_a3b8654007e4cd9b3074dbe8300cf67bf}\label{class_token_a3b8654007e4cd9b3074dbe8300cf67bf}} 
+\index{Token@{Token}!Token@{Token}}
+\index{Token@{Token}!Token@{Token}}
+\subsubsection{\texorpdfstring{Token()}{Token()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily template$<$typename It $>$ \\
+Token\+::\+Token (\begin{DoxyParamCaption}\item[{It}]{f,  }\item[{It}]{l }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_token_a45256af5fdc822d729ec7294d4edf52d}\label{class_token_a45256af5fdc822d729ec7294d4edf52d}} 
+\index{Token@{Token}!any\+\_\+of@{any\+\_\+of}}
+\index{any\+\_\+of@{any\+\_\+of}!Token@{Token}}
+\subsubsection{\texorpdfstring{any\+\_\+of()}{any\_of()}}
+{\footnotesize\ttfamily bool Token\+::any\+\_\+of (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::vector}$<$ \hyperlink{class_token}{Token} $>$ \&}]{tokens }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_token_a95cc3830383b9cfb05ae2b29ca776c41}\label{class_token_a95cc3830383b9cfb05ae2b29ca776c41}} 
+\index{Token@{Token}!boolean\+\_\+literal@{boolean\+\_\+literal}}
+\index{boolean\+\_\+literal@{boolean\+\_\+literal}!Token@{Token}}
+\subsubsection{\texorpdfstring{boolean\+\_\+literal()}{boolean\_literal()}}
+{\footnotesize\ttfamily \hyperlink{class_token}{Token} Token\+::boolean\+\_\+literal (\begin{DoxyParamCaption}\item[{bool}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_token_a15dc839f68c100e6041c7ca089ea9005}\label{class_token_a15dc839f68c100e6041c7ca089ea9005}} 
+\index{Token@{Token}!identifier@{identifier}}
+\index{identifier@{identifier}!Token@{Token}}
+\subsubsection{\texorpdfstring{identifier()}{identifier()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{class_token}{Token} Token\+::identifier (\begin{DoxyParamCaption}\item[{\textbf{ std\+::string}}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_token_a6233a8babfc11fbf5ad709d812c23bfd}\label{class_token_a6233a8babfc11fbf5ad709d812c23bfd}} 
+\index{Token@{Token}!identifier@{identifier}}
+\index{identifier@{identifier}!Token@{Token}}
+\subsubsection{\texorpdfstring{identifier()}{identifier()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{class_token}{Token} Token\+::identifier (\begin{DoxyParamCaption}\item[{\textbf{ std\+::u16string}}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_token_a4a628c34f5ac213787a74b19a5d862d9}\label{class_token_a4a628c34f5ac213787a74b19a5d862d9}} 
+\index{Token@{Token}!is\+\_\+boolean\+\_\+literal@{is\+\_\+boolean\+\_\+literal}}
+\index{is\+\_\+boolean\+\_\+literal@{is\+\_\+boolean\+\_\+literal}!Token@{Token}}
+\subsubsection{\texorpdfstring{is\+\_\+boolean\+\_\+literal()}{is\_boolean\_literal()}}
+{\footnotesize\ttfamily bool Token\+::is\+\_\+boolean\+\_\+literal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_token_aaebab1fc38280c1e7714254916495103}\label{class_token_aaebab1fc38280c1e7714254916495103}} 
+\index{Token@{Token}!is\+\_\+empty@{is\+\_\+empty}}
+\index{is\+\_\+empty@{is\+\_\+empty}!Token@{Token}}
+\subsubsection{\texorpdfstring{is\+\_\+empty()}{is\_empty()}}
+{\footnotesize\ttfamily bool Token\+::is\+\_\+empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_token_a3744fa3b281fc78d02eae4174119b93d}\label{class_token_a3744fa3b281fc78d02eae4174119b93d}} 
+\index{Token@{Token}!is\+\_\+future\+\_\+reserved\+\_\+word@{is\+\_\+future\+\_\+reserved\+\_\+word}}
+\index{is\+\_\+future\+\_\+reserved\+\_\+word@{is\+\_\+future\+\_\+reserved\+\_\+word}!Token@{Token}}
+\subsubsection{\texorpdfstring{is\+\_\+future\+\_\+reserved\+\_\+word()}{is\_future\_reserved\_word()}}
+{\footnotesize\ttfamily bool Token\+::is\+\_\+future\+\_\+reserved\+\_\+word (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_token_a3099586a66bb18eafee512ba32f3b75d}\label{class_token_a3099586a66bb18eafee512ba32f3b75d}} 
+\index{Token@{Token}!is\+\_\+identifier@{is\+\_\+identifier}}
+\index{is\+\_\+identifier@{is\+\_\+identifier}!Token@{Token}}
+\subsubsection{\texorpdfstring{is\+\_\+identifier()}{is\_identifier()}}
+{\footnotesize\ttfamily bool Token\+::is\+\_\+identifier (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_token_a00ae85f794f2c6a2da22b1454ecd4e84}\label{class_token_a00ae85f794f2c6a2da22b1454ecd4e84}} 
+\index{Token@{Token}!is\+\_\+identifier\+\_\+name@{is\+\_\+identifier\+\_\+name}}
+\index{is\+\_\+identifier\+\_\+name@{is\+\_\+identifier\+\_\+name}!Token@{Token}}
+\subsubsection{\texorpdfstring{is\+\_\+identifier\+\_\+name()}{is\_identifier\_name()}}
+{\footnotesize\ttfamily bool Token\+::is\+\_\+identifier\+\_\+name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_token_a73de586a62c6a20442a3d5218f248056}\label{class_token_a73de586a62c6a20442a3d5218f248056}} 
+\index{Token@{Token}!is\+\_\+keyword@{is\+\_\+keyword}}
+\index{is\+\_\+keyword@{is\+\_\+keyword}!Token@{Token}}
+\subsubsection{\texorpdfstring{is\+\_\+keyword()}{is\_keyword()}}
+{\footnotesize\ttfamily bool Token\+::is\+\_\+keyword (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_token_a164aae8af0eb44720bd198169349c5c6}\label{class_token_a164aae8af0eb44720bd198169349c5c6}} 
+\index{Token@{Token}!is\+\_\+null\+\_\+literal@{is\+\_\+null\+\_\+literal}}
+\index{is\+\_\+null\+\_\+literal@{is\+\_\+null\+\_\+literal}!Token@{Token}}
+\subsubsection{\texorpdfstring{is\+\_\+null\+\_\+literal()}{is\_null\_literal()}}
+{\footnotesize\ttfamily bool Token\+::is\+\_\+null\+\_\+literal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_token_acf4f9a4d866ea0b67054b01cd4ea4f0f}\label{class_token_acf4f9a4d866ea0b67054b01cd4ea4f0f}} 
+\index{Token@{Token}!is\+\_\+numeric\+\_\+literal@{is\+\_\+numeric\+\_\+literal}}
+\index{is\+\_\+numeric\+\_\+literal@{is\+\_\+numeric\+\_\+literal}!Token@{Token}}
+\subsubsection{\texorpdfstring{is\+\_\+numeric\+\_\+literal()}{is\_numeric\_literal()}}
+{\footnotesize\ttfamily bool Token\+::is\+\_\+numeric\+\_\+literal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_token_a9c6bbf326f7cec9fef706afe7ae018ad}\label{class_token_a9c6bbf326f7cec9fef706afe7ae018ad}} 
+\index{Token@{Token}!is\+\_\+punctuator@{is\+\_\+punctuator}}
+\index{is\+\_\+punctuator@{is\+\_\+punctuator}!Token@{Token}}
+\subsubsection{\texorpdfstring{is\+\_\+punctuator()}{is\_punctuator()}}
+{\footnotesize\ttfamily bool Token\+::is\+\_\+punctuator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_token_a067bf14791d50fb4d98f3bb67de26307}\label{class_token_a067bf14791d50fb4d98f3bb67de26307}} 
+\index{Token@{Token}!is\+\_\+regular\+\_\+expression\+\_\+literal@{is\+\_\+regular\+\_\+expression\+\_\+literal}}
+\index{is\+\_\+regular\+\_\+expression\+\_\+literal@{is\+\_\+regular\+\_\+expression\+\_\+literal}!Token@{Token}}
+\subsubsection{\texorpdfstring{is\+\_\+regular\+\_\+expression\+\_\+literal()}{is\_regular\_expression\_literal()}}
+{\footnotesize\ttfamily bool Token\+::is\+\_\+regular\+\_\+expression\+\_\+literal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_token_ad11f807932449af30ca904eac2e4a350}\label{class_token_ad11f807932449af30ca904eac2e4a350}} 
+\index{Token@{Token}!is\+\_\+string\+\_\+literal@{is\+\_\+string\+\_\+literal}}
+\index{is\+\_\+string\+\_\+literal@{is\+\_\+string\+\_\+literal}!Token@{Token}}
+\subsubsection{\texorpdfstring{is\+\_\+string\+\_\+literal()}{is\_string\_literal()}}
+{\footnotesize\ttfamily bool Token\+::is\+\_\+string\+\_\+literal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_token_a8c0612a3b0a9b6eb05dfd9e75aafcb33}\label{class_token_a8c0612a3b0a9b6eb05dfd9e75aafcb33}} 
+\index{Token@{Token}!keyword@{keyword}}
+\index{keyword@{keyword}!Token@{Token}}
+\subsubsection{\texorpdfstring{keyword()}{keyword()}}
+{\footnotesize\ttfamily \hyperlink{class_token}{Token} Token\+::keyword (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::string} \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_token_a14d7666a206aae66e9d78b0c99db9c35}\label{class_token_a14d7666a206aae66e9d78b0c99db9c35}} 
+\index{Token@{Token}!null\+\_\+literal@{null\+\_\+literal}}
+\index{null\+\_\+literal@{null\+\_\+literal}!Token@{Token}}
+\subsubsection{\texorpdfstring{null\+\_\+literal()}{null\_literal()}}
+{\footnotesize\ttfamily \hyperlink{class_token}{Token} Token\+::null\+\_\+literal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_token_ab457a4f53eef0512a5fd2ea0206e3c1e}\label{class_token_ab457a4f53eef0512a5fd2ea0206e3c1e}} 
+\index{Token@{Token}!numeric\+\_\+literal@{numeric\+\_\+literal}}
+\index{numeric\+\_\+literal@{numeric\+\_\+literal}!Token@{Token}}
+\subsubsection{\texorpdfstring{numeric\+\_\+literal()}{numeric\_literal()}}
+{\footnotesize\ttfamily \hyperlink{class_token}{Token} Token\+::numeric\+\_\+literal (\begin{DoxyParamCaption}\item[{double}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_token_a34140d60656a12bbfcdfbcf85e985133}\label{class_token_a34140d60656a12bbfcdfbcf85e985133}} 
+\index{Token@{Token}!operator bool@{operator bool}}
+\index{operator bool@{operator bool}!Token@{Token}}
+\subsubsection{\texorpdfstring{operator bool()}{operator bool()}}
+{\footnotesize\ttfamily Token\+::operator bool (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_token_a9d9ecf295a7bb23922db6ea5b9e97833}\label{class_token_a9d9ecf295a7bb23922db6ea5b9e97833}} 
+\index{Token@{Token}!operator double@{operator double}}
+\index{operator double@{operator double}!Token@{Token}}
+\subsubsection{\texorpdfstring{operator double()}{operator double()}}
+{\footnotesize\ttfamily Token\+::operator double (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_token_a37a03ca940a3abaec1491c9306bafa2a}\label{class_token_a37a03ca940a3abaec1491c9306bafa2a}} 
+\index{Token@{Token}!operator std\+::string@{operator std\+::string}}
+\index{operator std\+::string@{operator std\+::string}!Token@{Token}}
+\subsubsection{\texorpdfstring{operator std\+::string()}{operator std::string()}}
+{\footnotesize\ttfamily Token\+::operator \textbf{ std\+::string} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_token_a4a746b837b7c624604a093eef1e88b12}\label{class_token_a4a746b837b7c624604a093eef1e88b12}} 
+\index{Token@{Token}!operator std\+::u16string@{operator std\+::u16string}}
+\index{operator std\+::u16string@{operator std\+::u16string}!Token@{Token}}
+\subsubsection{\texorpdfstring{operator std\+::u16string()}{operator std::u16string()}}
+{\footnotesize\ttfamily Token\+::operator \textbf{ std\+::u16string} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_token_a302f8febd87a9cca349ba76dfd782548}\label{class_token_a302f8febd87a9cca349ba76dfd782548}} 
+\index{Token@{Token}!operator=@{operator=}}
+\index{operator=@{operator=}!Token@{Token}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{class_token}{Token}\& Token\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{class_token}{Token} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\mbox{\Hypertarget{class_token_a4f45441b8d2dfe881c448377d4ca2cd4}\label{class_token_a4f45441b8d2dfe881c448377d4ca2cd4}} 
+\index{Token@{Token}!operator=@{operator=}}
+\index{operator=@{operator=}!Token@{Token}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{class_token}{Token}\& Token\+::operator= (\begin{DoxyParamCaption}\item[{\hyperlink{class_token}{Token} \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\mbox{\Hypertarget{class_token_a20c14983ac6c11ffb89135e2cd91169f}\label{class_token_a20c14983ac6c11ffb89135e2cd91169f}} 
+\index{Token@{Token}!operator==@{operator==}}
+\index{operator==@{operator==}!Token@{Token}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Token\+::operator== (\begin{DoxyParamCaption}\item[{const \hyperlink{class_token}{Token} \&}]{other }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_token_a50f3ddd1f75c6ae38e0156dd16796a9e}\label{class_token_a50f3ddd1f75c6ae38e0156dd16796a9e}} 
+\index{Token@{Token}!print@{print}}
+\index{print@{print}!Token@{Token}}
+\subsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void Token\+::print (\begin{DoxyParamCaption}\item[{\textbf{ std\+::ostream} \&}]{out }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_token_aef1c084308395ed9ad7328a6aa321e5a}\label{class_token_aef1c084308395ed9ad7328a6aa321e5a}} 
+\index{Token@{Token}!punctuator@{punctuator}}
+\index{punctuator@{punctuator}!Token@{Token}}
+\subsubsection{\texorpdfstring{punctuator()}{punctuator()}}
+{\footnotesize\ttfamily \hyperlink{class_token}{Token} Token\+::punctuator (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::string} \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_token_a70cc5b1f483d5f8f58290e70867d542e}\label{class_token_a70cc5b1f483d5f8f58290e70867d542e}} 
+\index{Token@{Token}!regular\+\_\+expression\+\_\+literal@{regular\+\_\+expression\+\_\+literal}}
+\index{regular\+\_\+expression\+\_\+literal@{regular\+\_\+expression\+\_\+literal}!Token@{Token}}
+\subsubsection{\texorpdfstring{regular\+\_\+expression\+\_\+literal()}{regular\_expression\_literal()}}
+{\footnotesize\ttfamily \hyperlink{class_token}{Token} Token\+::regular\+\_\+expression\+\_\+literal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_token_a51926fd7d348479bf923c6fce7650f35}\label{class_token_a51926fd7d348479bf923c6fce7650f35}} 
+\index{Token@{Token}!string\+\_\+literal@{string\+\_\+literal}}
+\index{string\+\_\+literal@{string\+\_\+literal}!Token@{Token}}
+\subsubsection{\texorpdfstring{string\+\_\+literal()}{string\_literal()}}
+{\footnotesize\ttfamily \hyperlink{class_token}{Token} Token\+::string\+\_\+literal (\begin{DoxyParamCaption}\item[{\textbf{ std\+::u16string}}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_token_a1be97c731f423827dd4725de8eb2a41f}\label{class_token_a1be97c731f423827dd4725de8eb2a41f}} 
+\index{Token@{Token}!to\+\_\+boolean\+\_\+literal@{to\+\_\+boolean\+\_\+literal}}
+\index{to\+\_\+boolean\+\_\+literal@{to\+\_\+boolean\+\_\+literal}!Token@{Token}}
+\subsubsection{\texorpdfstring{to\+\_\+boolean\+\_\+literal()}{to\_boolean\_literal()}}
+{\footnotesize\ttfamily boost\+::optional$<$ const bool \& $>$ Token\+::to\+\_\+boolean\+\_\+literal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_token_a26d2e0e166ea03a4a7c2a7b77d456283}\label{class_token_a26d2e0e166ea03a4a7c2a7b77d456283}} 
+\index{Token@{Token}!to\+\_\+identifier@{to\+\_\+identifier}}
+\index{to\+\_\+identifier@{to\+\_\+identifier}!Token@{Token}}
+\subsubsection{\texorpdfstring{to\+\_\+identifier()}{to\_identifier()}}
+{\footnotesize\ttfamily boost\+::optional$<$ const \textbf{ std\+::u16string} \& $>$ Token\+::to\+\_\+identifier (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_token_a4438811e8b488dc71a8ae518368cc962}\label{class_token_a4438811e8b488dc71a8ae518368cc962}} 
+\index{Token@{Token}!to\+\_\+keyword@{to\+\_\+keyword}}
+\index{to\+\_\+keyword@{to\+\_\+keyword}!Token@{Token}}
+\subsubsection{\texorpdfstring{to\+\_\+keyword()}{to\_keyword()}}
+{\footnotesize\ttfamily boost\+::optional$<$ const \textbf{ std\+::string} \& $>$ Token\+::to\+\_\+keyword (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_token_a6f9a344002940cb1ee6e29a7ae9a178a}\label{class_token_a6f9a344002940cb1ee6e29a7ae9a178a}} 
+\index{Token@{Token}!to\+\_\+numeric\+\_\+literal@{to\+\_\+numeric\+\_\+literal}}
+\index{to\+\_\+numeric\+\_\+literal@{to\+\_\+numeric\+\_\+literal}!Token@{Token}}
+\subsubsection{\texorpdfstring{to\+\_\+numeric\+\_\+literal()}{to\_numeric\_literal()}}
+{\footnotesize\ttfamily boost\+::optional$<$ const double \& $>$ Token\+::to\+\_\+numeric\+\_\+literal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_token_ad68665bd46eea1e372e6ed9dade2f713}\label{class_token_ad68665bd46eea1e372e6ed9dade2f713}} 
+\index{Token@{Token}!to\+\_\+punctuator@{to\+\_\+punctuator}}
+\index{to\+\_\+punctuator@{to\+\_\+punctuator}!Token@{Token}}
+\subsubsection{\texorpdfstring{to\+\_\+punctuator()}{to\_punctuator()}}
+{\footnotesize\ttfamily boost\+::optional$<$ const \textbf{ std\+::string} \& $>$ Token\+::to\+\_\+punctuator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_token_a90405a7051a618d8f838bb2abee8709d}\label{class_token_a90405a7051a618d8f838bb2abee8709d}} 
+\index{Token@{Token}!to\+\_\+string\+\_\+literal@{to\+\_\+string\+\_\+literal}}
+\index{to\+\_\+string\+\_\+literal@{to\+\_\+string\+\_\+literal}!Token@{Token}}
+\subsubsection{\texorpdfstring{to\+\_\+string\+\_\+literal()}{to\_string\_literal()}}
+{\footnotesize\ttfamily boost\+::optional$<$ const \textbf{ std\+::u16string} \& $>$ Token\+::to\+\_\+string\+\_\+literal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_token_ae1c97965fb8e3c18c0b4e38b6d826266}\label{class_token_ae1c97965fb8e3c18c0b4e38b6d826266}} 
+\index{Token@{Token}!debug\+\_\+info@{debug\+\_\+info}}
+\index{debug\+\_\+info@{debug\+\_\+info}!Token@{Token}}
+\subsubsection{\texorpdfstring{debug\+\_\+info}{debug\_info}}
+{\footnotesize\ttfamily \textbf{ std\+::shared\+\_\+ptr}$<$\hyperlink{struct_token_1_1_debug_info}{Debug\+Info}$>$ Token\+::debug\+\_\+info}
+
+\mbox{\Hypertarget{class_token_afac81ad105ee2e0ce26fa5c9adcf8e57}\label{class_token_afac81ad105ee2e0ce26fa5c9adcf8e57}} 
+\index{Token@{Token}!preceded\+\_\+by\+\_\+line\+\_\+terminator@{preceded\+\_\+by\+\_\+line\+\_\+terminator}}
+\index{preceded\+\_\+by\+\_\+line\+\_\+terminator@{preceded\+\_\+by\+\_\+line\+\_\+terminator}!Token@{Token}}
+\subsubsection{\texorpdfstring{preceded\+\_\+by\+\_\+line\+\_\+terminator}{preceded\_by\_line\_terminator}}
+{\footnotesize\ttfamily bool Token\+::preceded\+\_\+by\+\_\+line\+\_\+terminator = false}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{token_8h}{token.\+h}\item 
+src/\hyperlink{token_8cpp}{token.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,55 @@
+.TH "PropertyAssignment" 3 "Sat Apr 29 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PropertyAssignment
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ast\&.h>\fP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum \fBKind\fP { \fBKind::INIT\fP, \fBKind::GET\fP, \fBKind::SET\fP }"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "enum \fBPropertyAssignment::Kind\fP \fBkind\fP"
+.br
+.ti -1c
+.RI "\fBPropertyName\fP \fBname\fP"
+.br
+.ti -1c
+.RI "\fBExpression\fP \fBvalue\fP"
+.br
+.in -1c
+.SH "Member Enumeration Documentation"
+.PP 
+.SS "enum \fBPropertyAssignment::Kind\fP\fC [strong]\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIINIT \fP\fP
+.TP
+\fB\fIGET \fP\fP
+.TP
+\fB\fISET \fP\fP
+.SH "Member Data Documentation"
+.PP 
+.SS "enum \fBPropertyAssignment::Kind\fP  PropertyAssignment::kind"
+
+.SS "\fBPropertyName\fP PropertyAssignment::name"
+
+.SS "\fBExpression\fP PropertyAssignment::value"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

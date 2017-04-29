@@ -16,13 +16,6 @@ class Token
   struct Keyword { std::string value; };
   struct Punctuator { std::string value; };
 
-  // struct Identifier { std::u16string value; };
-  // struct NullLiteral {};
-  // struct BooleanLiteral { bool value; };
-  // struct NumericLiteral { double value; };
-  // struct StringLiteral { std::u16string value; };
-  // struct RegularExpressionLiteral { std::u16string value; };
-
   using Value = boost::variant<
     Empty,
     Identifier,
@@ -48,6 +41,13 @@ public:
 
   bool preceded_by_line_terminator = false;
 
+  struct DebugInfo
+  {
+    virtual std::string syntax_error_at() const = 0;
+  };
+
+  std::shared_ptr<DebugInfo> debug_info;
+
   Token() = default;
   Token(const Token&) = default;
   Token(Token&&) = default;
@@ -69,6 +69,7 @@ public:
     }
   }
 
+  static Token identifier(std::string value);
   static Token identifier(std::u16string value);
   static Token keyword(const std::string& value);
   static Token punctuator(const std::string& value);
@@ -91,6 +92,16 @@ public:
 
   bool is_identifier_name() const;
 
+  bool any_of(const std::vector<Token>& tokens) const
+  {
+    return std::find(tokens.begin(), tokens.end(), *this) != tokens.end();
+  }
+
+  template <typename... Args> bool any_of(Args&&... args) const
+  {
+    return any_of(std::vector<Token> { std::forward<Args>(args)... });
+  }
+
   boost::optional<const std::u16string&> to_identifier() const;
   boost::optional<const std::string&> to_keyword() const;
   boost::optional<const std::string&> to_punctuator() const;
@@ -107,6 +118,10 @@ public:
   operator double() const;
   operator std::string() const;
   operator std::u16string() const;
+
+
+
+
 };
 
 std::ostream& operator<<(std::ostream& out, const Token& token);

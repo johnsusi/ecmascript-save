@@ -1,0 +1,126 @@
+#!/usr/bin/env js -s
+
+var buffer = '';
+
+for (var line;line = readline(); buffer += line);
+
+var estree = JSON.parse(buffer);
+
+print_ast(estree, '');
+
+function print_ast(node, indent)
+{
+  switch (node.type) {
+    case 'Program':
+      print(indent + node.type);
+      node.body.forEach(function (decl) { print_ast(decl, indent + '  ');});
+      break;
+    case 'VariableDeclaration':
+      node.declarations.forEach(function (decl) {
+        print(indent + node.kind);
+        print_ast(decl.id, indent + '  ');
+        if (decl.init) print_ast(decl.init, indent + '  ');
+      });
+      break;
+    case 'BlockStatement':
+      print(indent + node.type);
+      node.body.forEach(function (decl) { print_ast(decl, indent + '  ');});
+      break;
+    case 'EmptyStatement':
+      print(indent + node.type);
+      break;
+    case 'ExpressionStatement':
+      print(indent + node.type);
+      print_ast(node.expression, indent + '  ');
+      break;
+    case 'IfStatement':
+      print(indent + node.type);
+      print_ast(node.test, indent + '  ');
+      print_ast(node.consequent, indent + '  ');
+      if (node.alternate) print_ast(node.alternate, indent + '  ');
+      break;
+    case 'DoWhileStatement':
+      print(indent + node.type);
+      break;
+    case 'WhileStatement':
+      print(indent + node.type);
+      break;
+    case 'ForStatement':
+      print(indent + node.type);
+      break;
+    case 'ForInStatement':
+      print(indent + node.type);
+      break;
+    case 'ContinueStatement':
+      print(indent + node.type);
+      break;
+    case 'BreakStatement':
+      print(indent + node.type);
+      break;
+    case 'ReturnStatement':
+      print(indent + node.type);
+      break;
+    case 'WithStatement':
+      print(indent + node.type);
+      break;
+    case 'LabeledStatement':
+      print(indent + node.type);
+      break;
+    case 'SwitchStatement':
+      print(indent + node.type);
+      break;
+    case 'ThrowStatement':
+      print(indent + node.type);
+      print_ast(node.argument, indent + '  ');
+      break;
+    case 'TryStatement':
+      print(indent + node.type);
+      break;
+    case 'DebuggerStatement':
+      print(indent + node.type);
+      break;
+
+    case 'BinaryExpression':
+      print(indent + node.operator);
+      print_ast(node.left, indent + '  ');
+      print_ast(node.right, indent + '  ');
+      break;
+    case 'UnaryExpression':
+      print(indent + node.operator);
+      print_ast(node.argument, indent + '  ');
+      break;
+    case 'UpdateExpression':
+      print(indent + node.operator + '(int)');
+      print_ast(node.argument, indent + '  ');
+      break;
+    case 'AssignmentExpression':
+      print(indent + node.operator);
+      print_ast(node.left, indent + '  ');
+      print_ast(node.right, indent + '  ');
+      break;
+    case 'MemberExpression':
+      print(indent + '.');
+      print_ast(node.object, indent + '  ');
+      print_ast(node.property, indent + '  ');
+      break;
+    case 'CallExpression':
+      print(indent + '()');
+      print_ast(node.callee, indent + '  ');
+      node.arguments.forEach( function(child) {
+        print_ast(child, indent + '  ');
+      });
+      break;
+    case 'Identifier':
+      print(indent + node.name);
+      break;
+    case 'Literal':
+      print(indent + JSON.stringify(node.value));
+      break;
+    default:
+      print(indent + node.type + " (unknown)");
+      print(JSON.stringify(node, null, 2));
+      break;
+  }
+}
+
+

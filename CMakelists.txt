@@ -33,6 +33,7 @@ include_directories(
 
 set(SOURCES
   src/ast.cpp
+  src/eval.cpp
   src/input_element.cpp
   src/lexer.cpp
   src/matcher.cpp

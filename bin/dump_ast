@@ -1,6 +1,9 @@
 #!/usr/bin/env js -s
 
 var source = arguments.join(' ');
+if (source.length == 0)
+  for (var line;(line = readline()) != null ; source += line, source += "\n");
+
 var program = Reflect.parse(source, {
   loc: false,
 });

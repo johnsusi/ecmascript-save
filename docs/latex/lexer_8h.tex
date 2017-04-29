@@ -1,0 +1,99 @@
+\hypertarget{lexer_8h}{}\section{src/lexer.h File Reference}
+\label{lexer_8h}\index{src/lexer.\+h@{src/lexer.\+h}}
+{\ttfamily \#include \char`\"{}lexical\+\_\+grammar.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$iterator$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+Include dependency graph for lexer.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lexer_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lexer_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_basic_lexer}{Basic\+Lexer$<$ T $>$}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{lexer_8h_a6159037849b745bfdf401cf526bd22dd}{Lexer} = \hyperlink{class_basic_lexer}{Basic\+Lexer}$<$ char16\+\_\+t $>$
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ std\+::u16string} \hyperlink{lexer_8h_a06f9be64dcc8a9008c6c29fa697b4b6f}{convert\+\_\+utf8\+\_\+to\+\_\+utf16} (const \textbf{ std\+::string} \&)
+\item 
+{\footnotesize template$<$typename It $>$ }\\auto \hyperlink{lexer_8h_aa61fc3df17fb6915091588100a295e80}{make\+\_\+lexer} (It f, It l)
+\item 
+{\footnotesize template$<$typename Cont $>$ }\\auto \hyperlink{lexer_8h_a04a7b500af7a7349381312aca39bd58b}{make\+\_\+lexer} (Cont \&\&cont)
+\item 
+{\footnotesize template$<$typename T $>$ }\\bool \hyperlink{lexer_8h_a10aa71ef1572d5ee6c97a3660d5c2a0f}{operator==} (const \hyperlink{class_basic_lexer}{Basic\+Lexer}$<$ T $>$ \&lhs, const \hyperlink{class_basic_lexer}{Basic\+Lexer}$<$ T $>$ \&rhs)
+\item 
+{\footnotesize template$<$typename T $>$ }\\bool \hyperlink{lexer_8h_a3937a7e2d467c3a4a2b6d2dfced26c23}{operator!=} (const \hyperlink{class_basic_lexer}{Basic\+Lexer}$<$ T $>$ \&lhs, const \hyperlink{class_basic_lexer}{Basic\+Lexer}$<$ T $>$ \&rhs)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\textbf{ std\+::ostream} \& \hyperlink{lexer_8h_a808a54e82f96ef7e35d10b7393837750}{operator$<$$<$} (\textbf{ std\+::ostream} \&out, const \hyperlink{class_basic_lexer}{Basic\+Lexer}$<$ T $>$ \&lexer)
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{lexer_8h_a6159037849b745bfdf401cf526bd22dd}\label{lexer_8h_a6159037849b745bfdf401cf526bd22dd}} 
+\index{lexer.\+h@{lexer.\+h}!Lexer@{Lexer}}
+\index{Lexer@{Lexer}!lexer.\+h@{lexer.\+h}}
+\subsubsection{\texorpdfstring{Lexer}{Lexer}}
+{\footnotesize\ttfamily using \hyperlink{lexer_8h_a6159037849b745bfdf401cf526bd22dd}{Lexer} =  \hyperlink{class_basic_lexer}{Basic\+Lexer}$<$char16\+\_\+t$>$}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{lexer_8h_a06f9be64dcc8a9008c6c29fa697b4b6f}\label{lexer_8h_a06f9be64dcc8a9008c6c29fa697b4b6f}} 
+\index{lexer.\+h@{lexer.\+h}!convert\+\_\+utf8\+\_\+to\+\_\+utf16@{convert\+\_\+utf8\+\_\+to\+\_\+utf16}}
+\index{convert\+\_\+utf8\+\_\+to\+\_\+utf16@{convert\+\_\+utf8\+\_\+to\+\_\+utf16}!lexer.\+h@{lexer.\+h}}
+\subsubsection{\texorpdfstring{convert\+\_\+utf8\+\_\+to\+\_\+utf16()}{convert\_utf8\_to\_utf16()}}
+{\footnotesize\ttfamily \textbf{ std\+::u16string} convert\+\_\+utf8\+\_\+to\+\_\+utf16 (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::string} \&}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexer_8h_aa61fc3df17fb6915091588100a295e80}\label{lexer_8h_aa61fc3df17fb6915091588100a295e80}} 
+\index{lexer.\+h@{lexer.\+h}!make\+\_\+lexer@{make\+\_\+lexer}}
+\index{make\+\_\+lexer@{make\+\_\+lexer}!lexer.\+h@{lexer.\+h}}
+\subsubsection{\texorpdfstring{make\+\_\+lexer()}{make\_lexer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename It $>$ \\
+auto make\+\_\+lexer (\begin{DoxyParamCaption}\item[{It}]{f,  }\item[{It}]{l }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexer_8h_a04a7b500af7a7349381312aca39bd58b}\label{lexer_8h_a04a7b500af7a7349381312aca39bd58b}} 
+\index{lexer.\+h@{lexer.\+h}!make\+\_\+lexer@{make\+\_\+lexer}}
+\index{make\+\_\+lexer@{make\+\_\+lexer}!lexer.\+h@{lexer.\+h}}
+\subsubsection{\texorpdfstring{make\+\_\+lexer()}{make\_lexer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Cont $>$ \\
+auto make\+\_\+lexer (\begin{DoxyParamCaption}\item[{Cont \&\&}]{cont }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexer_8h_a3937a7e2d467c3a4a2b6d2dfced26c23}\label{lexer_8h_a3937a7e2d467c3a4a2b6d2dfced26c23}} 
+\index{lexer.\+h@{lexer.\+h}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!lexer.\+h@{lexer.\+h}}
+\subsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool operator!= (\begin{DoxyParamCaption}\item[{const \hyperlink{class_basic_lexer}{Basic\+Lexer}$<$ T $>$ \&}]{lhs,  }\item[{const \hyperlink{class_basic_lexer}{Basic\+Lexer}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexer_8h_a808a54e82f96ef7e35d10b7393837750}\label{lexer_8h_a808a54e82f96ef7e35d10b7393837750}} 
+\index{lexer.\+h@{lexer.\+h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!lexer.\+h@{lexer.\+h}}
+\subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\textbf{ std\+::ostream}\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{\textbf{ std\+::ostream} \&}]{out,  }\item[{const \hyperlink{class_basic_lexer}{Basic\+Lexer}$<$ T $>$ \&}]{lexer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexer_8h_a10aa71ef1572d5ee6c97a3660d5c2a0f}\label{lexer_8h_a10aa71ef1572d5ee6c97a3660d5c2a0f}} 
+\index{lexer.\+h@{lexer.\+h}!operator==@{operator==}}
+\index{operator==@{operator==}!lexer.\+h@{lexer.\+h}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool operator== (\begin{DoxyParamCaption}\item[{const \hyperlink{class_basic_lexer}{Basic\+Lexer}$<$ T $>$ \&}]{lhs,  }\item[{const \hyperlink{class_basic_lexer}{Basic\+Lexer}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+

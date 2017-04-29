@@ -1,0 +1,383 @@
+.TH "LexicalGrammar< T >" 3 "Sat Apr 29 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LexicalGrammar< T >
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <lexical_grammar\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "template<typename It > \fBLexicalGrammar\fP (It begin, It end)"
+.br
+.ti -1c
+.RI "void \fBsyntax_error\fP ()"
+.br
+.ti -1c
+.RI "bool \fBsource_character\fP ()"
+.br
+.ti -1c
+.RI "\fBInputElement\fP \fBinput_element_div\fP ()"
+.br
+.ti -1c
+.RI "\fBInputElement\fP \fBinput_element_reg_exp\fP ()"
+.br
+.ti -1c
+.RI "bool \fBwhite_space\fP ()"
+.br
+.ti -1c
+.RI "bool \fBline_terminator\fP ()"
+.br
+.ti -1c
+.RI "bool \fBline_terminator_sequence\fP ()"
+.br
+.ti -1c
+.RI "bool \fBcomment\fP ()"
+.br
+.ti -1c
+.RI "bool \fBmulti_line_comment\fP ()"
+.br
+.ti -1c
+.RI "bool \fBmulti_line_comment_chars\fP ()"
+.br
+.ti -1c
+.RI "bool \fBmulti_line_comment_chars_opt\fP ()"
+.br
+.ti -1c
+.RI "bool \fBpost_asterisk_comment_chars\fP ()"
+.br
+.ti -1c
+.RI "bool \fBmulti_line_not_asterisk_char\fP ()"
+.br
+.ti -1c
+.RI "bool \fBmulti_line_not_forward_slash_or_asterisk_char\fP ()"
+.br
+.ti -1c
+.RI "bool \fBsingle_line_comment\fP ()"
+.br
+.ti -1c
+.RI "bool \fBsingle_line_comment_chars\fP ()"
+.br
+.ti -1c
+.RI "bool \fBsingle_line_comment_char\fP ()"
+.br
+.ti -1c
+.RI "bool \fBtoken\fP ()"
+.br
+.ti -1c
+.RI "bool \fBidentifier_name\fP ()"
+.br
+.ti -1c
+.RI "bool \fBidentifier_start\fP ()"
+.br
+.ti -1c
+.RI "bool \fBidentifier_part\fP ()"
+.br
+.ti -1c
+.RI "bool \fBunicode_letter\fP ()"
+.br
+.ti -1c
+.RI "bool \fBunicode_combining_mark\fP ()"
+.br
+.ti -1c
+.RI "bool \fBunicode_digit\fP ()"
+.br
+.ti -1c
+.RI "bool \fBunicode_connector_punctuation\fP ()"
+.br
+.ti -1c
+.RI "bool \fBreserved_word\fP ()"
+.br
+.ti -1c
+.RI "bool \fBkeyword\fP ()"
+.br
+.ti -1c
+.RI "bool \fBfuture_reserved_word\fP ()"
+.br
+.ti -1c
+.RI "bool \fBpunctuator\fP ()"
+.br
+.ti -1c
+.RI "bool \fBdiv_punctuator\fP ()"
+.br
+.ti -1c
+.RI "bool \fBliteral\fP ()"
+.br
+.ti -1c
+.RI "bool \fBnull_literal\fP ()"
+.br
+.ti -1c
+.RI "bool \fBboolean_literal\fP ()"
+.br
+.ti -1c
+.RI "bool \fBnumeric_literal\fP ()"
+.br
+.ti -1c
+.RI "bool \fBdecimal_literal\fP ()"
+.br
+.ti -1c
+.RI "bool \fBdecimal_integer_literal\fP ()"
+.br
+.ti -1c
+.RI "bool \fBdecimal_digits\fP ()"
+.br
+.ti -1c
+.RI "bool \fBdecimal_digit\fP ()"
+.br
+.ti -1c
+.RI "bool \fBexponent_part\fP ()"
+.br
+.ti -1c
+.RI "bool \fBexponent_indicator\fP ()"
+.br
+.ti -1c
+.RI "bool \fBsigned_integer\fP ()"
+.br
+.ti -1c
+.RI "bool \fBhex_integer_literal\fP ()"
+.br
+.ti -1c
+.RI "bool \fBhex_digits\fP ()"
+.br
+.ti -1c
+.RI "bool \fBhex_digit\fP ()"
+.br
+.ti -1c
+.RI "bool \fBstring_literal\fP ()"
+.br
+.ti -1c
+.RI "bool \fBdouble_string_characters\fP ()"
+.br
+.ti -1c
+.RI "bool \fBsingle_string_characters\fP ()"
+.br
+.ti -1c
+.RI "bool \fBdouble_string_character\fP ()"
+.br
+.ti -1c
+.RI "bool \fBsingle_string_character\fP ()"
+.br
+.ti -1c
+.RI "bool \fBescape_sequence\fP ()"
+.br
+.ti -1c
+.RI "bool \fBcharacter_escape_sequence\fP ()"
+.br
+.ti -1c
+.RI "bool \fBsingle_escape_character\fP ()"
+.br
+.ti -1c
+.RI "bool \fBnon_escape_character\fP ()"
+.br
+.ti -1c
+.RI "bool \fBescape_character\fP ()"
+.br
+.ti -1c
+.RI "bool \fBhex_escape_sequence\fP ()"
+.br
+.ti -1c
+.RI "bool \fBunicode_escape_sequence\fP ()"
+.br
+.ti -1c
+.RI "bool \fBregular_expression_literal\fP ()"
+.br
+.ti -1c
+.RI "bool \fBregular_expression_body\fP ()"
+.br
+.ti -1c
+.RI "bool \fBregular_expression_chars\fP ()"
+.br
+.ti -1c
+.RI "bool \fBregular_expression_first_char\fP ()"
+.br
+.ti -1c
+.RI "bool \fBregular_expression_char\fP ()"
+.br
+.ti -1c
+.RI "bool \fBregular_expression_backslash_sequence\fP ()"
+.br
+.ti -1c
+.RI "bool \fBregular_expression_non_terminator\fP ()"
+.br
+.ti -1c
+.RI "bool \fBregular_expression_class\fP ()"
+.br
+.ti -1c
+.RI "bool \fBregular_expression_class_chars\fP ()"
+.br
+.ti -1c
+.RI "bool \fBregular_expression_class_char\fP ()"
+.br
+.ti -1c
+.RI "bool \fBregular_expression_flags\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBstd::u16string\fP \fBbuffer\fP"
+.br
+.ti -1c
+.RI "\fBMatcher\fP< T, std::u16string::const_iterator > \fBmatch\fP"
+.br
+.ti -1c
+.RI "\fBToken\fP \fBtoken_value\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<typename T > template<typename It > \fBLexicalGrammar\fP< T >::\fBLexicalGrammar\fP (It begin, It end)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::boolean_literal ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::character_escape_sequence ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::comment ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::decimal_digit ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::decimal_digits ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::decimal_integer_literal ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::decimal_literal ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::div_punctuator ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::double_string_character ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::double_string_characters ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::escape_character ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::escape_sequence ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::exponent_indicator ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::exponent_part ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::future_reserved_word ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::hex_digit ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::hex_digits ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::hex_escape_sequence ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::hex_integer_literal ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::identifier_name ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::identifier_part ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::identifier_start ()\fC [inline]\fP"
+
+.SS "template<typename T > \fBInputElement\fP \fBLexicalGrammar\fP< T >::input_element_div ()\fC [inline]\fP"
+
+.SS "template<typename T > \fBInputElement\fP \fBLexicalGrammar\fP< T >::input_element_reg_exp ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::keyword ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::line_terminator ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::line_terminator_sequence ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::literal ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::multi_line_comment ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::multi_line_comment_chars ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::multi_line_comment_chars_opt ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::multi_line_not_asterisk_char ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::multi_line_not_forward_slash_or_asterisk_char ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::non_escape_character ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::null_literal ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::numeric_literal ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::post_asterisk_comment_chars ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::punctuator ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::regular_expression_backslash_sequence ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::regular_expression_body ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::regular_expression_char ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::regular_expression_chars ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::regular_expression_class ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::regular_expression_class_char ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::regular_expression_class_chars ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::regular_expression_first_char ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::regular_expression_flags ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::regular_expression_literal ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::regular_expression_non_terminator ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::reserved_word ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::signed_integer ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::single_escape_character ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::single_line_comment ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::single_line_comment_char ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::single_line_comment_chars ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::single_string_character ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::single_string_characters ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::source_character ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::string_literal ()\fC [inline]\fP"
+
+.SS "template<typename T > void \fBLexicalGrammar\fP< T >::syntax_error ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::token ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::unicode_combining_mark ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::unicode_connector_punctuation ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::unicode_digit ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::unicode_escape_sequence ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::unicode_letter ()\fC [inline]\fP"
+
+.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::white_space ()\fC [inline]\fP"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "template<typename T > \fBstd::u16string\fP \fBLexicalGrammar\fP< T >::buffer"
+
+.SS "template<typename T > \fBMatcher\fP<T, std::u16string::const_iterator> \fBLexicalGrammar\fP< T >::match"
+
+.SS "template<typename T > \fBToken\fP \fBLexicalGrammar\fP< T >::token_value"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

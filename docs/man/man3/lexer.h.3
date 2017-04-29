@@ -1,0 +1,76 @@
+.TH "src/lexer.h" 3 "Sat Apr 29 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/lexer.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'lexical_grammar\&.h'\fP
+.br
+\fC#include <algorithm>\fP
+.br
+\fC#include <iterator>\fP
+.br
+\fC#include <string>\fP
+.br
+\fC#include <vector>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBBasicLexer< T >\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "using \fBLexer\fP = \fBBasicLexer\fP< char16_t >"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBstd::u16string\fP \fBconvert_utf8_to_utf16\fP (const \fBstd::string\fP &)"
+.br
+.ti -1c
+.RI "template<typename It > auto \fBmake_lexer\fP (It f, It l)"
+.br
+.ti -1c
+.RI "template<typename Cont > auto \fBmake_lexer\fP (Cont &&cont)"
+.br
+.ti -1c
+.RI "template<typename T > bool \fBoperator==\fP (const \fBBasicLexer\fP< T > &lhs, const \fBBasicLexer\fP< T > &rhs)"
+.br
+.ti -1c
+.RI "template<typename T > bool \fBoperator!=\fP (const \fBBasicLexer\fP< T > &lhs, const \fBBasicLexer\fP< T > &rhs)"
+.br
+.ti -1c
+.RI "template<typename T > \fBstd::ostream\fP & \fBoperator<<\fP (\fBstd::ostream\fP &out, const \fBBasicLexer\fP< T > &lexer)"
+.br
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "using \fBLexer\fP =  \fBBasicLexer\fP<char16_t>"
+
+.SH "Function Documentation"
+.PP 
+.SS "\fBstd::u16string\fP convert_utf8_to_utf16 (const \fBstd::string\fP &)"
+
+.SS "template<typename It > auto make_lexer (It f, It l)"
+
+.SS "template<typename Cont > auto make_lexer (Cont && cont)"
+
+.SS "template<typename T > bool operator!= (const \fBBasicLexer\fP< T > & lhs, const \fBBasicLexer\fP< T > & rhs)"
+
+.SS "template<typename T > \fBstd::ostream\fP& operator<< (\fBstd::ostream\fP & out, const \fBBasicLexer\fP< T > & lexer)"
+
+.SS "template<typename T > bool operator== (const \fBBasicLexer\fP< T > & lhs, const \fBBasicLexer\fP< T > & rhs)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

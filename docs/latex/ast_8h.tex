@@ -1,0 +1,244 @@
+\hypertarget{ast_8h}{}\section{src/ast.h File Reference}
+\label{ast_8h}\index{src/ast.\+h@{src/ast.\+h}}
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$boost/optional.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/variant.\+hpp$>$}\newline
+Include dependency graph for ast.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=349pt]{ast_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ast_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_this}{This}
+\item 
+struct \hyperlink{struct_identifier}{Identifier}
+\item 
+struct \hyperlink{struct_null_literal}{Null\+Literal}
+\item 
+struct \hyperlink{struct_boolean_literal}{Boolean\+Literal}
+\item 
+struct \hyperlink{struct_numeric_literal}{Numeric\+Literal}
+\item 
+struct \hyperlink{struct_string_literal}{String\+Literal}
+\item 
+struct \hyperlink{struct_regular_expression_literal}{Regular\+Expression\+Literal}
+\item 
+struct \hyperlink{struct_property_assignment}{Property\+Assignment}
+\item 
+struct \hyperlink{struct_array_literal}{Array\+Literal}
+\item 
+struct \hyperlink{struct_object_literal}{Object\+Literal}
+\item 
+struct \hyperlink{struct_member_expression}{Member\+Expression}
+\item 
+struct \hyperlink{struct_arguments}{Arguments}
+\item 
+struct \hyperlink{struct_new_expression}{New\+Expression}
+\item 
+struct \hyperlink{struct_call_expression}{Call\+Expression}
+\item 
+struct \hyperlink{struct_postfix_expression}{Postfix\+Expression}
+\item 
+struct \hyperlink{struct_unary_expression}{Unary\+Expression}
+\item 
+struct \hyperlink{struct_binary_expression}{Binary\+Expression}
+\item 
+struct \hyperlink{struct_conditional_expression}{Conditional\+Expression}
+\item 
+struct \hyperlink{struct_variable_declaration}{Variable\+Declaration}
+\item 
+struct \hyperlink{struct_block}{Block}
+\item 
+struct \hyperlink{struct_variable_statement}{Variable\+Statement}
+\item 
+struct \hyperlink{struct_empty_statement}{Empty\+Statement}
+\item 
+struct \hyperlink{struct_expression_statement}{Expression\+Statement}
+\item 
+struct \hyperlink{struct_if_statement}{If\+Statement}
+\item 
+struct \hyperlink{struct_do_while_statement}{Do\+While\+Statement}
+\item 
+struct \hyperlink{struct_while_statement}{While\+Statement}
+\item 
+struct \hyperlink{struct_for_statement}{For\+Statement}
+\item 
+struct \hyperlink{struct_for_in_statement}{For\+In\+Statement}
+\item 
+struct \hyperlink{struct_continue_statement}{Continue\+Statement}
+\item 
+struct \hyperlink{struct_break_statement}{Break\+Statement}
+\item 
+struct \hyperlink{struct_return_statement}{Return\+Statement}
+\item 
+struct \hyperlink{struct_with_statement}{With\+Statement}
+\item 
+struct \hyperlink{struct_labelled_statement}{Labelled\+Statement}
+\item 
+struct \hyperlink{struct_switch_statement}{Switch\+Statement}
+\item 
+struct \hyperlink{struct_throw_statement}{Throw\+Statement}
+\item 
+struct \hyperlink{struct_try_statement}{Try\+Statement}
+\item 
+struct \hyperlink{struct_debugger_statement}{Debugger\+Statement}
+\item 
+struct \hyperlink{struct_function_body}{Function\+Body}
+\item 
+struct \hyperlink{struct_function_declaration}{Function\+Declaration}
+\item 
+struct \hyperlink{struct_function_expression}{Function\+Expression}
+\item 
+struct \hyperlink{struct_program}{Program}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{ast_8h_a580efb552c5778bcd125c138c9a3626e}{Literal} = boost\+::variant$<$ \hyperlink{struct_null_literal}{Null\+Literal}, \hyperlink{struct_boolean_literal}{Boolean\+Literal}, \hyperlink{struct_numeric_literal}{Numeric\+Literal}, \hyperlink{struct_string_literal}{String\+Literal}, \hyperlink{struct_regular_expression_literal}{Regular\+Expression\+Literal} $>$
+\item 
+using \hyperlink{ast_8h_a4d4eb88520edbd246e7c873f77871741}{Primary\+Expression} = boost\+::variant$<$ \hyperlink{struct_this}{This}, \hyperlink{struct_identifier}{Identifier}, \hyperlink{ast_8h_a580efb552c5778bcd125c138c9a3626e}{Literal}, boost\+::recursive\+\_\+wrapper$<$ \hyperlink{struct_array_literal}{Array\+Literal} $>$, boost\+::recursive\+\_\+wrapper$<$ \hyperlink{struct_object_literal}{Object\+Literal} $>$ $>$
+\item 
+using \hyperlink{ast_8h_a4cb273a4d960cd13ea17d08f254493e8}{Expression} = boost\+::variant$<$ \hyperlink{struct_this}{This}, \hyperlink{struct_identifier}{Identifier}, boost\+::recursive\+\_\+wrapper$<$ \hyperlink{struct_array_literal}{Array\+Literal} $>$, boost\+::recursive\+\_\+wrapper$<$ \hyperlink{struct_object_literal}{Object\+Literal} $>$, \hyperlink{struct_null_literal}{Null\+Literal}, \hyperlink{struct_boolean_literal}{Boolean\+Literal}, \hyperlink{struct_numeric_literal}{Numeric\+Literal}, \hyperlink{struct_string_literal}{String\+Literal}, \hyperlink{struct_regular_expression_literal}{Regular\+Expression\+Literal}, boost\+::recursive\+\_\+wrapper$<$ \hyperlink{struct_member_expression}{Member\+Expression} $>$, boost\+::recursive\+\_\+wrapper$<$ \hyperlink{struct_new_expression}{New\+Expression} $>$, boost\+::recursive\+\_\+wrapper$<$ \hyperlink{struct_call_expression}{Call\+Expression} $>$, boost\+::recursive\+\_\+wrapper$<$ \hyperlink{struct_postfix_expression}{Postfix\+Expression} $>$, boost\+::recursive\+\_\+wrapper$<$ \hyperlink{struct_unary_expression}{Unary\+Expression} $>$, boost\+::recursive\+\_\+wrapper$<$ \hyperlink{struct_binary_expression}{Binary\+Expression} $>$, boost\+::recursive\+\_\+wrapper$<$ \hyperlink{struct_conditional_expression}{Conditional\+Expression} $>$, boost\+::recursive\+\_\+wrapper$<$ \hyperlink{struct_arguments}{Arguments} $>$ $>$
+\item 
+using \hyperlink{ast_8h_a3a703c4a41dea6908048c9dd291d83b1}{Property\+Name} = boost\+::variant$<$ \hyperlink{struct_string_literal}{String\+Literal}, \hyperlink{struct_numeric_literal}{Numeric\+Literal} $>$
+\item 
+using \hyperlink{ast_8h_a31fcc1ca3d32657e8eb6f1433e97d2c9}{Argument\+List} = \textbf{ std\+::vector}$<$ \hyperlink{ast_8h_a4cb273a4d960cd13ea17d08f254493e8}{Expression} $>$
+\item 
+using \hyperlink{ast_8h_aec22eb11f4589548d456f7ffdb23ccdf}{Variable\+Declaration\+List} = \textbf{ std\+::vector}$<$ \hyperlink{struct_variable_declaration}{Variable\+Declaration} $>$
+\item 
+using \hyperlink{ast_8h_ae735923b4c5723e3f23017d7962829ef}{Iteration\+Statement} = boost\+::variant$<$ boost\+::recursive\+\_\+wrapper$<$ \hyperlink{struct_do_while_statement}{Do\+While\+Statement} $>$, boost\+::recursive\+\_\+wrapper$<$ \hyperlink{struct_while_statement}{While\+Statement} $>$, boost\+::recursive\+\_\+wrapper$<$ \hyperlink{struct_for_statement}{For\+Statement} $>$, boost\+::recursive\+\_\+wrapper$<$ \hyperlink{struct_for_in_statement}{For\+In\+Statement} $>$ $>$
+\item 
+using \hyperlink{ast_8h_a8b6ddf3732a0acd77e6b2509fb21a5fd}{Statement} = boost\+::variant$<$ boost\+::recursive\+\_\+wrapper$<$ \hyperlink{struct_block}{Block} $>$, boost\+::recursive\+\_\+wrapper$<$ \hyperlink{struct_variable_statement}{Variable\+Statement} $>$, boost\+::recursive\+\_\+wrapper$<$ \hyperlink{struct_empty_statement}{Empty\+Statement} $>$, boost\+::recursive\+\_\+wrapper$<$ \hyperlink{struct_expression_statement}{Expression\+Statement} $>$, boost\+::recursive\+\_\+wrapper$<$ \hyperlink{struct_if_statement}{If\+Statement} $>$, boost\+::recursive\+\_\+wrapper$<$ \hyperlink{struct_do_while_statement}{Do\+While\+Statement} $>$, boost\+::recursive\+\_\+wrapper$<$ \hyperlink{struct_while_statement}{While\+Statement} $>$, boost\+::recursive\+\_\+wrapper$<$ \hyperlink{struct_for_statement}{For\+Statement} $>$, boost\+::recursive\+\_\+wrapper$<$ \hyperlink{struct_for_in_statement}{For\+In\+Statement} $>$, boost\+::recursive\+\_\+wrapper$<$ \hyperlink{struct_continue_statement}{Continue\+Statement} $>$, boost\+::recursive\+\_\+wrapper$<$ \hyperlink{struct_break_statement}{Break\+Statement} $>$, boost\+::recursive\+\_\+wrapper$<$ \hyperlink{struct_return_statement}{Return\+Statement} $>$, boost\+::recursive\+\_\+wrapper$<$ \hyperlink{struct_with_statement}{With\+Statement} $>$, boost\+::recursive\+\_\+wrapper$<$ \hyperlink{struct_labelled_statement}{Labelled\+Statement} $>$, boost\+::recursive\+\_\+wrapper$<$ \hyperlink{struct_switch_statement}{Switch\+Statement} $>$, boost\+::recursive\+\_\+wrapper$<$ \hyperlink{struct_throw_statement}{Throw\+Statement} $>$, boost\+::recursive\+\_\+wrapper$<$ \hyperlink{struct_try_statement}{Try\+Statement} $>$, boost\+::recursive\+\_\+wrapper$<$ \hyperlink{struct_debugger_statement}{Debugger\+Statement} $>$ $>$
+\item 
+using \hyperlink{ast_8h_af5d265e5ec7c64e6aedeafa391d8cc47}{Statement\+List} = \textbf{ std\+::vector}$<$ \hyperlink{ast_8h_a8b6ddf3732a0acd77e6b2509fb21a5fd}{Statement} $>$
+\item 
+using \hyperlink{ast_8h_a0286306b56a6cd625670c4764991903e}{Source\+Element} = boost\+::variant$<$ \hyperlink{ast_8h_a8b6ddf3732a0acd77e6b2509fb21a5fd}{Statement}, boost\+::recursive\+\_\+wrapper$<$ \hyperlink{struct_function_declaration}{Function\+Declaration} $>$ $>$
+\item 
+using \hyperlink{ast_8h_ae3267d5aa063c01bcbdeb38763a616ac}{Source\+Elements} = \textbf{ std\+::vector}$<$ \hyperlink{ast_8h_a0286306b56a6cd625670c4764991903e}{Source\+Element} $>$
+\item 
+using \hyperlink{ast_8h_ad423d9c7b02512f74f787f74587e9e76}{Formal\+Parameter\+List} = \textbf{ std\+::vector}$<$ \hyperlink{struct_identifier}{Identifier} $>$
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ std\+::string} \hyperlink{ast_8h_a41405a71855af173c03879b19c9eeec2}{normalize} (const \textbf{ std\+::string} \&)
+\item 
+\textbf{ std\+::string} \hyperlink{ast_8h_a5476ae84e7e5bc1e8aded3299249035f}{to\+\_\+string} (const \hyperlink{struct_program}{Program} \&)
+\item 
+bool \hyperlink{ast_8h_a9e4665901cc24f381779bfffe0b4b55f}{operator==} (const \hyperlink{struct_program}{Program} \&, const \textbf{ std\+::string} \&)
+\item 
+\textbf{ std\+::ostream} \& \hyperlink{ast_8h_a03ae3dbbcbfe0f0a82a18184ab950306}{operator$<$$<$} (\textbf{ std\+::ostream} \&, const \hyperlink{struct_program}{Program} \&)
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{ast_8h_a31fcc1ca3d32657e8eb6f1433e97d2c9}\label{ast_8h_a31fcc1ca3d32657e8eb6f1433e97d2c9}} 
+\index{ast.\+h@{ast.\+h}!Argument\+List@{Argument\+List}}
+\index{Argument\+List@{Argument\+List}!ast.\+h@{ast.\+h}}
+\subsubsection{\texorpdfstring{Argument\+List}{ArgumentList}}
+{\footnotesize\ttfamily using \hyperlink{ast_8h_a31fcc1ca3d32657e8eb6f1433e97d2c9}{Argument\+List} =  \textbf{ std\+::vector}$<$\hyperlink{ast_8h_a4cb273a4d960cd13ea17d08f254493e8}{Expression}$>$}
+
+\mbox{\Hypertarget{ast_8h_a4cb273a4d960cd13ea17d08f254493e8}\label{ast_8h_a4cb273a4d960cd13ea17d08f254493e8}} 
+\index{ast.\+h@{ast.\+h}!Expression@{Expression}}
+\index{Expression@{Expression}!ast.\+h@{ast.\+h}}
+\subsubsection{\texorpdfstring{Expression}{Expression}}
+{\footnotesize\ttfamily using \hyperlink{ast_8h_a4cb273a4d960cd13ea17d08f254493e8}{Expression} =  boost\+::variant$<$ \hyperlink{struct_this}{This}, \hyperlink{struct_identifier}{Identifier}, boost\+::recursive\+\_\+wrapper$<$\hyperlink{struct_array_literal}{Array\+Literal}$>$, boost\+::recursive\+\_\+wrapper$<$\hyperlink{struct_object_literal}{Object\+Literal}$>$, \hyperlink{struct_null_literal}{Null\+Literal}, \hyperlink{struct_boolean_literal}{Boolean\+Literal}, \hyperlink{struct_numeric_literal}{Numeric\+Literal}, \hyperlink{struct_string_literal}{String\+Literal}, \hyperlink{struct_regular_expression_literal}{Regular\+Expression\+Literal}, boost\+::recursive\+\_\+wrapper$<$\hyperlink{struct_member_expression}{Member\+Expression}$>$, boost\+::recursive\+\_\+wrapper$<$\hyperlink{struct_new_expression}{New\+Expression}$>$, boost\+::recursive\+\_\+wrapper$<$\hyperlink{struct_call_expression}{Call\+Expression}$>$, boost\+::recursive\+\_\+wrapper$<$\hyperlink{struct_postfix_expression}{Postfix\+Expression}$>$, boost\+::recursive\+\_\+wrapper$<$\hyperlink{struct_unary_expression}{Unary\+Expression}$>$, boost\+::recursive\+\_\+wrapper$<$\hyperlink{struct_binary_expression}{Binary\+Expression}$>$, boost\+::recursive\+\_\+wrapper$<$\hyperlink{struct_conditional_expression}{Conditional\+Expression}$>$, boost\+::recursive\+\_\+wrapper$<$\hyperlink{struct_arguments}{Arguments}$>$ $>$}
+
+\mbox{\Hypertarget{ast_8h_ad423d9c7b02512f74f787f74587e9e76}\label{ast_8h_ad423d9c7b02512f74f787f74587e9e76}} 
+\index{ast.\+h@{ast.\+h}!Formal\+Parameter\+List@{Formal\+Parameter\+List}}
+\index{Formal\+Parameter\+List@{Formal\+Parameter\+List}!ast.\+h@{ast.\+h}}
+\subsubsection{\texorpdfstring{Formal\+Parameter\+List}{FormalParameterList}}
+{\footnotesize\ttfamily using \hyperlink{ast_8h_ad423d9c7b02512f74f787f74587e9e76}{Formal\+Parameter\+List} =  \textbf{ std\+::vector}$<$\hyperlink{struct_identifier}{Identifier}$>$}
+
+\mbox{\Hypertarget{ast_8h_ae735923b4c5723e3f23017d7962829ef}\label{ast_8h_ae735923b4c5723e3f23017d7962829ef}} 
+\index{ast.\+h@{ast.\+h}!Iteration\+Statement@{Iteration\+Statement}}
+\index{Iteration\+Statement@{Iteration\+Statement}!ast.\+h@{ast.\+h}}
+\subsubsection{\texorpdfstring{Iteration\+Statement}{IterationStatement}}
+{\footnotesize\ttfamily using \hyperlink{ast_8h_ae735923b4c5723e3f23017d7962829ef}{Iteration\+Statement} =  boost\+::variant$<$ boost\+::recursive\+\_\+wrapper$<$\hyperlink{struct_do_while_statement}{Do\+While\+Statement}$>$, boost\+::recursive\+\_\+wrapper$<$\hyperlink{struct_while_statement}{While\+Statement}$>$, boost\+::recursive\+\_\+wrapper$<$\hyperlink{struct_for_statement}{For\+Statement}$>$, boost\+::recursive\+\_\+wrapper$<$\hyperlink{struct_for_in_statement}{For\+In\+Statement}$>$ $>$}
+
+\mbox{\Hypertarget{ast_8h_a580efb552c5778bcd125c138c9a3626e}\label{ast_8h_a580efb552c5778bcd125c138c9a3626e}} 
+\index{ast.\+h@{ast.\+h}!Literal@{Literal}}
+\index{Literal@{Literal}!ast.\+h@{ast.\+h}}
+\subsubsection{\texorpdfstring{Literal}{Literal}}
+{\footnotesize\ttfamily using \hyperlink{ast_8h_a580efb552c5778bcd125c138c9a3626e}{Literal} =  boost\+::variant$<$ \hyperlink{struct_null_literal}{Null\+Literal}, \hyperlink{struct_boolean_literal}{Boolean\+Literal}, \hyperlink{struct_numeric_literal}{Numeric\+Literal}, \hyperlink{struct_string_literal}{String\+Literal}, \hyperlink{struct_regular_expression_literal}{Regular\+Expression\+Literal} $>$}
+
+\mbox{\Hypertarget{ast_8h_a4d4eb88520edbd246e7c873f77871741}\label{ast_8h_a4d4eb88520edbd246e7c873f77871741}} 
+\index{ast.\+h@{ast.\+h}!Primary\+Expression@{Primary\+Expression}}
+\index{Primary\+Expression@{Primary\+Expression}!ast.\+h@{ast.\+h}}
+\subsubsection{\texorpdfstring{Primary\+Expression}{PrimaryExpression}}
+{\footnotesize\ttfamily using \hyperlink{ast_8h_a4d4eb88520edbd246e7c873f77871741}{Primary\+Expression} =  boost\+::variant$<$ \hyperlink{struct_this}{This}, \hyperlink{struct_identifier}{Identifier}, \hyperlink{ast_8h_a580efb552c5778bcd125c138c9a3626e}{Literal}, boost\+::recursive\+\_\+wrapper$<$\hyperlink{struct_array_literal}{Array\+Literal}$>$, boost\+::recursive\+\_\+wrapper$<$\hyperlink{struct_object_literal}{Object\+Literal}$>$ $>$}
+
+\mbox{\Hypertarget{ast_8h_a3a703c4a41dea6908048c9dd291d83b1}\label{ast_8h_a3a703c4a41dea6908048c9dd291d83b1}} 
+\index{ast.\+h@{ast.\+h}!Property\+Name@{Property\+Name}}
+\index{Property\+Name@{Property\+Name}!ast.\+h@{ast.\+h}}
+\subsubsection{\texorpdfstring{Property\+Name}{PropertyName}}
+{\footnotesize\ttfamily using \hyperlink{ast_8h_a3a703c4a41dea6908048c9dd291d83b1}{Property\+Name} =  boost\+::variant$<$ \hyperlink{struct_string_literal}{String\+Literal}, \hyperlink{struct_numeric_literal}{Numeric\+Literal} $>$}
+
+\mbox{\Hypertarget{ast_8h_a0286306b56a6cd625670c4764991903e}\label{ast_8h_a0286306b56a6cd625670c4764991903e}} 
+\index{ast.\+h@{ast.\+h}!Source\+Element@{Source\+Element}}
+\index{Source\+Element@{Source\+Element}!ast.\+h@{ast.\+h}}
+\subsubsection{\texorpdfstring{Source\+Element}{SourceElement}}
+{\footnotesize\ttfamily using \hyperlink{ast_8h_a0286306b56a6cd625670c4764991903e}{Source\+Element} =  boost\+::variant$<$ \hyperlink{ast_8h_a8b6ddf3732a0acd77e6b2509fb21a5fd}{Statement}, boost\+::recursive\+\_\+wrapper$<$\hyperlink{struct_function_declaration}{Function\+Declaration}$>$ $>$}
+
+\mbox{\Hypertarget{ast_8h_ae3267d5aa063c01bcbdeb38763a616ac}\label{ast_8h_ae3267d5aa063c01bcbdeb38763a616ac}} 
+\index{ast.\+h@{ast.\+h}!Source\+Elements@{Source\+Elements}}
+\index{Source\+Elements@{Source\+Elements}!ast.\+h@{ast.\+h}}
+\subsubsection{\texorpdfstring{Source\+Elements}{SourceElements}}
+{\footnotesize\ttfamily using \hyperlink{ast_8h_ae3267d5aa063c01bcbdeb38763a616ac}{Source\+Elements} =  \textbf{ std\+::vector}$<$\hyperlink{ast_8h_a0286306b56a6cd625670c4764991903e}{Source\+Element}$>$}
+
+\mbox{\Hypertarget{ast_8h_a8b6ddf3732a0acd77e6b2509fb21a5fd}\label{ast_8h_a8b6ddf3732a0acd77e6b2509fb21a5fd}} 
+\index{ast.\+h@{ast.\+h}!Statement@{Statement}}
+\index{Statement@{Statement}!ast.\+h@{ast.\+h}}
+\subsubsection{\texorpdfstring{Statement}{Statement}}
+{\footnotesize\ttfamily using \hyperlink{ast_8h_a8b6ddf3732a0acd77e6b2509fb21a5fd}{Statement} =  boost\+::variant$<$ boost\+::recursive\+\_\+wrapper$<$\hyperlink{struct_block}{Block}$>$, boost\+::recursive\+\_\+wrapper$<$\hyperlink{struct_variable_statement}{Variable\+Statement}$>$, boost\+::recursive\+\_\+wrapper$<$\hyperlink{struct_empty_statement}{Empty\+Statement}$>$, boost\+::recursive\+\_\+wrapper$<$\hyperlink{struct_expression_statement}{Expression\+Statement}$>$, boost\+::recursive\+\_\+wrapper$<$\hyperlink{struct_if_statement}{If\+Statement}$>$, boost\+::recursive\+\_\+wrapper$<$\hyperlink{struct_do_while_statement}{Do\+While\+Statement}$>$, boost\+::recursive\+\_\+wrapper$<$\hyperlink{struct_while_statement}{While\+Statement}$>$, boost\+::recursive\+\_\+wrapper$<$\hyperlink{struct_for_statement}{For\+Statement}$>$, boost\+::recursive\+\_\+wrapper$<$\hyperlink{struct_for_in_statement}{For\+In\+Statement}$>$, boost\+::recursive\+\_\+wrapper$<$\hyperlink{struct_continue_statement}{Continue\+Statement}$>$, boost\+::recursive\+\_\+wrapper$<$\hyperlink{struct_break_statement}{Break\+Statement}$>$, boost\+::recursive\+\_\+wrapper$<$\hyperlink{struct_return_statement}{Return\+Statement}$>$, boost\+::recursive\+\_\+wrapper$<$\hyperlink{struct_with_statement}{With\+Statement}$>$, boost\+::recursive\+\_\+wrapper$<$\hyperlink{struct_labelled_statement}{Labelled\+Statement}$>$, boost\+::recursive\+\_\+wrapper$<$\hyperlink{struct_switch_statement}{Switch\+Statement}$>$, boost\+::recursive\+\_\+wrapper$<$\hyperlink{struct_throw_statement}{Throw\+Statement}$>$, boost\+::recursive\+\_\+wrapper$<$\hyperlink{struct_try_statement}{Try\+Statement}$>$, boost\+::recursive\+\_\+wrapper$<$\hyperlink{struct_debugger_statement}{Debugger\+Statement}$>$ $>$}
+
+\mbox{\Hypertarget{ast_8h_af5d265e5ec7c64e6aedeafa391d8cc47}\label{ast_8h_af5d265e5ec7c64e6aedeafa391d8cc47}} 
+\index{ast.\+h@{ast.\+h}!Statement\+List@{Statement\+List}}
+\index{Statement\+List@{Statement\+List}!ast.\+h@{ast.\+h}}
+\subsubsection{\texorpdfstring{Statement\+List}{StatementList}}
+{\footnotesize\ttfamily using \hyperlink{ast_8h_af5d265e5ec7c64e6aedeafa391d8cc47}{Statement\+List} =  \textbf{ std\+::vector}$<$\hyperlink{ast_8h_a8b6ddf3732a0acd77e6b2509fb21a5fd}{Statement}$>$}
+
+\mbox{\Hypertarget{ast_8h_aec22eb11f4589548d456f7ffdb23ccdf}\label{ast_8h_aec22eb11f4589548d456f7ffdb23ccdf}} 
+\index{ast.\+h@{ast.\+h}!Variable\+Declaration\+List@{Variable\+Declaration\+List}}
+\index{Variable\+Declaration\+List@{Variable\+Declaration\+List}!ast.\+h@{ast.\+h}}
+\subsubsection{\texorpdfstring{Variable\+Declaration\+List}{VariableDeclarationList}}
+{\footnotesize\ttfamily using \hyperlink{ast_8h_aec22eb11f4589548d456f7ffdb23ccdf}{Variable\+Declaration\+List} =  \textbf{ std\+::vector}$<$\hyperlink{struct_variable_declaration}{Variable\+Declaration}$>$}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{ast_8h_a41405a71855af173c03879b19c9eeec2}\label{ast_8h_a41405a71855af173c03879b19c9eeec2}} 
+\index{ast.\+h@{ast.\+h}!normalize@{normalize}}
+\index{normalize@{normalize}!ast.\+h@{ast.\+h}}
+\subsubsection{\texorpdfstring{normalize()}{normalize()}}
+{\footnotesize\ttfamily \textbf{ std\+::string} normalize (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::string} \&}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ast_8h_a03ae3dbbcbfe0f0a82a18184ab950306}\label{ast_8h_a03ae3dbbcbfe0f0a82a18184ab950306}} 
+\index{ast.\+h@{ast.\+h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!ast.\+h@{ast.\+h}}
+\subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily \textbf{ std\+::ostream}\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{\textbf{ std\+::ostream} \&}]{,  }\item[{const \hyperlink{struct_program}{Program} \&}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ast_8h_a9e4665901cc24f381779bfffe0b4b55f}\label{ast_8h_a9e4665901cc24f381779bfffe0b4b55f}} 
+\index{ast.\+h@{ast.\+h}!operator==@{operator==}}
+\index{operator==@{operator==}!ast.\+h@{ast.\+h}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool operator== (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_program}{Program} \&}]{,  }\item[{const \textbf{ std\+::string} \&}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ast_8h_a5476ae84e7e5bc1e8aded3299249035f}\label{ast_8h_a5476ae84e7e5bc1e8aded3299249035f}} 
+\index{ast.\+h@{ast.\+h}!to\+\_\+string@{to\+\_\+string}}
+\index{to\+\_\+string@{to\+\_\+string}!ast.\+h@{ast.\+h}}
+\subsubsection{\texorpdfstring{to\+\_\+string()}{to\_string()}}
+{\footnotesize\ttfamily \textbf{ std\+::string} to\+\_\+string (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_program}{Program} \&}]{ }\end{DoxyParamCaption})}
+

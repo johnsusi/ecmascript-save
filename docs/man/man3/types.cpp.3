@@ -1,0 +1,51 @@
+.TH "src/types.cpp" 3 "Sat Apr 29 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/types.cpp
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'types\&.h'\fP
+.br
+\fC#include 'lexer\&.h'\fP
+.br
+\fC#include <limits>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBStringConverter\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBType\fP \fBToPrimitive\fP (\fBType\fP input, boost::optional< \fBType\fP > \fBpreferred_type\fP)"
+.br
+.ti -1c
+.RI "\fBBoolean\fP \fBToBoolean\fP (\fBType\fP input)"
+.br
+.ti -1c
+.RI "\fBNumber\fP \fBToNumber\fP (\fBType\fP input)"
+.br
+.ti -1c
+.RI "\fBNumber\fP \fBToInteger\fP (\fBType\fP input)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBBoolean\fP ToBoolean (\fBType\fP input)"
+
+.SS "\fBNumber\fP ToInteger (\fBType\fP input)"
+
+.SS "\fBNumber\fP ToNumber (\fBType\fP input)"
+
+.SS "\fBType\fP ToPrimitive (\fBType\fP input, boost::optional< \fBType\fP > preferred_type)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

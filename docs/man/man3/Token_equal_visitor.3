@@ -1,0 +1,41 @@
+.TH "Token::equal_visitor" 3 "Sat Apr 29 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Token::equal_visitor
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits static_visitor< bool >\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "template<typename T > auto \fBoperator()\fP (const T &lhs, const T &rhs) const \-> decltype(lhs\&.value==rhs\&.value, bool())"
+.br
+.ti -1c
+.RI "bool \fBoperator()\fP (const Empty &, const Empty &) const"
+.br
+.ti -1c
+.RI "bool \fBoperator()\fP (const \fBNullLiteral\fP &, const \fBNullLiteral\fP &) const"
+.br
+.ti -1c
+.RI "template<typename T , typename U > bool \fBoperator()\fP (const T &, const U &) const"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "template<typename T > auto Token::equal_visitor::operator() (const T & lhs, const T & rhs) const \-> decltype(lhs\&.value == rhs\&.value, bool())
+  \fC [inline]\fP"
+
+.SS "bool Token::equal_visitor::operator() (const Empty &, const Empty &) const\fC [inline]\fP"
+
+.SS "bool Token::equal_visitor::operator() (const \fBNullLiteral\fP &, const \fBNullLiteral\fP &) const\fC [inline]\fP"
+
+.SS "template<typename T , typename U > bool Token::equal_visitor::operator() (const T &, const U &) const\fC [inline]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

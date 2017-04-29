@@ -1,6 +1,7 @@
 #ifndef ECMASCRIPT_MATCHER_H
 #define ECMASCRIPT_MATCHER_H
 
+#include <iostream>
 #include <string>
 #include <type_traits>
 
@@ -58,18 +59,20 @@ public:
   }
 
   template <typename Pred>
-  bool longest_sequence(Pred&& pred)
+  auto rmatch(Pred&& pred) -> decltype(pred(), bool())
   {
-    auto i = m_cur;
-    for (auto j = m_cur;j != m_end;) {
-      m_cur = j;
-      if (pred({i, ++j})) {
-        if (j == m_end) m_cur = m_end;
-        continue;
-      }
-      break;
-    }
-    return i != m_cur;
+    auto m = m_cur;
+    if (pred()) return true;
+    return m_cur = m, false;
+  }
+
+  template <typename Pred>
+  auto rmatch(Pred&& pred) -> decltype(pred(*m_cur), bool())
+  {
+    auto m = m_cur;
+    std::cout << "rmatch: " << (m_cur == m_begin) << (m_cur == m_end) << std::endl;
+    if (m_cur != m_begin && pred(*(--m_cur))) return true;
+    return m_cur = m, false;
   }
 
   bool peek(const T& value) const
@@ -120,6 +123,11 @@ public:
     return m_cur != m_begin ? &*(m_cur - 1) : nullptr;
   }
 
+  const It matching() const
+  {
+    return m_cur;
+  }
+
   operator const T*() const { return matched(); }
   operator const T&() const
     // Dereference without a positive match is undefined
@@ -128,6 +136,7 @@ public:
   }
 
   template <typename U> operator U() const { return *matched(); }
+
 };
 
 

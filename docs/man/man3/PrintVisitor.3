@@ -1,0 +1,243 @@
+.TH "PrintVisitor" 3 "Sat Apr 29 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PrintVisitor
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits static_visitor< std::string >\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPrintVisitor\fP (\fBstd::string\fP \fBindent\fP='')"
+.br
+.ti -1c
+.RI "template<typename\&.\&.\&. Ts> \fBstd::string\fP \fBapply\fP (const boost::variant< Ts\&.\&.\&. > &value, bool inc_indent=true) const"
+.br
+.ti -1c
+.RI "template<typename T > \fBstd::string\fP \fBapply\fP (const T &value, bool inc_indent=true) const"
+.br
+.ti -1c
+.RI "template<typename T > \fBstd::string\fP \fBapply\fP (const boost::optional< T > &value, bool inc_indent=true) const"
+.br
+.ti -1c
+.RI "template<typename\&.\&.\&. Ts> \fBstd::string\fP \fBoperator()\fP (const boost::variant< Ts\&.\&.\&. > &value) const"
+.br
+.ti -1c
+.RI "template<typename T > \fBstd::string\fP \fBoperator()\fP (const \fBstd::vector\fP< T > &list) const"
+.br
+.ti -1c
+.RI "auto \fBoperator()\fP (const \fBNullLiteral\fP &literal) const"
+.br
+.ti -1c
+.RI "auto \fBoperator()\fP (const \fBBooleanLiteral\fP &literal) const"
+.br
+.ti -1c
+.RI "auto \fBoperator()\fP (const \fBNumericLiteral\fP &literal) const"
+.br
+.ti -1c
+.RI "auto \fBoperator()\fP (const \fBStringLiteral\fP &literal) const"
+.br
+.ti -1c
+.RI "auto \fBoperator()\fP (const \fBIdentifier\fP &identifier) const"
+.br
+.ti -1c
+.RI "auto \fBoperator()\fP (const \fBArguments\fP &args) const"
+.br
+.ti -1c
+.RI "auto \fBoperator()\fP (const \fBMemberExpression\fP &expr) const"
+.br
+.ti -1c
+.RI "auto \fBoperator()\fP (const \fBNewExpression\fP &expr) const"
+.br
+.ti -1c
+.RI "auto \fBoperator()\fP (const \fBCallExpression\fP &expr) const"
+.br
+.ti -1c
+.RI "auto \fBoperator()\fP (const \fBPostfixExpression\fP &expr) const"
+.br
+.ti -1c
+.RI "auto \fBoperator()\fP (const \fBUnaryExpression\fP &expr) const"
+.br
+.ti -1c
+.RI "auto \fBoperator()\fP (const \fBBinaryExpression\fP &expr) const"
+.br
+.ti -1c
+.RI "auto \fBoperator()\fP (const \fBBlock\fP &stmt) const"
+.br
+.ti -1c
+.RI "auto \fBoperator()\fP (const \fBEmptyStatement\fP &) const"
+.br
+.ti -1c
+.RI "auto \fBoperator()\fP (const \fBExpressionStatement\fP &stmt) const"
+.br
+.ti -1c
+.RI "auto \fBoperator()\fP (const \fBIfStatement\fP &stmt) const"
+.br
+.ti -1c
+.RI "auto \fBoperator()\fP (const \fBDoWhileStatement\fP &stmt) const"
+.br
+.ti -1c
+.RI "auto \fBoperator()\fP (const \fBWhileStatement\fP &stmt) const"
+.br
+.ti -1c
+.RI "auto \fBoperator()\fP (const \fBForStatement\fP &) const"
+.br
+.ti -1c
+.RI "auto \fBoperator()\fP (const \fBForInStatement\fP &) const"
+.br
+.ti -1c
+.RI "auto \fBoperator()\fP (const \fBContinueStatement\fP &stmt) const"
+.br
+.ti -1c
+.RI "auto \fBoperator()\fP (const \fBBreakStatement\fP &stmt) const"
+.br
+.ti -1c
+.RI "auto \fBoperator()\fP (const \fBReturnStatement\fP &stmt) const"
+.br
+.ti -1c
+.RI "auto \fBoperator()\fP (const \fBWithStatement\fP &stmt) const"
+.br
+.ti -1c
+.RI "auto \fBoperator()\fP (const \fBLabelledStatement\fP &stmt) const"
+.br
+.ti -1c
+.RI "auto \fBoperator()\fP (const \fBSwitchStatement\fP &stmt) const"
+.br
+.ti -1c
+.RI "auto \fBoperator()\fP (const \fBThrowStatement\fP &stmt) const"
+.br
+.ti -1c
+.RI "auto \fBoperator()\fP (const \fBTryStatement\fP &stmt) const"
+.br
+.ti -1c
+.RI "auto \fBoperator()\fP (const \fBDebuggerStatement\fP &stmt) const"
+.br
+.ti -1c
+.RI "auto \fBoperator()\fP (const \fBFunctionDeclaration\fP &decl) const"
+.br
+.ti -1c
+.RI "auto \fBoperator()\fP (const \fBProgram\fP &program) const"
+.br
+.ti -1c
+.RI "auto \fBoperator()\fP (const \fBstd::string\fP &str) const"
+.br
+.ti -1c
+.RI "auto \fBoperator()\fP (const \fBstd::u16string\fP &str) const"
+.br
+.ti -1c
+.RI "auto \fBoperator()\fP (double value) const"
+.br
+.ti -1c
+.RI "auto \fBoperator()\fP (const char *value) const"
+.br
+.ti -1c
+.RI "template<typename T > auto \fBoperator()\fP (const T &what) const"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBstd::string\fP \fBindent\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "PrintVisitor::PrintVisitor (\fBstd::string\fP indent = \fC''\fP)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "template<typename\&.\&.\&. Ts> \fBstd::string\fP PrintVisitor::apply (const boost::variant< Ts\&.\&.\&. > & value, bool inc_indent = \fCtrue\fP) const\fC [inline]\fP"
+
+.SS "template<typename T > \fBstd::string\fP PrintVisitor::apply (const T & value, bool inc_indent = \fCtrue\fP) const\fC [inline]\fP"
+
+.SS "template<typename T > \fBstd::string\fP PrintVisitor::apply (const boost::optional< T > & value, bool inc_indent = \fCtrue\fP) const\fC [inline]\fP"
+
+.SS "template<typename\&.\&.\&. Ts> \fBstd::string\fP PrintVisitor::operator() (const boost::variant< Ts\&.\&.\&. > & value) const\fC [inline]\fP"
+
+.SS "template<typename T > \fBstd::string\fP PrintVisitor::operator() (const \fBstd::vector\fP< T > & list) const\fC [inline]\fP"
+
+.SS "auto PrintVisitor::operator() (const \fBNullLiteral\fP & literal) const\fC [inline]\fP"
+
+.SS "auto PrintVisitor::operator() (const \fBBooleanLiteral\fP & literal) const\fC [inline]\fP"
+
+.SS "auto PrintVisitor::operator() (const \fBNumericLiteral\fP & literal) const\fC [inline]\fP"
+
+.SS "auto PrintVisitor::operator() (const \fBStringLiteral\fP & literal) const\fC [inline]\fP"
+
+.SS "auto PrintVisitor::operator() (const \fBIdentifier\fP & identifier) const\fC [inline]\fP"
+
+.SS "auto PrintVisitor::operator() (const \fBArguments\fP & args) const\fC [inline]\fP"
+
+.SS "auto PrintVisitor::operator() (const \fBMemberExpression\fP & expr) const\fC [inline]\fP"
+
+.SS "auto PrintVisitor::operator() (const \fBNewExpression\fP & expr) const\fC [inline]\fP"
+
+.SS "auto PrintVisitor::operator() (const \fBCallExpression\fP & expr) const\fC [inline]\fP"
+
+.SS "auto PrintVisitor::operator() (const \fBPostfixExpression\fP & expr) const\fC [inline]\fP"
+
+.SS "auto PrintVisitor::operator() (const \fBUnaryExpression\fP & expr) const\fC [inline]\fP"
+
+.SS "auto PrintVisitor::operator() (const \fBBinaryExpression\fP & expr) const\fC [inline]\fP"
+
+.SS "auto PrintVisitor::operator() (const \fBBlock\fP & stmt) const\fC [inline]\fP"
+
+.SS "auto PrintVisitor::operator() (const \fBEmptyStatement\fP &) const\fC [inline]\fP"
+
+.SS "auto PrintVisitor::operator() (const \fBExpressionStatement\fP & stmt) const\fC [inline]\fP"
+
+.SS "auto PrintVisitor::operator() (const \fBIfStatement\fP & stmt) const\fC [inline]\fP"
+
+.SS "auto PrintVisitor::operator() (const \fBDoWhileStatement\fP & stmt) const\fC [inline]\fP"
+
+.SS "auto PrintVisitor::operator() (const \fBWhileStatement\fP & stmt) const\fC [inline]\fP"
+
+.SS "auto PrintVisitor::operator() (const \fBForStatement\fP &) const\fC [inline]\fP"
+
+.SS "auto PrintVisitor::operator() (const \fBForInStatement\fP &) const\fC [inline]\fP"
+
+.SS "auto PrintVisitor::operator() (const \fBContinueStatement\fP & stmt) const\fC [inline]\fP"
+
+.SS "auto PrintVisitor::operator() (const \fBBreakStatement\fP & stmt) const\fC [inline]\fP"
+
+.SS "auto PrintVisitor::operator() (const \fBReturnStatement\fP & stmt) const\fC [inline]\fP"
+
+.SS "auto PrintVisitor::operator() (const \fBWithStatement\fP & stmt) const\fC [inline]\fP"
+
+.SS "auto PrintVisitor::operator() (const \fBLabelledStatement\fP & stmt) const\fC [inline]\fP"
+
+.SS "auto PrintVisitor::operator() (const \fBSwitchStatement\fP & stmt) const\fC [inline]\fP"
+
+.SS "auto PrintVisitor::operator() (const \fBThrowStatement\fP & stmt) const\fC [inline]\fP"
+
+.SS "auto PrintVisitor::operator() (const \fBTryStatement\fP & stmt) const\fC [inline]\fP"
+
+.SS "auto PrintVisitor::operator() (const \fBDebuggerStatement\fP & stmt) const\fC [inline]\fP"
+
+.SS "auto PrintVisitor::operator() (const \fBFunctionDeclaration\fP & decl) const\fC [inline]\fP"
+
+.SS "auto PrintVisitor::operator() (const \fBProgram\fP & program) const\fC [inline]\fP"
+
+.SS "auto PrintVisitor::operator() (const \fBstd::string\fP & str) const\fC [inline]\fP"
+
+.SS "auto PrintVisitor::operator() (const \fBstd::u16string\fP & str) const\fC [inline]\fP"
+
+.SS "auto PrintVisitor::operator() (double value) const\fC [inline]\fP"
+
+.SS "auto PrintVisitor::operator() (const char * value) const\fC [inline]\fP"
+
+.SS "template<typename T > auto PrintVisitor::operator() (const T & what) const\fC [inline]\fP"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBstd::string\fP PrintVisitor::indent"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

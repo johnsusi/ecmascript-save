@@ -1,0 +1,390 @@
+\hypertarget{struct_print_visitor}{}\section{Print\+Visitor Struct Reference}
+\label{struct_print_visitor}\index{Print\+Visitor@{Print\+Visitor}}
+
+
+Inheritance diagram for Print\+Visitor\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=181pt]{struct_print_visitor__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Print\+Visitor\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=258pt]{struct_print_visitor__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_print_visitor_a113b1e0ee300672fc7f8ca96911a1f2f}{Print\+Visitor} (\textbf{ std\+::string} \hyperlink{struct_print_visitor_a6cda79fa0db4cc99a40958601fbbcc37}{indent}=\char`\"{}\char`\"{})
+\item 
+{\footnotesize template$<$typename... Ts$>$ }\\\textbf{ std\+::string} \hyperlink{struct_print_visitor_aad3821f1c2546fed4bb51ae79067ddbb}{apply} (const boost\+::variant$<$ Ts... $>$ \&value, bool inc\+\_\+indent=true) const
+\item 
+{\footnotesize template$<$typename T $>$ }\\\textbf{ std\+::string} \hyperlink{struct_print_visitor_ad6b9b3967b7355d3b62959cf29aef94e}{apply} (const T \&value, bool inc\+\_\+indent=true) const
+\item 
+{\footnotesize template$<$typename T $>$ }\\\textbf{ std\+::string} \hyperlink{struct_print_visitor_a6f3f12087aa58e605075e993876bfb89}{apply} (const boost\+::optional$<$ T $>$ \&value, bool inc\+\_\+indent=true) const
+\item 
+{\footnotesize template$<$typename... Ts$>$ }\\\textbf{ std\+::string} \hyperlink{struct_print_visitor_aff884e9fac6b8acea4e6608c4fe7eafd}{operator()} (const boost\+::variant$<$ Ts... $>$ \&value) const
+\item 
+{\footnotesize template$<$typename T $>$ }\\\textbf{ std\+::string} \hyperlink{struct_print_visitor_ad17a4608e0fce125b756cdbc5860660b}{operator()} (const \textbf{ std\+::vector}$<$ T $>$ \&list) const
+\item 
+auto \hyperlink{struct_print_visitor_a381e3fa143f2c8e8c85d86e5ed6441b5}{operator()} (const \hyperlink{struct_null_literal}{Null\+Literal} \&literal) const
+\item 
+auto \hyperlink{struct_print_visitor_a24a148187b20cd3f11ebaf7414024d3a}{operator()} (const \hyperlink{struct_boolean_literal}{Boolean\+Literal} \&literal) const
+\item 
+auto \hyperlink{struct_print_visitor_aa99f46059d380f55159e1a8f8c07603e}{operator()} (const \hyperlink{struct_numeric_literal}{Numeric\+Literal} \&literal) const
+\item 
+auto \hyperlink{struct_print_visitor_a1db9f78fe8d32c617fcccbe7dd2b9f5c}{operator()} (const \hyperlink{struct_string_literal}{String\+Literal} \&literal) const
+\item 
+auto \hyperlink{struct_print_visitor_aa3bdaae13a1b4edb02010a7def188778}{operator()} (const \hyperlink{struct_identifier}{Identifier} \&identifier) const
+\item 
+auto \hyperlink{struct_print_visitor_a00e74f8c4462bab7aa11f5fec5bb8f0e}{operator()} (const \hyperlink{struct_arguments}{Arguments} \&args) const
+\item 
+auto \hyperlink{struct_print_visitor_a8892a429caeb2cc12fa630bdeb434cf7}{operator()} (const \hyperlink{struct_member_expression}{Member\+Expression} \&expr) const
+\item 
+auto \hyperlink{struct_print_visitor_a2da0b4204ef404af19376829e00b8655}{operator()} (const \hyperlink{struct_new_expression}{New\+Expression} \&expr) const
+\item 
+auto \hyperlink{struct_print_visitor_a18f025ed4951ea3bbe7c530bb71d8cdb}{operator()} (const \hyperlink{struct_call_expression}{Call\+Expression} \&expr) const
+\item 
+auto \hyperlink{struct_print_visitor_afa73257e022950045f6464ee7b1a1589}{operator()} (const \hyperlink{struct_postfix_expression}{Postfix\+Expression} \&expr) const
+\item 
+auto \hyperlink{struct_print_visitor_ab5ad96b327293300cb19ab25c6b6cb2f}{operator()} (const \hyperlink{struct_unary_expression}{Unary\+Expression} \&expr) const
+\item 
+auto \hyperlink{struct_print_visitor_a2a2691cb80383548dadfa8ac2796eae7}{operator()} (const \hyperlink{struct_binary_expression}{Binary\+Expression} \&expr) const
+\item 
+auto \hyperlink{struct_print_visitor_ab9b67d2fa5b46a015d1494f49c90429f}{operator()} (const \hyperlink{struct_block}{Block} \&stmt) const
+\item 
+auto \hyperlink{struct_print_visitor_a83468e61f7ceac2f1183fe3922d6a3b8}{operator()} (const \hyperlink{struct_empty_statement}{Empty\+Statement} \&) const
+\item 
+auto \hyperlink{struct_print_visitor_ac29604a9979af1bb98ac84fe34c76025}{operator()} (const \hyperlink{struct_expression_statement}{Expression\+Statement} \&stmt) const
+\item 
+auto \hyperlink{struct_print_visitor_a28d00e396db79c4a7889516e870a4f33}{operator()} (const \hyperlink{struct_if_statement}{If\+Statement} \&stmt) const
+\item 
+auto \hyperlink{struct_print_visitor_aca7d03bd32485eda4a592a25398fec19}{operator()} (const \hyperlink{struct_do_while_statement}{Do\+While\+Statement} \&stmt) const
+\item 
+auto \hyperlink{struct_print_visitor_a692e923841a123c9a7556135f05b56e6}{operator()} (const \hyperlink{struct_while_statement}{While\+Statement} \&stmt) const
+\item 
+auto \hyperlink{struct_print_visitor_a9f765a5cd4fb7134194c038df25a0cf0}{operator()} (const \hyperlink{struct_for_statement}{For\+Statement} \&) const
+\item 
+auto \hyperlink{struct_print_visitor_a7d901b13fb4ba71db8214072884f7cbd}{operator()} (const \hyperlink{struct_for_in_statement}{For\+In\+Statement} \&) const
+\item 
+auto \hyperlink{struct_print_visitor_aa76bcc5abeee9c1d32f4ae5a61c69181}{operator()} (const \hyperlink{struct_continue_statement}{Continue\+Statement} \&stmt) const
+\item 
+auto \hyperlink{struct_print_visitor_ad8d36cb338e942510a23a2e354883482}{operator()} (const \hyperlink{struct_break_statement}{Break\+Statement} \&stmt) const
+\item 
+auto \hyperlink{struct_print_visitor_a569cb948fc52cb74ba3d71ff84e9855f}{operator()} (const \hyperlink{struct_return_statement}{Return\+Statement} \&stmt) const
+\item 
+auto \hyperlink{struct_print_visitor_a40cae42afb27c61b94e8f873bd6edcba}{operator()} (const \hyperlink{struct_with_statement}{With\+Statement} \&stmt) const
+\item 
+auto \hyperlink{struct_print_visitor_a838f3178b1a45397289129c728f2e007}{operator()} (const \hyperlink{struct_labelled_statement}{Labelled\+Statement} \&stmt) const
+\item 
+auto \hyperlink{struct_print_visitor_a47502bd069c9341c56fa1480a1615b2d}{operator()} (const \hyperlink{struct_switch_statement}{Switch\+Statement} \&stmt) const
+\item 
+auto \hyperlink{struct_print_visitor_a8803d34f6d9b462de7b64858938c6dd7}{operator()} (const \hyperlink{struct_throw_statement}{Throw\+Statement} \&stmt) const
+\item 
+auto \hyperlink{struct_print_visitor_a4cb9e06de37324a01f256b55ccc23e63}{operator()} (const \hyperlink{struct_try_statement}{Try\+Statement} \&stmt) const
+\item 
+auto \hyperlink{struct_print_visitor_a17ca87eeae2aa16b58cf1b31742eb4d5}{operator()} (const \hyperlink{struct_debugger_statement}{Debugger\+Statement} \&stmt) const
+\item 
+auto \hyperlink{struct_print_visitor_a6a9be1713bd30421f55b7606f00dbcd8}{operator()} (const \hyperlink{struct_function_declaration}{Function\+Declaration} \&decl) const
+\item 
+auto \hyperlink{struct_print_visitor_a8acc0e45686e3f9a4b8ed8e37175b89d}{operator()} (const \hyperlink{struct_program}{Program} \&program) const
+\item 
+auto \hyperlink{struct_print_visitor_ab4955e4e1389498d237c44ae863f9ba4}{operator()} (const \textbf{ std\+::string} \&str) const
+\item 
+auto \hyperlink{struct_print_visitor_aef6fd26e6d8681bd72e209a943b2a31f}{operator()} (const \textbf{ std\+::u16string} \&str) const
+\item 
+auto \hyperlink{struct_print_visitor_a5e2fc45c187b641a12420f4c3cce0a25}{operator()} (double value) const
+\item 
+auto \hyperlink{struct_print_visitor_ae440fc88025c0dd39e9c8aa8b29394fa}{operator()} (const char $\ast$value) const
+\item 
+{\footnotesize template$<$typename T $>$ }\\auto \hyperlink{struct_print_visitor_ae6fa94fb3d82551ef22ab2012a0bf0b9}{operator()} (const T \&what) const
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ std\+::string} \hyperlink{struct_print_visitor_a6cda79fa0db4cc99a40958601fbbcc37}{indent}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_print_visitor_a113b1e0ee300672fc7f8ca96911a1f2f}\label{struct_print_visitor_a113b1e0ee300672fc7f8ca96911a1f2f}} 
+\index{Print\+Visitor@{Print\+Visitor}!Print\+Visitor@{Print\+Visitor}}
+\index{Print\+Visitor@{Print\+Visitor}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{Print\+Visitor()}{PrintVisitor()}}
+{\footnotesize\ttfamily Print\+Visitor\+::\+Print\+Visitor (\begin{DoxyParamCaption}\item[{\textbf{ std\+::string}}]{indent = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_print_visitor_aad3821f1c2546fed4bb51ae79067ddbb}\label{struct_print_visitor_aad3821f1c2546fed4bb51ae79067ddbb}} 
+\index{Print\+Visitor@{Print\+Visitor}!apply@{apply}}
+\index{apply@{apply}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{apply()}{apply()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename... Ts$>$ \\
+\textbf{ std\+::string} Print\+Visitor\+::apply (\begin{DoxyParamCaption}\item[{const boost\+::variant$<$ Ts... $>$ \&}]{value,  }\item[{bool}]{inc\+\_\+indent = {\ttfamily true} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_print_visitor_ad6b9b3967b7355d3b62959cf29aef94e}\label{struct_print_visitor_ad6b9b3967b7355d3b62959cf29aef94e}} 
+\index{Print\+Visitor@{Print\+Visitor}!apply@{apply}}
+\index{apply@{apply}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{apply()}{apply()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\textbf{ std\+::string} Print\+Visitor\+::apply (\begin{DoxyParamCaption}\item[{const T \&}]{value,  }\item[{bool}]{inc\+\_\+indent = {\ttfamily true} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_print_visitor_a6f3f12087aa58e605075e993876bfb89}\label{struct_print_visitor_a6f3f12087aa58e605075e993876bfb89}} 
+\index{Print\+Visitor@{Print\+Visitor}!apply@{apply}}
+\index{apply@{apply}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{apply()}{apply()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\textbf{ std\+::string} Print\+Visitor\+::apply (\begin{DoxyParamCaption}\item[{const boost\+::optional$<$ T $>$ \&}]{value,  }\item[{bool}]{inc\+\_\+indent = {\ttfamily true} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_print_visitor_aff884e9fac6b8acea4e6608c4fe7eafd}\label{struct_print_visitor_aff884e9fac6b8acea4e6608c4fe7eafd}} 
+\index{Print\+Visitor@{Print\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [1/38]}}
+{\footnotesize\ttfamily template$<$typename... Ts$>$ \\
+\textbf{ std\+::string} Print\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const boost\+::variant$<$ Ts... $>$ \&}]{value }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_print_visitor_ad17a4608e0fce125b756cdbc5860660b}\label{struct_print_visitor_ad17a4608e0fce125b756cdbc5860660b}} 
+\index{Print\+Visitor@{Print\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [2/38]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\textbf{ std\+::string} Print\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::vector}$<$ T $>$ \&}]{list }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_print_visitor_a381e3fa143f2c8e8c85d86e5ed6441b5}\label{struct_print_visitor_a381e3fa143f2c8e8c85d86e5ed6441b5}} 
+\index{Print\+Visitor@{Print\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [3/38]}}
+{\footnotesize\ttfamily auto Print\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_null_literal}{Null\+Literal} \&}]{literal }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_print_visitor_a24a148187b20cd3f11ebaf7414024d3a}\label{struct_print_visitor_a24a148187b20cd3f11ebaf7414024d3a}} 
+\index{Print\+Visitor@{Print\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [4/38]}}
+{\footnotesize\ttfamily auto Print\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_boolean_literal}{Boolean\+Literal} \&}]{literal }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_print_visitor_aa99f46059d380f55159e1a8f8c07603e}\label{struct_print_visitor_aa99f46059d380f55159e1a8f8c07603e}} 
+\index{Print\+Visitor@{Print\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [5/38]}}
+{\footnotesize\ttfamily auto Print\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_numeric_literal}{Numeric\+Literal} \&}]{literal }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_print_visitor_a1db9f78fe8d32c617fcccbe7dd2b9f5c}\label{struct_print_visitor_a1db9f78fe8d32c617fcccbe7dd2b9f5c}} 
+\index{Print\+Visitor@{Print\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [6/38]}}
+{\footnotesize\ttfamily auto Print\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_string_literal}{String\+Literal} \&}]{literal }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_print_visitor_aa3bdaae13a1b4edb02010a7def188778}\label{struct_print_visitor_aa3bdaae13a1b4edb02010a7def188778}} 
+\index{Print\+Visitor@{Print\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [7/38]}}
+{\footnotesize\ttfamily auto Print\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_identifier}{Identifier} \&}]{identifier }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_print_visitor_a00e74f8c4462bab7aa11f5fec5bb8f0e}\label{struct_print_visitor_a00e74f8c4462bab7aa11f5fec5bb8f0e}} 
+\index{Print\+Visitor@{Print\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [8/38]}}
+{\footnotesize\ttfamily auto Print\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_arguments}{Arguments} \&}]{args }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_print_visitor_a8892a429caeb2cc12fa630bdeb434cf7}\label{struct_print_visitor_a8892a429caeb2cc12fa630bdeb434cf7}} 
+\index{Print\+Visitor@{Print\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [9/38]}}
+{\footnotesize\ttfamily auto Print\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_member_expression}{Member\+Expression} \&}]{expr }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_print_visitor_a2da0b4204ef404af19376829e00b8655}\label{struct_print_visitor_a2da0b4204ef404af19376829e00b8655}} 
+\index{Print\+Visitor@{Print\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [10/38]}}
+{\footnotesize\ttfamily auto Print\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_new_expression}{New\+Expression} \&}]{expr }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_print_visitor_a18f025ed4951ea3bbe7c530bb71d8cdb}\label{struct_print_visitor_a18f025ed4951ea3bbe7c530bb71d8cdb}} 
+\index{Print\+Visitor@{Print\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [11/38]}}
+{\footnotesize\ttfamily auto Print\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_call_expression}{Call\+Expression} \&}]{expr }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_print_visitor_afa73257e022950045f6464ee7b1a1589}\label{struct_print_visitor_afa73257e022950045f6464ee7b1a1589}} 
+\index{Print\+Visitor@{Print\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [12/38]}}
+{\footnotesize\ttfamily auto Print\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_postfix_expression}{Postfix\+Expression} \&}]{expr }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_print_visitor_ab5ad96b327293300cb19ab25c6b6cb2f}\label{struct_print_visitor_ab5ad96b327293300cb19ab25c6b6cb2f}} 
+\index{Print\+Visitor@{Print\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [13/38]}}
+{\footnotesize\ttfamily auto Print\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_unary_expression}{Unary\+Expression} \&}]{expr }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_print_visitor_a2a2691cb80383548dadfa8ac2796eae7}\label{struct_print_visitor_a2a2691cb80383548dadfa8ac2796eae7}} 
+\index{Print\+Visitor@{Print\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [14/38]}}
+{\footnotesize\ttfamily auto Print\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_binary_expression}{Binary\+Expression} \&}]{expr }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_print_visitor_ab9b67d2fa5b46a015d1494f49c90429f}\label{struct_print_visitor_ab9b67d2fa5b46a015d1494f49c90429f}} 
+\index{Print\+Visitor@{Print\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [15/38]}}
+{\footnotesize\ttfamily auto Print\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_block}{Block} \&}]{stmt }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_print_visitor_a83468e61f7ceac2f1183fe3922d6a3b8}\label{struct_print_visitor_a83468e61f7ceac2f1183fe3922d6a3b8}} 
+\index{Print\+Visitor@{Print\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [16/38]}}
+{\footnotesize\ttfamily auto Print\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_empty_statement}{Empty\+Statement} \&}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_print_visitor_ac29604a9979af1bb98ac84fe34c76025}\label{struct_print_visitor_ac29604a9979af1bb98ac84fe34c76025}} 
+\index{Print\+Visitor@{Print\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [17/38]}}
+{\footnotesize\ttfamily auto Print\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_expression_statement}{Expression\+Statement} \&}]{stmt }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_print_visitor_a28d00e396db79c4a7889516e870a4f33}\label{struct_print_visitor_a28d00e396db79c4a7889516e870a4f33}} 
+\index{Print\+Visitor@{Print\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [18/38]}}
+{\footnotesize\ttfamily auto Print\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_if_statement}{If\+Statement} \&}]{stmt }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_print_visitor_aca7d03bd32485eda4a592a25398fec19}\label{struct_print_visitor_aca7d03bd32485eda4a592a25398fec19}} 
+\index{Print\+Visitor@{Print\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [19/38]}}
+{\footnotesize\ttfamily auto Print\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_do_while_statement}{Do\+While\+Statement} \&}]{stmt }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_print_visitor_a692e923841a123c9a7556135f05b56e6}\label{struct_print_visitor_a692e923841a123c9a7556135f05b56e6}} 
+\index{Print\+Visitor@{Print\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [20/38]}}
+{\footnotesize\ttfamily auto Print\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_while_statement}{While\+Statement} \&}]{stmt }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_print_visitor_a9f765a5cd4fb7134194c038df25a0cf0}\label{struct_print_visitor_a9f765a5cd4fb7134194c038df25a0cf0}} 
+\index{Print\+Visitor@{Print\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [21/38]}}
+{\footnotesize\ttfamily auto Print\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_for_statement}{For\+Statement} \&}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_print_visitor_a7d901b13fb4ba71db8214072884f7cbd}\label{struct_print_visitor_a7d901b13fb4ba71db8214072884f7cbd}} 
+\index{Print\+Visitor@{Print\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [22/38]}}
+{\footnotesize\ttfamily auto Print\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_for_in_statement}{For\+In\+Statement} \&}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_print_visitor_aa76bcc5abeee9c1d32f4ae5a61c69181}\label{struct_print_visitor_aa76bcc5abeee9c1d32f4ae5a61c69181}} 
+\index{Print\+Visitor@{Print\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [23/38]}}
+{\footnotesize\ttfamily auto Print\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_continue_statement}{Continue\+Statement} \&}]{stmt }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_print_visitor_ad8d36cb338e942510a23a2e354883482}\label{struct_print_visitor_ad8d36cb338e942510a23a2e354883482}} 
+\index{Print\+Visitor@{Print\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [24/38]}}
+{\footnotesize\ttfamily auto Print\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_break_statement}{Break\+Statement} \&}]{stmt }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_print_visitor_a569cb948fc52cb74ba3d71ff84e9855f}\label{struct_print_visitor_a569cb948fc52cb74ba3d71ff84e9855f}} 
+\index{Print\+Visitor@{Print\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [25/38]}}
+{\footnotesize\ttfamily auto Print\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_return_statement}{Return\+Statement} \&}]{stmt }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_print_visitor_a40cae42afb27c61b94e8f873bd6edcba}\label{struct_print_visitor_a40cae42afb27c61b94e8f873bd6edcba}} 
+\index{Print\+Visitor@{Print\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [26/38]}}
+{\footnotesize\ttfamily auto Print\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_with_statement}{With\+Statement} \&}]{stmt }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_print_visitor_a838f3178b1a45397289129c728f2e007}\label{struct_print_visitor_a838f3178b1a45397289129c728f2e007}} 
+\index{Print\+Visitor@{Print\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [27/38]}}
+{\footnotesize\ttfamily auto Print\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_labelled_statement}{Labelled\+Statement} \&}]{stmt }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_print_visitor_a47502bd069c9341c56fa1480a1615b2d}\label{struct_print_visitor_a47502bd069c9341c56fa1480a1615b2d}} 
+\index{Print\+Visitor@{Print\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [28/38]}}
+{\footnotesize\ttfamily auto Print\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_switch_statement}{Switch\+Statement} \&}]{stmt }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_print_visitor_a8803d34f6d9b462de7b64858938c6dd7}\label{struct_print_visitor_a8803d34f6d9b462de7b64858938c6dd7}} 
+\index{Print\+Visitor@{Print\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [29/38]}}
+{\footnotesize\ttfamily auto Print\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_throw_statement}{Throw\+Statement} \&}]{stmt }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_print_visitor_a4cb9e06de37324a01f256b55ccc23e63}\label{struct_print_visitor_a4cb9e06de37324a01f256b55ccc23e63}} 
+\index{Print\+Visitor@{Print\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [30/38]}}
+{\footnotesize\ttfamily auto Print\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_try_statement}{Try\+Statement} \&}]{stmt }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_print_visitor_a17ca87eeae2aa16b58cf1b31742eb4d5}\label{struct_print_visitor_a17ca87eeae2aa16b58cf1b31742eb4d5}} 
+\index{Print\+Visitor@{Print\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [31/38]}}
+{\footnotesize\ttfamily auto Print\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_debugger_statement}{Debugger\+Statement} \&}]{stmt }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_print_visitor_a6a9be1713bd30421f55b7606f00dbcd8}\label{struct_print_visitor_a6a9be1713bd30421f55b7606f00dbcd8}} 
+\index{Print\+Visitor@{Print\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [32/38]}}
+{\footnotesize\ttfamily auto Print\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_function_declaration}{Function\+Declaration} \&}]{decl }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_print_visitor_a8acc0e45686e3f9a4b8ed8e37175b89d}\label{struct_print_visitor_a8acc0e45686e3f9a4b8ed8e37175b89d}} 
+\index{Print\+Visitor@{Print\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [33/38]}}
+{\footnotesize\ttfamily auto Print\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_program}{Program} \&}]{program }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_print_visitor_ab4955e4e1389498d237c44ae863f9ba4}\label{struct_print_visitor_ab4955e4e1389498d237c44ae863f9ba4}} 
+\index{Print\+Visitor@{Print\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [34/38]}}
+{\footnotesize\ttfamily auto Print\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::string} \&}]{str }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_print_visitor_aef6fd26e6d8681bd72e209a943b2a31f}\label{struct_print_visitor_aef6fd26e6d8681bd72e209a943b2a31f}} 
+\index{Print\+Visitor@{Print\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [35/38]}}
+{\footnotesize\ttfamily auto Print\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::u16string} \&}]{str }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_print_visitor_a5e2fc45c187b641a12420f4c3cce0a25}\label{struct_print_visitor_a5e2fc45c187b641a12420f4c3cce0a25}} 
+\index{Print\+Visitor@{Print\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [36/38]}}
+{\footnotesize\ttfamily auto Print\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{double}]{value }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_print_visitor_ae440fc88025c0dd39e9c8aa8b29394fa}\label{struct_print_visitor_ae440fc88025c0dd39e9c8aa8b29394fa}} 
+\index{Print\+Visitor@{Print\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [37/38]}}
+{\footnotesize\ttfamily auto Print\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const char $\ast$}]{value }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_print_visitor_ae6fa94fb3d82551ef22ab2012a0bf0b9}\label{struct_print_visitor_ae6fa94fb3d82551ef22ab2012a0bf0b9}} 
+\index{Print\+Visitor@{Print\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [38/38]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+auto Print\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const T \&}]{what }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_print_visitor_a6cda79fa0db4cc99a40958601fbbcc37}\label{struct_print_visitor_a6cda79fa0db4cc99a40958601fbbcc37}} 
+\index{Print\+Visitor@{Print\+Visitor}!indent@{indent}}
+\index{indent@{indent}!Print\+Visitor@{Print\+Visitor}}
+\subsubsection{\texorpdfstring{indent}{indent}}
+{\footnotesize\ttfamily \textbf{ std\+::string} Print\+Visitor\+::indent}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{ast_8cpp}{ast.\+cpp}\end{DoxyCompactItemize}

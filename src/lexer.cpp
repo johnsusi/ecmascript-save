@@ -1,6 +1,38 @@
 #include "lexer.h"
 
+#include <unicode/errorcode.h>
+#include <unicode/normalizer2.h>
 #include <unicode/uchar.h>
+#include <unicode/unistr.h>
+
+std::u16string convert_utf8_to_utf16(const std::string& source)
+{
+  ErrorCode err;
+  auto buffer = UnicodeString::fromUTF8(source);
+  auto normalizer = Normalizer2::getNFCInstance(err);
+  if (err.isFailure()) throw std::runtime_error(err.errorName());
+  auto result = normalizer->normalize(buffer, err);
+  if (err.isFailure()) throw std::runtime_error(err.errorName());
+  return std::u16string(
+    reinterpret_cast<const std::u16string::value_type*>(buffer.getBuffer()),
+    buffer.length()
+  );
+}
+
+// UnicodeString icu::UnicodeString::fromUTF8(StringPiece utf8)
+// {
+//   int32_t destLength;
+//   UErrorCode err = U_ZERO_ERROR;
+//   if (U_FAILURE(err)) throw std::runtime_error(u_errorName(err));
+//   u_strFromUTF8(nullptr, 0, &destLength, utf8.data(), utf8.size(), &err);
+//   auto buffer = std::make_unique<UChar*>(new UChar[destLength]);
+//   err = U_ZERO_ERROR;
+//   u_strFromUTF8(*buffer, destLength, nullptr, utf8.data(), utf8.size(), &err);
+//   if (U_FAILURE(err)) throw std::runtime_error(u_errorName(err));
+//   UnicodeString result(*buffer, destLength);
+//   return result;
+// }
+
 
 // 7.2
 bool is_white_space(int cp)
@@ -58,7 +90,7 @@ bool is_hex_digit(int cp)
 bool is_unicode_letter(int cp)
 {
   switch (u_charType(cp)) {
-     case U_UPPERCASE_LETTER: // Lu
+    case U_UPPERCASE_LETTER: // Lu
     case U_LOWERCASE_LETTER: // Li
     case U_TITLECASE_LETTER: // Lt
     case U_MODIFIER_LETTER:  // Lm
@@ -73,7 +105,7 @@ bool is_unicode_letter(int cp)
 bool is_unicode_combining_mark(int cp)
 {
   switch (u_charType(cp)) {
-     case U_NON_SPACING_MARK:       // Mn
+    case U_NON_SPACING_MARK:       // Mn
     case U_COMBINING_SPACING_MARK: // Mc
       return true;
     default:

@@ -1,0 +1,6 @@
+<map id="LexicalGrammar&lt; T &gt;" name="LexicalGrammar&lt; T &gt;">
+<area shape="rect" id="node2" href="$class_matcher.html" title="Matcher\&lt; T, std::u16string\l::const_iterator \&gt;" alt="" coords="5,105,180,144"/>
+<area shape="rect" id="node3" href="$class_token.html" title="Token" alt="" coords="204,112,261,137"/>
+<area shape="rect" id="node4" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/memory/shared_ptr.html" title="std::shared_ptr\&lt; Token\l::DebugInfo \&gt;" alt="" coords="154,5,311,44"/>
+<area shape="rect" id="node5" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/string/basic_string.html" title="std::u16string" alt="" coords="286,112,387,137"/>
+</map>

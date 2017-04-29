@@ -1,0 +1,155 @@
+\hypertarget{lexical__grammar_8h}{}\section{src/lexical\+\_\+grammar.h File Reference}
+\label{lexical__grammar_8h}\index{src/lexical\+\_\+grammar.\+h@{src/lexical\+\_\+grammar.\+h}}
+{\ttfamily \#include \char`\"{}input\+\_\+element.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}matcher.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}token.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$iterator$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+Include dependency graph for lexical\+\_\+grammar.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lexical__grammar_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lexical__grammar_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_lexical_grammar}{Lexical\+Grammar$<$ T $>$}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{lexical__grammar_8h_a315b133087b7c8aececd5bb4bb038a33}{is\+\_\+white\+\_\+space} (int cp)
+\item 
+bool \hyperlink{lexical__grammar_8h_a380934175c0adfde2698f5b15a32eef1}{is\+\_\+line\+\_\+terminator} (int cp)
+\item 
+bool \hyperlink{lexical__grammar_8h_a9cefc40146b4aa1d5180daf8c09aef76}{is\+\_\+non\+\_\+zero\+\_\+digit} (int cp)
+\item 
+bool \hyperlink{lexical__grammar_8h_af6705427c418482a10880319f2440157}{is\+\_\+decimal\+\_\+digit} (int cp)
+\item 
+bool \hyperlink{lexical__grammar_8h_ab5142564f94422574c9696dd2643848f}{is\+\_\+hex\+\_\+digit} (int cp)
+\item 
+bool \hyperlink{lexical__grammar_8h_aab548932d0a5af9ce41ece5a9341167b}{is\+\_\+unicode\+\_\+letter} (int cp)
+\item 
+bool \hyperlink{lexical__grammar_8h_a77ceb9bedb3fcd420006ad82a4cb2869}{is\+\_\+unicode\+\_\+combining\+\_\+mark} (int cp)
+\item 
+bool \hyperlink{lexical__grammar_8h_a3d0438332c1c1a679199bcd3e3ee4748}{is\+\_\+unicode\+\_\+digit} (int cp)
+\item 
+bool \hyperlink{lexical__grammar_8h_a484f6eea02427eb2659a45d0e2d6b816}{is\+\_\+unicode\+\_\+connector\+\_\+punctuation} (int cp)
+\item 
+bool \hyperlink{lexical__grammar_8h_a4d04bee568c3bb7605c213dc6cab27db}{is\+\_\+single\+\_\+escape\+\_\+character} (int cp)
+\item 
+bool \hyperlink{lexical__grammar_8h_a565a9e3053200a1e165972e724788acf}{is\+\_\+keyword} (const \textbf{ std\+::string} \&token)
+\item 
+bool \hyperlink{lexical__grammar_8h_abafa8f3968318d8d7a9e5e61d4f0037b}{is\+\_\+future\+\_\+reserved\+\_\+word} (const \textbf{ std\+::string} \&token)
+\item 
+bool \hyperlink{lexical__grammar_8h_a3297fa97844b69aed3a2fe55d496edfb}{is\+\_\+punctuator} (const \textbf{ std\+::string} \&token)
+\item 
+bool \hyperlink{lexical__grammar_8h_a729accffc6b323bbb5224341f3175cb6}{is\+\_\+null\+\_\+literal} (const \textbf{ std\+::string} \&str)
+\item 
+bool \hyperlink{lexical__grammar_8h_a3d61917c173c0bd1f70a70056d7f3107}{is\+\_\+boolean\+\_\+literal} (const \textbf{ std\+::string} \&)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{lexical__grammar_8h_a3d61917c173c0bd1f70a70056d7f3107}\label{lexical__grammar_8h_a3d61917c173c0bd1f70a70056d7f3107}} 
+\index{lexical\+\_\+grammar.\+h@{lexical\+\_\+grammar.\+h}!is\+\_\+boolean\+\_\+literal@{is\+\_\+boolean\+\_\+literal}}
+\index{is\+\_\+boolean\+\_\+literal@{is\+\_\+boolean\+\_\+literal}!lexical\+\_\+grammar.\+h@{lexical\+\_\+grammar.\+h}}
+\subsubsection{\texorpdfstring{is\+\_\+boolean\+\_\+literal()}{is\_boolean\_literal()}}
+{\footnotesize\ttfamily bool is\+\_\+boolean\+\_\+literal (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::string} \&}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexical__grammar_8h_af6705427c418482a10880319f2440157}\label{lexical__grammar_8h_af6705427c418482a10880319f2440157}} 
+\index{lexical\+\_\+grammar.\+h@{lexical\+\_\+grammar.\+h}!is\+\_\+decimal\+\_\+digit@{is\+\_\+decimal\+\_\+digit}}
+\index{is\+\_\+decimal\+\_\+digit@{is\+\_\+decimal\+\_\+digit}!lexical\+\_\+grammar.\+h@{lexical\+\_\+grammar.\+h}}
+\subsubsection{\texorpdfstring{is\+\_\+decimal\+\_\+digit()}{is\_decimal\_digit()}}
+{\footnotesize\ttfamily bool is\+\_\+decimal\+\_\+digit (\begin{DoxyParamCaption}\item[{int}]{cp }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexical__grammar_8h_abafa8f3968318d8d7a9e5e61d4f0037b}\label{lexical__grammar_8h_abafa8f3968318d8d7a9e5e61d4f0037b}} 
+\index{lexical\+\_\+grammar.\+h@{lexical\+\_\+grammar.\+h}!is\+\_\+future\+\_\+reserved\+\_\+word@{is\+\_\+future\+\_\+reserved\+\_\+word}}
+\index{is\+\_\+future\+\_\+reserved\+\_\+word@{is\+\_\+future\+\_\+reserved\+\_\+word}!lexical\+\_\+grammar.\+h@{lexical\+\_\+grammar.\+h}}
+\subsubsection{\texorpdfstring{is\+\_\+future\+\_\+reserved\+\_\+word()}{is\_future\_reserved\_word()}}
+{\footnotesize\ttfamily bool is\+\_\+future\+\_\+reserved\+\_\+word (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::string} \&}]{token }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexical__grammar_8h_ab5142564f94422574c9696dd2643848f}\label{lexical__grammar_8h_ab5142564f94422574c9696dd2643848f}} 
+\index{lexical\+\_\+grammar.\+h@{lexical\+\_\+grammar.\+h}!is\+\_\+hex\+\_\+digit@{is\+\_\+hex\+\_\+digit}}
+\index{is\+\_\+hex\+\_\+digit@{is\+\_\+hex\+\_\+digit}!lexical\+\_\+grammar.\+h@{lexical\+\_\+grammar.\+h}}
+\subsubsection{\texorpdfstring{is\+\_\+hex\+\_\+digit()}{is\_hex\_digit()}}
+{\footnotesize\ttfamily bool is\+\_\+hex\+\_\+digit (\begin{DoxyParamCaption}\item[{int}]{cp }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexical__grammar_8h_a565a9e3053200a1e165972e724788acf}\label{lexical__grammar_8h_a565a9e3053200a1e165972e724788acf}} 
+\index{lexical\+\_\+grammar.\+h@{lexical\+\_\+grammar.\+h}!is\+\_\+keyword@{is\+\_\+keyword}}
+\index{is\+\_\+keyword@{is\+\_\+keyword}!lexical\+\_\+grammar.\+h@{lexical\+\_\+grammar.\+h}}
+\subsubsection{\texorpdfstring{is\+\_\+keyword()}{is\_keyword()}}
+{\footnotesize\ttfamily bool is\+\_\+keyword (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::string} \&}]{token }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexical__grammar_8h_a380934175c0adfde2698f5b15a32eef1}\label{lexical__grammar_8h_a380934175c0adfde2698f5b15a32eef1}} 
+\index{lexical\+\_\+grammar.\+h@{lexical\+\_\+grammar.\+h}!is\+\_\+line\+\_\+terminator@{is\+\_\+line\+\_\+terminator}}
+\index{is\+\_\+line\+\_\+terminator@{is\+\_\+line\+\_\+terminator}!lexical\+\_\+grammar.\+h@{lexical\+\_\+grammar.\+h}}
+\subsubsection{\texorpdfstring{is\+\_\+line\+\_\+terminator()}{is\_line\_terminator()}}
+{\footnotesize\ttfamily bool is\+\_\+line\+\_\+terminator (\begin{DoxyParamCaption}\item[{int}]{cp }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexical__grammar_8h_a9cefc40146b4aa1d5180daf8c09aef76}\label{lexical__grammar_8h_a9cefc40146b4aa1d5180daf8c09aef76}} 
+\index{lexical\+\_\+grammar.\+h@{lexical\+\_\+grammar.\+h}!is\+\_\+non\+\_\+zero\+\_\+digit@{is\+\_\+non\+\_\+zero\+\_\+digit}}
+\index{is\+\_\+non\+\_\+zero\+\_\+digit@{is\+\_\+non\+\_\+zero\+\_\+digit}!lexical\+\_\+grammar.\+h@{lexical\+\_\+grammar.\+h}}
+\subsubsection{\texorpdfstring{is\+\_\+non\+\_\+zero\+\_\+digit()}{is\_non\_zero\_digit()}}
+{\footnotesize\ttfamily bool is\+\_\+non\+\_\+zero\+\_\+digit (\begin{DoxyParamCaption}\item[{int}]{cp }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexical__grammar_8h_a729accffc6b323bbb5224341f3175cb6}\label{lexical__grammar_8h_a729accffc6b323bbb5224341f3175cb6}} 
+\index{lexical\+\_\+grammar.\+h@{lexical\+\_\+grammar.\+h}!is\+\_\+null\+\_\+literal@{is\+\_\+null\+\_\+literal}}
+\index{is\+\_\+null\+\_\+literal@{is\+\_\+null\+\_\+literal}!lexical\+\_\+grammar.\+h@{lexical\+\_\+grammar.\+h}}
+\subsubsection{\texorpdfstring{is\+\_\+null\+\_\+literal()}{is\_null\_literal()}}
+{\footnotesize\ttfamily bool is\+\_\+null\+\_\+literal (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::string} \&}]{str }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexical__grammar_8h_a3297fa97844b69aed3a2fe55d496edfb}\label{lexical__grammar_8h_a3297fa97844b69aed3a2fe55d496edfb}} 
+\index{lexical\+\_\+grammar.\+h@{lexical\+\_\+grammar.\+h}!is\+\_\+punctuator@{is\+\_\+punctuator}}
+\index{is\+\_\+punctuator@{is\+\_\+punctuator}!lexical\+\_\+grammar.\+h@{lexical\+\_\+grammar.\+h}}
+\subsubsection{\texorpdfstring{is\+\_\+punctuator()}{is\_punctuator()}}
+{\footnotesize\ttfamily bool is\+\_\+punctuator (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::string} \&}]{token }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexical__grammar_8h_a4d04bee568c3bb7605c213dc6cab27db}\label{lexical__grammar_8h_a4d04bee568c3bb7605c213dc6cab27db}} 
+\index{lexical\+\_\+grammar.\+h@{lexical\+\_\+grammar.\+h}!is\+\_\+single\+\_\+escape\+\_\+character@{is\+\_\+single\+\_\+escape\+\_\+character}}
+\index{is\+\_\+single\+\_\+escape\+\_\+character@{is\+\_\+single\+\_\+escape\+\_\+character}!lexical\+\_\+grammar.\+h@{lexical\+\_\+grammar.\+h}}
+\subsubsection{\texorpdfstring{is\+\_\+single\+\_\+escape\+\_\+character()}{is\_single\_escape\_character()}}
+{\footnotesize\ttfamily bool is\+\_\+single\+\_\+escape\+\_\+character (\begin{DoxyParamCaption}\item[{int}]{cp }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexical__grammar_8h_a77ceb9bedb3fcd420006ad82a4cb2869}\label{lexical__grammar_8h_a77ceb9bedb3fcd420006ad82a4cb2869}} 
+\index{lexical\+\_\+grammar.\+h@{lexical\+\_\+grammar.\+h}!is\+\_\+unicode\+\_\+combining\+\_\+mark@{is\+\_\+unicode\+\_\+combining\+\_\+mark}}
+\index{is\+\_\+unicode\+\_\+combining\+\_\+mark@{is\+\_\+unicode\+\_\+combining\+\_\+mark}!lexical\+\_\+grammar.\+h@{lexical\+\_\+grammar.\+h}}
+\subsubsection{\texorpdfstring{is\+\_\+unicode\+\_\+combining\+\_\+mark()}{is\_unicode\_combining\_mark()}}
+{\footnotesize\ttfamily bool is\+\_\+unicode\+\_\+combining\+\_\+mark (\begin{DoxyParamCaption}\item[{int}]{cp }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexical__grammar_8h_a484f6eea02427eb2659a45d0e2d6b816}\label{lexical__grammar_8h_a484f6eea02427eb2659a45d0e2d6b816}} 
+\index{lexical\+\_\+grammar.\+h@{lexical\+\_\+grammar.\+h}!is\+\_\+unicode\+\_\+connector\+\_\+punctuation@{is\+\_\+unicode\+\_\+connector\+\_\+punctuation}}
+\index{is\+\_\+unicode\+\_\+connector\+\_\+punctuation@{is\+\_\+unicode\+\_\+connector\+\_\+punctuation}!lexical\+\_\+grammar.\+h@{lexical\+\_\+grammar.\+h}}
+\subsubsection{\texorpdfstring{is\+\_\+unicode\+\_\+connector\+\_\+punctuation()}{is\_unicode\_connector\_punctuation()}}
+{\footnotesize\ttfamily bool is\+\_\+unicode\+\_\+connector\+\_\+punctuation (\begin{DoxyParamCaption}\item[{int}]{cp }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexical__grammar_8h_a3d0438332c1c1a679199bcd3e3ee4748}\label{lexical__grammar_8h_a3d0438332c1c1a679199bcd3e3ee4748}} 
+\index{lexical\+\_\+grammar.\+h@{lexical\+\_\+grammar.\+h}!is\+\_\+unicode\+\_\+digit@{is\+\_\+unicode\+\_\+digit}}
+\index{is\+\_\+unicode\+\_\+digit@{is\+\_\+unicode\+\_\+digit}!lexical\+\_\+grammar.\+h@{lexical\+\_\+grammar.\+h}}
+\subsubsection{\texorpdfstring{is\+\_\+unicode\+\_\+digit()}{is\_unicode\_digit()}}
+{\footnotesize\ttfamily bool is\+\_\+unicode\+\_\+digit (\begin{DoxyParamCaption}\item[{int}]{cp }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexical__grammar_8h_aab548932d0a5af9ce41ece5a9341167b}\label{lexical__grammar_8h_aab548932d0a5af9ce41ece5a9341167b}} 
+\index{lexical\+\_\+grammar.\+h@{lexical\+\_\+grammar.\+h}!is\+\_\+unicode\+\_\+letter@{is\+\_\+unicode\+\_\+letter}}
+\index{is\+\_\+unicode\+\_\+letter@{is\+\_\+unicode\+\_\+letter}!lexical\+\_\+grammar.\+h@{lexical\+\_\+grammar.\+h}}
+\subsubsection{\texorpdfstring{is\+\_\+unicode\+\_\+letter()}{is\_unicode\_letter()}}
+{\footnotesize\ttfamily bool is\+\_\+unicode\+\_\+letter (\begin{DoxyParamCaption}\item[{int}]{cp }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexical__grammar_8h_a315b133087b7c8aececd5bb4bb038a33}\label{lexical__grammar_8h_a315b133087b7c8aececd5bb4bb038a33}} 
+\index{lexical\+\_\+grammar.\+h@{lexical\+\_\+grammar.\+h}!is\+\_\+white\+\_\+space@{is\+\_\+white\+\_\+space}}
+\index{is\+\_\+white\+\_\+space@{is\+\_\+white\+\_\+space}!lexical\+\_\+grammar.\+h@{lexical\+\_\+grammar.\+h}}
+\subsubsection{\texorpdfstring{is\+\_\+white\+\_\+space()}{is\_white\_space()}}
+{\footnotesize\ttfamily bool is\+\_\+white\+\_\+space (\begin{DoxyParamCaption}\item[{int}]{cp }\end{DoxyParamCaption})}
+

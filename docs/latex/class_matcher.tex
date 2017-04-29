@@ -1,0 +1,231 @@
+\hypertarget{class_matcher}{}\section{Matcher$<$ T, It $>$ Class Template Reference}
+\label{class_matcher}\index{Matcher$<$ T, It $>$@{Matcher$<$ T, It $>$}}
+
+
+{\ttfamily \#include $<$matcher.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_matcher_a6a90be25ea49908ed9d6c23f8bb9c47f}{Matcher} (It begin, It end)
+\item 
+bool \hyperlink{class_matcher_ad10d558fa9248baf4490d50ad395a55e}{match} (const T \&value)
+\item 
+{\footnotesize template$<$typename Pred $>$ }\\auto \hyperlink{class_matcher_a1f088e17e646f4e53a9d0297b4bd4d8b}{match} (Pred \&\&pred) -\/$>$ decltype(pred(), bool())
+\item 
+{\footnotesize template$<$typename Pred $>$ }\\auto \hyperlink{class_matcher_aae9b912f87795d05054746619e237b2d}{match} (Pred \&\&pred) -\/$>$ decltype(pred($\ast$m\+\_\+cur), bool())
+\item 
+bool \hyperlink{class_matcher_adeb27a509701a96d922d98ade0080bcd}{match} (const char $\ast$value)
+\item 
+bool \hyperlink{class_matcher_acf713afbc98dd0b324ed04f52ccad568}{match} (const T \&value, \textbf{ std\+::true\+\_\+type})
+\item 
+bool \hyperlink{class_matcher_a0abb0a8d3e921a4fe96fdd8646e7afd7}{match} (const char $\ast$value, \textbf{ std\+::false\+\_\+type})
+\item 
+{\footnotesize template$<$typename Pred $>$ }\\auto \hyperlink{class_matcher_a016cf13b6cf1119494a9723fb9419fd4}{rmatch} (Pred \&\&pred) -\/$>$ decltype(pred(), bool())
+\item 
+{\footnotesize template$<$typename Pred $>$ }\\auto \hyperlink{class_matcher_ad0b897b87cede7752c385e7d55bcaff4}{rmatch} (Pred \&\&pred) -\/$>$ decltype(pred($\ast$m\+\_\+cur), bool())
+\item 
+bool \hyperlink{class_matcher_a28b154cbc4cb7ae203810043e069ae38}{peek} (const T \&value) const
+\item 
+{\footnotesize template$<$typename Pred $>$ }\\auto \hyperlink{class_matcher_a4c92e3958c64eee29812f4ed75c331cf}{peek} (Pred \&\&pred) const -\/$>$ decltype(pred($\ast$m\+\_\+cur), bool())
+\item 
+{\footnotesize template$<$typename Arg , typename... Args$>$ }\\bool \hyperlink{class_matcher_a1db8b27d158ba0010bf7c69559773112}{any\+\_\+of} (Arg \&\&arg, Args \&\&... args)
+\item 
+bool \hyperlink{class_matcher_a6cfab4944429c85a33d872691e0976c8}{any\+\_\+of} ()
+\item 
+It \hyperlink{class_matcher_af9135752ac195a21c230267d52db6623}{mark} () const
+\item 
+void \hyperlink{class_matcher_abb67aa2acac25b34d80ffb2e64eef44c}{reset} (It \hyperlink{class_matcher_af9135752ac195a21c230267d52db6623}{mark})
+\item 
+void \hyperlink{class_matcher_a18de8d97996c28deb6ac787f2a0981a6}{reset} ()
+\item 
+{\footnotesize template$<$typename... Args$>$ }\\bool \hyperlink{class_matcher_a2c1cbd69f6fcbbcf40e9e66333cfddca}{operator()} (Args \&\&... args)
+\item 
+const T $\ast$ \hyperlink{class_matcher_a6a43511495d338b4572dcb52e96fc3a3}{matched} () const
+\item 
+const It \hyperlink{class_matcher_abf9d0a1f24372dc9dde031ae6df26921}{matching} () const
+\item 
+\hyperlink{class_matcher_ae3f74b07e355126855e40db722c7a51d}{operator const T $\ast$} () const
+\item 
+\hyperlink{class_matcher_a7b808eac9d5d10c2d417869bf630d6ec}{operator const T \&} () const
+\item 
+{\footnotesize template$<$typename U $>$ }\\\hyperlink{class_matcher_a0bd21eb19304624235c6cb208fa1216a}{operator U} () const
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_matcher_a6a90be25ea49908ed9d6c23f8bb9c47f}\label{class_matcher_a6a90be25ea49908ed9d6c23f8bb9c47f}} 
+\index{Matcher@{Matcher}!Matcher@{Matcher}}
+\index{Matcher@{Matcher}!Matcher@{Matcher}}
+\subsubsection{\texorpdfstring{Matcher()}{Matcher()}}
+{\footnotesize\ttfamily template$<$typename T, typename It$>$ \\
+\hyperlink{class_matcher}{Matcher}$<$ T, It $>$\+::\hyperlink{class_matcher}{Matcher} (\begin{DoxyParamCaption}\item[{It}]{begin,  }\item[{It}]{end }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_matcher_a1db8b27d158ba0010bf7c69559773112}\label{class_matcher_a1db8b27d158ba0010bf7c69559773112}} 
+\index{Matcher@{Matcher}!any\+\_\+of@{any\+\_\+of}}
+\index{any\+\_\+of@{any\+\_\+of}!Matcher@{Matcher}}
+\subsubsection{\texorpdfstring{any\+\_\+of()}{any\_of()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T, typename It$>$ \\
+template$<$typename Arg , typename... Args$>$ \\
+bool \hyperlink{class_matcher}{Matcher}$<$ T, It $>$\+::any\+\_\+of (\begin{DoxyParamCaption}\item[{Arg \&\&}]{arg,  }\item[{Args \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_matcher_a6cfab4944429c85a33d872691e0976c8}\label{class_matcher_a6cfab4944429c85a33d872691e0976c8}} 
+\index{Matcher@{Matcher}!any\+\_\+of@{any\+\_\+of}}
+\index{any\+\_\+of@{any\+\_\+of}!Matcher@{Matcher}}
+\subsubsection{\texorpdfstring{any\+\_\+of()}{any\_of()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T, typename It$>$ \\
+bool \hyperlink{class_matcher}{Matcher}$<$ T, It $>$\+::any\+\_\+of (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_matcher_af9135752ac195a21c230267d52db6623}\label{class_matcher_af9135752ac195a21c230267d52db6623}} 
+\index{Matcher@{Matcher}!mark@{mark}}
+\index{mark@{mark}!Matcher@{Matcher}}
+\subsubsection{\texorpdfstring{mark()}{mark()}}
+{\footnotesize\ttfamily template$<$typename T, typename It$>$ \\
+It \hyperlink{class_matcher}{Matcher}$<$ T, It $>$\+::mark (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_matcher_ad10d558fa9248baf4490d50ad395a55e}\label{class_matcher_ad10d558fa9248baf4490d50ad395a55e}} 
+\index{Matcher@{Matcher}!match@{match}}
+\index{match@{match}!Matcher@{Matcher}}
+\subsubsection{\texorpdfstring{match()}{match()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily template$<$typename T, typename It$>$ \\
+bool \hyperlink{class_matcher}{Matcher}$<$ T, It $>$\+::match (\begin{DoxyParamCaption}\item[{const T \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_matcher_a1f088e17e646f4e53a9d0297b4bd4d8b}\label{class_matcher_a1f088e17e646f4e53a9d0297b4bd4d8b}} 
+\index{Matcher@{Matcher}!match@{match}}
+\index{match@{match}!Matcher@{Matcher}}
+\subsubsection{\texorpdfstring{match()}{match()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily template$<$typename T, typename It$>$ \\
+template$<$typename Pred $>$ \\
+auto \hyperlink{class_matcher}{Matcher}$<$ T, It $>$\+::match (\begin{DoxyParamCaption}\item[{Pred \&\&}]{pred }\end{DoxyParamCaption}) -\/$>$ decltype(pred(), bool())
+  \hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_matcher_aae9b912f87795d05054746619e237b2d}\label{class_matcher_aae9b912f87795d05054746619e237b2d}} 
+\index{Matcher@{Matcher}!match@{match}}
+\index{match@{match}!Matcher@{Matcher}}
+\subsubsection{\texorpdfstring{match()}{match()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily template$<$typename T, typename It$>$ \\
+template$<$typename Pred $>$ \\
+auto \hyperlink{class_matcher}{Matcher}$<$ T, It $>$\+::match (\begin{DoxyParamCaption}\item[{Pred \&\&}]{pred }\end{DoxyParamCaption}) -\/$>$ decltype(pred($\ast$m\+\_\+cur), bool())
+  \hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_matcher_adeb27a509701a96d922d98ade0080bcd}\label{class_matcher_adeb27a509701a96d922d98ade0080bcd}} 
+\index{Matcher@{Matcher}!match@{match}}
+\index{match@{match}!Matcher@{Matcher}}
+\subsubsection{\texorpdfstring{match()}{match()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily template$<$typename T, typename It$>$ \\
+bool \hyperlink{class_matcher}{Matcher}$<$ T, It $>$\+::match (\begin{DoxyParamCaption}\item[{const char $\ast$}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_matcher_acf713afbc98dd0b324ed04f52ccad568}\label{class_matcher_acf713afbc98dd0b324ed04f52ccad568}} 
+\index{Matcher@{Matcher}!match@{match}}
+\index{match@{match}!Matcher@{Matcher}}
+\subsubsection{\texorpdfstring{match()}{match()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily template$<$typename T, typename It$>$ \\
+bool \hyperlink{class_matcher}{Matcher}$<$ T, It $>$\+::match (\begin{DoxyParamCaption}\item[{const T \&}]{value,  }\item[{\textbf{ std\+::true\+\_\+type}}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_matcher_a0abb0a8d3e921a4fe96fdd8646e7afd7}\label{class_matcher_a0abb0a8d3e921a4fe96fdd8646e7afd7}} 
+\index{Matcher@{Matcher}!match@{match}}
+\index{match@{match}!Matcher@{Matcher}}
+\subsubsection{\texorpdfstring{match()}{match()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily template$<$typename T, typename It$>$ \\
+bool \hyperlink{class_matcher}{Matcher}$<$ T, It $>$\+::match (\begin{DoxyParamCaption}\item[{const char $\ast$}]{value,  }\item[{\textbf{ std\+::false\+\_\+type}}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_matcher_a6a43511495d338b4572dcb52e96fc3a3}\label{class_matcher_a6a43511495d338b4572dcb52e96fc3a3}} 
+\index{Matcher@{Matcher}!matched@{matched}}
+\index{matched@{matched}!Matcher@{Matcher}}
+\subsubsection{\texorpdfstring{matched()}{matched()}}
+{\footnotesize\ttfamily template$<$typename T, typename It$>$ \\
+const T$\ast$ \hyperlink{class_matcher}{Matcher}$<$ T, It $>$\+::matched (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_matcher_abf9d0a1f24372dc9dde031ae6df26921}\label{class_matcher_abf9d0a1f24372dc9dde031ae6df26921}} 
+\index{Matcher@{Matcher}!matching@{matching}}
+\index{matching@{matching}!Matcher@{Matcher}}
+\subsubsection{\texorpdfstring{matching()}{matching()}}
+{\footnotesize\ttfamily template$<$typename T, typename It$>$ \\
+const It \hyperlink{class_matcher}{Matcher}$<$ T, It $>$\+::matching (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_matcher_a7b808eac9d5d10c2d417869bf630d6ec}\label{class_matcher_a7b808eac9d5d10c2d417869bf630d6ec}} 
+\index{Matcher@{Matcher}!operator const T \&@{operator const T \&}}
+\index{operator const T \&@{operator const T \&}!Matcher@{Matcher}}
+\subsubsection{\texorpdfstring{operator const T \&()}{operator const T \&()}}
+{\footnotesize\ttfamily template$<$typename T, typename It$>$ \\
+\hyperlink{class_matcher}{Matcher}$<$ T, It $>$\+::operator const T \& (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_matcher_ae3f74b07e355126855e40db722c7a51d}\label{class_matcher_ae3f74b07e355126855e40db722c7a51d}} 
+\index{Matcher@{Matcher}!operator const T $\ast$@{operator const T $\ast$}}
+\index{operator const T $\ast$@{operator const T $\ast$}!Matcher@{Matcher}}
+\subsubsection{\texorpdfstring{operator const T $\ast$()}{operator const T *()}}
+{\footnotesize\ttfamily template$<$typename T, typename It$>$ \\
+\hyperlink{class_matcher}{Matcher}$<$ T, It $>$\+::operator const T $\ast$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_matcher_a0bd21eb19304624235c6cb208fa1216a}\label{class_matcher_a0bd21eb19304624235c6cb208fa1216a}} 
+\index{Matcher@{Matcher}!operator U@{operator U}}
+\index{operator U@{operator U}!Matcher@{Matcher}}
+\subsubsection{\texorpdfstring{operator U()}{operator U()}}
+{\footnotesize\ttfamily template$<$typename T, typename It$>$ \\
+template$<$typename U $>$ \\
+\hyperlink{class_matcher}{Matcher}$<$ T, It $>$\+::operator U (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_matcher_a2c1cbd69f6fcbbcf40e9e66333cfddca}\label{class_matcher_a2c1cbd69f6fcbbcf40e9e66333cfddca}} 
+\index{Matcher@{Matcher}!operator()@{operator()}}
+\index{operator()@{operator()}!Matcher@{Matcher}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily template$<$typename T, typename It$>$ \\
+template$<$typename... Args$>$ \\
+bool \hyperlink{class_matcher}{Matcher}$<$ T, It $>$\+::operator() (\begin{DoxyParamCaption}\item[{Args \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_matcher_a28b154cbc4cb7ae203810043e069ae38}\label{class_matcher_a28b154cbc4cb7ae203810043e069ae38}} 
+\index{Matcher@{Matcher}!peek@{peek}}
+\index{peek@{peek}!Matcher@{Matcher}}
+\subsubsection{\texorpdfstring{peek()}{peek()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T, typename It$>$ \\
+bool \hyperlink{class_matcher}{Matcher}$<$ T, It $>$\+::peek (\begin{DoxyParamCaption}\item[{const T \&}]{value }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_matcher_a4c92e3958c64eee29812f4ed75c331cf}\label{class_matcher_a4c92e3958c64eee29812f4ed75c331cf}} 
+\index{Matcher@{Matcher}!peek@{peek}}
+\index{peek@{peek}!Matcher@{Matcher}}
+\subsubsection{\texorpdfstring{peek()}{peek()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T, typename It$>$ \\
+template$<$typename Pred $>$ \\
+auto \hyperlink{class_matcher}{Matcher}$<$ T, It $>$\+::peek (\begin{DoxyParamCaption}\item[{Pred \&\&}]{pred }\end{DoxyParamCaption}) const -\/$>$ decltype(pred($\ast$m\+\_\+cur), bool())
+  \hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_matcher_abb67aa2acac25b34d80ffb2e64eef44c}\label{class_matcher_abb67aa2acac25b34d80ffb2e64eef44c}} 
+\index{Matcher@{Matcher}!reset@{reset}}
+\index{reset@{reset}!Matcher@{Matcher}}
+\subsubsection{\texorpdfstring{reset()}{reset()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T, typename It$>$ \\
+void \hyperlink{class_matcher}{Matcher}$<$ T, It $>$\+::reset (\begin{DoxyParamCaption}\item[{It}]{mark }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_matcher_a18de8d97996c28deb6ac787f2a0981a6}\label{class_matcher_a18de8d97996c28deb6ac787f2a0981a6}} 
+\index{Matcher@{Matcher}!reset@{reset}}
+\index{reset@{reset}!Matcher@{Matcher}}
+\subsubsection{\texorpdfstring{reset()}{reset()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T, typename It$>$ \\
+void \hyperlink{class_matcher}{Matcher}$<$ T, It $>$\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_matcher_a016cf13b6cf1119494a9723fb9419fd4}\label{class_matcher_a016cf13b6cf1119494a9723fb9419fd4}} 
+\index{Matcher@{Matcher}!rmatch@{rmatch}}
+\index{rmatch@{rmatch}!Matcher@{Matcher}}
+\subsubsection{\texorpdfstring{rmatch()}{rmatch()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T, typename It$>$ \\
+template$<$typename Pred $>$ \\
+auto \hyperlink{class_matcher}{Matcher}$<$ T, It $>$\+::rmatch (\begin{DoxyParamCaption}\item[{Pred \&\&}]{pred }\end{DoxyParamCaption}) -\/$>$ decltype(pred(), bool())
+  \hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_matcher_ad0b897b87cede7752c385e7d55bcaff4}\label{class_matcher_ad0b897b87cede7752c385e7d55bcaff4}} 
+\index{Matcher@{Matcher}!rmatch@{rmatch}}
+\index{rmatch@{rmatch}!Matcher@{Matcher}}
+\subsubsection{\texorpdfstring{rmatch()}{rmatch()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T, typename It$>$ \\
+template$<$typename Pred $>$ \\
+auto \hyperlink{class_matcher}{Matcher}$<$ T, It $>$\+::rmatch (\begin{DoxyParamCaption}\item[{Pred \&\&}]{pred }\end{DoxyParamCaption}) -\/$>$ decltype(pred($\ast$m\+\_\+cur), bool())
+  \hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{matcher_8h}{matcher.\+h}\end{DoxyCompactItemize}

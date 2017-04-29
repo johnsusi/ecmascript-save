@@ -1,0 +1,260 @@
+.TH "Token" 3 "Sat Apr 29 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Token
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <token\&.h>\fP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBDebugInfo\fP"
+.br
+.ti -1c
+.RI "struct \fBequal_visitor\fP"
+.br
+.ti -1c
+.RI "struct \fBprint_visitor\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBToken\fP ()=default"
+.br
+.ti -1c
+.RI "\fBToken\fP (const \fBToken\fP &)=default"
+.br
+.ti -1c
+.RI "\fBToken\fP (\fBToken\fP &&)=default"
+.br
+.ti -1c
+.RI "\fBToken\fP & \fBoperator=\fP (const \fBToken\fP &)=default"
+.br
+.ti -1c
+.RI "\fBToken\fP & \fBoperator=\fP (\fBToken\fP &&)=default"
+.br
+.ti -1c
+.RI "\fBToken\fP (const char *str)"
+.br
+.ti -1c
+.RI "\fBToken\fP (const \fBstd::string\fP &str)"
+.br
+.ti -1c
+.RI "template<typename It > \fBToken\fP (It f, It l)"
+.br
+.ti -1c
+.RI "bool \fBis_empty\fP () const"
+.br
+.ti -1c
+.RI "bool \fBis_identifier\fP () const"
+.br
+.ti -1c
+.RI "bool \fBis_keyword\fP () const"
+.br
+.ti -1c
+.RI "bool \fBis_future_reserved_word\fP () const"
+.br
+.ti -1c
+.RI "bool \fBis_punctuator\fP () const"
+.br
+.ti -1c
+.RI "bool \fBis_null_literal\fP () const"
+.br
+.ti -1c
+.RI "bool \fBis_boolean_literal\fP () const"
+.br
+.ti -1c
+.RI "bool \fBis_numeric_literal\fP () const"
+.br
+.ti -1c
+.RI "bool \fBis_string_literal\fP () const"
+.br
+.ti -1c
+.RI "bool \fBis_regular_expression_literal\fP () const"
+.br
+.ti -1c
+.RI "bool \fBis_identifier_name\fP () const"
+.br
+.ti -1c
+.RI "bool \fBany_of\fP (const \fBstd::vector\fP< \fBToken\fP > &tokens) const"
+.br
+.ti -1c
+.RI "boost::optional< const \fBstd::u16string\fP & > \fBto_identifier\fP () const"
+.br
+.ti -1c
+.RI "boost::optional< const \fBstd::string\fP & > \fBto_keyword\fP () const"
+.br
+.ti -1c
+.RI "boost::optional< const \fBstd::string\fP & > \fBto_punctuator\fP () const"
+.br
+.ti -1c
+.RI "boost::optional< const bool & > \fBto_boolean_literal\fP () const"
+.br
+.ti -1c
+.RI "boost::optional< const double & > \fBto_numeric_literal\fP () const"
+.br
+.ti -1c
+.RI "boost::optional< const \fBstd::u16string\fP & > \fBto_string_literal\fP () const"
+.br
+.ti -1c
+.RI "bool \fBoperator==\fP (const \fBToken\fP &other) const"
+.br
+.ti -1c
+.RI "void \fBprint\fP (\fBstd::ostream\fP &) const"
+.br
+.ti -1c
+.RI "\fBoperator bool\fP () const"
+.br
+.ti -1c
+.RI "\fBoperator double\fP () const"
+.br
+.ti -1c
+.RI "\fBoperator std::string\fP () const"
+.br
+.ti -1c
+.RI "\fBoperator std::u16string\fP () const"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBToken\fP \fBidentifier\fP (\fBstd::string\fP value)"
+.br
+.ti -1c
+.RI "static \fBToken\fP \fBidentifier\fP (\fBstd::u16string\fP value)"
+.br
+.ti -1c
+.RI "static \fBToken\fP \fBkeyword\fP (const \fBstd::string\fP &value)"
+.br
+.ti -1c
+.RI "static \fBToken\fP \fBpunctuator\fP (const \fBstd::string\fP &value)"
+.br
+.ti -1c
+.RI "static \fBToken\fP \fBnull_literal\fP ()"
+.br
+.ti -1c
+.RI "static \fBToken\fP \fBboolean_literal\fP (bool value)"
+.br
+.ti -1c
+.RI "static \fBToken\fP \fBnumeric_literal\fP (double value)"
+.br
+.ti -1c
+.RI "static \fBToken\fP \fBstring_literal\fP (\fBstd::u16string\fP value)"
+.br
+.ti -1c
+.RI "static \fBToken\fP \fBregular_expression_literal\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "bool \fBpreceded_by_line_terminator\fP = false"
+.br
+.ti -1c
+.RI "\fBstd::shared_ptr\fP< \fBDebugInfo\fP > \fBdebug_info\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Token::Token ()\fC [default]\fP"
+
+.SS "Token::Token (const \fBToken\fP &)\fC [default]\fP"
+
+.SS "Token::Token (\fBToken\fP &&)\fC [default]\fP"
+
+.SS "Token::Token (const char * str)"
+
+.SS "Token::Token (const \fBstd::string\fP & str)"
+
+.SS "template<typename It > Token::Token (It f, It l)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "bool Token::any_of (const \fBstd::vector\fP< \fBToken\fP > & tokens) const\fC [inline]\fP"
+
+.SS "\fBToken\fP Token::boolean_literal (bool value)\fC [static]\fP"
+
+.SS "\fBToken\fP Token::identifier (\fBstd::string\fP value)\fC [static]\fP"
+
+.SS "\fBToken\fP Token::identifier (\fBstd::u16string\fP value)\fC [static]\fP"
+
+.SS "bool Token::is_boolean_literal () const"
+
+.SS "bool Token::is_empty () const"
+
+.SS "bool Token::is_future_reserved_word () const"
+
+.SS "bool Token::is_identifier () const"
+
+.SS "bool Token::is_identifier_name () const"
+
+.SS "bool Token::is_keyword () const"
+
+.SS "bool Token::is_null_literal () const"
+
+.SS "bool Token::is_numeric_literal () const"
+
+.SS "bool Token::is_punctuator () const"
+
+.SS "bool Token::is_regular_expression_literal () const"
+
+.SS "bool Token::is_string_literal () const"
+
+.SS "\fBToken\fP Token::keyword (const \fBstd::string\fP & value)\fC [static]\fP"
+
+.SS "\fBToken\fP Token::null_literal ()\fC [static]\fP"
+
+.SS "\fBToken\fP Token::numeric_literal (double value)\fC [static]\fP"
+
+.SS "Token::operator bool () const"
+
+.SS "Token::operator double () const"
+
+.SS "Token::operator \fBstd::string\fP () const"
+
+.SS "Token::operator \fBstd::u16string\fP () const"
+
+.SS "\fBToken\fP& Token::operator= (const \fBToken\fP &)\fC [default]\fP"
+
+.SS "\fBToken\fP& Token::operator= (\fBToken\fP &&)\fC [default]\fP"
+
+.SS "bool Token::operator== (const \fBToken\fP & other) const"
+
+.SS "void Token::print (\fBstd::ostream\fP & out) const"
+
+.SS "\fBToken\fP Token::punctuator (const \fBstd::string\fP & value)\fC [static]\fP"
+
+.SS "\fBToken\fP Token::regular_expression_literal ()\fC [static]\fP"
+
+.SS "\fBToken\fP Token::string_literal (\fBstd::u16string\fP value)\fC [static]\fP"
+
+.SS "boost::optional< const bool & > Token::to_boolean_literal () const"
+
+.SS "boost::optional< const \fBstd::u16string\fP & > Token::to_identifier () const"
+
+.SS "boost::optional< const \fBstd::string\fP & > Token::to_keyword () const"
+
+.SS "boost::optional< const double & > Token::to_numeric_literal () const"
+
+.SS "boost::optional< const \fBstd::string\fP & > Token::to_punctuator () const"
+
+.SS "boost::optional< const \fBstd::u16string\fP & > Token::to_string_literal () const"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBstd::shared_ptr\fP<\fBDebugInfo\fP> Token::debug_info"
+
+.SS "bool Token::preceded_by_line_terminator = false"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

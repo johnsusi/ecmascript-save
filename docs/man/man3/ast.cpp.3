@@ -1,0 +1,62 @@
+.TH "src/ast.cpp" 3 "Sat Apr 29 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/ast.cpp
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'ast\&.h'\fP
+.br
+\fC#include <string>\fP
+.br
+\fC#include <sstream>\fP
+.br
+\fC#include <vector>\fP
+.br
+\fC#include <boost/algorithm/string\&.hpp>\fP
+.br
+\fC#include <boost/core/demangle\&.hpp>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBPrintVisitor\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBstd::string\fP \fBnormalize\fP (const \fBstd::string\fP &s)"
+.br
+.ti -1c
+.RI "template<typename T > void \fBtypeof\fP (const T &)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBto_string\fP (const \fBProgram\fP &program)"
+.br
+.ti -1c
+.RI "bool \fBoperator==\fP (const \fBProgram\fP &program, const \fBstd::string\fP &str)"
+.br
+.ti -1c
+.RI "\fBstd::ostream\fP & \fBoperator<<\fP (\fBstd::ostream\fP &out, const \fBProgram\fP &program)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBstd::string\fP normalize (const \fBstd::string\fP & s)"
+
+.SS "\fBstd::ostream\fP& operator<< (\fBstd::ostream\fP & out, const \fBProgram\fP & program)"
+
+.SS "bool operator== (const \fBProgram\fP & program, const \fBstd::string\fP & str)"
+
+.SS "\fBstd::string\fP to_string (const \fBProgram\fP & program)"
+
+.SS "template<typename T > void typeof (const T &)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

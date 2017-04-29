@@ -30,16 +30,18 @@ using PrimaryExpression = boost::variant<
   boost::recursive_wrapper<ObjectLiteral>
   // ( expression )
 >;
+struct MemberExpression;
+struct NewExpression;
+struct CallExpression;
 struct PostfixExpression;
 struct UnaryExpression;
 struct BinaryExpression;
 struct ConditionalExpression;
+struct Arguments;
 
 using Expression = boost::variant<
-  // PrimaryExpression,
   This,
   Identifier,
-  // Literal,
   boost::recursive_wrapper<ArrayLiteral>,
   boost::recursive_wrapper<ObjectLiteral>,
   NullLiteral,
@@ -47,11 +49,14 @@ using Expression = boost::variant<
   NumericLiteral,
   StringLiteral,
   RegularExpressionLiteral,
-
+  boost::recursive_wrapper<MemberExpression>,
+  boost::recursive_wrapper<NewExpression>,
+  boost::recursive_wrapper<CallExpression>,
   boost::recursive_wrapper<PostfixExpression>,
   boost::recursive_wrapper<UnaryExpression>,
   boost::recursive_wrapper<BinaryExpression>,
-  boost::recursive_wrapper<ConditionalExpression>
+  boost::recursive_wrapper<ConditionalExpression>,
+  boost::recursive_wrapper<Arguments>
 >;
 
 using PropertyName = boost::variant<
@@ -75,6 +80,31 @@ struct ArrayLiteral
 struct ObjectLiteral
 {
   std::vector<PropertyAssignment> declarations;
+};
+
+struct MemberExpression
+{
+  Expression object;
+  Expression property;
+};
+
+using ArgumentList = std::vector<Expression>;
+
+struct Arguments
+{
+  ArgumentList list;
+};
+
+struct NewExpression
+{
+  Expression callee;
+  Arguments arguments;
+};
+
+struct CallExpression
+{
+  Expression callee;
+  Arguments arguments;
 };
 
 struct PostfixExpression

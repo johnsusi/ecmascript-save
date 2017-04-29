@@ -1,0 +1,116 @@
+.TH "src/lexical_grammar.h" 3 "Sat Apr 29 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/lexical_grammar.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'input_element\&.h'\fP
+.br
+\fC#include 'matcher\&.h'\fP
+.br
+\fC#include 'token\&.h'\fP
+.br
+\fC#include <algorithm>\fP
+.br
+\fC#include <cmath>\fP
+.br
+\fC#include <iterator>\fP
+.br
+\fC#include <string>\fP
+.br
+\fC#include <vector>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBLexicalGrammar< T >\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "bool \fBis_white_space\fP (int cp)"
+.br
+.ti -1c
+.RI "bool \fBis_line_terminator\fP (int cp)"
+.br
+.ti -1c
+.RI "bool \fBis_non_zero_digit\fP (int cp)"
+.br
+.ti -1c
+.RI "bool \fBis_decimal_digit\fP (int cp)"
+.br
+.ti -1c
+.RI "bool \fBis_hex_digit\fP (int cp)"
+.br
+.ti -1c
+.RI "bool \fBis_unicode_letter\fP (int cp)"
+.br
+.ti -1c
+.RI "bool \fBis_unicode_combining_mark\fP (int cp)"
+.br
+.ti -1c
+.RI "bool \fBis_unicode_digit\fP (int cp)"
+.br
+.ti -1c
+.RI "bool \fBis_unicode_connector_punctuation\fP (int cp)"
+.br
+.ti -1c
+.RI "bool \fBis_single_escape_character\fP (int cp)"
+.br
+.ti -1c
+.RI "bool \fBis_keyword\fP (const \fBstd::string\fP &token)"
+.br
+.ti -1c
+.RI "bool \fBis_future_reserved_word\fP (const \fBstd::string\fP &token)"
+.br
+.ti -1c
+.RI "bool \fBis_punctuator\fP (const \fBstd::string\fP &token)"
+.br
+.ti -1c
+.RI "bool \fBis_null_literal\fP (const \fBstd::string\fP &str)"
+.br
+.ti -1c
+.RI "bool \fBis_boolean_literal\fP (const \fBstd::string\fP &)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "bool is_boolean_literal (const \fBstd::string\fP &)"
+
+.SS "bool is_decimal_digit (int cp)"
+
+.SS "bool is_future_reserved_word (const \fBstd::string\fP & token)"
+
+.SS "bool is_hex_digit (int cp)"
+
+.SS "bool is_keyword (const \fBstd::string\fP & token)"
+
+.SS "bool is_line_terminator (int cp)"
+
+.SS "bool is_non_zero_digit (int cp)"
+
+.SS "bool is_null_literal (const \fBstd::string\fP & str)"
+
+.SS "bool is_punctuator (const \fBstd::string\fP & token)"
+
+.SS "bool is_single_escape_character (int cp)"
+
+.SS "bool is_unicode_combining_mark (int cp)"
+
+.SS "bool is_unicode_connector_punctuation (int cp)"
+
+.SS "bool is_unicode_digit (int cp)"
+
+.SS "bool is_unicode_letter (int cp)"
+
+.SS "bool is_white_space (int cp)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

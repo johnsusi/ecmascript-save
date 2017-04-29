@@ -1,0 +1,125 @@
+\hypertarget{class_input_element}{}\section{Input\+Element Class Reference}
+\label{class_input_element}\index{Input\+Element@{Input\+Element}}
+
+
+{\ttfamily \#include $<$input\+\_\+element.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{class_input_element_a4e4b6b2005fe0b8d07f30ef27210a51b}{is\+\_\+empty} () const
+\item 
+bool \hyperlink{class_input_element_a6bac1905f5d9aa43f89e1bbfdb553c15}{is\+\_\+token} () const
+\item 
+bool \hyperlink{class_input_element_adef5e449a8107adaac4f570994d698b9}{is\+\_\+line\+\_\+terminator} () const
+\item 
+bool \hyperlink{class_input_element_a1e2afc5eda150e298c2341e80798fddd}{is\+\_\+comment} () const
+\item 
+bool \hyperlink{class_input_element_af9fdf1da0079e858a7a6ad0b5e68d2be}{is\+\_\+white\+\_\+space} () const
+\item 
+bool \hyperlink{class_input_element_aba40c84ff7da5ede181b2109778fb02c}{has\+\_\+line\+\_\+terminator} () const
+\item 
+\hyperlink{class_input_element_af7bde3d94430ad92b13ffc395e36bb05}{operator bool} () const
+\item 
+boost\+::optional$<$\+::\hyperlink{class_token}{Token} $>$ \hyperlink{class_input_element_a906f0cb8a60079177f6d4782c8059a56}{to\+\_\+token} () const
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_input_element}{Input\+Element} \hyperlink{class_input_element_aa6f769b2be5ea1b25e5cdb37235e23c9}{empty} ()
+\item 
+static \hyperlink{class_input_element}{Input\+Element} \hyperlink{class_input_element_a06304c0e0c45b213946409300d3fa29b}{white\+\_\+space} ()
+\item 
+static \hyperlink{class_input_element}{Input\+Element} \hyperlink{class_input_element_ae640c23f2603ce464f32bd57c5595656}{line\+\_\+terminator} ()
+\item 
+static \hyperlink{class_input_element}{Input\+Element} \hyperlink{class_input_element_a8a42a85aa10d7f3b40ea662402880a5a}{comment} (\textbf{ std\+::u16string} value)
+\item 
+static \hyperlink{class_input_element}{Input\+Element} \hyperlink{class_input_element_a6ecb5790fd45cd8f8492fa8b4011b817}{token} (\+::\hyperlink{class_token}{Token} value)
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_input_element_a8a42a85aa10d7f3b40ea662402880a5a}\label{class_input_element_a8a42a85aa10d7f3b40ea662402880a5a}} 
+\index{Input\+Element@{Input\+Element}!comment@{comment}}
+\index{comment@{comment}!Input\+Element@{Input\+Element}}
+\subsubsection{\texorpdfstring{comment()}{comment()}}
+{\footnotesize\ttfamily \hyperlink{class_input_element}{Input\+Element} Input\+Element\+::comment (\begin{DoxyParamCaption}\item[{\textbf{ std\+::u16string}}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_input_element_aa6f769b2be5ea1b25e5cdb37235e23c9}\label{class_input_element_aa6f769b2be5ea1b25e5cdb37235e23c9}} 
+\index{Input\+Element@{Input\+Element}!empty@{empty}}
+\index{empty@{empty}!Input\+Element@{Input\+Element}}
+\subsubsection{\texorpdfstring{empty()}{empty()}}
+{\footnotesize\ttfamily \hyperlink{class_input_element}{Input\+Element} Input\+Element\+::empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_input_element_aba40c84ff7da5ede181b2109778fb02c}\label{class_input_element_aba40c84ff7da5ede181b2109778fb02c}} 
+\index{Input\+Element@{Input\+Element}!has\+\_\+line\+\_\+terminator@{has\+\_\+line\+\_\+terminator}}
+\index{has\+\_\+line\+\_\+terminator@{has\+\_\+line\+\_\+terminator}!Input\+Element@{Input\+Element}}
+\subsubsection{\texorpdfstring{has\+\_\+line\+\_\+terminator()}{has\_line\_terminator()}}
+{\footnotesize\ttfamily bool Input\+Element\+::has\+\_\+line\+\_\+terminator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_input_element_a1e2afc5eda150e298c2341e80798fddd}\label{class_input_element_a1e2afc5eda150e298c2341e80798fddd}} 
+\index{Input\+Element@{Input\+Element}!is\+\_\+comment@{is\+\_\+comment}}
+\index{is\+\_\+comment@{is\+\_\+comment}!Input\+Element@{Input\+Element}}
+\subsubsection{\texorpdfstring{is\+\_\+comment()}{is\_comment()}}
+{\footnotesize\ttfamily bool Input\+Element\+::is\+\_\+comment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_input_element_a4e4b6b2005fe0b8d07f30ef27210a51b}\label{class_input_element_a4e4b6b2005fe0b8d07f30ef27210a51b}} 
+\index{Input\+Element@{Input\+Element}!is\+\_\+empty@{is\+\_\+empty}}
+\index{is\+\_\+empty@{is\+\_\+empty}!Input\+Element@{Input\+Element}}
+\subsubsection{\texorpdfstring{is\+\_\+empty()}{is\_empty()}}
+{\footnotesize\ttfamily bool Input\+Element\+::is\+\_\+empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_input_element_adef5e449a8107adaac4f570994d698b9}\label{class_input_element_adef5e449a8107adaac4f570994d698b9}} 
+\index{Input\+Element@{Input\+Element}!is\+\_\+line\+\_\+terminator@{is\+\_\+line\+\_\+terminator}}
+\index{is\+\_\+line\+\_\+terminator@{is\+\_\+line\+\_\+terminator}!Input\+Element@{Input\+Element}}
+\subsubsection{\texorpdfstring{is\+\_\+line\+\_\+terminator()}{is\_line\_terminator()}}
+{\footnotesize\ttfamily bool Input\+Element\+::is\+\_\+line\+\_\+terminator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_input_element_a6bac1905f5d9aa43f89e1bbfdb553c15}\label{class_input_element_a6bac1905f5d9aa43f89e1bbfdb553c15}} 
+\index{Input\+Element@{Input\+Element}!is\+\_\+token@{is\+\_\+token}}
+\index{is\+\_\+token@{is\+\_\+token}!Input\+Element@{Input\+Element}}
+\subsubsection{\texorpdfstring{is\+\_\+token()}{is\_token()}}
+{\footnotesize\ttfamily bool Input\+Element\+::is\+\_\+token (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_input_element_af9fdf1da0079e858a7a6ad0b5e68d2be}\label{class_input_element_af9fdf1da0079e858a7a6ad0b5e68d2be}} 
+\index{Input\+Element@{Input\+Element}!is\+\_\+white\+\_\+space@{is\+\_\+white\+\_\+space}}
+\index{is\+\_\+white\+\_\+space@{is\+\_\+white\+\_\+space}!Input\+Element@{Input\+Element}}
+\subsubsection{\texorpdfstring{is\+\_\+white\+\_\+space()}{is\_white\_space()}}
+{\footnotesize\ttfamily bool Input\+Element\+::is\+\_\+white\+\_\+space (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_input_element_ae640c23f2603ce464f32bd57c5595656}\label{class_input_element_ae640c23f2603ce464f32bd57c5595656}} 
+\index{Input\+Element@{Input\+Element}!line\+\_\+terminator@{line\+\_\+terminator}}
+\index{line\+\_\+terminator@{line\+\_\+terminator}!Input\+Element@{Input\+Element}}
+\subsubsection{\texorpdfstring{line\+\_\+terminator()}{line\_terminator()}}
+{\footnotesize\ttfamily \hyperlink{class_input_element}{Input\+Element} Input\+Element\+::line\+\_\+terminator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_input_element_af7bde3d94430ad92b13ffc395e36bb05}\label{class_input_element_af7bde3d94430ad92b13ffc395e36bb05}} 
+\index{Input\+Element@{Input\+Element}!operator bool@{operator bool}}
+\index{operator bool@{operator bool}!Input\+Element@{Input\+Element}}
+\subsubsection{\texorpdfstring{operator bool()}{operator bool()}}
+{\footnotesize\ttfamily Input\+Element\+::operator bool (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [explicit]}}
+
+\mbox{\Hypertarget{class_input_element_a906f0cb8a60079177f6d4782c8059a56}\label{class_input_element_a906f0cb8a60079177f6d4782c8059a56}} 
+\index{Input\+Element@{Input\+Element}!to\+\_\+token@{to\+\_\+token}}
+\index{to\+\_\+token@{to\+\_\+token}!Input\+Element@{Input\+Element}}
+\subsubsection{\texorpdfstring{to\+\_\+token()}{to\_token()}}
+{\footnotesize\ttfamily boost\+::optional$<$\+::\hyperlink{class_token}{Token} $>$ Input\+Element\+::to\+\_\+token (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_input_element_a6ecb5790fd45cd8f8492fa8b4011b817}\label{class_input_element_a6ecb5790fd45cd8f8492fa8b4011b817}} 
+\index{Input\+Element@{Input\+Element}!token@{token}}
+\index{token@{token}!Input\+Element@{Input\+Element}}
+\subsubsection{\texorpdfstring{token()}{token()}}
+{\footnotesize\ttfamily \hyperlink{class_input_element}{Input\+Element} Input\+Element\+::token (\begin{DoxyParamCaption}\item[{\+::\hyperlink{class_token}{Token}}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_input_element_a06304c0e0c45b213946409300d3fa29b}\label{class_input_element_a06304c0e0c45b213946409300d3fa29b}} 
+\index{Input\+Element@{Input\+Element}!white\+\_\+space@{white\+\_\+space}}
+\index{white\+\_\+space@{white\+\_\+space}!Input\+Element@{Input\+Element}}
+\subsubsection{\texorpdfstring{white\+\_\+space()}{white\_space()}}
+{\footnotesize\ttfamily \hyperlink{class_input_element}{Input\+Element} Input\+Element\+::white\+\_\+space (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{input__element_8h}{input\+\_\+element.\+h}\item 
+src/\hyperlink{input__element_8cpp}{input\+\_\+element.\+cpp}\end{DoxyCompactItemize}

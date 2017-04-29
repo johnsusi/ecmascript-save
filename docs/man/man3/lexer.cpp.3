@@ -1,0 +1,108 @@
+.TH "src/lexer.cpp" 3 "Sat Apr 29 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/lexer.cpp
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'lexer\&.h'\fP
+.br
+\fC#include <unicode/errorcode\&.h>\fP
+.br
+\fC#include <unicode/normalizer2\&.h>\fP
+.br
+\fC#include <unicode/uchar\&.h>\fP
+.br
+\fC#include <unicode/unistr\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBstd::u16string\fP \fBconvert_utf8_to_utf16\fP (const \fBstd::string\fP &source)"
+.br
+.ti -1c
+.RI "bool \fBis_white_space\fP (int cp)"
+.br
+.ti -1c
+.RI "bool \fBis_line_terminator\fP (int cp)"
+.br
+.ti -1c
+.RI "bool \fBis_non_zero_digit\fP (int cp)"
+.br
+.ti -1c
+.RI "bool \fBis_decimal_digit\fP (int cp)"
+.br
+.ti -1c
+.RI "bool \fBis_hex_digit\fP (int cp)"
+.br
+.ti -1c
+.RI "bool \fBis_unicode_letter\fP (int cp)"
+.br
+.ti -1c
+.RI "bool \fBis_unicode_combining_mark\fP (int cp)"
+.br
+.ti -1c
+.RI "bool \fBis_unicode_digit\fP (int cp)"
+.br
+.ti -1c
+.RI "bool \fBis_unicode_connector_punctuation\fP (int cp)"
+.br
+.ti -1c
+.RI "bool \fBis_single_escape_character\fP (int cp)"
+.br
+.ti -1c
+.RI "bool \fBis_keyword\fP (const \fBstd::string\fP &token)"
+.br
+.ti -1c
+.RI "bool \fBis_future_reserved_word\fP (const \fBstd::string\fP &token)"
+.br
+.ti -1c
+.RI "bool \fBis_punctuator\fP (const \fBstd::string\fP &token)"
+.br
+.ti -1c
+.RI "bool \fBis_null_literal\fP (const \fBstd::string\fP &str)"
+.br
+.ti -1c
+.RI "bool \fBis_boolean_literal\fP (const \fBstd::string\fP &str)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBstd::u16string\fP convert_utf8_to_utf16 (const \fBstd::string\fP & source)"
+
+.SS "bool is_boolean_literal (const \fBstd::string\fP & str)"
+
+.SS "bool is_decimal_digit (int cp)"
+
+.SS "bool is_future_reserved_word (const \fBstd::string\fP & token)"
+
+.SS "bool is_hex_digit (int cp)"
+
+.SS "bool is_keyword (const \fBstd::string\fP & token)"
+
+.SS "bool is_line_terminator (int cp)"
+
+.SS "bool is_non_zero_digit (int cp)"
+
+.SS "bool is_null_literal (const \fBstd::string\fP & str)"
+
+.SS "bool is_punctuator (const \fBstd::string\fP & token)"
+
+.SS "bool is_single_escape_character (int cp)"
+
+.SS "bool is_unicode_combining_mark (int cp)"
+
+.SS "bool is_unicode_connector_punctuation (int cp)"
+
+.SS "bool is_unicode_digit (int cp)"
+
+.SS "bool is_unicode_letter (int cp)"
+
+.SS "bool is_white_space (int cp)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

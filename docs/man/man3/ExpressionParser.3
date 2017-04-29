@@ -1,0 +1,297 @@
+.TH "ExpressionParser" 3 "Sat Apr 29 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ExpressionParser
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <parser\&.h>\fP
+.PP
+Inherits \fBBasicParser\fP, and \fBBuilder< Expression >\fP\&.
+.PP
+Inherited by \fBStatementParser\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "template<typename\&.\&.\&. Args> \fBExpressionParser\fP (Args &&\&.\&.\&. args)"
+.br
+.ti -1c
+.RI "boost::optional< \fBIdentifier\fP > \fBidentifier\fP ()"
+.br
+.ti -1c
+.RI "bool \fBidentifier_name\fP ()"
+.br
+.ti -1c
+.RI "bool \fBliteral\fP ()"
+.br
+.ti -1c
+.RI "bool \fBnull_literal\fP ()"
+.br
+.ti -1c
+.RI "bool \fBboolean_literal\fP ()"
+.br
+.ti -1c
+.RI "bool \fBnumeric_literal\fP ()"
+.br
+.ti -1c
+.RI "bool \fBstring_literal\fP ()"
+.br
+.ti -1c
+.RI "bool \fBregular_expression_literal\fP ()"
+.br
+.ti -1c
+.RI "bool \fBprimary_expression\fP ()"
+.br
+.ti -1c
+.RI "bool \fBarray_literal\fP ()"
+.br
+.ti -1c
+.RI "bool \fBelement_list\fP ()"
+.br
+.ti -1c
+.RI "bool \fBelision_opt\fP ()"
+.br
+.ti -1c
+.RI "bool \fBelision\fP ()"
+.br
+.ti -1c
+.RI "bool \fBobject_literal\fP ()"
+.br
+.ti -1c
+.RI "bool \fBproperty_name_and_value_list\fP ()"
+.br
+.ti -1c
+.RI "bool \fBfunction_body\fP ()"
+.br
+.ti -1c
+.RI "bool \fBproperty_assignment\fP ()"
+.br
+.ti -1c
+.RI "bool \fBproperty_name\fP ()"
+.br
+.ti -1c
+.RI "bool \fBproperty_set_parameter_list\fP ()"
+.br
+.ti -1c
+.RI "bool \fBfunction_expression\fP ()"
+.br
+.ti -1c
+.RI "bool \fBmember_expression\fP ()"
+.br
+.ti -1c
+.RI "bool \fBnew_expression\fP ()"
+.br
+.ti -1c
+.RI "bool \fBarguments\fP ()"
+.br
+.ti -1c
+.RI "\fBArgumentList\fP \fBargument_list\fP ()"
+.br
+.ti -1c
+.RI "bool \fBleft_hand_side_expression\fP ()"
+.br
+.ti -1c
+.RI "bool \fBpostfix_expression\fP ()"
+.br
+.ti -1c
+.RI "bool \fBunary_expression\fP ()"
+.br
+.ti -1c
+.RI "bool \fBmultiplicative_expression\fP ()"
+.br
+.ti -1c
+.RI "bool \fBadditive_expression\fP ()"
+.br
+.ti -1c
+.RI "bool \fBshift_expression\fP ()"
+.br
+.ti -1c
+.RI "bool \fBrelational_expression\fP ()"
+.br
+.ti -1c
+.RI "bool \fBrelational_expression_no_in\fP ()"
+.br
+.ti -1c
+.RI "bool \fBequality_expression\fP ()"
+.br
+.ti -1c
+.RI "bool \fBequality_expression_no_in\fP ()"
+.br
+.ti -1c
+.RI "bool \fBbitwise_and_expression\fP ()"
+.br
+.ti -1c
+.RI "bool \fBbitwise_and_expression_no_in\fP ()"
+.br
+.ti -1c
+.RI "bool \fBbitwise_xor_expression\fP ()"
+.br
+.ti -1c
+.RI "bool \fBbitwise_xor_expression_no_in\fP ()"
+.br
+.ti -1c
+.RI "bool \fBbitwise_or_expression\fP ()"
+.br
+.ti -1c
+.RI "bool \fBbitwise_or_expression_no_in\fP ()"
+.br
+.ti -1c
+.RI "bool \fBlogical_and_expression\fP ()"
+.br
+.ti -1c
+.RI "bool \fBlogical_and_expression_no_in\fP ()"
+.br
+.ti -1c
+.RI "bool \fBlogical_or_expression\fP ()"
+.br
+.ti -1c
+.RI "bool \fBlogical_or_expression_no_in\fP ()"
+.br
+.ti -1c
+.RI "bool \fBconditional_expression\fP ()"
+.br
+.ti -1c
+.RI "bool \fBconditional_expression_no_in\fP ()"
+.br
+.ti -1c
+.RI "bool \fBassignment_expression\fP ()"
+.br
+.ti -1c
+.RI "bool \fBassignment_expression_no_in\fP ()"
+.br
+.ti -1c
+.RI "bool \fBexpression_opt\fP ()"
+.br
+.ti -1c
+.RI "bool \fBexpression\fP ()"
+.br
+.ti -1c
+.RI "bool \fBexpression_no_in_opt\fP ()"
+.br
+.ti -1c
+.RI "bool \fBexpression_no_in\fP ()"
+.br
+.ti -1c
+.RI "\fBExpression\fP \fBpop_expression\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<typename\&.\&.\&. Args> ExpressionParser::ExpressionParser (Args &&\&.\&.\&. args)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "bool ExpressionParser::additive_expression ()\fC [inline]\fP"
+
+.SS "\fBArgumentList\fP ExpressionParser::argument_list ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::arguments ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::array_literal ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::assignment_expression ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::assignment_expression_no_in ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::bitwise_and_expression ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::bitwise_and_expression_no_in ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::bitwise_or_expression ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::bitwise_or_expression_no_in ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::bitwise_xor_expression ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::bitwise_xor_expression_no_in ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::boolean_literal ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::conditional_expression ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::conditional_expression_no_in ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::element_list ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::elision ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::elision_opt ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::equality_expression ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::equality_expression_no_in ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::expression ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::expression_no_in ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::expression_no_in_opt ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::expression_opt ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::function_body ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::function_expression ()\fC [inline]\fP"
+
+.SS "boost::optional<\fBIdentifier\fP> ExpressionParser::identifier ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::identifier_name ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::left_hand_side_expression ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::literal ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::logical_and_expression ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::logical_and_expression_no_in ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::logical_or_expression ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::logical_or_expression_no_in ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::member_expression ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::multiplicative_expression ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::new_expression ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::null_literal ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::numeric_literal ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::object_literal ()\fC [inline]\fP"
+
+.SS "\fBExpression\fP ExpressionParser::pop_expression ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::postfix_expression ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::primary_expression ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::property_assignment ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::property_name ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::property_name_and_value_list ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::property_set_parameter_list ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::regular_expression_literal ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::relational_expression ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::relational_expression_no_in ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::shift_expression ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::string_literal ()\fC [inline]\fP"
+
+.SS "bool ExpressionParser::unary_expression ()\fC [inline]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

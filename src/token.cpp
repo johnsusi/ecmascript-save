@@ -27,6 +27,12 @@ Token::Value Token::value_from_string(const std::string& str)
   else return Identifier { std::u16string{str.begin(), str.end()} };
 }
 
+Token Token::identifier(std::string value)
+{
+  return { Value { Identifier { std::u16string(value.begin(), value.end() ) } } };
+}
+
+
 Token Token::identifier(std::u16string value)
 {
   return { Value { Identifier { std::move(value) } } };

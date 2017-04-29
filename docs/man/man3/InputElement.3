@@ -1,0 +1,89 @@
+.TH "InputElement" 3 "Sat Apr 29 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+InputElement
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <input_element\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "bool \fBis_empty\fP () const"
+.br
+.ti -1c
+.RI "bool \fBis_token\fP () const"
+.br
+.ti -1c
+.RI "bool \fBis_line_terminator\fP () const"
+.br
+.ti -1c
+.RI "bool \fBis_comment\fP () const"
+.br
+.ti -1c
+.RI "bool \fBis_white_space\fP () const"
+.br
+.ti -1c
+.RI "bool \fBhas_line_terminator\fP () const"
+.br
+.ti -1c
+.RI "\fBoperator bool\fP () const"
+.br
+.ti -1c
+.RI "boost::optional<::\fBToken\fP > \fBto_token\fP () const"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBInputElement\fP \fBempty\fP ()"
+.br
+.ti -1c
+.RI "static \fBInputElement\fP \fBwhite_space\fP ()"
+.br
+.ti -1c
+.RI "static \fBInputElement\fP \fBline_terminator\fP ()"
+.br
+.ti -1c
+.RI "static \fBInputElement\fP \fBcomment\fP (\fBstd::u16string\fP value)"
+.br
+.ti -1c
+.RI "static \fBInputElement\fP \fBtoken\fP (::\fBToken\fP value)"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBInputElement\fP InputElement::comment (\fBstd::u16string\fP value)\fC [static]\fP"
+
+.SS "\fBInputElement\fP InputElement::empty ()\fC [static]\fP"
+
+.SS "bool InputElement::has_line_terminator () const"
+
+.SS "bool InputElement::is_comment () const"
+
+.SS "bool InputElement::is_empty () const"
+
+.SS "bool InputElement::is_line_terminator () const"
+
+.SS "bool InputElement::is_token () const"
+
+.SS "bool InputElement::is_white_space () const"
+
+.SS "\fBInputElement\fP InputElement::line_terminator ()\fC [static]\fP"
+
+.SS "InputElement::operator bool () const\fC [explicit]\fP"
+
+.SS "boost::optional<::\fBToken\fP > InputElement::to_token () const"
+
+.SS "\fBInputElement\fP InputElement::token (::\fBToken\fP value)\fC [static]\fP"
+
+.SS "\fBInputElement\fP InputElement::white_space ()\fC [static]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

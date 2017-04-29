@@ -1,0 +1,675 @@
+\hypertarget{class_lexical_grammar}{}\section{Lexical\+Grammar$<$ T $>$ Class Template Reference}
+\label{class_lexical_grammar}\index{Lexical\+Grammar$<$ T $>$@{Lexical\+Grammar$<$ T $>$}}
+
+
+{\ttfamily \#include $<$lexical\+\_\+grammar.\+h$>$}
+
+
+
+Collaboration diagram for Lexical\+Grammar$<$ T $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_lexical_grammar__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename It $>$ }\\\hyperlink{class_lexical_grammar_ae00a07b2f2c282a59d8df82c0596cc04}{Lexical\+Grammar} (It begin, It end)
+\item 
+void \hyperlink{class_lexical_grammar_acccc5eb7a8e4f460f4123049889d8e4b}{syntax\+\_\+error} ()
+\item 
+bool \hyperlink{class_lexical_grammar_ad3f57a97b726239f8561556e2c920c09}{source\+\_\+character} ()
+\item 
+\hyperlink{class_input_element}{Input\+Element} \hyperlink{class_lexical_grammar_a6cb2dc7fbf0b773eb285bd70228abfd5}{input\+\_\+element\+\_\+div} ()
+\item 
+\hyperlink{class_input_element}{Input\+Element} \hyperlink{class_lexical_grammar_a9bb05f07c0d3941f11ac37d69e1e14fc}{input\+\_\+element\+\_\+reg\+\_\+exp} ()
+\item 
+bool \hyperlink{class_lexical_grammar_aa8d7fdc84e7ca55c85c67b2849e89ac2}{white\+\_\+space} ()
+\item 
+bool \hyperlink{class_lexical_grammar_ab0cbd5b59a7478d0f1042774b877714d}{line\+\_\+terminator} ()
+\item 
+bool \hyperlink{class_lexical_grammar_a43737fd87e454c3a426c047b02f376f6}{line\+\_\+terminator\+\_\+sequence} ()
+\item 
+bool \hyperlink{class_lexical_grammar_a342d05c7d8f59d5a4d0c7eb34fd97b3f}{comment} ()
+\item 
+bool \hyperlink{class_lexical_grammar_a9a4018bef475f8831e825ccc199a0baa}{multi\+\_\+line\+\_\+comment} ()
+\item 
+bool \hyperlink{class_lexical_grammar_a4f847dd31fc9ea84af23f03a7cf507eb}{multi\+\_\+line\+\_\+comment\+\_\+chars} ()
+\item 
+bool \hyperlink{class_lexical_grammar_aaf2e8e31825d9094dbd3c6f685448e14}{multi\+\_\+line\+\_\+comment\+\_\+chars\+\_\+opt} ()
+\item 
+bool \hyperlink{class_lexical_grammar_a87186e7112da8a1bd4abeb3edc07ff51}{post\+\_\+asterisk\+\_\+comment\+\_\+chars} ()
+\item 
+bool \hyperlink{class_lexical_grammar_a1f81a1a8b21254111cf4432bfbd17e15}{multi\+\_\+line\+\_\+not\+\_\+asterisk\+\_\+char} ()
+\item 
+bool \hyperlink{class_lexical_grammar_af0448c41bb8e0b33c87e4d649687a062}{multi\+\_\+line\+\_\+not\+\_\+forward\+\_\+slash\+\_\+or\+\_\+asterisk\+\_\+char} ()
+\item 
+bool \hyperlink{class_lexical_grammar_a3cca7bf99de3efe2e82b1ec05b091fe0}{single\+\_\+line\+\_\+comment} ()
+\item 
+bool \hyperlink{class_lexical_grammar_a39acd5ac2f507d10b9cd7eb905b6c6d9}{single\+\_\+line\+\_\+comment\+\_\+chars} ()
+\item 
+bool \hyperlink{class_lexical_grammar_a256890ff18017f982160830c3b08b4ac}{single\+\_\+line\+\_\+comment\+\_\+char} ()
+\item 
+bool \hyperlink{class_lexical_grammar_ac728c2390815a0710dcf393763771f2c}{token} ()
+\item 
+bool \hyperlink{class_lexical_grammar_a851951b0798abd9c6fdf0ae3e49d299b}{identifier\+\_\+name} ()
+\item 
+bool \hyperlink{class_lexical_grammar_af2c12dfb0b07685c3b01779e4ae4e359}{identifier\+\_\+start} ()
+\item 
+bool \hyperlink{class_lexical_grammar_a744e87b07d654b2769e5f0855b30c870}{identifier\+\_\+part} ()
+\item 
+bool \hyperlink{class_lexical_grammar_aee36e7e578912a00215f3a66778c191f}{unicode\+\_\+letter} ()
+\item 
+bool \hyperlink{class_lexical_grammar_ab16506f8bcae0aa05d7f6971d0355d9c}{unicode\+\_\+combining\+\_\+mark} ()
+\item 
+bool \hyperlink{class_lexical_grammar_a20b4e0f9757bcace278e8d711efb09da}{unicode\+\_\+digit} ()
+\item 
+bool \hyperlink{class_lexical_grammar_a632307d996a33ac3089d53068ba9c21d}{unicode\+\_\+connector\+\_\+punctuation} ()
+\item 
+bool \hyperlink{class_lexical_grammar_a1d60ff9552b12f9c30a9dc94b329530d}{reserved\+\_\+word} ()
+\item 
+bool \hyperlink{class_lexical_grammar_a609dc2ff60d85011034954b805ebd077}{keyword} ()
+\item 
+bool \hyperlink{class_lexical_grammar_a588be2892f65d3367dfd049174532c17}{future\+\_\+reserved\+\_\+word} ()
+\item 
+bool \hyperlink{class_lexical_grammar_a1d2f4fe7c1039c89dbbe4309f7a2d35a}{punctuator} ()
+\item 
+bool \hyperlink{class_lexical_grammar_a37ea4db956749e0519e34ec8e304d2fb}{div\+\_\+punctuator} ()
+\item 
+bool \hyperlink{class_lexical_grammar_aae192a9c337028f4edbfe210e587d2dc}{literal} ()
+\item 
+bool \hyperlink{class_lexical_grammar_a2bd963802a60b5d0e1476bdf3019494b}{null\+\_\+literal} ()
+\item 
+bool \hyperlink{class_lexical_grammar_a80b7dcb7b99bbd553581cd162cd80cb1}{boolean\+\_\+literal} ()
+\item 
+bool \hyperlink{class_lexical_grammar_a6dd9a9a8baf50e9a99e0df2cbaa8d795}{numeric\+\_\+literal} ()
+\item 
+bool \hyperlink{class_lexical_grammar_aa4b1f1f944befbe96ee450a0399e85df}{decimal\+\_\+literal} ()
+\item 
+bool \hyperlink{class_lexical_grammar_afb8b57c8a9457981b9d99704ee78c066}{decimal\+\_\+integer\+\_\+literal} ()
+\item 
+bool \hyperlink{class_lexical_grammar_a434f04e5a69d078a98dcf9163835dad0}{decimal\+\_\+digits} ()
+\item 
+bool \hyperlink{class_lexical_grammar_a013dbcda735a0c6c61970de8bd65c0fe}{decimal\+\_\+digit} ()
+\item 
+bool \hyperlink{class_lexical_grammar_a295f7a8841c4b098113e0a43401488fc}{exponent\+\_\+part} ()
+\item 
+bool \hyperlink{class_lexical_grammar_a45135be3081ddcdbb776555a6819d45f}{exponent\+\_\+indicator} ()
+\item 
+bool \hyperlink{class_lexical_grammar_a97e84269213615dc97e8622fc96d0f4c}{signed\+\_\+integer} ()
+\item 
+bool \hyperlink{class_lexical_grammar_aca046d0a2eacbece1c05fb59548efdbd}{hex\+\_\+integer\+\_\+literal} ()
+\item 
+bool \hyperlink{class_lexical_grammar_aeace42ff820851c2d59b3d0582cb2e5d}{hex\+\_\+digits} ()
+\item 
+bool \hyperlink{class_lexical_grammar_afa260bdb5dc9224215a68ba07cce3a4a}{hex\+\_\+digit} ()
+\item 
+bool \hyperlink{class_lexical_grammar_a11294149e962d00a92cacc8c6567cdc5}{string\+\_\+literal} ()
+\item 
+bool \hyperlink{class_lexical_grammar_aab6bf886c515b469bfd7bf034148c9ee}{double\+\_\+string\+\_\+characters} ()
+\item 
+bool \hyperlink{class_lexical_grammar_a881666d88772759f7e2f532150b6bf93}{single\+\_\+string\+\_\+characters} ()
+\item 
+bool \hyperlink{class_lexical_grammar_a473842f8e78b003d65e4459eec57bf8d}{double\+\_\+string\+\_\+character} ()
+\item 
+bool \hyperlink{class_lexical_grammar_ae052b9eae96cf939b760c0f5e6cdfdfa}{single\+\_\+string\+\_\+character} ()
+\item 
+bool \hyperlink{class_lexical_grammar_aba86d71a98d0bf2f7ad78e22b1c906f0}{escape\+\_\+sequence} ()
+\item 
+bool \hyperlink{class_lexical_grammar_abf0678a4b3e6cf81cfb7e87fdc88a1ab}{character\+\_\+escape\+\_\+sequence} ()
+\item 
+bool \hyperlink{class_lexical_grammar_a5ef26a3dd4d2c39ba5016675d3afa8dd}{single\+\_\+escape\+\_\+character} ()
+\item 
+bool \hyperlink{class_lexical_grammar_a6c3dc0efec370cfadc61e11ae53af449}{non\+\_\+escape\+\_\+character} ()
+\item 
+bool \hyperlink{class_lexical_grammar_a5f2624873c3468c05a40c2e186253eec}{escape\+\_\+character} ()
+\item 
+bool \hyperlink{class_lexical_grammar_a76722915a4ae4e864ffd7c750da8c9aa}{hex\+\_\+escape\+\_\+sequence} ()
+\item 
+bool \hyperlink{class_lexical_grammar_a411dd476c213ddb338a80766596d0d74}{unicode\+\_\+escape\+\_\+sequence} ()
+\item 
+bool \hyperlink{class_lexical_grammar_a86df93444a68819148ce938342342b84}{regular\+\_\+expression\+\_\+literal} ()
+\item 
+bool \hyperlink{class_lexical_grammar_ac4fed727bab8e01ddef683e8638f3975}{regular\+\_\+expression\+\_\+body} ()
+\item 
+bool \hyperlink{class_lexical_grammar_a21d16ea0d1b6b26e45da2e0af6149fbc}{regular\+\_\+expression\+\_\+chars} ()
+\item 
+bool \hyperlink{class_lexical_grammar_afc3a2aeab485760400e58836e00c3d70}{regular\+\_\+expression\+\_\+first\+\_\+char} ()
+\item 
+bool \hyperlink{class_lexical_grammar_ad48826aa5f41c65db545c80f791251b2}{regular\+\_\+expression\+\_\+char} ()
+\item 
+bool \hyperlink{class_lexical_grammar_ab25a92427eff914c4a1b01cd15cae9c5}{regular\+\_\+expression\+\_\+backslash\+\_\+sequence} ()
+\item 
+bool \hyperlink{class_lexical_grammar_a759b85cb75cdfbad63325a40d117b5ad}{regular\+\_\+expression\+\_\+non\+\_\+terminator} ()
+\item 
+bool \hyperlink{class_lexical_grammar_a4ea2fac37d3c75b080966f3dc0fb9fe4}{regular\+\_\+expression\+\_\+class} ()
+\item 
+bool \hyperlink{class_lexical_grammar_a77f711dd4ef77b6ab36222ec0914ef8c}{regular\+\_\+expression\+\_\+class\+\_\+chars} ()
+\item 
+bool \hyperlink{class_lexical_grammar_a13f847b3be28cea576bf29ad7d779c48}{regular\+\_\+expression\+\_\+class\+\_\+char} ()
+\item 
+bool \hyperlink{class_lexical_grammar_adf9549c929bfd16abf7b7b880c9ee3cf}{regular\+\_\+expression\+\_\+flags} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ std\+::u16string} \hyperlink{class_lexical_grammar_af23cc1b7472da117c7e39a8b8fe45e04}{buffer}
+\item 
+\hyperlink{class_matcher}{Matcher}$<$ T, std\+::u16string\+::const\+\_\+iterator $>$ \hyperlink{class_lexical_grammar_a868dc475274f55ff285fd26593f9d0a5}{match}
+\item 
+\hyperlink{class_token}{Token} \hyperlink{class_lexical_grammar_a3230ebef29d379b7b4c276e2a771edc4}{token\+\_\+value}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_lexical_grammar_ae00a07b2f2c282a59d8df82c0596cc04}\label{class_lexical_grammar_ae00a07b2f2c282a59d8df82c0596cc04}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!Lexical\+Grammar@{Lexical\+Grammar}}
+\index{Lexical\+Grammar@{Lexical\+Grammar}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{Lexical\+Grammar()}{LexicalGrammar()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+template$<$typename It $>$ \\
+\hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::\hyperlink{class_lexical_grammar}{Lexical\+Grammar} (\begin{DoxyParamCaption}\item[{It}]{begin,  }\item[{It}]{end }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_lexical_grammar_a80b7dcb7b99bbd553581cd162cd80cb1}\label{class_lexical_grammar_a80b7dcb7b99bbd553581cd162cd80cb1}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!boolean\+\_\+literal@{boolean\+\_\+literal}}
+\index{boolean\+\_\+literal@{boolean\+\_\+literal}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{boolean\+\_\+literal()}{boolean\_literal()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::boolean\+\_\+literal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_abf0678a4b3e6cf81cfb7e87fdc88a1ab}\label{class_lexical_grammar_abf0678a4b3e6cf81cfb7e87fdc88a1ab}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!character\+\_\+escape\+\_\+sequence@{character\+\_\+escape\+\_\+sequence}}
+\index{character\+\_\+escape\+\_\+sequence@{character\+\_\+escape\+\_\+sequence}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{character\+\_\+escape\+\_\+sequence()}{character\_escape\_sequence()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::character\+\_\+escape\+\_\+sequence (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_a342d05c7d8f59d5a4d0c7eb34fd97b3f}\label{class_lexical_grammar_a342d05c7d8f59d5a4d0c7eb34fd97b3f}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!comment@{comment}}
+\index{comment@{comment}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{comment()}{comment()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::comment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_a013dbcda735a0c6c61970de8bd65c0fe}\label{class_lexical_grammar_a013dbcda735a0c6c61970de8bd65c0fe}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!decimal\+\_\+digit@{decimal\+\_\+digit}}
+\index{decimal\+\_\+digit@{decimal\+\_\+digit}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{decimal\+\_\+digit()}{decimal\_digit()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::decimal\+\_\+digit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_a434f04e5a69d078a98dcf9163835dad0}\label{class_lexical_grammar_a434f04e5a69d078a98dcf9163835dad0}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!decimal\+\_\+digits@{decimal\+\_\+digits}}
+\index{decimal\+\_\+digits@{decimal\+\_\+digits}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{decimal\+\_\+digits()}{decimal\_digits()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::decimal\+\_\+digits (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_afb8b57c8a9457981b9d99704ee78c066}\label{class_lexical_grammar_afb8b57c8a9457981b9d99704ee78c066}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!decimal\+\_\+integer\+\_\+literal@{decimal\+\_\+integer\+\_\+literal}}
+\index{decimal\+\_\+integer\+\_\+literal@{decimal\+\_\+integer\+\_\+literal}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{decimal\+\_\+integer\+\_\+literal()}{decimal\_integer\_literal()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::decimal\+\_\+integer\+\_\+literal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_aa4b1f1f944befbe96ee450a0399e85df}\label{class_lexical_grammar_aa4b1f1f944befbe96ee450a0399e85df}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!decimal\+\_\+literal@{decimal\+\_\+literal}}
+\index{decimal\+\_\+literal@{decimal\+\_\+literal}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{decimal\+\_\+literal()}{decimal\_literal()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::decimal\+\_\+literal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_a37ea4db956749e0519e34ec8e304d2fb}\label{class_lexical_grammar_a37ea4db956749e0519e34ec8e304d2fb}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!div\+\_\+punctuator@{div\+\_\+punctuator}}
+\index{div\+\_\+punctuator@{div\+\_\+punctuator}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{div\+\_\+punctuator()}{div\_punctuator()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::div\+\_\+punctuator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_a473842f8e78b003d65e4459eec57bf8d}\label{class_lexical_grammar_a473842f8e78b003d65e4459eec57bf8d}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!double\+\_\+string\+\_\+character@{double\+\_\+string\+\_\+character}}
+\index{double\+\_\+string\+\_\+character@{double\+\_\+string\+\_\+character}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{double\+\_\+string\+\_\+character()}{double\_string\_character()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::double\+\_\+string\+\_\+character (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_aab6bf886c515b469bfd7bf034148c9ee}\label{class_lexical_grammar_aab6bf886c515b469bfd7bf034148c9ee}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!double\+\_\+string\+\_\+characters@{double\+\_\+string\+\_\+characters}}
+\index{double\+\_\+string\+\_\+characters@{double\+\_\+string\+\_\+characters}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{double\+\_\+string\+\_\+characters()}{double\_string\_characters()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::double\+\_\+string\+\_\+characters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_a5f2624873c3468c05a40c2e186253eec}\label{class_lexical_grammar_a5f2624873c3468c05a40c2e186253eec}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!escape\+\_\+character@{escape\+\_\+character}}
+\index{escape\+\_\+character@{escape\+\_\+character}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{escape\+\_\+character()}{escape\_character()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::escape\+\_\+character (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_aba86d71a98d0bf2f7ad78e22b1c906f0}\label{class_lexical_grammar_aba86d71a98d0bf2f7ad78e22b1c906f0}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!escape\+\_\+sequence@{escape\+\_\+sequence}}
+\index{escape\+\_\+sequence@{escape\+\_\+sequence}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{escape\+\_\+sequence()}{escape\_sequence()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::escape\+\_\+sequence (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_a45135be3081ddcdbb776555a6819d45f}\label{class_lexical_grammar_a45135be3081ddcdbb776555a6819d45f}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!exponent\+\_\+indicator@{exponent\+\_\+indicator}}
+\index{exponent\+\_\+indicator@{exponent\+\_\+indicator}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{exponent\+\_\+indicator()}{exponent\_indicator()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::exponent\+\_\+indicator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_a295f7a8841c4b098113e0a43401488fc}\label{class_lexical_grammar_a295f7a8841c4b098113e0a43401488fc}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!exponent\+\_\+part@{exponent\+\_\+part}}
+\index{exponent\+\_\+part@{exponent\+\_\+part}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{exponent\+\_\+part()}{exponent\_part()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::exponent\+\_\+part (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_a588be2892f65d3367dfd049174532c17}\label{class_lexical_grammar_a588be2892f65d3367dfd049174532c17}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!future\+\_\+reserved\+\_\+word@{future\+\_\+reserved\+\_\+word}}
+\index{future\+\_\+reserved\+\_\+word@{future\+\_\+reserved\+\_\+word}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{future\+\_\+reserved\+\_\+word()}{future\_reserved\_word()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::future\+\_\+reserved\+\_\+word (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_afa260bdb5dc9224215a68ba07cce3a4a}\label{class_lexical_grammar_afa260bdb5dc9224215a68ba07cce3a4a}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!hex\+\_\+digit@{hex\+\_\+digit}}
+\index{hex\+\_\+digit@{hex\+\_\+digit}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{hex\+\_\+digit()}{hex\_digit()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::hex\+\_\+digit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_aeace42ff820851c2d59b3d0582cb2e5d}\label{class_lexical_grammar_aeace42ff820851c2d59b3d0582cb2e5d}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!hex\+\_\+digits@{hex\+\_\+digits}}
+\index{hex\+\_\+digits@{hex\+\_\+digits}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{hex\+\_\+digits()}{hex\_digits()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::hex\+\_\+digits (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_a76722915a4ae4e864ffd7c750da8c9aa}\label{class_lexical_grammar_a76722915a4ae4e864ffd7c750da8c9aa}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!hex\+\_\+escape\+\_\+sequence@{hex\+\_\+escape\+\_\+sequence}}
+\index{hex\+\_\+escape\+\_\+sequence@{hex\+\_\+escape\+\_\+sequence}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{hex\+\_\+escape\+\_\+sequence()}{hex\_escape\_sequence()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::hex\+\_\+escape\+\_\+sequence (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_aca046d0a2eacbece1c05fb59548efdbd}\label{class_lexical_grammar_aca046d0a2eacbece1c05fb59548efdbd}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!hex\+\_\+integer\+\_\+literal@{hex\+\_\+integer\+\_\+literal}}
+\index{hex\+\_\+integer\+\_\+literal@{hex\+\_\+integer\+\_\+literal}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{hex\+\_\+integer\+\_\+literal()}{hex\_integer\_literal()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::hex\+\_\+integer\+\_\+literal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_a851951b0798abd9c6fdf0ae3e49d299b}\label{class_lexical_grammar_a851951b0798abd9c6fdf0ae3e49d299b}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!identifier\+\_\+name@{identifier\+\_\+name}}
+\index{identifier\+\_\+name@{identifier\+\_\+name}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{identifier\+\_\+name()}{identifier\_name()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::identifier\+\_\+name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_a744e87b07d654b2769e5f0855b30c870}\label{class_lexical_grammar_a744e87b07d654b2769e5f0855b30c870}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!identifier\+\_\+part@{identifier\+\_\+part}}
+\index{identifier\+\_\+part@{identifier\+\_\+part}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{identifier\+\_\+part()}{identifier\_part()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::identifier\+\_\+part (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_af2c12dfb0b07685c3b01779e4ae4e359}\label{class_lexical_grammar_af2c12dfb0b07685c3b01779e4ae4e359}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!identifier\+\_\+start@{identifier\+\_\+start}}
+\index{identifier\+\_\+start@{identifier\+\_\+start}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{identifier\+\_\+start()}{identifier\_start()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::identifier\+\_\+start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_a6cb2dc7fbf0b773eb285bd70228abfd5}\label{class_lexical_grammar_a6cb2dc7fbf0b773eb285bd70228abfd5}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!input\+\_\+element\+\_\+div@{input\+\_\+element\+\_\+div}}
+\index{input\+\_\+element\+\_\+div@{input\+\_\+element\+\_\+div}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{input\+\_\+element\+\_\+div()}{input\_element\_div()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\hyperlink{class_input_element}{Input\+Element} \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::input\+\_\+element\+\_\+div (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_a9bb05f07c0d3941f11ac37d69e1e14fc}\label{class_lexical_grammar_a9bb05f07c0d3941f11ac37d69e1e14fc}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!input\+\_\+element\+\_\+reg\+\_\+exp@{input\+\_\+element\+\_\+reg\+\_\+exp}}
+\index{input\+\_\+element\+\_\+reg\+\_\+exp@{input\+\_\+element\+\_\+reg\+\_\+exp}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{input\+\_\+element\+\_\+reg\+\_\+exp()}{input\_element\_reg\_exp()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\hyperlink{class_input_element}{Input\+Element} \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::input\+\_\+element\+\_\+reg\+\_\+exp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_a609dc2ff60d85011034954b805ebd077}\label{class_lexical_grammar_a609dc2ff60d85011034954b805ebd077}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!keyword@{keyword}}
+\index{keyword@{keyword}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{keyword()}{keyword()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::keyword (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_ab0cbd5b59a7478d0f1042774b877714d}\label{class_lexical_grammar_ab0cbd5b59a7478d0f1042774b877714d}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!line\+\_\+terminator@{line\+\_\+terminator}}
+\index{line\+\_\+terminator@{line\+\_\+terminator}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{line\+\_\+terminator()}{line\_terminator()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::line\+\_\+terminator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_a43737fd87e454c3a426c047b02f376f6}\label{class_lexical_grammar_a43737fd87e454c3a426c047b02f376f6}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!line\+\_\+terminator\+\_\+sequence@{line\+\_\+terminator\+\_\+sequence}}
+\index{line\+\_\+terminator\+\_\+sequence@{line\+\_\+terminator\+\_\+sequence}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{line\+\_\+terminator\+\_\+sequence()}{line\_terminator\_sequence()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::line\+\_\+terminator\+\_\+sequence (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_aae192a9c337028f4edbfe210e587d2dc}\label{class_lexical_grammar_aae192a9c337028f4edbfe210e587d2dc}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!literal@{literal}}
+\index{literal@{literal}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{literal()}{literal()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::literal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_a9a4018bef475f8831e825ccc199a0baa}\label{class_lexical_grammar_a9a4018bef475f8831e825ccc199a0baa}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!multi\+\_\+line\+\_\+comment@{multi\+\_\+line\+\_\+comment}}
+\index{multi\+\_\+line\+\_\+comment@{multi\+\_\+line\+\_\+comment}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{multi\+\_\+line\+\_\+comment()}{multi\_line\_comment()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::multi\+\_\+line\+\_\+comment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_a4f847dd31fc9ea84af23f03a7cf507eb}\label{class_lexical_grammar_a4f847dd31fc9ea84af23f03a7cf507eb}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!multi\+\_\+line\+\_\+comment\+\_\+chars@{multi\+\_\+line\+\_\+comment\+\_\+chars}}
+\index{multi\+\_\+line\+\_\+comment\+\_\+chars@{multi\+\_\+line\+\_\+comment\+\_\+chars}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{multi\+\_\+line\+\_\+comment\+\_\+chars()}{multi\_line\_comment\_chars()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::multi\+\_\+line\+\_\+comment\+\_\+chars (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_aaf2e8e31825d9094dbd3c6f685448e14}\label{class_lexical_grammar_aaf2e8e31825d9094dbd3c6f685448e14}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!multi\+\_\+line\+\_\+comment\+\_\+chars\+\_\+opt@{multi\+\_\+line\+\_\+comment\+\_\+chars\+\_\+opt}}
+\index{multi\+\_\+line\+\_\+comment\+\_\+chars\+\_\+opt@{multi\+\_\+line\+\_\+comment\+\_\+chars\+\_\+opt}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{multi\+\_\+line\+\_\+comment\+\_\+chars\+\_\+opt()}{multi\_line\_comment\_chars\_opt()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::multi\+\_\+line\+\_\+comment\+\_\+chars\+\_\+opt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_a1f81a1a8b21254111cf4432bfbd17e15}\label{class_lexical_grammar_a1f81a1a8b21254111cf4432bfbd17e15}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!multi\+\_\+line\+\_\+not\+\_\+asterisk\+\_\+char@{multi\+\_\+line\+\_\+not\+\_\+asterisk\+\_\+char}}
+\index{multi\+\_\+line\+\_\+not\+\_\+asterisk\+\_\+char@{multi\+\_\+line\+\_\+not\+\_\+asterisk\+\_\+char}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{multi\+\_\+line\+\_\+not\+\_\+asterisk\+\_\+char()}{multi\_line\_not\_asterisk\_char()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::multi\+\_\+line\+\_\+not\+\_\+asterisk\+\_\+char (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_af0448c41bb8e0b33c87e4d649687a062}\label{class_lexical_grammar_af0448c41bb8e0b33c87e4d649687a062}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!multi\+\_\+line\+\_\+not\+\_\+forward\+\_\+slash\+\_\+or\+\_\+asterisk\+\_\+char@{multi\+\_\+line\+\_\+not\+\_\+forward\+\_\+slash\+\_\+or\+\_\+asterisk\+\_\+char}}
+\index{multi\+\_\+line\+\_\+not\+\_\+forward\+\_\+slash\+\_\+or\+\_\+asterisk\+\_\+char@{multi\+\_\+line\+\_\+not\+\_\+forward\+\_\+slash\+\_\+or\+\_\+asterisk\+\_\+char}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{multi\+\_\+line\+\_\+not\+\_\+forward\+\_\+slash\+\_\+or\+\_\+asterisk\+\_\+char()}{multi\_line\_not\_forward\_slash\_or\_asterisk\_char()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::multi\+\_\+line\+\_\+not\+\_\+forward\+\_\+slash\+\_\+or\+\_\+asterisk\+\_\+char (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_a6c3dc0efec370cfadc61e11ae53af449}\label{class_lexical_grammar_a6c3dc0efec370cfadc61e11ae53af449}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!non\+\_\+escape\+\_\+character@{non\+\_\+escape\+\_\+character}}
+\index{non\+\_\+escape\+\_\+character@{non\+\_\+escape\+\_\+character}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{non\+\_\+escape\+\_\+character()}{non\_escape\_character()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::non\+\_\+escape\+\_\+character (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_a2bd963802a60b5d0e1476bdf3019494b}\label{class_lexical_grammar_a2bd963802a60b5d0e1476bdf3019494b}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!null\+\_\+literal@{null\+\_\+literal}}
+\index{null\+\_\+literal@{null\+\_\+literal}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{null\+\_\+literal()}{null\_literal()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::null\+\_\+literal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_a6dd9a9a8baf50e9a99e0df2cbaa8d795}\label{class_lexical_grammar_a6dd9a9a8baf50e9a99e0df2cbaa8d795}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!numeric\+\_\+literal@{numeric\+\_\+literal}}
+\index{numeric\+\_\+literal@{numeric\+\_\+literal}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{numeric\+\_\+literal()}{numeric\_literal()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::numeric\+\_\+literal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_a87186e7112da8a1bd4abeb3edc07ff51}\label{class_lexical_grammar_a87186e7112da8a1bd4abeb3edc07ff51}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!post\+\_\+asterisk\+\_\+comment\+\_\+chars@{post\+\_\+asterisk\+\_\+comment\+\_\+chars}}
+\index{post\+\_\+asterisk\+\_\+comment\+\_\+chars@{post\+\_\+asterisk\+\_\+comment\+\_\+chars}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{post\+\_\+asterisk\+\_\+comment\+\_\+chars()}{post\_asterisk\_comment\_chars()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::post\+\_\+asterisk\+\_\+comment\+\_\+chars (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_a1d2f4fe7c1039c89dbbe4309f7a2d35a}\label{class_lexical_grammar_a1d2f4fe7c1039c89dbbe4309f7a2d35a}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!punctuator@{punctuator}}
+\index{punctuator@{punctuator}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{punctuator()}{punctuator()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::punctuator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_ab25a92427eff914c4a1b01cd15cae9c5}\label{class_lexical_grammar_ab25a92427eff914c4a1b01cd15cae9c5}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!regular\+\_\+expression\+\_\+backslash\+\_\+sequence@{regular\+\_\+expression\+\_\+backslash\+\_\+sequence}}
+\index{regular\+\_\+expression\+\_\+backslash\+\_\+sequence@{regular\+\_\+expression\+\_\+backslash\+\_\+sequence}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{regular\+\_\+expression\+\_\+backslash\+\_\+sequence()}{regular\_expression\_backslash\_sequence()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::regular\+\_\+expression\+\_\+backslash\+\_\+sequence (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_ac4fed727bab8e01ddef683e8638f3975}\label{class_lexical_grammar_ac4fed727bab8e01ddef683e8638f3975}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!regular\+\_\+expression\+\_\+body@{regular\+\_\+expression\+\_\+body}}
+\index{regular\+\_\+expression\+\_\+body@{regular\+\_\+expression\+\_\+body}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{regular\+\_\+expression\+\_\+body()}{regular\_expression\_body()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::regular\+\_\+expression\+\_\+body (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_ad48826aa5f41c65db545c80f791251b2}\label{class_lexical_grammar_ad48826aa5f41c65db545c80f791251b2}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!regular\+\_\+expression\+\_\+char@{regular\+\_\+expression\+\_\+char}}
+\index{regular\+\_\+expression\+\_\+char@{regular\+\_\+expression\+\_\+char}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{regular\+\_\+expression\+\_\+char()}{regular\_expression\_char()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::regular\+\_\+expression\+\_\+char (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_a21d16ea0d1b6b26e45da2e0af6149fbc}\label{class_lexical_grammar_a21d16ea0d1b6b26e45da2e0af6149fbc}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!regular\+\_\+expression\+\_\+chars@{regular\+\_\+expression\+\_\+chars}}
+\index{regular\+\_\+expression\+\_\+chars@{regular\+\_\+expression\+\_\+chars}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{regular\+\_\+expression\+\_\+chars()}{regular\_expression\_chars()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::regular\+\_\+expression\+\_\+chars (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_a4ea2fac37d3c75b080966f3dc0fb9fe4}\label{class_lexical_grammar_a4ea2fac37d3c75b080966f3dc0fb9fe4}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!regular\+\_\+expression\+\_\+class@{regular\+\_\+expression\+\_\+class}}
+\index{regular\+\_\+expression\+\_\+class@{regular\+\_\+expression\+\_\+class}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{regular\+\_\+expression\+\_\+class()}{regular\_expression\_class()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::regular\+\_\+expression\+\_\+class (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_a13f847b3be28cea576bf29ad7d779c48}\label{class_lexical_grammar_a13f847b3be28cea576bf29ad7d779c48}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!regular\+\_\+expression\+\_\+class\+\_\+char@{regular\+\_\+expression\+\_\+class\+\_\+char}}
+\index{regular\+\_\+expression\+\_\+class\+\_\+char@{regular\+\_\+expression\+\_\+class\+\_\+char}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{regular\+\_\+expression\+\_\+class\+\_\+char()}{regular\_expression\_class\_char()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::regular\+\_\+expression\+\_\+class\+\_\+char (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_a77f711dd4ef77b6ab36222ec0914ef8c}\label{class_lexical_grammar_a77f711dd4ef77b6ab36222ec0914ef8c}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!regular\+\_\+expression\+\_\+class\+\_\+chars@{regular\+\_\+expression\+\_\+class\+\_\+chars}}
+\index{regular\+\_\+expression\+\_\+class\+\_\+chars@{regular\+\_\+expression\+\_\+class\+\_\+chars}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{regular\+\_\+expression\+\_\+class\+\_\+chars()}{regular\_expression\_class\_chars()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::regular\+\_\+expression\+\_\+class\+\_\+chars (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_afc3a2aeab485760400e58836e00c3d70}\label{class_lexical_grammar_afc3a2aeab485760400e58836e00c3d70}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!regular\+\_\+expression\+\_\+first\+\_\+char@{regular\+\_\+expression\+\_\+first\+\_\+char}}
+\index{regular\+\_\+expression\+\_\+first\+\_\+char@{regular\+\_\+expression\+\_\+first\+\_\+char}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{regular\+\_\+expression\+\_\+first\+\_\+char()}{regular\_expression\_first\_char()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::regular\+\_\+expression\+\_\+first\+\_\+char (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_adf9549c929bfd16abf7b7b880c9ee3cf}\label{class_lexical_grammar_adf9549c929bfd16abf7b7b880c9ee3cf}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!regular\+\_\+expression\+\_\+flags@{regular\+\_\+expression\+\_\+flags}}
+\index{regular\+\_\+expression\+\_\+flags@{regular\+\_\+expression\+\_\+flags}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{regular\+\_\+expression\+\_\+flags()}{regular\_expression\_flags()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::regular\+\_\+expression\+\_\+flags (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_a86df93444a68819148ce938342342b84}\label{class_lexical_grammar_a86df93444a68819148ce938342342b84}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!regular\+\_\+expression\+\_\+literal@{regular\+\_\+expression\+\_\+literal}}
+\index{regular\+\_\+expression\+\_\+literal@{regular\+\_\+expression\+\_\+literal}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{regular\+\_\+expression\+\_\+literal()}{regular\_expression\_literal()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::regular\+\_\+expression\+\_\+literal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_a759b85cb75cdfbad63325a40d117b5ad}\label{class_lexical_grammar_a759b85cb75cdfbad63325a40d117b5ad}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!regular\+\_\+expression\+\_\+non\+\_\+terminator@{regular\+\_\+expression\+\_\+non\+\_\+terminator}}
+\index{regular\+\_\+expression\+\_\+non\+\_\+terminator@{regular\+\_\+expression\+\_\+non\+\_\+terminator}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{regular\+\_\+expression\+\_\+non\+\_\+terminator()}{regular\_expression\_non\_terminator()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::regular\+\_\+expression\+\_\+non\+\_\+terminator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_a1d60ff9552b12f9c30a9dc94b329530d}\label{class_lexical_grammar_a1d60ff9552b12f9c30a9dc94b329530d}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!reserved\+\_\+word@{reserved\+\_\+word}}
+\index{reserved\+\_\+word@{reserved\+\_\+word}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{reserved\+\_\+word()}{reserved\_word()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::reserved\+\_\+word (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_a97e84269213615dc97e8622fc96d0f4c}\label{class_lexical_grammar_a97e84269213615dc97e8622fc96d0f4c}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!signed\+\_\+integer@{signed\+\_\+integer}}
+\index{signed\+\_\+integer@{signed\+\_\+integer}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{signed\+\_\+integer()}{signed\_integer()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::signed\+\_\+integer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_a5ef26a3dd4d2c39ba5016675d3afa8dd}\label{class_lexical_grammar_a5ef26a3dd4d2c39ba5016675d3afa8dd}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!single\+\_\+escape\+\_\+character@{single\+\_\+escape\+\_\+character}}
+\index{single\+\_\+escape\+\_\+character@{single\+\_\+escape\+\_\+character}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{single\+\_\+escape\+\_\+character()}{single\_escape\_character()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::single\+\_\+escape\+\_\+character (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_a3cca7bf99de3efe2e82b1ec05b091fe0}\label{class_lexical_grammar_a3cca7bf99de3efe2e82b1ec05b091fe0}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!single\+\_\+line\+\_\+comment@{single\+\_\+line\+\_\+comment}}
+\index{single\+\_\+line\+\_\+comment@{single\+\_\+line\+\_\+comment}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{single\+\_\+line\+\_\+comment()}{single\_line\_comment()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::single\+\_\+line\+\_\+comment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_a256890ff18017f982160830c3b08b4ac}\label{class_lexical_grammar_a256890ff18017f982160830c3b08b4ac}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!single\+\_\+line\+\_\+comment\+\_\+char@{single\+\_\+line\+\_\+comment\+\_\+char}}
+\index{single\+\_\+line\+\_\+comment\+\_\+char@{single\+\_\+line\+\_\+comment\+\_\+char}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{single\+\_\+line\+\_\+comment\+\_\+char()}{single\_line\_comment\_char()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::single\+\_\+line\+\_\+comment\+\_\+char (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_a39acd5ac2f507d10b9cd7eb905b6c6d9}\label{class_lexical_grammar_a39acd5ac2f507d10b9cd7eb905b6c6d9}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!single\+\_\+line\+\_\+comment\+\_\+chars@{single\+\_\+line\+\_\+comment\+\_\+chars}}
+\index{single\+\_\+line\+\_\+comment\+\_\+chars@{single\+\_\+line\+\_\+comment\+\_\+chars}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{single\+\_\+line\+\_\+comment\+\_\+chars()}{single\_line\_comment\_chars()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::single\+\_\+line\+\_\+comment\+\_\+chars (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_ae052b9eae96cf939b760c0f5e6cdfdfa}\label{class_lexical_grammar_ae052b9eae96cf939b760c0f5e6cdfdfa}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!single\+\_\+string\+\_\+character@{single\+\_\+string\+\_\+character}}
+\index{single\+\_\+string\+\_\+character@{single\+\_\+string\+\_\+character}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{single\+\_\+string\+\_\+character()}{single\_string\_character()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::single\+\_\+string\+\_\+character (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_a881666d88772759f7e2f532150b6bf93}\label{class_lexical_grammar_a881666d88772759f7e2f532150b6bf93}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!single\+\_\+string\+\_\+characters@{single\+\_\+string\+\_\+characters}}
+\index{single\+\_\+string\+\_\+characters@{single\+\_\+string\+\_\+characters}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{single\+\_\+string\+\_\+characters()}{single\_string\_characters()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::single\+\_\+string\+\_\+characters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_ad3f57a97b726239f8561556e2c920c09}\label{class_lexical_grammar_ad3f57a97b726239f8561556e2c920c09}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!source\+\_\+character@{source\+\_\+character}}
+\index{source\+\_\+character@{source\+\_\+character}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{source\+\_\+character()}{source\_character()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::source\+\_\+character (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_a11294149e962d00a92cacc8c6567cdc5}\label{class_lexical_grammar_a11294149e962d00a92cacc8c6567cdc5}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!string\+\_\+literal@{string\+\_\+literal}}
+\index{string\+\_\+literal@{string\+\_\+literal}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{string\+\_\+literal()}{string\_literal()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::string\+\_\+literal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_acccc5eb7a8e4f460f4123049889d8e4b}\label{class_lexical_grammar_acccc5eb7a8e4f460f4123049889d8e4b}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!syntax\+\_\+error@{syntax\+\_\+error}}
+\index{syntax\+\_\+error@{syntax\+\_\+error}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{syntax\+\_\+error()}{syntax\_error()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::syntax\+\_\+error (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_ac728c2390815a0710dcf393763771f2c}\label{class_lexical_grammar_ac728c2390815a0710dcf393763771f2c}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!token@{token}}
+\index{token@{token}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{token()}{token()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::token (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_ab16506f8bcae0aa05d7f6971d0355d9c}\label{class_lexical_grammar_ab16506f8bcae0aa05d7f6971d0355d9c}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!unicode\+\_\+combining\+\_\+mark@{unicode\+\_\+combining\+\_\+mark}}
+\index{unicode\+\_\+combining\+\_\+mark@{unicode\+\_\+combining\+\_\+mark}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{unicode\+\_\+combining\+\_\+mark()}{unicode\_combining\_mark()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::unicode\+\_\+combining\+\_\+mark (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_a632307d996a33ac3089d53068ba9c21d}\label{class_lexical_grammar_a632307d996a33ac3089d53068ba9c21d}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!unicode\+\_\+connector\+\_\+punctuation@{unicode\+\_\+connector\+\_\+punctuation}}
+\index{unicode\+\_\+connector\+\_\+punctuation@{unicode\+\_\+connector\+\_\+punctuation}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{unicode\+\_\+connector\+\_\+punctuation()}{unicode\_connector\_punctuation()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::unicode\+\_\+connector\+\_\+punctuation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_a20b4e0f9757bcace278e8d711efb09da}\label{class_lexical_grammar_a20b4e0f9757bcace278e8d711efb09da}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!unicode\+\_\+digit@{unicode\+\_\+digit}}
+\index{unicode\+\_\+digit@{unicode\+\_\+digit}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{unicode\+\_\+digit()}{unicode\_digit()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::unicode\+\_\+digit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_a411dd476c213ddb338a80766596d0d74}\label{class_lexical_grammar_a411dd476c213ddb338a80766596d0d74}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!unicode\+\_\+escape\+\_\+sequence@{unicode\+\_\+escape\+\_\+sequence}}
+\index{unicode\+\_\+escape\+\_\+sequence@{unicode\+\_\+escape\+\_\+sequence}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{unicode\+\_\+escape\+\_\+sequence()}{unicode\_escape\_sequence()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::unicode\+\_\+escape\+\_\+sequence (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_aee36e7e578912a00215f3a66778c191f}\label{class_lexical_grammar_aee36e7e578912a00215f3a66778c191f}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!unicode\+\_\+letter@{unicode\+\_\+letter}}
+\index{unicode\+\_\+letter@{unicode\+\_\+letter}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{unicode\+\_\+letter()}{unicode\_letter()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::unicode\+\_\+letter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_lexical_grammar_aa8d7fdc84e7ca55c85c67b2849e89ac2}\label{class_lexical_grammar_aa8d7fdc84e7ca55c85c67b2849e89ac2}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!white\+\_\+space@{white\+\_\+space}}
+\index{white\+\_\+space@{white\+\_\+space}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{white\+\_\+space()}{white\_space()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::white\+\_\+space (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_lexical_grammar_af23cc1b7472da117c7e39a8b8fe45e04}\label{class_lexical_grammar_af23cc1b7472da117c7e39a8b8fe45e04}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!buffer@{buffer}}
+\index{buffer@{buffer}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{buffer}{buffer}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\textbf{ std\+::u16string} \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::buffer}
+
+\mbox{\Hypertarget{class_lexical_grammar_a868dc475274f55ff285fd26593f9d0a5}\label{class_lexical_grammar_a868dc475274f55ff285fd26593f9d0a5}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!match@{match}}
+\index{match@{match}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{match}{match}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\hyperlink{class_matcher}{Matcher}$<$T, std\+::u16string\+::const\+\_\+iterator$>$ \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::match}
+
+\mbox{\Hypertarget{class_lexical_grammar_a3230ebef29d379b7b4c276e2a771edc4}\label{class_lexical_grammar_a3230ebef29d379b7b4c276e2a771edc4}} 
+\index{Lexical\+Grammar@{Lexical\+Grammar}!token\+\_\+value@{token\+\_\+value}}
+\index{token\+\_\+value@{token\+\_\+value}!Lexical\+Grammar@{Lexical\+Grammar}}
+\subsubsection{\texorpdfstring{token\+\_\+value}{token\_value}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\hyperlink{class_token}{Token} \hyperlink{class_lexical_grammar}{Lexical\+Grammar}$<$ T $>$\+::token\+\_\+value}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{lexical__grammar_8h}{lexical\+\_\+grammar.\+h}\end{DoxyCompactItemize}

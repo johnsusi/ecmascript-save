@@ -106,6 +106,32 @@ struct PrintVisitor : boost::static_visitor<std::string>
     return apply(identifier.value, false);
   }
 
+  auto operator()(const Arguments& args) const
+  {
+    return apply(args.list, false);
+  }
+
+  auto operator()(const MemberExpression& expr) const
+  {
+    return indent + ".\n" +
+      apply(expr.object) +
+      apply(expr.property);
+  }
+
+  auto operator()(const NewExpression& expr) const
+  {
+    return indent + "new\n" +
+      apply(expr.callee) +
+      apply(expr.arguments);
+  }
+
+  auto operator()(const CallExpression& expr) const
+  {
+    return indent + "()\n" +
+      apply(expr.callee) +
+      apply(expr.arguments);
+  }
+
   auto operator()(const PostfixExpression& expr) const
   {
     return indent + expr.op + "(int)\n" +
