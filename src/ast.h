@@ -159,34 +159,42 @@ template <typename T> void List<T>::accept(Visitor& visitor) const
 struct Expression : Node {
 };
 
-struct This : Expression {
+struct PrimaryExpression : Expression {
+};
+
+struct This : PrimaryExpression {
   void accept(Visitor& visitor) const override { return visitor(*this); }
 };
-struct Identifier : Expression {
+struct Identifier : PrimaryExpression {
   std::u16string value;
   Identifier(std::u16string value) : value(value) {}
   void accept(Visitor& visitor) const override { return visitor(*this); }
 };
-struct NullLiteral : Expression {
+
+struct Literal : PrimaryExpression
+{
+};
+
+struct NullLiteral : Literal {
   void accept(Visitor& visitor) const override { return visitor(*this); }
 };
-struct BooleanLiteral : Expression {
+struct BooleanLiteral : Literal {
   bool value;
   BooleanLiteral(bool value) : value(value) {}
   void accept(Visitor& visitor) const override { return visitor(*this); }
 };
-struct NumericLiteral : Expression {
+struct NumericLiteral : Literal {
   double value;
   NumericLiteral(double value) : value(value) {}
   void accept(Visitor& visitor) const override { return visitor(*this); }
 };
-struct StringLiteral : Expression {
+struct StringLiteral : Literal {
   std::u16string value;
   StringLiteral(std::u16string value) : value(value) {}
   StringLiteral(const std::string &value) : value(value.begin(), value.end()) {}
   void accept(Visitor& visitor) const override { return visitor(*this); }
 };
-struct RegularExpressionLiteral : Expression {
+struct RegularExpressionLiteral : Literal {
   void accept(Visitor& visitor) const override { return visitor(*this); }
 };
 
@@ -210,7 +218,7 @@ struct Elision : Expression {
 struct ElementList : List<Expression> {
 };
 
-struct ArrayLiteral : Expression {
+struct ArrayLiteral : PrimaryExpression {
   ElementList *elements;
   Elision *elision;
   ArrayLiteral(ElementList *elements = nullptr, Elision *elision = nullptr)
@@ -224,7 +232,7 @@ struct PropertyNameAndValueList : List<PropertyAssignment>
 {
 };
 
-struct ObjectLiteral : Expression {
+struct ObjectLiteral : PrimaryExpression {
   PropertyNameAndValueList* declarations;
   ObjectLiteral(PropertyNameAndValueList* declarations = nullptr) : declarations(declarations)
   {
