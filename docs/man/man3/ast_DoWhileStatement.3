@@ -1,0 +1,45 @@
+.TH "ast::DoWhileStatement" 3 "Sun Apr 30 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ast::DoWhileStatement
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ast\&.h>\fP
+.PP
+Inherits \fBast::Statement\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBaccept\fP (\fBVisitor\fP &visitor) const override"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBStatement\fP * \fBbody\fP"
+.br
+.ti -1c
+.RI "\fBExpression\fP * \fBtest\fP"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "void ast::DoWhileStatement::accept (\fBVisitor\fP & visitor) const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBast::Node\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBStatement\fP* ast::DoWhileStatement::body"
+
+.SS "\fBExpression\fP* ast::DoWhileStatement::test"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

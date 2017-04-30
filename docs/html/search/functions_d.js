@@ -12,6 +12,7 @@ var searchData=
   ['make_5fready_5fat_5fthread_5fexit',['make_ready_at_thread_exit',['http://en.cppreference.com/w/cpp/thread/packaged_task/make_ready_at_thread_exit.html',1,'std::packaged_task']]],
   ['make_5fshared',['make_shared',['http://en.cppreference.com/w/cpp/memory/shared_ptr/make_shared.html',1,'std']]],
   ['make_5ftuple',['make_tuple',['http://en.cppreference.com/w/cpp/utility/tuple/make_tuple.html',1,'std']]],
+  ['make_5fvisitor',['make_visitor',['../ast_8cpp.html#a12a81640ea6026881876246d7891ba6d',1,'ast.cpp']]],
   ['malloc',['malloc',['http://en.cppreference.com/w/cpp/memory/c/malloc.html',1,'std']]],
   ['map',['map',['http://en.cppreference.com/w/cpp/container/map/map.html',1,'std::map']]],
   ['mark',['mark',['../class_matcher.html#af9135752ac195a21c230267d52db6623',1,'Matcher']]],
@@ -38,7 +39,7 @@ var searchData=
   ['mbtowc',['mbtowc',['http://en.cppreference.com/w/cpp/string/multibyte/mbtowc.html',1,'std']]],
   ['mean',['mean',['http://en.cppreference.com/w/cpp/numeric/random/poisson_distribution/mean.html',1,'std::poisson_distribution::mean()'],['http://en.cppreference.com/w/cpp/numeric/random/normal_distribution/params.html',1,'std::normal_distribution::mean()']]],
   ['mem_5ffn',['mem_fn',['http://en.cppreference.com/w/cpp/utility/functional/mem_fn.html',1,'std']]],
-  ['member_5fexpression',['member_expression',['../class_expression_parser.html#ae2bd534865d04c37536be99454de581c',1,'ExpressionParser']]],
+  ['memberexpression',['MemberExpression',['../structast_1_1_member_expression.html#a059a077f77f83e5c42a16c4e24146858',1,'ast::MemberExpression']]],
   ['memchr',['memchr',['http://en.cppreference.com/w/cpp/string/byte/memchr.html',1,'std']]],
   ['memcmp',['memcmp',['http://en.cppreference.com/w/cpp/string/byte/memcmp.html',1,'std']]],
   ['memcpy',['memcpy',['http://en.cppreference.com/w/cpp/string/byte/memcpy.html',1,'std']]],
@@ -76,7 +77,6 @@ var searchData=
   ['multi_5fline_5fnot_5fasterisk_5fchar',['multi_line_not_asterisk_char',['../class_lexical_grammar.html#a1f81a1a8b21254111cf4432bfbd17e15',1,'LexicalGrammar']]],
   ['multi_5fline_5fnot_5fforward_5fslash_5for_5fasterisk_5fchar',['multi_line_not_forward_slash_or_asterisk_char',['../class_lexical_grammar.html#af0448c41bb8e0b33c87e4d649687a062',1,'LexicalGrammar']]],
   ['multimap',['multimap',['http://en.cppreference.com/w/cpp/container/multimap/multimap.html',1,'std::multimap']]],
-  ['multiplicative_5fexpression',['multiplicative_expression',['../class_expression_parser.html#a153a0477fb1e983c202ca1228b8264ef',1,'ExpressionParser']]],
   ['multiset',['multiset',['http://en.cppreference.com/w/cpp/container/multiset/multiset.html',1,'std::multiset']]],
   ['mutex',['mutex',['http://en.cppreference.com/w/cpp/thread/unique_lock/mutex.html',1,'std::unique_lock::mutex()'],['http://en.cppreference.com/w/cpp/thread/shared_lock/mutex.html',1,'std::shared_lock::mutex()'],['http://en.cppreference.com/w/cpp/thread/mutex/mutex.html',1,'std::mutex::mutex()']]]
 ];

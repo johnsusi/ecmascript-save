@@ -129,8 +129,11 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a067bf14791d50fb4d98f3bb67de26307"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00ae85f794f2c6a2da22b1454ecd4e84"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_token.html#a00ae85f794f2c6a2da22b1454ecd4e84">is_identifier_name</a> () const</td></tr>
 <tr class="separator:a00ae85f794f2c6a2da22b1454ecd4e84"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45256af5fdc822d729ec7294d4edf52d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_token.html#a45256af5fdc822d729ec7294d4edf52d">any_of</a> (const <a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector</a>&lt; <a class="el" href="class_token.html">Token</a> &gt; &amp;tokens) const</td></tr>
-<tr class="separator:a45256af5fdc822d729ec7294d4edf52d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abefa8f417ddd59dcb37a2cfd357a51bf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_token.html#abefa8f417ddd59dcb37a2cfd357a51bf">any_of_impl</a> (const <a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/utility/initializer_list.html">std::initializer_list</a>&lt; <a class="el" href="class_token.html">Token</a> &gt; &amp;tokens) const</td></tr>
+<tr class="separator:abefa8f417ddd59dcb37a2cfd357a51bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dd181cd1f4570aff7d7ddd5714ca582"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a6dd181cd1f4570aff7d7ddd5714ca582"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_token.html#a6dd181cd1f4570aff7d7ddd5714ca582">any_of</a> (Args &amp;&amp;... args) const</td></tr>
+<tr class="separator:a6dd181cd1f4570aff7d7ddd5714ca582"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26d2e0e166ea03a4a7c2a7b77d456283"><td class="memItemLeft" align="right" valign="top">boost::optional&lt; const <a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::u16string</a> &amp; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_token.html#a26d2e0e166ea03a4a7c2a7b77d456283">to_identifier</a> () const</td></tr>
 <tr class="separator:a26d2e0e166ea03a4a7c2a7b77d456283"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4438811e8b488dc71a8ae518368cc962"><td class="memItemLeft" align="right" valign="top">boost::optional&lt; const <a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_token.html#a4438811e8b488dc71a8ae518368cc962">to_keyword</a> () const</td></tr>
@@ -337,8 +340,36 @@ template&lt;typename It &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a45256af5fdc822d729ec7294d4edf52d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a45256af5fdc822d729ec7294d4edf52d">&#9670;&nbsp;</a></span>any_of()</h2>
+<a id="a6dd181cd1f4570aff7d7ddd5714ca582"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dd181cd1f4570aff7d7ddd5714ca582">&#9670;&nbsp;</a></span>any_of()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Token::any_of </td>
+          <td>(</td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abefa8f417ddd59dcb37a2cfd357a51bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abefa8f417ddd59dcb37a2cfd357a51bf">&#9670;&nbsp;</a></span>any_of_impl()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -347,9 +378,9 @@ template&lt;typename It &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Token::any_of </td>
+          <td class="memname">bool Token::any_of_impl </td>
           <td>(</td>
-          <td class="paramtype">const <a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector</a>&lt; <a class="el" href="class_token.html">Token</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/utility/initializer_list.html">std::initializer_list</a>&lt; <a class="el" href="class_token.html">Token</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>tokens</em></td><td>)</td>
           <td> const</td>
         </tr>

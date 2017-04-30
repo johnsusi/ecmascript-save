@@ -1,0 +1,57 @@
+.TH "ast::TryStatement" 3 "Sun Apr 30 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ast::TryStatement
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ast\&.h>\fP
+.PP
+Inherits \fBast::Statement\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTryStatement\fP (\fBBlock\fP *\fBblock\fP, \fBBlock\fP *\fBhandler\fP=nullptr, \fBBlock\fP *\fBfinalizer\fP=nullptr)"
+.br
+.ti -1c
+.RI "void \fBaccept\fP (\fBVisitor\fP &visitor) const override"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBBlock\fP * \fBblock\fP"
+.br
+.ti -1c
+.RI "\fBBlock\fP * \fBhandler\fP"
+.br
+.ti -1c
+.RI "\fBBlock\fP * \fBfinalizer\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ast::TryStatement::TryStatement (\fBBlock\fP * block, \fBBlock\fP * handler = \fCnullptr\fP, \fBBlock\fP * finalizer = \fCnullptr\fP)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void ast::TryStatement::accept (\fBVisitor\fP & visitor) const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBast::Node\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBBlock\fP* ast::TryStatement::block"
+
+.SS "\fBBlock\fP* ast::TryStatement::finalizer"
+
+.SS "\fBBlock\fP* ast::TryStatement::handler"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

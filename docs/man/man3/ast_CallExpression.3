@@ -1,0 +1,52 @@
+.TH "ast::CallExpression" 3 "Sun Apr 30 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ast::CallExpression
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ast\&.h>\fP
+.PP
+Inherits \fBast::Expression\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBCallExpression\fP (\fBExpression\fP *\fBcallee\fP, \fBArguments\fP *\fBarguments\fP=nullptr)"
+.br
+.ti -1c
+.RI "void \fBaccept\fP (\fBVisitor\fP &visitor) const override"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBExpression\fP * \fBcallee\fP"
+.br
+.ti -1c
+.RI "\fBArguments\fP * \fBarguments\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ast::CallExpression::CallExpression (\fBExpression\fP * callee, \fBArguments\fP * arguments = \fCnullptr\fP)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void ast::CallExpression::accept (\fBVisitor\fP & visitor) const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBast::Node\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBArguments\fP* ast::CallExpression::arguments"
+
+.SS "\fBExpression\fP* ast::CallExpression::callee"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

@@ -1,0 +1,57 @@
+.TH "ast::IfStatement" 3 "Sun Apr 30 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ast::IfStatement
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ast\&.h>\fP
+.PP
+Inherits \fBast::Statement\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBIfStatement\fP (\fBExpression\fP *\fBtest\fP, \fBStatement\fP *\fBconsequent\fP, \fBStatement\fP *\fBalternate\fP=nullptr)"
+.br
+.ti -1c
+.RI "void \fBaccept\fP (\fBVisitor\fP &visitor) const override"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBExpression\fP * \fBtest\fP"
+.br
+.ti -1c
+.RI "\fBStatement\fP * \fBconsequent\fP"
+.br
+.ti -1c
+.RI "\fBStatement\fP * \fBalternate\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ast::IfStatement::IfStatement (\fBExpression\fP * test, \fBStatement\fP * consequent, \fBStatement\fP * alternate = \fCnullptr\fP)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void ast::IfStatement::accept (\fBVisitor\fP & visitor) const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBast::Node\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBStatement\fP* ast::IfStatement::alternate"
+
+.SS "\fBStatement\fP* ast::IfStatement::consequent"
+
+.SS "\fBExpression\fP* ast::IfStatement::test"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

@@ -1,4 +1,4 @@
-.TH "src/ast.h" 3 "Sat Apr 29 2017" "ECMAScript" \" -*- nroff -*-
+.TH "src/ast.h" 3 "Sun Apr 30 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -6,7 +6,11 @@ src/ast.h
 .SH SYNOPSIS
 .br
 .PP
+\fC#include <iostream>\fP
+.br
 \fC#include <vector>\fP
+.br
+\fC#include <sstream>\fP
 .br
 \fC#include <boost/optional\&.hpp>\fP
 .br
@@ -17,220 +21,211 @@ src/ast.h
 
 .in +1c
 .ti -1c
-.RI "struct \fBThis\fP"
+.RI "struct \fBast::Node\fP"
 .br
 .ti -1c
-.RI "struct \fBIdentifier\fP"
+.RI "struct \fBast::List< T >\fP"
 .br
 .ti -1c
-.RI "struct \fBNullLiteral\fP"
+.RI "struct \fBast::Visitor\fP"
 .br
 .ti -1c
-.RI "struct \fBBooleanLiteral\fP"
+.RI "struct \fBast::Expression\fP"
 .br
 .ti -1c
-.RI "struct \fBNumericLiteral\fP"
+.RI "struct \fBast::This\fP"
 .br
 .ti -1c
-.RI "struct \fBStringLiteral\fP"
+.RI "struct \fBast::Identifier\fP"
 .br
 .ti -1c
-.RI "struct \fBRegularExpressionLiteral\fP"
+.RI "struct \fBast::NullLiteral\fP"
 .br
 .ti -1c
-.RI "struct \fBPropertyAssignment\fP"
+.RI "struct \fBast::BooleanLiteral\fP"
 .br
 .ti -1c
-.RI "struct \fBArrayLiteral\fP"
+.RI "struct \fBast::NumericLiteral\fP"
 .br
 .ti -1c
-.RI "struct \fBObjectLiteral\fP"
+.RI "struct \fBast::StringLiteral\fP"
 .br
 .ti -1c
-.RI "struct \fBMemberExpression\fP"
+.RI "struct \fBast::RegularExpressionLiteral\fP"
 .br
 .ti -1c
-.RI "struct \fBArguments\fP"
+.RI "struct \fBast::PropertyName\fP"
 .br
 .ti -1c
-.RI "struct \fBNewExpression\fP"
+.RI "struct \fBast::PropertyAssignment\fP"
 .br
 .ti -1c
-.RI "struct \fBCallExpression\fP"
+.RI "struct \fBast::Elision\fP"
 .br
 .ti -1c
-.RI "struct \fBPostfixExpression\fP"
+.RI "struct \fBast::ElementList\fP"
 .br
 .ti -1c
-.RI "struct \fBUnaryExpression\fP"
+.RI "struct \fBast::ArrayLiteral\fP"
 .br
 .ti -1c
-.RI "struct \fBBinaryExpression\fP"
+.RI "struct \fBast::PropertyNameAndValueList\fP"
 .br
 .ti -1c
-.RI "struct \fBConditionalExpression\fP"
+.RI "struct \fBast::ObjectLiteral\fP"
 .br
 .ti -1c
-.RI "struct \fBVariableDeclaration\fP"
+.RI "struct \fBast::MemberExpression\fP"
 .br
 .ti -1c
-.RI "struct \fBBlock\fP"
+.RI "struct \fBast::ArgumentList\fP"
 .br
 .ti -1c
-.RI "struct \fBVariableStatement\fP"
+.RI "struct \fBast::Arguments\fP"
 .br
 .ti -1c
-.RI "struct \fBEmptyStatement\fP"
+.RI "struct \fBast::NewExpression\fP"
 .br
 .ti -1c
-.RI "struct \fBExpressionStatement\fP"
+.RI "struct \fBast::CallExpression\fP"
 .br
 .ti -1c
-.RI "struct \fBIfStatement\fP"
+.RI "struct \fBast::PostfixExpression\fP"
 .br
 .ti -1c
-.RI "struct \fBDoWhileStatement\fP"
+.RI "struct \fBast::UnaryExpression\fP"
 .br
 .ti -1c
-.RI "struct \fBWhileStatement\fP"
+.RI "struct \fBast::BinaryExpression\fP"
 .br
 .ti -1c
-.RI "struct \fBForStatement\fP"
+.RI "struct \fBast::ConditionalExpression\fP"
 .br
 .ti -1c
-.RI "struct \fBForInStatement\fP"
+.RI "struct \fBast::VariableDeclaration\fP"
 .br
 .ti -1c
-.RI "struct \fBContinueStatement\fP"
+.RI "struct \fBast::VariableDeclarationList\fP"
 .br
 .ti -1c
-.RI "struct \fBBreakStatement\fP"
+.RI "struct \fBast::SourceElement\fP"
 .br
 .ti -1c
-.RI "struct \fBReturnStatement\fP"
+.RI "struct \fBast::Statement\fP"
 .br
 .ti -1c
-.RI "struct \fBWithStatement\fP"
+.RI "struct \fBast::StatementList\fP"
 .br
 .ti -1c
-.RI "struct \fBLabelledStatement\fP"
+.RI "struct \fBast::Block\fP"
 .br
 .ti -1c
-.RI "struct \fBSwitchStatement\fP"
+.RI "struct \fBast::VariableStatement\fP"
 .br
 .ti -1c
-.RI "struct \fBThrowStatement\fP"
+.RI "struct \fBast::EmptyStatement\fP"
 .br
 .ti -1c
-.RI "struct \fBTryStatement\fP"
+.RI "struct \fBast::ExpressionStatement\fP"
 .br
 .ti -1c
-.RI "struct \fBDebuggerStatement\fP"
+.RI "struct \fBast::IfStatement\fP"
 .br
 .ti -1c
-.RI "struct \fBFunctionBody\fP"
+.RI "struct \fBast::DoWhileStatement\fP"
 .br
 .ti -1c
-.RI "struct \fBFunctionDeclaration\fP"
+.RI "struct \fBast::WhileStatement\fP"
 .br
 .ti -1c
-.RI "struct \fBFunctionExpression\fP"
+.RI "struct \fBast::ForStatement\fP"
 .br
 .ti -1c
-.RI "struct \fBProgram\fP"
+.RI "struct \fBast::ForInStatement\fP"
+.br
+.ti -1c
+.RI "struct \fBast::ContinueStatement\fP"
+.br
+.ti -1c
+.RI "struct \fBast::BreakStatement\fP"
+.br
+.ti -1c
+.RI "struct \fBast::ReturnStatement\fP"
+.br
+.ti -1c
+.RI "struct \fBast::WithStatement\fP"
+.br
+.ti -1c
+.RI "struct \fBast::LabelledStatement\fP"
+.br
+.ti -1c
+.RI "struct \fBast::CaseClause\fP"
+.br
+.ti -1c
+.RI "struct \fBast::DefaultClause\fP"
+.br
+.ti -1c
+.RI "struct \fBast::CaseBlock\fP"
+.br
+.ti -1c
+.RI "struct \fBast::SwitchStatement\fP"
+.br
+.ti -1c
+.RI "struct \fBast::ThrowStatement\fP"
+.br
+.ti -1c
+.RI "struct \fBast::TryStatement\fP"
+.br
+.ti -1c
+.RI "struct \fBast::DebuggerStatement\fP"
+.br
+.ti -1c
+.RI "struct \fBast::Declaration\fP"
+.br
+.ti -1c
+.RI "struct \fBast::SourceElements\fP"
+.br
+.ti -1c
+.RI "struct \fBast::FormalParameterList\fP"
+.br
+.ti -1c
+.RI "struct \fBast::FunctionBody\fP"
+.br
+.ti -1c
+.RI "struct \fBast::FunctionDeclaration\fP"
+.br
+.ti -1c
+.RI "struct \fBast::FunctionExpression\fP"
+.br
+.ti -1c
+.RI "struct \fBast::Program\fP"
 .br
 .in -1c
-.SS "Typedefs"
+.SS "Namespaces"
 
 .in +1c
 .ti -1c
-.RI "using \fBLiteral\fP = boost::variant< \fBNullLiteral\fP, \fBBooleanLiteral\fP, \fBNumericLiteral\fP, \fBStringLiteral\fP, \fBRegularExpressionLiteral\fP >"
-.br
-.ti -1c
-.RI "using \fBPrimaryExpression\fP = boost::variant< \fBThis\fP, \fBIdentifier\fP, \fBLiteral\fP, boost::recursive_wrapper< \fBArrayLiteral\fP >, boost::recursive_wrapper< \fBObjectLiteral\fP > >"
-.br
-.ti -1c
-.RI "using \fBExpression\fP = boost::variant< \fBThis\fP, \fBIdentifier\fP, boost::recursive_wrapper< \fBArrayLiteral\fP >, boost::recursive_wrapper< \fBObjectLiteral\fP >, \fBNullLiteral\fP, \fBBooleanLiteral\fP, \fBNumericLiteral\fP, \fBStringLiteral\fP, \fBRegularExpressionLiteral\fP, boost::recursive_wrapper< \fBMemberExpression\fP >, boost::recursive_wrapper< \fBNewExpression\fP >, boost::recursive_wrapper< \fBCallExpression\fP >, boost::recursive_wrapper< \fBPostfixExpression\fP >, boost::recursive_wrapper< \fBUnaryExpression\fP >, boost::recursive_wrapper< \fBBinaryExpression\fP >, boost::recursive_wrapper< \fBConditionalExpression\fP >, boost::recursive_wrapper< \fBArguments\fP > >"
-.br
-.ti -1c
-.RI "using \fBPropertyName\fP = boost::variant< \fBStringLiteral\fP, \fBNumericLiteral\fP >"
-.br
-.ti -1c
-.RI "using \fBArgumentList\fP = \fBstd::vector\fP< \fBExpression\fP >"
-.br
-.ti -1c
-.RI "using \fBVariableDeclarationList\fP = \fBstd::vector\fP< \fBVariableDeclaration\fP >"
-.br
-.ti -1c
-.RI "using \fBIterationStatement\fP = boost::variant< boost::recursive_wrapper< \fBDoWhileStatement\fP >, boost::recursive_wrapper< \fBWhileStatement\fP >, boost::recursive_wrapper< \fBForStatement\fP >, boost::recursive_wrapper< \fBForInStatement\fP > >"
-.br
-.ti -1c
-.RI "using \fBStatement\fP = boost::variant< boost::recursive_wrapper< \fBBlock\fP >, boost::recursive_wrapper< \fBVariableStatement\fP >, boost::recursive_wrapper< \fBEmptyStatement\fP >, boost::recursive_wrapper< \fBExpressionStatement\fP >, boost::recursive_wrapper< \fBIfStatement\fP >, boost::recursive_wrapper< \fBDoWhileStatement\fP >, boost::recursive_wrapper< \fBWhileStatement\fP >, boost::recursive_wrapper< \fBForStatement\fP >, boost::recursive_wrapper< \fBForInStatement\fP >, boost::recursive_wrapper< \fBContinueStatement\fP >, boost::recursive_wrapper< \fBBreakStatement\fP >, boost::recursive_wrapper< \fBReturnStatement\fP >, boost::recursive_wrapper< \fBWithStatement\fP >, boost::recursive_wrapper< \fBLabelledStatement\fP >, boost::recursive_wrapper< \fBSwitchStatement\fP >, boost::recursive_wrapper< \fBThrowStatement\fP >, boost::recursive_wrapper< \fBTryStatement\fP >, boost::recursive_wrapper< \fBDebuggerStatement\fP > >"
-.br
-.ti -1c
-.RI "using \fBStatementList\fP = \fBstd::vector\fP< \fBStatement\fP >"
-.br
-.ti -1c
-.RI "using \fBSourceElement\fP = boost::variant< \fBStatement\fP, boost::recursive_wrapper< \fBFunctionDeclaration\fP > >"
-.br
-.ti -1c
-.RI "using \fBSourceElements\fP = \fBstd::vector\fP< \fBSourceElement\fP >"
-.br
-.ti -1c
-.RI "using \fBFormalParameterList\fP = \fBstd::vector\fP< \fBIdentifier\fP >"
+.RI " \fBast\fP"
 .br
 .in -1c
 .SS "Functions"
 
 .in +1c
 .ti -1c
+.RI "void \fBast::accept\fP (const \fBProgram\fP &program, \fBVisitor\fP &&visitor)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBto_string\fP (const \fBast::Program\fP &program)"
+.br
+.ti -1c
 .RI "\fBstd::string\fP \fBnormalize\fP (const \fBstd::string\fP &)"
 .br
-.ti -1c
-.RI "\fBstd::string\fP \fBto_string\fP (const \fBProgram\fP &)"
-.br
-.ti -1c
-.RI "bool \fBoperator==\fP (const \fBProgram\fP &, const \fBstd::string\fP &)"
-.br
-.ti -1c
-.RI "\fBstd::ostream\fP & \fBoperator<<\fP (\fBstd::ostream\fP &, const \fBProgram\fP &)"
-.br
 .in -1c
-.SH "Typedef Documentation"
-.PP 
-.SS "using \fBArgumentList\fP =  \fBstd::vector\fP<\fBExpression\fP>"
-
-.SS "using \fBExpression\fP =  boost::variant< \fBThis\fP, \fBIdentifier\fP, boost::recursive_wrapper<\fBArrayLiteral\fP>, boost::recursive_wrapper<\fBObjectLiteral\fP>, \fBNullLiteral\fP, \fBBooleanLiteral\fP, \fBNumericLiteral\fP, \fBStringLiteral\fP, \fBRegularExpressionLiteral\fP, boost::recursive_wrapper<\fBMemberExpression\fP>, boost::recursive_wrapper<\fBNewExpression\fP>, boost::recursive_wrapper<\fBCallExpression\fP>, boost::recursive_wrapper<\fBPostfixExpression\fP>, boost::recursive_wrapper<\fBUnaryExpression\fP>, boost::recursive_wrapper<\fBBinaryExpression\fP>, boost::recursive_wrapper<\fBConditionalExpression\fP>, boost::recursive_wrapper<\fBArguments\fP> >"
-
-.SS "using \fBFormalParameterList\fP =  \fBstd::vector\fP<\fBIdentifier\fP>"
-
-.SS "using \fBIterationStatement\fP =  boost::variant< boost::recursive_wrapper<\fBDoWhileStatement\fP>, boost::recursive_wrapper<\fBWhileStatement\fP>, boost::recursive_wrapper<\fBForStatement\fP>, boost::recursive_wrapper<\fBForInStatement\fP> >"
-
-.SS "using \fBLiteral\fP =  boost::variant< \fBNullLiteral\fP, \fBBooleanLiteral\fP, \fBNumericLiteral\fP, \fBStringLiteral\fP, \fBRegularExpressionLiteral\fP >"
-
-.SS "using \fBPrimaryExpression\fP =  boost::variant< \fBThis\fP, \fBIdentifier\fP, \fBLiteral\fP, boost::recursive_wrapper<\fBArrayLiteral\fP>, boost::recursive_wrapper<\fBObjectLiteral\fP> >"
-
-.SS "using \fBPropertyName\fP =  boost::variant< \fBStringLiteral\fP, \fBNumericLiteral\fP >"
-
-.SS "using \fBSourceElement\fP =  boost::variant< \fBStatement\fP, boost::recursive_wrapper<\fBFunctionDeclaration\fP> >"
-
-.SS "using \fBSourceElements\fP =  \fBstd::vector\fP<\fBSourceElement\fP>"
-
-.SS "using \fBStatement\fP =  boost::variant< boost::recursive_wrapper<\fBBlock\fP>, boost::recursive_wrapper<\fBVariableStatement\fP>, boost::recursive_wrapper<\fBEmptyStatement\fP>, boost::recursive_wrapper<\fBExpressionStatement\fP>, boost::recursive_wrapper<\fBIfStatement\fP>, boost::recursive_wrapper<\fBDoWhileStatement\fP>, boost::recursive_wrapper<\fBWhileStatement\fP>, boost::recursive_wrapper<\fBForStatement\fP>, boost::recursive_wrapper<\fBForInStatement\fP>, boost::recursive_wrapper<\fBContinueStatement\fP>, boost::recursive_wrapper<\fBBreakStatement\fP>, boost::recursive_wrapper<\fBReturnStatement\fP>, boost::recursive_wrapper<\fBWithStatement\fP>, boost::recursive_wrapper<\fBLabelledStatement\fP>, boost::recursive_wrapper<\fBSwitchStatement\fP>, boost::recursive_wrapper<\fBThrowStatement\fP>, boost::recursive_wrapper<\fBTryStatement\fP>, boost::recursive_wrapper<\fBDebuggerStatement\fP> >"
-
-.SS "using \fBStatementList\fP =  \fBstd::vector\fP<\fBStatement\fP>"
-
-.SS "using \fBVariableDeclarationList\fP =  \fBstd::vector\fP<\fBVariableDeclaration\fP>"
-
 .SH "Function Documentation"
 .PP 
 .SS "\fBstd::string\fP normalize (const \fBstd::string\fP &)"
 
-.SS "\fBstd::ostream\fP& operator<< (\fBstd::ostream\fP &, const \fBProgram\fP &)"
-
-.SS "bool operator== (const \fBProgram\fP &, const \fBstd::string\fP &)"
-
-.SS "\fBstd::string\fP to_string (const \fBProgram\fP &)"
+.SS "\fBstd::string\fP to_string (const \fBast::Program\fP & program)"
 
 .SH "Author"
 .PP 

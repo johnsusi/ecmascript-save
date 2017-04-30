@@ -1,0 +1,57 @@
+.TH "ast::ConditionalExpression" 3 "Sun Apr 30 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ast::ConditionalExpression
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ast\&.h>\fP
+.PP
+Inherits \fBast::Expression\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBConditionalExpression\fP (\fBExpression\fP *\fBtest\fP, \fBExpression\fP *\fBconsequent\fP, \fBExpression\fP *\fBalternate\fP)"
+.br
+.ti -1c
+.RI "void \fBaccept\fP (\fBVisitor\fP &visitor) const override"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBExpression\fP * \fBtest\fP"
+.br
+.ti -1c
+.RI "\fBExpression\fP * \fBconsequent\fP"
+.br
+.ti -1c
+.RI "\fBExpression\fP * \fBalternate\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ast::ConditionalExpression::ConditionalExpression (\fBExpression\fP * test, \fBExpression\fP * consequent, \fBExpression\fP * alternate)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void ast::ConditionalExpression::accept (\fBVisitor\fP & visitor) const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBast::Node\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBExpression\fP* ast::ConditionalExpression::alternate"
+
+.SS "\fBExpression\fP* ast::ConditionalExpression::consequent"
+
+.SS "\fBExpression\fP* ast::ConditionalExpression::test"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

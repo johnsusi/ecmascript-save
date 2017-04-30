@@ -1,8 +1,8 @@
 var searchData=
 [
   ['id',['id',['http://en.cppreference.com/w/cpp/thread/thread/id.html',1,'std::thread::id'],['http://en.cppreference.com/w/cpp/locale/locale/id.html',1,'std::locale::id']]],
-  ['identifier',['Identifier',['../struct_identifier.html',1,'']]],
-  ['ifstatement',['IfStatement',['../struct_if_statement.html',1,'']]],
+  ['identifier',['Identifier',['../structast_1_1_identifier.html',1,'ast']]],
+  ['ifstatement',['IfStatement',['../structast_1_1_if_statement.html',1,'ast']]],
   ['ifstream',['ifstream',['http://en.cppreference.com/w/cpp/io/basic_ifstream.html',1,'std']]],
   ['independent_5fbits_5fengine',['independent_bits_engine',['http://en.cppreference.com/w/cpp/numeric/random/independent_bits_engine.html',1,'std']]],
   ['initializer_5flist',['initializer_list',['http://en.cppreference.com/w/cpp/utility/initializer_list.html',1,'std']]],

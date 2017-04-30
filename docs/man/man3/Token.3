@@ -1,4 +1,4 @@
-.TH "Token" 3 "Sat Apr 29 2017" "ECMAScript" \" -*- nroff -*-
+.TH "Token" 3 "Sun Apr 30 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -82,7 +82,10 @@ Token
 .RI "bool \fBis_identifier_name\fP () const"
 .br
 .ti -1c
-.RI "bool \fBany_of\fP (const \fBstd::vector\fP< \fBToken\fP > &tokens) const"
+.RI "bool \fBany_of_impl\fP (const \fBstd::initializer_list\fP< \fBToken\fP > &tokens) const"
+.br
+.ti -1c
+.RI "template<typename\&.\&.\&. Args> bool \fBany_of\fP (Args &&\&.\&.\&. args) const"
 .br
 .ti -1c
 .RI "boost::optional< const \fBstd::u16string\fP & > \fBto_identifier\fP () const"
@@ -178,7 +181,9 @@ Token
 
 .SH "Member Function Documentation"
 .PP 
-.SS "bool Token::any_of (const \fBstd::vector\fP< \fBToken\fP > & tokens) const\fC [inline]\fP"
+.SS "template<typename\&.\&.\&. Args> bool Token::any_of (Args &&\&.\&.\&. args) const\fC [inline]\fP"
+
+.SS "bool Token::any_of_impl (const \fBstd::initializer_list\fP< \fBToken\fP > & tokens) const\fC [inline]\fP"
 
 .SS "\fBToken\fP Token::boolean_literal (bool value)\fC [static]\fP"
 

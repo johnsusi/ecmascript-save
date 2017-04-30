@@ -63,7 +63,9 @@ bool \hyperlink{class_token_a067bf14791d50fb4d98f3bb67de26307}{is\+\_\+regular\+
 \item 
 bool \hyperlink{class_token_a00ae85f794f2c6a2da22b1454ecd4e84}{is\+\_\+identifier\+\_\+name} () const
 \item 
-bool \hyperlink{class_token_a45256af5fdc822d729ec7294d4edf52d}{any\+\_\+of} (const \textbf{ std\+::vector}$<$ \hyperlink{class_token}{Token} $>$ \&tokens) const
+bool \hyperlink{class_token_abefa8f417ddd59dcb37a2cfd357a51bf}{any\+\_\+of\+\_\+impl} (const \textbf{ std\+::initializer\+\_\+list}$<$ \hyperlink{class_token}{Token} $>$ \&tokens) const
+\item 
+{\footnotesize template$<$typename... Args$>$ }\\bool \hyperlink{class_token_a6dd181cd1f4570aff7d7ddd5714ca582}{any\+\_\+of} (Args \&\&... args) const
 \item 
 boost\+::optional$<$ const \textbf{ std\+::u16string} \& $>$ \hyperlink{class_token_a26d2e0e166ea03a4a7c2a7b77d456283}{to\+\_\+identifier} () const
 \item 
@@ -160,11 +162,18 @@ Token\+::\+Token (\begin{DoxyParamCaption}\item[{It}]{f,  }\item[{It}]{l }\end{D
 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{class_token_a45256af5fdc822d729ec7294d4edf52d}\label{class_token_a45256af5fdc822d729ec7294d4edf52d}} 
+\mbox{\Hypertarget{class_token_a6dd181cd1f4570aff7d7ddd5714ca582}\label{class_token_a6dd181cd1f4570aff7d7ddd5714ca582}} 
 \index{Token@{Token}!any\+\_\+of@{any\+\_\+of}}
 \index{any\+\_\+of@{any\+\_\+of}!Token@{Token}}
 \subsubsection{\texorpdfstring{any\+\_\+of()}{any\_of()}}
-{\footnotesize\ttfamily bool Token\+::any\+\_\+of (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::vector}$<$ \hyperlink{class_token}{Token} $>$ \&}]{tokens }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily template$<$typename... Args$>$ \\
+bool Token\+::any\+\_\+of (\begin{DoxyParamCaption}\item[{Args \&\&...}]{args }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_token_abefa8f417ddd59dcb37a2cfd357a51bf}\label{class_token_abefa8f417ddd59dcb37a2cfd357a51bf}} 
+\index{Token@{Token}!any\+\_\+of\+\_\+impl@{any\+\_\+of\+\_\+impl}}
+\index{any\+\_\+of\+\_\+impl@{any\+\_\+of\+\_\+impl}!Token@{Token}}
+\subsubsection{\texorpdfstring{any\+\_\+of\+\_\+impl()}{any\_of\_impl()}}
+{\footnotesize\ttfamily bool Token\+::any\+\_\+of\+\_\+impl (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::initializer\+\_\+list}$<$ \hyperlink{class_token}{Token} $>$ \&}]{tokens }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 \mbox{\Hypertarget{class_token_a95cc3830383b9cfb05ae2b29ca776c41}\label{class_token_a95cc3830383b9cfb05ae2b29ca776c41}} 
 \index{Token@{Token}!boolean\+\_\+literal@{boolean\+\_\+literal}}

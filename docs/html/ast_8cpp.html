@@ -64,14 +64,15 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">ast.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="ast_8h_source.html">ast.h</a>&quot;</code><br />
-<code>#include &lt;string&gt;</code><br />
 <code>#include &lt;sstream&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 <code>#include &lt;boost/algorithm/string.hpp&gt;</code><br />
 <code>#include &lt;boost/core/demangle.hpp&gt;</code><br />
@@ -80,30 +81,53 @@ Include dependency graph for ast.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="ast_8cpp__incl.png" border="0" usemap="#src_2ast_8cpp" alt=""/></div>
 <map name="src_2ast_8cpp" id="src_2ast_8cpp">
-<area shape="rect" id="node2" href="ast_8h.html" title="ast.h" alt="" coords="112,79,162,104"/>
+<area shape="rect" id="node2" href="ast_8h.html" title="ast.h" alt="" coords="224,79,274,104"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_print_visitor.html">PrintVisitor</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_callable_visitor.html">CallableVisitor&lt; Callable &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespaceast"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html">ast</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a9651ee99e814cad561e69d7bda6f62c6"><td class="memItemLeft" align="right" valign="top"><a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ast_8cpp.html#a9651ee99e814cad561e69d7bda6f62c6">normalize</a> (const <a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;s)</td></tr>
 <tr class="separator:a9651ee99e814cad561e69d7bda6f62c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebfc2ef9c907f16debc80df85300c627"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:aebfc2ef9c907f16debc80df85300c627"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="ast_8cpp.html#aebfc2ef9c907f16debc80df85300c627">typeof</a> (const T &amp;)</td></tr>
-<tr class="separator:aebfc2ef9c907f16debc80df85300c627"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af78059189ea131010a8ca720c16a87cb"><td class="memItemLeft" align="right" valign="top"><a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ast_8cpp.html#af78059189ea131010a8ca720c16a87cb">to_string</a> (const <a class="el" href="struct_program.html">Program</a> &amp;program)</td></tr>
-<tr class="separator:af78059189ea131010a8ca720c16a87cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa1a05c54b4b2b58443abac6bdc8bf138"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ast_8cpp.html#aa1a05c54b4b2b58443abac6bdc8bf138">operator==</a> (const <a class="el" href="struct_program.html">Program</a> &amp;program, const <a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;str)</td></tr>
-<tr class="separator:aa1a05c54b4b2b58443abac6bdc8bf138"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a328f4c8ee5e4b87028767f36a1cbf1a6"><td class="memItemLeft" align="right" valign="top"><a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ast_8cpp.html#a328f4c8ee5e4b87028767f36a1cbf1a6">operator&lt;&lt;</a> (<a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::ostream</a> &amp;out, const <a class="el" href="struct_program.html">Program</a> &amp;program)</td></tr>
-<tr class="separator:a328f4c8ee5e4b87028767f36a1cbf1a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12a81640ea6026881876246d7891ba6d"><td class="memTemplParams" colspan="2">template&lt;typename F &gt; </td></tr>
+<tr class="memitem:a12a81640ea6026881876246d7891ba6d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="struct_callable_visitor.html">CallableVisitor</a>&lt; F &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="ast_8cpp.html#a12a81640ea6026881876246d7891ba6d">make_visitor</a> (F callback)</td></tr>
+<tr class="separator:a12a81640ea6026881876246d7891ba6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65fc1131f09e12650596b4fb39aa50ca"><td class="memItemLeft" align="right" valign="top"><a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ast_8cpp.html#a65fc1131f09e12650596b4fb39aa50ca">to_string</a> (const <a class="el" href="structast_1_1_program.html">ast::Program</a> &amp;program)</td></tr>
+<tr class="separator:a65fc1131f09e12650596b4fb39aa50ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8ec562ad69aa05004765217ff90879b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceast.html#ae8ec562ad69aa05004765217ff90879b">ast::accept</a> (const <a class="el" href="structast_1_1_program.html">Program</a> &amp;program, <a class="el" href="structast_1_1_visitor.html">Visitor</a> &amp;&amp;visitor)</td></tr>
+<tr class="separator:ae8ec562ad69aa05004765217ff90879b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a12a81640ea6026881876246d7891ba6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12a81640ea6026881876246d7891ba6d">&#9670;&nbsp;</a></span>make_visitor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename F &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_callable_visitor.html">CallableVisitor</a>&lt;F&gt; make_visitor </td>
+          <td>(</td>
+          <td class="paramtype">F&#160;</td>
+          <td class="paramname"><em>callback</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a9651ee99e814cad561e69d7bda6f62c6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9651ee99e814cad561e69d7bda6f62c6">&#9670;&nbsp;</a></span>normalize()</h2>
 
@@ -122,64 +146,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a328f4c8ee5e4b87028767f36a1cbf1a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a328f4c8ee5e4b87028767f36a1cbf1a6">&#9670;&nbsp;</a></span>operator<<()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::ostream</a>&amp; operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype"><a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::ostream</a> &amp;&#160;</td>
-          <td class="paramname"><em>out</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="struct_program.html">Program</a> &amp;&#160;</td>
-          <td class="paramname"><em>program</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa1a05c54b4b2b58443abac6bdc8bf138"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa1a05c54b4b2b58443abac6bdc8bf138">&#9670;&nbsp;</a></span>operator==()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool operator== </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_program.html">Program</a> &amp;&#160;</td>
-          <td class="paramname"><em>program</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>str</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="af78059189ea131010a8ca720c16a87cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af78059189ea131010a8ca720c16a87cb">&#9670;&nbsp;</a></span>to_string()</h2>
+<a id="a65fc1131f09e12650596b4fb39aa50ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65fc1131f09e12650596b4fb39aa50ca">&#9670;&nbsp;</a></span>to_string()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -187,28 +155,8 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname"><a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> to_string </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_program.html">Program</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structast_1_1_program.html">ast::Program</a> &amp;&#160;</td>
           <td class="paramname"><em>program</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aebfc2ef9c907f16debc80df85300c627"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aebfc2ef9c907f16debc80df85300c627">&#9670;&nbsp;</a></span>typeof()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void typeof </td>
-          <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>

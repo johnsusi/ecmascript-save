@@ -1,4 +1,4 @@
-.TH "src/ast.cpp" 3 "Sat Apr 29 2017" "ECMAScript" \" -*- nroff -*-
+.TH "src/ast.cpp" 3 "Sun Apr 30 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -8,9 +8,9 @@ src/ast.cpp
 .PP
 \fC#include 'ast\&.h'\fP
 .br
-\fC#include <string>\fP
-.br
 \fC#include <sstream>\fP
+.br
+\fC#include <string>\fP
 .br
 \fC#include <vector>\fP
 .br
@@ -23,7 +23,14 @@ src/ast.cpp
 
 .in +1c
 .ti -1c
-.RI "struct \fBPrintVisitor\fP"
+.RI "struct \fBCallableVisitor< Callable >\fP"
+.br
+.in -1c
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI " \fBast\fP"
 .br
 .in -1c
 .SS "Functions"
@@ -33,29 +40,22 @@ src/ast.cpp
 .RI "\fBstd::string\fP \fBnormalize\fP (const \fBstd::string\fP &s)"
 .br
 .ti -1c
-.RI "template<typename T > void \fBtypeof\fP (const T &)"
+.RI "template<typename F > \fBCallableVisitor\fP< F > \fBmake_visitor\fP (F callback)"
 .br
 .ti -1c
-.RI "\fBstd::string\fP \fBto_string\fP (const \fBProgram\fP &program)"
+.RI "\fBstd::string\fP \fBto_string\fP (const \fBast::Program\fP &program)"
 .br
 .ti -1c
-.RI "bool \fBoperator==\fP (const \fBProgram\fP &program, const \fBstd::string\fP &str)"
-.br
-.ti -1c
-.RI "\fBstd::ostream\fP & \fBoperator<<\fP (\fBstd::ostream\fP &out, const \fBProgram\fP &program)"
+.RI "void \fBast::accept\fP (const \fBProgram\fP &program, \fBVisitor\fP &&visitor)"
 .br
 .in -1c
 .SH "Function Documentation"
 .PP 
+.SS "template<typename F > \fBCallableVisitor\fP<F> make_visitor (F callback)"
+
 .SS "\fBstd::string\fP normalize (const \fBstd::string\fP & s)"
 
-.SS "\fBstd::ostream\fP& operator<< (\fBstd::ostream\fP & out, const \fBProgram\fP & program)"
-
-.SS "bool operator== (const \fBProgram\fP & program, const \fBstd::string\fP & str)"
-
-.SS "\fBstd::string\fP to_string (const \fBProgram\fP & program)"
-
-.SS "template<typename T > void typeof (const T &)"
+.SS "\fBstd::string\fP to_string (const \fBast::Program\fP & program)"
 
 .SH "Author"
 .PP 

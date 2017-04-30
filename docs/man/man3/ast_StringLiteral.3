@@ -1,0 +1,52 @@
+.TH "ast::StringLiteral" 3 "Sun Apr 30 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ast::StringLiteral
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ast\&.h>\fP
+.PP
+Inherits \fBast::Expression\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBStringLiteral\fP (\fBstd::u16string\fP \fBvalue\fP)"
+.br
+.ti -1c
+.RI "\fBStringLiteral\fP (const \fBstd::string\fP &\fBvalue\fP)"
+.br
+.ti -1c
+.RI "void \fBaccept\fP (\fBVisitor\fP &visitor) const override"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBstd::u16string\fP \fBvalue\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ast::StringLiteral::StringLiteral (\fBstd::u16string\fP value)\fC [inline]\fP"
+
+.SS "ast::StringLiteral::StringLiteral (const \fBstd::string\fP & value)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void ast::StringLiteral::accept (\fBVisitor\fP & visitor) const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBast::Node\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBstd::u16string\fP ast::StringLiteral::value"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

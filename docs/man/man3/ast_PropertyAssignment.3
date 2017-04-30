@@ -1,0 +1,77 @@
+.TH "ast::PropertyAssignment" 3 "Sun Apr 30 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ast::PropertyAssignment
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ast\&.h>\fP
+.PP
+Inherits \fBast::Expression\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum \fBKind\fP { \fBKind::INIT\fP, \fBKind::GET\fP, \fBKind::SET\fP }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPropertyAssignment\fP (\fBPropertyName\fP *\fBname\fP=nullptr, \fBExpression\fP *\fBvalue\fP=nullptr)"
+.br
+.ti -1c
+.RI "void \fBaccept\fP (\fBVisitor\fP &visitor) const override"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "enum \fBast::PropertyAssignment::Kind\fP \fBkind\fP"
+.br
+.ti -1c
+.RI "\fBPropertyName\fP * \fBname\fP"
+.br
+.ti -1c
+.RI "\fBExpression\fP * \fBvalue\fP"
+.br
+.in -1c
+.SH "Member Enumeration Documentation"
+.PP 
+.SS "enum \fBast::PropertyAssignment::Kind\fP\fC [strong]\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIINIT \fP\fP
+.TP
+\fB\fIGET \fP\fP
+.TP
+\fB\fISET \fP\fP
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ast::PropertyAssignment::PropertyAssignment (\fBPropertyName\fP * name = \fCnullptr\fP, \fBExpression\fP * value = \fCnullptr\fP)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void ast::PropertyAssignment::accept (\fBVisitor\fP & visitor) const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBast::Node\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "enum \fBast::PropertyAssignment::Kind\fP  ast::PropertyAssignment::kind"
+
+.SS "\fBPropertyName\fP* ast::PropertyAssignment::name"
+
+.SS "\fBExpression\fP* ast::PropertyAssignment::value"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

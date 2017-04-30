@@ -1,4 +1,4 @@
-.TH "Matcher< T, It >" 3 "Sat Apr 29 2017" "ECMAScript" \" -*- nroff -*-
+.TH "Matcher< T, It >" 3 "Sun Apr 30 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -63,6 +63,9 @@ Matcher< T, It >
 .RI "template<typename\&.\&.\&. Args> bool \fBoperator()\fP (Args &&\&.\&.\&. args)"
 .br
 .ti -1c
+.RI "const T * \fBoperator\->\fP () const"
+.br
+.ti -1c
 .RI "const T * \fBmatched\fP () const"
 .br
 .ti -1c
@@ -76,6 +79,9 @@ Matcher< T, It >
 .br
 .ti -1c
 .RI "template<typename U > \fBoperator U\fP () const"
+.br
+.ti -1c
+.RI "\fBoperator std::string\fP () const"
 .br
 .in -1c
 .SH "Constructor & Destructor Documentation"
@@ -112,9 +118,13 @@ Matcher< T, It >
 
 .SS "template<typename T, typename It> \fBMatcher\fP< T, It >::operator const T * () const\fC [inline]\fP"
 
+.SS "template<typename T, typename It> \fBMatcher\fP< T, It >::operator \fBstd::string\fP () const\fC [inline]\fP"
+
 .SS "template<typename T, typename It> template<typename U > \fBMatcher\fP< T, It >::operator U () const\fC [inline]\fP"
 
 .SS "template<typename T, typename It> template<typename\&.\&.\&. Args> bool \fBMatcher\fP< T, It >::operator() (Args &&\&.\&.\&. args)\fC [inline]\fP"
+
+.SS "template<typename T, typename It> const T* \fBMatcher\fP< T, It >::operator\-> () const\fC [inline]\fP"
 
 .SS "template<typename T, typename It> bool \fBMatcher\fP< T, It >::peek (const T & value) const\fC [inline]\fP"
 

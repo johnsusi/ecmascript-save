@@ -1,12 +1,13 @@
 \hypertarget{ast_8cpp}{}\section{src/ast.cpp File Reference}
 \label{ast_8cpp}\index{src/ast.\+cpp@{src/ast.\+cpp}}
 {\ttfamily \#include \char`\"{}ast.\+h\char`\"{}}\newline
-{\ttfamily \#include $<$string$>$}\newline
 {\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
 {\ttfamily \#include $<$vector$>$}\newline
 {\ttfamily \#include $<$boost/algorithm/string.\+hpp$>$}\newline
 {\ttfamily \#include $<$boost/core/demangle.\+hpp$>$}\newline
-Include dependency graph for ast.\+cpp\+:\nopagebreak
+Include dependency graph for ast.\+cpp\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -16,52 +17,43 @@ Include dependency graph for ast.\+cpp\+:\nopagebreak
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-struct \hyperlink{struct_print_visitor}{Print\+Visitor}
+struct \hyperlink{struct_callable_visitor}{Callable\+Visitor$<$ Callable $>$}
+\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespaceast}{ast}
 \end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 \textbf{ std\+::string} \hyperlink{ast_8cpp_a9651ee99e814cad561e69d7bda6f62c6}{normalize} (const \textbf{ std\+::string} \&s)
 \item 
-{\footnotesize template$<$typename T $>$ }\\void \hyperlink{ast_8cpp_aebfc2ef9c907f16debc80df85300c627}{typeof} (const T \&)
+{\footnotesize template$<$typename F $>$ }\\\hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ F $>$ \hyperlink{ast_8cpp_a12a81640ea6026881876246d7891ba6d}{make\+\_\+visitor} (F callback)
 \item 
-\textbf{ std\+::string} \hyperlink{ast_8cpp_af78059189ea131010a8ca720c16a87cb}{to\+\_\+string} (const \hyperlink{struct_program}{Program} \&program)
+\textbf{ std\+::string} \hyperlink{ast_8cpp_a65fc1131f09e12650596b4fb39aa50ca}{to\+\_\+string} (const \hyperlink{structast_1_1_program}{ast\+::\+Program} \&program)
 \item 
-bool \hyperlink{ast_8cpp_aa1a05c54b4b2b58443abac6bdc8bf138}{operator==} (const \hyperlink{struct_program}{Program} \&program, const \textbf{ std\+::string} \&str)
-\item 
-\textbf{ std\+::ostream} \& \hyperlink{ast_8cpp_a328f4c8ee5e4b87028767f36a1cbf1a6}{operator$<$$<$} (\textbf{ std\+::ostream} \&out, const \hyperlink{struct_program}{Program} \&program)
+void \hyperlink{namespaceast_ae8ec562ad69aa05004765217ff90879b}{ast\+::accept} (const \hyperlink{structast_1_1_program}{Program} \&program, \hyperlink{structast_1_1_visitor}{Visitor} \&\&visitor)
 \end{DoxyCompactItemize}
 
 
 \subsection{Function Documentation}
+\mbox{\Hypertarget{ast_8cpp_a12a81640ea6026881876246d7891ba6d}\label{ast_8cpp_a12a81640ea6026881876246d7891ba6d}} 
+\index{ast.\+cpp@{ast.\+cpp}!make\+\_\+visitor@{make\+\_\+visitor}}
+\index{make\+\_\+visitor@{make\+\_\+visitor}!ast.\+cpp@{ast.\+cpp}}
+\subsubsection{\texorpdfstring{make\+\_\+visitor()}{make\_visitor()}}
+{\footnotesize\ttfamily template$<$typename F $>$ \\
+\hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$F$>$ make\+\_\+visitor (\begin{DoxyParamCaption}\item[{F}]{callback }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{ast_8cpp_a9651ee99e814cad561e69d7bda6f62c6}\label{ast_8cpp_a9651ee99e814cad561e69d7bda6f62c6}} 
 \index{ast.\+cpp@{ast.\+cpp}!normalize@{normalize}}
 \index{normalize@{normalize}!ast.\+cpp@{ast.\+cpp}}
 \subsubsection{\texorpdfstring{normalize()}{normalize()}}
 {\footnotesize\ttfamily \textbf{ std\+::string} normalize (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::string} \&}]{s }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{ast_8cpp_a328f4c8ee5e4b87028767f36a1cbf1a6}\label{ast_8cpp_a328f4c8ee5e4b87028767f36a1cbf1a6}} 
-\index{ast.\+cpp@{ast.\+cpp}!operator$<$$<$@{operator$<$$<$}}
-\index{operator$<$$<$@{operator$<$$<$}!ast.\+cpp@{ast.\+cpp}}
-\subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
-{\footnotesize\ttfamily \textbf{ std\+::ostream}\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{\textbf{ std\+::ostream} \&}]{out,  }\item[{const \hyperlink{struct_program}{Program} \&}]{program }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{ast_8cpp_aa1a05c54b4b2b58443abac6bdc8bf138}\label{ast_8cpp_aa1a05c54b4b2b58443abac6bdc8bf138}} 
-\index{ast.\+cpp@{ast.\+cpp}!operator==@{operator==}}
-\index{operator==@{operator==}!ast.\+cpp@{ast.\+cpp}}
-\subsubsection{\texorpdfstring{operator==()}{operator==()}}
-{\footnotesize\ttfamily bool operator== (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_program}{Program} \&}]{program,  }\item[{const \textbf{ std\+::string} \&}]{str }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{ast_8cpp_af78059189ea131010a8ca720c16a87cb}\label{ast_8cpp_af78059189ea131010a8ca720c16a87cb}} 
+\mbox{\Hypertarget{ast_8cpp_a65fc1131f09e12650596b4fb39aa50ca}\label{ast_8cpp_a65fc1131f09e12650596b4fb39aa50ca}} 
 \index{ast.\+cpp@{ast.\+cpp}!to\+\_\+string@{to\+\_\+string}}
 \index{to\+\_\+string@{to\+\_\+string}!ast.\+cpp@{ast.\+cpp}}
 \subsubsection{\texorpdfstring{to\+\_\+string()}{to\_string()}}
-{\footnotesize\ttfamily \textbf{ std\+::string} to\+\_\+string (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_program}{Program} \&}]{program }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{ast_8cpp_aebfc2ef9c907f16debc80df85300c627}\label{ast_8cpp_aebfc2ef9c907f16debc80df85300c627}} 
-\index{ast.\+cpp@{ast.\+cpp}!typeof@{typeof}}
-\index{typeof@{typeof}!ast.\+cpp@{ast.\+cpp}}
-\subsubsection{\texorpdfstring{typeof()}{typeof()}}
-{\footnotesize\ttfamily template$<$typename T $>$ \\
-void typeof (\begin{DoxyParamCaption}\item[{const T \&}]{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \textbf{ std\+::string} to\+\_\+string (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_program}{ast\+::\+Program} \&}]{program }\end{DoxyParamCaption})}
 

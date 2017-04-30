@@ -111,6 +111,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2c1cbd69f6fcbbcf40e9e66333cfddca"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
 <tr class="memitem:a2c1cbd69f6fcbbcf40e9e66333cfddca"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_matcher.html#a2c1cbd69f6fcbbcf40e9e66333cfddca">operator()</a> (Args &amp;&amp;... args)</td></tr>
 <tr class="separator:a2c1cbd69f6fcbbcf40e9e66333cfddca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3613bf19482915302d6647e25d9facb2"><td class="memItemLeft" align="right" valign="top">const T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matcher.html#a3613bf19482915302d6647e25d9facb2">operator-&gt;</a> () const</td></tr>
+<tr class="separator:a3613bf19482915302d6647e25d9facb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a43511495d338b4572dcb52e96fc3a3"><td class="memItemLeft" align="right" valign="top">const T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matcher.html#a6a43511495d338b4572dcb52e96fc3a3">matched</a> () const</td></tr>
 <tr class="separator:a6a43511495d338b4572dcb52e96fc3a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf9d0a1f24372dc9dde031ae6df26921"><td class="memItemLeft" align="right" valign="top">const It&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matcher.html#abf9d0a1f24372dc9dde031ae6df26921">matching</a> () const</td></tr>
@@ -122,6 +124,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0bd21eb19304624235c6cb208fa1216a"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
 <tr class="memitem:a0bd21eb19304624235c6cb208fa1216a"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_matcher.html#a0bd21eb19304624235c6cb208fa1216a">operator U</a> () const</td></tr>
 <tr class="separator:a0bd21eb19304624235c6cb208fa1216a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc54a96fcfc40186d82a91baeb09211c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matcher.html#adc54a96fcfc40186d82a91baeb09211c">operator std::string</a> () const</td></tr>
+<tr class="separator:adc54a96fcfc40186d82a91baeb09211c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a6a90be25ea49908ed9d6c23f8bb9c47f"></a>
@@ -559,6 +563,33 @@ template&lt;typename T, typename It&gt; </div>
 
 </div>
 </div>
+<a id="adc54a96fcfc40186d82a91baeb09211c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc54a96fcfc40186d82a91baeb09211c">&#9670;&nbsp;</a></span>operator std::string()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, typename It&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matcher.html">Matcher</a>&lt; T, It &gt;::operator <a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a0bd21eb19304624235c6cb208fa1216a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0bd21eb19304624235c6cb208fa1216a">&#9670;&nbsp;</a></span>operator U()</h2>
 
@@ -607,6 +638,33 @@ template&lt;typename... Args&gt; </div>
           <td class="paramtype">Args &amp;&amp;...&#160;</td>
           <td class="paramname"><em>args</em></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3613bf19482915302d6647e25d9facb2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3613bf19482915302d6647e25d9facb2">&#9670;&nbsp;</a></span>operator->()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, typename It&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const T* <a class="el" href="class_matcher.html">Matcher</a>&lt; T, It &gt;::operator-&gt; </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>

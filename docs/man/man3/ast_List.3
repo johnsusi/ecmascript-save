@@ -1,0 +1,82 @@
+.TH "ast::List< T >" 3 "Sun Apr 30 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ast::List< T >
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ast\&.h>\fP
+.PP
+Inherits \fBast::Node\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "template<typename\&.\&.\&. Args> \fBList\fP (Args &&\&.\&.\&. args)"
+.br
+.ti -1c
+.RI "auto \fBfront\fP () const"
+.br
+.ti -1c
+.RI "auto \fBback\fP () const"
+.br
+.ti -1c
+.RI "void \fBpop_back\fP ()"
+.br
+.ti -1c
+.RI "void \fBpush_back\fP (T *value)"
+.br
+.ti -1c
+.RI "auto \fBbegin\fP () const"
+.br
+.ti -1c
+.RI "auto \fBend\fP () const"
+.br
+.ti -1c
+.RI "auto \fBoperator[]\fP (\fBstd::size_t\fP index)"
+.br
+.ti -1c
+.RI "void \fBaccept\fP (\fBVisitor\fP &visitor) const override"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBstd::vector\fP< T * > \fBdata\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<typename T> template<typename\&.\&.\&. Args> \fBast::List\fP< T >::\fBList\fP (Args &&\&.\&.\&. args)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "template<typename T > void \fBast::List\fP< T >::accept (\fBVisitor\fP & visitor) const\fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBast::Node\fP\&.
+.SS "template<typename T> auto \fBast::List\fP< T >::back () const\fC [inline]\fP"
+
+.SS "template<typename T> auto \fBast::List\fP< T >::begin () const\fC [inline]\fP"
+
+.SS "template<typename T> auto \fBast::List\fP< T >::end () const\fC [inline]\fP"
+
+.SS "template<typename T> auto \fBast::List\fP< T >::front () const\fC [inline]\fP"
+
+.SS "template<typename T> auto \fBast::List\fP< T >::operator[] (\fBstd::size_t\fP index)\fC [inline]\fP"
+
+.SS "template<typename T> void \fBast::List\fP< T >::pop_back ()\fC [inline]\fP"
+
+.SS "template<typename T> void \fBast::List\fP< T >::push_back (T * value)\fC [inline]\fP"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "template<typename T> \fBstd::vector\fP<T *> \fBast::List\fP< T >::data"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

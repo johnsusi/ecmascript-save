@@ -41,6 +41,8 @@ void \hyperlink{class_matcher_a18de8d97996c28deb6ac787f2a0981a6}{reset} ()
 \item 
 {\footnotesize template$<$typename... Args$>$ }\\bool \hyperlink{class_matcher_a2c1cbd69f6fcbbcf40e9e66333cfddca}{operator()} (Args \&\&... args)
 \item 
+const T $\ast$ \hyperlink{class_matcher_a3613bf19482915302d6647e25d9facb2}{operator-\/$>$} () const
+\item 
 const T $\ast$ \hyperlink{class_matcher_a6a43511495d338b4572dcb52e96fc3a3}{matched} () const
 \item 
 const It \hyperlink{class_matcher_abf9d0a1f24372dc9dde031ae6df26921}{matching} () const
@@ -50,6 +52,8 @@ const It \hyperlink{class_matcher_abf9d0a1f24372dc9dde031ae6df26921}{matching} (
 \hyperlink{class_matcher_a7b808eac9d5d10c2d417869bf630d6ec}{operator const T \&} () const
 \item 
 {\footnotesize template$<$typename U $>$ }\\\hyperlink{class_matcher_a0bd21eb19304624235c6cb208fa1216a}{operator U} () const
+\item 
+\hyperlink{class_matcher_adc54a96fcfc40186d82a91baeb09211c}{operator std\+::string} () const
 \end{DoxyCompactItemize}
 
 
@@ -160,6 +164,13 @@ const It \hyperlink{class_matcher}{Matcher}$<$ T, It $>$\+::matching (\begin{Dox
 {\footnotesize\ttfamily template$<$typename T, typename It$>$ \\
 \hyperlink{class_matcher}{Matcher}$<$ T, It $>$\+::operator const T $\ast$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
+\mbox{\Hypertarget{class_matcher_adc54a96fcfc40186d82a91baeb09211c}\label{class_matcher_adc54a96fcfc40186d82a91baeb09211c}} 
+\index{Matcher@{Matcher}!operator std\+::string@{operator std\+::string}}
+\index{operator std\+::string@{operator std\+::string}!Matcher@{Matcher}}
+\subsubsection{\texorpdfstring{operator std\+::string()}{operator std::string()}}
+{\footnotesize\ttfamily template$<$typename T, typename It$>$ \\
+\hyperlink{class_matcher}{Matcher}$<$ T, It $>$\+::operator \textbf{ std\+::string} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
 \mbox{\Hypertarget{class_matcher_a0bd21eb19304624235c6cb208fa1216a}\label{class_matcher_a0bd21eb19304624235c6cb208fa1216a}} 
 \index{Matcher@{Matcher}!operator U@{operator U}}
 \index{operator U@{operator U}!Matcher@{Matcher}}
@@ -175,6 +186,13 @@ template$<$typename U $>$ \\
 {\footnotesize\ttfamily template$<$typename T, typename It$>$ \\
 template$<$typename... Args$>$ \\
 bool \hyperlink{class_matcher}{Matcher}$<$ T, It $>$\+::operator() (\begin{DoxyParamCaption}\item[{Args \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_matcher_a3613bf19482915302d6647e25d9facb2}\label{class_matcher_a3613bf19482915302d6647e25d9facb2}} 
+\index{Matcher@{Matcher}!operator-\/$>$@{operator-\/$>$}}
+\index{operator-\/$>$@{operator-\/$>$}!Matcher@{Matcher}}
+\subsubsection{\texorpdfstring{operator-\/$>$()}{operator->()}}
+{\footnotesize\ttfamily template$<$typename T, typename It$>$ \\
+const T$\ast$ \hyperlink{class_matcher}{Matcher}$<$ T, It $>$\+::operator-\/$>$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 \mbox{\Hypertarget{class_matcher_a28b154cbc4cb7ae203810043e069ae38}\label{class_matcher_a28b154cbc4cb7ae203810043e069ae38}} 
 \index{Matcher@{Matcher}!peek@{peek}}

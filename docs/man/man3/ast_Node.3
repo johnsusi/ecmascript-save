@@ -1,0 +1,36 @@
+.TH "ast::Node" 3 "Sun Apr 30 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ast::Node
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ast\&.h>\fP
+.PP
+Inherited by \fBast::CaseClause\fP, \fBast::Expression\fP, \fBast::List< T >\fP, \fBast::SourceElement\fP, \fBast::List< CaseClause >\fP, \fBast::List< Expression >\fP, \fBast::List< Identifier >\fP, \fBast::List< PropertyAssignment >\fP, \fBast::List< SourceElement >\fP, \fBast::List< Statement >\fP, and \fBast::List< VariableDeclaration >\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual \fB~Node\fP ()"
+.br
+.ti -1c
+.RI "virtual void \fBaccept\fP (\fBVisitor\fP &) const =0"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "virtual ast::Node::~Node ()\fC [inline]\fP, \fC [virtual]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual void ast::Node::accept (\fBVisitor\fP &) const\fC [pure virtual]\fP"
+
+.PP
+Implemented in \fBast::FunctionExpression\fP, \fBast::FunctionDeclaration\fP, \fBast::FunctionBody\fP, \fBast::DebuggerStatement\fP, \fBast::TryStatement\fP, \fBast::ThrowStatement\fP, \fBast::SwitchStatement\fP, \fBast::DefaultClause\fP, \fBast::CaseClause\fP, \fBast::LabelledStatement\fP, \fBast::WithStatement\fP, \fBast::ReturnStatement\fP, \fBast::BreakStatement\fP, \fBast::ContinueStatement\fP, \fBast::ForInStatement\fP, \fBast::ForStatement\fP, \fBast::WhileStatement\fP, \fBast::DoWhileStatement\fP, \fBast::IfStatement\fP, \fBast::ExpressionStatement\fP, \fBast::EmptyStatement\fP, \fBast::VariableStatement\fP, \fBast::Block\fP, \fBast::VariableDeclaration\fP, \fBast::ConditionalExpression\fP, \fBast::BinaryExpression\fP, \fBast::UnaryExpression\fP, \fBast::PostfixExpression\fP, \fBast::CallExpression\fP, \fBast::NewExpression\fP, \fBast::Arguments\fP, \fBast::MemberExpression\fP, \fBast::ObjectLiteral\fP, \fBast::ArrayLiteral\fP, \fBast::Elision\fP, \fBast::PropertyAssignment\fP, \fBast::PropertyName\fP, \fBast::RegularExpressionLiteral\fP, \fBast::StringLiteral\fP, \fBast::NumericLiteral\fP, \fBast::BooleanLiteral\fP, \fBast::NullLiteral\fP, \fBast::Identifier\fP, \fBast::This\fP, \fBast::List< T >\fP, \fBast::List< Statement >\fP, \fBast::List< Identifier >\fP, \fBast::List< CaseClause >\fP, \fBast::List< VariableDeclaration >\fP, \fBast::List< Expression >\fP, \fBast::List< PropertyAssignment >\fP, and \fBast::List< SourceElement >\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

@@ -1,0 +1,57 @@
+.TH "ast::FunctionDeclaration" 3 "Sun Apr 30 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ast::FunctionDeclaration
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ast\&.h>\fP
+.PP
+Inherits \fBast::SourceElement\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBFunctionDeclaration\fP (\fBIdentifier\fP *\fBid\fP, \fBFormalParameterList\fP *\fBparams\fP, \fBFunctionBody\fP *\fBbody\fP)"
+.br
+.ti -1c
+.RI "void \fBaccept\fP (\fBVisitor\fP &visitor) const"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBIdentifier\fP * \fBid\fP"
+.br
+.ti -1c
+.RI "\fBFormalParameterList\fP * \fBparams\fP"
+.br
+.ti -1c
+.RI "\fBFunctionBody\fP * \fBbody\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ast::FunctionDeclaration::FunctionDeclaration (\fBIdentifier\fP * id, \fBFormalParameterList\fP * params, \fBFunctionBody\fP * body)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void ast::FunctionDeclaration::accept (\fBVisitor\fP & visitor) const\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBast::Node\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBFunctionBody\fP* ast::FunctionDeclaration::body"
+
+.SS "\fBIdentifier\fP* ast::FunctionDeclaration::id"
+
+.SS "\fBFormalParameterList\fP* ast::FunctionDeclaration::params"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

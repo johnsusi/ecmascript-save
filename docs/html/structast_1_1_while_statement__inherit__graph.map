@@ -1,0 +1,5 @@
+<map id="ast::WhileStatement" name="ast::WhileStatement">
+<area shape="rect" id="node2" href="$structast_1_1_statement.html" title="ast::Statement" alt="" coords="22,152,129,177"/>
+<area shape="rect" id="node3" href="$structast_1_1_source_element.html" title="ast::SourceElement" alt="" coords="7,79,144,104"/>
+<area shape="rect" id="node4" href="$structast_1_1_node.html" title="ast::Node" alt="" coords="36,5,115,31"/>
+</map>

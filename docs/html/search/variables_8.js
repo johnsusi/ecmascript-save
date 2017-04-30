@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['id',['id',['../struct_function_declaration.html#a870d4699e91dd3157a5de4162ceb485b',1,'FunctionDeclaration::id()'],['../struct_function_expression.html#a6c7220587de4e7731ff712d6535180c2',1,'FunctionExpression::id()']]],
-  ['identifier',['identifier',['../struct_variable_declaration.html#ac2becfe85c6ae641ab60e8489fde7e38',1,'VariableDeclaration']]],
-  ['indent',['indent',['../struct_print_visitor.html#a6cda79fa0db4cc99a40958601fbbcc37',1,'PrintVisitor']]],
-  ['initializer',['initializer',['../struct_variable_declaration.html#a8e4857906d3af342fa2fb5675ff9a410',1,'VariableDeclaration']]]
+  ['id',['id',['../structast_1_1_function_declaration.html#aa593ce68ef88fb6cf977062b1af99ccd',1,'ast::FunctionDeclaration::id()'],['../structast_1_1_function_expression.html#af3439c30bbde4463bc71158f24b1dd13',1,'ast::FunctionExpression::id()']]],
+  ['identifier',['identifier',['../structast_1_1_variable_declaration.html#a8a2202289d0892692a65b4c2bfc55a51',1,'ast::VariableDeclaration']]],
+  ['initializer',['initializer',['../structast_1_1_variable_declaration.html#a8af6307b760a4edb788df032220ed252',1,'ast::VariableDeclaration']]]
 ];

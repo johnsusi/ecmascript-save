@@ -20,7 +20,7 @@ var searchData=
   ['uintptr_5ft',['uintptr_t',['http://en.cppreference.com/w/cpp/types/integer.html',1,'std']]],
   ['unary_5ffunction',['unary_function',['http://en.cppreference.com/w/cpp/utility/functional/unary_function.html',1,'std']]],
   ['unary_5fnegate',['unary_negate',['http://en.cppreference.com/w/cpp/utility/functional/unary_negate.html',1,'std']]],
-  ['unaryexpression',['UnaryExpression',['../struct_unary_expression.html',1,'']]],
+  ['unaryexpression',['UnaryExpression',['../structast_1_1_unary_expression.html',1,'ast']]],
   ['undefined',['Undefined',['../struct_undefined.html',1,'']]],
   ['underflow_5ferror',['underflow_error',['http://en.cppreference.com/w/cpp/error/underflow_error.html',1,'std']]],
   ['underlying_5ftype',['underlying_type',['http://en.cppreference.com/w/cpp/types/underlying_type.html',1,'std']]],
