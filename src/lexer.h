@@ -16,11 +16,11 @@ template <typename T> class BasicLexer {
   using Iterator = std::u16string::const_iterator;
 
   struct DebugInfo : Token::DebugInfo {
-    Iterator s, at;
+    Iterator s, at, to;
     int col, row;
 
-    DebugInfo(Iterator s, Iterator at, int col, int row)
-        : s(s), at(at), col(col), row(row)
+    DebugInfo(Iterator s, Iterator at, Iterator to, int col, int row)
+        : s(s), at(at), to(to), col(col), row(row)
     {
     }
 
@@ -32,7 +32,7 @@ template <typename T> class BasicLexer {
       }
       std::string line1{it, at};
       std::string line2(line1.size() - 1, '.');
-      return line1 + "\n" + line2 + "^\n";
+      return line1 + std::string{at, to} + "\n" + line2 + "^\n";
     }
   };
 
@@ -63,6 +63,7 @@ public:
     int col = 0, row = 0;
     bool re = false;
     auto s = grammar->match.mark();
+    auto m = grammar->match.mark();
     while (auto input_element = re ? grammar->input_element_reg_exp()
                                    : grammar->input_element_div()) {
       if (input_element.is_white_space())
@@ -75,11 +76,12 @@ public:
       else if (auto token = input_element.to_token()) {
         token->preceded_by_line_terminator = lt;
         token->debug_info =
-            std::make_shared<DebugInfo>(s, grammar->match.mark(), col, row);
+            std::make_shared<DebugInfo>(s, m+1, grammar->match.mark(), col, row);
         re = reg_exp_allowed(*token);
         lt = false;
         m_tokens.push_back(std::move(*token));
       }
+      m = grammar->match.mark();
     }
     return m_tokens;
   }

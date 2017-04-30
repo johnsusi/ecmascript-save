@@ -104,6 +104,11 @@ public:
     return match(std::forward<Args>(args)...);
   }
 
+  const T* operator->() const
+  {
+    return matched();
+  }
+
   const T *matched() const
   {
     return m_cur != m_begin ? &*(m_cur - 1) : nullptr;
@@ -119,6 +124,7 @@ public:
   }
 
   template <typename U> operator U() const { return *matched(); }
+  operator std::string() const { return *matched(); }
 };
 
 #endif

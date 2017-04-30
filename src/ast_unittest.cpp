@@ -108,23 +108,23 @@
 //   std::cout << r.value << std::endl;
 // }
 
-struct norm {
-  std::string str;
-  norm(std::string str) : str(str) {}
-  operator const std::string &() const { return str; }
-};
+// struct norm {
+//   std::string str;
+//   norm(std::string str) : str(str) {}
+//   operator const std::string &() const { return str; }
+// };
 
-std::ostream &operator<<(std::ostream &out, const norm &norm)
-{
-  return out << normalize(norm.str);
-}
+// std::ostream &operator<<(std::ostream &out, const norm &norm)
+// {
+//   return out << normalize(norm.str);
+// }
 
-TEST_CASE("print")
-{
-  Program program;
-  program.elements.push_back(ReturnStatement{});
-  REQUIRE(program == norm(R"(
-    Program
-      ReturnStatement
-  )"));
-}
+// TEST_CASE("print")
+// {
+//   Program program;
+//   program.elements.push_back(ReturnStatement{});
+//   REQUIRE(program == norm(R"(
+//     Program
+//       ReturnStatement
+//   )"));
+// }

@@ -20,6 +20,14 @@ class Token {
     std::string value;
   };
 
+  struct Identifier { std::u16string value; };
+  struct NullLiteral {};
+  struct BooleanLiteral { bool value; };
+  struct NumericLiteral { double value; };
+  struct StringLiteral { std::u16string value; };
+  struct RegularExpressionLiteral { std::u16string value; };
+
+
   using Value = boost::variant<Empty, Identifier, Keyword, Punctuator,
                                NullLiteral, BooleanLiteral, NumericLiteral,
                                StringLiteral, RegularExpressionLiteral>;
@@ -86,14 +94,14 @@ public:
 
   bool is_identifier_name() const;
 
-  bool any_of(const std::vector<Token> &tokens) const
+  bool any_of_impl(const std::initializer_list<Token> &tokens) const
   {
     return std::find(tokens.begin(), tokens.end(), *this) != tokens.end();
   }
 
   template <typename... Args> bool any_of(Args &&... args) const
   {
-    return any_of(std::vector<Token>{std::forward<Args>(args)...});
+    return any_of_impl(std::initializer_list<Token>{std::forward<Args>(args)...});
   }
 
   boost::optional<const std::u16string &> to_identifier() const;
@@ -111,6 +119,7 @@ public:
   operator double() const;
   operator std::string() const;
   operator std::u16string() const;
+
 };
 
 std::ostream &operator<<(std::ostream &out, const Token &token);
