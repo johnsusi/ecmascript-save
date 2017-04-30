@@ -3,7 +3,7 @@ var searchData=
   ['make_5fsigned',['make_signed',['http://en.cppreference.com/w/cpp/types/make_signed.html',1,'std']]],
   ['make_5funsigned',['make_unsigned',['http://en.cppreference.com/w/cpp/types/make_unsigned.html',1,'std']]],
   ['map',['map',['http://en.cppreference.com/w/cpp/container/map.html',1,'std']]],
-  ['mask',['mask',['http://en.cppreference.com/w/cpp/locale/ctype_base.html',1,'std::ctype::mask'],['http://en.cppreference.com/w/cpp/locale/ctype_base.html',1,'std::ctype_byname::mask'],['http://en.cppreference.com/w/cpp/locale/ctype_base.html',1,'std::ctype_base::mask']]],
+  ['mask',['mask',['http://en.cppreference.com/w/cpp/locale/ctype_base.html',1,'std::ctype_base::mask'],['http://en.cppreference.com/w/cpp/locale/ctype_base.html',1,'std::ctype::mask'],['http://en.cppreference.com/w/cpp/locale/ctype_base.html',1,'std::ctype_byname::mask']]],
   ['match_5fresults',['match_results',['http://en.cppreference.com/w/cpp/regex/match_results.html',1,'std']]],
   ['matcher',['Matcher',['../class_matcher.html',1,'']]],
   ['matcher_3c_20t_2c_20std_3a_3au16string_3a_3aconst_5fiterator_20_3e',['Matcher&lt; T, std::u16string::const_iterator &gt;',['../class_matcher.html',1,'']]],

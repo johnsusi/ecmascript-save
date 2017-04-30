@@ -15,6 +15,7 @@ var searchData=
   ['list_3c_20sourceelement_20_3e',['List&lt; SourceElement &gt;',['../structast_1_1_list.html',1,'ast']]],
   ['list_3c_20statement_20_3e',['List&lt; Statement &gt;',['../structast_1_1_list.html',1,'ast']]],
   ['list_3c_20variabledeclaration_20_3e',['List&lt; VariableDeclaration &gt;',['../structast_1_1_list.html',1,'ast']]],
+  ['literal',['Literal',['../structast_1_1_literal.html',1,'ast']]],
   ['locale',['locale',['http://en.cppreference.com/w/cpp/locale/locale.html',1,'std']]],
   ['lock_5fguard',['lock_guard',['http://en.cppreference.com/w/cpp/thread/lock_guard.html',1,'std']]],
   ['logic_5ferror',['logic_error',['http://en.cppreference.com/w/cpp/error/logic_error.html',1,'std']]],

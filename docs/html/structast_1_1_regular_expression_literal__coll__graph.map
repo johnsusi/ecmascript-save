@@ -1,4 +1,6 @@
 <map id="ast::RegularExpressionLiteral" name="ast::RegularExpressionLiteral">
-<area shape="rect" id="node2" href="$structast_1_1_expression.html" title="ast::Expression" alt="" coords="47,79,159,104"/>
-<area shape="rect" id="node3" href="$structast_1_1_node.html" title="ast::Node" alt="" coords="64,5,142,31"/>
+<area shape="rect" id="node2" href="$structast_1_1_literal.html" title="ast::Literal" alt="" coords="62,225,145,251"/>
+<area shape="rect" id="node3" href="$structast_1_1_primary_expression.html" title="ast::PrimaryExpression" alt="" coords="24,152,182,177"/>
+<area shape="rect" id="node4" href="$structast_1_1_expression.html" title="ast::Expression" alt="" coords="47,79,159,104"/>
+<area shape="rect" id="node5" href="$structast_1_1_node.html" title="ast::Node" alt="" coords="64,5,142,31"/>
 </map>

@@ -31,7 +31,7 @@ var searchData=
   ['list_3c_20sourceelement_20_3e',['List&lt; SourceElement &gt;',['../structast_1_1_list.html',1,'ast']]],
   ['list_3c_20statement_20_3e',['List&lt; Statement &gt;',['../structast_1_1_list.html',1,'ast']]],
   ['list_3c_20variabledeclaration_20_3e',['List&lt; VariableDeclaration &gt;',['../structast_1_1_list.html',1,'ast']]],
-  ['literal',['literal',['../class_lexical_grammar.html#aae192a9c337028f4edbfe210e587d2dc',1,'LexicalGrammar']]],
+  ['literal',['Literal',['../structast_1_1_literal.html',1,'ast::Literal'],['../class_lexical_grammar.html#aae192a9c337028f4edbfe210e587d2dc',1,'LexicalGrammar::literal()']]],
   ['llabs',['llabs',['http://en.cppreference.com/w/cpp/numeric/math/abs.html',1,'std']]],
   ['llrint',['llrint',['http://en.cppreference.com/w/cpp/numeric/math/rint.html',1,'std']]],
   ['llround',['llround',['http://en.cppreference.com/w/cpp/numeric/math/round.html',1,'std']]],

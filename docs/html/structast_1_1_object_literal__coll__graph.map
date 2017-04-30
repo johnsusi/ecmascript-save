@@ -1,7 +1,8 @@
 <map id="ast::ObjectLiteral" name="ast::ObjectLiteral">
-<area shape="rect" id="node2" href="$structast_1_1_expression.html" title="ast::Expression" alt="" coords="5,141,118,167"/>
-<area shape="rect" id="node3" href="$structast_1_1_node.html" title="ast::Node" alt="" coords="22,5,101,31"/>
-<area shape="rect" id="node5" href="$structast_1_1_list.html" title="ast::List\&lt; PropertyAssignment \&gt;" alt="" coords="99,92,309,117"/>
-<area shape="rect" id="node4" href="$structast_1_1_property_name_and_value_list.html" title="ast::PropertyNameAndValueList" alt="" coords="99,191,309,216"/>
-<area shape="rect" id="node6" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/container/vector.html" title="std::vector\&lt; PropertyAssignment *\&gt;" alt="" coords="125,5,356,31"/>
+<area shape="rect" id="node2" href="$structast_1_1_primary_expression.html" title="ast::PrimaryExpression" alt="" coords="5,167,164,192"/>
+<area shape="rect" id="node3" href="$structast_1_1_expression.html" title="ast::Expression" alt="" coords="44,92,157,117"/>
+<area shape="rect" id="node4" href="$structast_1_1_node.html" title="ast::Node" alt="" coords="68,5,146,31"/>
+<area shape="rect" id="node6" href="$structast_1_1_list.html" title="ast::List\&lt; PropertyAssignment \&gt;" alt="" coords="182,92,392,117"/>
+<area shape="rect" id="node5" href="$structast_1_1_property_name_and_value_list.html" title="ast::PropertyNameAndValueList" alt="" coords="188,167,398,192"/>
+<area shape="rect" id="node7" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/container/vector.html" title="std::vector\&lt; PropertyAssignment *\&gt;" alt="" coords="172,5,403,31"/>
 </map>

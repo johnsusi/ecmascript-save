@@ -1,67 +1,69 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$structast_1_1_node.html" title="ast::Node" alt="" coords="5,1351,84,1376"/>
-<area shape="rect" id="node2" href="$structast_1_1_case_clause.html" title="ast::CaseClause" alt="" coords="177,277,296,303"/>
-<area shape="rect" id="node4" href="$structast_1_1_expression.html" title="ast::Expression" alt="" coords="181,597,293,623"/>
-<area shape="rect" id="node27" href="$structast_1_1_list.html" title="ast::List\&lt; T \&gt;" alt="" coords="188,1189,286,1215"/>
-<area shape="rect" id="node28" href="$structast_1_1_source_element.html" title="ast::SourceElement" alt="" coords="168,1239,306,1264"/>
-<area shape="rect" id="node50" href="$structast_1_1_list.html" title="ast::List\&lt; CaseClause \&gt;" alt="" coords="155,1295,318,1320"/>
-<area shape="rect" id="node52" href="$structast_1_1_list.html" title="ast::List\&lt; Expression \&gt;" alt="" coords="159,1351,315,1376"/>
-<area shape="rect" id="node55" href="$structast_1_1_list.html" title="ast::List\&lt; Identifier \&gt;" alt="" coords="166,1412,308,1437"/>
-<area shape="rect" id="node57" href="$structast_1_1_list.html" title="ast::List\&lt; PropertyAssignment \&gt;" alt="" coords="132,1485,342,1511"/>
-<area shape="rect" id="node59" href="$structast_1_1_list.html" title="ast::List\&lt; SourceElement \&gt;" alt="" coords="146,1535,328,1560"/>
-<area shape="rect" id="node62" href="$structast_1_1_list.html" title="ast::List\&lt; Statement \&gt;" alt="" coords="161,1584,312,1609"/>
-<area shape="rect" id="node64" href="$structast_1_1_list.html" title="ast::List\&lt; VariableDeclaration \&gt;" alt="" coords="134,1633,340,1659"/>
+<area shape="rect" id="node1" href="$structast_1_1_node.html" title="ast::Node" alt="" coords="5,1104,84,1129"/>
+<area shape="rect" id="node2" href="$structast_1_1_case_clause.html" title="ast::CaseClause" alt="" coords="177,179,296,204"/>
+<area shape="rect" id="node4" href="$structast_1_1_expression.html" title="ast::Expression" alt="" coords="181,400,293,425"/>
+<area shape="rect" id="node29" href="$structast_1_1_list.html" title="ast::List\&lt; T \&gt;" alt="" coords="188,943,286,968"/>
+<area shape="rect" id="node30" href="$structast_1_1_source_element.html" title="ast::SourceElement" alt="" coords="168,992,306,1017"/>
+<area shape="rect" id="node52" href="$structast_1_1_list.html" title="ast::List\&lt; CaseClause \&gt;" alt="" coords="155,1048,318,1073"/>
+<area shape="rect" id="node54" href="$structast_1_1_list.html" title="ast::List\&lt; Expression \&gt;" alt="" coords="159,1104,315,1129"/>
+<area shape="rect" id="node57" href="$structast_1_1_list.html" title="ast::List\&lt; Identifier \&gt;" alt="" coords="166,1165,308,1191"/>
+<area shape="rect" id="node59" href="$structast_1_1_list.html" title="ast::List\&lt; PropertyAssignment \&gt;" alt="" coords="132,1239,342,1264"/>
+<area shape="rect" id="node61" href="$structast_1_1_list.html" title="ast::List\&lt; SourceElement \&gt;" alt="" coords="146,1288,328,1313"/>
+<area shape="rect" id="node64" href="$structast_1_1_list.html" title="ast::List\&lt; Statement \&gt;" alt="" coords="161,1337,312,1363"/>
+<area shape="rect" id="node66" href="$structast_1_1_list.html" title="ast::List\&lt; VariableDeclaration \&gt;" alt="" coords="134,1387,340,1412"/>
 <area shape="rect" id="node3" href="$structast_1_1_default_clause.html" title="ast::DefaultClause" alt="" coords="430,5,560,31"/>
 <area shape="rect" id="node5" href="$structast_1_1_arguments.html" title="ast::Arguments" alt="" coords="440,55,551,80"/>
-<area shape="rect" id="node6" href="$structast_1_1_array_literal.html" title="ast::ArrayLiteral" alt="" coords="438,104,552,129"/>
-<area shape="rect" id="node7" href="$structast_1_1_binary_expression.html" title="ast::BinaryExpression" alt="" coords="420,153,570,179"/>
-<area shape="rect" id="node8" href="$structast_1_1_boolean_literal.html" title="ast::BooleanLiteral" alt="" coords="429,203,561,228"/>
-<area shape="rect" id="node9" href="$structast_1_1_call_expression.html" title="ast::CallExpression" alt="" coords="427,252,563,277"/>
-<area shape="rect" id="node10" href="$structast_1_1_conditional_expression.html" title="ast::ConditionalExpression" alt="" coords="405,301,585,327"/>
-<area shape="rect" id="node11" href="$structast_1_1_elision.html" title="ast::Elision" alt="" coords="452,351,538,376"/>
-<area shape="rect" id="node12" href="$structast_1_1_function_expression.html" title="ast::FunctionExpression" alt="" coords="413,400,577,425"/>
-<area shape="rect" id="node13" href="$structast_1_1_identifier.html" title="ast::Identifier" alt="" coords="446,449,544,475"/>
-<area shape="rect" id="node14" href="$structast_1_1_member_expression.html" title="ast::MemberExpression" alt="" coords="414,499,576,524"/>
-<area shape="rect" id="node15" href="$structast_1_1_new_expression.html" title="ast::NewExpression" alt="" coords="426,548,565,573"/>
-<area shape="rect" id="node16" href="$structast_1_1_null_literal.html" title="ast::NullLiteral" alt="" coords="442,597,548,623"/>
-<area shape="rect" id="node17" href="$structast_1_1_numeric_literal.html" title="ast::NumericLiteral" alt="" coords="429,647,561,672"/>
-<area shape="rect" id="node18" href="$structast_1_1_object_literal.html" title="ast::ObjectLiteral" alt="" coords="434,696,556,721"/>
-<area shape="rect" id="node19" href="$structast_1_1_postfix_expression.html" title="ast::PostfixExpression" alt="" coords="419,745,571,771"/>
-<area shape="rect" id="node20" href="$structast_1_1_property_assignment.html" title="ast::PropertyAssignment" alt="" coords="412,795,578,820"/>
-<area shape="rect" id="node21" href="$structast_1_1_property_name.html" title="ast::PropertyName" alt="" coords="429,844,561,869"/>
-<area shape="rect" id="node22" href="$structast_1_1_regular_expression_literal.html" title="ast::RegularExpressionLiteral" alt="" coords="397,893,593,919"/>
-<area shape="rect" id="node23" href="$structast_1_1_string_literal.html" title="ast::StringLiteral" alt="" coords="436,943,554,968"/>
-<area shape="rect" id="node24" href="$structast_1_1_this.html" title="ast::This" alt="" coords="459,992,531,1017"/>
-<area shape="rect" id="node25" href="$structast_1_1_unary_expression.html" title="ast::UnaryExpression" alt="" coords="421,1041,569,1067"/>
-<area shape="rect" id="node26" href="$structast_1_1_variable_declaration.html" title="ast::VariableDeclaration" alt="" coords="414,1091,576,1116"/>
-<area shape="rect" id="node29" href="$structast_1_1_declaration.html" title="ast::Declaration" alt="" coords="438,1140,552,1165"/>
-<area shape="rect" id="node30" href="$structast_1_1_function_declaration.html" title="ast::FunctionDeclaration" alt="" coords="413,1189,578,1215"/>
-<area shape="rect" id="node31" href="$structast_1_1_statement.html" title="ast::Statement" alt="" coords="441,1239,549,1264"/>
-<area shape="rect" id="node32" href="$structast_1_1_block.html" title="ast::Block" alt="" coords="695,795,774,820"/>
-<area shape="rect" id="node33" href="$structast_1_1_break_statement.html" title="ast::BreakStatement" alt="" coords="664,844,806,869"/>
-<area shape="rect" id="node34" href="$structast_1_1_continue_statement.html" title="ast::ContinueStatement" alt="" coords="654,893,815,919"/>
-<area shape="rect" id="node35" href="$structast_1_1_debugger_statement.html" title="ast::DebuggerStatement" alt="" coords="652,943,818,968"/>
-<area shape="rect" id="node36" href="$structast_1_1_do_while_statement.html" title="ast::DoWhileStatement" alt="" coords="656,992,814,1017"/>
-<area shape="rect" id="node37" href="$structast_1_1_empty_statement.html" title="ast::EmptyStatement" alt="" coords="662,1041,807,1067"/>
-<area shape="rect" id="node38" href="$structast_1_1_expression_statement.html" title="ast::ExpressionStatement" alt="" coords="648,1091,821,1116"/>
-<area shape="rect" id="node39" href="$structast_1_1_for_in_statement.html" title="ast::ForInStatement" alt="" coords="666,1140,804,1165"/>
-<area shape="rect" id="node40" href="$structast_1_1_for_statement.html" title="ast::ForStatement" alt="" coords="671,1189,798,1215"/>
-<area shape="rect" id="node41" href="$structast_1_1_if_statement.html" title="ast::IfStatement" alt="" coords="677,1239,792,1264"/>
-<area shape="rect" id="node42" href="$structast_1_1_labelled_statement.html" title="ast::LabelledStatement" alt="" coords="656,1288,814,1313"/>
-<area shape="rect" id="node43" href="$structast_1_1_return_statement.html" title="ast::ReturnStatement" alt="" coords="661,1337,808,1363"/>
-<area shape="rect" id="node44" href="$structast_1_1_switch_statement.html" title="ast::SwitchStatement" alt="" coords="661,1387,808,1412"/>
-<area shape="rect" id="node45" href="$structast_1_1_throw_statement.html" title="ast::ThrowStatement" alt="" coords="663,1436,807,1461"/>
-<area shape="rect" id="node46" href="$structast_1_1_try_statement.html" title="ast::TryStatement" alt="" coords="672,1485,798,1511"/>
-<area shape="rect" id="node47" href="$structast_1_1_variable_statement.html" title="ast::VariableStatement" alt="" coords="657,1535,812,1560"/>
-<area shape="rect" id="node48" href="$structast_1_1_while_statement.html" title="ast::WhileStatement" alt="" coords="664,1584,805,1609"/>
-<area shape="rect" id="node49" href="$structast_1_1_with_statement.html" title="ast::WithStatement" alt="" coords="668,1633,802,1659"/>
-<area shape="rect" id="node51" href="$structast_1_1_case_block.html" title="ast::CaseBlock" alt="" coords="440,1288,550,1313"/>
-<area shape="rect" id="node53" href="$structast_1_1_argument_list.html" title="ast::ArgumentList" alt="" coords="433,1337,558,1363"/>
-<area shape="rect" id="node54" href="$structast_1_1_element_list.html" title="ast::ElementList" alt="" coords="437,1387,553,1412"/>
-<area shape="rect" id="node56" href="$structast_1_1_formal_parameter_list.html" title="ast::FormalParameterList" alt="" coords="410,1436,581,1461"/>
-<area shape="rect" id="node58" href="$structast_1_1_property_name_and_value_list.html" title="ast::PropertyNameAndValueList" alt="" coords="390,1485,600,1511"/>
-<area shape="rect" id="node60" href="$structast_1_1_source_elements.html" title="ast::SourceElements" alt="" coords="423,1535,567,1560"/>
-<area shape="rect" id="node61" href="$structast_1_1_function_body.html" title="ast::FunctionBody" alt="" coords="671,1683,799,1708"/>
-<area shape="rect" id="node63" href="$structast_1_1_statement_list.html" title="ast::StatementList" alt="" coords="431,1584,559,1609"/>
-<area shape="rect" id="node65" href="$structast_1_1_variable_declaration_list.html" title="ast::VariableDeclarationList" alt="" coords="404,1633,586,1659"/>
+<area shape="rect" id="node6" href="$structast_1_1_binary_expression.html" title="ast::BinaryExpression" alt="" coords="420,104,570,129"/>
+<area shape="rect" id="node7" href="$structast_1_1_call_expression.html" title="ast::CallExpression" alt="" coords="427,153,563,179"/>
+<area shape="rect" id="node8" href="$structast_1_1_conditional_expression.html" title="ast::ConditionalExpression" alt="" coords="405,203,585,228"/>
+<area shape="rect" id="node9" href="$structast_1_1_elision.html" title="ast::Elision" alt="" coords="452,252,538,277"/>
+<area shape="rect" id="node10" href="$structast_1_1_function_expression.html" title="ast::FunctionExpression" alt="" coords="413,301,577,327"/>
+<area shape="rect" id="node11" href="$structast_1_1_member_expression.html" title="ast::MemberExpression" alt="" coords="414,351,576,376"/>
+<area shape="rect" id="node12" href="$structast_1_1_new_expression.html" title="ast::NewExpression" alt="" coords="426,400,565,425"/>
+<area shape="rect" id="node13" href="$structast_1_1_postfix_expression.html" title="ast::PostfixExpression" alt="" coords="419,449,571,475"/>
+<area shape="rect" id="node14" href="$structast_1_1_primary_expression.html" title="ast::PrimaryExpression" alt="" coords="416,499,574,524"/>
+<area shape="rect" id="node25" href="$structast_1_1_property_assignment.html" title="ast::PropertyAssignment" alt="" coords="412,548,578,573"/>
+<area shape="rect" id="node26" href="$structast_1_1_property_name.html" title="ast::PropertyName" alt="" coords="429,597,561,623"/>
+<area shape="rect" id="node27" href="$structast_1_1_unary_expression.html" title="ast::UnaryExpression" alt="" coords="421,647,569,672"/>
+<area shape="rect" id="node28" href="$structast_1_1_variable_declaration.html" title="ast::VariableDeclaration" alt="" coords="414,696,576,721"/>
+<area shape="rect" id="node15" href="$structast_1_1_array_literal.html" title="ast::ArrayLiteral" alt="" coords="677,351,792,376"/>
+<area shape="rect" id="node16" href="$structast_1_1_identifier.html" title="ast::Identifier" alt="" coords="686,400,784,425"/>
+<area shape="rect" id="node17" href="$structast_1_1_literal.html" title="ast::Literal" alt="" coords="693,449,776,475"/>
+<area shape="rect" id="node23" href="$structast_1_1_object_literal.html" title="ast::ObjectLiteral" alt="" coords="674,499,795,524"/>
+<area shape="rect" id="node24" href="$structast_1_1_this.html" title="ast::This" alt="" coords="699,548,771,573"/>
+<area shape="rect" id="node18" href="$structast_1_1_boolean_literal.html" title="ast::BooleanLiteral" alt="" coords="901,351,1033,376"/>
+<area shape="rect" id="node19" href="$structast_1_1_null_literal.html" title="ast::NullLiteral" alt="" coords="914,400,1020,425"/>
+<area shape="rect" id="node20" href="$structast_1_1_numeric_literal.html" title="ast::NumericLiteral" alt="" coords="901,449,1033,475"/>
+<area shape="rect" id="node21" href="$structast_1_1_regular_expression_literal.html" title="ast::RegularExpressionLiteral" alt="" coords="869,499,1065,524"/>
+<area shape="rect" id="node22" href="$structast_1_1_string_literal.html" title="ast::StringLiteral" alt="" coords="908,548,1026,573"/>
+<area shape="rect" id="node31" href="$structast_1_1_declaration.html" title="ast::Declaration" alt="" coords="438,893,552,919"/>
+<area shape="rect" id="node32" href="$structast_1_1_function_declaration.html" title="ast::FunctionDeclaration" alt="" coords="413,943,578,968"/>
+<area shape="rect" id="node33" href="$structast_1_1_statement.html" title="ast::Statement" alt="" coords="441,992,549,1017"/>
+<area shape="rect" id="node34" href="$structast_1_1_block.html" title="ast::Block" alt="" coords="695,597,774,623"/>
+<area shape="rect" id="node35" href="$structast_1_1_break_statement.html" title="ast::BreakStatement" alt="" coords="664,647,806,672"/>
+<area shape="rect" id="node36" href="$structast_1_1_continue_statement.html" title="ast::ContinueStatement" alt="" coords="654,696,815,721"/>
+<area shape="rect" id="node37" href="$structast_1_1_debugger_statement.html" title="ast::DebuggerStatement" alt="" coords="652,745,818,771"/>
+<area shape="rect" id="node38" href="$structast_1_1_do_while_statement.html" title="ast::DoWhileStatement" alt="" coords="656,795,814,820"/>
+<area shape="rect" id="node39" href="$structast_1_1_empty_statement.html" title="ast::EmptyStatement" alt="" coords="662,844,807,869"/>
+<area shape="rect" id="node40" href="$structast_1_1_expression_statement.html" title="ast::ExpressionStatement" alt="" coords="648,893,821,919"/>
+<area shape="rect" id="node41" href="$structast_1_1_for_in_statement.html" title="ast::ForInStatement" alt="" coords="666,943,804,968"/>
+<area shape="rect" id="node42" href="$structast_1_1_for_statement.html" title="ast::ForStatement" alt="" coords="671,992,798,1017"/>
+<area shape="rect" id="node43" href="$structast_1_1_if_statement.html" title="ast::IfStatement" alt="" coords="677,1041,792,1067"/>
+<area shape="rect" id="node44" href="$structast_1_1_labelled_statement.html" title="ast::LabelledStatement" alt="" coords="656,1091,814,1116"/>
+<area shape="rect" id="node45" href="$structast_1_1_return_statement.html" title="ast::ReturnStatement" alt="" coords="661,1140,808,1165"/>
+<area shape="rect" id="node46" href="$structast_1_1_switch_statement.html" title="ast::SwitchStatement" alt="" coords="661,1189,808,1215"/>
+<area shape="rect" id="node47" href="$structast_1_1_throw_statement.html" title="ast::ThrowStatement" alt="" coords="663,1239,807,1264"/>
+<area shape="rect" id="node48" href="$structast_1_1_try_statement.html" title="ast::TryStatement" alt="" coords="672,1288,798,1313"/>
+<area shape="rect" id="node49" href="$structast_1_1_variable_statement.html" title="ast::VariableStatement" alt="" coords="657,1337,812,1363"/>
+<area shape="rect" id="node50" href="$structast_1_1_while_statement.html" title="ast::WhileStatement" alt="" coords="664,1387,805,1412"/>
+<area shape="rect" id="node51" href="$structast_1_1_with_statement.html" title="ast::WithStatement" alt="" coords="668,1436,802,1461"/>
+<area shape="rect" id="node53" href="$structast_1_1_case_block.html" title="ast::CaseBlock" alt="" coords="440,1041,550,1067"/>
+<area shape="rect" id="node55" href="$structast_1_1_argument_list.html" title="ast::ArgumentList" alt="" coords="433,1091,558,1116"/>
+<area shape="rect" id="node56" href="$structast_1_1_element_list.html" title="ast::ElementList" alt="" coords="437,1140,553,1165"/>
+<area shape="rect" id="node58" href="$structast_1_1_formal_parameter_list.html" title="ast::FormalParameterList" alt="" coords="410,1189,581,1215"/>
+<area shape="rect" id="node60" href="$structast_1_1_property_name_and_value_list.html" title="ast::PropertyNameAndValueList" alt="" coords="390,1239,600,1264"/>
+<area shape="rect" id="node62" href="$structast_1_1_source_elements.html" title="ast::SourceElements" alt="" coords="423,1288,567,1313"/>
+<area shape="rect" id="node63" href="$structast_1_1_function_body.html" title="ast::FunctionBody" alt="" coords="671,1485,799,1511"/>
+<area shape="rect" id="node65" href="$structast_1_1_statement_list.html" title="ast::StatementList" alt="" coords="431,1337,559,1363"/>
+<area shape="rect" id="node67" href="$structast_1_1_variable_declaration_list.html" title="ast::VariableDeclarationList" alt="" coords="404,1387,586,1412"/>
 </map>

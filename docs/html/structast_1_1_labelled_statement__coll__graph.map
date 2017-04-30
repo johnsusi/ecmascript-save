@@ -1,8 +1,9 @@
 <map id="ast::LabelledStatement" name="ast::LabelledStatement">
-<area shape="rect" id="node2" href="$structast_1_1_statement.html" title="ast::Statement" alt="" coords="38,167,145,192"/>
-<area shape="rect" id="node3" href="$structast_1_1_source_element.html" title="ast::SourceElement" alt="" coords="5,80,143,105"/>
-<area shape="rect" id="node4" href="$structast_1_1_node.html" title="ast::Node" alt="" coords="108,5,187,31"/>
-<area shape="rect" id="node6" href="$structast_1_1_expression.html" title="ast::Expression" alt="" coords="167,80,280,105"/>
-<area shape="rect" id="node5" href="$structast_1_1_identifier.html" title="ast::Identifier" alt="" coords="175,167,272,192"/>
-<area shape="rect" id="node7" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/string/basic_string.html" title="std::u16string" alt="" coords="303,80,405,105"/>
+<area shape="rect" id="node2" href="$structast_1_1_statement.html" title="ast::Statement" alt="" coords="10,265,117,291"/>
+<area shape="rect" id="node3" href="$structast_1_1_source_element.html" title="ast::SourceElement" alt="" coords="5,129,143,155"/>
+<area shape="rect" id="node4" href="$structast_1_1_node.html" title="ast::Node" alt="" coords="56,5,135,31"/>
+<area shape="rect" id="node7" href="$structast_1_1_expression.html" title="ast::Expression" alt="" coords="119,80,232,105"/>
+<area shape="rect" id="node5" href="$structast_1_1_identifier.html" title="ast::Identifier" alt="" coords="141,265,239,291"/>
+<area shape="rect" id="node6" href="$structast_1_1_primary_expression.html" title="ast::PrimaryExpression" alt="" coords="100,179,259,204"/>
+<area shape="rect" id="node8" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/string/basic_string.html" title="std::u16string" alt="" coords="282,179,384,204"/>
 </map>

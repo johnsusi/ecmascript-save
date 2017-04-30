@@ -1,5 +1,6 @@
 <map id="ast::Identifier" name="ast::Identifier">
-<area shape="rect" id="node2" href="$structast_1_1_expression.html" title="ast::Expression" alt="" coords="5,80,118,105"/>
-<area shape="rect" id="node3" href="$structast_1_1_node.html" title="ast::Node" alt="" coords="22,5,101,31"/>
-<area shape="rect" id="node4" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/string/basic_string.html" title="std::u16string" alt="" coords="142,80,243,105"/>
+<area shape="rect" id="node2" href="$structast_1_1_primary_expression.html" title="ast::PrimaryExpression" alt="" coords="5,155,164,180"/>
+<area shape="rect" id="node3" href="$structast_1_1_expression.html" title="ast::Expression" alt="" coords="28,80,141,105"/>
+<area shape="rect" id="node4" href="$structast_1_1_node.html" title="ast::Node" alt="" coords="45,5,124,31"/>
+<area shape="rect" id="node5" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/string/basic_string.html" title="std::u16string" alt="" coords="187,155,289,180"/>
 </map>
