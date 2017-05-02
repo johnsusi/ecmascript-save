@@ -1,4 +1,4 @@
-.TH "NumericLiteral" 3 "Sat Apr 29 2017" "ECMAScript" \" -*- nroff -*-
+.TH "NumericLiteral" 3 "Tue May 2 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -8,6 +8,18 @@ NumericLiteral
 .PP
 .PP
 \fC#include <ast\&.h>\fP
+.PP
+Inherits \fBLiteral\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBNumericLiteral\fP (double \fBvalue\fP)"
+.br
+.ti -1c
+.RI "void \fBaccept\fP (\fBVisitor\fP &visitor) const override"
+.br
+.in -1c
 .SS "Public Attributes"
 
 .in +1c
@@ -15,6 +27,16 @@ NumericLiteral
 .RI "double \fBvalue\fP"
 .br
 .in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "NumericLiteral::NumericLiteral (double value)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void NumericLiteral::accept (\fBVisitor\fP & visitor) const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBNode\fP\&.
 .SH "Member Data Documentation"
 .PP 
 .SS "double NumericLiteral::value"

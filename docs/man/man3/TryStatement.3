@@ -1,4 +1,4 @@
-.TH "TryStatement" 3 "Sat Apr 29 2017" "ECMAScript" \" -*- nroff -*-
+.TH "TryStatement" 3 "Tue May 2 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -8,26 +8,48 @@ TryStatement
 .PP
 .PP
 \fC#include <ast\&.h>\fP
+.PP
+Inherits \fBStatement\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTryStatement\fP (\fBBlock\fP *\fBblock\fP, \fBBlock\fP *\fBhandler\fP=nullptr, \fBBlock\fP *\fBfinalizer\fP=nullptr)"
+.br
+.ti -1c
+.RI "void \fBaccept\fP (\fBVisitor\fP &visitor) const override"
+.br
+.in -1c
 .SS "Public Attributes"
 
 .in +1c
 .ti -1c
-.RI "\fBBlock\fP \fBblock\fP"
+.RI "\fBBlock\fP * \fBblock\fP"
 .br
 .ti -1c
-.RI "boost::optional< \fBBlock\fP > \fBhandler\fP"
+.RI "\fBBlock\fP * \fBhandler\fP"
 .br
 .ti -1c
-.RI "boost::optional< \fBBlock\fP > \fBfinalizer\fP"
+.RI "\fBBlock\fP * \fBfinalizer\fP"
 .br
 .in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "TryStatement::TryStatement (\fBBlock\fP * block, \fBBlock\fP * handler = \fCnullptr\fP, \fBBlock\fP * finalizer = \fCnullptr\fP)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void TryStatement::accept (\fBVisitor\fP & visitor) const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBNode\fP\&.
 .SH "Member Data Documentation"
 .PP 
-.SS "\fBBlock\fP TryStatement::block"
+.SS "\fBBlock\fP* TryStatement::block"
 
-.SS "boost::optional<\fBBlock\fP> TryStatement::finalizer"
+.SS "\fBBlock\fP* TryStatement::finalizer"
 
-.SS "boost::optional<\fBBlock\fP> TryStatement::handler"
+.SS "\fBBlock\fP* TryStatement::handler"
 
 
 .SH "Author"

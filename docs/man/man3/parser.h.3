@@ -1,4 +1,4 @@
-.TH "src/parser.h" 3 "Sun Apr 30 2017" "ECMAScript" \" -*- nroff -*-
+.TH "src/parser.h" 3 "Tue May 2 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -11,6 +11,8 @@ src/parser.h
 \fC#include 'matcher\&.h'\fP
 .br
 \fC#include 'token\&.h'\fP
+.br
+\fC#include 'util\&.h'\fP
 .br
 \fC#include <iostream>\fP
 .br
@@ -32,15 +34,6 @@ src/parser.h
 
 .in +1c
 .ti -1c
-.RI "template<class F , size_t\&.\&.\&. Is> constexpr auto \fBindex_apply_impl\fP (F f, std::index_sequence< Is\&.\&.\&. >)"
-.br
-.ti -1c
-.RI "template<size_t N, class F > constexpr auto \fBindex_apply\fP (F f)"
-.br
-.ti -1c
-.RI "bool \fBis_assignment_operator\fP (const \fBstd::string\fP &)"
-.br
-.ti -1c
 .RI "template<typename It > \fBParser\fP \fBmake_parser\fP (It f, It l)"
 .br
 .ti -1c
@@ -49,12 +42,6 @@ src/parser.h
 .in -1c
 .SH "Function Documentation"
 .PP 
-.SS "template<size_t N, class F > constexpr auto index_apply (F f)"
-
-.SS "template<class F , size_t\&.\&.\&. Is> constexpr auto index_apply_impl (F f, std::index_sequence< Is\&.\&.\&. >)"
-
-.SS "bool is_assignment_operator (const \fBstd::string\fP &)"
-
 .SS "template<typename It > \fBParser\fP make_parser (It f, It l)"
 
 .SS "template<typename Cont > auto make_parser (Cont && cont)"

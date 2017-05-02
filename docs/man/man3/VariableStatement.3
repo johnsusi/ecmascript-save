@@ -1,4 +1,4 @@
-.TH "VariableStatement" 3 "Sat Apr 29 2017" "ECMAScript" \" -*- nroff -*-
+.TH "VariableStatement" 3 "Tue May 2 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -8,6 +8,39 @@ VariableStatement
 .PP
 .PP
 \fC#include <ast\&.h>\fP
+.PP
+Inherits \fBStatement\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBVariableStatement\fP (\fBVariableDeclarationList\fP *\fBdeclarations\fP)"
+.br
+.ti -1c
+.RI "void \fBaccept\fP (\fBVisitor\fP &visitor) const override"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBVariableDeclarationList\fP * \fBdeclarations\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "VariableStatement::VariableStatement (\fBVariableDeclarationList\fP * declarations)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void VariableStatement::accept (\fBVisitor\fP & visitor) const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBNode\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBVariableDeclarationList\fP* VariableStatement::declarations"
+
 
 .SH "Author"
 .PP 

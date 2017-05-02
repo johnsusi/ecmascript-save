@@ -1,4 +1,4 @@
-.TH "WhileStatement" 3 "Sat Apr 29 2017" "ECMAScript" \" -*- nroff -*-
+.TH "WhileStatement" 3 "Tue May 2 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -8,21 +8,36 @@ WhileStatement
 .PP
 .PP
 \fC#include <ast\&.h>\fP
+.PP
+Inherits \fBStatement\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBaccept\fP (\fBVisitor\fP &visitor) const override"
+.br
+.in -1c
 .SS "Public Attributes"
 
 .in +1c
 .ti -1c
-.RI "\fBExpression\fP \fBtest\fP"
+.RI "\fBExpression\fP * \fBtest\fP"
 .br
 .ti -1c
-.RI "\fBStatement\fP \fBbody\fP"
+.RI "\fBStatement\fP * \fBbody\fP"
 .br
 .in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "void WhileStatement::accept (\fBVisitor\fP & visitor) const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBNode\fP\&.
 .SH "Member Data Documentation"
 .PP 
-.SS "\fBStatement\fP WhileStatement::body"
+.SS "\fBStatement\fP* WhileStatement::body"
 
-.SS "\fBExpression\fP WhileStatement::test"
+.SS "\fBExpression\fP* WhileStatement::test"
 
 
 .SH "Author"

@@ -1,0 +1,55 @@
+\hypertarget{namespacedetail}{}\section{detail Namespace Reference}
+\label{namespacedetail}\index{detail@{detail}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structdetail_1_1is__callable1}{is\+\_\+callable1}
+\item 
+struct \hyperlink{structdetail_1_1is__callable1_3_01_t_00_01_f_00_01void__t_3_01decltype_07std_1_1declval_3_01_f_0031734589d10bdb36da443f727c3d6f8}{is\+\_\+callable1$<$ T, F, void\+\_\+t$<$ decltype(std\+::declval$<$ F $>$()(std\+::declval$<$ T $>$()))$>$ $>$}
+\item 
+struct \hyperlink{structdetail_1_1is__callable2}{is\+\_\+callable2}
+\item 
+struct \hyperlink{structdetail_1_1is__callable2_3_01_t_00_01_n_00_01_f_00_01void__t_3_01decltype_07std_1_1declval_85e36b71e7ce49c039fb03c9fdc1f60f}{is\+\_\+callable2$<$ T, N, F, void\+\_\+t$<$ decltype(std\+::declval$<$ F $>$()(std\+::declval$<$ T $>$(), std\+::declval$<$ N $>$()))$>$ $>$}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T , typename N , typename F $>$ }\\auto \hyperlink{namespacedetail_a910933a8b2f5acce683775f956e97d48}{apply} (T \&\&value, N \&\&next, F \&\&callback)
+\item 
+{\footnotesize template$<$typename T , typename N , typename F $>$ }\\void \hyperlink{namespacedetail_a3711fd6b77c0779d28e5a3608f1a8e51}{apply} (T \&\&value, N \&\&next, F \&\&callback, \textbf{ std\+::true\+\_\+type}, \textbf{ std\+::false\+\_\+type})
+\item 
+{\footnotesize template$<$typename T , typename N , typename F $>$ }\\void \hyperlink{namespacedetail_acbe3cd2b577d9cb1e2e9383021c208d4}{apply} (T \&\&value, N \&\&, F \&\&callback, \textbf{ std\+::false\+\_\+type}, \textbf{ std\+::true\+\_\+type})
+\item 
+{\footnotesize template$<$typename T , typename N , typename F $>$ }\\void \hyperlink{namespacedetail_a2de0e5f4ba1129708f2efe0d017826d7}{apply} (T \&\&value, N \&\&, F \&\&callback, \textbf{ std\+::false\+\_\+type}, \textbf{ std\+::false\+\_\+type})
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespacedetail_a910933a8b2f5acce683775f956e97d48}\label{namespacedetail_a910933a8b2f5acce683775f956e97d48}} 
+\index{detail@{detail}!apply@{apply}}
+\index{apply@{apply}!detail@{detail}}
+\subsubsection{\texorpdfstring{apply()}{apply()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$typename T , typename N , typename F $>$ \\
+auto detail\+::apply (\begin{DoxyParamCaption}\item[{T \&\&}]{value,  }\item[{N \&\&}]{next,  }\item[{F \&\&}]{callback }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacedetail_a3711fd6b77c0779d28e5a3608f1a8e51}\label{namespacedetail_a3711fd6b77c0779d28e5a3608f1a8e51}} 
+\index{detail@{detail}!apply@{apply}}
+\index{apply@{apply}!detail@{detail}}
+\subsubsection{\texorpdfstring{apply()}{apply()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$typename T , typename N , typename F $>$ \\
+void detail\+::apply (\begin{DoxyParamCaption}\item[{T \&\&}]{value,  }\item[{N \&\&}]{next,  }\item[{F \&\&}]{callback,  }\item[{\textbf{ std\+::true\+\_\+type}}]{,  }\item[{\textbf{ std\+::false\+\_\+type}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacedetail_acbe3cd2b577d9cb1e2e9383021c208d4}\label{namespacedetail_acbe3cd2b577d9cb1e2e9383021c208d4}} 
+\index{detail@{detail}!apply@{apply}}
+\index{apply@{apply}!detail@{detail}}
+\subsubsection{\texorpdfstring{apply()}{apply()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$typename T , typename N , typename F $>$ \\
+void detail\+::apply (\begin{DoxyParamCaption}\item[{T \&\&}]{value,  }\item[{N \&\&}]{,  }\item[{F \&\&}]{callback,  }\item[{\textbf{ std\+::false\+\_\+type}}]{,  }\item[{\textbf{ std\+::true\+\_\+type}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacedetail_a2de0e5f4ba1129708f2efe0d017826d7}\label{namespacedetail_a2de0e5f4ba1129708f2efe0d017826d7}} 
+\index{detail@{detail}!apply@{apply}}
+\index{apply@{apply}!detail@{detail}}
+\subsubsection{\texorpdfstring{apply()}{apply()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$typename T , typename N , typename F $>$ \\
+void detail\+::apply (\begin{DoxyParamCaption}\item[{T \&\&}]{value,  }\item[{N \&\&}]{,  }\item[{F \&\&}]{callback,  }\item[{\textbf{ std\+::false\+\_\+type}}]{,  }\item[{\textbf{ std\+::false\+\_\+type}}]{ }\end{DoxyParamCaption})}
+

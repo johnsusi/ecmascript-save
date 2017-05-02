@@ -1,4 +1,4 @@
-.TH "src/util.h" 3 "Sun Apr 30 2017" "ECMAScript" \" -*- nroff -*-
+.TH "src/util.h" 3 "Tue May 2 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -6,20 +6,52 @@ src/util.h
 .SH SYNOPSIS
 .br
 .PP
-\fC#include <unicode/uchar\&.h>\fP
+\fC#include <string>\fP
+.br
+\fC#include <boost/core/demangle\&.hpp>\fP
 .br
 
 .SS "Functions"
 
 .in +1c
 .ti -1c
+.RI "\fBstd::string\fP \fBleft_align_text\fP (const \fBstd::string\fP &text, const \fBstd::string\fP &indent='')"
+.br
+.ti -1c
 .RI "const char * \fBu_charCategory\fP (int c)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBread_file\fP (const \fBstd::string\fP &filename)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBread_stdin\fP ()"
+.br
+.ti -1c
+.RI "template<typename T > \fBstd::string\fP \fBdemangle\fP (T)"
+.br
+.ti -1c
+.RI "template<class F , size_t\&.\&.\&. Is> constexpr auto \fBindex_apply_impl\fP (F f, std::index_sequence< Is\&.\&.\&. >)"
+.br
+.ti -1c
+.RI "template<size_t N, class F > constexpr auto \fBindex_apply\fP (F f)"
 .br
 .in -1c
 .SH "Function Documentation"
 .PP 
-.SS "const char* u_charCategory (int c)"
+.SS "template<typename T > \fBstd::string\fP demangle (T)"
 
+.SS "template<size_t N, class F > constexpr auto index_apply (F f)"
+
+.SS "template<class F , size_t\&.\&.\&. Is> constexpr auto index_apply_impl (F f, std::index_sequence< Is\&.\&.\&. >)"
+
+.SS "\fBstd::string\fP left_align_text (const \fBstd::string\fP & text, const \fBstd::string\fP & indent)"
+Left aligns \fItext\fP by first finding the left-most non-whitespace character and then removing that many leading white-space characters from each line\&. The result is then indented using the optional \fIindent\fP and joined into a string\&. 
+.SS "\fBstd::string\fP read_file (const \fBstd::string\fP & filename)"
+
+.SS "\fBstd::string\fP read_stdin ()"
+
+.SS "const char* u_charCategory (int c)"
+Returns the general category (short) name for the code point\&. If the category is not known '??' is returned\&. Always returns a zero terminated char array of length 3\&. 
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for ECMAScript from the source code\&.

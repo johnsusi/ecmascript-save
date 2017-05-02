@@ -14,7 +14,7 @@ var searchData=
   ['negative_5fsign',['negative_sign',['http://en.cppreference.com/w/cpp/locale/moneypunct/positive_sign.html',1,'std::moneypunct_byname::negative_sign()'],['http://en.cppreference.com/w/cpp/locale/moneypunct/positive_sign.html',1,'std::moneypunct::negative_sign()']]],
   ['nested_5fexception',['nested_exception',['http://en.cppreference.com/w/cpp/error/nested_exception/nested_exception.html',1,'std::nested_exception']]],
   ['nested_5fptr',['nested_ptr',['http://en.cppreference.com/w/cpp/error/nested_exception/nested_ptr.html',1,'std::nested_exception']]],
-  ['newexpression',['NewExpression',['../structast_1_1_new_expression.html#ab2dadb963fcfd92dbf51ed98c0d2052c',1,'ast::NewExpression']]],
+  ['newexpression',['NewExpression',['../struct_new_expression.html#a8a97ab4337fec49be339e232c1992fcb',1,'NewExpression']]],
   ['next',['next',['http://en.cppreference.com/w/cpp/iterator/next.html',1,'std']]],
   ['next_5fpermutation',['next_permutation',['http://en.cppreference.com/w/cpp/algorithm/next_permutation.html',1,'std']]],
   ['nextafter',['nextafter',['http://en.cppreference.com/w/cpp/numeric/math/nextafter.html',1,'std']]],
@@ -24,7 +24,6 @@ var searchData=
   ['none',['none',['http://en.cppreference.com/w/cpp/utility/bitset/all_any_none.html',1,'std::bitset']]],
   ['none_5fof',['none_of',['http://en.cppreference.com/w/cpp/algorithm/all_any_none_of.html',1,'std']]],
   ['normal_5fdistribution',['normal_distribution',['http://en.cppreference.com/w/cpp/numeric/random/normal_distribution/normal_distribution.html',1,'std::normal_distribution']]],
-  ['normalize',['normalize',['../ast_8cpp.html#a9651ee99e814cad561e69d7bda6f62c6',1,'normalize(const std::string &amp;s):&#160;ast.cpp'],['../ast_8h.html#a41405a71855af173c03879b19c9eeec2',1,'normalize(const std::string &amp;):&#160;ast.cpp']]],
   ['noshowbase',['noshowbase',['http://en.cppreference.com/w/cpp/io/manip/showbase.html',1,'std']]],
   ['noshowpoint',['noshowpoint',['http://en.cppreference.com/w/cpp/io/manip/showpoint.html',1,'std']]],
   ['noshowpos',['noshowpos',['http://en.cppreference.com/w/cpp/io/manip/showpos.html',1,'std']]],
@@ -43,7 +42,7 @@ var searchData=
   ['num_5fget',['num_get',['http://en.cppreference.com/w/cpp/locale/num_get/num_get.html',1,'std::num_get']]],
   ['num_5fput',['num_put',['http://en.cppreference.com/w/cpp/locale/num_put/num_put.html',1,'std::num_put']]],
   ['numeric_5fliteral',['numeric_literal',['../class_lexical_grammar.html#a6dd9a9a8baf50e9a99e0df2cbaa8d795',1,'LexicalGrammar::numeric_literal()'],['../class_token.html#ab457a4f53eef0512a5fd2ea0206e3c1e',1,'Token::numeric_literal()']]],
-  ['numericliteral',['NumericLiteral',['../structast_1_1_numeric_literal.html#a84f273ad60622f442bc295a7c4b67678',1,'ast::NumericLiteral']]],
+  ['numericliteral',['NumericLiteral',['../struct_numeric_literal.html#a7d8479432e5f17a657279050ca611e33',1,'NumericLiteral']]],
   ['numpunct',['numpunct',['http://en.cppreference.com/w/cpp/locale/numpunct/numpunct.html',1,'std::numpunct']]],
   ['numpunct_5fbyname',['numpunct_byname',['http://en.cppreference.com/w/cpp/locale/numpunct_byname.html',1,'std::numpunct_byname']]]
 ];

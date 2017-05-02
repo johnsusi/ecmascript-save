@@ -1,4 +1,4 @@
-.TH "NewExpression" 3 "Sat Apr 29 2017" "ECMAScript" \" -*- nroff -*-
+.TH "NewExpression" 3 "Tue May 2 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -8,21 +8,43 @@ NewExpression
 .PP
 .PP
 \fC#include <ast\&.h>\fP
+.PP
+Inherits \fBExpression\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBNewExpression\fP (\fBExpression\fP *\fBcallee\fP, \fBArguments\fP *\fBarguments\fP=nullptr)"
+.br
+.ti -1c
+.RI "void \fBaccept\fP (\fBVisitor\fP &visitor) const override"
+.br
+.in -1c
 .SS "Public Attributes"
 
 .in +1c
 .ti -1c
-.RI "\fBExpression\fP \fBcallee\fP"
+.RI "\fBExpression\fP * \fBcallee\fP"
 .br
 .ti -1c
-.RI "\fBArguments\fP \fBarguments\fP"
+.RI "\fBArguments\fP * \fBarguments\fP"
 .br
 .in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "NewExpression::NewExpression (\fBExpression\fP * callee, \fBArguments\fP * arguments = \fCnullptr\fP)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void NewExpression::accept (\fBVisitor\fP & visitor) const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBNode\fP\&.
 .SH "Member Data Documentation"
 .PP 
-.SS "\fBArguments\fP NewExpression::arguments"
+.SS "\fBArguments\fP* NewExpression::arguments"
 
-.SS "\fBExpression\fP NewExpression::callee"
+.SS "\fBExpression\fP* NewExpression::callee"
 
 
 .SH "Author"

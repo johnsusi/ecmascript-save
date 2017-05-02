@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$struct_token_1_1_debug_info.html" title="Token::DebugInfo" alt="" coords="5,5,131,31"/>
+<area shape="rect" id="node1" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/types/integral_constant.html" title="std::true_type" alt="" coords="5,73,107,99"/>
+<area shape="rect" id="node2" href="$structdetail_1_1is__callable1_3_01_t_00_01_f_00_01void__t_3_01decltype_07std_1_1declval_3_01_f_0031734589d10bdb36da443f727c3d6f8.html" title="detail::is_callable1\l\&lt; T, F, void_t\&lt; decltype\l(std::declval\&lt; F \&gt;()(std\l::declval\&lt; T \&gt;()))\&gt; \&gt;" alt="" coords="169,5,326,71"/>
+<area shape="rect" id="node3" href="$structdetail_1_1is__callable2_3_01_t_00_01_n_00_01_f_00_01void__t_3_01decltype_07std_1_1declval_85e36b71e7ce49c039fb03c9fdc1f60f.html" title="detail::is_callable2\l\&lt; T, N, F, void_t\&lt; decltype\l(std::declval\&lt; F \&gt;()(std\l::declval\&lt; T \&gt;(), std::declval\l\&lt; N \&gt;()))\&gt; \&gt;" alt="" coords="155,95,339,173"/>
 </map>

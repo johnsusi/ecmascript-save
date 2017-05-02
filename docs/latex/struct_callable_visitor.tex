@@ -2,7 +2,8 @@
 \label{struct_callable_visitor}\index{Callable\+Visitor$<$ Callable $>$@{Callable\+Visitor$<$ Callable $>$}}
 
 
-Inheritance diagram for Callable\+Visitor$<$ Callable $>$\+:\nopagebreak
+Inheritance diagram for Callable\+Visitor$<$ Callable $>$\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -11,7 +12,8 @@ Inheritance diagram for Callable\+Visitor$<$ Callable $>$\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for Callable\+Visitor$<$ Callable $>$\+:\nopagebreak
+Collaboration diagram for Callable\+Visitor$<$ Callable $>$\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -23,95 +25,95 @@ Collaboration diagram for Callable\+Visitor$<$ Callable $>$\+:\nopagebreak
 \item 
 \hyperlink{struct_callable_visitor_af9bd3a4132494b0c91dc4f7b46e5dd0e}{Callable\+Visitor} (Callable \hyperlink{struct_callable_visitor_a52ce52c399eb34a2a16abec3361e48b8}{callback})
 \item 
-{\footnotesize template$<$typename T $>$ }\\void \hyperlink{struct_callable_visitor_a3a87ffcad17dec5020d4302d536761bb}{apply} (const T $\ast$node)
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{struct_callable_visitor_a4ce6de39a481c39fd7eda7a317bef28a}{call} (const T \&node)
 \item 
-{\footnotesize template$<$typename T , typename... Args$>$ }\\void \hyperlink{struct_callable_visitor_a42c5d8c38a69bd7365df154e75352d68}{call\+\_\+and\+\_\+apply} (const T \&node, Args... args)
+void \hyperlink{struct_callable_visitor_ac435fdf6fcab885cf21f27364883c8ad}{operator()} (const \hyperlink{struct_this}{This} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_ac435fdf6fcab885cf21f27364883c8ad}{operator()} (const \hyperlink{structast_1_1_this}{This} \&node) override
+void \hyperlink{struct_callable_visitor_a83e70f05edc12de1717db28d2cd11cd5}{operator()} (const \hyperlink{struct_identifier}{Identifier} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_a83e70f05edc12de1717db28d2cd11cd5}{operator()} (const \hyperlink{structast_1_1_identifier}{Identifier} \&node) override
+void \hyperlink{struct_callable_visitor_a5bce06c30e25d3a5498bc699f6e61ecc}{operator()} (const \hyperlink{struct_null_literal}{Null\+Literal} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_a5bce06c30e25d3a5498bc699f6e61ecc}{operator()} (const \hyperlink{structast_1_1_null_literal}{Null\+Literal} \&node) override
+void \hyperlink{struct_callable_visitor_a76ea62da5cc85a9e301f68bb61d225c7}{operator()} (const \hyperlink{struct_boolean_literal}{Boolean\+Literal} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_a76ea62da5cc85a9e301f68bb61d225c7}{operator()} (const \hyperlink{structast_1_1_boolean_literal}{Boolean\+Literal} \&node) override
+void \hyperlink{struct_callable_visitor_a88418c625d814fd301125a640392fead}{operator()} (const \hyperlink{struct_numeric_literal}{Numeric\+Literal} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_a88418c625d814fd301125a640392fead}{operator()} (const \hyperlink{structast_1_1_numeric_literal}{Numeric\+Literal} \&node) override
+void \hyperlink{struct_callable_visitor_a9746653850696a2060b0c2eeff8eaa69}{operator()} (const \hyperlink{struct_string_literal}{String\+Literal} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_a9746653850696a2060b0c2eeff8eaa69}{operator()} (const \hyperlink{structast_1_1_string_literal}{String\+Literal} \&node) override
+void \hyperlink{struct_callable_visitor_ab3c41e1fb7ac9d411e3dc7c03c936851}{operator()} (const \hyperlink{struct_regular_expression_literal}{Regular\+Expression\+Literal} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_ab3c41e1fb7ac9d411e3dc7c03c936851}{operator()} (const \hyperlink{structast_1_1_regular_expression_literal}{Regular\+Expression\+Literal} \&node) override
+void \hyperlink{struct_callable_visitor_a01597431529a973c356ea13809ebc001}{operator()} (const \hyperlink{struct_array_literal}{Array\+Literal} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_a01597431529a973c356ea13809ebc001}{operator()} (const \hyperlink{structast_1_1_array_literal}{Array\+Literal} \&node) override
+void \hyperlink{struct_callable_visitor_ab3e67c6bb7d8332203e686d6aac59039}{operator()} (const \hyperlink{struct_object_literal}{Object\+Literal} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_ab3e67c6bb7d8332203e686d6aac59039}{operator()} (const \hyperlink{structast_1_1_object_literal}{Object\+Literal} \&node) override
+void \hyperlink{struct_callable_visitor_a59d72c70fe06b87dfe5fdd9d53469ef2}{operator()} (const \hyperlink{struct_member_expression}{Member\+Expression} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_a59d72c70fe06b87dfe5fdd9d53469ef2}{operator()} (const \hyperlink{structast_1_1_member_expression}{Member\+Expression} \&node) override
+void \hyperlink{struct_callable_visitor_a2f9386232d6c45a5a15faf2a711895cd}{operator()} (const \hyperlink{struct_new_expression}{New\+Expression} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_a2f9386232d6c45a5a15faf2a711895cd}{operator()} (const \hyperlink{structast_1_1_new_expression}{New\+Expression} \&node) override
+void \hyperlink{struct_callable_visitor_a1cddd42d479e93e1a7e9693726e18dd5}{operator()} (const \hyperlink{struct_call_expression}{Call\+Expression} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_a1cddd42d479e93e1a7e9693726e18dd5}{operator()} (const \hyperlink{structast_1_1_call_expression}{Call\+Expression} \&node) override
+void \hyperlink{struct_callable_visitor_abc81c2b2a4765ac791bf6cd73ca97b9a}{operator()} (const \hyperlink{struct_postfix_expression}{Postfix\+Expression} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_abc81c2b2a4765ac791bf6cd73ca97b9a}{operator()} (const \hyperlink{structast_1_1_postfix_expression}{Postfix\+Expression} \&node) override
+void \hyperlink{struct_callable_visitor_a97c38a0a06a6f9ab527546060b518639}{operator()} (const \hyperlink{struct_unary_expression}{Unary\+Expression} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_a97c38a0a06a6f9ab527546060b518639}{operator()} (const \hyperlink{structast_1_1_unary_expression}{Unary\+Expression} \&node) override
+void \hyperlink{struct_callable_visitor_ae926f418a357edc9dfebb0173b921029}{operator()} (const \hyperlink{struct_binary_expression}{Binary\+Expression} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_ae926f418a357edc9dfebb0173b921029}{operator()} (const \hyperlink{structast_1_1_binary_expression}{Binary\+Expression} \&node) override
+void \hyperlink{struct_callable_visitor_a239782df486cd64db0434955f114cb43}{operator()} (const \hyperlink{struct_conditional_expression}{Conditional\+Expression} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_a239782df486cd64db0434955f114cb43}{operator()} (const \hyperlink{structast_1_1_conditional_expression}{Conditional\+Expression} \&node) override
+void \hyperlink{struct_callable_visitor_ae27a0a08ee7eaa1956bd9e43da01ee4f}{operator()} (const \hyperlink{struct_function_expression}{Function\+Expression} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_ae27a0a08ee7eaa1956bd9e43da01ee4f}{operator()} (const \hyperlink{structast_1_1_function_expression}{Function\+Expression} \&node) override
+void \hyperlink{struct_callable_visitor_a4ad3a74aae8cb9f1b4a8deb6d5738ccc}{operator()} (const \hyperlink{struct_block}{Block} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_a4ad3a74aae8cb9f1b4a8deb6d5738ccc}{operator()} (const \hyperlink{structast_1_1_block}{Block} \&node) override
+void \hyperlink{struct_callable_visitor_a953a21e9aab73b9104355c2d04b3f79d}{operator()} (const \hyperlink{struct_variable_statement}{Variable\+Statement} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_a953a21e9aab73b9104355c2d04b3f79d}{operator()} (const \hyperlink{structast_1_1_variable_statement}{Variable\+Statement} \&node) override
+void \hyperlink{struct_callable_visitor_a71422a8c5db1c1f6e73dd76638a2a47b}{operator()} (const \hyperlink{struct_empty_statement}{Empty\+Statement} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_a71422a8c5db1c1f6e73dd76638a2a47b}{operator()} (const \hyperlink{structast_1_1_empty_statement}{Empty\+Statement} \&node) override
+void \hyperlink{struct_callable_visitor_ae09660080883ac12939e8b9581113e9c}{operator()} (const \hyperlink{struct_expression_statement}{Expression\+Statement} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_ae09660080883ac12939e8b9581113e9c}{operator()} (const \hyperlink{structast_1_1_expression_statement}{Expression\+Statement} \&node) override
+void \hyperlink{struct_callable_visitor_a5aaa91de3ead2c42bed03df3fa0de990}{operator()} (const \hyperlink{struct_if_statement}{If\+Statement} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_a5aaa91de3ead2c42bed03df3fa0de990}{operator()} (const \hyperlink{structast_1_1_if_statement}{If\+Statement} \&node) override
+void \hyperlink{struct_callable_visitor_a02bd47f3f8baf9ba24530d4622dc137d}{operator()} (const \hyperlink{struct_do_while_statement}{Do\+While\+Statement} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_a02bd47f3f8baf9ba24530d4622dc137d}{operator()} (const \hyperlink{structast_1_1_do_while_statement}{Do\+While\+Statement} \&node) override
+void \hyperlink{struct_callable_visitor_adffa6fa6621caae9474604fafb91fdfd}{operator()} (const \hyperlink{struct_while_statement}{While\+Statement} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_adffa6fa6621caae9474604fafb91fdfd}{operator()} (const \hyperlink{structast_1_1_while_statement}{While\+Statement} \&node) override
+void \hyperlink{struct_callable_visitor_a78b5cf2f0db8eb174097f4fcc8618b75}{operator()} (const \hyperlink{struct_for_statement}{For\+Statement} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_a78b5cf2f0db8eb174097f4fcc8618b75}{operator()} (const \hyperlink{structast_1_1_for_statement}{For\+Statement} \&node) override
+void \hyperlink{struct_callable_visitor_a45b8579f057d5566ad016f667cf2c068}{operator()} (const \hyperlink{struct_for_in_statement}{For\+In\+Statement} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_a45b8579f057d5566ad016f667cf2c068}{operator()} (const \hyperlink{structast_1_1_for_in_statement}{For\+In\+Statement} \&node) override
+void \hyperlink{struct_callable_visitor_a15e41131b34e8d1a54b3af9719287248}{operator()} (const \hyperlink{struct_continue_statement}{Continue\+Statement} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_a15e41131b34e8d1a54b3af9719287248}{operator()} (const \hyperlink{structast_1_1_continue_statement}{Continue\+Statement} \&node) override
+void \hyperlink{struct_callable_visitor_a3281651a229ad1e156aba9216bb64cec}{operator()} (const \hyperlink{struct_break_statement}{Break\+Statement} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_a3281651a229ad1e156aba9216bb64cec}{operator()} (const \hyperlink{structast_1_1_break_statement}{Break\+Statement} \&node) override
+void \hyperlink{struct_callable_visitor_aebfd735e24e1161b3414d1bd5ad31cd5}{operator()} (const \hyperlink{struct_return_statement}{Return\+Statement} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_aebfd735e24e1161b3414d1bd5ad31cd5}{operator()} (const \hyperlink{structast_1_1_return_statement}{Return\+Statement} \&node) override
+void \hyperlink{struct_callable_visitor_a08a6aec153b2e3b25b53642a6b9c7aab}{operator()} (const \hyperlink{struct_with_statement}{With\+Statement} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_a08a6aec153b2e3b25b53642a6b9c7aab}{operator()} (const \hyperlink{structast_1_1_with_statement}{With\+Statement} \&node) override
+void \hyperlink{struct_callable_visitor_a75929176e0ea51e67f01ed53d53bfa18}{operator()} (const \hyperlink{struct_labelled_statement}{Labelled\+Statement} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_a75929176e0ea51e67f01ed53d53bfa18}{operator()} (const \hyperlink{structast_1_1_labelled_statement}{Labelled\+Statement} \&node) override
+void \hyperlink{struct_callable_visitor_a22380f6060601822b4c2f316d32c20a5}{operator()} (const \hyperlink{struct_switch_statement}{Switch\+Statement} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_a22380f6060601822b4c2f316d32c20a5}{operator()} (const \hyperlink{structast_1_1_switch_statement}{Switch\+Statement} \&node) override
+void \hyperlink{struct_callable_visitor_af7d629f3f0fa66e3e8e38bd76c6cc729}{operator()} (const \hyperlink{struct_throw_statement}{Throw\+Statement} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_af7d629f3f0fa66e3e8e38bd76c6cc729}{operator()} (const \hyperlink{structast_1_1_throw_statement}{Throw\+Statement} \&node) override
+void \hyperlink{struct_callable_visitor_ae06c85aae9971525a8b880c5a398c8e3}{operator()} (const \hyperlink{struct_try_statement}{Try\+Statement} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_ae06c85aae9971525a8b880c5a398c8e3}{operator()} (const \hyperlink{structast_1_1_try_statement}{Try\+Statement} \&node) override
+void \hyperlink{struct_callable_visitor_a5e2b63226fc91e23d9e59ec1ad4914c6}{operator()} (const \hyperlink{struct_debugger_statement}{Debugger\+Statement} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_a5e2b63226fc91e23d9e59ec1ad4914c6}{operator()} (const \hyperlink{structast_1_1_debugger_statement}{Debugger\+Statement} \&node) override
+void \hyperlink{struct_callable_visitor_a61efb29b38c0b4a1a46e392f1133013c}{operator()} (const \hyperlink{struct_case_clause}{Case\+Clause} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_a61efb29b38c0b4a1a46e392f1133013c}{operator()} (const \hyperlink{structast_1_1_case_clause}{Case\+Clause} \&node) override
+void \hyperlink{struct_callable_visitor_ace58d18d6b2e0d27489b365db59e31ae}{operator()} (const \hyperlink{struct_default_clause}{Default\+Clause} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_ace58d18d6b2e0d27489b365db59e31ae}{operator()} (const \hyperlink{structast_1_1_default_clause}{Default\+Clause} \&node) override
+void \hyperlink{struct_callable_visitor_a7d3ebcc10e02e0c9698170d957241846}{operator()} (const \hyperlink{struct_function_declaration}{Function\+Declaration} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_a7d3ebcc10e02e0c9698170d957241846}{operator()} (const \hyperlink{structast_1_1_function_declaration}{Function\+Declaration} \&node) override
+void \hyperlink{struct_callable_visitor_a81403b11d510563427191958e7a04d0b}{operator()} (const \hyperlink{struct_variable_declaration}{Variable\+Declaration} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_a81403b11d510563427191958e7a04d0b}{operator()} (const \hyperlink{structast_1_1_variable_declaration}{Variable\+Declaration} \&node) override
+void \hyperlink{struct_callable_visitor_a72a62905dbd6c37719ab422462d7b8f5}{operator()} (const \hyperlink{struct_elision}{Elision} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_a72a62905dbd6c37719ab422462d7b8f5}{operator()} (const \hyperlink{structast_1_1_elision}{Elision} \&node) override
+void \hyperlink{struct_callable_visitor_a2034a4d5531273c87f3fefbec8db6970}{operator()} (const \hyperlink{struct_property_name}{Property\+Name} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_a2034a4d5531273c87f3fefbec8db6970}{operator()} (const \hyperlink{structast_1_1_property_name}{Property\+Name} \&node) override
+void \hyperlink{struct_callable_visitor_aa88ba8cf86d84ccbc23c995ecf87bea8}{operator()} (const \hyperlink{struct_property_assignment}{Property\+Assignment} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_aa88ba8cf86d84ccbc23c995ecf87bea8}{operator()} (const \hyperlink{structast_1_1_property_assignment}{Property\+Assignment} \&node) override
+void \hyperlink{struct_callable_visitor_aa70a97d5a44ecc30aac8fb97c12cabb6}{operator()} (const \hyperlink{struct_arguments}{Arguments} \&node) override
 \item 
-void \hyperlink{struct_callable_visitor_aa70a97d5a44ecc30aac8fb97c12cabb6}{operator()} (const \hyperlink{structast_1_1_arguments}{Arguments} \&node) override
+void \hyperlink{struct_callable_visitor_a37e48e9df8cb4cff6bc135e7402a7244}{operator()} (const \hyperlink{struct_program}{Program} \&node) override
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -131,494 +133,497 @@ Callable \hyperlink{struct_callable_visitor_a52ce52c399eb34a2a16abec3361e48b8}{c
 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{struct_callable_visitor_a3a87ffcad17dec5020d4302d536761bb}\label{struct_callable_visitor_a3a87ffcad17dec5020d4302d536761bb}} 
-\index{Callable\+Visitor@{Callable\+Visitor}!apply@{apply}}
-\index{apply@{apply}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{apply()}{apply()}}
+\mbox{\Hypertarget{struct_callable_visitor_a4ce6de39a481c39fd7eda7a317bef28a}\label{struct_callable_visitor_a4ce6de39a481c39fd7eda7a317bef28a}} 
+\index{Callable\+Visitor@{Callable\+Visitor}!call@{call}}
+\index{call@{call}!Callable\+Visitor@{Callable\+Visitor}}
+\subsubsection{\texorpdfstring{call()}{call()}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
 template$<$typename T $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::apply (\begin{DoxyParamCaption}\item[{const T $\ast$}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-\mbox{\Hypertarget{struct_callable_visitor_a42c5d8c38a69bd7365df154e75352d68}\label{struct_callable_visitor_a42c5d8c38a69bd7365df154e75352d68}} 
-\index{Callable\+Visitor@{Callable\+Visitor}!call\+\_\+and\+\_\+apply@{call\+\_\+and\+\_\+apply}}
-\index{call\+\_\+and\+\_\+apply@{call\+\_\+and\+\_\+apply}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{call\+\_\+and\+\_\+apply()}{call\_and\_apply()}}
-{\footnotesize\ttfamily template$<$typename Callable $>$ \\
-template$<$typename T , typename... Args$>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::call\+\_\+and\+\_\+apply (\begin{DoxyParamCaption}\item[{const T \&}]{node,  }\item[{Args...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::call (\begin{DoxyParamCaption}\item[{const T \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 \mbox{\Hypertarget{struct_callable_visitor_ac435fdf6fcab885cf21f27364883c8ad}\label{struct_callable_visitor_ac435fdf6fcab885cf21f27364883c8ad}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [1/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [1/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_this}{This} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_this}{This} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_a1a830145fdaf0d8fc5edf41e397edc9b}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_a7a043c9da4e7f8233db48afb82dbc7bc}{Visitor}.
 
 \mbox{\Hypertarget{struct_callable_visitor_a83e70f05edc12de1717db28d2cd11cd5}\label{struct_callable_visitor_a83e70f05edc12de1717db28d2cd11cd5}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [2/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [2/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_identifier}{Identifier} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_identifier}{Identifier} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_ad1372b7807cc1bdaf7d697a7ea716a5b}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_a2d09687aa24b1b618c6205f8413c2dd3}{Visitor}.
 
 \mbox{\Hypertarget{struct_callable_visitor_a5bce06c30e25d3a5498bc699f6e61ecc}\label{struct_callable_visitor_a5bce06c30e25d3a5498bc699f6e61ecc}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [3/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [3/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_null_literal}{Null\+Literal} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_null_literal}{Null\+Literal} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_aa37bac4fca4c624aa2491bfaa61fdd1b}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_a2278ee24407bdc0d3addf887754d4c6c}{Visitor}.
 
 \mbox{\Hypertarget{struct_callable_visitor_a76ea62da5cc85a9e301f68bb61d225c7}\label{struct_callable_visitor_a76ea62da5cc85a9e301f68bb61d225c7}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [4/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [4/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_boolean_literal}{Boolean\+Literal} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_boolean_literal}{Boolean\+Literal} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_a972ca7fe82a7db9f414a0f1077c28c98}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_af3b394eaf1b9b1db22379aedcb234a2f}{Visitor}.
 
 \mbox{\Hypertarget{struct_callable_visitor_a88418c625d814fd301125a640392fead}\label{struct_callable_visitor_a88418c625d814fd301125a640392fead}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [5/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [5/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_numeric_literal}{Numeric\+Literal} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_numeric_literal}{Numeric\+Literal} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_ac2a7315c6c24a9b8ca4f9710b7d2a147}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_a6d707fe0c1563b39aae3ecd7ddb5ab8f}{Visitor}.
 
 \mbox{\Hypertarget{struct_callable_visitor_a9746653850696a2060b0c2eeff8eaa69}\label{struct_callable_visitor_a9746653850696a2060b0c2eeff8eaa69}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [6/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [6/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_string_literal}{String\+Literal} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_string_literal}{String\+Literal} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_a076a577c22acd9932a8a6ff7e943c3ea}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_a6bab8ba66edf0cc73cb92073269e7848}{Visitor}.
 
 \mbox{\Hypertarget{struct_callable_visitor_ab3c41e1fb7ac9d411e3dc7c03c936851}\label{struct_callable_visitor_ab3c41e1fb7ac9d411e3dc7c03c936851}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [7/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [7/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_regular_expression_literal}{Regular\+Expression\+Literal} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_regular_expression_literal}{Regular\+Expression\+Literal} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_a108c87a2e0c3ce02b240f4b44f29e4da}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_aea90f9399628f301f8c25a62ce268097}{Visitor}.
 
 \mbox{\Hypertarget{struct_callable_visitor_a01597431529a973c356ea13809ebc001}\label{struct_callable_visitor_a01597431529a973c356ea13809ebc001}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [8/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [8/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_array_literal}{Array\+Literal} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_array_literal}{Array\+Literal} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_a7f4f8a617d579f2bf5ba6a90af5c633f}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_a46f9846468f2c12ddc585cfe0421e6f0}{Visitor}.
 
 \mbox{\Hypertarget{struct_callable_visitor_ab3e67c6bb7d8332203e686d6aac59039}\label{struct_callable_visitor_ab3e67c6bb7d8332203e686d6aac59039}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [9/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [9/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_object_literal}{Object\+Literal} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_object_literal}{Object\+Literal} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_a085aff35767efc46f316028fbe4ec0de}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_ad85d9aa9718801a1a8233cf51d8f7055}{Visitor}.
 
 \mbox{\Hypertarget{struct_callable_visitor_a59d72c70fe06b87dfe5fdd9d53469ef2}\label{struct_callable_visitor_a59d72c70fe06b87dfe5fdd9d53469ef2}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [10/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [10/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_member_expression}{Member\+Expression} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_member_expression}{Member\+Expression} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_a759a1d5ba4258c46dab848a198b03295}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_a175fd29619240cc378703de4c357f348}{Visitor}.
 
 \mbox{\Hypertarget{struct_callable_visitor_a2f9386232d6c45a5a15faf2a711895cd}\label{struct_callable_visitor_a2f9386232d6c45a5a15faf2a711895cd}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [11/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [11/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_new_expression}{New\+Expression} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_new_expression}{New\+Expression} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_a039e3f2d770d94a22721954f04b5b14a}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_a13ead8d5ef82f284e301ba8127e9fb56}{Visitor}.
 
 \mbox{\Hypertarget{struct_callable_visitor_a1cddd42d479e93e1a7e9693726e18dd5}\label{struct_callable_visitor_a1cddd42d479e93e1a7e9693726e18dd5}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [12/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [12/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_call_expression}{Call\+Expression} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_call_expression}{Call\+Expression} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_af2f183fc759d390ec89bdb63e83ea5f4}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_aa6152c6f355690fd1c4db37fff303614}{Visitor}.
 
 \mbox{\Hypertarget{struct_callable_visitor_abc81c2b2a4765ac791bf6cd73ca97b9a}\label{struct_callable_visitor_abc81c2b2a4765ac791bf6cd73ca97b9a}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [13/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [13/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_postfix_expression}{Postfix\+Expression} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_postfix_expression}{Postfix\+Expression} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_ab6cdff74b8ff070c52cc54576366f2e2}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_acd630c29940c6785726ce51c7db0aab9}{Visitor}.
 
 \mbox{\Hypertarget{struct_callable_visitor_a97c38a0a06a6f9ab527546060b518639}\label{struct_callable_visitor_a97c38a0a06a6f9ab527546060b518639}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [14/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [14/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_unary_expression}{Unary\+Expression} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_unary_expression}{Unary\+Expression} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_a03a96c54ce87df9aee891127c1d5c224}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_ad2e06814dadca4469f4036ba9a00afd7}{Visitor}.
 
 \mbox{\Hypertarget{struct_callable_visitor_ae926f418a357edc9dfebb0173b921029}\label{struct_callable_visitor_ae926f418a357edc9dfebb0173b921029}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [15/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [15/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_binary_expression}{Binary\+Expression} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_binary_expression}{Binary\+Expression} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_acbb550d612a89a7a972d55612007ff06}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_a6132b5969ec220e7c98af3a957f48a0e}{Visitor}.
 
 \mbox{\Hypertarget{struct_callable_visitor_a239782df486cd64db0434955f114cb43}\label{struct_callable_visitor_a239782df486cd64db0434955f114cb43}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [16/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [16/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_conditional_expression}{Conditional\+Expression} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_conditional_expression}{Conditional\+Expression} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_a7e5f238fa18438f867b217344e99fad6}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_a132fc5e3ff45efb2869272fbe5d5f815}{Visitor}.
 
 \mbox{\Hypertarget{struct_callable_visitor_ae27a0a08ee7eaa1956bd9e43da01ee4f}\label{struct_callable_visitor_ae27a0a08ee7eaa1956bd9e43da01ee4f}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [17/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [17/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_function_expression}{Function\+Expression} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_function_expression}{Function\+Expression} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_aafbff9e6efd765ff7d9c27b4379eccfb}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_a3f6eb67942d7e2c83a761de2bd66a60a}{Visitor}.
 
 \mbox{\Hypertarget{struct_callable_visitor_a4ad3a74aae8cb9f1b4a8deb6d5738ccc}\label{struct_callable_visitor_a4ad3a74aae8cb9f1b4a8deb6d5738ccc}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [18/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [18/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_block}{Block} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_block}{Block} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_a8e298310514ce2f7a097375211b9d5d1}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_a3a26b45c1ab418661f992d97ed9ec9f0}{Visitor}.
 
 \mbox{\Hypertarget{struct_callable_visitor_a953a21e9aab73b9104355c2d04b3f79d}\label{struct_callable_visitor_a953a21e9aab73b9104355c2d04b3f79d}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [19/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [19/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_variable_statement}{Variable\+Statement} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_variable_statement}{Variable\+Statement} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_a376a191179fde4c78f79ad92ad400b8a}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_accbed2e228126d93b162df7bb44bb3c8}{Visitor}.
 
 \mbox{\Hypertarget{struct_callable_visitor_a71422a8c5db1c1f6e73dd76638a2a47b}\label{struct_callable_visitor_a71422a8c5db1c1f6e73dd76638a2a47b}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [20/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [20/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_empty_statement}{Empty\+Statement} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_empty_statement}{Empty\+Statement} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_a54a92adfd8ce6ebda7b9a83a9b0ca67f}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_a67719a8d9005a86141e4cb9226c11ca4}{Visitor}.
 
 \mbox{\Hypertarget{struct_callable_visitor_ae09660080883ac12939e8b9581113e9c}\label{struct_callable_visitor_ae09660080883ac12939e8b9581113e9c}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [21/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [21/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_expression_statement}{Expression\+Statement} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_expression_statement}{Expression\+Statement} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_a387c7f00e658d64ea8e243b2520205bd}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_a319554fbb3f24e664a86ef7839201040}{Visitor}.
 
 \mbox{\Hypertarget{struct_callable_visitor_a5aaa91de3ead2c42bed03df3fa0de990}\label{struct_callable_visitor_a5aaa91de3ead2c42bed03df3fa0de990}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [22/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [22/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_if_statement}{If\+Statement} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_if_statement}{If\+Statement} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_a3d828aae86bc6fb6a489c9995ae10a4b}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_a9d30bc5ad73a274f7533df4b5a65ae41}{Visitor}.
 
 \mbox{\Hypertarget{struct_callable_visitor_a02bd47f3f8baf9ba24530d4622dc137d}\label{struct_callable_visitor_a02bd47f3f8baf9ba24530d4622dc137d}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [23/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [23/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_do_while_statement}{Do\+While\+Statement} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_do_while_statement}{Do\+While\+Statement} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_a5968f66f615e62df8de1b2834b85a3c5}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_a077a0025430c4b35d310bdfcbe1b180a}{Visitor}.
 
 \mbox{\Hypertarget{struct_callable_visitor_adffa6fa6621caae9474604fafb91fdfd}\label{struct_callable_visitor_adffa6fa6621caae9474604fafb91fdfd}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [24/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [24/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_while_statement}{While\+Statement} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_while_statement}{While\+Statement} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_a6f641bd085be60607cdc9f81be46e94e}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_a4faef50c61a3c1246589390d925c2f53}{Visitor}.
 
 \mbox{\Hypertarget{struct_callable_visitor_a78b5cf2f0db8eb174097f4fcc8618b75}\label{struct_callable_visitor_a78b5cf2f0db8eb174097f4fcc8618b75}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [25/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [25/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_for_statement}{For\+Statement} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_for_statement}{For\+Statement} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_a514528028b44789d1c46e5a0ca072482}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_a75180858faf5152f99742e4a19757928}{Visitor}.
 
 \mbox{\Hypertarget{struct_callable_visitor_a45b8579f057d5566ad016f667cf2c068}\label{struct_callable_visitor_a45b8579f057d5566ad016f667cf2c068}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [26/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [26/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_for_in_statement}{For\+In\+Statement} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_for_in_statement}{For\+In\+Statement} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_acdeb6ea294239c4cf0fb8315f56e6654}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_af1c6c55ccfae8b2741e12168d81c45cb}{Visitor}.
 
 \mbox{\Hypertarget{struct_callable_visitor_a15e41131b34e8d1a54b3af9719287248}\label{struct_callable_visitor_a15e41131b34e8d1a54b3af9719287248}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [27/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [27/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_continue_statement}{Continue\+Statement} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_continue_statement}{Continue\+Statement} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_a9f3cc6cc3a84f80fb7b45a364cfc47d3}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_aca30136319d28baf708663a1d823af3a}{Visitor}.
 
 \mbox{\Hypertarget{struct_callable_visitor_a3281651a229ad1e156aba9216bb64cec}\label{struct_callable_visitor_a3281651a229ad1e156aba9216bb64cec}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [28/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [28/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_break_statement}{Break\+Statement} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_break_statement}{Break\+Statement} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_a499cf171502ada0a04d80df89658fb86}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_a19997436906171d41bec562d9cf260ef}{Visitor}.
 
 \mbox{\Hypertarget{struct_callable_visitor_aebfd735e24e1161b3414d1bd5ad31cd5}\label{struct_callable_visitor_aebfd735e24e1161b3414d1bd5ad31cd5}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [29/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [29/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_return_statement}{Return\+Statement} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_return_statement}{Return\+Statement} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_a46efbfdf86d3d36bc88eda05b5284e45}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_a041431785a00f9f387c7bc670b3ac660}{Visitor}.
 
 \mbox{\Hypertarget{struct_callable_visitor_a08a6aec153b2e3b25b53642a6b9c7aab}\label{struct_callable_visitor_a08a6aec153b2e3b25b53642a6b9c7aab}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [30/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [30/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_with_statement}{With\+Statement} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_with_statement}{With\+Statement} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_afcb8b75eb1322e469d948a7babb5195a}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_a16b17bbc1c01ed7ce1a0153b5c4c43a6}{Visitor}.
 
 \mbox{\Hypertarget{struct_callable_visitor_a75929176e0ea51e67f01ed53d53bfa18}\label{struct_callable_visitor_a75929176e0ea51e67f01ed53d53bfa18}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [31/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [31/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_labelled_statement}{Labelled\+Statement} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_labelled_statement}{Labelled\+Statement} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_a642960b6d6941200c4e1efb9ef1425c4}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_aea8fafb476b979172cc8a76ae511caff}{Visitor}.
 
 \mbox{\Hypertarget{struct_callable_visitor_a22380f6060601822b4c2f316d32c20a5}\label{struct_callable_visitor_a22380f6060601822b4c2f316d32c20a5}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [32/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [32/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_switch_statement}{Switch\+Statement} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_switch_statement}{Switch\+Statement} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_ac3974f9cab1df7051549833c94ea4900}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_aadc852469aa4f7da11cc9f88084c63a8}{Visitor}.
 
 \mbox{\Hypertarget{struct_callable_visitor_af7d629f3f0fa66e3e8e38bd76c6cc729}\label{struct_callable_visitor_af7d629f3f0fa66e3e8e38bd76c6cc729}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [33/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [33/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_throw_statement}{Throw\+Statement} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_throw_statement}{Throw\+Statement} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_ab9ad6ba9ddd7634211b8850d6adcbae3}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_a806a67e34e7866e3af078b3c2b421a24}{Visitor}.
 
 \mbox{\Hypertarget{struct_callable_visitor_ae06c85aae9971525a8b880c5a398c8e3}\label{struct_callable_visitor_ae06c85aae9971525a8b880c5a398c8e3}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [34/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [34/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_try_statement}{Try\+Statement} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_try_statement}{Try\+Statement} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_a371172316d8785960396f7c425c079fa}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_af65bd8aa26745dea293f06d553d4f46f}{Visitor}.
 
 \mbox{\Hypertarget{struct_callable_visitor_a5e2b63226fc91e23d9e59ec1ad4914c6}\label{struct_callable_visitor_a5e2b63226fc91e23d9e59ec1ad4914c6}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [35/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [35/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_debugger_statement}{Debugger\+Statement} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_debugger_statement}{Debugger\+Statement} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_a6763b2cba87190ba1eb5e281a02390a8}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_a7e091bee5a2d416aef22f9b1abd8c7ee}{Visitor}.
 
 \mbox{\Hypertarget{struct_callable_visitor_a61efb29b38c0b4a1a46e392f1133013c}\label{struct_callable_visitor_a61efb29b38c0b4a1a46e392f1133013c}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [36/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [36/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_case_clause}{Case\+Clause} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_case_clause}{Case\+Clause} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_ac186e6d2b81b0c3237681f9c7b1453a3}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_acf85f394ddde782f9c08103055716d53}{Visitor}.
 
 \mbox{\Hypertarget{struct_callable_visitor_ace58d18d6b2e0d27489b365db59e31ae}\label{struct_callable_visitor_ace58d18d6b2e0d27489b365db59e31ae}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [37/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [37/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_default_clause}{Default\+Clause} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_default_clause}{Default\+Clause} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_a0daffd46d90c5651f92ece2986413504}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_adf82a6bdb4aad978d8ac6a3878a0d400}{Visitor}.
 
 \mbox{\Hypertarget{struct_callable_visitor_a7d3ebcc10e02e0c9698170d957241846}\label{struct_callable_visitor_a7d3ebcc10e02e0c9698170d957241846}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [38/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [38/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_function_declaration}{Function\+Declaration} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_function_declaration}{Function\+Declaration} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_a03209128dc9cb5b49895591361e48c51}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_aa4450ebee6fecf69499279c0768282f1}{Visitor}.
 
 \mbox{\Hypertarget{struct_callable_visitor_a81403b11d510563427191958e7a04d0b}\label{struct_callable_visitor_a81403b11d510563427191958e7a04d0b}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [39/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [39/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_variable_declaration}{Variable\+Declaration} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_variable_declaration}{Variable\+Declaration} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_ad5cd6d2b05323c913de1d953d876a485}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_a31c2d34895501d90193ec523c8acde05}{Visitor}.
 
 \mbox{\Hypertarget{struct_callable_visitor_a72a62905dbd6c37719ab422462d7b8f5}\label{struct_callable_visitor_a72a62905dbd6c37719ab422462d7b8f5}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [40/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [40/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_elision}{Elision} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_elision}{Elision} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_aabbc031f1f2593d5054fddf94a32c4ff}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_a87450ddc80e1522e8ef06cc7c168bad4}{Visitor}.
 
 \mbox{\Hypertarget{struct_callable_visitor_a2034a4d5531273c87f3fefbec8db6970}\label{struct_callable_visitor_a2034a4d5531273c87f3fefbec8db6970}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [41/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [41/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_property_name}{Property\+Name} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_property_name}{Property\+Name} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_a88d5ae16499478532e9e0249373a8cc4}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_a51d8b1d3dafa5d6a7d878673a2c4f9a8}{Visitor}.
 
 \mbox{\Hypertarget{struct_callable_visitor_aa88ba8cf86d84ccbc23c995ecf87bea8}\label{struct_callable_visitor_aa88ba8cf86d84ccbc23c995ecf87bea8}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [42/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [42/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_property_assignment}{Property\+Assignment} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_property_assignment}{Property\+Assignment} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_aa8c11e082a0099f7f558b9957378997b}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_a698c9aa4b47188061f156fe58c148d55}{Visitor}.
 
 \mbox{\Hypertarget{struct_callable_visitor_aa70a97d5a44ecc30aac8fb97c12cabb6}\label{struct_callable_visitor_aa70a97d5a44ecc30aac8fb97c12cabb6}} 
 \index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
 \index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
-\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [43/43]}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [43/44]}}
 {\footnotesize\ttfamily template$<$typename Callable $>$ \\
-void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_arguments}{Arguments} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_arguments}{Arguments} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \hyperlink{structast_1_1_visitor_ae1bb70b6440910706372359ac6706283}{ast\+::\+Visitor}.
+Implements \hyperlink{struct_visitor_a73daac2b555cca03beaf9da73bf540c7}{Visitor}.
+
+\mbox{\Hypertarget{struct_callable_visitor_a37e48e9df8cb4cff6bc135e7402a7244}\label{struct_callable_visitor_a37e48e9df8cb4cff6bc135e7402a7244}} 
+\index{Callable\+Visitor@{Callable\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Callable\+Visitor@{Callable\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [44/44]}}
+{\footnotesize\ttfamily template$<$typename Callable $>$ \\
+void \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$ Callable $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_program}{Program} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_a768e64f6e6fffb7440e3c1f1a78d9481}{Visitor}.
 
 
 

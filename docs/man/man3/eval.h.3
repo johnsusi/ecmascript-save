@@ -1,4 +1,4 @@
-.TH "src/eval.h" 3 "Sun Apr 30 2017" "ECMAScript" \" -*- nroff -*-
+.TH "src/eval.h" 3 "Tue May 2 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -8,22 +8,24 @@ src/eval.h
 .PP
 \fC#include 'ast\&.h'\fP
 .br
+\fC#include <string>\fP
+.br
 
 .SS "Functions"
 
 .in +1c
 .ti -1c
-.RI "\fBast::Program\fP \fBeval\fP (const \fBstd::string\fP &)"
+.RI "\fBProgram\fP \fBeval\fP (const \fBstd::string\fP &)"
 .br
 .ti -1c
-.RI "\fBast::Program\fP \fBeval\fP (const \fBstd::u16string\fP &)"
+.RI "\fBProgram\fP \fBeval\fP (const \fBstd::u16string\fP &)"
 .br
 .in -1c
 .SH "Function Documentation"
 .PP 
-.SS "\fBast::Program\fP eval (const \fBstd::string\fP &)"
+.SS "\fBProgram\fP eval (const \fBstd::string\fP &)"
 
-.SS "\fBast::Program\fP eval (const \fBstd::u16string\fP &)"
+.SS "\fBProgram\fP eval (const \fBstd::u16string\fP &)"
 
 .SH "Author"
 .PP 

@@ -6,34 +6,74 @@
 
 
 
-Collaboration diagram for New\+Expression\+:\nopagebreak
+Inheritance diagram for New\+Expression\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=209pt]{struct_new_expression__coll__graph}
+\includegraphics[width=165pt]{struct_new_expression__inherit__graph}
 \end{center}
 \end{figure}
+
+
+Collaboration diagram for New\+Expression\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{struct_new_expression__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_new_expression_a8a97ab4337fec49be339e232c1992fcb}{New\+Expression} (\hyperlink{struct_expression}{Expression} $\ast$\hyperlink{struct_new_expression_aa56c9b8daa3725a54fdb2b8fce63d237}{callee}, \hyperlink{struct_arguments}{Arguments} $\ast$\hyperlink{struct_new_expression_a4d43c4128966ccb728f92a0204d04eaa}{arguments}=nullptr)
+\item 
+void \hyperlink{struct_new_expression_a02f3b4798c1351cee31f27d0cbf6346f}{accept} (\hyperlink{struct_visitor}{Visitor} \&visitor) const override
+\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{ast_8h_a4cb273a4d960cd13ea17d08f254493e8}{Expression} \hyperlink{struct_new_expression_a4079a15c0800a41cffcf5e408578d2a0}{callee}
+\hyperlink{struct_expression}{Expression} $\ast$ \hyperlink{struct_new_expression_aa56c9b8daa3725a54fdb2b8fce63d237}{callee}
 \item 
-\hyperlink{struct_arguments}{Arguments} \hyperlink{struct_new_expression_aaa8f24c1528ce8900e4aabca7a95f3b6}{arguments}
+\hyperlink{struct_arguments}{Arguments} $\ast$ \hyperlink{struct_new_expression_a4d43c4128966ccb728f92a0204d04eaa}{arguments}
 \end{DoxyCompactItemize}
 
 
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_new_expression_a8a97ab4337fec49be339e232c1992fcb}\label{struct_new_expression_a8a97ab4337fec49be339e232c1992fcb}} 
+\index{New\+Expression@{New\+Expression}!New\+Expression@{New\+Expression}}
+\index{New\+Expression@{New\+Expression}!New\+Expression@{New\+Expression}}
+\subsubsection{\texorpdfstring{New\+Expression()}{NewExpression()}}
+{\footnotesize\ttfamily New\+Expression\+::\+New\+Expression (\begin{DoxyParamCaption}\item[{\hyperlink{struct_expression}{Expression} $\ast$}]{callee,  }\item[{\hyperlink{struct_arguments}{Arguments} $\ast$}]{arguments = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_new_expression_a02f3b4798c1351cee31f27d0cbf6346f}\label{struct_new_expression_a02f3b4798c1351cee31f27d0cbf6346f}} 
+\index{New\+Expression@{New\+Expression}!accept@{accept}}
+\index{accept@{accept}!New\+Expression@{New\+Expression}}
+\subsubsection{\texorpdfstring{accept()}{accept()}}
+{\footnotesize\ttfamily void New\+Expression\+::accept (\begin{DoxyParamCaption}\item[{\hyperlink{struct_visitor}{Visitor} \&}]{visitor }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_node_a10bd7af968140bbf5fa461298a969c71}{Node}.
+
+
+
 \subsection{Member Data Documentation}
-\mbox{\Hypertarget{struct_new_expression_aaa8f24c1528ce8900e4aabca7a95f3b6}\label{struct_new_expression_aaa8f24c1528ce8900e4aabca7a95f3b6}} 
+\mbox{\Hypertarget{struct_new_expression_a4d43c4128966ccb728f92a0204d04eaa}\label{struct_new_expression_a4d43c4128966ccb728f92a0204d04eaa}} 
 \index{New\+Expression@{New\+Expression}!arguments@{arguments}}
 \index{arguments@{arguments}!New\+Expression@{New\+Expression}}
 \subsubsection{\texorpdfstring{arguments}{arguments}}
-{\footnotesize\ttfamily \hyperlink{struct_arguments}{Arguments} New\+Expression\+::arguments}
+{\footnotesize\ttfamily \hyperlink{struct_arguments}{Arguments}$\ast$ New\+Expression\+::arguments}
 
-\mbox{\Hypertarget{struct_new_expression_a4079a15c0800a41cffcf5e408578d2a0}\label{struct_new_expression_a4079a15c0800a41cffcf5e408578d2a0}} 
+\mbox{\Hypertarget{struct_new_expression_aa56c9b8daa3725a54fdb2b8fce63d237}\label{struct_new_expression_aa56c9b8daa3725a54fdb2b8fce63d237}} 
 \index{New\+Expression@{New\+Expression}!callee@{callee}}
 \index{callee@{callee}!New\+Expression@{New\+Expression}}
 \subsubsection{\texorpdfstring{callee}{callee}}
-{\footnotesize\ttfamily \hyperlink{ast_8h_a4cb273a4d960cd13ea17d08f254493e8}{Expression} New\+Expression\+::callee}
+{\footnotesize\ttfamily \hyperlink{struct_expression}{Expression}$\ast$ New\+Expression\+::callee}
 
 
 

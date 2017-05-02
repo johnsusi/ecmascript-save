@@ -1,24 +1,86 @@
 \hypertarget{util_8h}{}\section{src/util.h File Reference}
 \label{util_8h}\index{src/util.\+h@{src/util.\+h}}
-{\ttfamily \#include $<$unicode/uchar.\+h$>$}\newline
-Include dependency graph for util.\+h\+:\nopagebreak
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$boost/core/demangle.\+hpp$>$}\newline
+Include dependency graph for util.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=167pt]{util_8h__incl}
+\includegraphics[width=268pt]{util_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{util_8h__dep__incl}
 \end{center}
 \end{figure}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
+\textbf{ std\+::string} \hyperlink{util_8h_a8d66d513d627af35e9f71ea6a498fa2e}{left\+\_\+align\+\_\+text} (const \textbf{ std\+::string} \&text, const \textbf{ std\+::string} \&indent=\char`\"{}\char`\"{})
+\item 
 const char $\ast$ \hyperlink{util_8h_ad812ab2de404402e3b80eeeac6f18d75}{u\+\_\+char\+Category} (int c)
+\item 
+\textbf{ std\+::string} \hyperlink{util_8h_a0493d1da643dd0e2ded159c13ed9f97e}{read\+\_\+file} (const \textbf{ std\+::string} \&filename)
+\item 
+\textbf{ std\+::string} \hyperlink{util_8h_a3fc653067bd9f822c4a444b25f3b5d37}{read\+\_\+stdin} ()
+\item 
+{\footnotesize template$<$typename T $>$ }\\\textbf{ std\+::string} \hyperlink{util_8h_a3f0424988acdda6bdec38eb51a5982c7}{demangle} (T)
+\item 
+{\footnotesize template$<$class F , size\+\_\+t... Is$>$ }\\constexpr auto \hyperlink{util_8h_a8fdaacbe0718621a0b8767025034a7d5}{index\+\_\+apply\+\_\+impl} (F f, std\+::index\+\_\+sequence$<$ Is... $>$)
+\item 
+{\footnotesize template$<$size\+\_\+t N, class F $>$ }\\constexpr auto \hyperlink{util_8h_a6c74a3bc1e045ee9ab2d4f659c24967d}{index\+\_\+apply} (F f)
 \end{DoxyCompactItemize}
 
 
 \subsection{Function Documentation}
+\mbox{\Hypertarget{util_8h_a3f0424988acdda6bdec38eb51a5982c7}\label{util_8h_a3f0424988acdda6bdec38eb51a5982c7}} 
+\index{util.\+h@{util.\+h}!demangle@{demangle}}
+\index{demangle@{demangle}!util.\+h@{util.\+h}}
+\subsubsection{\texorpdfstring{demangle()}{demangle()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\textbf{ std\+::string} demangle (\begin{DoxyParamCaption}\item[{T}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{util_8h_a6c74a3bc1e045ee9ab2d4f659c24967d}\label{util_8h_a6c74a3bc1e045ee9ab2d4f659c24967d}} 
+\index{util.\+h@{util.\+h}!index\+\_\+apply@{index\+\_\+apply}}
+\index{index\+\_\+apply@{index\+\_\+apply}!util.\+h@{util.\+h}}
+\subsubsection{\texorpdfstring{index\+\_\+apply()}{index\_apply()}}
+{\footnotesize\ttfamily template$<$size\+\_\+t N, class F $>$ \\
+constexpr auto index\+\_\+apply (\begin{DoxyParamCaption}\item[{F}]{f }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{util_8h_a8fdaacbe0718621a0b8767025034a7d5}\label{util_8h_a8fdaacbe0718621a0b8767025034a7d5}} 
+\index{util.\+h@{util.\+h}!index\+\_\+apply\+\_\+impl@{index\+\_\+apply\+\_\+impl}}
+\index{index\+\_\+apply\+\_\+impl@{index\+\_\+apply\+\_\+impl}!util.\+h@{util.\+h}}
+\subsubsection{\texorpdfstring{index\+\_\+apply\+\_\+impl()}{index\_apply\_impl()}}
+{\footnotesize\ttfamily template$<$class F , size\+\_\+t... Is$>$ \\
+constexpr auto index\+\_\+apply\+\_\+impl (\begin{DoxyParamCaption}\item[{F}]{f,  }\item[{std\+::index\+\_\+sequence$<$ Is... $>$}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{util_8h_a8d66d513d627af35e9f71ea6a498fa2e}\label{util_8h_a8d66d513d627af35e9f71ea6a498fa2e}} 
+\index{util.\+h@{util.\+h}!left\+\_\+align\+\_\+text@{left\+\_\+align\+\_\+text}}
+\index{left\+\_\+align\+\_\+text@{left\+\_\+align\+\_\+text}!util.\+h@{util.\+h}}
+\subsubsection{\texorpdfstring{left\+\_\+align\+\_\+text()}{left\_align\_text()}}
+{\footnotesize\ttfamily \textbf{ std\+::string} left\+\_\+align\+\_\+text (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::string} \&}]{text,  }\item[{const \textbf{ std\+::string} \&}]{indent }\end{DoxyParamCaption})}
+
+Left aligns {\itshape text} by first finding the left-\/most non-\/whitespace character and then removing that many leading white-\/space characters from each line. The result is then indented using the optional {\itshape indent} and joined into a string. \mbox{\Hypertarget{util_8h_a0493d1da643dd0e2ded159c13ed9f97e}\label{util_8h_a0493d1da643dd0e2ded159c13ed9f97e}} 
+\index{util.\+h@{util.\+h}!read\+\_\+file@{read\+\_\+file}}
+\index{read\+\_\+file@{read\+\_\+file}!util.\+h@{util.\+h}}
+\subsubsection{\texorpdfstring{read\+\_\+file()}{read\_file()}}
+{\footnotesize\ttfamily \textbf{ std\+::string} read\+\_\+file (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::string} \&}]{filename }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{util_8h_a3fc653067bd9f822c4a444b25f3b5d37}\label{util_8h_a3fc653067bd9f822c4a444b25f3b5d37}} 
+\index{util.\+h@{util.\+h}!read\+\_\+stdin@{read\+\_\+stdin}}
+\index{read\+\_\+stdin@{read\+\_\+stdin}!util.\+h@{util.\+h}}
+\subsubsection{\texorpdfstring{read\+\_\+stdin()}{read\_stdin()}}
+{\footnotesize\ttfamily \textbf{ std\+::string} read\+\_\+stdin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{util_8h_ad812ab2de404402e3b80eeeac6f18d75}\label{util_8h_ad812ab2de404402e3b80eeeac6f18d75}} 
 \index{util.\+h@{util.\+h}!u\+\_\+char\+Category@{u\+\_\+char\+Category}}
 \index{u\+\_\+char\+Category@{u\+\_\+char\+Category}!util.\+h@{util.\+h}}
 \subsubsection{\texorpdfstring{u\+\_\+char\+Category()}{u\_charCategory()}}
 {\footnotesize\ttfamily const char$\ast$ u\+\_\+char\+Category (\begin{DoxyParamCaption}\item[{int}]{c }\end{DoxyParamCaption})}
 
+Returns the general category (short) name for the code point. If the category is not known \textquotesingle{}??\textquotesingle{} is returned. Always returns a zero terminated char array of length 3. 

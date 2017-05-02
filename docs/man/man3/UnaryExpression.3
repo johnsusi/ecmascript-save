@@ -1,4 +1,4 @@
-.TH "UnaryExpression" 3 "Sat Apr 29 2017" "ECMAScript" \" -*- nroff -*-
+.TH "UnaryExpression" 3 "Tue May 2 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -8,6 +8,18 @@ UnaryExpression
 .PP
 .PP
 \fC#include <ast\&.h>\fP
+.PP
+Inherits \fBExpression\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBUnaryExpression\fP (\fBstd::string\fP \fBop\fP, \fBExpression\fP *\fBrhs\fP=nullptr)"
+.br
+.ti -1c
+.RI "void \fBaccept\fP (\fBVisitor\fP &visitor) const override"
+.br
+.in -1c
 .SS "Public Attributes"
 
 .in +1c
@@ -15,14 +27,24 @@ UnaryExpression
 .RI "\fBstd::string\fP \fBop\fP"
 .br
 .ti -1c
-.RI "\fBExpression\fP \fBrhs\fP"
+.RI "\fBExpression\fP * \fBrhs\fP"
 .br
 .in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "UnaryExpression::UnaryExpression (\fBstd::string\fP op, \fBExpression\fP * rhs = \fCnullptr\fP)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void UnaryExpression::accept (\fBVisitor\fP & visitor) const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBNode\fP\&.
 .SH "Member Data Documentation"
 .PP 
 .SS "\fBstd::string\fP UnaryExpression::op"
 
-.SS "\fBExpression\fP UnaryExpression::rhs"
+.SS "\fBExpression\fP* UnaryExpression::rhs"
 
 
 .SH "Author"

@@ -1,0 +1,36 @@
+.TH "Node" 3 "Tue May 2 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Node
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ast\&.h>\fP
+.PP
+Inherited by \fBCaseClause\fP, \fBExpression\fP, \fBList< T >\fP, \fBList< CaseClause >\fP, \fBList< Expression >\fP, \fBList< Identifier >\fP, \fBList< PropertyAssignment >\fP, \fBList< SourceElement >\fP, \fBList< Statement >\fP, \fBList< VariableDeclaration >\fP, and \fBSourceElement\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual \fB~Node\fP ()"
+.br
+.ti -1c
+.RI "virtual void \fBaccept\fP (\fBVisitor\fP &) const =0"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "virtual Node::~Node ()\fC [inline]\fP, \fC [virtual]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual void Node::accept (\fBVisitor\fP &) const\fC [pure virtual]\fP"
+
+.PP
+Implemented in \fBFunctionExpression\fP, \fBFunctionDeclaration\fP, \fBFunctionBody\fP, \fBDebuggerStatement\fP, \fBTryStatement\fP, \fBThrowStatement\fP, \fBSwitchStatement\fP, \fBDefaultClause\fP, \fBCaseClause\fP, \fBLabelledStatement\fP, \fBWithStatement\fP, \fBReturnStatement\fP, \fBBreakStatement\fP, \fBContinueStatement\fP, \fBForInStatement\fP, \fBForStatement\fP, \fBWhileStatement\fP, \fBDoWhileStatement\fP, \fBIfStatement\fP, \fBExpressionStatement\fP, \fBEmptyStatement\fP, \fBVariableStatement\fP, \fBBlock\fP, \fBVariableDeclaration\fP, \fBConditionalExpression\fP, \fBBinaryExpression\fP, \fBUnaryExpression\fP, \fBPostfixExpression\fP, \fBCallExpression\fP, \fBNewExpression\fP, \fBArguments\fP, \fBMemberExpression\fP, \fBObjectLiteral\fP, \fBArrayLiteral\fP, \fBElision\fP, \fBPropertyAssignment\fP, \fBPropertyName\fP, \fBRegularExpressionLiteral\fP, \fBStringLiteral\fP, \fBNumericLiteral\fP, \fBBooleanLiteral\fP, \fBNullLiteral\fP, \fBIdentifier\fP, \fBThis\fP, \fBList< T >\fP, \fBList< Identifier >\fP, \fBList< Statement >\fP, \fBList< CaseClause >\fP, \fBList< VariableDeclaration >\fP, \fBList< PropertyAssignment >\fP, \fBList< Expression >\fP, and \fBList< SourceElement >\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

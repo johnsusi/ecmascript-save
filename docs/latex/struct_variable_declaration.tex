@@ -6,34 +6,74 @@
 
 
 
-Collaboration diagram for Variable\+Declaration\+:\nopagebreak
+Inheritance diagram for Variable\+Declaration\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=183pt]{struct_variable_declaration__coll__graph}
+\includegraphics[width=183pt]{struct_variable_declaration__inherit__graph}
 \end{center}
 \end{figure}
+
+
+Collaboration diagram for Variable\+Declaration\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_variable_declaration__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_variable_declaration_ab1ee3bba021d48bca4da042a32873655}{Variable\+Declaration} (\hyperlink{struct_identifier}{Identifier} $\ast$\hyperlink{struct_variable_declaration_af00ca23e243d1ab865fd094c9be7a5c9}{identifier}, \hyperlink{struct_expression}{Expression} $\ast$\hyperlink{struct_variable_declaration_a472faa13a27b5cc06125787259116a2f}{initializer}=nullptr)
+\item 
+void \hyperlink{struct_variable_declaration_abdf0b5eed5200357de1bd9bf5ce6f6b3}{accept} (\hyperlink{struct_visitor}{Visitor} \&visitor) const override
+\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{struct_identifier}{Identifier} \hyperlink{struct_variable_declaration_ac2becfe85c6ae641ab60e8489fde7e38}{identifier}
+\hyperlink{struct_identifier}{Identifier} $\ast$ \hyperlink{struct_variable_declaration_af00ca23e243d1ab865fd094c9be7a5c9}{identifier}
 \item 
-boost\+::optional$<$ \hyperlink{ast_8h_a4cb273a4d960cd13ea17d08f254493e8}{Expression} $>$ \hyperlink{struct_variable_declaration_a8e4857906d3af342fa2fb5675ff9a410}{initializer}
+\hyperlink{struct_expression}{Expression} $\ast$ \hyperlink{struct_variable_declaration_a472faa13a27b5cc06125787259116a2f}{initializer}
 \end{DoxyCompactItemize}
 
 
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_variable_declaration_ab1ee3bba021d48bca4da042a32873655}\label{struct_variable_declaration_ab1ee3bba021d48bca4da042a32873655}} 
+\index{Variable\+Declaration@{Variable\+Declaration}!Variable\+Declaration@{Variable\+Declaration}}
+\index{Variable\+Declaration@{Variable\+Declaration}!Variable\+Declaration@{Variable\+Declaration}}
+\subsubsection{\texorpdfstring{Variable\+Declaration()}{VariableDeclaration()}}
+{\footnotesize\ttfamily Variable\+Declaration\+::\+Variable\+Declaration (\begin{DoxyParamCaption}\item[{\hyperlink{struct_identifier}{Identifier} $\ast$}]{identifier,  }\item[{\hyperlink{struct_expression}{Expression} $\ast$}]{initializer = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_variable_declaration_abdf0b5eed5200357de1bd9bf5ce6f6b3}\label{struct_variable_declaration_abdf0b5eed5200357de1bd9bf5ce6f6b3}} 
+\index{Variable\+Declaration@{Variable\+Declaration}!accept@{accept}}
+\index{accept@{accept}!Variable\+Declaration@{Variable\+Declaration}}
+\subsubsection{\texorpdfstring{accept()}{accept()}}
+{\footnotesize\ttfamily void Variable\+Declaration\+::accept (\begin{DoxyParamCaption}\item[{\hyperlink{struct_visitor}{Visitor} \&}]{visitor }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_node_a10bd7af968140bbf5fa461298a969c71}{Node}.
+
+
+
 \subsection{Member Data Documentation}
-\mbox{\Hypertarget{struct_variable_declaration_ac2becfe85c6ae641ab60e8489fde7e38}\label{struct_variable_declaration_ac2becfe85c6ae641ab60e8489fde7e38}} 
+\mbox{\Hypertarget{struct_variable_declaration_af00ca23e243d1ab865fd094c9be7a5c9}\label{struct_variable_declaration_af00ca23e243d1ab865fd094c9be7a5c9}} 
 \index{Variable\+Declaration@{Variable\+Declaration}!identifier@{identifier}}
 \index{identifier@{identifier}!Variable\+Declaration@{Variable\+Declaration}}
 \subsubsection{\texorpdfstring{identifier}{identifier}}
-{\footnotesize\ttfamily \hyperlink{struct_identifier}{Identifier} Variable\+Declaration\+::identifier}
+{\footnotesize\ttfamily \hyperlink{struct_identifier}{Identifier}$\ast$ Variable\+Declaration\+::identifier}
 
-\mbox{\Hypertarget{struct_variable_declaration_a8e4857906d3af342fa2fb5675ff9a410}\label{struct_variable_declaration_a8e4857906d3af342fa2fb5675ff9a410}} 
+\mbox{\Hypertarget{struct_variable_declaration_a472faa13a27b5cc06125787259116a2f}\label{struct_variable_declaration_a472faa13a27b5cc06125787259116a2f}} 
 \index{Variable\+Declaration@{Variable\+Declaration}!initializer@{initializer}}
 \index{initializer@{initializer}!Variable\+Declaration@{Variable\+Declaration}}
 \subsubsection{\texorpdfstring{initializer}{initializer}}
-{\footnotesize\ttfamily boost\+::optional$<$\hyperlink{ast_8h_a4cb273a4d960cd13ea17d08f254493e8}{Expression}$>$ Variable\+Declaration\+::initializer}
+{\footnotesize\ttfamily \hyperlink{struct_expression}{Expression}$\ast$ Variable\+Declaration\+::initializer}
 
 
 

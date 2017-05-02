@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rhs',['rhs',['../structast_1_1_unary_expression.html#a6d3c17a7216b97384823c276d118b6d6',1,'ast::UnaryExpression::rhs()'],['../structast_1_1_binary_expression.html#a9f298035c5a0f9169ba7c10f2ce1722a',1,'ast::BinaryExpression::rhs()']]]
+  ['rhs',['rhs',['../struct_unary_expression.html#a53e53c6c0a0b76c46cb49a1fa48be5a5',1,'UnaryExpression::rhs()'],['../struct_binary_expression.html#ad569ae3b07f428257b0e7a96746ceb32',1,'BinaryExpression::rhs()']]]
 ];

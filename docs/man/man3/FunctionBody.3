@@ -1,4 +1,4 @@
-.TH "FunctionBody" 3 "Sat Apr 29 2017" "ECMAScript" \" -*- nroff -*-
+.TH "FunctionBody" 3 "Tue May 2 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -8,17 +8,29 @@ FunctionBody
 .PP
 .PP
 \fC#include <ast\&.h>\fP
-.SS "Public Attributes"
+.PP
+Inherits \fBSourceElements\fP\&.
+.SS "Public Member Functions"
 
 .in +1c
 .ti -1c
-.RI "\fBSourceElements\fP \fBelements\fP"
+.RI "\fBFunctionBody\fP (\fBSourceElements\fP *body=nullptr)"
+.br
+.ti -1c
+.RI "void \fBaccept\fP (\fBVisitor\fP &visitor) const override"
 .br
 .in -1c
-.SH "Member Data Documentation"
+.SS "Additional Inherited Members"
+.SH "Constructor & Destructor Documentation"
 .PP 
-.SS "\fBSourceElements\fP FunctionBody::elements"
+.SS "FunctionBody::FunctionBody (\fBSourceElements\fP * body = \fCnullptr\fP)\fC [inline]\fP"
 
+.SH "Member Function Documentation"
+.PP 
+.SS "void FunctionBody::accept (\fBVisitor\fP & visitor) const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBNode\fP\&.
 
 .SH "Author"
 .PP 

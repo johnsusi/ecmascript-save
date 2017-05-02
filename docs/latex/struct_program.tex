@@ -6,26 +6,49 @@
 
 
 
-Collaboration diagram for Program\+:\nopagebreak
+Collaboration diagram for Program\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=228pt]{struct_program__coll__graph}
+\includegraphics[width=350pt]{struct_program__coll__graph}
 \end{center}
 \end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{struct_program_afbd3eb6a94760e56c25492ea1dc685ed}{accept} (\hyperlink{struct_visitor}{Visitor} \&visitor) const
+\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{ast_8h_ae3267d5aa063c01bcbdeb38763a616ac}{Source\+Elements} \hyperlink{struct_program_aad088b92a8fc3f56270b1e0195e2f928}{elements}
+\textbf{ std\+::shared\+\_\+ptr}$<$ void $>$ \hyperlink{struct_program_aa25d5746067ab06823bf867e89dc8785}{storage}
+\item 
+\hyperlink{struct_source_elements}{Source\+Elements} $\ast$ \hyperlink{struct_program_a5a4db26ab169d8e65def12c02f5af6e5}{body}
 \end{DoxyCompactItemize}
 
 
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_program_afbd3eb6a94760e56c25492ea1dc685ed}\label{struct_program_afbd3eb6a94760e56c25492ea1dc685ed}} 
+\index{Program@{Program}!accept@{accept}}
+\index{accept@{accept}!Program@{Program}}
+\subsubsection{\texorpdfstring{accept()}{accept()}}
+{\footnotesize\ttfamily void Program\+::accept (\begin{DoxyParamCaption}\item[{\hyperlink{struct_visitor}{Visitor} \&}]{visitor }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
 \subsection{Member Data Documentation}
-\mbox{\Hypertarget{struct_program_aad088b92a8fc3f56270b1e0195e2f928}\label{struct_program_aad088b92a8fc3f56270b1e0195e2f928}} 
-\index{Program@{Program}!elements@{elements}}
-\index{elements@{elements}!Program@{Program}}
-\subsubsection{\texorpdfstring{elements}{elements}}
-{\footnotesize\ttfamily \hyperlink{ast_8h_ae3267d5aa063c01bcbdeb38763a616ac}{Source\+Elements} Program\+::elements}
+\mbox{\Hypertarget{struct_program_a5a4db26ab169d8e65def12c02f5af6e5}\label{struct_program_a5a4db26ab169d8e65def12c02f5af6e5}} 
+\index{Program@{Program}!body@{body}}
+\index{body@{body}!Program@{Program}}
+\subsubsection{\texorpdfstring{body}{body}}
+{\footnotesize\ttfamily \hyperlink{struct_source_elements}{Source\+Elements}$\ast$ Program\+::body}
+
+\mbox{\Hypertarget{struct_program_aa25d5746067ab06823bf867e89dc8785}\label{struct_program_aa25d5746067ab06823bf867e89dc8785}} 
+\index{Program@{Program}!storage@{storage}}
+\index{storage@{storage}!Program@{Program}}
+\subsubsection{\texorpdfstring{storage}{storage}}
+{\footnotesize\ttfamily \textbf{ std\+::shared\+\_\+ptr}$<$void$>$ Program\+::storage}
 
 
 

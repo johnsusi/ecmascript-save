@@ -39,7 +39,7 @@ var searchData=
   ['mbtowc',['mbtowc',['http://en.cppreference.com/w/cpp/string/multibyte/mbtowc.html',1,'std']]],
   ['mean',['mean',['http://en.cppreference.com/w/cpp/numeric/random/poisson_distribution/mean.html',1,'std::poisson_distribution::mean()'],['http://en.cppreference.com/w/cpp/numeric/random/normal_distribution/params.html',1,'std::normal_distribution::mean()']]],
   ['mem_5ffn',['mem_fn',['http://en.cppreference.com/w/cpp/utility/functional/mem_fn.html',1,'std']]],
-  ['memberexpression',['MemberExpression',['../structast_1_1_member_expression.html#a059a077f77f83e5c42a16c4e24146858',1,'ast::MemberExpression']]],
+  ['memberexpression',['MemberExpression',['../struct_member_expression.html#a9a3eaa90cb6280ad3e221694632c22f5',1,'MemberExpression']]],
   ['memchr',['memchr',['http://en.cppreference.com/w/cpp/string/byte/memchr.html',1,'std']]],
   ['memcmp',['memcmp',['http://en.cppreference.com/w/cpp/string/byte/memcmp.html',1,'std']]],
   ['memcpy',['memcpy',['http://en.cppreference.com/w/cpp/string/byte/memcpy.html',1,'std']]],

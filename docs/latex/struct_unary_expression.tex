@@ -6,20 +6,60 @@
 
 
 
-Collaboration diagram for Unary\+Expression\+:\nopagebreak
+Inheritance diagram for Unary\+Expression\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=172pt]{struct_unary_expression__coll__graph}
+\includegraphics[width=172pt]{struct_unary_expression__inherit__graph}
 \end{center}
 \end{figure}
+
+
+Collaboration diagram for Unary\+Expression\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{struct_unary_expression__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_unary_expression_a0a2158571198f271b43612707666e8fa}{Unary\+Expression} (\textbf{ std\+::string} \hyperlink{struct_unary_expression_a057cfd54844d5b36e15f16ee5272b071}{op}, \hyperlink{struct_expression}{Expression} $\ast$\hyperlink{struct_unary_expression_a53e53c6c0a0b76c46cb49a1fa48be5a5}{rhs}=nullptr)
+\item 
+void \hyperlink{struct_unary_expression_a88c89a0268ecfa5008b5afe7bc47913a}{accept} (\hyperlink{struct_visitor}{Visitor} \&visitor) const override
+\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \textbf{ std\+::string} \hyperlink{struct_unary_expression_a057cfd54844d5b36e15f16ee5272b071}{op}
 \item 
-\hyperlink{ast_8h_a4cb273a4d960cd13ea17d08f254493e8}{Expression} \hyperlink{struct_unary_expression_ae574f5f744a28eb02d260a40127b74dc}{rhs}
+\hyperlink{struct_expression}{Expression} $\ast$ \hyperlink{struct_unary_expression_a53e53c6c0a0b76c46cb49a1fa48be5a5}{rhs}
 \end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_unary_expression_a0a2158571198f271b43612707666e8fa}\label{struct_unary_expression_a0a2158571198f271b43612707666e8fa}} 
+\index{Unary\+Expression@{Unary\+Expression}!Unary\+Expression@{Unary\+Expression}}
+\index{Unary\+Expression@{Unary\+Expression}!Unary\+Expression@{Unary\+Expression}}
+\subsubsection{\texorpdfstring{Unary\+Expression()}{UnaryExpression()}}
+{\footnotesize\ttfamily Unary\+Expression\+::\+Unary\+Expression (\begin{DoxyParamCaption}\item[{\textbf{ std\+::string}}]{op,  }\item[{\hyperlink{struct_expression}{Expression} $\ast$}]{rhs = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_unary_expression_a88c89a0268ecfa5008b5afe7bc47913a}\label{struct_unary_expression_a88c89a0268ecfa5008b5afe7bc47913a}} 
+\index{Unary\+Expression@{Unary\+Expression}!accept@{accept}}
+\index{accept@{accept}!Unary\+Expression@{Unary\+Expression}}
+\subsubsection{\texorpdfstring{accept()}{accept()}}
+{\footnotesize\ttfamily void Unary\+Expression\+::accept (\begin{DoxyParamCaption}\item[{\hyperlink{struct_visitor}{Visitor} \&}]{visitor }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_node_a10bd7af968140bbf5fa461298a969c71}{Node}.
+
 
 
 \subsection{Member Data Documentation}
@@ -29,11 +69,11 @@ Collaboration diagram for Unary\+Expression\+:\nopagebreak
 \subsubsection{\texorpdfstring{op}{op}}
 {\footnotesize\ttfamily \textbf{ std\+::string} Unary\+Expression\+::op}
 
-\mbox{\Hypertarget{struct_unary_expression_ae574f5f744a28eb02d260a40127b74dc}\label{struct_unary_expression_ae574f5f744a28eb02d260a40127b74dc}} 
+\mbox{\Hypertarget{struct_unary_expression_a53e53c6c0a0b76c46cb49a1fa48be5a5}\label{struct_unary_expression_a53e53c6c0a0b76c46cb49a1fa48be5a5}} 
 \index{Unary\+Expression@{Unary\+Expression}!rhs@{rhs}}
 \index{rhs@{rhs}!Unary\+Expression@{Unary\+Expression}}
 \subsubsection{\texorpdfstring{rhs}{rhs}}
-{\footnotesize\ttfamily \hyperlink{ast_8h_a4cb273a4d960cd13ea17d08f254493e8}{Expression} Unary\+Expression\+::rhs}
+{\footnotesize\ttfamily \hyperlink{struct_expression}{Expression}$\ast$ Unary\+Expression\+::rhs}
 
 
 

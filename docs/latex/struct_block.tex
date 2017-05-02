@@ -6,26 +6,66 @@
 
 
 
-Collaboration diagram for Block\+:\nopagebreak
+Inheritance diagram for Block\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=205pt]{struct_block__coll__graph}
+\includegraphics[width=164pt]{struct_block__inherit__graph}
 \end{center}
 \end{figure}
+
+
+Collaboration diagram for Block\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=294pt]{struct_block__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_block_a757d46b60b5babb84c5c466b99679c2d}{Block} (\hyperlink{struct_statement_list}{Statement\+List} $\ast$\hyperlink{struct_block_a05207097167e9263252079d78f3d9358}{body}=nullptr)
+\item 
+void \hyperlink{struct_block_ac00e5c0ee8486dbdc7cb91dd5a6b34e1}{accept} (\hyperlink{struct_visitor}{Visitor} \&visitor) const override
+\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{ast_8h_af5d265e5ec7c64e6aedeafa391d8cc47}{Statement\+List} \hyperlink{struct_block_a8f6ef40a63c57c19abb983185454cae4}{body}
+\hyperlink{struct_statement_list}{Statement\+List} $\ast$ \hyperlink{struct_block_a05207097167e9263252079d78f3d9358}{body}
 \end{DoxyCompactItemize}
 
 
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_block_a757d46b60b5babb84c5c466b99679c2d}\label{struct_block_a757d46b60b5babb84c5c466b99679c2d}} 
+\index{Block@{Block}!Block@{Block}}
+\index{Block@{Block}!Block@{Block}}
+\subsubsection{\texorpdfstring{Block()}{Block()}}
+{\footnotesize\ttfamily Block\+::\+Block (\begin{DoxyParamCaption}\item[{\hyperlink{struct_statement_list}{Statement\+List} $\ast$}]{body = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_block_ac00e5c0ee8486dbdc7cb91dd5a6b34e1}\label{struct_block_ac00e5c0ee8486dbdc7cb91dd5a6b34e1}} 
+\index{Block@{Block}!accept@{accept}}
+\index{accept@{accept}!Block@{Block}}
+\subsubsection{\texorpdfstring{accept()}{accept()}}
+{\footnotesize\ttfamily void Block\+::accept (\begin{DoxyParamCaption}\item[{\hyperlink{struct_visitor}{Visitor} \&}]{visitor }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_node_a10bd7af968140bbf5fa461298a969c71}{Node}.
+
+
+
 \subsection{Member Data Documentation}
-\mbox{\Hypertarget{struct_block_a8f6ef40a63c57c19abb983185454cae4}\label{struct_block_a8f6ef40a63c57c19abb983185454cae4}} 
+\mbox{\Hypertarget{struct_block_a05207097167e9263252079d78f3d9358}\label{struct_block_a05207097167e9263252079d78f3d9358}} 
 \index{Block@{Block}!body@{body}}
 \index{body@{body}!Block@{Block}}
 \subsubsection{\texorpdfstring{body}{body}}
-{\footnotesize\ttfamily \hyperlink{ast_8h_af5d265e5ec7c64e6aedeafa391d8cc47}{Statement\+List} Block\+::body}
+{\footnotesize\ttfamily \hyperlink{struct_statement_list}{Statement\+List}$\ast$ Block\+::body}
 
 
 

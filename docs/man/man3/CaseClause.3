@@ -1,0 +1,56 @@
+.TH "CaseClause" 3 "Tue May 2 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+CaseClause
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ast\&.h>\fP
+.PP
+Inherits \fBNode\fP\&.
+.PP
+Inherited by \fBDefaultClause\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBCaseClause\fP (\fBExpression\fP *\fBtest\fP, \fBStatementList\fP *\fBconsequent\fP)"
+.br
+.ti -1c
+.RI "void \fBaccept\fP (\fBVisitor\fP &visitor) const override"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBExpression\fP * \fBtest\fP"
+.br
+.ti -1c
+.RI "\fBStatementList\fP * \fBconsequent\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "CaseClause::CaseClause (\fBExpression\fP * test, \fBStatementList\fP * consequent)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void CaseClause::accept (\fBVisitor\fP & visitor) const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBNode\fP\&.
+.PP
+Reimplemented in \fBDefaultClause\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBStatementList\fP* CaseClause::consequent"
+
+.SS "\fBExpression\fP* CaseClause::test"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

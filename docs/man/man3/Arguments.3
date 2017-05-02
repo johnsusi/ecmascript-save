@@ -1,4 +1,4 @@
-.TH "Arguments" 3 "Sat Apr 29 2017" "ECMAScript" \" -*- nroff -*-
+.TH "Arguments" 3 "Tue May 2 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -8,16 +8,38 @@ Arguments
 .PP
 .PP
 \fC#include <ast\&.h>\fP
+.PP
+Inherits \fBExpression\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBArguments\fP (\fBArgumentList\fP *\fBlist\fP=nullptr)"
+.br
+.ti -1c
+.RI "void \fBaccept\fP (\fBVisitor\fP &visitor) const override"
+.br
+.in -1c
 .SS "Public Attributes"
 
 .in +1c
 .ti -1c
-.RI "\fBArgumentList\fP \fBlist\fP"
+.RI "\fBArgumentList\fP * \fBlist\fP"
 .br
 .in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Arguments::Arguments (\fBArgumentList\fP * list = \fCnullptr\fP)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void Arguments::accept (\fBVisitor\fP & visitor) const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBNode\fP\&.
 .SH "Member Data Documentation"
 .PP 
-.SS "\fBArgumentList\fP Arguments::list"
+.SS "\fBArgumentList\fP* Arguments::list"
 
 
 .SH "Author"

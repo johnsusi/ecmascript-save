@@ -4,27 +4,76 @@
 
 {\ttfamily \#include $<$ast.\+h$>$}
 
+
+
+Inheritance diagram for With\+Statement\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=164pt]{struct_with_statement__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for With\+Statement\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=225pt]{struct_with_statement__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_with_statement_a30feda3f34febbab2584ea274fcd507d}{With\+Statement} (\hyperlink{struct_expression}{Expression} $\ast$\hyperlink{struct_with_statement_a1563aab5799cbe5112e7a0429f4956bd}{object}, \hyperlink{struct_statement}{Statement} $\ast$\hyperlink{struct_with_statement_af7976ff82c99c995f603c2d32e8122ff}{body})
+\item 
+void \hyperlink{struct_with_statement_a07d3015de8ea5d3f27a0bab8719665f3}{accept} (\hyperlink{struct_visitor}{Visitor} \&visitor) const override
+\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{ast_8h_a4cb273a4d960cd13ea17d08f254493e8}{Expression} \hyperlink{struct_with_statement_ad6a507585cf0f9765587ac41f83f4acd}{object}
+\hyperlink{struct_expression}{Expression} $\ast$ \hyperlink{struct_with_statement_a1563aab5799cbe5112e7a0429f4956bd}{object}
 \item 
-\hyperlink{ast_8h_a8b6ddf3732a0acd77e6b2509fb21a5fd}{Statement} \hyperlink{struct_with_statement_a38aa21cb112d29a9c4a7922c96c9d4ee}{body}
+\hyperlink{struct_statement}{Statement} $\ast$ \hyperlink{struct_with_statement_af7976ff82c99c995f603c2d32e8122ff}{body}
 \end{DoxyCompactItemize}
 
 
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_with_statement_a30feda3f34febbab2584ea274fcd507d}\label{struct_with_statement_a30feda3f34febbab2584ea274fcd507d}} 
+\index{With\+Statement@{With\+Statement}!With\+Statement@{With\+Statement}}
+\index{With\+Statement@{With\+Statement}!With\+Statement@{With\+Statement}}
+\subsubsection{\texorpdfstring{With\+Statement()}{WithStatement()}}
+{\footnotesize\ttfamily With\+Statement\+::\+With\+Statement (\begin{DoxyParamCaption}\item[{\hyperlink{struct_expression}{Expression} $\ast$}]{object,  }\item[{\hyperlink{struct_statement}{Statement} $\ast$}]{body }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_with_statement_a07d3015de8ea5d3f27a0bab8719665f3}\label{struct_with_statement_a07d3015de8ea5d3f27a0bab8719665f3}} 
+\index{With\+Statement@{With\+Statement}!accept@{accept}}
+\index{accept@{accept}!With\+Statement@{With\+Statement}}
+\subsubsection{\texorpdfstring{accept()}{accept()}}
+{\footnotesize\ttfamily void With\+Statement\+::accept (\begin{DoxyParamCaption}\item[{\hyperlink{struct_visitor}{Visitor} \&}]{visitor }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_node_a10bd7af968140bbf5fa461298a969c71}{Node}.
+
+
+
 \subsection{Member Data Documentation}
-\mbox{\Hypertarget{struct_with_statement_a38aa21cb112d29a9c4a7922c96c9d4ee}\label{struct_with_statement_a38aa21cb112d29a9c4a7922c96c9d4ee}} 
+\mbox{\Hypertarget{struct_with_statement_af7976ff82c99c995f603c2d32e8122ff}\label{struct_with_statement_af7976ff82c99c995f603c2d32e8122ff}} 
 \index{With\+Statement@{With\+Statement}!body@{body}}
 \index{body@{body}!With\+Statement@{With\+Statement}}
 \subsubsection{\texorpdfstring{body}{body}}
-{\footnotesize\ttfamily \hyperlink{ast_8h_a8b6ddf3732a0acd77e6b2509fb21a5fd}{Statement} With\+Statement\+::body}
+{\footnotesize\ttfamily \hyperlink{struct_statement}{Statement}$\ast$ With\+Statement\+::body}
 
-\mbox{\Hypertarget{struct_with_statement_ad6a507585cf0f9765587ac41f83f4acd}\label{struct_with_statement_ad6a507585cf0f9765587ac41f83f4acd}} 
+\mbox{\Hypertarget{struct_with_statement_a1563aab5799cbe5112e7a0429f4956bd}\label{struct_with_statement_a1563aab5799cbe5112e7a0429f4956bd}} 
 \index{With\+Statement@{With\+Statement}!object@{object}}
 \index{object@{object}!With\+Statement@{With\+Statement}}
 \subsubsection{\texorpdfstring{object}{object}}
-{\footnotesize\ttfamily \hyperlink{ast_8h_a4cb273a4d960cd13ea17d08f254493e8}{Expression} With\+Statement\+::object}
+{\footnotesize\ttfamily \hyperlink{struct_expression}{Expression}$\ast$ With\+Statement\+::object}
 
 
 

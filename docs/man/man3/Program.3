@@ -1,4 +1,4 @@
-.TH "Program" 3 "Sat Apr 29 2017" "ECMAScript" \" -*- nroff -*-
+.TH "Program" 3 "Tue May 2 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -8,16 +8,32 @@ Program
 .PP
 .PP
 \fC#include <ast\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBaccept\fP (\fBVisitor\fP &visitor) const"
+.br
+.in -1c
 .SS "Public Attributes"
 
 .in +1c
 .ti -1c
-.RI "\fBSourceElements\fP \fBelements\fP"
+.RI "\fBstd::shared_ptr\fP< void > \fBstorage\fP"
+.br
+.ti -1c
+.RI "\fBSourceElements\fP * \fBbody\fP"
 .br
 .in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "void Program::accept (\fBVisitor\fP & visitor) const\fC [inline]\fP"
+
 .SH "Member Data Documentation"
 .PP 
-.SS "\fBSourceElements\fP Program::elements"
+.SS "\fBSourceElements\fP* Program::body"
+
+.SS "\fBstd::shared_ptr\fP<void> Program::storage"
 
 
 .SH "Author"

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['alternate',['alternate',['../structast_1_1_conditional_expression.html#a26b4ef799945f3670e759c4d396b3fb2',1,'ast::ConditionalExpression::alternate()'],['../structast_1_1_if_statement.html#a2f84078dbbe4d3246609c13c526fc69d',1,'ast::IfStatement::alternate()']]],
-  ['argument',['argument',['../structast_1_1_return_statement.html#abf5147461b105e889dc9e8726791cbf4',1,'ast::ReturnStatement::argument()'],['../structast_1_1_throw_statement.html#ad481e5ceab6c253642c489346dde3281',1,'ast::ThrowStatement::argument()']]],
-  ['arguments',['arguments',['../structast_1_1_new_expression.html#a9ef033d5f7aed8595bb4e97f8d955b57',1,'ast::NewExpression::arguments()'],['../structast_1_1_call_expression.html#a733b720a818f5c75f2ea96e40360a6ba',1,'ast::CallExpression::arguments()']]]
+  ['alternate',['alternate',['../struct_conditional_expression.html#aed7b09dab98000c8542d6353eefd8dac',1,'ConditionalExpression::alternate()'],['../struct_if_statement.html#ab0ee82460f6279444d526b2fff26584b',1,'IfStatement::alternate()']]],
+  ['argument',['argument',['../struct_return_statement.html#aeead2cb2bcecfed685d54bb7ee5456f2',1,'ReturnStatement::argument()'],['../struct_throw_statement.html#a87b057f38ecbe03a687dec1204a7387a',1,'ThrowStatement::argument()']]],
+  ['arguments',['arguments',['../struct_new_expression.html#a4d43c4128966ccb728f92a0204d04eaa',1,'NewExpression::arguments()'],['../struct_call_expression.html#ad2dad57df529ef1ef06b43cd438598bd',1,'CallExpression::arguments()']]]
 ];

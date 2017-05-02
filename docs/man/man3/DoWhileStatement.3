@@ -1,4 +1,4 @@
-.TH "DoWhileStatement" 3 "Sat Apr 29 2017" "ECMAScript" \" -*- nroff -*-
+.TH "DoWhileStatement" 3 "Tue May 2 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -8,21 +8,36 @@ DoWhileStatement
 .PP
 .PP
 \fC#include <ast\&.h>\fP
+.PP
+Inherits \fBStatement\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBaccept\fP (\fBVisitor\fP &visitor) const override"
+.br
+.in -1c
 .SS "Public Attributes"
 
 .in +1c
 .ti -1c
-.RI "\fBStatement\fP \fBbody\fP"
+.RI "\fBStatement\fP * \fBbody\fP"
 .br
 .ti -1c
-.RI "\fBExpression\fP \fBtest\fP"
+.RI "\fBExpression\fP * \fBtest\fP"
 .br
 .in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "void DoWhileStatement::accept (\fBVisitor\fP & visitor) const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBNode\fP\&.
 .SH "Member Data Documentation"
 .PP 
-.SS "\fBStatement\fP DoWhileStatement::body"
+.SS "\fBStatement\fP* DoWhileStatement::body"
 
-.SS "\fBExpression\fP DoWhileStatement::test"
+.SS "\fBExpression\fP* DoWhileStatement::test"
 
 
 .SH "Author"

@@ -6,26 +6,53 @@
 
 
 
-Collaboration diagram for Function\+Body\+:\nopagebreak
+Inheritance diagram for Function\+Body\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=228pt]{struct_function_body__coll__graph}
+\includegraphics[width=197pt]{struct_function_body__inherit__graph}
 \end{center}
 \end{figure}
-\subsection*{Public Attributes}
+
+
+Collaboration diagram for Function\+Body\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{struct_function_body__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{ast_8h_ae3267d5aa063c01bcbdeb38763a616ac}{Source\+Elements} \hyperlink{struct_function_body_a5fe1a2147c92225439e7200766367492}{elements}
+\hyperlink{struct_function_body_a0ba6abdbb2090c64d9892d4064234865}{Function\+Body} (\hyperlink{struct_source_elements}{Source\+Elements} $\ast$body=nullptr)
+\item 
+void \hyperlink{struct_function_body_ab6acc0d3e8a2bf452045ee4adc78aa26}{accept} (\hyperlink{struct_visitor}{Visitor} \&visitor) const override
 \end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
 
 
-\subsection{Member Data Documentation}
-\mbox{\Hypertarget{struct_function_body_a5fe1a2147c92225439e7200766367492}\label{struct_function_body_a5fe1a2147c92225439e7200766367492}} 
-\index{Function\+Body@{Function\+Body}!elements@{elements}}
-\index{elements@{elements}!Function\+Body@{Function\+Body}}
-\subsubsection{\texorpdfstring{elements}{elements}}
-{\footnotesize\ttfamily \hyperlink{ast_8h_ae3267d5aa063c01bcbdeb38763a616ac}{Source\+Elements} Function\+Body\+::elements}
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_function_body_a0ba6abdbb2090c64d9892d4064234865}\label{struct_function_body_a0ba6abdbb2090c64d9892d4064234865}} 
+\index{Function\+Body@{Function\+Body}!Function\+Body@{Function\+Body}}
+\index{Function\+Body@{Function\+Body}!Function\+Body@{Function\+Body}}
+\subsubsection{\texorpdfstring{Function\+Body()}{FunctionBody()}}
+{\footnotesize\ttfamily Function\+Body\+::\+Function\+Body (\begin{DoxyParamCaption}\item[{\hyperlink{struct_source_elements}{Source\+Elements} $\ast$}]{body = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_function_body_ab6acc0d3e8a2bf452045ee4adc78aa26}\label{struct_function_body_ab6acc0d3e8a2bf452045ee4adc78aa26}} 
+\index{Function\+Body@{Function\+Body}!accept@{accept}}
+\index{accept@{accept}!Function\+Body@{Function\+Body}}
+\subsubsection{\texorpdfstring{accept()}{accept()}}
+{\footnotesize\ttfamily void Function\+Body\+::accept (\begin{DoxyParamCaption}\item[{\hyperlink{struct_visitor}{Visitor} \&}]{visitor }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_node_a10bd7af968140bbf5fa461298a969c71}{Node}.
 
 
 

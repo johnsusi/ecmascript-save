@@ -1,4 +1,4 @@
-.TH "ArrayLiteral" 3 "Sat Apr 29 2017" "ECMAScript" \" -*- nroff -*-
+.TH "ArrayLiteral" 3 "Tue May 2 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -8,16 +8,43 @@ ArrayLiteral
 .PP
 .PP
 \fC#include <ast\&.h>\fP
+.PP
+Inherits \fBPrimaryExpression\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBArrayLiteral\fP (\fBElementList\fP *\fBelements\fP=nullptr, \fBElision\fP *\fBelision\fP=nullptr)"
+.br
+.ti -1c
+.RI "void \fBaccept\fP (\fBVisitor\fP &visitor) const override"
+.br
+.in -1c
 .SS "Public Attributes"
 
 .in +1c
 .ti -1c
-.RI "\fBstd::vector\fP< \fBExpression\fP > \fBelements\fP"
+.RI "\fBElementList\fP * \fBelements\fP"
+.br
+.ti -1c
+.RI "\fBElision\fP * \fBelision\fP"
 .br
 .in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ArrayLiteral::ArrayLiteral (\fBElementList\fP * elements = \fCnullptr\fP, \fBElision\fP * elision = \fCnullptr\fP)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void ArrayLiteral::accept (\fBVisitor\fP & visitor) const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBNode\fP\&.
 .SH "Member Data Documentation"
 .PP 
-.SS "\fBstd::vector\fP<\fBExpression\fP> ArrayLiteral::elements"
+.SS "\fBElementList\fP* ArrayLiteral::elements"
+
+.SS "\fBElision\fP* ArrayLiteral::elision"
 
 
 .SH "Author"

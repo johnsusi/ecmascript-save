@@ -4,19 +4,68 @@
 
 {\ttfamily \#include $<$ast.\+h$>$}
 
+
+
+Inheritance diagram for Break\+Statement\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=168pt]{struct_break_statement__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Break\+Statement\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{struct_break_statement__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_break_statement_a069ece35d82ad5cde60d51221f3b2d5f}{Break\+Statement} (\hyperlink{struct_identifier}{Identifier} $\ast$\hyperlink{struct_break_statement_a42b738327adc45037878958ebb488113}{label}=nullptr)
+\item 
+void \hyperlink{struct_break_statement_a915562cfa7dbbcadb0daecc3c3aa7d1f}{accept} (\hyperlink{struct_visitor}{Visitor} \&visitor) const override
+\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-boost\+::optional$<$ \hyperlink{struct_identifier}{Identifier} $>$ \hyperlink{struct_break_statement_a0367fe642b46069be309b05e05b547c5}{label}
+\hyperlink{struct_identifier}{Identifier} $\ast$ \hyperlink{struct_break_statement_a42b738327adc45037878958ebb488113}{label}
 \end{DoxyCompactItemize}
 
 
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_break_statement_a069ece35d82ad5cde60d51221f3b2d5f}\label{struct_break_statement_a069ece35d82ad5cde60d51221f3b2d5f}} 
+\index{Break\+Statement@{Break\+Statement}!Break\+Statement@{Break\+Statement}}
+\index{Break\+Statement@{Break\+Statement}!Break\+Statement@{Break\+Statement}}
+\subsubsection{\texorpdfstring{Break\+Statement()}{BreakStatement()}}
+{\footnotesize\ttfamily Break\+Statement\+::\+Break\+Statement (\begin{DoxyParamCaption}\item[{\hyperlink{struct_identifier}{Identifier} $\ast$}]{label = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_break_statement_a915562cfa7dbbcadb0daecc3c3aa7d1f}\label{struct_break_statement_a915562cfa7dbbcadb0daecc3c3aa7d1f}} 
+\index{Break\+Statement@{Break\+Statement}!accept@{accept}}
+\index{accept@{accept}!Break\+Statement@{Break\+Statement}}
+\subsubsection{\texorpdfstring{accept()}{accept()}}
+{\footnotesize\ttfamily void Break\+Statement\+::accept (\begin{DoxyParamCaption}\item[{\hyperlink{struct_visitor}{Visitor} \&}]{visitor }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_node_a10bd7af968140bbf5fa461298a969c71}{Node}.
+
+
+
 \subsection{Member Data Documentation}
-\mbox{\Hypertarget{struct_break_statement_a0367fe642b46069be309b05e05b547c5}\label{struct_break_statement_a0367fe642b46069be309b05e05b547c5}} 
+\mbox{\Hypertarget{struct_break_statement_a42b738327adc45037878958ebb488113}\label{struct_break_statement_a42b738327adc45037878958ebb488113}} 
 \index{Break\+Statement@{Break\+Statement}!label@{label}}
 \index{label@{label}!Break\+Statement@{Break\+Statement}}
 \subsubsection{\texorpdfstring{label}{label}}
-{\footnotesize\ttfamily boost\+::optional$<$\hyperlink{struct_identifier}{Identifier}$>$ Break\+Statement\+::label}
+{\footnotesize\ttfamily \hyperlink{struct_identifier}{Identifier}$\ast$ Break\+Statement\+::label}
 
 
 

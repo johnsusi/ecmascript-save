@@ -1,4 +1,4 @@
-.TH "ThrowStatement" 3 "Sat Apr 29 2017" "ECMAScript" \" -*- nroff -*-
+.TH "ThrowStatement" 3 "Tue May 2 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -8,16 +8,38 @@ ThrowStatement
 .PP
 .PP
 \fC#include <ast\&.h>\fP
+.PP
+Inherits \fBStatement\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBThrowStatement\fP (\fBExpression\fP *\fBargument\fP)"
+.br
+.ti -1c
+.RI "void \fBaccept\fP (\fBVisitor\fP &visitor) const override"
+.br
+.in -1c
 .SS "Public Attributes"
 
 .in +1c
 .ti -1c
-.RI "\fBExpression\fP \fBargument\fP"
+.RI "\fBExpression\fP * \fBargument\fP"
 .br
 .in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ThrowStatement::ThrowStatement (\fBExpression\fP * argument)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void ThrowStatement::accept (\fBVisitor\fP & visitor) const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBNode\fP\&.
 .SH "Member Data Documentation"
 .PP 
-.SS "\fBExpression\fP ThrowStatement::argument"
+.SS "\fBExpression\fP* ThrowStatement::argument"
 
 
 .SH "Author"

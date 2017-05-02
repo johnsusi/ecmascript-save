@@ -1,4 +1,4 @@
-.TH "LabelledStatement" 3 "Sat Apr 29 2017" "ECMAScript" \" -*- nroff -*-
+.TH "LabelledStatement" 3 "Tue May 2 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -8,21 +8,43 @@ LabelledStatement
 .PP
 .PP
 \fC#include <ast\&.h>\fP
+.PP
+Inherits \fBStatement\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBLabelledStatement\fP (\fBIdentifier\fP *\fBlabel\fP, \fBStatement\fP *\fBbody\fP)"
+.br
+.ti -1c
+.RI "void \fBaccept\fP (\fBVisitor\fP &visitor) const override"
+.br
+.in -1c
 .SS "Public Attributes"
 
 .in +1c
 .ti -1c
-.RI "\fBIdentifier\fP \fBlabel\fP"
+.RI "\fBIdentifier\fP * \fBlabel\fP"
 .br
 .ti -1c
-.RI "\fBStatement\fP \fBbody\fP"
+.RI "\fBStatement\fP * \fBbody\fP"
 .br
 .in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "LabelledStatement::LabelledStatement (\fBIdentifier\fP * label, \fBStatement\fP * body)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void LabelledStatement::accept (\fBVisitor\fP & visitor) const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBNode\fP\&.
 .SH "Member Data Documentation"
 .PP 
-.SS "\fBStatement\fP LabelledStatement::body"
+.SS "\fBStatement\fP* LabelledStatement::body"
 
-.SS "\fBIdentifier\fP LabelledStatement::label"
+.SS "\fBIdentifier\fP* LabelledStatement::label"
 
 
 .SH "Author"

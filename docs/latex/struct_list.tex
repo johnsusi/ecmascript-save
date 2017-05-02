@@ -1,0 +1,141 @@
+\hypertarget{struct_list}{}\section{List$<$ T $>$ Struct Template Reference}
+\label{struct_list}\index{List$<$ T $>$@{List$<$ T $>$}}
+
+
+{\ttfamily \#include $<$ast.\+h$>$}
+
+
+
+Inheritance diagram for List$<$ T $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=135pt]{struct_list__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for List$<$ T $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{struct_list__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename... Args$>$ }\\\hyperlink{struct_list_a622a2ade2682950b9346ac692b17039c}{List} (Args \&\&... args)
+\item 
+auto \hyperlink{struct_list_a4efaea597a8cea09cc9e7717e6a9f80a}{front} () const
+\item 
+auto \hyperlink{struct_list_a6949268f152305afc5bac0ee3e5bb838}{back} () const
+\item 
+void \hyperlink{struct_list_a42e1aee3e26b76b3f4d9386efa7fe8b7}{pop\+\_\+back} ()
+\item 
+void \hyperlink{struct_list_af4ca3dd63fcff83845b673dfd7d5d715}{push\+\_\+back} (T $\ast$value)
+\item 
+auto \hyperlink{struct_list_afa6f9828eab89e2fcae63b612927fabb}{begin} () const
+\item 
+auto \hyperlink{struct_list_a22f91e0dfc7ab053952fc8ed33e5cd53}{end} () const
+\item 
+auto \hyperlink{struct_list_a40b4d77cbee9b7c311c304cafbf07d1e}{operator\mbox{[}$\,$\mbox{]}} (\textbf{ std\+::size\+\_\+t} index)
+\item 
+void \hyperlink{struct_list_a9d87bf19af4c0cca46520b694da550f0}{accept} (\hyperlink{struct_visitor}{Visitor} \&visitor) const override
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ std\+::vector}$<$ T $\ast$ $>$ \hyperlink{struct_list_afcdf492754937d2dbd6c1f89f8abf888}{data}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_list_a622a2ade2682950b9346ac692b17039c}\label{struct_list_a622a2ade2682950b9346ac692b17039c}} 
+\index{List@{List}!List@{List}}
+\index{List@{List}!List@{List}}
+\subsubsection{\texorpdfstring{List()}{List()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+template$<$typename... Args$>$ \\
+\hyperlink{struct_list}{List}$<$ T $>$\+::\hyperlink{struct_list}{List} (\begin{DoxyParamCaption}\item[{Args \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_list_a9d87bf19af4c0cca46520b694da550f0}\label{struct_list_a9d87bf19af4c0cca46520b694da550f0}} 
+\index{List@{List}!accept@{accept}}
+\index{accept@{accept}!List@{List}}
+\subsubsection{\texorpdfstring{accept()}{accept()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \hyperlink{struct_list}{List}$<$ T $>$\+::accept (\begin{DoxyParamCaption}\item[{\hyperlink{struct_visitor}{Visitor} \&}]{visitor }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_node_a10bd7af968140bbf5fa461298a969c71}{Node}.
+
+\mbox{\Hypertarget{struct_list_a6949268f152305afc5bac0ee3e5bb838}\label{struct_list_a6949268f152305afc5bac0ee3e5bb838}} 
+\index{List@{List}!back@{back}}
+\index{back@{back}!List@{List}}
+\subsubsection{\texorpdfstring{back()}{back()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+auto \hyperlink{struct_list}{List}$<$ T $>$\+::back (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_list_afa6f9828eab89e2fcae63b612927fabb}\label{struct_list_afa6f9828eab89e2fcae63b612927fabb}} 
+\index{List@{List}!begin@{begin}}
+\index{begin@{begin}!List@{List}}
+\subsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+auto \hyperlink{struct_list}{List}$<$ T $>$\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_list_a22f91e0dfc7ab053952fc8ed33e5cd53}\label{struct_list_a22f91e0dfc7ab053952fc8ed33e5cd53}} 
+\index{List@{List}!end@{end}}
+\index{end@{end}!List@{List}}
+\subsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+auto \hyperlink{struct_list}{List}$<$ T $>$\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_list_a4efaea597a8cea09cc9e7717e6a9f80a}\label{struct_list_a4efaea597a8cea09cc9e7717e6a9f80a}} 
+\index{List@{List}!front@{front}}
+\index{front@{front}!List@{List}}
+\subsubsection{\texorpdfstring{front()}{front()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+auto \hyperlink{struct_list}{List}$<$ T $>$\+::front (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_list_a40b4d77cbee9b7c311c304cafbf07d1e}\label{struct_list_a40b4d77cbee9b7c311c304cafbf07d1e}} 
+\index{List@{List}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!List@{List}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+auto \hyperlink{struct_list}{List}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{\textbf{ std\+::size\+\_\+t}}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_list_a42e1aee3e26b76b3f4d9386efa7fe8b7}\label{struct_list_a42e1aee3e26b76b3f4d9386efa7fe8b7}} 
+\index{List@{List}!pop\+\_\+back@{pop\+\_\+back}}
+\index{pop\+\_\+back@{pop\+\_\+back}!List@{List}}
+\subsubsection{\texorpdfstring{pop\+\_\+back()}{pop\_back()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+void \hyperlink{struct_list}{List}$<$ T $>$\+::pop\+\_\+back (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_list_af4ca3dd63fcff83845b673dfd7d5d715}\label{struct_list_af4ca3dd63fcff83845b673dfd7d5d715}} 
+\index{List@{List}!push\+\_\+back@{push\+\_\+back}}
+\index{push\+\_\+back@{push\+\_\+back}!List@{List}}
+\subsubsection{\texorpdfstring{push\+\_\+back()}{push\_back()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+void \hyperlink{struct_list}{List}$<$ T $>$\+::push\+\_\+back (\begin{DoxyParamCaption}\item[{T $\ast$}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_list_afcdf492754937d2dbd6c1f89f8abf888}\label{struct_list_afcdf492754937d2dbd6c1f89f8abf888}} 
+\index{List@{List}!data@{data}}
+\index{data@{data}!List@{List}}
+\subsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+\textbf{ std\+::vector}$<$T $\ast$$>$ \hyperlink{struct_list}{List}$<$ T $>$\+::data}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{ast_8h}{ast.\+h}\end{DoxyCompactItemize}

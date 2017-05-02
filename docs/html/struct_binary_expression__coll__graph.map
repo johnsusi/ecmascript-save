@@ -1,3 +1,5 @@
 <map id="BinaryExpression" name="BinaryExpression">
-<area shape="rect" id="node2" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/string/basic_string.html" title="std::string" alt="" coords="28,5,107,31"/>
+<area shape="rect" id="node2" href="$struct_expression.html" title="Expression" alt="" coords="5,80,93,105"/>
+<area shape="rect" id="node3" href="$struct_node.html" title="Node" alt="" coords="22,5,76,31"/>
+<area shape="rect" id="node4" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/string/basic_string.html" title="std::string" alt="" coords="116,80,195,105"/>
 </map>

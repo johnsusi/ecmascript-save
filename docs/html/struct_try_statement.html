@@ -59,6 +59,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="struct_try_statement-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -68,61 +69,158 @@ $(function() {
 
 <p><code>#include &lt;<a class="el" href="ast_8h_source.html">ast.h</a>&gt;</code></p>
 <div class="dynheader">
+Inheritance diagram for TryStatement:</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_try_statement__inherit__graph.png" border="0" usemap="#_try_statement_inherit__map" alt="Inheritance graph"/></div>
+<map name="_try_statement_inherit__map" id="_try_statement_inherit__map">
+<area shape="rect" id="node2" href="struct_statement.html" title="Statement" alt="" coords="21,152,103,177"/>
+<area shape="rect" id="node3" href="struct_source_element.html" title="SourceElement" alt="" coords="5,79,118,104"/>
+<area shape="rect" id="node4" href="struct_node.html" title="Node" alt="" coords="35,5,88,31"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
 Collaboration diagram for TryStatement:</div>
 <div class="dyncontent">
 <div class="center"><img src="struct_try_statement__coll__graph.png" border="0" usemap="#_try_statement_coll__map" alt="Collaboration graph"/></div>
 <map name="_try_statement_coll__map" id="_try_statement_coll__map">
-<area shape="rect" id="node2" href="struct_block.html" title="Block" alt="" coords="62,92,116,117"/>
-<area shape="rect" id="node3" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/container/vector.html" title="std::vector\&lt; Statement \&gt;" alt="" coords="5,5,172,31"/>
+<area shape="rect" id="node2" href="struct_statement.html" title="Statement" alt="" coords="41,167,123,192"/>
+<area shape="rect" id="node5" href="struct_block.html" title="Block" alt="" coords="119,253,173,279"/>
+<area shape="rect" id="node3" href="struct_source_element.html" title="SourceElement" alt="" coords="5,92,118,117"/>
+<area shape="rect" id="node4" href="struct_node.html" title="Node" alt="" coords="39,5,92,31"/>
+<area shape="rect" id="node7" href="struct_list.html" title="List\&lt; Statement \&gt;" alt="" coords="141,92,267,117"/>
+<area shape="rect" id="node6" href="struct_statement_list.html" title="StatementList" alt="" coords="149,167,252,192"/>
+<area shape="rect" id="node8" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/container/vector.html" title="std::vector\&lt; Statement *\&gt;" alt="" coords="118,5,290,31"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:ac3dece791d96a6aa4ce0b5c944ae20f0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_try_statement.html#ac3dece791d96a6aa4ce0b5c944ae20f0">TryStatement</a> (<a class="el" href="struct_block.html">Block</a> *<a class="el" href="struct_try_statement.html#aeea1fa5fce0062d0f8d427d4706d1f73">block</a>, <a class="el" href="struct_block.html">Block</a> *<a class="el" href="struct_try_statement.html#a4d97ad90948102f8e6dca2051f03ceb0">handler</a>=nullptr, <a class="el" href="struct_block.html">Block</a> *<a class="el" href="struct_try_statement.html#a95cbb6dbd527aad85fa40f0b8b98b66c">finalizer</a>=nullptr)</td></tr>
+<tr class="separator:ac3dece791d96a6aa4ce0b5c944ae20f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af223e8205727843aa77651caeb89b805"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_try_statement.html#af223e8205727843aa77651caeb89b805">accept</a> (<a class="el" href="struct_visitor.html">Visitor</a> &amp;visitor) const override</td></tr>
+<tr class="separator:af223e8205727843aa77651caeb89b805"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_struct_node"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_struct_node')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="struct_node.html">Node</a></td></tr>
+<tr class="memitem:af5e3fa79300bf5f3f2f3ecae6e795a94 inherit pub_methods_struct_node"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_node.html#af5e3fa79300bf5f3f2f3ecae6e795a94">~Node</a> ()</td></tr>
+<tr class="separator:af5e3fa79300bf5f3f2f3ecae6e795a94 inherit pub_methods_struct_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ab2ff67fb1eff24dd249e6fa89fc01702"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_block.html">Block</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_try_statement.html#ab2ff67fb1eff24dd249e6fa89fc01702">block</a></td></tr>
-<tr class="separator:ab2ff67fb1eff24dd249e6fa89fc01702"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa043b0a35a0be28a40799cb4e703a12"><td class="memItemLeft" align="right" valign="top">boost::optional&lt; <a class="el" href="struct_block.html">Block</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_try_statement.html#afa043b0a35a0be28a40799cb4e703a12">handler</a></td></tr>
-<tr class="separator:afa043b0a35a0be28a40799cb4e703a12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1260e64a5438f82ea3d4be1fb9174c41"><td class="memItemLeft" align="right" valign="top">boost::optional&lt; <a class="el" href="struct_block.html">Block</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_try_statement.html#a1260e64a5438f82ea3d4be1fb9174c41">finalizer</a></td></tr>
-<tr class="separator:a1260e64a5438f82ea3d4be1fb9174c41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeea1fa5fce0062d0f8d427d4706d1f73"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_block.html">Block</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_try_statement.html#aeea1fa5fce0062d0f8d427d4706d1f73">block</a></td></tr>
+<tr class="separator:aeea1fa5fce0062d0f8d427d4706d1f73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d97ad90948102f8e6dca2051f03ceb0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_block.html">Block</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_try_statement.html#a4d97ad90948102f8e6dca2051f03ceb0">handler</a></td></tr>
+<tr class="separator:a4d97ad90948102f8e6dca2051f03ceb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95cbb6dbd527aad85fa40f0b8b98b66c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_block.html">Block</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_try_statement.html#a95cbb6dbd527aad85fa40f0b8b98b66c">finalizer</a></td></tr>
+<tr class="separator:a95cbb6dbd527aad85fa40f0b8b98b66c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ac3dece791d96a6aa4ce0b5c944ae20f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3dece791d96a6aa4ce0b5c944ae20f0">&#9670;&nbsp;</a></span>TryStatement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TryStatement::TryStatement </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_block.html">Block</a> *&#160;</td>
+          <td class="paramname"><em>block</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_block.html">Block</a> *&#160;</td>
+          <td class="paramname"><em>handler</em> = <code>nullptr</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_block.html">Block</a> *&#160;</td>
+          <td class="paramname"><em>finalizer</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="af223e8205727843aa77651caeb89b805"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af223e8205727843aa77651caeb89b805">&#9670;&nbsp;</a></span>accept()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TryStatement::accept </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_visitor.html">Visitor</a> &amp;&#160;</td>
+          <td class="paramname"><em>visitor</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="struct_node.html#a10bd7af968140bbf5fa461298a969c71">Node</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="ab2ff67fb1eff24dd249e6fa89fc01702"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab2ff67fb1eff24dd249e6fa89fc01702">&#9670;&nbsp;</a></span>block</h2>
+<a id="aeea1fa5fce0062d0f8d427d4706d1f73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeea1fa5fce0062d0f8d427d4706d1f73">&#9670;&nbsp;</a></span>block</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="struct_block.html">Block</a> TryStatement::block</td>
+          <td class="memname"><a class="el" href="struct_block.html">Block</a>* TryStatement::block</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a1260e64a5438f82ea3d4be1fb9174c41"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1260e64a5438f82ea3d4be1fb9174c41">&#9670;&nbsp;</a></span>finalizer</h2>
+<a id="a95cbb6dbd527aad85fa40f0b8b98b66c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95cbb6dbd527aad85fa40f0b8b98b66c">&#9670;&nbsp;</a></span>finalizer</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">boost::optional&lt;<a class="el" href="struct_block.html">Block</a>&gt; TryStatement::finalizer</td>
+          <td class="memname"><a class="el" href="struct_block.html">Block</a>* TryStatement::finalizer</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="afa043b0a35a0be28a40799cb4e703a12"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa043b0a35a0be28a40799cb4e703a12">&#9670;&nbsp;</a></span>handler</h2>
+<a id="a4d97ad90948102f8e6dca2051f03ceb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d97ad90948102f8e6dca2051f03ceb0">&#9670;&nbsp;</a></span>handler</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">boost::optional&lt;<a class="el" href="struct_block.html">Block</a>&gt; TryStatement::handler</td>
+          <td class="memname"><a class="el" href="struct_block.html">Block</a>* TryStatement::handler</td>
         </tr>
       </table>
 </div><div class="memdoc">

@@ -1,11 +1,12 @@
 \hypertarget{ast_8h}{}\section{src/ast.h File Reference}
 \label{ast_8h}\index{src/ast.\+h@{src/ast.\+h}}
 {\ttfamily \#include $<$iostream$>$}\newline
-{\ttfamily \#include $<$vector$>$}\newline
 {\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
 {\ttfamily \#include $<$boost/optional.\+hpp$>$}\newline
 {\ttfamily \#include $<$boost/variant.\+hpp$>$}\newline
-Include dependency graph for ast.\+h\+:\nopagebreak
+Include dependency graph for ast.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -22,156 +23,149 @@ This graph shows which files directly or indirectly include this file\+:\nopageb
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-struct \hyperlink{structast_1_1_node}{ast\+::\+Node}
+struct \hyperlink{struct_node}{Node}
 \item 
-struct \hyperlink{structast_1_1_list}{ast\+::\+List$<$ T $>$}
+struct \hyperlink{struct_list}{List$<$ T $>$}
 \item 
-struct \hyperlink{structast_1_1_visitor}{ast\+::\+Visitor}
+struct \hyperlink{struct_visitor}{Visitor}
 \item 
-struct \hyperlink{structast_1_1_expression}{ast\+::\+Expression}
+struct \hyperlink{struct_expression}{Expression}
 \item 
-struct \hyperlink{structast_1_1_primary_expression}{ast\+::\+Primary\+Expression}
+struct \hyperlink{struct_primary_expression}{Primary\+Expression}
 \item 
-struct \hyperlink{structast_1_1_this}{ast\+::\+This}
+struct \hyperlink{struct_this}{This}
 \item 
-struct \hyperlink{structast_1_1_identifier}{ast\+::\+Identifier}
+struct \hyperlink{struct_identifier}{Identifier}
 \item 
-struct \hyperlink{structast_1_1_literal}{ast\+::\+Literal}
+struct \hyperlink{struct_literal}{Literal}
 \item 
-struct \hyperlink{structast_1_1_null_literal}{ast\+::\+Null\+Literal}
+struct \hyperlink{struct_null_literal}{Null\+Literal}
 \item 
-struct \hyperlink{structast_1_1_boolean_literal}{ast\+::\+Boolean\+Literal}
+struct \hyperlink{struct_boolean_literal}{Boolean\+Literal}
 \item 
-struct \hyperlink{structast_1_1_numeric_literal}{ast\+::\+Numeric\+Literal}
+struct \hyperlink{struct_numeric_literal}{Numeric\+Literal}
 \item 
-struct \hyperlink{structast_1_1_string_literal}{ast\+::\+String\+Literal}
+struct \hyperlink{struct_string_literal}{String\+Literal}
 \item 
-struct \hyperlink{structast_1_1_regular_expression_literal}{ast\+::\+Regular\+Expression\+Literal}
+struct \hyperlink{struct_regular_expression_literal}{Regular\+Expression\+Literal}
 \item 
-struct \hyperlink{structast_1_1_property_name}{ast\+::\+Property\+Name}
+struct \hyperlink{struct_property_name}{Property\+Name}
 \item 
-struct \hyperlink{structast_1_1_property_assignment}{ast\+::\+Property\+Assignment}
+struct \hyperlink{struct_property_assignment}{Property\+Assignment}
 \item 
-struct \hyperlink{structast_1_1_elision}{ast\+::\+Elision}
+struct \hyperlink{struct_elision}{Elision}
 \item 
-struct \hyperlink{structast_1_1_element_list}{ast\+::\+Element\+List}
+struct \hyperlink{struct_element_list}{Element\+List}
 \item 
-struct \hyperlink{structast_1_1_array_literal}{ast\+::\+Array\+Literal}
+struct \hyperlink{struct_array_literal}{Array\+Literal}
 \item 
-struct \hyperlink{structast_1_1_property_name_and_value_list}{ast\+::\+Property\+Name\+And\+Value\+List}
+struct \hyperlink{struct_property_name_and_value_list}{Property\+Name\+And\+Value\+List}
 \item 
-struct \hyperlink{structast_1_1_object_literal}{ast\+::\+Object\+Literal}
+struct \hyperlink{struct_object_literal}{Object\+Literal}
 \item 
-struct \hyperlink{structast_1_1_member_expression}{ast\+::\+Member\+Expression}
+struct \hyperlink{struct_member_expression}{Member\+Expression}
 \item 
-struct \hyperlink{structast_1_1_argument_list}{ast\+::\+Argument\+List}
+struct \hyperlink{struct_argument_list}{Argument\+List}
 \item 
-struct \hyperlink{structast_1_1_arguments}{ast\+::\+Arguments}
+struct \hyperlink{struct_arguments}{Arguments}
 \item 
-struct \hyperlink{structast_1_1_new_expression}{ast\+::\+New\+Expression}
+struct \hyperlink{struct_new_expression}{New\+Expression}
 \item 
-struct \hyperlink{structast_1_1_call_expression}{ast\+::\+Call\+Expression}
+struct \hyperlink{struct_call_expression}{Call\+Expression}
 \item 
-struct \hyperlink{structast_1_1_postfix_expression}{ast\+::\+Postfix\+Expression}
+struct \hyperlink{struct_postfix_expression}{Postfix\+Expression}
 \item 
-struct \hyperlink{structast_1_1_unary_expression}{ast\+::\+Unary\+Expression}
+struct \hyperlink{struct_unary_expression}{Unary\+Expression}
 \item 
-struct \hyperlink{structast_1_1_binary_expression}{ast\+::\+Binary\+Expression}
+struct \hyperlink{struct_binary_expression}{Binary\+Expression}
 \item 
-struct \hyperlink{structast_1_1_conditional_expression}{ast\+::\+Conditional\+Expression}
+struct \hyperlink{struct_conditional_expression}{Conditional\+Expression}
 \item 
-struct \hyperlink{structast_1_1_variable_declaration}{ast\+::\+Variable\+Declaration}
+struct \hyperlink{struct_variable_declaration}{Variable\+Declaration}
 \item 
-struct \hyperlink{structast_1_1_variable_declaration_list}{ast\+::\+Variable\+Declaration\+List}
+struct \hyperlink{struct_variable_declaration_list}{Variable\+Declaration\+List}
 \item 
-struct \hyperlink{structast_1_1_source_element}{ast\+::\+Source\+Element}
+struct \hyperlink{struct_source_element}{Source\+Element}
 \item 
-struct \hyperlink{structast_1_1_statement}{ast\+::\+Statement}
+struct \hyperlink{struct_statement}{Statement}
 \item 
-struct \hyperlink{structast_1_1_statement_list}{ast\+::\+Statement\+List}
+struct \hyperlink{struct_statement_list}{Statement\+List}
 \item 
-struct \hyperlink{structast_1_1_block}{ast\+::\+Block}
+struct \hyperlink{struct_block}{Block}
 \item 
-struct \hyperlink{structast_1_1_variable_statement}{ast\+::\+Variable\+Statement}
+struct \hyperlink{struct_variable_statement}{Variable\+Statement}
 \item 
-struct \hyperlink{structast_1_1_empty_statement}{ast\+::\+Empty\+Statement}
+struct \hyperlink{struct_empty_statement}{Empty\+Statement}
 \item 
-struct \hyperlink{structast_1_1_expression_statement}{ast\+::\+Expression\+Statement}
+struct \hyperlink{struct_expression_statement}{Expression\+Statement}
 \item 
-struct \hyperlink{structast_1_1_if_statement}{ast\+::\+If\+Statement}
+struct \hyperlink{struct_if_statement}{If\+Statement}
 \item 
-struct \hyperlink{structast_1_1_do_while_statement}{ast\+::\+Do\+While\+Statement}
+struct \hyperlink{struct_do_while_statement}{Do\+While\+Statement}
 \item 
-struct \hyperlink{structast_1_1_while_statement}{ast\+::\+While\+Statement}
+struct \hyperlink{struct_while_statement}{While\+Statement}
 \item 
-struct \hyperlink{structast_1_1_for_statement}{ast\+::\+For\+Statement}
+struct \hyperlink{struct_for_statement}{For\+Statement}
 \item 
-struct \hyperlink{structast_1_1_for_in_statement}{ast\+::\+For\+In\+Statement}
+struct \hyperlink{struct_for_in_statement}{For\+In\+Statement}
 \item 
-struct \hyperlink{structast_1_1_continue_statement}{ast\+::\+Continue\+Statement}
+struct \hyperlink{struct_continue_statement}{Continue\+Statement}
 \item 
-struct \hyperlink{structast_1_1_break_statement}{ast\+::\+Break\+Statement}
+struct \hyperlink{struct_break_statement}{Break\+Statement}
 \item 
-struct \hyperlink{structast_1_1_return_statement}{ast\+::\+Return\+Statement}
+struct \hyperlink{struct_return_statement}{Return\+Statement}
 \item 
-struct \hyperlink{structast_1_1_with_statement}{ast\+::\+With\+Statement}
+struct \hyperlink{struct_with_statement}{With\+Statement}
 \item 
-struct \hyperlink{structast_1_1_labelled_statement}{ast\+::\+Labelled\+Statement}
+struct \hyperlink{struct_labelled_statement}{Labelled\+Statement}
 \item 
-struct \hyperlink{structast_1_1_case_clause}{ast\+::\+Case\+Clause}
+struct \hyperlink{struct_case_clause}{Case\+Clause}
 \item 
-struct \hyperlink{structast_1_1_default_clause}{ast\+::\+Default\+Clause}
+struct \hyperlink{struct_default_clause}{Default\+Clause}
 \item 
-struct \hyperlink{structast_1_1_case_block}{ast\+::\+Case\+Block}
+struct \hyperlink{struct_case_block}{Case\+Block}
 \item 
-struct \hyperlink{structast_1_1_switch_statement}{ast\+::\+Switch\+Statement}
+struct \hyperlink{struct_switch_statement}{Switch\+Statement}
 \item 
-struct \hyperlink{structast_1_1_throw_statement}{ast\+::\+Throw\+Statement}
+struct \hyperlink{struct_throw_statement}{Throw\+Statement}
 \item 
-struct \hyperlink{structast_1_1_try_statement}{ast\+::\+Try\+Statement}
+struct \hyperlink{struct_try_statement}{Try\+Statement}
 \item 
-struct \hyperlink{structast_1_1_debugger_statement}{ast\+::\+Debugger\+Statement}
+struct \hyperlink{struct_debugger_statement}{Debugger\+Statement}
 \item 
-struct \hyperlink{structast_1_1_declaration}{ast\+::\+Declaration}
+struct \hyperlink{struct_declaration}{Declaration}
 \item 
-struct \hyperlink{structast_1_1_source_elements}{ast\+::\+Source\+Elements}
+struct \hyperlink{struct_source_elements}{Source\+Elements}
 \item 
-struct \hyperlink{structast_1_1_formal_parameter_list}{ast\+::\+Formal\+Parameter\+List}
+struct \hyperlink{struct_formal_parameter_list}{Formal\+Parameter\+List}
 \item 
-struct \hyperlink{structast_1_1_function_body}{ast\+::\+Function\+Body}
+struct \hyperlink{struct_function_body}{Function\+Body}
 \item 
-struct \hyperlink{structast_1_1_function_declaration}{ast\+::\+Function\+Declaration}
+struct \hyperlink{struct_function_declaration}{Function\+Declaration}
 \item 
-struct \hyperlink{structast_1_1_function_expression}{ast\+::\+Function\+Expression}
+struct \hyperlink{struct_function_expression}{Function\+Expression}
 \item 
-struct \hyperlink{structast_1_1_program}{ast\+::\+Program}
-\end{DoxyCompactItemize}
-\subsection*{Namespaces}
-\begin{DoxyCompactItemize}
-\item 
- \hyperlink{namespaceast}{ast}
+struct \hyperlink{struct_program}{Program}
 \end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{namespaceast_ae8ec562ad69aa05004765217ff90879b}{ast\+::accept} (const \hyperlink{structast_1_1_program}{Program} \&program, \hyperlink{structast_1_1_visitor}{Visitor} \&\&visitor)
+void \hyperlink{ast_8h_a32abf7313bb5fc551f8aa087f1807303}{accept} (const \hyperlink{struct_program}{Program} \&program, \hyperlink{struct_visitor}{Visitor} \&\&visitor)
 \item 
-\textbf{ std\+::string} \hyperlink{ast_8h_a65fc1131f09e12650596b4fb39aa50ca}{to\+\_\+string} (const \hyperlink{structast_1_1_program}{ast\+::\+Program} \&program)
-\item 
-\textbf{ std\+::string} \hyperlink{ast_8h_a41405a71855af173c03879b19c9eeec2}{normalize} (const \textbf{ std\+::string} \&)
+\textbf{ std\+::string} \hyperlink{ast_8h_af78059189ea131010a8ca720c16a87cb}{to\+\_\+string} (const \hyperlink{struct_program}{Program} \&program)
 \end{DoxyCompactItemize}
 
 
 \subsection{Function Documentation}
-\mbox{\Hypertarget{ast_8h_a41405a71855af173c03879b19c9eeec2}\label{ast_8h_a41405a71855af173c03879b19c9eeec2}} 
-\index{ast.\+h@{ast.\+h}!normalize@{normalize}}
-\index{normalize@{normalize}!ast.\+h@{ast.\+h}}
-\subsubsection{\texorpdfstring{normalize()}{normalize()}}
-{\footnotesize\ttfamily \textbf{ std\+::string} normalize (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::string} \&}]{ }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{ast_8h_a32abf7313bb5fc551f8aa087f1807303}\label{ast_8h_a32abf7313bb5fc551f8aa087f1807303}} 
+\index{ast.\+h@{ast.\+h}!accept@{accept}}
+\index{accept@{accept}!ast.\+h@{ast.\+h}}
+\subsubsection{\texorpdfstring{accept()}{accept()}}
+{\footnotesize\ttfamily void accept (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_program}{Program} \&}]{program,  }\item[{\hyperlink{struct_visitor}{Visitor} \&\&}]{visitor }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{ast_8h_a65fc1131f09e12650596b4fb39aa50ca}\label{ast_8h_a65fc1131f09e12650596b4fb39aa50ca}} 
+\mbox{\Hypertarget{ast_8h_af78059189ea131010a8ca720c16a87cb}\label{ast_8h_af78059189ea131010a8ca720c16a87cb}} 
 \index{ast.\+h@{ast.\+h}!to\+\_\+string@{to\+\_\+string}}
 \index{to\+\_\+string@{to\+\_\+string}!ast.\+h@{ast.\+h}}
 \subsubsection{\texorpdfstring{to\+\_\+string()}{to\_string()}}
-{\footnotesize\ttfamily \textbf{ std\+::string} to\+\_\+string (\begin{DoxyParamCaption}\item[{const \hyperlink{structast_1_1_program}{ast\+::\+Program} \&}]{program }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \textbf{ std\+::string} to\+\_\+string (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_program}{Program} \&}]{program }\end{DoxyParamCaption})}
 

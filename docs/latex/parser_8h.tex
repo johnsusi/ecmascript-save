@@ -3,18 +3,21 @@
 {\ttfamily \#include \char`\"{}ast.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}matcher.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}token.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$iostream$>$}\newline
 {\ttfamily \#include $<$memory$>$}\newline
 {\ttfamily \#include $<$sstream$>$}\newline
 {\ttfamily \#include $<$vector$>$}\newline
-Include dependency graph for parser.\+h\+:\nopagebreak
+Include dependency graph for parser.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{parser_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:\nopagebreak
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -29,12 +32,6 @@ class \hyperlink{class_parser}{Parser}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$class F , size\+\_\+t... Is$>$ }\\constexpr auto \hyperlink{parser_8h_a8fdaacbe0718621a0b8767025034a7d5}{index\+\_\+apply\+\_\+impl} (F f, std\+::index\+\_\+sequence$<$ Is... $>$)
-\item 
-{\footnotesize template$<$size\+\_\+t N, class F $>$ }\\constexpr auto \hyperlink{parser_8h_a6c74a3bc1e045ee9ab2d4f659c24967d}{index\+\_\+apply} (F f)
-\item 
-bool \hyperlink{parser_8h_a0c3aa9d5efded798d98a65ea7c4b62ef}{is\+\_\+assignment\+\_\+operator} (const \textbf{ std\+::string} \&)
-\item 
 {\footnotesize template$<$typename It $>$ }\\\hyperlink{class_parser}{Parser} \hyperlink{parser_8h_a8868f7af55b7ee689ce00cd4167223d4}{make\+\_\+parser} (It f, It l)
 \item 
 {\footnotesize template$<$typename Cont $>$ }\\auto \hyperlink{parser_8h_af84a3849b6796e479c9ce1fd87672dbf}{make\+\_\+parser} (Cont \&\&cont)
@@ -42,26 +39,6 @@ bool \hyperlink{parser_8h_a0c3aa9d5efded798d98a65ea7c4b62ef}{is\+\_\+assignment\
 
 
 \subsection{Function Documentation}
-\mbox{\Hypertarget{parser_8h_a6c74a3bc1e045ee9ab2d4f659c24967d}\label{parser_8h_a6c74a3bc1e045ee9ab2d4f659c24967d}} 
-\index{parser.\+h@{parser.\+h}!index\+\_\+apply@{index\+\_\+apply}}
-\index{index\+\_\+apply@{index\+\_\+apply}!parser.\+h@{parser.\+h}}
-\subsubsection{\texorpdfstring{index\+\_\+apply()}{index\_apply()}}
-{\footnotesize\ttfamily template$<$size\+\_\+t N, class F $>$ \\
-constexpr auto index\+\_\+apply (\begin{DoxyParamCaption}\item[{F}]{f }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{parser_8h_a8fdaacbe0718621a0b8767025034a7d5}\label{parser_8h_a8fdaacbe0718621a0b8767025034a7d5}} 
-\index{parser.\+h@{parser.\+h}!index\+\_\+apply\+\_\+impl@{index\+\_\+apply\+\_\+impl}}
-\index{index\+\_\+apply\+\_\+impl@{index\+\_\+apply\+\_\+impl}!parser.\+h@{parser.\+h}}
-\subsubsection{\texorpdfstring{index\+\_\+apply\+\_\+impl()}{index\_apply\_impl()}}
-{\footnotesize\ttfamily template$<$class F , size\+\_\+t... Is$>$ \\
-constexpr auto index\+\_\+apply\+\_\+impl (\begin{DoxyParamCaption}\item[{F}]{f,  }\item[{std\+::index\+\_\+sequence$<$ Is... $>$}]{ }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{parser_8h_a0c3aa9d5efded798d98a65ea7c4b62ef}\label{parser_8h_a0c3aa9d5efded798d98a65ea7c4b62ef}} 
-\index{parser.\+h@{parser.\+h}!is\+\_\+assignment\+\_\+operator@{is\+\_\+assignment\+\_\+operator}}
-\index{is\+\_\+assignment\+\_\+operator@{is\+\_\+assignment\+\_\+operator}!parser.\+h@{parser.\+h}}
-\subsubsection{\texorpdfstring{is\+\_\+assignment\+\_\+operator()}{is\_assignment\_operator()}}
-{\footnotesize\ttfamily bool is\+\_\+assignment\+\_\+operator (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::string} \&}]{ }\end{DoxyParamCaption})}
-
 \mbox{\Hypertarget{parser_8h_a8868f7af55b7ee689ce00cd4167223d4}\label{parser_8h_a8868f7af55b7ee689ce00cd4167223d4}} 
 \index{parser.\+h@{parser.\+h}!make\+\_\+parser@{make\+\_\+parser}}
 \index{make\+\_\+parser@{make\+\_\+parser}!parser.\+h@{parser.\+h}}

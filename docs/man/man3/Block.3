@@ -1,4 +1,4 @@
-.TH "Block" 3 "Sat Apr 29 2017" "ECMAScript" \" -*- nroff -*-
+.TH "Block" 3 "Tue May 2 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -8,16 +8,38 @@ Block
 .PP
 .PP
 \fC#include <ast\&.h>\fP
+.PP
+Inherits \fBStatement\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBBlock\fP (\fBStatementList\fP *\fBbody\fP=nullptr)"
+.br
+.ti -1c
+.RI "void \fBaccept\fP (\fBVisitor\fP &visitor) const override"
+.br
+.in -1c
 .SS "Public Attributes"
 
 .in +1c
 .ti -1c
-.RI "\fBStatementList\fP \fBbody\fP"
+.RI "\fBStatementList\fP * \fBbody\fP"
 .br
 .in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Block::Block (\fBStatementList\fP * body = \fCnullptr\fP)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void Block::accept (\fBVisitor\fP & visitor) const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBNode\fP\&.
 .SH "Member Data Documentation"
 .PP 
-.SS "\fBStatementList\fP Block::body"
+.SS "\fBStatementList\fP* Block::body"
 
 
 .SH "Author"

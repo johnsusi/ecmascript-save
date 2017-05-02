@@ -1,3 +1,7 @@
 <map id="Arguments" name="Arguments">
-<area shape="rect" id="node2" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/container/vector.html" title="std::vector\&lt; Expression \&gt;" alt="" coords="5,5,177,31"/>
+<area shape="rect" id="node2" href="$struct_expression.html" title="Expression" alt="" coords="5,141,93,167"/>
+<area shape="rect" id="node3" href="$struct_node.html" title="Node" alt="" coords="18,5,72,31"/>
+<area shape="rect" id="node5" href="$struct_list.html" title="List\&lt; Expression \&gt;" alt="" coords="82,92,213,117"/>
+<area shape="rect" id="node4" href="$struct_argument_list.html" title="ArgumentList" alt="" coords="95,191,195,216"/>
+<area shape="rect" id="node6" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/container/vector.html" title="std::vector\&lt; Expression *\&gt;" alt="" coords="95,5,272,31"/>
 </map>

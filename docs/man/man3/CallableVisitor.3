@@ -1,4 +1,4 @@
-.TH "CallableVisitor< Callable >" 3 "Sun Apr 30 2017" "ECMAScript" \" -*- nroff -*-
+.TH "CallableVisitor< Callable >" 3 "Tue May 2 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -7,7 +7,7 @@ CallableVisitor< Callable >
 .br
 .PP
 .PP
-Inherits \fBast::Visitor\fP\&.
+Inherits \fBVisitor\fP\&.
 .SS "Public Member Functions"
 
 .in +1c
@@ -15,10 +15,7 @@ Inherits \fBast::Visitor\fP\&.
 .RI "\fBCallableVisitor\fP (Callable \fBcallback\fP)"
 .br
 .ti -1c
-.RI "template<typename T > void \fBapply\fP (const T *node)"
-.br
-.ti -1c
-.RI "template<typename T , typename\&.\&.\&. Args> void \fBcall_and_apply\fP (const T &node, Args\&.\&.\&. args)"
+.RI "template<typename T > void \fBcall\fP (const T &node)"
 .br
 .ti -1c
 .RI "void \fBoperator()\fP (const \fBThis\fP &node) override"
@@ -149,6 +146,9 @@ Inherits \fBast::Visitor\fP\&.
 .ti -1c
 .RI "void \fBoperator()\fP (const \fBArguments\fP &node) override"
 .br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBProgram\fP &node) override"
+.br
 .in -1c
 .SS "Public Attributes"
 
@@ -163,182 +163,184 @@ Inherits \fBast::Visitor\fP\&.
 
 .SH "Member Function Documentation"
 .PP 
-.SS "template<typename Callable > template<typename T > void \fBCallableVisitor\fP< Callable >::apply (const T * node)\fC [inline]\fP"
-
-.SS "template<typename Callable > template<typename T , typename\&.\&.\&. Args> void \fBCallableVisitor\fP< Callable >::call_and_apply (const T & node, Args\&.\&.\&. args)\fC [inline]\fP"
+.SS "template<typename Callable > template<typename T > void \fBCallableVisitor\fP< Callable >::call (const T & node)\fC [inline]\fP"
 
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBThis\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBIdentifier\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBNullLiteral\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBBooleanLiteral\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBNumericLiteral\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBStringLiteral\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBRegularExpressionLiteral\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBArrayLiteral\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBObjectLiteral\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBMemberExpression\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBNewExpression\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBCallExpression\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBPostfixExpression\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBUnaryExpression\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBBinaryExpression\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBConditionalExpression\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBFunctionExpression\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBBlock\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBVariableStatement\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBEmptyStatement\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBExpressionStatement\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBIfStatement\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBDoWhileStatement\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBWhileStatement\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBForStatement\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBForInStatement\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBContinueStatement\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBBreakStatement\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBReturnStatement\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBWithStatement\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBLabelledStatement\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBSwitchStatement\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBThrowStatement\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBTryStatement\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBDebuggerStatement\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBCaseClause\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBDefaultClause\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBFunctionDeclaration\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBVariableDeclaration\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBElision\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBPropertyName\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBPropertyAssignment\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
 .SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBArguments\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Implements \fBast::Visitor\fP\&.
+Implements \fBVisitor\fP\&.
+.SS "template<typename Callable > void \fBCallableVisitor\fP< Callable >::operator() (const \fBProgram\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
 .SH "Member Data Documentation"
 .PP 
 .SS "template<typename Callable > Callable \fBCallableVisitor\fP< Callable >::callback"

@@ -1,4 +1,4 @@
-.TH "Token::equal_visitor" 3 "Sun Apr 30 2017" "ECMAScript" \" -*- nroff -*-
+.TH "Token::equal_visitor" 3 "Tue May 2 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -18,7 +18,7 @@ Inherits static_visitor< bool >\&.
 .RI "bool \fBoperator()\fP (const Empty &, const Empty &) const"
 .br
 .ti -1c
-.RI "bool \fBoperator()\fP (const NullLiteral &, const NullLiteral &) const"
+.RI "bool \fBoperator()\fP (const \fBNullLiteral\fP &, const \fBNullLiteral\fP &) const"
 .br
 .ti -1c
 .RI "template<typename T , typename U > bool \fBoperator()\fP (const T &, const U &) const"
@@ -31,7 +31,7 @@ Inherits static_visitor< bool >\&.
 
 .SS "bool Token::equal_visitor::operator() (const Empty &, const Empty &) const\fC [inline]\fP"
 
-.SS "bool Token::equal_visitor::operator() (const NullLiteral &, const NullLiteral &) const\fC [inline]\fP"
+.SS "bool Token::equal_visitor::operator() (const \fBNullLiteral\fP &, const \fBNullLiteral\fP &) const\fC [inline]\fP"
 
 .SS "template<typename T , typename U > bool Token::equal_visitor::operator() (const T &, const U &) const\fC [inline]\fP"
 

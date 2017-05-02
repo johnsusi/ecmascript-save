@@ -1,4 +1,4 @@
-.TH "FunctionExpression" 3 "Sat Apr 29 2017" "ECMAScript" \" -*- nroff -*-
+.TH "FunctionExpression" 3 "Tue May 2 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -8,26 +8,48 @@ FunctionExpression
 .PP
 .PP
 \fC#include <ast\&.h>\fP
+.PP
+Inherits \fBExpression\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBFunctionExpression\fP (\fBIdentifier\fP *\fBid\fP, \fBFormalParameterList\fP *\fBparams\fP, \fBFunctionBody\fP *\fBbody\fP)"
+.br
+.ti -1c
+.RI "void \fBaccept\fP (\fBVisitor\fP &visitor) const"
+.br
+.in -1c
 .SS "Public Attributes"
 
 .in +1c
 .ti -1c
-.RI "boost::optional< \fBIdentifier\fP > \fBid\fP"
+.RI "\fBIdentifier\fP * \fBid\fP"
 .br
 .ti -1c
-.RI "\fBFormalParameterList\fP \fBparams\fP"
+.RI "\fBFormalParameterList\fP * \fBparams\fP"
 .br
 .ti -1c
-.RI "\fBFunctionBody\fP \fBbody\fP"
+.RI "\fBFunctionBody\fP * \fBbody\fP"
 .br
 .in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "FunctionExpression::FunctionExpression (\fBIdentifier\fP * id, \fBFormalParameterList\fP * params, \fBFunctionBody\fP * body)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void FunctionExpression::accept (\fBVisitor\fP & visitor) const\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBNode\fP\&.
 .SH "Member Data Documentation"
 .PP 
-.SS "\fBFunctionBody\fP FunctionExpression::body"
+.SS "\fBFunctionBody\fP* FunctionExpression::body"
 
-.SS "boost::optional<\fBIdentifier\fP> FunctionExpression::id"
+.SS "\fBIdentifier\fP* FunctionExpression::id"
 
-.SS "\fBFormalParameterList\fP FunctionExpression::params"
+.SS "\fBFormalParameterList\fP* FunctionExpression::params"
 
 
 .SH "Author"

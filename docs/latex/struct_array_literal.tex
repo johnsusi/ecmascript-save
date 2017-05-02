@@ -6,26 +6,74 @@
 
 
 
-Collaboration diagram for Array\+Literal\+:\nopagebreak
+Inheritance diagram for Array\+Literal\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=209pt]{struct_array_literal__coll__graph}
+\includegraphics[width=180pt]{struct_array_literal__inherit__graph}
 \end{center}
 \end{figure}
+
+
+Collaboration diagram for Array\+Literal\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_array_literal__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_array_literal_a1df7283ca804e7c1147f5024e2e0408d}{Array\+Literal} (\hyperlink{struct_element_list}{Element\+List} $\ast$\hyperlink{struct_array_literal_ae4c3df364c3994cb8916d73a50f1f92f}{elements}=nullptr, \hyperlink{struct_elision}{Elision} $\ast$\hyperlink{struct_array_literal_a08fa9ad6e83376bb2a70d22df9cf2c8a}{elision}=nullptr)
+\item 
+void \hyperlink{struct_array_literal_ab3ba06d627e0fe714aafb9fc843c83e8}{accept} (\hyperlink{struct_visitor}{Visitor} \&visitor) const override
+\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\textbf{ std\+::vector}$<$ \hyperlink{ast_8h_a4cb273a4d960cd13ea17d08f254493e8}{Expression} $>$ \hyperlink{struct_array_literal_a781458884800ef73f725cbc92c5cc35c}{elements}
+\hyperlink{struct_element_list}{Element\+List} $\ast$ \hyperlink{struct_array_literal_ae4c3df364c3994cb8916d73a50f1f92f}{elements}
+\item 
+\hyperlink{struct_elision}{Elision} $\ast$ \hyperlink{struct_array_literal_a08fa9ad6e83376bb2a70d22df9cf2c8a}{elision}
 \end{DoxyCompactItemize}
 
 
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_array_literal_a1df7283ca804e7c1147f5024e2e0408d}\label{struct_array_literal_a1df7283ca804e7c1147f5024e2e0408d}} 
+\index{Array\+Literal@{Array\+Literal}!Array\+Literal@{Array\+Literal}}
+\index{Array\+Literal@{Array\+Literal}!Array\+Literal@{Array\+Literal}}
+\subsubsection{\texorpdfstring{Array\+Literal()}{ArrayLiteral()}}
+{\footnotesize\ttfamily Array\+Literal\+::\+Array\+Literal (\begin{DoxyParamCaption}\item[{\hyperlink{struct_element_list}{Element\+List} $\ast$}]{elements = {\ttfamily nullptr},  }\item[{\hyperlink{struct_elision}{Elision} $\ast$}]{elision = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_array_literal_ab3ba06d627e0fe714aafb9fc843c83e8}\label{struct_array_literal_ab3ba06d627e0fe714aafb9fc843c83e8}} 
+\index{Array\+Literal@{Array\+Literal}!accept@{accept}}
+\index{accept@{accept}!Array\+Literal@{Array\+Literal}}
+\subsubsection{\texorpdfstring{accept()}{accept()}}
+{\footnotesize\ttfamily void Array\+Literal\+::accept (\begin{DoxyParamCaption}\item[{\hyperlink{struct_visitor}{Visitor} \&}]{visitor }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_node_a10bd7af968140bbf5fa461298a969c71}{Node}.
+
+
+
 \subsection{Member Data Documentation}
-\mbox{\Hypertarget{struct_array_literal_a781458884800ef73f725cbc92c5cc35c}\label{struct_array_literal_a781458884800ef73f725cbc92c5cc35c}} 
+\mbox{\Hypertarget{struct_array_literal_ae4c3df364c3994cb8916d73a50f1f92f}\label{struct_array_literal_ae4c3df364c3994cb8916d73a50f1f92f}} 
 \index{Array\+Literal@{Array\+Literal}!elements@{elements}}
 \index{elements@{elements}!Array\+Literal@{Array\+Literal}}
 \subsubsection{\texorpdfstring{elements}{elements}}
-{\footnotesize\ttfamily \textbf{ std\+::vector}$<$\hyperlink{ast_8h_a4cb273a4d960cd13ea17d08f254493e8}{Expression}$>$ Array\+Literal\+::elements}
+{\footnotesize\ttfamily \hyperlink{struct_element_list}{Element\+List}$\ast$ Array\+Literal\+::elements}
+
+\mbox{\Hypertarget{struct_array_literal_a08fa9ad6e83376bb2a70d22df9cf2c8a}\label{struct_array_literal_a08fa9ad6e83376bb2a70d22df9cf2c8a}} 
+\index{Array\+Literal@{Array\+Literal}!elision@{elision}}
+\index{elision@{elision}!Array\+Literal@{Array\+Literal}}
+\subsubsection{\texorpdfstring{elision}{elision}}
+{\footnotesize\ttfamily \hyperlink{struct_elision}{Elision}$\ast$ Array\+Literal\+::elision}
 
 
 

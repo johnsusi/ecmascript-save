@@ -45,7 +45,7 @@ var searchData=
   ['_7emultimap',['~multimap',['http://en.cppreference.com/w/cpp/container/multimap/~multimap.html',1,'std::multimap']]],
   ['_7emultiset',['~multiset',['http://en.cppreference.com/w/cpp/container/multiset/~multiset.html',1,'std::multiset']]],
   ['_7enested_5fexception',['~nested_exception',['http://en.cppreference.com/w/cpp/error/nested_exception/~nested_exception.html',1,'std::nested_exception']]],
-  ['_7enode',['~Node',['../structast_1_1_node.html#a178b5135f3dc18803c2e5997ce251738',1,'ast::Node']]],
+  ['_7enode',['~Node',['../struct_node.html#af5e3fa79300bf5f3f2f3ecae6e795a94',1,'Node']]],
   ['_7enum_5fget',['~num_get',['http://en.cppreference.com/w/cpp/locale/num_get/~num_get.html',1,'std::num_get']]],
   ['_7enum_5fput',['~num_put',['http://en.cppreference.com/w/cpp/locale/num_put/~num_put.html',1,'std::num_put']]],
   ['_7enumpunct',['~numpunct',['http://en.cppreference.com/w/cpp/locale/numpunct/~numpunct.html',1,'std::numpunct']]],

@@ -1,0 +1,10 @@
+<map id="Literal" name="Literal">
+<area shape="rect" id="node5" href="$struct_boolean_literal.html" title="BooleanLiteral" alt="" coords="5,299,112,324"/>
+<area shape="rect" id="node6" href="$struct_null_literal.html" title="NullLiteral" alt="" coords="136,299,216,324"/>
+<area shape="rect" id="node7" href="$struct_numeric_literal.html" title="NumericLiteral" alt="" coords="240,299,347,324"/>
+<area shape="rect" id="node8" href="$struct_regular_expression_literal.html" title="RegularExpressionLiteral" alt="" coords="371,299,541,324"/>
+<area shape="rect" id="node9" href="$struct_string_literal.html" title="StringLiteral" alt="" coords="566,299,658,324"/>
+<area shape="rect" id="node2" href="$struct_primary_expression.html" title="PrimaryExpression" alt="" coords="227,152,360,177"/>
+<area shape="rect" id="node3" href="$struct_expression.html" title="Expression" alt="" coords="250,79,337,104"/>
+<area shape="rect" id="node4" href="$struct_node.html" title="Node" alt="" coords="267,5,320,31"/>
+</map>

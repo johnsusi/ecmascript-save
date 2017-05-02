@@ -1,3 +1,7 @@
 <map id="Program" name="Program">
-<area shape="rect" id="node2" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/container/vector.html" title="std::vector\&lt; SourceElement \&gt;" alt="" coords="5,5,202,31"/>
+<area shape="rect" id="node2" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/memory/shared_ptr.html" title="std::shared_ptr\&lt; void \&gt;" alt="" coords="5,167,163,192"/>
+<area shape="rect" id="node3" href="$struct_source_elements.html" title="SourceElements" alt="" coords="187,167,306,192"/>
+<area shape="rect" id="node4" href="$struct_list.html" title="List\&lt; SourceElement \&gt;" alt="" coords="169,92,325,117"/>
+<area shape="rect" id="node5" href="$struct_node.html" title="Node" alt="" coords="144,5,197,31"/>
+<area shape="rect" id="node6" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/container/vector.html" title="std::vector\&lt; SourceElement *\&gt;" alt="" coords="222,5,424,31"/>
 </map>

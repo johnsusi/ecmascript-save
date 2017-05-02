@@ -6,42 +6,82 @@
 
 
 
-Collaboration diagram for Function\+Expression\+:\nopagebreak
+Inheritance diagram for Function\+Expression\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=328pt]{struct_function_expression__coll__graph}
+\includegraphics[width=184pt]{struct_function_expression__inherit__graph}
 \end{center}
 \end{figure}
+
+
+Collaboration diagram for Function\+Expression\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_function_expression__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_function_expression_aae0ca9ebecd1bdd51e7c7440c8cf2ec3}{Function\+Expression} (\hyperlink{struct_identifier}{Identifier} $\ast$\hyperlink{struct_function_expression_a448321d33ff9d2603dfdb0b14cf4fe24}{id}, \hyperlink{struct_formal_parameter_list}{Formal\+Parameter\+List} $\ast$\hyperlink{struct_function_expression_a5d02f2d692ae86ebdc36a3963042af65}{params}, \hyperlink{struct_function_body}{Function\+Body} $\ast$\hyperlink{struct_function_expression_af08f7dfdb616e122ab79c9a2e706061e}{body})
+\item 
+void \hyperlink{struct_function_expression_a4808466a4242254555340a7e9c5e6dac}{accept} (\hyperlink{struct_visitor}{Visitor} \&visitor) const
+\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-boost\+::optional$<$ \hyperlink{struct_identifier}{Identifier} $>$ \hyperlink{struct_function_expression_a6c7220587de4e7731ff712d6535180c2}{id}
+\hyperlink{struct_identifier}{Identifier} $\ast$ \hyperlink{struct_function_expression_a448321d33ff9d2603dfdb0b14cf4fe24}{id}
 \item 
-\hyperlink{ast_8h_ad423d9c7b02512f74f787f74587e9e76}{Formal\+Parameter\+List} \hyperlink{struct_function_expression_adf1fd5d4d8c6fca0d4496dcad8430996}{params}
+\hyperlink{struct_formal_parameter_list}{Formal\+Parameter\+List} $\ast$ \hyperlink{struct_function_expression_a5d02f2d692ae86ebdc36a3963042af65}{params}
 \item 
-\hyperlink{struct_function_body}{Function\+Body} \hyperlink{struct_function_expression_a82a9fa3ab1eb96e69f11f41445e5ad5c}{body}
+\hyperlink{struct_function_body}{Function\+Body} $\ast$ \hyperlink{struct_function_expression_af08f7dfdb616e122ab79c9a2e706061e}{body}
 \end{DoxyCompactItemize}
 
 
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_function_expression_aae0ca9ebecd1bdd51e7c7440c8cf2ec3}\label{struct_function_expression_aae0ca9ebecd1bdd51e7c7440c8cf2ec3}} 
+\index{Function\+Expression@{Function\+Expression}!Function\+Expression@{Function\+Expression}}
+\index{Function\+Expression@{Function\+Expression}!Function\+Expression@{Function\+Expression}}
+\subsubsection{\texorpdfstring{Function\+Expression()}{FunctionExpression()}}
+{\footnotesize\ttfamily Function\+Expression\+::\+Function\+Expression (\begin{DoxyParamCaption}\item[{\hyperlink{struct_identifier}{Identifier} $\ast$}]{id,  }\item[{\hyperlink{struct_formal_parameter_list}{Formal\+Parameter\+List} $\ast$}]{params,  }\item[{\hyperlink{struct_function_body}{Function\+Body} $\ast$}]{body }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_function_expression_a4808466a4242254555340a7e9c5e6dac}\label{struct_function_expression_a4808466a4242254555340a7e9c5e6dac}} 
+\index{Function\+Expression@{Function\+Expression}!accept@{accept}}
+\index{accept@{accept}!Function\+Expression@{Function\+Expression}}
+\subsubsection{\texorpdfstring{accept()}{accept()}}
+{\footnotesize\ttfamily void Function\+Expression\+::accept (\begin{DoxyParamCaption}\item[{\hyperlink{struct_visitor}{Visitor} \&}]{visitor }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_node_a10bd7af968140bbf5fa461298a969c71}{Node}.
+
+
+
 \subsection{Member Data Documentation}
-\mbox{\Hypertarget{struct_function_expression_a82a9fa3ab1eb96e69f11f41445e5ad5c}\label{struct_function_expression_a82a9fa3ab1eb96e69f11f41445e5ad5c}} 
+\mbox{\Hypertarget{struct_function_expression_af08f7dfdb616e122ab79c9a2e706061e}\label{struct_function_expression_af08f7dfdb616e122ab79c9a2e706061e}} 
 \index{Function\+Expression@{Function\+Expression}!body@{body}}
 \index{body@{body}!Function\+Expression@{Function\+Expression}}
 \subsubsection{\texorpdfstring{body}{body}}
-{\footnotesize\ttfamily \hyperlink{struct_function_body}{Function\+Body} Function\+Expression\+::body}
+{\footnotesize\ttfamily \hyperlink{struct_function_body}{Function\+Body}$\ast$ Function\+Expression\+::body}
 
-\mbox{\Hypertarget{struct_function_expression_a6c7220587de4e7731ff712d6535180c2}\label{struct_function_expression_a6c7220587de4e7731ff712d6535180c2}} 
+\mbox{\Hypertarget{struct_function_expression_a448321d33ff9d2603dfdb0b14cf4fe24}\label{struct_function_expression_a448321d33ff9d2603dfdb0b14cf4fe24}} 
 \index{Function\+Expression@{Function\+Expression}!id@{id}}
 \index{id@{id}!Function\+Expression@{Function\+Expression}}
 \subsubsection{\texorpdfstring{id}{id}}
-{\footnotesize\ttfamily boost\+::optional$<$\hyperlink{struct_identifier}{Identifier}$>$ Function\+Expression\+::id}
+{\footnotesize\ttfamily \hyperlink{struct_identifier}{Identifier}$\ast$ Function\+Expression\+::id}
 
-\mbox{\Hypertarget{struct_function_expression_adf1fd5d4d8c6fca0d4496dcad8430996}\label{struct_function_expression_adf1fd5d4d8c6fca0d4496dcad8430996}} 
+\mbox{\Hypertarget{struct_function_expression_a5d02f2d692ae86ebdc36a3963042af65}\label{struct_function_expression_a5d02f2d692ae86ebdc36a3963042af65}} 
 \index{Function\+Expression@{Function\+Expression}!params@{params}}
 \index{params@{params}!Function\+Expression@{Function\+Expression}}
 \subsubsection{\texorpdfstring{params}{params}}
-{\footnotesize\ttfamily \hyperlink{ast_8h_ad423d9c7b02512f74f787f74587e9e76}{Formal\+Parameter\+List} Function\+Expression\+::params}
+{\footnotesize\ttfamily \hyperlink{struct_formal_parameter_list}{Formal\+Parameter\+List}$\ast$ Function\+Expression\+::params}
 
 
 

@@ -1,4 +1,4 @@
-.TH "src/main.cpp" 3 "Sun Apr 30 2017" "ECMAScript" \" -*- nroff -*-
+.TH "src/main.cpp" 3 "Tue May 2 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -11,6 +11,8 @@ src/main.cpp
 \fC#include 'lexer\&.h'\fP
 .br
 \fC#include 'parser\&.h'\fP
+.br
+\fC#include 'util\&.h'\fP
 .br
 \fC#include <algorithm>\fP
 .br
@@ -34,12 +36,6 @@ src/main.cpp
 .RI "template<class T > \fBstd::ostream\fP & \fBoperator<<\fP (\fBstd::ostream\fP &os, const \fBstd::vector\fP< T > &v)"
 .br
 .ti -1c
-.RI "\fBstd::string\fP \fBread_file_into_string\fP (const fs::path &filename)"
-.br
-.ti -1c
-.RI "\fBstd::string\fP \fBread_stdin_into_string\fP ()"
-.br
-.ti -1c
 .RI "int \fBmain\fP (int argc, const char **argv)"
 .br
 .in -1c
@@ -48,10 +44,6 @@ src/main.cpp
 .SS "int main (int argc, const char ** argv)"
 
 .SS "template<class T > \fBstd::ostream\fP& operator<< (\fBstd::ostream\fP & os, const \fBstd::vector\fP< T > & v)"
-
-.SS "\fBstd::string\fP read_file_into_string (const fs::path & filename)"
-
-.SS "\fBstd::string\fP read_stdin_into_string ()"
 
 .SH "Author"
 .PP 

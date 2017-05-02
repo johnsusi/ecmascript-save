@@ -6,34 +6,74 @@
 
 
 
-Collaboration diagram for Labelled\+Statement\+:\nopagebreak
+Inheritance diagram for Labelled\+Statement\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=179pt]{struct_labelled_statement__coll__graph}
+\includegraphics[width=179pt]{struct_labelled_statement__inherit__graph}
 \end{center}
 \end{figure}
+
+
+Collaboration diagram for Labelled\+Statement\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{struct_labelled_statement__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_labelled_statement_aa36aaf969c3e1e4586481d77d646ae7a}{Labelled\+Statement} (\hyperlink{struct_identifier}{Identifier} $\ast$\hyperlink{struct_labelled_statement_aa3cb4a075ce2d599c8e1eca7700100b7}{label}, \hyperlink{struct_statement}{Statement} $\ast$\hyperlink{struct_labelled_statement_a5084b8d01545f2b3a37b036769c55e3a}{body})
+\item 
+void \hyperlink{struct_labelled_statement_abc283c24da726909de0b3f96b18b7f86}{accept} (\hyperlink{struct_visitor}{Visitor} \&visitor) const override
+\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{struct_identifier}{Identifier} \hyperlink{struct_labelled_statement_a1f3102a32ae63ed59388b5c2e9292128}{label}
+\hyperlink{struct_identifier}{Identifier} $\ast$ \hyperlink{struct_labelled_statement_aa3cb4a075ce2d599c8e1eca7700100b7}{label}
 \item 
-\hyperlink{ast_8h_a8b6ddf3732a0acd77e6b2509fb21a5fd}{Statement} \hyperlink{struct_labelled_statement_acf634fbf10e6a0d08d4f530f0a7310db}{body}
+\hyperlink{struct_statement}{Statement} $\ast$ \hyperlink{struct_labelled_statement_a5084b8d01545f2b3a37b036769c55e3a}{body}
 \end{DoxyCompactItemize}
 
 
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_labelled_statement_aa36aaf969c3e1e4586481d77d646ae7a}\label{struct_labelled_statement_aa36aaf969c3e1e4586481d77d646ae7a}} 
+\index{Labelled\+Statement@{Labelled\+Statement}!Labelled\+Statement@{Labelled\+Statement}}
+\index{Labelled\+Statement@{Labelled\+Statement}!Labelled\+Statement@{Labelled\+Statement}}
+\subsubsection{\texorpdfstring{Labelled\+Statement()}{LabelledStatement()}}
+{\footnotesize\ttfamily Labelled\+Statement\+::\+Labelled\+Statement (\begin{DoxyParamCaption}\item[{\hyperlink{struct_identifier}{Identifier} $\ast$}]{label,  }\item[{\hyperlink{struct_statement}{Statement} $\ast$}]{body }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_labelled_statement_abc283c24da726909de0b3f96b18b7f86}\label{struct_labelled_statement_abc283c24da726909de0b3f96b18b7f86}} 
+\index{Labelled\+Statement@{Labelled\+Statement}!accept@{accept}}
+\index{accept@{accept}!Labelled\+Statement@{Labelled\+Statement}}
+\subsubsection{\texorpdfstring{accept()}{accept()}}
+{\footnotesize\ttfamily void Labelled\+Statement\+::accept (\begin{DoxyParamCaption}\item[{\hyperlink{struct_visitor}{Visitor} \&}]{visitor }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_node_a10bd7af968140bbf5fa461298a969c71}{Node}.
+
+
+
 \subsection{Member Data Documentation}
-\mbox{\Hypertarget{struct_labelled_statement_acf634fbf10e6a0d08d4f530f0a7310db}\label{struct_labelled_statement_acf634fbf10e6a0d08d4f530f0a7310db}} 
+\mbox{\Hypertarget{struct_labelled_statement_a5084b8d01545f2b3a37b036769c55e3a}\label{struct_labelled_statement_a5084b8d01545f2b3a37b036769c55e3a}} 
 \index{Labelled\+Statement@{Labelled\+Statement}!body@{body}}
 \index{body@{body}!Labelled\+Statement@{Labelled\+Statement}}
 \subsubsection{\texorpdfstring{body}{body}}
-{\footnotesize\ttfamily \hyperlink{ast_8h_a8b6ddf3732a0acd77e6b2509fb21a5fd}{Statement} Labelled\+Statement\+::body}
+{\footnotesize\ttfamily \hyperlink{struct_statement}{Statement}$\ast$ Labelled\+Statement\+::body}
 
-\mbox{\Hypertarget{struct_labelled_statement_a1f3102a32ae63ed59388b5c2e9292128}\label{struct_labelled_statement_a1f3102a32ae63ed59388b5c2e9292128}} 
+\mbox{\Hypertarget{struct_labelled_statement_aa3cb4a075ce2d599c8e1eca7700100b7}\label{struct_labelled_statement_aa3cb4a075ce2d599c8e1eca7700100b7}} 
 \index{Labelled\+Statement@{Labelled\+Statement}!label@{label}}
 \index{label@{label}!Labelled\+Statement@{Labelled\+Statement}}
 \subsubsection{\texorpdfstring{label}{label}}
-{\footnotesize\ttfamily \hyperlink{struct_identifier}{Identifier} Labelled\+Statement\+::label}
+{\footnotesize\ttfamily \hyperlink{struct_identifier}{Identifier}$\ast$ Labelled\+Statement\+::label}
 
 
 

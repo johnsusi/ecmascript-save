@@ -4,19 +4,68 @@
 
 {\ttfamily \#include $<$ast.\+h$>$}
 
+
+
+Inheritance diagram for Return\+Statement\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=172pt]{struct_return_statement__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Return\+Statement\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{struct_return_statement__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_return_statement_ac2932e3a360cb4399de2f6235e64081a}{Return\+Statement} (\hyperlink{struct_expression}{Expression} $\ast$\hyperlink{struct_return_statement_aeead2cb2bcecfed685d54bb7ee5456f2}{argument}=nullptr)
+\item 
+void \hyperlink{struct_return_statement_af266bfb192300eeffc2d7454b019dd1a}{accept} (\hyperlink{struct_visitor}{Visitor} \&visitor) const override
+\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-boost\+::optional$<$ \hyperlink{ast_8h_a4cb273a4d960cd13ea17d08f254493e8}{Expression} $>$ \hyperlink{struct_return_statement_af307317cfa8d6d977cec648f68e98289}{argument}
+\hyperlink{struct_expression}{Expression} $\ast$ \hyperlink{struct_return_statement_aeead2cb2bcecfed685d54bb7ee5456f2}{argument}
 \end{DoxyCompactItemize}
 
 
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_return_statement_ac2932e3a360cb4399de2f6235e64081a}\label{struct_return_statement_ac2932e3a360cb4399de2f6235e64081a}} 
+\index{Return\+Statement@{Return\+Statement}!Return\+Statement@{Return\+Statement}}
+\index{Return\+Statement@{Return\+Statement}!Return\+Statement@{Return\+Statement}}
+\subsubsection{\texorpdfstring{Return\+Statement()}{ReturnStatement()}}
+{\footnotesize\ttfamily Return\+Statement\+::\+Return\+Statement (\begin{DoxyParamCaption}\item[{\hyperlink{struct_expression}{Expression} $\ast$}]{argument = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_return_statement_af266bfb192300eeffc2d7454b019dd1a}\label{struct_return_statement_af266bfb192300eeffc2d7454b019dd1a}} 
+\index{Return\+Statement@{Return\+Statement}!accept@{accept}}
+\index{accept@{accept}!Return\+Statement@{Return\+Statement}}
+\subsubsection{\texorpdfstring{accept()}{accept()}}
+{\footnotesize\ttfamily void Return\+Statement\+::accept (\begin{DoxyParamCaption}\item[{\hyperlink{struct_visitor}{Visitor} \&}]{visitor }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_node_a10bd7af968140bbf5fa461298a969c71}{Node}.
+
+
+
 \subsection{Member Data Documentation}
-\mbox{\Hypertarget{struct_return_statement_af307317cfa8d6d977cec648f68e98289}\label{struct_return_statement_af307317cfa8d6d977cec648f68e98289}} 
+\mbox{\Hypertarget{struct_return_statement_aeead2cb2bcecfed685d54bb7ee5456f2}\label{struct_return_statement_aeead2cb2bcecfed685d54bb7ee5456f2}} 
 \index{Return\+Statement@{Return\+Statement}!argument@{argument}}
 \index{argument@{argument}!Return\+Statement@{Return\+Statement}}
 \subsubsection{\texorpdfstring{argument}{argument}}
-{\footnotesize\ttfamily boost\+::optional$<$\hyperlink{ast_8h_a4cb273a4d960cd13ea17d08f254493e8}{Expression}$>$ Return\+Statement\+::argument}
+{\footnotesize\ttfamily \hyperlink{struct_expression}{Expression}$\ast$ Return\+Statement\+::argument}
 
 
 

@@ -30,14 +30,14 @@ var searchData=
   ['bidirectional_5fiterator_5ftag',['bidirectional_iterator_tag',['http://en.cppreference.com/w/cpp/iterator/iterator_tags.html',1,'std']]],
   ['binary_5ffunction',['binary_function',['http://en.cppreference.com/w/cpp/utility/functional/binary_function.html',1,'std']]],
   ['binary_5fnegate',['binary_negate',['http://en.cppreference.com/w/cpp/utility/functional/binary_negate.html',1,'std']]],
-  ['binaryexpression',['BinaryExpression',['../structast_1_1_binary_expression.html',1,'ast']]],
+  ['binaryexpression',['BinaryExpression',['../struct_binary_expression.html',1,'']]],
   ['binomial_5fdistribution',['binomial_distribution',['http://en.cppreference.com/w/cpp/numeric/random/binomial_distribution.html',1,'std']]],
   ['bit_5fand',['bit_and',['http://en.cppreference.com/w/cpp/utility/functional/bit_and.html',1,'std']]],
   ['bit_5fnot',['bit_not',['http://en.cppreference.com/w/cpp/utility/functional/bit_not.html',1,'std']]],
   ['bit_5for',['bit_or',['http://en.cppreference.com/w/cpp/utility/functional/bit_or.html',1,'std']]],
   ['bitset',['bitset',['http://en.cppreference.com/w/cpp/utility/bitset.html',1,'std']]],
-  ['block',['Block',['../structast_1_1_block.html',1,'ast']]],
+  ['block',['Block',['../struct_block.html',1,'']]],
   ['boolean',['Boolean',['../struct_boolean.html',1,'']]],
-  ['booleanliteral',['BooleanLiteral',['../structast_1_1_boolean_literal.html',1,'ast']]],
-  ['breakstatement',['BreakStatement',['../structast_1_1_break_statement.html',1,'ast']]]
+  ['booleanliteral',['BooleanLiteral',['../struct_boolean_literal.html',1,'']]],
+  ['breakstatement',['BreakStatement',['../struct_break_statement.html',1,'']]]
 ];

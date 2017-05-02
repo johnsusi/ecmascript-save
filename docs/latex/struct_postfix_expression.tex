@@ -6,28 +6,68 @@
 
 
 
-Collaboration diagram for Postfix\+Expression\+:\nopagebreak
+Inheritance diagram for Postfix\+Expression\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=175pt]{struct_postfix_expression__coll__graph}
+\includegraphics[width=175pt]{struct_postfix_expression__inherit__graph}
 \end{center}
 \end{figure}
+
+
+Collaboration diagram for Postfix\+Expression\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{struct_postfix_expression__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_postfix_expression_a51cc535ac4af99bef2f292fb1ead6ad7}{Postfix\+Expression} (\textbf{ std\+::string} \hyperlink{struct_postfix_expression_a9ce1fb591d6787626d2eda8a9ca0a3cd}{op}, \hyperlink{struct_expression}{Expression} $\ast$\hyperlink{struct_postfix_expression_a33a5946e6ded6300ea8552325f22cba9}{lhs}=nullptr)
+\item 
+void \hyperlink{struct_postfix_expression_a2d814c990b7d1fb728f030a2673fe729}{accept} (\hyperlink{struct_visitor}{Visitor} \&visitor) const override
+\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \textbf{ std\+::string} \hyperlink{struct_postfix_expression_a9ce1fb591d6787626d2eda8a9ca0a3cd}{op}
 \item 
-\hyperlink{ast_8h_a4cb273a4d960cd13ea17d08f254493e8}{Expression} \hyperlink{struct_postfix_expression_a106fb8d5de61a537a2a33bee90d08a59}{lhs}
+\hyperlink{struct_expression}{Expression} $\ast$ \hyperlink{struct_postfix_expression_a33a5946e6ded6300ea8552325f22cba9}{lhs}
 \end{DoxyCompactItemize}
 
 
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_postfix_expression_a51cc535ac4af99bef2f292fb1ead6ad7}\label{struct_postfix_expression_a51cc535ac4af99bef2f292fb1ead6ad7}} 
+\index{Postfix\+Expression@{Postfix\+Expression}!Postfix\+Expression@{Postfix\+Expression}}
+\index{Postfix\+Expression@{Postfix\+Expression}!Postfix\+Expression@{Postfix\+Expression}}
+\subsubsection{\texorpdfstring{Postfix\+Expression()}{PostfixExpression()}}
+{\footnotesize\ttfamily Postfix\+Expression\+::\+Postfix\+Expression (\begin{DoxyParamCaption}\item[{\textbf{ std\+::string}}]{op,  }\item[{\hyperlink{struct_expression}{Expression} $\ast$}]{lhs = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_postfix_expression_a2d814c990b7d1fb728f030a2673fe729}\label{struct_postfix_expression_a2d814c990b7d1fb728f030a2673fe729}} 
+\index{Postfix\+Expression@{Postfix\+Expression}!accept@{accept}}
+\index{accept@{accept}!Postfix\+Expression@{Postfix\+Expression}}
+\subsubsection{\texorpdfstring{accept()}{accept()}}
+{\footnotesize\ttfamily void Postfix\+Expression\+::accept (\begin{DoxyParamCaption}\item[{\hyperlink{struct_visitor}{Visitor} \&}]{visitor }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_node_a10bd7af968140bbf5fa461298a969c71}{Node}.
+
+
+
 \subsection{Member Data Documentation}
-\mbox{\Hypertarget{struct_postfix_expression_a106fb8d5de61a537a2a33bee90d08a59}\label{struct_postfix_expression_a106fb8d5de61a537a2a33bee90d08a59}} 
+\mbox{\Hypertarget{struct_postfix_expression_a33a5946e6ded6300ea8552325f22cba9}\label{struct_postfix_expression_a33a5946e6ded6300ea8552325f22cba9}} 
 \index{Postfix\+Expression@{Postfix\+Expression}!lhs@{lhs}}
 \index{lhs@{lhs}!Postfix\+Expression@{Postfix\+Expression}}
 \subsubsection{\texorpdfstring{lhs}{lhs}}
-{\footnotesize\ttfamily \hyperlink{ast_8h_a4cb273a4d960cd13ea17d08f254493e8}{Expression} Postfix\+Expression\+::lhs}
+{\footnotesize\ttfamily \hyperlink{struct_expression}{Expression}$\ast$ Postfix\+Expression\+::lhs}
 
 \mbox{\Hypertarget{struct_postfix_expression_a9ce1fb591d6787626d2eda8a9ca0a3cd}\label{struct_postfix_expression_a9ce1fb591d6787626d2eda8a9ca0a3cd}} 
 \index{Postfix\+Expression@{Postfix\+Expression}!op@{op}}

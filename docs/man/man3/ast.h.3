@@ -1,4 +1,4 @@
-.TH "src/ast.h" 3 "Sun Apr 30 2017" "ECMAScript" \" -*- nroff -*-
+.TH "src/ast.h" 3 "Tue May 2 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -8,9 +8,9 @@ src/ast.h
 .PP
 \fC#include <iostream>\fP
 .br
-\fC#include <vector>\fP
-.br
 \fC#include <sstream>\fP
+.br
+\fC#include <vector>\fP
 .br
 \fC#include <boost/optional\&.hpp>\fP
 .br
@@ -21,217 +21,207 @@ src/ast.h
 
 .in +1c
 .ti -1c
-.RI "struct \fBast::Node\fP"
+.RI "struct \fBNode\fP"
 .br
 .ti -1c
-.RI "struct \fBast::List< T >\fP"
+.RI "struct \fBList< T >\fP"
 .br
 .ti -1c
-.RI "struct \fBast::Visitor\fP"
+.RI "struct \fBVisitor\fP"
 .br
 .ti -1c
-.RI "struct \fBast::Expression\fP"
+.RI "struct \fBExpression\fP"
 .br
 .ti -1c
-.RI "struct \fBast::PrimaryExpression\fP"
+.RI "struct \fBPrimaryExpression\fP"
 .br
 .ti -1c
-.RI "struct \fBast::This\fP"
+.RI "struct \fBThis\fP"
 .br
 .ti -1c
-.RI "struct \fBast::Identifier\fP"
+.RI "struct \fBIdentifier\fP"
 .br
 .ti -1c
-.RI "struct \fBast::Literal\fP"
+.RI "struct \fBLiteral\fP"
 .br
 .ti -1c
-.RI "struct \fBast::NullLiteral\fP"
+.RI "struct \fBNullLiteral\fP"
 .br
 .ti -1c
-.RI "struct \fBast::BooleanLiteral\fP"
+.RI "struct \fBBooleanLiteral\fP"
 .br
 .ti -1c
-.RI "struct \fBast::NumericLiteral\fP"
+.RI "struct \fBNumericLiteral\fP"
 .br
 .ti -1c
-.RI "struct \fBast::StringLiteral\fP"
+.RI "struct \fBStringLiteral\fP"
 .br
 .ti -1c
-.RI "struct \fBast::RegularExpressionLiteral\fP"
+.RI "struct \fBRegularExpressionLiteral\fP"
 .br
 .ti -1c
-.RI "struct \fBast::PropertyName\fP"
+.RI "struct \fBPropertyName\fP"
 .br
 .ti -1c
-.RI "struct \fBast::PropertyAssignment\fP"
+.RI "struct \fBPropertyAssignment\fP"
 .br
 .ti -1c
-.RI "struct \fBast::Elision\fP"
+.RI "struct \fBElision\fP"
 .br
 .ti -1c
-.RI "struct \fBast::ElementList\fP"
+.RI "struct \fBElementList\fP"
 .br
 .ti -1c
-.RI "struct \fBast::ArrayLiteral\fP"
+.RI "struct \fBArrayLiteral\fP"
 .br
 .ti -1c
-.RI "struct \fBast::PropertyNameAndValueList\fP"
+.RI "struct \fBPropertyNameAndValueList\fP"
 .br
 .ti -1c
-.RI "struct \fBast::ObjectLiteral\fP"
+.RI "struct \fBObjectLiteral\fP"
 .br
 .ti -1c
-.RI "struct \fBast::MemberExpression\fP"
+.RI "struct \fBMemberExpression\fP"
 .br
 .ti -1c
-.RI "struct \fBast::ArgumentList\fP"
+.RI "struct \fBArgumentList\fP"
 .br
 .ti -1c
-.RI "struct \fBast::Arguments\fP"
+.RI "struct \fBArguments\fP"
 .br
 .ti -1c
-.RI "struct \fBast::NewExpression\fP"
+.RI "struct \fBNewExpression\fP"
 .br
 .ti -1c
-.RI "struct \fBast::CallExpression\fP"
+.RI "struct \fBCallExpression\fP"
 .br
 .ti -1c
-.RI "struct \fBast::PostfixExpression\fP"
+.RI "struct \fBPostfixExpression\fP"
 .br
 .ti -1c
-.RI "struct \fBast::UnaryExpression\fP"
+.RI "struct \fBUnaryExpression\fP"
 .br
 .ti -1c
-.RI "struct \fBast::BinaryExpression\fP"
+.RI "struct \fBBinaryExpression\fP"
 .br
 .ti -1c
-.RI "struct \fBast::ConditionalExpression\fP"
+.RI "struct \fBConditionalExpression\fP"
 .br
 .ti -1c
-.RI "struct \fBast::VariableDeclaration\fP"
+.RI "struct \fBVariableDeclaration\fP"
 .br
 .ti -1c
-.RI "struct \fBast::VariableDeclarationList\fP"
+.RI "struct \fBVariableDeclarationList\fP"
 .br
 .ti -1c
-.RI "struct \fBast::SourceElement\fP"
+.RI "struct \fBSourceElement\fP"
 .br
 .ti -1c
-.RI "struct \fBast::Statement\fP"
+.RI "struct \fBStatement\fP"
 .br
 .ti -1c
-.RI "struct \fBast::StatementList\fP"
+.RI "struct \fBStatementList\fP"
 .br
 .ti -1c
-.RI "struct \fBast::Block\fP"
+.RI "struct \fBBlock\fP"
 .br
 .ti -1c
-.RI "struct \fBast::VariableStatement\fP"
+.RI "struct \fBVariableStatement\fP"
 .br
 .ti -1c
-.RI "struct \fBast::EmptyStatement\fP"
+.RI "struct \fBEmptyStatement\fP"
 .br
 .ti -1c
-.RI "struct \fBast::ExpressionStatement\fP"
+.RI "struct \fBExpressionStatement\fP"
 .br
 .ti -1c
-.RI "struct \fBast::IfStatement\fP"
+.RI "struct \fBIfStatement\fP"
 .br
 .ti -1c
-.RI "struct \fBast::DoWhileStatement\fP"
+.RI "struct \fBDoWhileStatement\fP"
 .br
 .ti -1c
-.RI "struct \fBast::WhileStatement\fP"
+.RI "struct \fBWhileStatement\fP"
 .br
 .ti -1c
-.RI "struct \fBast::ForStatement\fP"
+.RI "struct \fBForStatement\fP"
 .br
 .ti -1c
-.RI "struct \fBast::ForInStatement\fP"
+.RI "struct \fBForInStatement\fP"
 .br
 .ti -1c
-.RI "struct \fBast::ContinueStatement\fP"
+.RI "struct \fBContinueStatement\fP"
 .br
 .ti -1c
-.RI "struct \fBast::BreakStatement\fP"
+.RI "struct \fBBreakStatement\fP"
 .br
 .ti -1c
-.RI "struct \fBast::ReturnStatement\fP"
+.RI "struct \fBReturnStatement\fP"
 .br
 .ti -1c
-.RI "struct \fBast::WithStatement\fP"
+.RI "struct \fBWithStatement\fP"
 .br
 .ti -1c
-.RI "struct \fBast::LabelledStatement\fP"
+.RI "struct \fBLabelledStatement\fP"
 .br
 .ti -1c
-.RI "struct \fBast::CaseClause\fP"
+.RI "struct \fBCaseClause\fP"
 .br
 .ti -1c
-.RI "struct \fBast::DefaultClause\fP"
+.RI "struct \fBDefaultClause\fP"
 .br
 .ti -1c
-.RI "struct \fBast::CaseBlock\fP"
+.RI "struct \fBCaseBlock\fP"
 .br
 .ti -1c
-.RI "struct \fBast::SwitchStatement\fP"
+.RI "struct \fBSwitchStatement\fP"
 .br
 .ti -1c
-.RI "struct \fBast::ThrowStatement\fP"
+.RI "struct \fBThrowStatement\fP"
 .br
 .ti -1c
-.RI "struct \fBast::TryStatement\fP"
+.RI "struct \fBTryStatement\fP"
 .br
 .ti -1c
-.RI "struct \fBast::DebuggerStatement\fP"
+.RI "struct \fBDebuggerStatement\fP"
 .br
 .ti -1c
-.RI "struct \fBast::Declaration\fP"
+.RI "struct \fBDeclaration\fP"
 .br
 .ti -1c
-.RI "struct \fBast::SourceElements\fP"
+.RI "struct \fBSourceElements\fP"
 .br
 .ti -1c
-.RI "struct \fBast::FormalParameterList\fP"
+.RI "struct \fBFormalParameterList\fP"
 .br
 .ti -1c
-.RI "struct \fBast::FunctionBody\fP"
+.RI "struct \fBFunctionBody\fP"
 .br
 .ti -1c
-.RI "struct \fBast::FunctionDeclaration\fP"
+.RI "struct \fBFunctionDeclaration\fP"
 .br
 .ti -1c
-.RI "struct \fBast::FunctionExpression\fP"
+.RI "struct \fBFunctionExpression\fP"
 .br
 .ti -1c
-.RI "struct \fBast::Program\fP"
-.br
-.in -1c
-.SS "Namespaces"
-
-.in +1c
-.ti -1c
-.RI " \fBast\fP"
+.RI "struct \fBProgram\fP"
 .br
 .in -1c
 .SS "Functions"
 
 .in +1c
 .ti -1c
-.RI "void \fBast::accept\fP (const \fBProgram\fP &program, \fBVisitor\fP &&visitor)"
+.RI "void \fBaccept\fP (const \fBProgram\fP &program, \fBVisitor\fP &&visitor)"
 .br
 .ti -1c
-.RI "\fBstd::string\fP \fBto_string\fP (const \fBast::Program\fP &program)"
-.br
-.ti -1c
-.RI "\fBstd::string\fP \fBnormalize\fP (const \fBstd::string\fP &)"
+.RI "\fBstd::string\fP \fBto_string\fP (const \fBProgram\fP &program)"
 .br
 .in -1c
 .SH "Function Documentation"
 .PP 
-.SS "\fBstd::string\fP normalize (const \fBstd::string\fP &)"
+.SS "void accept (const \fBProgram\fP & program, \fBVisitor\fP && visitor)"
 
-.SS "\fBstd::string\fP to_string (const \fBast::Program\fP & program)"
+.SS "\fBstd::string\fP to_string (const \fBProgram\fP & program)"
 
 .SH "Author"
 .PP 

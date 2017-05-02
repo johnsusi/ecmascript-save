@@ -59,6 +59,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="struct_switch_statement-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -67,21 +68,137 @@ $(function() {
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="ast_8h_source.html">ast.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for SwitchStatement:</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_switch_statement__inherit__graph.png" border="0" usemap="#_switch_statement_inherit__map" alt="Inheritance graph"/></div>
+<map name="_switch_statement_inherit__map" id="_switch_statement_inherit__map">
+<area shape="rect" id="node2" href="struct_statement.html" title="Statement" alt="" coords="25,152,107,177"/>
+<area shape="rect" id="node3" href="struct_source_element.html" title="SourceElement" alt="" coords="10,79,122,104"/>
+<area shape="rect" id="node4" href="struct_node.html" title="Node" alt="" coords="39,5,93,31"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
+Collaboration diagram for SwitchStatement:</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_switch_statement__coll__graph.png" border="0" usemap="#_switch_statement_coll__map" alt="Collaboration graph"/></div>
+<map name="_switch_statement_coll__map" id="_switch_statement_coll__map">
+<area shape="rect" id="node2" href="struct_statement.html" title="Statement" alt="" coords="23,191,105,216"/>
+<area shape="rect" id="node3" href="struct_source_element.html" title="SourceElement" alt="" coords="5,92,118,117"/>
+<area shape="rect" id="node4" href="struct_node.html" title="Node" alt="" coords="127,5,180,31"/>
+<area shape="rect" id="node5" href="struct_expression.html" title="Expression" alt="" coords="110,141,197,167"/>
+<area shape="rect" id="node7" href="struct_list.html" title="List\&lt; CaseClause \&gt;" alt="" coords="226,92,364,117"/>
+<area shape="rect" id="node6" href="struct_case_block.html" title="CaseBlock" alt="" coords="252,191,337,216"/>
+<area shape="rect" id="node8" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/container/vector.html" title="std::vector\&lt; CaseClause *\&gt;" alt="" coords="204,5,388,31"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:adab42f2a56bc686f522587ff6f39b70a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_switch_statement.html#adab42f2a56bc686f522587ff6f39b70a">SwitchStatement</a> (<a class="el" href="struct_expression.html">Expression</a> *<a class="el" href="struct_switch_statement.html#a6b04149d29751485e93c698298ebbe5d">discriminant</a>, <a class="el" href="struct_case_block.html">CaseBlock</a> *<a class="el" href="struct_switch_statement.html#a2e2f296ddcb9fcb69bd4daeac8c850b0">cases</a>)</td></tr>
+<tr class="separator:adab42f2a56bc686f522587ff6f39b70a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a948b1d975437e623ad183d5599ce51f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_switch_statement.html#a948b1d975437e623ad183d5599ce51f9">accept</a> (<a class="el" href="struct_visitor.html">Visitor</a> &amp;visitor) const override</td></tr>
+<tr class="separator:a948b1d975437e623ad183d5599ce51f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_struct_node"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_struct_node')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="struct_node.html">Node</a></td></tr>
+<tr class="memitem:af5e3fa79300bf5f3f2f3ecae6e795a94 inherit pub_methods_struct_node"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_node.html#af5e3fa79300bf5f3f2f3ecae6e795a94">~Node</a> ()</td></tr>
+<tr class="separator:af5e3fa79300bf5f3f2f3ecae6e795a94 inherit pub_methods_struct_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a04e5de9f570c5f2351f9a2268f5eaffe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="ast_8h.html#a4cb273a4d960cd13ea17d08f254493e8">Expression</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_switch_statement.html#a04e5de9f570c5f2351f9a2268f5eaffe">discriminant</a></td></tr>
-<tr class="separator:a04e5de9f570c5f2351f9a2268f5eaffe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b04149d29751485e93c698298ebbe5d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_expression.html">Expression</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_switch_statement.html#a6b04149d29751485e93c698298ebbe5d">discriminant</a></td></tr>
+<tr class="separator:a6b04149d29751485e93c698298ebbe5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e2f296ddcb9fcb69bd4daeac8c850b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_case_block.html">CaseBlock</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_switch_statement.html#a2e2f296ddcb9fcb69bd4daeac8c850b0">cases</a></td></tr>
+<tr class="separator:a2e2f296ddcb9fcb69bd4daeac8c850b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="adab42f2a56bc686f522587ff6f39b70a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adab42f2a56bc686f522587ff6f39b70a">&#9670;&nbsp;</a></span>SwitchStatement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SwitchStatement::SwitchStatement </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_expression.html">Expression</a> *&#160;</td>
+          <td class="paramname"><em>discriminant</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_case_block.html">CaseBlock</a> *&#160;</td>
+          <td class="paramname"><em>cases</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a948b1d975437e623ad183d5599ce51f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a948b1d975437e623ad183d5599ce51f9">&#9670;&nbsp;</a></span>accept()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SwitchStatement::accept </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_visitor.html">Visitor</a> &amp;&#160;</td>
+          <td class="paramname"><em>visitor</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="struct_node.html#a10bd7af968140bbf5fa461298a969c71">Node</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a04e5de9f570c5f2351f9a2268f5eaffe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a04e5de9f570c5f2351f9a2268f5eaffe">&#9670;&nbsp;</a></span>discriminant</h2>
+<a id="a2e2f296ddcb9fcb69bd4daeac8c850b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e2f296ddcb9fcb69bd4daeac8c850b0">&#9670;&nbsp;</a></span>cases</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="ast_8h.html#a4cb273a4d960cd13ea17d08f254493e8">Expression</a> SwitchStatement::discriminant</td>
+          <td class="memname"><a class="el" href="struct_case_block.html">CaseBlock</a>* SwitchStatement::cases</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6b04149d29751485e93c698298ebbe5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b04149d29751485e93c698298ebbe5d">&#9670;&nbsp;</a></span>discriminant</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_expression.html">Expression</a>* SwitchStatement::discriminant</td>
         </tr>
       </table>
 </div><div class="memdoc">

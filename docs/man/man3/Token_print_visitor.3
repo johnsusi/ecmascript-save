@@ -1,4 +1,4 @@
-.TH "Token::print_visitor" 3 "Sun Apr 30 2017" "ECMAScript" \" -*- nroff -*-
+.TH "Token::print_visitor" 3 "Tue May 2 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -18,7 +18,7 @@ Inherits static_visitor< void >\&.
 .RI "void \fBoperator()\fP (const Empty &) const"
 .br
 .ti -1c
-.RI "void \fBoperator()\fP (const Identifier &\fBidentifier\fP) const"
+.RI "void \fBoperator()\fP (const \fBIdentifier\fP &\fBidentifier\fP) const"
 .br
 .ti -1c
 .RI "void \fBoperator()\fP (const Keyword &\fBkeyword\fP) const"
@@ -27,19 +27,19 @@ Inherits static_visitor< void >\&.
 .RI "void \fBoperator()\fP (const Punctuator &\fBpunctuator\fP) const"
 .br
 .ti -1c
-.RI "void \fBoperator()\fP (const NullLiteral &) const"
+.RI "void \fBoperator()\fP (const \fBNullLiteral\fP &) const"
 .br
 .ti -1c
-.RI "void \fBoperator()\fP (const BooleanLiteral &literal) const"
+.RI "void \fBoperator()\fP (const \fBBooleanLiteral\fP &literal) const"
 .br
 .ti -1c
-.RI "void \fBoperator()\fP (const NumericLiteral &literal) const"
+.RI "void \fBoperator()\fP (const \fBNumericLiteral\fP &literal) const"
 .br
 .ti -1c
-.RI "void \fBoperator()\fP (const StringLiteral &literal) const"
+.RI "void \fBoperator()\fP (const \fBStringLiteral\fP &literal) const"
 .br
 .ti -1c
-.RI "void \fBoperator()\fP (const RegularExpressionLiteral &literal) const"
+.RI "void \fBoperator()\fP (const \fBRegularExpressionLiteral\fP &literal) const"
 .br
 .in -1c
 .SS "Public Attributes"
@@ -57,21 +57,21 @@ Inherits static_visitor< void >\&.
 .PP 
 .SS "void Token::print_visitor::operator() (const Empty &) const\fC [inline]\fP"
 
-.SS "void Token::print_visitor::operator() (const Identifier & identifier) const\fC [inline]\fP"
+.SS "void Token::print_visitor::operator() (const \fBIdentifier\fP & identifier) const\fC [inline]\fP"
 
 .SS "void Token::print_visitor::operator() (const Keyword & keyword) const\fC [inline]\fP"
 
 .SS "void Token::print_visitor::operator() (const Punctuator & punctuator) const\fC [inline]\fP"
 
-.SS "void Token::print_visitor::operator() (const NullLiteral &) const\fC [inline]\fP"
+.SS "void Token::print_visitor::operator() (const \fBNullLiteral\fP &) const\fC [inline]\fP"
 
-.SS "void Token::print_visitor::operator() (const BooleanLiteral & literal) const\fC [inline]\fP"
+.SS "void Token::print_visitor::operator() (const \fBBooleanLiteral\fP & literal) const\fC [inline]\fP"
 
-.SS "void Token::print_visitor::operator() (const NumericLiteral & literal) const\fC [inline]\fP"
+.SS "void Token::print_visitor::operator() (const \fBNumericLiteral\fP & literal) const\fC [inline]\fP"
 
-.SS "void Token::print_visitor::operator() (const StringLiteral & literal) const\fC [inline]\fP"
+.SS "void Token::print_visitor::operator() (const \fBStringLiteral\fP & literal) const\fC [inline]\fP"
 
-.SS "void Token::print_visitor::operator() (const RegularExpressionLiteral & literal) const\fC [inline]\fP"
+.SS "void Token::print_visitor::operator() (const \fBRegularExpressionLiteral\fP & literal) const\fC [inline]\fP"
 
 .SH "Member Data Documentation"
 .PP 

@@ -1,4 +1,4 @@
-.TH "ExpressionStatement" 3 "Sat Apr 29 2017" "ECMAScript" \" -*- nroff -*-
+.TH "ExpressionStatement" 3 "Tue May 2 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -8,16 +8,38 @@ ExpressionStatement
 .PP
 .PP
 \fC#include <ast\&.h>\fP
+.PP
+Inherits \fBStatement\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBExpressionStatement\fP (\fBExpression\fP *\fBexpression\fP)"
+.br
+.ti -1c
+.RI "void \fBaccept\fP (\fBVisitor\fP &visitor) const override"
+.br
+.in -1c
 .SS "Public Attributes"
 
 .in +1c
 .ti -1c
-.RI "\fBExpression\fP \fBexpression\fP"
+.RI "\fBExpression\fP * \fBexpression\fP"
 .br
 .in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ExpressionStatement::ExpressionStatement (\fBExpression\fP * expression)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void ExpressionStatement::accept (\fBVisitor\fP & visitor) const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBNode\fP\&.
 .SH "Member Data Documentation"
 .PP 
-.SS "\fBExpression\fP ExpressionStatement::expression"
+.SS "\fBExpression\fP* ExpressionStatement::expression"
 
 
 .SH "Author"

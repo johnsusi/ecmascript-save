@@ -4,35 +4,84 @@
 
 {\ttfamily \#include $<$ast.\+h$>$}
 
+
+
+Inheritance diagram for Conditional\+Expression\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{struct_conditional_expression__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Conditional\+Expression\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{struct_conditional_expression__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_conditional_expression_a37e1422b06b5533f67a85ceb92e9ae1e}{Conditional\+Expression} (\hyperlink{struct_expression}{Expression} $\ast$\hyperlink{struct_conditional_expression_a7bfe134769078a10eecccabba7405cc2}{test}, \hyperlink{struct_expression}{Expression} $\ast$\hyperlink{struct_conditional_expression_ac129a280df90c129183ec955f4e50ed0}{consequent}, \hyperlink{struct_expression}{Expression} $\ast$\hyperlink{struct_conditional_expression_aed7b09dab98000c8542d6353eefd8dac}{alternate})
+\item 
+void \hyperlink{struct_conditional_expression_af3883c99eba0226e3fbd424a672bcf7b}{accept} (\hyperlink{struct_visitor}{Visitor} \&visitor) const override
+\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{ast_8h_a4cb273a4d960cd13ea17d08f254493e8}{Expression} \hyperlink{struct_conditional_expression_a85dee3d7e20a322d152a5f9185177488}{test}
+\hyperlink{struct_expression}{Expression} $\ast$ \hyperlink{struct_conditional_expression_a7bfe134769078a10eecccabba7405cc2}{test}
 \item 
-\hyperlink{ast_8h_a4cb273a4d960cd13ea17d08f254493e8}{Expression} \hyperlink{struct_conditional_expression_a86d872949d197c61b09c06f663dec654}{consequent}
+\hyperlink{struct_expression}{Expression} $\ast$ \hyperlink{struct_conditional_expression_ac129a280df90c129183ec955f4e50ed0}{consequent}
 \item 
-\hyperlink{ast_8h_a4cb273a4d960cd13ea17d08f254493e8}{Expression} \hyperlink{struct_conditional_expression_ad958635584dff634101113e63166e0a2}{alternate}
+\hyperlink{struct_expression}{Expression} $\ast$ \hyperlink{struct_conditional_expression_aed7b09dab98000c8542d6353eefd8dac}{alternate}
 \end{DoxyCompactItemize}
 
 
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_conditional_expression_a37e1422b06b5533f67a85ceb92e9ae1e}\label{struct_conditional_expression_a37e1422b06b5533f67a85ceb92e9ae1e}} 
+\index{Conditional\+Expression@{Conditional\+Expression}!Conditional\+Expression@{Conditional\+Expression}}
+\index{Conditional\+Expression@{Conditional\+Expression}!Conditional\+Expression@{Conditional\+Expression}}
+\subsubsection{\texorpdfstring{Conditional\+Expression()}{ConditionalExpression()}}
+{\footnotesize\ttfamily Conditional\+Expression\+::\+Conditional\+Expression (\begin{DoxyParamCaption}\item[{\hyperlink{struct_expression}{Expression} $\ast$}]{test,  }\item[{\hyperlink{struct_expression}{Expression} $\ast$}]{consequent,  }\item[{\hyperlink{struct_expression}{Expression} $\ast$}]{alternate }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_conditional_expression_af3883c99eba0226e3fbd424a672bcf7b}\label{struct_conditional_expression_af3883c99eba0226e3fbd424a672bcf7b}} 
+\index{Conditional\+Expression@{Conditional\+Expression}!accept@{accept}}
+\index{accept@{accept}!Conditional\+Expression@{Conditional\+Expression}}
+\subsubsection{\texorpdfstring{accept()}{accept()}}
+{\footnotesize\ttfamily void Conditional\+Expression\+::accept (\begin{DoxyParamCaption}\item[{\hyperlink{struct_visitor}{Visitor} \&}]{visitor }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_node_a10bd7af968140bbf5fa461298a969c71}{Node}.
+
+
+
 \subsection{Member Data Documentation}
-\mbox{\Hypertarget{struct_conditional_expression_ad958635584dff634101113e63166e0a2}\label{struct_conditional_expression_ad958635584dff634101113e63166e0a2}} 
+\mbox{\Hypertarget{struct_conditional_expression_aed7b09dab98000c8542d6353eefd8dac}\label{struct_conditional_expression_aed7b09dab98000c8542d6353eefd8dac}} 
 \index{Conditional\+Expression@{Conditional\+Expression}!alternate@{alternate}}
 \index{alternate@{alternate}!Conditional\+Expression@{Conditional\+Expression}}
 \subsubsection{\texorpdfstring{alternate}{alternate}}
-{\footnotesize\ttfamily \hyperlink{ast_8h_a4cb273a4d960cd13ea17d08f254493e8}{Expression} Conditional\+Expression\+::alternate}
+{\footnotesize\ttfamily \hyperlink{struct_expression}{Expression}$\ast$ Conditional\+Expression\+::alternate}
 
-\mbox{\Hypertarget{struct_conditional_expression_a86d872949d197c61b09c06f663dec654}\label{struct_conditional_expression_a86d872949d197c61b09c06f663dec654}} 
+\mbox{\Hypertarget{struct_conditional_expression_ac129a280df90c129183ec955f4e50ed0}\label{struct_conditional_expression_ac129a280df90c129183ec955f4e50ed0}} 
 \index{Conditional\+Expression@{Conditional\+Expression}!consequent@{consequent}}
 \index{consequent@{consequent}!Conditional\+Expression@{Conditional\+Expression}}
 \subsubsection{\texorpdfstring{consequent}{consequent}}
-{\footnotesize\ttfamily \hyperlink{ast_8h_a4cb273a4d960cd13ea17d08f254493e8}{Expression} Conditional\+Expression\+::consequent}
+{\footnotesize\ttfamily \hyperlink{struct_expression}{Expression}$\ast$ Conditional\+Expression\+::consequent}
 
-\mbox{\Hypertarget{struct_conditional_expression_a85dee3d7e20a322d152a5f9185177488}\label{struct_conditional_expression_a85dee3d7e20a322d152a5f9185177488}} 
+\mbox{\Hypertarget{struct_conditional_expression_a7bfe134769078a10eecccabba7405cc2}\label{struct_conditional_expression_a7bfe134769078a10eecccabba7405cc2}} 
 \index{Conditional\+Expression@{Conditional\+Expression}!test@{test}}
 \index{test@{test}!Conditional\+Expression@{Conditional\+Expression}}
 \subsubsection{\texorpdfstring{test}{test}}
-{\footnotesize\ttfamily \hyperlink{ast_8h_a4cb273a4d960cd13ea17d08f254493e8}{Expression} Conditional\+Expression\+::test}
+{\footnotesize\ttfamily \hyperlink{struct_expression}{Expression}$\ast$ Conditional\+Expression\+::test}
 
 
 

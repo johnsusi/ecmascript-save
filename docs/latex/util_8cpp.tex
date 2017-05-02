@@ -1,0 +1,59 @@
+\hypertarget{util_8cpp}{}\section{src/util.cpp File Reference}
+\label{util_8cpp}\index{src/util.\+cpp@{src/util.\+cpp}}
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$boost/algorithm/string.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/core/demangle.\+hpp$>$}\newline
+{\ttfamily \#include $<$unicode/uchar.\+h$>$}\newline
+Include dependency graph for util.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{util_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ std\+::string} \hyperlink{util_8cpp_a963acd6c6383cd6f6479d6a38be9dfcb}{left\+\_\+align\+\_\+text} (const \textbf{ std\+::string} \&text, const \textbf{ std\+::string} \&indent)
+\item 
+const char $\ast$ \hyperlink{util_8cpp_ad812ab2de404402e3b80eeeac6f18d75}{u\+\_\+char\+Category} (int c)
+\item 
+\textbf{ std\+::string} \hyperlink{util_8cpp_a0493d1da643dd0e2ded159c13ed9f97e}{read\+\_\+file} (const \textbf{ std\+::string} \&filename)
+\item 
+\textbf{ std\+::string} \hyperlink{util_8cpp_a3fc653067bd9f822c4a444b25f3b5d37}{read\+\_\+stdin} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{util_8cpp_a963acd6c6383cd6f6479d6a38be9dfcb}\label{util_8cpp_a963acd6c6383cd6f6479d6a38be9dfcb}} 
+\index{util.\+cpp@{util.\+cpp}!left\+\_\+align\+\_\+text@{left\+\_\+align\+\_\+text}}
+\index{left\+\_\+align\+\_\+text@{left\+\_\+align\+\_\+text}!util.\+cpp@{util.\+cpp}}
+\subsubsection{\texorpdfstring{left\+\_\+align\+\_\+text()}{left\_align\_text()}}
+{\footnotesize\ttfamily \textbf{ std\+::string} left\+\_\+align\+\_\+text (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::string} \&}]{text,  }\item[{const \textbf{ std\+::string} \&}]{indent }\end{DoxyParamCaption})}
+
+Left aligns {\itshape text} by first finding the left-\/most non-\/whitespace character and then removing that many leading white-\/space characters from each line. The result is then indented using the optional {\itshape indent} and joined into a string. \mbox{\Hypertarget{util_8cpp_a0493d1da643dd0e2ded159c13ed9f97e}\label{util_8cpp_a0493d1da643dd0e2ded159c13ed9f97e}} 
+\index{util.\+cpp@{util.\+cpp}!read\+\_\+file@{read\+\_\+file}}
+\index{read\+\_\+file@{read\+\_\+file}!util.\+cpp@{util.\+cpp}}
+\subsubsection{\texorpdfstring{read\+\_\+file()}{read\_file()}}
+{\footnotesize\ttfamily \textbf{ std\+::string} read\+\_\+file (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::string} \&}]{filename }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{util_8cpp_a3fc653067bd9f822c4a444b25f3b5d37}\label{util_8cpp_a3fc653067bd9f822c4a444b25f3b5d37}} 
+\index{util.\+cpp@{util.\+cpp}!read\+\_\+stdin@{read\+\_\+stdin}}
+\index{read\+\_\+stdin@{read\+\_\+stdin}!util.\+cpp@{util.\+cpp}}
+\subsubsection{\texorpdfstring{read\+\_\+stdin()}{read\_stdin()}}
+{\footnotesize\ttfamily \textbf{ std\+::string} read\+\_\+stdin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{util_8cpp_ad812ab2de404402e3b80eeeac6f18d75}\label{util_8cpp_ad812ab2de404402e3b80eeeac6f18d75}} 
+\index{util.\+cpp@{util.\+cpp}!u\+\_\+char\+Category@{u\+\_\+char\+Category}}
+\index{u\+\_\+char\+Category@{u\+\_\+char\+Category}!util.\+cpp@{util.\+cpp}}
+\subsubsection{\texorpdfstring{u\+\_\+char\+Category()}{u\_charCategory()}}
+{\footnotesize\ttfamily const char$\ast$ u\+\_\+char\+Category (\begin{DoxyParamCaption}\item[{int}]{c }\end{DoxyParamCaption})}
+
+Returns the general category (short) name for the code point. If the category is not known \textquotesingle{}??\textquotesingle{} is returned. Always returns a zero terminated char array of length 3. 

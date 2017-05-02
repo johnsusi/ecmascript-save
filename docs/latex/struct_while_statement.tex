@@ -4,27 +4,65 @@
 
 {\ttfamily \#include $<$ast.\+h$>$}
 
+
+
+Inheritance diagram for While\+Statement\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=167pt]{struct_while_statement__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for While\+Statement\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=225pt]{struct_while_statement__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{struct_while_statement_a017a8824abdcb5551061dae2a09e8ead}{accept} (\hyperlink{struct_visitor}{Visitor} \&visitor) const override
+\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{ast_8h_a4cb273a4d960cd13ea17d08f254493e8}{Expression} \hyperlink{struct_while_statement_a4990cb7a5253b0a8abb3c8a6e0b090f0}{test}
+\hyperlink{struct_expression}{Expression} $\ast$ \hyperlink{struct_while_statement_acfede7e3d617c685032f657a7a95aa15}{test}
 \item 
-\hyperlink{ast_8h_a8b6ddf3732a0acd77e6b2509fb21a5fd}{Statement} \hyperlink{struct_while_statement_ab86fce90fef019497eeac60206f3052b}{body}
+\hyperlink{struct_statement}{Statement} $\ast$ \hyperlink{struct_while_statement_adcb2abe56520e643ad7b1192099c75e6}{body}
 \end{DoxyCompactItemize}
 
 
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_while_statement_a017a8824abdcb5551061dae2a09e8ead}\label{struct_while_statement_a017a8824abdcb5551061dae2a09e8ead}} 
+\index{While\+Statement@{While\+Statement}!accept@{accept}}
+\index{accept@{accept}!While\+Statement@{While\+Statement}}
+\subsubsection{\texorpdfstring{accept()}{accept()}}
+{\footnotesize\ttfamily void While\+Statement\+::accept (\begin{DoxyParamCaption}\item[{\hyperlink{struct_visitor}{Visitor} \&}]{visitor }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_node_a10bd7af968140bbf5fa461298a969c71}{Node}.
+
+
+
 \subsection{Member Data Documentation}
-\mbox{\Hypertarget{struct_while_statement_ab86fce90fef019497eeac60206f3052b}\label{struct_while_statement_ab86fce90fef019497eeac60206f3052b}} 
+\mbox{\Hypertarget{struct_while_statement_adcb2abe56520e643ad7b1192099c75e6}\label{struct_while_statement_adcb2abe56520e643ad7b1192099c75e6}} 
 \index{While\+Statement@{While\+Statement}!body@{body}}
 \index{body@{body}!While\+Statement@{While\+Statement}}
 \subsubsection{\texorpdfstring{body}{body}}
-{\footnotesize\ttfamily \hyperlink{ast_8h_a8b6ddf3732a0acd77e6b2509fb21a5fd}{Statement} While\+Statement\+::body}
+{\footnotesize\ttfamily \hyperlink{struct_statement}{Statement}$\ast$ While\+Statement\+::body}
 
-\mbox{\Hypertarget{struct_while_statement_a4990cb7a5253b0a8abb3c8a6e0b090f0}\label{struct_while_statement_a4990cb7a5253b0a8abb3c8a6e0b090f0}} 
+\mbox{\Hypertarget{struct_while_statement_acfede7e3d617c685032f657a7a95aa15}\label{struct_while_statement_acfede7e3d617c685032f657a7a95aa15}} 
 \index{While\+Statement@{While\+Statement}!test@{test}}
 \index{test@{test}!While\+Statement@{While\+Statement}}
 \subsubsection{\texorpdfstring{test}{test}}
-{\footnotesize\ttfamily \hyperlink{ast_8h_a4cb273a4d960cd13ea17d08f254493e8}{Expression} While\+Statement\+::test}
+{\footnotesize\ttfamily \hyperlink{struct_expression}{Expression}$\ast$ While\+Statement\+::test}
 
 
 

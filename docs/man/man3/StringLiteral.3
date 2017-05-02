@@ -1,4 +1,4 @@
-.TH "StringLiteral" 3 "Sat Apr 29 2017" "ECMAScript" \" -*- nroff -*-
+.TH "StringLiteral" 3 "Tue May 2 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -8,6 +8,24 @@ StringLiteral
 .PP
 .PP
 \fC#include <ast\&.h>\fP
+.PP
+Inherits \fBLiteral\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBStringLiteral\fP (\fBstd::u16string\fP \fBvalue\fP)"
+.br
+.ti -1c
+.RI "\fBStringLiteral\fP (const \fBstd::string\fP &\fBvalue\fP)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBto_string\fP () const"
+.br
+.ti -1c
+.RI "void \fBaccept\fP (\fBVisitor\fP &visitor) const override"
+.br
+.in -1c
 .SS "Public Attributes"
 
 .in +1c
@@ -15,6 +33,20 @@ StringLiteral
 .RI "\fBstd::u16string\fP \fBvalue\fP"
 .br
 .in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "StringLiteral::StringLiteral (\fBstd::u16string\fP value)\fC [inline]\fP"
+
+.SS "StringLiteral::StringLiteral (const \fBstd::string\fP & value)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void StringLiteral::accept (\fBVisitor\fP & visitor) const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBNode\fP\&.
+.SS "\fBstd::string\fP StringLiteral::to_string () const\fC [inline]\fP"
+
 .SH "Member Data Documentation"
 .PP 
 .SS "\fBstd::u16string\fP StringLiteral::value"

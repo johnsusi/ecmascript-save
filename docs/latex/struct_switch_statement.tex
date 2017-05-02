@@ -4,19 +4,76 @@
 
 {\ttfamily \#include $<$ast.\+h$>$}
 
+
+
+Inheritance diagram for Switch\+Statement\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=171pt]{struct_switch_statement__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Switch\+Statement\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_switch_statement__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_switch_statement_adab42f2a56bc686f522587ff6f39b70a}{Switch\+Statement} (\hyperlink{struct_expression}{Expression} $\ast$\hyperlink{struct_switch_statement_a6b04149d29751485e93c698298ebbe5d}{discriminant}, \hyperlink{struct_case_block}{Case\+Block} $\ast$\hyperlink{struct_switch_statement_a2e2f296ddcb9fcb69bd4daeac8c850b0}{cases})
+\item 
+void \hyperlink{struct_switch_statement_a948b1d975437e623ad183d5599ce51f9}{accept} (\hyperlink{struct_visitor}{Visitor} \&visitor) const override
+\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{ast_8h_a4cb273a4d960cd13ea17d08f254493e8}{Expression} \hyperlink{struct_switch_statement_a04e5de9f570c5f2351f9a2268f5eaffe}{discriminant}
+\hyperlink{struct_expression}{Expression} $\ast$ \hyperlink{struct_switch_statement_a6b04149d29751485e93c698298ebbe5d}{discriminant}
+\item 
+\hyperlink{struct_case_block}{Case\+Block} $\ast$ \hyperlink{struct_switch_statement_a2e2f296ddcb9fcb69bd4daeac8c850b0}{cases}
 \end{DoxyCompactItemize}
 
 
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_switch_statement_adab42f2a56bc686f522587ff6f39b70a}\label{struct_switch_statement_adab42f2a56bc686f522587ff6f39b70a}} 
+\index{Switch\+Statement@{Switch\+Statement}!Switch\+Statement@{Switch\+Statement}}
+\index{Switch\+Statement@{Switch\+Statement}!Switch\+Statement@{Switch\+Statement}}
+\subsubsection{\texorpdfstring{Switch\+Statement()}{SwitchStatement()}}
+{\footnotesize\ttfamily Switch\+Statement\+::\+Switch\+Statement (\begin{DoxyParamCaption}\item[{\hyperlink{struct_expression}{Expression} $\ast$}]{discriminant,  }\item[{\hyperlink{struct_case_block}{Case\+Block} $\ast$}]{cases }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_switch_statement_a948b1d975437e623ad183d5599ce51f9}\label{struct_switch_statement_a948b1d975437e623ad183d5599ce51f9}} 
+\index{Switch\+Statement@{Switch\+Statement}!accept@{accept}}
+\index{accept@{accept}!Switch\+Statement@{Switch\+Statement}}
+\subsubsection{\texorpdfstring{accept()}{accept()}}
+{\footnotesize\ttfamily void Switch\+Statement\+::accept (\begin{DoxyParamCaption}\item[{\hyperlink{struct_visitor}{Visitor} \&}]{visitor }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_node_a10bd7af968140bbf5fa461298a969c71}{Node}.
+
+
+
 \subsection{Member Data Documentation}
-\mbox{\Hypertarget{struct_switch_statement_a04e5de9f570c5f2351f9a2268f5eaffe}\label{struct_switch_statement_a04e5de9f570c5f2351f9a2268f5eaffe}} 
+\mbox{\Hypertarget{struct_switch_statement_a2e2f296ddcb9fcb69bd4daeac8c850b0}\label{struct_switch_statement_a2e2f296ddcb9fcb69bd4daeac8c850b0}} 
+\index{Switch\+Statement@{Switch\+Statement}!cases@{cases}}
+\index{cases@{cases}!Switch\+Statement@{Switch\+Statement}}
+\subsubsection{\texorpdfstring{cases}{cases}}
+{\footnotesize\ttfamily \hyperlink{struct_case_block}{Case\+Block}$\ast$ Switch\+Statement\+::cases}
+
+\mbox{\Hypertarget{struct_switch_statement_a6b04149d29751485e93c698298ebbe5d}\label{struct_switch_statement_a6b04149d29751485e93c698298ebbe5d}} 
 \index{Switch\+Statement@{Switch\+Statement}!discriminant@{discriminant}}
 \index{discriminant@{discriminant}!Switch\+Statement@{Switch\+Statement}}
 \subsubsection{\texorpdfstring{discriminant}{discriminant}}
-{\footnotesize\ttfamily \hyperlink{ast_8h_a4cb273a4d960cd13ea17d08f254493e8}{Expression} Switch\+Statement\+::discriminant}
+{\footnotesize\ttfamily \hyperlink{struct_expression}{Expression}$\ast$ Switch\+Statement\+::discriminant}
 
 
 
