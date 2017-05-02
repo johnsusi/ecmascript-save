@@ -1,11 +1,24 @@
-#!/usr/bin/env js -s
+#!/usr/bin/env node
 
-var source = arguments.join(' ');
-if (source.length == 0)
-  for (var line;(line = readline()) != null ; source += line, source += "\n");
+var fs   = require('fs');
+var path = require('path');
 
-var program = Reflect.parse(source, {
-  loc: false,
-});
+const { parseScript: from_js } = require("shift-parser");
+const { safeDump: to_yaml }    = require('js-yaml');
 
-print(JSON.stringify(program, null, 2));
+var source;
+
+for (var i = 2; i < process.argv.length; i++) {
+  if (process.argv[i] === '-e' || process.argv[i] === '--eval') {
+    source = process.argv[++i];
+  } else if (process.argv[i][0] === '-') {
+    errorExit('Unknown argument: ' + process.argv[i]);
+  }
+}
+
+function errorExit(msg) {
+  process.stderr.write(msg + '\n');
+  process.exit(1);
+}
+
+console.log(to_yaml(from_js(source)));
