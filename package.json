@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "js-yaml": "^3.8.3",
+    "shift-parser": "=1.0.4",
+    "spawn-rx": "^2.0.10",
+    "spec-md": "^0.4.8",
+    "tmp": "^0.0.31"
+  }
+}

@@ -42,7 +42,7 @@ var searchData=
   ['unicode_5fletter',['unicode_letter',['../class_lexical_grammar.html#aee36e7e578912a00215f3a66778c191f',1,'LexicalGrammar']]],
   ['uniform_5fint_5fdistribution',['uniform_int_distribution',['http://en.cppreference.com/w/cpp/numeric/random/uniform_int_distribution.html',1,'std::uniform_int_distribution'],['http://en.cppreference.com/w/cpp/numeric/random/uniform_int_distribution/uniform_int_distribution.html',1,'std::uniform_int_distribution::uniform_int_distribution()']]],
   ['uniform_5freal_5fdistribution',['uniform_real_distribution',['http://en.cppreference.com/w/cpp/numeric/random/uniform_real_distribution.html',1,'std::uniform_real_distribution'],['http://en.cppreference.com/w/cpp/numeric/random/uniform_real_distribution/uniform_real_distribution.html',1,'std::uniform_real_distribution::uniform_real_distribution()']]],
-  ['unindent',['unindent',['../structindentstream.html#a3721933459c8e2ed2cac1de036d6f24d',1,'indentstream']]],
+  ['unindent',['unindent',['../structindentstream.html#a3721933459c8e2ed2cac1de036d6f24d',1,'indentstream::unindent()'],['../ast_8cpp.html#ab517a204662f99fcd3c426ffaec47036',1,'unindent():&#160;ast.cpp']]],
   ['uninitialized_5fcopy',['uninitialized_copy',['http://en.cppreference.com/w/cpp/memory/uninitialized_copy.html',1,'std']]],
   ['uninitialized_5fcopy_5fn',['uninitialized_copy_n',['http://en.cppreference.com/w/cpp/memory/uninitialized_copy_n.html',1,'std']]],
   ['uninitialized_5ffill',['uninitialized_fill',['http://en.cppreference.com/w/cpp/memory/uninitialized_fill.html',1,'std']]],

@@ -1,8 +1,8 @@
 var searchData=
 [
   ['m',['m',['http://en.cppreference.com/w/cpp/numeric/random/lognormal_distribution/params.html',1,'std::lognormal_distribution::m()'],['http://en.cppreference.com/w/cpp/numeric/random/fisher_f_distribution/params.html',1,'std::fisher_f_distribution::m()']]],
-  ['m_5fincr',['m_incr',['../structindentstream.html#aefdc4c013e4c61c0c81b08f954dcafd8',1,'indentstream']]],
   ['m_5findent',['m_indent',['../structindentstream.html#a679f1453bdd2a44b50d75e08e92132bc',1,'indentstream']]],
+  ['m_5fskip',['m_skip',['../structindentstream.html#a79ad9a59e1315f8b6c29826a3684ad4a',1,'indentstream']]],
   ['main',['main',['../main_8cpp.html#a217dbf8b442f20279ea00b898af96f52',1,'main.cpp']]],
   ['main_2ecpp',['main.cpp',['../main_8cpp.html',1,'']]],
   ['make_5fexception_5fptr',['make_exception_ptr',['http://en.cppreference.com/w/cpp/error/make_exception_ptr.html',1,'std']]],

@@ -18,6 +18,7 @@ var searchData=
   ['vector_3c_20propertyassignment_20_2a_3e',['vector&lt; PropertyAssignment *&gt;',['http://en.cppreference.com/w/cpp/container/vector.html',1,'std']]],
   ['vector_3c_20sourceelement_20_2a_3e',['vector&lt; SourceElement *&gt;',['http://en.cppreference.com/w/cpp/container/vector.html',1,'std']]],
   ['vector_3c_20statement_20_2a_3e',['vector&lt; Statement *&gt;',['http://en.cppreference.com/w/cpp/container/vector.html',1,'std']]],
+  ['vector_3c_20std_3a_3astring_20_3e',['vector&lt; std::string &gt;',['http://en.cppreference.com/w/cpp/container/vector.html',1,'std']]],
   ['vector_3c_20t_20_2a_3e',['vector&lt; T *&gt;',['http://en.cppreference.com/w/cpp/container/vector.html',1,'std']]],
   ['vector_3c_20token_20_3e',['vector&lt; Token &gt;',['http://en.cppreference.com/w/cpp/container/vector.html',1,'std']]],
   ['vector_3c_20variabledeclaration_20_2a_3e',['vector&lt; VariableDeclaration *&gt;',['http://en.cppreference.com/w/cpp/container/vector.html',1,'std']]],

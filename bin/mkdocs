@@ -1,0 +1,40 @@
+#!/usr/bin/env node
+
+const fs = require('fs');
+const specmd = require('spec-md');
+const tmp = require('tmp');
+const { resolve } = require('path');
+
+const README = resolve(__dirname, '../README.md');
+const RIBBON = resolve(__dirname, '../docs/ribbon.html');
+
+for (var i = 2; i < process.argv.length; i++) {
+  if (process.argv[i] === '-w' || process.argv[i] === '--watch') {
+
+    fs.watchFile(README, render);
+
+  } else if (process.argv[i][0] === '-') {
+    errorExit('Unknown argument: ' + process.argv[i]);
+  }
+}
+
+render();
+
+var rendering = false;
+function render() {
+  if (rendering) return;
+  rendering = true;
+  const readme = fs.readFileSync(README);
+  const ribbon = fs.readFileSync(RIBBON);
+
+  tmp.file({discardDescriptor: true}, (err, filename, fd, cleanup) => {
+    fs.writeFileSync(filename, readme + ribbon);
+    specmd.html(filename).then( html => {
+      fs.writeFileSync(__dirname + '/../docs/index.html', html);
+      cleanup();
+      rendering = false;
+    });
+  });
+
+}
+

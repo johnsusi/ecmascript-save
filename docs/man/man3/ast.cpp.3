@@ -78,6 +78,15 @@ src/ast.cpp
 .RI "template<typename T , typename\&.\&.\&. Args> void \fBaccept\fP (T &&node, Args &&\&.\&.\&. args)"
 .br
 .ti -1c
+.RI "static \fBindentstream\fP & \fBindent\fP (\fBindentstream\fP &out)"
+.br
+.ti -1c
+.RI "static \fBindentstream\fP & \fBunindent\fP (\fBindentstream\fP &out)"
+.br
+.ti -1c
+.RI "static \fBindentstream\fP & \fBskip\fP (\fBindentstream\fP &out)"
+.br
+.ti -1c
 .RI "\fBstd::string\fP \fBto_string\fP (const \fBProgram\fP &program)"
 .br
 .in -1c
@@ -89,9 +98,15 @@ src/ast.cpp
 .PP 
 .SS "template<typename T , typename\&.\&.\&. Args> void accept (T && node, Args &&\&.\&.\&. args)"
 
+.SS "static \fBindentstream\fP& indent (\fBindentstream\fP & out)\fC [static]\fP"
+
 .SS "template<typename F > \fBCallableVisitor\fP<F> make_visitor (F callback)"
 
+.SS "static \fBindentstream\fP& skip (\fBindentstream\fP & out)\fC [static]\fP"
+
 .SS "\fBstd::string\fP to_string (const \fBProgram\fP & program)"
+
+.SS "static \fBindentstream\fP& unindent (\fBindentstream\fP & out)\fC [static]\fP"
 
 .SH "Author"
 .PP 

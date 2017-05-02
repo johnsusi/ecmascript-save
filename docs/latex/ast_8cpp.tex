@@ -5,8 +5,7 @@
 {\ttfamily \#include $<$sstream$>$}\newline
 {\ttfamily \#include $<$string$>$}\newline
 {\ttfamily \#include $<$vector$>$}\newline
-Include dependency graph for ast.\+cpp\+:
-\nopagebreak
+Include dependency graph for ast.\+cpp\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -55,6 +54,12 @@ struct \hyperlink{structindentstream}{indentstream}
 \item 
 {\footnotesize template$<$typename T , typename... Args$>$ }\\void \hyperlink{ast_8cpp_a8fa8b31d3d975526752f7daa3a2d7de2}{accept} (T \&\&node, Args \&\&... args)
 \item 
+static \hyperlink{structindentstream}{indentstream} \& \hyperlink{ast_8cpp_ac2a5fec8451698248996dc924364038f}{indent} (\hyperlink{structindentstream}{indentstream} \&out)
+\item 
+static \hyperlink{structindentstream}{indentstream} \& \hyperlink{ast_8cpp_ab517a204662f99fcd3c426ffaec47036}{unindent} (\hyperlink{structindentstream}{indentstream} \&out)
+\item 
+static \hyperlink{structindentstream}{indentstream} \& \hyperlink{ast_8cpp_a44b72c4aab0c0f7bc6542727e9c59a33}{skip} (\hyperlink{structindentstream}{indentstream} \&out)
+\item 
 \textbf{ std\+::string} \hyperlink{ast_8cpp_af78059189ea131010a8ca720c16a87cb}{to\+\_\+string} (const \hyperlink{struct_program}{Program} \&program)
 \end{DoxyCompactItemize}
 
@@ -77,6 +82,12 @@ using \hyperlink{ast_8cpp_a3bfb9467348a9297aee8c9ba0caed8f4}{void\+\_\+t} =  typ
 {\footnotesize\ttfamily template$<$typename T , typename... Args$>$ \\
 void accept (\begin{DoxyParamCaption}\item[{T \&\&}]{node,  }\item[{Args \&\&...}]{args }\end{DoxyParamCaption})}
 
+\mbox{\Hypertarget{ast_8cpp_ac2a5fec8451698248996dc924364038f}\label{ast_8cpp_ac2a5fec8451698248996dc924364038f}} 
+\index{ast.\+cpp@{ast.\+cpp}!indent@{indent}}
+\index{indent@{indent}!ast.\+cpp@{ast.\+cpp}}
+\subsubsection{\texorpdfstring{indent()}{indent()}}
+{\footnotesize\ttfamily static \hyperlink{structindentstream}{indentstream}\& indent (\begin{DoxyParamCaption}\item[{\hyperlink{structindentstream}{indentstream} \&}]{out }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
 \mbox{\Hypertarget{ast_8cpp_a12a81640ea6026881876246d7891ba6d}\label{ast_8cpp_a12a81640ea6026881876246d7891ba6d}} 
 \index{ast.\+cpp@{ast.\+cpp}!make\+\_\+visitor@{make\+\_\+visitor}}
 \index{make\+\_\+visitor@{make\+\_\+visitor}!ast.\+cpp@{ast.\+cpp}}
@@ -84,9 +95,21 @@ void accept (\begin{DoxyParamCaption}\item[{T \&\&}]{node,  }\item[{Args \&\&...
 {\footnotesize\ttfamily template$<$typename F $>$ \\
 \hyperlink{struct_callable_visitor}{Callable\+Visitor}$<$F$>$ make\+\_\+visitor (\begin{DoxyParamCaption}\item[{F}]{callback }\end{DoxyParamCaption})}
 
+\mbox{\Hypertarget{ast_8cpp_a44b72c4aab0c0f7bc6542727e9c59a33}\label{ast_8cpp_a44b72c4aab0c0f7bc6542727e9c59a33}} 
+\index{ast.\+cpp@{ast.\+cpp}!skip@{skip}}
+\index{skip@{skip}!ast.\+cpp@{ast.\+cpp}}
+\subsubsection{\texorpdfstring{skip()}{skip()}}
+{\footnotesize\ttfamily static \hyperlink{structindentstream}{indentstream}\& skip (\begin{DoxyParamCaption}\item[{\hyperlink{structindentstream}{indentstream} \&}]{out }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
 \mbox{\Hypertarget{ast_8cpp_af78059189ea131010a8ca720c16a87cb}\label{ast_8cpp_af78059189ea131010a8ca720c16a87cb}} 
 \index{ast.\+cpp@{ast.\+cpp}!to\+\_\+string@{to\+\_\+string}}
 \index{to\+\_\+string@{to\+\_\+string}!ast.\+cpp@{ast.\+cpp}}
 \subsubsection{\texorpdfstring{to\+\_\+string()}{to\_string()}}
 {\footnotesize\ttfamily \textbf{ std\+::string} to\+\_\+string (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_program}{Program} \&}]{program }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ast_8cpp_ab517a204662f99fcd3c426ffaec47036}\label{ast_8cpp_ab517a204662f99fcd3c426ffaec47036}} 
+\index{ast.\+cpp@{ast.\+cpp}!unindent@{unindent}}
+\index{unindent@{unindent}!ast.\+cpp@{ast.\+cpp}}
+\subsubsection{\texorpdfstring{unindent()}{unindent()}}
+{\footnotesize\ttfamily static \hyperlink{structindentstream}{indentstream}\& unindent (\begin{DoxyParamCaption}\item[{\hyperlink{structindentstream}{indentstream} \&}]{out }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 

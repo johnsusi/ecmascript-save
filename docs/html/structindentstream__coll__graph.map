@@ -1,4 +1,5 @@
 <map id="indentstream" name="indentstream">
 <area shape="rect" id="node2" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/string/basic_string.html" title="std::string" alt="" coords="5,5,84,31"/>
-<area shape="rect" id="node3" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/io/basic_ostream.html" title="std::ostream" alt="" coords="108,5,203,31"/>
+<area shape="rect" id="node3" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/container/vector.html" title="std::vector\&lt; std::string \&gt;" alt="" coords="108,5,272,31"/>
+<area shape="rect" id="node4" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/io/basic_ostream.html" title="std::ostream" alt="" coords="296,5,391,31"/>
 </map>
