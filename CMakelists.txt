@@ -10,6 +10,9 @@ if (CMAKE_VERSION VERSION_LESS 3.7)
 endif ()
 
 option(TESTING "Enable testing" OFF)
+option(BEGIN_ECMASCRIPT_NAMESPACE "Wrap in namespace begin" "namespace ecmascript {")
+option(END_ECMASCRIPT_NAMESPACE   "Wrap in namespace end" "}")
+option(USING_ECMASCRIPT_NAMESPACE "Using namespace" "using namespace ecmascript;")
 
 include(Cxx14Support)
 include(ColorDiagnostics)
@@ -22,6 +25,12 @@ if (APPLE)
 endif()
 
 # add_compile_options(-ferror-limit=1)
+
+add_definitions(
+  -DBEGIN_ECMASCRIPT_NAMESPACE="${BEGIN_ECMASCRIPT_NAMESPACE}"
+  -DEND_ECMASCRIPT_NAMESPACE="${END_ECMASCRIPT_NAMESPACE}"
+  -DUSING_ECMASCRIPT_NAMESPACE="${USING_ECMASCRIPT_NAMESPACE}"
+)
 
 find_package(Boost REQUIRED COMPONENTS filesystem program_options)
 find_package(ICU   REQUIRED COMPONENTS uc)
@@ -42,6 +51,7 @@ set(SOURCES
   src/matcher.cpp
   # src/parser.cpp
   src/token.cpp
+  src/util.cpp
 )
 
 if (TESTING)

@@ -44,7 +44,8 @@ bool is_null_literal(const std::string &str);
 // 7.8.2
 bool is_boolean_literal(const std::string &);
 
-template <typename T> class LexicalGrammar {
+template <typename T>
+class LexicalGrammar {
 public:
   std::u16string buffer;
   Matcher<T, std::u16string::const_iterator> match;
@@ -71,10 +72,8 @@ public:
   InputElement input_element_div()
   {
     auto match_start = match.mark();
-    if (white_space())
-      return InputElement::white_space();
-    if (line_terminator())
-      return InputElement::line_terminator();
+    if (white_space()) return InputElement::white_space();
+    if (line_terminator()) return InputElement::line_terminator();
     if (comment())
       return InputElement::comment(std::u16string{match_start, match.mark()});
     if (token() || div_punctuator())
@@ -85,10 +84,8 @@ public:
   InputElement input_element_reg_exp()
   {
     auto match_start = match.mark();
-    if (white_space())
-      return InputElement::white_space();
-    if (line_terminator())
-      return InputElement::line_terminator();
+    if (white_space()) return InputElement::white_space();
+    if (line_terminator()) return InputElement::line_terminator();
     if (comment())
       return InputElement::comment(std::u16string{match_start, match.mark()});
     if (token() || regular_expression_literal())
@@ -112,8 +109,7 @@ public:
       case 0x2028: // Line separator <LS>
       case 0x2029: // Paragraph separator <PS>
         return true;
-      default:
-        return false;
+      default: return false;
       }
     });
   }
@@ -164,10 +160,8 @@ public:
     return match([](auto cp) {
       switch (cp) {
       case '/':
-      case '*':
-        return false;
-      default:
-        return true;
+      case '*': return false;
+      default: return true;
       }
     });
   }
@@ -195,7 +189,7 @@ public:
   bool token()
   {
     token_value = {};
-    auto i = match.mark();
+    auto i      = match.mark();
     if (identifier_name()) {
       token_value = {i, match.mark()};
       return true;
@@ -328,8 +322,7 @@ public:
   bool numeric_literal()
   {
     if (hex_integer_literal() || decimal_literal()) {
-      if (identifier_start() || decimal_digit())
-        syntax_error();
+      if (identifier_start() || decimal_digit()) syntax_error();
       return true;
     }
     return false;
@@ -363,8 +356,7 @@ public:
 
   bool decimal_integer_literal()
   {
-    if (match('0'))
-      return true;
+    if (match('0')) return true;
     if (match(is_non_zero_digit)) {
       decimal_digits();
       return true;
@@ -391,8 +383,7 @@ public:
   bool exponent_part()
   {
     if (exponent_indicator()) {
-      if (!signed_integer())
-        syntax_error();
+      if (!signed_integer()) syntax_error();
       // exponent_value = decimal_value;
       return true;
     }
@@ -408,30 +399,25 @@ public:
   {
 
     if (match("+")) {
-      if (!decimal_digits())
-        syntax_error();
+      if (!decimal_digits()) syntax_error();
       return true;
     }
     if (match("-")) {
-      if (!decimal_digits())
-        syntax_error();
+      if (!decimal_digits()) syntax_error();
     }
     return decimal_digits();
   }
 
   bool hex_integer_literal()
   {
-    if (!match("0x") && !match("0X"))
-      return false;
-    if (!hex_digits())
-      syntax_error();
+    if (!match("0x") && !match("0X")) return false;
+    if (!hex_digits()) syntax_error();
     return true;
   }
 
   bool hex_digits()
   {
-    if (!hex_digit())
-      return false;
+    if (!hex_digit()) return false;
     while (hex_digit())
       ;
     return true;
@@ -455,8 +441,7 @@ public:
 
   bool double_string_characters()
   {
-    if (!double_string_character())
-      return false;
+    if (!double_string_character()) return false;
     while (double_string_character())
       ;
     return true;
@@ -464,8 +449,7 @@ public:
 
   bool single_string_characters()
   {
-    if (!single_string_character())
-      return false;
+    if (!single_string_character()) return false;
     while (single_string_character())
       ;
     return true;
@@ -475,12 +459,9 @@ public:
   {
     return match([&](auto cp) {
       switch (cp) {
-      case '"':
-        return false;
-      case '\\':
-        return escape_sequence() || line_terminator_sequence();
-      default:
-        return !is_line_terminator(cp);
+      case '"': return false;
+      case '\\': return escape_sequence() || line_terminator_sequence();
+      default: return !is_line_terminator(cp);
       }
     });
   }
@@ -489,12 +470,9 @@ public:
   {
     return match([&](auto cp) {
       switch (cp) {
-      case '\'':
-        return false;
-      case '\\':
-        return escape_sequence() || line_terminator_sequence();
-      default:
-        return !is_line_terminator(cp);
+      case '\'': return false;
+      case '\\': return escape_sequence() || line_terminator_sequence();
+      default: return !is_line_terminator(cp);
       }
     });
   }

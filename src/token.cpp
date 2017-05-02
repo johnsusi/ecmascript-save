@@ -48,18 +48,30 @@ Token Token::identifier(std::u16string value)
   return {Value{Identifier{std::move(value)}}};
 }
 
-Token Token::keyword(const std::string &value) { return {Keyword{value}}; }
+Token Token::keyword(const std::string &value)
+{
+  return {Keyword{value}};
+}
 
 Token Token::punctuator(const std::string &value)
 {
   return {Punctuator{value}};
 }
 
-Token Token::null_literal() { return {NullLiteral{}}; }
+Token Token::null_literal()
+{
+  return {NullLiteral{}};
+}
 
-Token Token::boolean_literal(bool value) { return {BooleanLiteral{value}}; }
+Token Token::boolean_literal(bool value)
+{
+  return {BooleanLiteral{value}};
+}
 
-Token Token::numeric_literal(double value) { return {NumericLiteral{value}}; }
+Token Token::numeric_literal(double value)
+{
+  return {NumericLiteral{value}};
+}
 
 Token Token::string_literal(std::u16string value)
 {
@@ -71,7 +83,10 @@ Token Token::regular_expression_literal()
   return {RegularExpressionLiteral{}};
 }
 
-bool Token::is_empty() const { return boost::get<Empty>(&value) != nullptr; }
+bool Token::is_empty() const
+{
+  return boost::get<Empty>(&value) != nullptr;
+}
 
 bool Token::is_identifier() const
 {
@@ -83,7 +98,10 @@ bool Token::is_keyword() const
   return boost::get<Keyword>(&value) != nullptr;
 }
 
-bool Token::is_future_reserved_word() const { return false; }
+bool Token::is_future_reserved_word() const
+{
+  return false;
+}
 
 bool Token::is_punctuator() const
 {
@@ -219,7 +237,8 @@ struct Token::equal_visitor : boost::static_visitor<bool> {
     return true;
   }
 
-  template <typename T, typename U> bool operator()(const T &, const U &) const
+  template <typename T, typename U>
+  bool operator()(const T &, const U &) const
   {
     return false;
   }
@@ -238,32 +257,26 @@ std::ostream &operator<<(std::ostream &out, const Token &token)
 
 Token::operator std::string() const
 {
-  if (auto o = to_keyword())
-    return *o;
-  if (auto o = to_punctuator())
-    return *o;
+  if (auto o = to_keyword()) return *o;
+  if (auto o = to_punctuator()) return *o;
   return {};
 }
 
 Token::operator std::u16string() const
 {
-  if (auto o = to_identifier())
-    return *o;
-  if (auto o = to_string_literal())
-    return *o;
+  if (auto o = to_identifier()) return *o;
+  if (auto o = to_string_literal()) return *o;
   return {};
 }
 
 Token::operator bool() const
 {
-  if (auto o = to_boolean_literal())
-    return *o;
+  if (auto o = to_boolean_literal()) return *o;
   return false;
 }
 
 Token::operator double() const
 {
-  if (auto o = to_numeric_literal())
-    return *o;
+  if (auto o = to_numeric_literal()) return *o;
   return NAN;
 }

@@ -8,13 +8,11 @@
 std::u16string convert_utf8_to_utf16(const std::string &source)
 {
   ErrorCode err;
-  auto buffer = UnicodeString::fromUTF8(source);
-  auto normalizer = Normalizer2::getNFCInstance(err);
-  if (err.isFailure())
-    throw std::runtime_error(err.errorName());
+  auto      buffer     = UnicodeString::fromUTF8(source);
+  auto      normalizer = Normalizer2::getNFCInstance(err);
+  if (err.isFailure()) throw std::runtime_error(err.errorName());
   auto result = normalizer->normalize(buffer, err);
-  if (err.isFailure())
-    throw std::runtime_error(err.errorName());
+  if (err.isFailure()) throw std::runtime_error(err.errorName());
   return std::u16string(
       reinterpret_cast<const std::u16string::value_type *>(buffer.getBuffer()),
       buffer.length());
@@ -49,8 +47,7 @@ bool is_white_space(int cp)
     switch (u_charType(cp)) {
     case U_SPACE_SEPARATOR: // Any other Unicode "space separator" <USP>
       return true;
-    default:
-      return false;
+    default: return false;
     }
   }
 }
@@ -64,15 +61,20 @@ bool is_line_terminator(int cp)
   case 0x2028: // Line separator <LS>
   case 0x2029: // Paragraph separator <PS>
     return true;
-  default:
-    return false;
+  default: return false;
   }
 }
 
 // 7.8.3
-bool is_non_zero_digit(int cp) { return cp >= '1' && cp <= '9'; }
+bool is_non_zero_digit(int cp)
+{
+  return cp >= '1' && cp <= '9';
+}
 
-bool is_decimal_digit(int cp) { return cp == '0' || is_non_zero_digit(cp); }
+bool is_decimal_digit(int cp)
+{
+  return cp == '0' || is_non_zero_digit(cp);
+}
 
 bool is_hex_digit(int cp)
 {
@@ -91,8 +93,7 @@ bool is_unicode_letter(int cp)
   case U_OTHER_LETTER:     // Lo
   case U_LETTER_NUMBER:    // Nl
     return true;
-  default:
-    return false;
+  default: return false;
   }
 }
 
@@ -102,28 +103,23 @@ bool is_unicode_combining_mark(int cp)
   case U_NON_SPACING_MARK:       // Mn
   case U_COMBINING_SPACING_MARK: // Mc
     return true;
-  default:
-    return false;
+  default: return false;
   }
 }
 
 bool is_unicode_digit(int cp)
 {
   switch (u_charType(cp)) {
-  case U_DECIMAL_DIGIT_NUMBER:
-    return true;
-  default:
-    return false;
+  case U_DECIMAL_DIGIT_NUMBER: return true;
+  default: return false;
   }
 }
 
 bool is_unicode_connector_punctuation(int cp)
 {
   switch (u_charType(cp)) {
-  case U_CONNECTOR_PUNCTUATION:
-    return true;
-  default:
-    return false;
+  case U_CONNECTOR_PUNCTUATION: return true;
+  default: return false;
   }
 }
 
@@ -138,10 +134,8 @@ bool is_single_escape_character(int cp)
   case 'n':
   case 'r':
   case 't':
-  case 'v':
-    return true;
-  default:
-    return false;
+  case 'v': return true;
+  default: return false;
   }
 }
 

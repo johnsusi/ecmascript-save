@@ -3,7 +3,9 @@
 
 #include "ast.h"
 
-ast::Program eval(const std::string &);
-ast::Program eval(const std::u16string &);
+#include <string>
+
+Program eval(const std::string &);
+Program eval(const std::u16string &);
 
 #endif

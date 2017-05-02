@@ -5,7 +5,8 @@
 #include <string>
 #include <type_traits>
 
-template <typename T, typename It> class Matcher {
+template <typename T, typename It>
+class Matcher {
 
   It m_begin, m_cur, m_end;
 
@@ -14,16 +15,15 @@ public:
 
   bool match(const T &value)
   {
-    if (m_cur != m_end && *m_cur == value)
-      return ++m_cur, true;
+    if (m_cur != m_end && *m_cur == value) return ++m_cur, true;
     return false;
   }
 
-  template <typename Pred> auto match(Pred &&pred) -> decltype(pred(), bool())
+  template <typename Pred>
+  auto match(Pred &&pred) -> decltype(pred(), bool())
   {
     auto m = m_cur;
-    if (pred())
-      return true;
+    if (pred()) return true;
     return m_cur = m, false;
   }
 
@@ -31,8 +31,7 @@ public:
   auto match(Pred &&pred) -> decltype(pred(*m_cur), bool())
   {
     auto m = m_cur;
-    if (m_cur != m_end && pred(*m_cur++))
-      return true;
+    if (m_cur != m_end && pred(*m_cur++)) return true;
     return m_cur = m, false;
   }
 
@@ -52,17 +51,16 @@ public:
   {
     auto m = m_cur;
     while (*value) {
-      if (!match(*value++))
-        return m_cur = m, false;
+      if (!match(*value++)) return m_cur = m, false;
     }
     return true;
   }
 
-  template <typename Pred> auto rmatch(Pred &&pred) -> decltype(pred(), bool())
+  template <typename Pred>
+  auto rmatch(Pred &&pred) -> decltype(pred(), bool())
   {
     auto m = m_cur;
-    if (pred())
-      return true;
+    if (pred()) return true;
     return m_cur = m, false;
   }
 
@@ -72,8 +70,7 @@ public:
     auto m = m_cur;
     std::cout << "rmatch: " << (m_cur == m_begin) << (m_cur == m_end)
               << std::endl;
-    if (m_cur != m_begin && pred(*(--m_cur)))
-      return true;
+    if (m_cur != m_begin && pred(*(--m_cur))) return true;
     return m_cur = m, false;
   }
 
@@ -99,15 +96,13 @@ public:
 
   void reset() { m_cur = m_begin; }
 
-  template <typename... Args> bool operator()(Args &&... args)
+  template <typename... Args>
+  bool operator()(Args &&... args)
   {
     return match(std::forward<Args>(args)...);
   }
 
-  const T* operator->() const
-  {
-    return matched();
-  }
+  const T *operator->() const { return matched(); }
 
   const T *matched() const
   {
@@ -123,7 +118,11 @@ public:
     return *(m_cur - 1);
   }
 
-  template <typename U> operator U() const { return *matched(); }
+  template <typename U>
+  operator U() const
+  {
+    return *matched();
+  }
   operator std::string() const { return *matched(); }
 };
 

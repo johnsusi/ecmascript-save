@@ -4,203 +4,28 @@
 #include "ast.h"
 #include "matcher.h"
 #include "token.h"
-// #include "builder.h"
+#include "util.h"
 
 #include <iostream>
 #include <memory>
 #include <sstream>
 #include <vector>
 
-template <class F, size_t... Is>
-constexpr auto index_apply_impl(F f, std::index_sequence<Is...>)
-{
-  return f(std::integral_constant<size_t, Is>{}...);
-}
-
-template <size_t N, class F> constexpr auto index_apply(F f)
-{
-  return index_apply_impl(f, std::make_index_sequence<N>{});
-}
-
-// template <typename T> struct get {
-//   static T* invoke(ast::Node*expr) { return boost::get<T>(expr); }
-// };
-
-// template <> struct get<Expression> {
-//   static Expression invoke(Expression &expr)
-//   {
-//     return std::forward<Expression>(expr);
-//   }
-// };
-
-// 11.3
-bool is_assignment_operator(const std::string &);
-
-// class BasicParser {
-// };
-
-// template <typename T>
-// struct ast_converter
-// {
-//   template <typename U>
-//   auto operator()(const U& value) const -> decltype(T { value }, T())
-//   {
-//     return T { value };
-//   }
-
-//   template <typename U>
-//   T operator()(const U&) const { throw std::runtime_error("bad cast"); }
-// };
-
-// template <typename Node> class Builder {
-
-//   std::vector<Node> stack;
-
-// public:
-//   void push(Node &&node)
-//   {
-//     std::cout << "Pushing " << boost::core::demangle(typeid(Node).name())
-//               << "\n";
-//     stack.push_back(node);
-//   }
-
-//   template <typename T, typename... Args> void push(Args &&... args)
-//   {
-//     std::cout << "Pushing " << boost::core::demangle(typeid(T).name()) <<
-//     "\n"; stack.push_back(T{std::forward<Args>(args)...});
-//   }
-
-//   template <typename T, std::size_t N> void replace()
-//   {
-//     index_apply<N>([&](auto... Is) {
-//       T value{get<T>(*(stack.end() - (N - Is))).value...};
-//       stack.resize(stack.size() - N);
-//       stack.push_back(std::move(value));
-//     });
-//   }
-
-//   template <typename T, typename... Ts, typename... Args>
-//   void replace(Args &&... args)
-//   {
-//     index_apply<sizeof...(Ts)>([&](auto... Is) {
-//       T value{get<Ts>::invoke(*(stack.end() - (sizeof...(Ts) - Is)))...,
-//               std::forward<Args>(args)...};
-//       stack.resize(stack.size() - sizeof...(Ts));
-//       stack.push_back(std::move(value));
-//     });
-//   }
-
-//   Node pop()
-//   {
-//     auto value = stack.back();
-//     stack.pop_back();
-//     return value;
-//   }
-
-//   template <typename T>
-//   T pop()
-//   {
-//     boost::apply_visitor(ast_converter<T>(), pop());
-//   }
-// };
-
-// class ExpressionParser : public BasicParser, private Builder<Expression> {
-// public:
-//   template <typename... Args>
-//   ExpressionParser(Args &&... args) :
-//   BasicParser(std::forward<Args>(args)...)
-//   {
-//   }
-
-//   boost::optional<Identifier> identifier()
-//   {
-//     if (!match([](const auto &token) { return token.is_identifier(); }))
-//       return {};
-//     return Identifier{match};
-//   }
-
-//   Expression pop_expression() { return pop(); }
-// };
-
-// class StatementBuilder {
-
-//   std::vector<Statement> stack;
-
-// public:
-//   void push(Statement &&stmt) { stack.push_back(stmt); }
-
-//   template <typename T, typename... Args> void push(Args &&... args)
-//   {
-//     stack.push_back(T{std::forward<Args>(args)...});
-//   }
-
-//   Statement pop()
-//   {
-//     Statement stmt = stack.back();
-//     stack.pop_back();
-//     return stmt;
-//   }
-// };
-
-// class StatementParser : public ExpressionParser, private StatementBuilder {
-//   using StatementBuilder::push;
-//   using StatementBuilder::pop;
-
-//   template <typename T> using optional = boost::optional<T>;
-
-// public:
-//   template <typename... Args>
-//   StatementParser(Args &&... args)
-//       : ExpressionParser(std::forward<Args>(args)...)
-//   {
-//   }
-
-//   Statement pop_statement() { return pop(); }
-// };
-
-// #include <boost/core/demangle.hpp>
-// #include <typeinfo>
-
-// class ProgramBuilder {
-//   using Declaration = boost::variant<SourceElement, SourceElements, Program>;
-//   std::vector<Declaration> stack;
-
-// public:
-//   void push(Declaration &&decl)
-//   {
-//     std::cout << "Pushing Declaration\n";
-//     stack.push_back(decl);
-//   }
-
-//   template <typename T, typename... Args> void push(Args &&... args)
-//   {
-//     std::cout << "Pushing " << boost::core::demangle(typeid(T).name()) <<
-//     "\n"; stack.push_back(T{std::forward<Args>(args)...});
-//   }
-
-//   Declaration pop_declaration()
-//   {
-//     std::cout << "Popping Declaration\n";
-
-//     Declaration decl = stack.back();
-//     stack.pop_back();
-//     return decl;
-//   }
-// };
-
-
-
-using namespace ast;
 class Parser {
 
   Matcher<Token, std::vector<Token>::iterator> match;
 
   std::shared_ptr<std::vector<std::unique_ptr<Node>>> storage;
-  std::vector<Node *> stack;
+  std::vector<Node *>                                 stack;
 
-  template <typename T> void push(T *value) { stack.push_back(value); }
+  template <typename T>
+  void push(T *value)
+  {
+    stack.push_back(value);
+  }
 
-  template <typename T, typename... Args> T *emplace(Args &&... args)
+  template <typename T, typename... Args>
+  T *emplace(Args &&... args)
   {
     T *value = new T{std::forward<Args>(args)...};
     storage->emplace_back(value);
@@ -208,7 +33,8 @@ class Parser {
     return value;
   }
 
-  template <typename T> T *pop()
+  template <typename T>
+  T *pop()
   {
     if (auto value = dynamic_cast<T *>(stack.back())) {
       stack.pop_back();
@@ -353,9 +179,9 @@ class Parser {
   bool array_literal()
   {
     if (match("[")) {
-      auto expr = emplace<ArrayLiteral>();
+      auto expr                          = emplace<ArrayLiteral>();
       if (element_list()) expr->elements = pop<ElementList>();
-      if (elision()) expr->elision = pop<Elision>();
+      if (elision()) expr->elision       = pop<Elision>();
       if (!match("]")) syntax_error();
       return true;
     }
@@ -765,9 +591,9 @@ class Parser {
     if (match("?")) {
       if (!assignment_expression() || !match(":") || !assignment_expression())
         syntax_error();
-      auto alternate = pop<Expression>();
+      auto alternate  = pop<Expression>();
       auto consequent = pop<Expression>();
-      auto test = pop<Expression>();
+      auto test       = pop<Expression>();
       emplace<ConditionalExpression>(test, consequent, alternate);
     }
     return true;
@@ -1074,7 +900,7 @@ class Parser {
     if (!match("(") || !expression() || !match(")") || !case_block())
       syntax_error();
     auto block = pop<CaseBlock>();
-    auto expr = pop<Expression>();
+    auto expr  = pop<Expression>();
     emplace<SwitchStatement>(expr, block);
     return true;
   }
@@ -1117,7 +943,7 @@ class Parser {
   {
     if (!identifier()) return false;
     if (!match(":") || !statement()) syntax_error();
-    auto stmt = pop<Statement>();
+    auto stmt  = pop<Statement>();
     auto label = pop<Identifier>();
     emplace<LabelledStatement>(label, stmt);
     return true;
@@ -1137,8 +963,8 @@ class Parser {
   {
     if (!match("try")) return false;
     if (!block()) syntax_error();
-    auto stmt = emplace<TryStatement>(pop<Block>());
-    if (match("catch")) stmt->handler = pop<Block>();
+    auto stmt                             = emplace<TryStatement>(pop<Block>());
+    if (match("catch")) stmt->handler     = pop<Block>();
     if (match("finally")) stmt->finalizer = pop<Block>();
     if (!stmt->handler && !stmt->finalizer) syntax_error();
     return true;
@@ -1161,9 +987,9 @@ class Parser {
         !match(")") || !match("{") || !function_body() || !match("}"))
       syntax_error();
 
-    auto body = pop<FunctionBody>();
+    auto body   = pop<FunctionBody>();
     auto params = pop<FormalParameterList>();
-    auto id = pop<Identifier>();
+    auto id     = pop<Identifier>();
     emplace<FunctionDeclaration>(id, params, body);
     return true;
   }
@@ -1178,7 +1004,7 @@ class Parser {
         !function_body() || !match("}"))
       syntax_error();
 
-    auto body = pop<FunctionBody>();
+    auto body   = pop<FunctionBody>();
     auto params = pop<FormalParameterList>();
     emplace<FunctionExpression>(id, params, body);
     return true;
@@ -1203,10 +1029,7 @@ class Parser {
     return true;
   }
 
-  bool program()
-  {
-    return source_elements();
-  }
+  bool program() { return source_elements(); }
 
   bool source_elements()
   {
@@ -1219,7 +1042,9 @@ class Parser {
 
 public:
   template <typename... Args>
-  Parser(Args &&... args) : match(std::forward<Args>(args)...), storage(std::make_shared<std::vector<std::unique_ptr<Node>>>())
+  Parser(Args &&... args)
+      : match(std::forward<Args>(args)...),
+        storage(std::make_shared<std::vector<std::unique_ptr<Node>>>())
   {
   }
 
@@ -1230,9 +1055,14 @@ public:
   }
 };
 
-template <typename It> Parser make_parser(It f, It l) { return {f, l}; }
+template <typename It>
+Parser make_parser(It f, It l)
+{
+  return {f, l};
+}
 
-template <typename Cont> auto make_parser(Cont &&cont)
+template <typename Cont>
+auto make_parser(Cont &&cont)
 {
   using std::begin;
   using std::end;

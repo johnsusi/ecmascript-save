@@ -2,13 +2,11 @@
 #define ECMASCRIPT_AST_H
 
 #include <iostream>
-#include <vector>
 #include <sstream>
+#include <vector>
 
 #include <boost/optional.hpp>
 #include <boost/variant.hpp>
-
-namespace ast {
 
 struct Expression;
 struct This;
@@ -67,15 +65,15 @@ struct FunctionDeclaration;
 struct FunctionExpression;
 struct Program;
 
-
 struct Visitor;
 
 struct Node {
   virtual ~Node() {}
-  virtual void accept(Visitor&) const = 0;
+  virtual void accept(Visitor &) const = 0;
 };
 
-template <typename T> struct List : Node {
+template <typename T>
+struct List : Node {
   std::vector<T *> data;
 
   template <typename... Args>
@@ -87,72 +85,73 @@ template <typename T> struct List : Node {
   auto back() const { return data.back(); }
   void pop_back() { data.pop_back(); }
   void push_back(T *value) { data.push_back(value); }
-  auto begin() const { return data.begin(); }
-  auto end() const { return data.end(); }
+  auto              begin() const { return data.begin(); }
+  auto              end() const { return data.end(); }
   auto operator[](std::size_t index) { return data[index]; }
 
-  void accept(Visitor& visitor) const override;
+  void accept(Visitor &visitor) const override;
 };
 
 struct Visitor {
   template <typename T>
-  void operator()(const List<T>& list)
+  void operator()(const List<T> &list)
   {
     for (auto item : list) item->accept(*this);
   }
 
-  virtual void operator()(const This&) = 0;
-  virtual void operator()(const Identifier&) = 0;
-  virtual void operator()(const NullLiteral&) = 0;
-  virtual void operator()(const BooleanLiteral&) = 0;
-  virtual void operator()(const NumericLiteral&) = 0;
-  virtual void operator()(const StringLiteral&) = 0;
-  virtual void operator()(const RegularExpressionLiteral&) = 0;
-  virtual void operator()(const ArrayLiteral&) = 0;
-  virtual void operator()(const ObjectLiteral&) = 0;
-  virtual void operator()(const MemberExpression&) = 0;
-  virtual void operator()(const NewExpression&) = 0;
-  virtual void operator()(const CallExpression&) = 0;
-  virtual void operator()(const PostfixExpression&) = 0;
-  virtual void operator()(const UnaryExpression&) = 0;
-  virtual void operator()(const BinaryExpression&) = 0;
-  virtual void operator()(const ConditionalExpression&) = 0;
-  virtual void operator()(const FunctionExpression&) = 0;
+  virtual void operator()(const This &)                     = 0;
+  virtual void operator()(const Identifier &)               = 0;
+  virtual void operator()(const NullLiteral &)              = 0;
+  virtual void operator()(const BooleanLiteral &)           = 0;
+  virtual void operator()(const NumericLiteral &)           = 0;
+  virtual void operator()(const StringLiteral &)            = 0;
+  virtual void operator()(const RegularExpressionLiteral &) = 0;
+  virtual void operator()(const ArrayLiteral &)             = 0;
+  virtual void operator()(const ObjectLiteral &)            = 0;
+  virtual void operator()(const MemberExpression &)         = 0;
+  virtual void operator()(const NewExpression &)            = 0;
+  virtual void operator()(const CallExpression &)           = 0;
+  virtual void operator()(const PostfixExpression &)        = 0;
+  virtual void operator()(const UnaryExpression &)          = 0;
+  virtual void operator()(const BinaryExpression &)         = 0;
+  virtual void operator()(const ConditionalExpression &)    = 0;
+  virtual void operator()(const FunctionExpression &)       = 0;
 
-  virtual void operator()(const Block&) = 0;
-  virtual void operator()(const VariableStatement&) = 0;
-  virtual void operator()(const EmptyStatement&) = 0;
-  virtual void operator()(const ExpressionStatement&) = 0;
-  virtual void operator()(const IfStatement&) = 0;
-  virtual void operator()(const DoWhileStatement&) = 0;
-  virtual void operator()(const WhileStatement&) = 0;
-  virtual void operator()(const ForStatement&) = 0;
-  virtual void operator()(const ForInStatement&) = 0;
-  virtual void operator()(const ContinueStatement&) = 0;
-  virtual void operator()(const BreakStatement&) = 0;
-  virtual void operator()(const ReturnStatement&) = 0;
-  virtual void operator()(const WithStatement&) = 0;
-  virtual void operator()(const LabelledStatement&) = 0;
-  virtual void operator()(const SwitchStatement&) = 0;
-  virtual void operator()(const ThrowStatement&) = 0;
-  virtual void operator()(const TryStatement&) = 0;
-  virtual void operator()(const DebuggerStatement&) = 0;
+  virtual void operator()(const Block &)               = 0;
+  virtual void operator()(const VariableStatement &)   = 0;
+  virtual void operator()(const EmptyStatement &)      = 0;
+  virtual void operator()(const ExpressionStatement &) = 0;
+  virtual void operator()(const IfStatement &)         = 0;
+  virtual void operator()(const DoWhileStatement &)    = 0;
+  virtual void operator()(const WhileStatement &)      = 0;
+  virtual void operator()(const ForStatement &)        = 0;
+  virtual void operator()(const ForInStatement &)      = 0;
+  virtual void operator()(const ContinueStatement &)   = 0;
+  virtual void operator()(const BreakStatement &)      = 0;
+  virtual void operator()(const ReturnStatement &)     = 0;
+  virtual void operator()(const WithStatement &)       = 0;
+  virtual void operator()(const LabelledStatement &)   = 0;
+  virtual void operator()(const SwitchStatement &)     = 0;
+  virtual void operator()(const ThrowStatement &)      = 0;
+  virtual void operator()(const TryStatement &)        = 0;
+  virtual void operator()(const DebuggerStatement &)   = 0;
 
-  virtual void operator()(const CaseClause&) = 0;
-  virtual void operator()(const DefaultClause&) = 0;
+  virtual void operator()(const CaseClause &)    = 0;
+  virtual void operator()(const DefaultClause &) = 0;
 
-  virtual void operator()(const FunctionDeclaration&) = 0;
+  virtual void operator()(const FunctionDeclaration &) = 0;
   // virtual void operator()(const FunctionBody&) = 0;
 
-  virtual void operator()(const VariableDeclaration&) = 0;
-  virtual void operator()(const Elision&) = 0;
-  virtual void operator()(const PropertyName&) = 0;
-  virtual void operator()(const PropertyAssignment&) = 0;
-  virtual void operator()(const Arguments&) = 0;
-
+  virtual void operator()(const VariableDeclaration &) = 0;
+  virtual void operator()(const Elision &)             = 0;
+  virtual void operator()(const PropertyName &)        = 0;
+  virtual void operator()(const PropertyAssignment &)  = 0;
+  virtual void operator()(const Arguments &)           = 0;
+  virtual void operator()(const Program &)             = 0;
 };
 
-template <typename T> void List<T>::accept(Visitor& visitor) const
+template <typename T>
+void List<T>::accept(Visitor &visitor) const
 {
   return visitor(*this);
 }
@@ -163,56 +162,60 @@ struct PrimaryExpression : Expression {
 };
 
 struct This : PrimaryExpression {
-  void accept(Visitor& visitor) const override { return visitor(*this); }
+  void accept(Visitor &visitor) const override { return visitor(*this); }
 };
 struct Identifier : PrimaryExpression {
   std::u16string value;
   Identifier(std::u16string value) : value(value) {}
-  void accept(Visitor& visitor) const override { return visitor(*this); }
+  std::string to_string() const { return {value.begin(), value.end()}; }
+  void accept(Visitor &visitor) const override { return visitor(*this); }
 };
 
-struct Literal : PrimaryExpression
-{
+struct Literal : PrimaryExpression {
 };
 
 struct NullLiteral : Literal {
-  void accept(Visitor& visitor) const override { return visitor(*this); }
+  void accept(Visitor &visitor) const override { return visitor(*this); }
 };
 struct BooleanLiteral : Literal {
   bool value;
   BooleanLiteral(bool value) : value(value) {}
-  void accept(Visitor& visitor) const override { return visitor(*this); }
+  void accept(Visitor &visitor) const override { return visitor(*this); }
 };
 struct NumericLiteral : Literal {
   double value;
   NumericLiteral(double value) : value(value) {}
-  void accept(Visitor& visitor) const override { return visitor(*this); }
+  void accept(Visitor &visitor) const override { return visitor(*this); }
 };
 struct StringLiteral : Literal {
   std::u16string value;
   StringLiteral(std::u16string value) : value(value) {}
   StringLiteral(const std::string &value) : value(value.begin(), value.end()) {}
-  void accept(Visitor& visitor) const override { return visitor(*this); }
+  std::string to_string() const { return {value.begin(), value.end()}; }
+  void accept(Visitor &visitor) const override { return visitor(*this); }
 };
 struct RegularExpressionLiteral : Literal {
-  void accept(Visitor& visitor) const override { return visitor(*this); }
+  void accept(Visitor &visitor) const override { return visitor(*this); }
 };
 
 struct PropertyName : Expression {
-  void accept(Visitor& visitor) const override { return visitor(*this); }
+  void accept(Visitor &visitor) const override { return visitor(*this); }
 };
 
 struct PropertyAssignment : Expression {
   enum class Kind { INIT, GET, SET } kind;
   PropertyName *name;
-  Expression *value;
-  PropertyAssignment(PropertyName* name = nullptr, Expression* value = nullptr) : name(name), value(value) {}
-  void accept(Visitor& visitor) const override { return visitor(*this); }
+  Expression *  value;
+  PropertyAssignment(PropertyName *name = nullptr, Expression *value = nullptr)
+      : name(name), value(value)
+  {
+  }
+  void accept(Visitor &visitor) const override { return visitor(*this); }
 };
 
 struct Elision : Expression {
   std::size_t count = 1;
-  void accept(Visitor& visitor) const override { return visitor(*this); }
+  void accept(Visitor &visitor) const override { return visitor(*this); }
 };
 
 struct ElementList : List<Expression> {
@@ -220,24 +223,24 @@ struct ElementList : List<Expression> {
 
 struct ArrayLiteral : PrimaryExpression {
   ElementList *elements;
-  Elision *elision;
+  Elision *    elision;
   ArrayLiteral(ElementList *elements = nullptr, Elision *elision = nullptr)
       : elements(elements), elision(elision)
   {
   }
-  void accept(Visitor& visitor) const override { return visitor(*this); }
+  void accept(Visitor &visitor) const override { return visitor(*this); }
 };
 
-struct PropertyNameAndValueList : List<PropertyAssignment>
-{
+struct PropertyNameAndValueList : List<PropertyAssignment> {
 };
 
 struct ObjectLiteral : PrimaryExpression {
-  PropertyNameAndValueList* declarations;
-  ObjectLiteral(PropertyNameAndValueList* declarations = nullptr) : declarations(declarations)
+  PropertyNameAndValueList *declarations;
+  ObjectLiteral(PropertyNameAndValueList *declarations = nullptr)
+      : declarations(declarations)
   {
   }
-  void accept(Visitor& visitor) const override { return visitor(*this); }
+  void accept(Visitor &visitor) const override { return visitor(*this); }
 };
 
 struct MemberExpression : Expression {
@@ -247,7 +250,7 @@ struct MemberExpression : Expression {
       : object(object), property(property)
   {
   }
-  void accept(Visitor& visitor) const override { return visitor(*this); }
+  void accept(Visitor &visitor) const override { return visitor(*this); }
 };
 
 struct ArgumentList : List<Expression> {
@@ -260,27 +263,27 @@ struct ArgumentList : List<Expression> {
 struct Arguments : Expression {
   ArgumentList *list;
   Arguments(ArgumentList *list = nullptr) : list(list) {}
-  void accept(Visitor& visitor) const override { return visitor(*this); }
+  void accept(Visitor &visitor) const override { return visitor(*this); }
 };
 
 struct NewExpression : Expression {
   Expression *callee;
-  Arguments *arguments;
+  Arguments * arguments;
   NewExpression(Expression *callee, Arguments *arguments = nullptr)
       : callee(callee), arguments(arguments)
   {
   }
-  void accept(Visitor& visitor) const override { return visitor(*this); }
+  void accept(Visitor &visitor) const override { return visitor(*this); }
 };
 
 struct CallExpression : Expression {
   Expression *callee;
-  Arguments *arguments;
+  Arguments * arguments;
   CallExpression(Expression *callee, Arguments *arguments = nullptr)
       : callee(callee), arguments(arguments)
   {
   }
-  void accept(Visitor& visitor) const override { return visitor(*this); }
+  void accept(Visitor &visitor) const override { return visitor(*this); }
 };
 
 struct PostfixExpression : Expression {
@@ -290,7 +293,7 @@ struct PostfixExpression : Expression {
       : op(op), lhs(lhs)
   {
   }
-  void accept(Visitor& visitor) const override { return visitor(*this); }
+  void accept(Visitor &visitor) const override { return visitor(*this); }
 };
 
 struct UnaryExpression : Expression {
@@ -299,7 +302,7 @@ struct UnaryExpression : Expression {
   UnaryExpression(std::string op, Expression *rhs = nullptr) : op(op), rhs(rhs)
   {
   }
-  void accept(Visitor& visitor) const override { return visitor(*this); }
+  void accept(Visitor &visitor) const override { return visitor(*this); }
 };
 
 struct BinaryExpression : Expression {
@@ -311,7 +314,7 @@ struct BinaryExpression : Expression {
       : op(op), lhs(lhs), rhs(rhs)
   {
   }
-  void accept(Visitor& visitor) const override { return visitor(*this); }
+  void accept(Visitor &visitor) const override { return visitor(*this); }
 };
 
 struct ConditionalExpression : Expression {
@@ -323,7 +326,7 @@ struct ConditionalExpression : Expression {
       : test(test), consequent(consequent), alternate(alternate)
   {
   }
-  void accept(Visitor& visitor) const override { return visitor(*this); }
+  void accept(Visitor &visitor) const override { return visitor(*this); }
 };
 
 struct VariableDeclaration : Expression {
@@ -333,7 +336,7 @@ struct VariableDeclaration : Expression {
       : identifier(identifier), initializer(initializer)
   {
   }
-  void accept(Visitor& visitor) const override { return visitor(*this); }
+  void accept(Visitor &visitor) const override { return visitor(*this); }
 };
 
 struct VariableDeclarationList : List<VariableDeclaration> {
@@ -359,7 +362,7 @@ struct StatementList : List<Statement> {
 struct Block : Statement {
   StatementList *body;
   Block(StatementList *body = nullptr) : body(body) {}
-  void accept(Visitor& visitor) const override { return visitor(*this); }
+  void accept(Visitor &visitor) const override { return visitor(*this); }
 };
 
 struct VariableStatement : Statement {
@@ -368,102 +371,102 @@ struct VariableStatement : Statement {
       : declarations(declarations)
   {
   }
-  void accept(Visitor& visitor) const override { return visitor(*this); }
+  void accept(Visitor &visitor) const override { return visitor(*this); }
 };
 
 struct EmptyStatement : Statement {
-  void accept(Visitor& visitor) const override { return visitor(*this); }
+  void accept(Visitor &visitor) const override { return visitor(*this); }
 };
 
 struct ExpressionStatement : Statement {
   Expression *expression;
   ExpressionStatement(Expression *expression) : expression(expression) {}
-  void accept(Visitor& visitor) const override { return visitor(*this); }
+  void accept(Visitor &visitor) const override { return visitor(*this); }
 };
 
 struct IfStatement : Statement {
   Expression *test;
-  Statement *consequent;
-  Statement *alternate;
+  Statement * consequent;
+  Statement * alternate;
   IfStatement(Expression *test, Statement *consequent,
               Statement *alternate = nullptr)
       : test(test), consequent(consequent), alternate(alternate)
   {
   }
-  void accept(Visitor& visitor) const override { return visitor(*this); }
+  void accept(Visitor &visitor) const override { return visitor(*this); }
 };
 
 struct DoWhileStatement : Statement {
-  Statement *body;
+  Statement * body;
   Expression *test;
-  void accept(Visitor& visitor) const override { return visitor(*this); }
+  void accept(Visitor &visitor) const override { return visitor(*this); }
 };
 
 struct WhileStatement : Statement {
   Expression *test;
-  Statement *body;
-  void accept(Visitor& visitor) const override { return visitor(*this); }
+  Statement * body;
+  void accept(Visitor &visitor) const override { return visitor(*this); }
 };
 
 struct ForStatement : Statement {
-  void accept(Visitor& visitor) const override { return visitor(*this); }
+  void accept(Visitor &visitor) const override { return visitor(*this); }
 };
 
 struct ForInStatement : Statement {
-  void accept(Visitor& visitor) const override { return visitor(*this); }
+  void accept(Visitor &visitor) const override { return visitor(*this); }
 };
 
 struct ContinueStatement : Statement {
   Identifier *label;
   ContinueStatement(Identifier *label = nullptr) : label(label) {}
-  void accept(Visitor& visitor) const override { return visitor(*this); }
+  void accept(Visitor &visitor) const override { return visitor(*this); }
 };
 
 struct BreakStatement : Statement {
   Identifier *label;
   BreakStatement(Identifier *label = nullptr) : label(label) {}
-  void accept(Visitor& visitor) const override { return visitor(*this); }
+  void accept(Visitor &visitor) const override { return visitor(*this); }
 };
 
 struct ReturnStatement : Statement {
   Expression *argument;
   ReturnStatement(Expression *argument = nullptr) : argument(argument) {}
-  void accept(Visitor& visitor) const override { return visitor(*this); }
+  void accept(Visitor &visitor) const override { return visitor(*this); }
 };
 
 struct WithStatement : Statement {
   Expression *object;
-  Statement *body;
+  Statement * body;
   WithStatement(Expression *object, Statement *body)
       : object(object), body(body)
   {
   }
-  void accept(Visitor& visitor) const override { return visitor(*this); }
+  void accept(Visitor &visitor) const override { return visitor(*this); }
 };
 
 struct LabelledStatement : Statement {
   Identifier *label;
-  Statement *body;
+  Statement * body;
   LabelledStatement(Identifier *label, Statement *body)
       : label(label), body(body)
   {
   }
-  void accept(Visitor& visitor) const override { return visitor(*this); }
+  void accept(Visitor &visitor) const override { return visitor(*this); }
 };
 
 struct CaseClause : Node {
-  Expression *test;
+  Expression *   test;
   StatementList *consequent;
   CaseClause(Expression *test, StatementList *consequent)
       : test(test), consequent(consequent)
   {
   }
-  void accept(Visitor& visitor) const override { return visitor(*this); }
+  void accept(Visitor &visitor) const override { return visitor(*this); }
 };
 
 struct DefaultClause : CaseClause {
   DefaultClause(StatementList *consequent) : CaseClause(nullptr, consequent) {}
-  void accept(Visitor& visitor) const override { return visitor(*this); }
+  void accept(Visitor &visitor) const override { return visitor(*this); }
 };
 
 struct CaseBlock : List<CaseClause> {
@@ -471,18 +474,18 @@ struct CaseBlock : List<CaseClause> {
 
 struct SwitchStatement : Statement {
   Expression *discriminant;
-  CaseBlock *cases;
+  CaseBlock * cases;
   SwitchStatement(Expression *discriminant, CaseBlock *cases)
       : discriminant(discriminant), cases(cases)
   {
   }
-  void accept(Visitor& visitor) const override { return visitor(*this); }
+  void accept(Visitor &visitor) const override { return visitor(*this); }
 };
 
 struct ThrowStatement : Statement {
   Expression *argument;
   ThrowStatement(Expression *argument) : argument(argument) {}
-  void accept(Visitor& visitor) const override { return visitor(*this); }
+  void accept(Visitor &visitor) const override { return visitor(*this); }
 };
 
 struct TryStatement : Statement {
@@ -494,11 +497,11 @@ struct TryStatement : Statement {
       : block(block), handler(handler), finalizer(finalizer)
   {
   }
-  void accept(Visitor& visitor) const override { return visitor(*this); }
+  void accept(Visitor &visitor) const override { return visitor(*this); }
 };
 
 struct DebuggerStatement : Statement {
-  void accept(Visitor& visitor) const override { return visitor(*this); }
+  void accept(Visitor &visitor) const override { return visitor(*this); }
 };
 
 struct Declaration : SourceElement {
@@ -515,56 +518,48 @@ struct FormalParameterList : List<Identifier> {
 };
 
 struct FunctionBody : SourceElements {
-  FunctionBody(SourceElements* body = nullptr) : SourceElements(std::move(body->data))
+  FunctionBody(SourceElements *body = nullptr)
+      : SourceElements(std::move(body->data))
   {
   }
-  void accept(Visitor& visitor) const override { return visitor(*this); }
+  void accept(Visitor &visitor) const override { return visitor(*this); }
 };
 
 struct FunctionDeclaration : SourceElement {
-  Identifier *id;
+  Identifier *         id;
   FormalParameterList *params;
-  FunctionBody *body;
+  FunctionBody *       body;
   FunctionDeclaration(Identifier *id, FormalParameterList *params,
                       FunctionBody *body)
       : id(id), params(params), body(body)
   {
   }
-  void accept(Visitor& visitor) const { return visitor(*this); }
+  void accept(Visitor &visitor) const { return visitor(*this); }
 };
 
 struct FunctionExpression : Expression {
-  Identifier *id;
+  Identifier *         id;
   FormalParameterList *params;
-  FunctionBody *body;
+  FunctionBody *       body;
   FunctionExpression(Identifier *id, FormalParameterList *params,
                      FunctionBody *body)
       : id(id), params(params), body(body)
   {
   }
-  void accept(Visitor& visitor) const { return visitor(*this); }
+  void accept(Visitor &visitor) const { return visitor(*this); }
 };
 
 struct Program {
 
   std::shared_ptr<void> storage;
 
-  SourceElements* body;
+  SourceElements *body;
 
+  void accept(Visitor &visitor) const { return visitor(*this); }
 };
 
-void accept(const Program& program, Visitor&& visitor);
+void accept(const Program &program, Visitor &&visitor);
 
-} // namespace ast
-
-
-
-std::string to_string(const ast::Program& program);
-
-std::string normalize(const std::string &);
-// std::string to_string(const ast::Program &);
-// bool operator==(const ast::Program &, const std::string &);
-
-// std::ostream &operator<<(std::ostream &, const Program &);
+std::string to_string(const Program &program);
 
 #endif

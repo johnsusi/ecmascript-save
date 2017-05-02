@@ -7,7 +7,7 @@
 
 Program parse(std::string source)
 {
-  auto lexer = make_lexer(source);
+  auto lexer  = make_lexer(source);
   auto tokens = lexer.tokens();
   auto parser = make_parser(tokens);
   return parser.parse();

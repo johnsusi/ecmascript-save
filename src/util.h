@@ -5,8 +5,8 @@
 
 #include <boost/core/demangle.hpp>
 
-std::string left_align_text(
-    const std::string &text, const std::string &indent = "");
+std::string left_align_text(const std::string &text,
+                            const std::string &indent = "");
 
 const char *u_charCategory(int c);
 

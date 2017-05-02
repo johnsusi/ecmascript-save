@@ -10,14 +10,15 @@
 
 std::u16string convert_utf8_to_utf16(const std::string &);
 
-template <typename T> class BasicLexer {
+template <typename T>
+class BasicLexer {
   std::unique_ptr<LexicalGrammar<T>> grammar;
 
   using Iterator = std::u16string::const_iterator;
 
   struct DebugInfo : Token::DebugInfo {
     Iterator s, at, to;
-    int col, row;
+    int      col, row;
 
     DebugInfo(Iterator s, Iterator at, Iterator to, int col, int row)
         : s(s), at(at), to(to), col(col), row(row)
@@ -57,26 +58,25 @@ public:
 
   const std::vector<Token> &tokens() const
   {
-    if (!m_tokens.empty() || !grammar)
-      return m_tokens;
-    bool lt = false;
-    int col = 0, row = 0;
+    if (!m_tokens.empty() || !grammar) return m_tokens;
+    bool lt  = false;
+    int  col = 0, row = 0;
     bool re = false;
-    auto s = grammar->match.mark();
-    auto m = grammar->match.mark();
+    auto s  = grammar->match.mark();
+    auto m  = grammar->match.mark();
     while (auto input_element = re ? grammar->input_element_reg_exp()
                                    : grammar->input_element_div()) {
       if (input_element.is_white_space())
         col++;
       else if (input_element.has_line_terminator()) {
-        lt = true;
+        lt  = true;
         col = 0;
         row++;
       }
       else if (auto token = input_element.to_token()) {
         token->preceded_by_line_terminator = lt;
-        token->debug_info =
-            std::make_shared<DebugInfo>(s, m+1, grammar->match.mark(), col, row);
+        token->debug_info                  = std::make_shared<DebugInfo>(
+            s, m + 1, grammar->match.mark(), col, row);
         re = reg_exp_allowed(*token);
         lt = false;
         m_tokens.push_back(std::move(*token));
@@ -87,7 +87,8 @@ public:
   }
 };
 
-template <typename T> bool BasicLexer<T>::reg_exp_allowed(const Token &token)
+template <typename T>
+bool BasicLexer<T>::reg_exp_allowed(const Token &token)
 {
   return token.any_of("return", "new", "delete", "throw", "else", "case", "in",
                       "instanceof", "typeof", "new", "void", "delete", "+", "-",
@@ -99,9 +100,14 @@ template <typename T> bool BasicLexer<T>::reg_exp_allowed(const Token &token)
 
 using Lexer = BasicLexer<char16_t>;
 
-template <typename It> auto make_lexer(It f, It l) { return Lexer{f, l}; }
+template <typename It>
+auto make_lexer(It f, It l)
+{
+  return Lexer{f, l};
+}
 
-template <typename Cont> auto make_lexer(Cont &&cont)
+template <typename Cont>
+auto make_lexer(Cont &&cont)
 {
   return make_lexer(std::begin(cont), std::end(cont));
 }
@@ -125,8 +131,7 @@ std::ostream &operator<<(std::ostream &out, const BasicLexer<T> &lexer)
   out << "[";
   auto it = lexer.tokens().begin();
   out << *it++;
-  while (it != lexer.tokens().end())
-    out << ", " << *it++;
+  while (it != lexer.tokens().end()) out << ", " << *it++;
   out << "]";
   return out;
 }

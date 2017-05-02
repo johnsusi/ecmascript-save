@@ -50,10 +50,9 @@ static constexpr uint32_t crc32_tab[] = {
 
 constexpr uint32_t crc32(const char *p)
 {
-  uint32_t crc = 0;
-  crc = crc ^ ~0U;
-  while (*p)
-    crc = crc32_tab[(crc ^ *p++) & 0xFF] ^ (crc >> 8);
+  uint32_t crc   = 0;
+  crc            = crc ^ ~0U;
+  while (*p) crc = crc32_tab[(crc ^ *p++) & 0xFF] ^ (crc >> 8);
   return crc ^ ~0U;
 }
 

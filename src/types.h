@@ -17,9 +17,9 @@ struct String {
 };
 struct Number {
   double value;
-  bool isNaN() const { return std::isnan(value); }
-  bool isZero() const { return std::fpclassify(value) == FP_ZERO; }
-  bool isInfinity() const { return std::fpclassify(value) == FP_INFINITE; }
+  bool   isNaN() const { return std::isnan(value); }
+  bool   isZero() const { return std::fpclassify(value) == FP_ZERO; }
+  bool   isInfinity() const { return std::fpclassify(value) == FP_INFINITE; }
 };
 
 struct Object;
@@ -37,16 +37,16 @@ using Type = boost::variant<Undefined, Null, Boolean, String, Number,
 
 struct NamedDataProperty {
   Type value;
-  bool writable = false;
-  bool enumerable = false;
+  bool writable     = false;
+  bool enumerable   = false;
   bool configurable = false;
 };
 
 struct NamedAccessorProperty {
   boost::optional<Object> get;
   boost::optional<Object> set;
-  bool enumerable = false;
-  bool configurable = false;
+  bool                    enumerable   = false;
+  bool                    configurable = false;
 }
 
 struct Object {

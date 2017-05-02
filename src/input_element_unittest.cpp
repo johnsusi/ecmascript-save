@@ -2,7 +2,10 @@
 
 #include "catch.hpp"
 
-TEST_CASE("some test") { auto input_element = InputElement::empty(); }
+TEST_CASE("some test")
+{
+  auto input_element = InputElement::empty();
+}
 
 TEST_CASE("A line terminator has a line terminator")
 {

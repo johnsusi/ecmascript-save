@@ -35,12 +35,9 @@ Boolean ToBoolean(Type input)
     Boolean operator()(const Number &value) const
     {
       switch (std::fpclassify(value.value)) {
-      case FP_NAN:
-        return {false};
-      case FP_ZERO:
-        return {false};
-      default:
-        return {true};
+      case FP_NAN: return {false};
+      case FP_ZERO: return {false};
+      default: return {true};
       }
     }
     Boolean operator()(const Object &value) const { return {true}; }
@@ -73,10 +70,8 @@ Number ToInteger(Type input)
 {
   // 9.4.1
   Number number = ToNumber(input);
-  if (number.isNaN())
-    return {0};
-  if (number.isZero() || number.isInfinity())
-    return number;
+  if (number.isNaN()) return {0};
+  if (number.isZero() || number.isInfinity()) return number;
 }
 
 struct StringConverter : Lexer {
@@ -118,18 +113,15 @@ struct StringConverter : Lexer {
   bool str_unsigned_decimal_literal()
   {
     int a = 0, b = 0, c = 1;
-    if (match("Infinity"))
-      value = std::numeric_limits<double>::infinity();
-    if (decimal_digits())
-      a = decimal_value;
+    if (match("Infinity")) value = std::numeric_limits<double>::infinity();
+    if (decimal_digits()) a      = decimal_value;
     if (match(".")) {
       if (decimal_digits()) {
         b = decimal_value;
         c = -decimal_count;
       }
     }
-    if ()
-  }
+    if () }
 
   bool decimal_digits()
   {
@@ -137,7 +129,7 @@ struct StringConverter : Lexer {
     decimal_count = 0;
     if (decimal_digit()) {
       do {
-        int d = static_cast<int>(match) - '0';
+        int d         = static_cast<int>(match) - '0';
         decimal_value = decimal_value * 10 + d;
         ++decimal_count;
       } while (decimal_digit());
