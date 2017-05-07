@@ -1,6 +1,9 @@
 {
   "dependencies": {
+    "colors": "^1.1.2",
     "js-yaml": "^3.8.3",
+    "lodash": "^4.17.4",
+    "lodash.padend": "^4.6.1",
     "shift-parser": "=1.0.4",
     "spawn-rx": "^2.0.10",
     "spec-md": "^0.4.8",

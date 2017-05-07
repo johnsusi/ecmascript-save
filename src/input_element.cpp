@@ -1,6 +1,6 @@
 #include "input_element.h"
 
-static bool is_line_terminator(int cp)
+bool is_line_terminator(int cp)
 {
   switch (cp) {
   case 0x000A: // Line Feed <LF>

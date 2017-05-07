@@ -1,8 +1,13 @@
+#include "ast_visitor.h"
+#include "json_visitor.h"
 #include "lexer.h"
 #include "parser.h"
 
+#include <iostream>
+
 #include <catch.hpp>
 
+#include <boost/algorithm/string.hpp>
 #include <boost/optional/optional_io.hpp>
 
 Program parse(std::string source)
@@ -13,9 +18,22 @@ Program parse(std::string source)
   return parser.parse();
 }
 
-bool operator==(const boost::optional<Program> &lhs, const std::string &rhs)
+bool operator==(const Program &program, const std::string &expected)
 {
-  return lhs && *lhs == rhs;
+  SimplifiedYAMLVisitor yaml;
+  program.accept(yaml);
+  auto lhs = yaml.str();
+  auto rhs = left_align_text(expected);
+  boost::trim_right(lhs);
+  boost::trim_right(rhs);
+  return lhs == rhs;
+}
+
+std::ostream &operator<<(std::ostream &out, const Program &program)
+{
+  SimplifiedYAMLVisitor yaml;
+  program.accept(yaml);
+  return out << yaml.str();
 }
 
 TEST_CASE("7.9.2 Automatic Semicolon Insertion")

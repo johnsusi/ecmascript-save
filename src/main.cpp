@@ -3,6 +3,10 @@
 #include "parser.h"
 #include "util.h"
 
+#include "ast_visitor.h"
+#include "eval_visitor.h"
+#include "json_visitor.h"
+
 #include <algorithm>
 #include <iostream>
 #include <iterator>
@@ -44,6 +48,7 @@ int main(int argc, const char **argv)
           -e [ --eval      ] <source>    Execute <source>
           -p [ --print-ast ]             Pretty print the resulting AST
           -l [ --lex       ]             Only perform lexing on the input
+          -j [ --json      ]             Print AST as JSON (implies -p)
       )");
 
     po::options_description desc("Options");
@@ -53,8 +58,9 @@ int main(int argc, const char **argv)
     desc.add_options()("eval,e", po::value<string>(), "string");
     desc.add_options()("ast,p", "print AST to stdout");
     desc.add_options()("lex,l", "Perform lexing only");
+    desc.add_options()("json,j", "Prist AST as JSON (implies -p)");
 
-    po::options_description hidden("Hidden options");
+        po::options_description hidden("Hidden options");
     hidden.add_options()("input-file", po::value<vector<string>>(),
                          "input file");
 
@@ -74,8 +80,17 @@ int main(int argc, const char **argv)
     bool verbose = vm.count("verbose");
 
     auto run = [&](auto source) {
-      auto program = eval(source);
-      if (vm.count("ast")) std::cout << to_string(program);
+
+      if (vm.count("json")) {
+        JSONVisitor visitor;
+        eval(source, visitor, verbose);
+        std::cout << visitor.str() << std::endl;
+      }
+      else if (vm.count("ast")) {
+        SimplifiedYAMLVisitor visitor;
+        eval(source, visitor, verbose);
+        std::cout << visitor.str() << std::endl;
+      }
     };
 
     if (vm.count("help")) {

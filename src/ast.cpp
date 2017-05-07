@@ -251,213 +251,270 @@
 //   return out << to_string(program);
 // }
 
-template <typename Callable>
-struct CallableVisitor : Visitor {
+// template <typename Callable>
+// struct CallableVisitor : Visitor {
 
-  using Visitor::operator();
+//   using Visitor::operator();
 
-  Callable callback;
-  CallableVisitor(Callable callback) : callback(callback) {}
+//   Callable callback;
+//   CallableVisitor(Callable callback) : callback(callback) {}
 
-  template <typename T>
-  void call(const T &node)
-  {
-    callback(node, [&](auto child) {
-      if (child) child->accept(*this);
-    });
-    // (void)(int[]){(apply(std::forward<Args>(args)), 0)...};
-    // https://twitter.com/SeanParent/status/558330478541803522
-  }
+//   template <typename T>
+//   void call(const T &node)
+//   {
+//     callback(node, [&](auto child) {
+//       if (child) child->accept(*this);
+//     });
+//     // (void)(int[]){(apply(std::forward<Args>(args)), 0)...};
+//     // https://twitter.com/SeanParent/status/558330478541803522
+//   }
 
-  void operator()(const This &node) override { call(node); }
-  void operator()(const Identifier &node) override { call(node); }
-  void operator()(const NullLiteral &node) override { call(node); }
-  void operator()(const BooleanLiteral &node) override { call(node); }
-  void operator()(const NumericLiteral &node) override { call(node); }
-  void operator()(const StringLiteral &node) override { call(node); }
-  void operator()(const RegularExpressionLiteral &node) override { call(node); }
-  void operator()(const ArrayLiteral &node) override { call(node); }
-  void operator()(const ObjectLiteral &node) override { call(node); }
-  void operator()(const MemberExpression &node) override { call(node); }
-  void operator()(const NewExpression &node) override { call(node); }
-  void operator()(const CallExpression &node) override { call(node); }
-  void operator()(const PostfixExpression &node) override { call(node); }
-  void operator()(const UnaryExpression &node) override { call(node); }
-  void operator()(const BinaryExpression &node) override { call(node); }
-  void operator()(const ConditionalExpression &node) override { call(node); }
-  void operator()(const FunctionExpression &node) override { call(node); }
+//   void operator()(const This &node) override { call(node); }
+//   void operator()(const Identifier &node) override { call(node); }
+//   void operator()(const NullLiteral &node) override { call(node); }
+//   void operator()(const BooleanLiteral &node) override { call(node); }
+//   void operator()(const NumericLiteral &node) override { call(node); }
+//   void operator()(const StringLiteral &node) override { call(node); }
+//   void operator()(const RegularExpressionLiteral &node) override { call(node); }
+//   void operator()(const ArrayLiteral &node) override { call(node); }
+//   void operator()(const ObjectLiteral &node) override { call(node); }
+//   void operator()(const MemberExpression &node) override { call(node); }
+//   void operator()(const NewExpression &node) override { call(node); }
+//   void operator()(const CallExpression &node) override { call(node); }
+//   void operator()(const PostfixExpression &node) override { call(node); }
+//   void operator()(const UnaryExpression &node) override { call(node); }
+//   void operator()(const BinaryExpression &node) override { call(node); }
+//   void operator()(const ConditionalExpression &node) override { call(node); }
+//   void operator()(const FunctionExpression &node) override { call(node); }
 
-  void operator()(const Block &node) override { call(node); }
-  void operator()(const VariableStatement &node) override { call(node); }
-  void operator()(const EmptyStatement &node) override { call(node); }
-  void operator()(const ExpressionStatement &node) override { call(node); }
-  void operator()(const IfStatement &node) override { call(node); }
-  void operator()(const DoWhileStatement &node) override { call(node); }
-  void operator()(const WhileStatement &node) override { call(node); }
-  void operator()(const ForStatement &node) override { call(node); }
-  void operator()(const ForInStatement &node) override { call(node); }
-  void operator()(const ContinueStatement &node) override { call(node); }
-  void operator()(const BreakStatement &node) override { call(node); }
-  void operator()(const ReturnStatement &node) override { call(node); }
-  void operator()(const WithStatement &node) override { call(node); }
-  void operator()(const LabelledStatement &node) override { call(node); }
-  void operator()(const SwitchStatement &node) override { call(node); }
-  void operator()(const ThrowStatement &node) override { call(node); }
-  void operator()(const TryStatement &node) override { call(node); }
-  void operator()(const DebuggerStatement &node) override { call(node); }
+//   void operator()(const Block &node) override { call(node); }
+//   void operator()(const VariableStatement &node) override { call(node); }
+//   void operator()(const EmptyStatement &node) override { call(node); }
+//   void operator()(const ExpressionStatement &node) override { call(node); }
+//   void operator()(const IfStatement &node) override { call(node); }
+//   void operator()(const DoWhileStatement &node) override { call(node); }
+//   void operator()(const WhileStatement &node) override { call(node); }
+//   void operator()(const ForStatement &node) override { call(node); }
+//   void operator()(const ForInStatement &node) override { call(node); }
+//   void operator()(const ContinueStatement &node) override { call(node); }
+//   void operator()(const BreakStatement &node) override { call(node); }
+//   void operator()(const ReturnStatement &node) override { call(node); }
+//   void operator()(const WithStatement &node) override { call(node); }
+//   void operator()(const LabelledStatement &node) override { call(node); }
+//   void operator()(const SwitchStatement &node) override { call(node); }
+//   void operator()(const ThrowStatement &node) override { call(node); }
+//   void operator()(const TryStatement &node) override { call(node); }
+//   void operator()(const DebuggerStatement &node) override { call(node); }
 
-  void operator()(const CaseClause &node) override { call(node); }
-  void operator()(const DefaultClause &node) override { call(node); }
+//   void operator()(const CaseClause &node) override { call(node); }
+//   void operator()(const DefaultClause &node) override { call(node); }
 
-  void operator()(const FunctionDeclaration &node) override { call(node); }
-  // void operator()(const FunctionBody &node) override { call(node);
-  // }
+//   void operator()(const FunctionDeclaration &node) override { call(node); }
+//   void operator()(const FunctionBody &node) override { call(node); }
 
-  void operator()(const VariableDeclaration &node) override { call(node); }
-  void operator()(const Elision &node) override { call(node); }
-  void operator()(const PropertyName &node) override { call(node); }
-  void operator()(const PropertyAssignment &node) override { call(node); }
-  void operator()(const Arguments &node) override { call(node); }
-  void operator()(const Program &node) override { call(node); }
-};
+//   void operator()(const VariableDeclaration &node) override { call(node); }
+//   void operator()(const Elision &node) override { call(node); }
+//   void operator()(const PropertyName &node) override { call(node); }
+//   void operator()(const PropertyAssignment &node) override { call(node); }
+//   void operator()(const Arguments &node) override { call(node); }
+//   void operator()(const Program &node) override { call(node); }
 
-template <typename F>
-CallableVisitor<F> make_visitor(F callback)
-{
-  return CallableVisitor<F>{callback};
-}
+//   void operator()(const ElementList &node) override { call(node); }
+//   void operator()(const PropertyNameAndValueList &node) override { call(node); }
+//   void operator()(const ArgumentList &node) override { call(node); }
+//   void operator()(const VariableDeclarationList &node) override { call(node); }
+//   void operator()(const StatementList &node) override { call(node); }
+//   void operator()(const CaseBlock &node) override { call(node); }
+//   void operator()(const SourceElements &node) override { call(node); }
+//   void operator()(const FormalParameterList &node) override { call(node); }
+// };
 
-template <typename... Ts>
-struct make_void {
-  typedef void type;
-};
-template <typename... Ts>
-using void_t = typename make_void<Ts...>::type;
+// template <typename F>
+// CallableVisitor<F> make_visitor(F callback)
+// {
+//   return CallableVisitor<F>{callback};
+// }
 
-namespace detail {
+// template <typename... Ts>
+// struct make_void {
+//   typedef void type;
+// };
+// template <typename... Ts>
+// using void_t = typename make_void<Ts...>::type;
 
-template <class, class, class = void_t<>>
-struct is_callable1 : std::false_type {
-};
+// namespace detail {
 
-template <class T, class F>
-struct is_callable1<T, F,
-                    void_t<decltype(std::declval<F>()(std::declval<T>()))>>
-    : std::true_type {
-};
+// template <class, class, class = void_t<>>
+// struct is_callable1 : std::false_type {
+// };
 
-template <class, class, class, class = void_t<>>
-struct is_callable2 : std::false_type {
-};
+// template <class T, class F>
+// struct is_callable1<T, F,
+//                     void_t<decltype(std::declval<F>()(std::declval<T>()))>>
+//     : std::true_type {
+// };
 
-template <class T, class N, class F>
-struct is_callable2<
-    T, N, F,
-    void_t<decltype(std::declval<F>()(std::declval<T>(), std::declval<N>()))>>
-    : std::true_type {
-};
+// template <class, class, class, class = void_t<>>
+// struct is_callable2 : std::false_type {
+// };
 
-template <typename T, typename N, typename F>
-auto apply(T &&value, N &&next, F &&callback)
-{
-  return apply(std::forward<T>(value), std::forward<N>(next),
-               std::forward<F>(callback), is_callable2<T, N, F>{},
-               is_callable1<T, F>{});
-}
+// template <class T, class N, class F>
+// struct is_callable2<
+//     T, N, F,
+//     void_t<decltype(std::declval<F>()(std::declval<T>(), std::declval<N>()))>>
+//     : std::true_type {
+// };
 
-template <typename T, typename N, typename F>
-void apply(T &&value, N &&next, F &&callback, std::true_type, std::false_type)
-{
-  callback(value, next);
-}
+// template <typename T, typename N, typename F>
+// auto apply(T &&value, N &&next, F &&callback)
+// {
+//   return apply(std::forward<T>(value), std::forward<N>(next),
+//                std::forward<F>(callback), is_callable2<T, N, F>{},
+//                is_callable1<T, F>{});
+// }
 
-template <typename T, typename N, typename F>
-void apply(T &&value, N &&, F &&callback, std::false_type, std::true_type)
-{
-  callback(value);
-}
+// template <typename T, typename N, typename F>
+// void apply(T &&value, N &&next, F &&callback, std::true_type, std::false_type)
+// {
+//   callback(value, next);
+// }
 
-template <typename T, typename N, typename F>
-void apply(T &&value, N &&, F &&callback, std::false_type, std::false_type)
-{
-  // std::cout << "Not callable: " << demangle(value) << " using " <<
-  // demangle(callback) << std::endl;
-}
+// template <typename T, typename N, typename F>
+// void apply(T &&value, N &&, F &&callback, std::false_type, std::true_type)
+// {
+//   callback(value);
+// }
 
-} // namespace detail
+// template <typename T, typename N, typename F>
+// void apply(T &&value, N &&, F &&callback, std::false_type, std::false_type)
+// {
+//   // std::cout << "Not callable: " << demangle(value) << " using " <<
+//   // demangle(callback) << std::endl;
+// }
 
-template <typename T, typename... Args>
-void accept(T &&node, Args &&... args)
-{
-  auto visitor = make_visitor([&](auto node, auto next) {
-    (void)(int[]){(detail::apply(node, next, std::forward<Args>(args)), 0)...};
-  });
+// } // namespace detail
 
-  node.accept(visitor);
-}
+// template <typename T, typename... Args>
+// void accept(T &&node, Args &&... args)
+// {
+//   auto visitor = make_visitor([&](auto node, auto next) {
+//     (void)(int[]){(detail::apply(node, next, std::forward<Args>(args)), 0)...};
+//   });
 
-struct indentstream {
-  std::ostream &out;
-  std::string   m_incr   = "  ";
-  std::string   m_indent = "";
-  void          indent() { m_indent += m_incr; }
-  void          unindent() { m_indent.resize(m_indent.size() - m_incr.size()); }
+//   node.accept(visitor);
+// }
 
-  template <typename T>
-  indentstream operator<<(T &&what)
-  {
-    out << m_indent << std::forward<T>(what) << "\n";
-    return *this;
-  }
-};
+// struct indentstream {
+//   std::ostream &           out;
+//   std::string              m_indent = "";
+//   std::vector<std::string> indent_stack;
+//   bool                     m_skip = false;
 
-std::string to_string(const Program &program)
-{
-  using namespace std;
-  stringstream buf;
-  indentstream out{buf};
-  // auto chain = [&](auto next) {
-  //   out.indent();
-  //   next();
-  //   out.unindent();
-  // };
-  accept(program,
-         [&](const Program &program, auto next) {
-           out << "type: Script"
-               << "directives: []"
-               << "statements:";
-           out.indent();
-           next(program.body);
-           out.unindent();
-         },
-         [&](const VariableStatement &stmt, auto next) {
-           out << "var";
-           out.indent();
-           next(stmt.declarations);
-           out.unindent();
-         },
-         [&](const ExpressionStatement &stmt, auto next) {
-           out << "ExpressionStatement";
-           out.indent();
-           next(stmt.expression);
-           out.unindent();
-         },
-         [&](const BinaryExpression &expr, auto next) {
-           out << expr.op;
-           out.indent();
-           next(expr.lhs);
-           next(expr.rhs);
-           out.unindent();
-         },
-         [&](const Identifier &identifier) { out << identifier.to_string(); },
-         [&](const NumericLiteral &literal) { out << literal.value; },
-         [&](const StringLiteral &literal) {
-           out << "\"" + literal.to_string() + "\"";
-         },
-         [&](const VariableDeclaration &decl, auto next) {
-           next(decl.identifier);
-           next(decl.initializer);
-         },
-         [&](auto x) { cout << "catch all: " << demangle(x) << endl; });
-  return buf.str();
-}
+//   void indent(const std::string &str = "  ")
+//   {
+//     indent_stack.push_back(m_indent);
+//     m_indent += str;
+//   }
+
+//   void unindent()
+//   {
+//     m_indent = indent_stack.back();
+//     indent_stack.pop_back();
+//   }
+
+//   void skip() { m_skip = true; }
+
+//   indentstream &operator<<(indentstream &(*op)(indentstream &))
+//   {
+//     return op(*this);
+//   }
+
+//   template <typename T>
+//   indentstream &operator<<(T &&what)
+//   {
+//     if (!m_skip) out << m_indent;
+//     out << std::forward<T>(what);
+//     m_skip = false;
+//     return *this;
+//   }
+// };
+
+// static indentstream &indent(indentstream &out)
+// {
+//   out.indent();
+//   return out;
+// }
+
+// static indentstream &unindent(indentstream &out)
+// {
+//   out.unindent();
+//   return out;
+// }
+
+// static indentstream &skip(indentstream &out)
+// {
+//   out.skip();
+//   return out;
+// }
+
+// std::string to_string(const Program &program)
+// {
+//   using namespace std;
+//   stringstream buf;
+//   indentstream out{buf};
+
+//   accept(program,
+//          [&](const Program &program, auto next) {
+//            out << "type: Script\n"
+//                << "body:\n"
+//                << indent << "type: FunctionBody\n"
+//                << "directives: []\n"
+//                << "statements:\n"
+//                << indent;
+
+//            for (auto stmt : *program.body) {
+//              out << "- " << indent << skip;
+//              next(stmt);
+//              out << unindent;
+//            }
+//            out << unindent << unindent;
+
+//          },
+//          [&](const VariableStatement &stmt, auto next) {
+//            out << "type: VariableDeclarationStatement\n"
+//                << "declaration:\n"
+//                << indent;
+//            next(stmt.declarations);
+//            out << unindent;
+//            //  out << "var";
+//            //  out.indent();
+//            //  next(stmt.declarations);
+//            //  out.unindent();
+//          },
+//          [&](const ExpressionStatement &stmt, auto next) {
+//            //  out << "ExpressionStatement";
+//            //  out.indent();
+//            //  next(stmt.expression);
+//            //  out.unindent();
+//          },
+//          [&](const BinaryExpression &expr, auto next) {
+//            //  out << expr.op;
+//            //  out.indent();
+//            //  next(expr.lhs);
+//            //  next(expr.rhs);
+//            //  out.unindent();
+//          },
+//          [&](const Identifier &identifier) {
+//            out << identifier.to_string() << "\n";
+//          },
+//          [&](const NumericLiteral &literal) { out << literal.value << "\n"; },
+//          [&](const StringLiteral &literal) {
+//            out << "\"" + literal.to_string() + "\"\n";
+//          },
+//          [&](const VariableDeclaration &decl, auto next) {
+//            next(decl.identifier);
+//            next(decl.initializer);
+//          },
+//          [&](auto x) { cout << "catch all: " << demangle(x) << endl; });
+//   return buf.str();
+// }

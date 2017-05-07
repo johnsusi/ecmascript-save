@@ -1,36 +1,9 @@
 #include "lexer.h"
+#include "util.h"
 
-#include <unicode/errorcode.h>
-#include <unicode/normalizer2.h>
 #include <unicode/uchar.h>
-#include <unicode/unistr.h>
 
-std::u16string convert_utf8_to_utf16(const std::string &source)
-{
-  ErrorCode err;
-  auto      buffer     = UnicodeString::fromUTF8(source);
-  auto      normalizer = Normalizer2::getNFCInstance(err);
-  if (err.isFailure()) throw std::runtime_error(err.errorName());
-  auto result = normalizer->normalize(buffer, err);
-  if (err.isFailure()) throw std::runtime_error(err.errorName());
-  return std::u16string(
-      reinterpret_cast<const std::u16string::value_type *>(buffer.getBuffer()),
-      buffer.length());
-}
 
-// UnicodeString icu::UnicodeString::fromUTF8(StringPiece utf8)
-// {
-//   int32_t destLength;
-//   UErrorCode err = U_ZERO_ERROR;
-//   if (U_FAILURE(err)) throw std::runtime_error(u_errorName(err));
-//   u_strFromUTF8(nullptr, 0, &destLength, utf8.data(), utf8.size(), &err);
-//   auto buffer = std::make_unique<UChar*>(new UChar[destLength]);
-//   err = U_ZERO_ERROR;
-//   u_strFromUTF8(*buffer, destLength, nullptr, utf8.data(), utf8.size(),
-//   &err); if (U_FAILURE(err)) throw std::runtime_error(u_errorName(err));
-//   UnicodeString result(*buffer, destLength);
-//   return result;
-// }
 
 // 7.2
 bool is_white_space(int cp)
@@ -53,17 +26,17 @@ bool is_white_space(int cp)
 }
 
 // 7.3
-bool is_line_terminator(int cp)
-{
-  switch (cp) {
-  case 0x000A: // Line Feed <LF>
-  case 0x000D: // Carriage Return <CR>
-  case 0x2028: // Line separator <LS>
-  case 0x2029: // Paragraph separator <PS>
-    return true;
-  default: return false;
-  }
-}
+// bool is_line_terminator(int cp)
+// {
+//   switch (cp) {
+//   case 0x000A: // Line Feed <LF>
+//   case 0x000D: // Carriage Return <CR>
+//   case 0x2028: // Line separator <LS>
+//   case 0x2029: // Paragraph separator <PS>
+//     return true;
+//   default: return false;
+//   }
+// }
 
 // 7.8.3
 bool is_non_zero_digit(int cp)

@@ -1,11 +1,11 @@
 #ifndef ECMASCRIPT_EVAL_H
 #define ECMASCRIPT_EVAL_H
 
-#include "ast.h"
+#include "visitor.h"
 
 #include <string>
 
-Program eval(const std::string &);
-Program eval(const std::u16string &);
+void eval(const std::string &, Visitor&, bool = false);
+void eval(const std::u16string &, Visitor&, bool = false);
 
 #endif
