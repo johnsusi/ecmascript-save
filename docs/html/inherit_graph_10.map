@@ -1,3 +1,77 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$struct_named_data_property.html" title="NamedDataProperty" alt="" coords="5,5,148,31"/>
+<area shape="rect" id="node1" href="$struct_node.html" title="Node" alt="" coords="5,795,59,820"/>
+<area shape="rect" id="node2" href="$struct_array_literal.html" title="ArrayLiteral" alt="" coords="154,277,244,303"/>
+<area shape="rect" id="node3" href="$struct_case_clause.html" title="CaseClause" alt="" coords="152,327,246,352"/>
+<area shape="rect" id="node5" href="$struct_elision.html" title="Elision" alt="" coords="169,376,229,401"/>
+<area shape="rect" id="node6" href="$struct_expression.html" title="Expression" alt="" coords="155,425,243,451"/>
+<area shape="rect" id="node27" href="$struct_identifier.html" title="Identifier" alt="" coords="163,597,235,623"/>
+<area shape="rect" id="node28" href="$struct_list.html" title="List\&lt; T \&gt;" alt="" coords="163,647,235,672"/>
+<area shape="rect" id="node29" href="$struct_list.html" title="List\&lt; CaseClause \&gt;" alt="" coords="130,696,268,721"/>
+<area shape="rect" id="node31" href="$struct_list.html" title="List\&lt; Expression \&gt;" alt="" coords="134,745,265,771"/>
+<area shape="rect" id="node33" href="$struct_list.html" title="List\&lt; Identifier \&gt;" alt="" coords="141,795,257,820"/>
+<area shape="rect" id="node35" href="$struct_list.html" title="List\&lt; Node \&gt;" alt="" coords="151,844,248,869"/>
+<area shape="rect" id="node37" href="$struct_list.html" title="List\&lt; PropertyAssignment \&gt;" alt="" coords="107,893,292,919"/>
+<area shape="rect" id="node39" href="$struct_list.html" title="List\&lt; SourceElement \&gt;" alt="" coords="121,943,277,968"/>
+<area shape="rect" id="node42" href="$struct_list.html" title="List\&lt; Statement \&gt;" alt="" coords="136,992,262,1017"/>
+<area shape="rect" id="node44" href="$struct_list.html" title="List\&lt; VariableDeclaration \&gt;" alt="" coords="109,1041,289,1067"/>
+<area shape="rect" id="node46" href="$struct_literal.html" title="Literal" alt="" coords="170,1164,228,1189"/>
+<area shape="rect" id="node52" href="$struct_source_element.html" title="SourceElement" alt="" coords="143,1337,255,1363"/>
+<area shape="rect" id="node75" href="$struct_this.html" title="This" alt="" coords="176,1387,222,1412"/>
+<area shape="rect" id="node4" href="$struct_default_clause.html" title="DefaultClause" alt="" coords="380,5,485,31"/>
+<area shape="rect" id="node7" href="$struct_arguments.html" title="Arguments" alt="" coords="389,55,475,80"/>
+<area shape="rect" id="node8" href="$struct_binary_expression.html" title="BinaryExpression" alt="" coords="370,104,495,129"/>
+<area shape="rect" id="node9" href="$struct_call_expression.html" title="CallExpression" alt="" coords="377,153,487,179"/>
+<area shape="rect" id="node10" href="$struct_conditional_expression.html" title="ConditionalExpression" alt="" coords="355,203,509,228"/>
+<area shape="rect" id="node11" href="$struct_function_expression.html" title="FunctionExpression" alt="" coords="363,252,501,277"/>
+<area shape="rect" id="node12" href="$struct_left_hand_side_expression.html" title="LeftHandSideExpression" alt="" coords="348,301,516,327"/>
+<area shape="rect" id="node20" href="$struct_member_expression.html" title="MemberExpression" alt="" coords="364,351,500,376"/>
+<area shape="rect" id="node21" href="$struct_new_expression.html" title="NewExpression" alt="" coords="375,400,489,425"/>
+<area shape="rect" id="node22" href="$struct_postfix_expression.html" title="PostfixExpression" alt="" coords="368,449,496,475"/>
+<area shape="rect" id="node23" href="$struct_property_assignment.html" title="PropertyAssignment" alt="" coords="361,499,503,524"/>
+<area shape="rect" id="node24" href="$struct_property_name.html" title="PropertyName" alt="" coords="378,548,486,573"/>
+<area shape="rect" id="node25" href="$struct_unary_expression.html" title="UnaryExpression" alt="" coords="371,597,494,623"/>
+<area shape="rect" id="node26" href="$struct_variable_declaration.html" title="VariableDeclaration" alt="" coords="364,647,500,672"/>
+<area shape="rect" id="node13" href="$struct_primary_expression.html" title="PrimaryExpression" alt="" coords="580,301,713,327"/>
+<area shape="rect" id="node14" href="$struct_array_expression.html" title="ArrayExpression" alt="" coords="778,179,897,204"/>
+<area shape="rect" id="node15" href="$struct_identifier_expression.html" title="IdentifierExpression" alt="" coords="769,228,907,253"/>
+<area shape="rect" id="node16" href="$struct_literal_expression.html" title="LiteralExpression" alt="" coords="776,277,900,303"/>
+<area shape="rect" id="node17" href="$struct_object_expression.html" title="ObjectExpression" alt="" coords="775,327,901,352"/>
+<area shape="rect" id="node18" href="$struct_object_literal.html" title="ObjectLiteral" alt="" coords="790,376,886,401"/>
+<area shape="rect" id="node19" href="$struct_this_expression.html" title="ThisExpression" alt="" coords="782,425,894,451"/>
+<area shape="rect" id="node30" href="$struct_case_block.html" title="CaseBlock" alt="" coords="390,696,475,721"/>
+<area shape="rect" id="node32" href="$struct_argument_list.html" title="ArgumentList" alt="" coords="382,745,482,771"/>
+<area shape="rect" id="node34" href="$struct_formal_parameter_list.html" title="FormalParameterList" alt="" coords="359,795,505,820"/>
+<area shape="rect" id="node36" href="$struct_element_list.html" title="ElementList" alt="" coords="387,844,478,869"/>
+<area shape="rect" id="node38" href="$struct_property_name_and_value_list.html" title="PropertyNameAndValueList" alt="" coords="340,893,525,919"/>
+<area shape="rect" id="node40" href="$struct_source_elements.html" title="SourceElements" alt="" coords="373,943,492,968"/>
+<area shape="rect" id="node41" href="$struct_function_body.html" title="FunctionBody" alt="" coords="595,943,698,968"/>
+<area shape="rect" id="node43" href="$struct_statement_list.html" title="StatementList" alt="" coords="381,992,484,1017"/>
+<area shape="rect" id="node45" href="$struct_variable_declaration_list.html" title="VariableDeclarationList" alt="" coords="353,1041,511,1067"/>
+<area shape="rect" id="node47" href="$struct_boolean_literal.html" title="BooleanLiteral" alt="" coords="379,1091,485,1116"/>
+<area shape="rect" id="node48" href="$struct_null_literal.html" title="NullLiteral" alt="" coords="392,1140,472,1165"/>
+<area shape="rect" id="node49" href="$struct_numeric_literal.html" title="NumericLiteral" alt="" coords="378,1189,486,1215"/>
+<area shape="rect" id="node50" href="$struct_regular_expression_literal.html" title="RegularExpressionLiteral" alt="" coords="347,1239,517,1264"/>
+<area shape="rect" id="node51" href="$struct_string_literal.html" title="StringLiteral" alt="" coords="386,1288,478,1313"/>
+<area shape="rect" id="node53" href="$struct_declaration.html" title="Declaration" alt="" coords="388,1337,476,1363"/>
+<area shape="rect" id="node55" href="$struct_function_declaration.html" title="FunctionDeclaration" alt="" coords="362,1387,502,1412"/>
+<area shape="rect" id="node56" href="$struct_statement.html" title="Statement" alt="" coords="391,1608,473,1633"/>
+<area shape="rect" id="node54" href="$struct_program_declaration.html" title="ProgramDeclaration" alt="" coords="577,1164,717,1189"/>
+<area shape="rect" id="node57" href="$struct_block.html" title="Block" alt="" coords="620,1213,674,1239"/>
+<area shape="rect" id="node58" href="$struct_break_statement.html" title="BreakStatement" alt="" coords="588,1263,705,1288"/>
+<area shape="rect" id="node59" href="$struct_continue_statement.html" title="ContinueStatement" alt="" coords="579,1312,714,1337"/>
+<area shape="rect" id="node60" href="$struct_debugger_statement.html" title="DebuggerStatement" alt="" coords="576,1361,717,1387"/>
+<area shape="rect" id="node61" href="$struct_do_while_statement.html" title="DoWhileStatement" alt="" coords="580,1411,713,1436"/>
+<area shape="rect" id="node62" href="$struct_empty_statement.html" title="EmptyStatement" alt="" coords="587,1460,707,1485"/>
+<area shape="rect" id="node63" href="$struct_expression_statement.html" title="ExpressionStatement" alt="" coords="573,1509,721,1535"/>
+<area shape="rect" id="node64" href="$struct_for_in_statement.html" title="ForInStatement" alt="" coords="590,1559,703,1584"/>
+<area shape="rect" id="node65" href="$struct_for_statement.html" title="ForStatement" alt="" coords="596,1608,698,1633"/>
+<area shape="rect" id="node66" href="$struct_if_statement.html" title="IfStatement" alt="" coords="602,1657,691,1683"/>
+<area shape="rect" id="node67" href="$struct_labelled_statement.html" title="LabelledStatement" alt="" coords="580,1707,713,1732"/>
+<area shape="rect" id="node68" href="$struct_return_statement.html" title="ReturnStatement" alt="" coords="586,1756,708,1781"/>
+<area shape="rect" id="node69" href="$struct_switch_statement.html" title="SwitchStatement" alt="" coords="586,1805,707,1831"/>
+<area shape="rect" id="node70" href="$struct_throw_statement.html" title="ThrowStatement" alt="" coords="587,1855,706,1880"/>
+<area shape="rect" id="node71" href="$struct_try_statement.html" title="TryStatement" alt="" coords="596,1904,697,1929"/>
+<area shape="rect" id="node72" href="$struct_variable_statement.html" title="VariableStatement" alt="" coords="582,1953,712,1979"/>
+<area shape="rect" id="node73" href="$struct_while_statement.html" title="WhileStatement" alt="" coords="589,2003,704,2028"/>
+<area shape="rect" id="node74" href="$struct_with_statement.html" title="WithStatement" alt="" coords="592,2052,701,2077"/>
 </map>

@@ -1,3 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$struct_string.html" title="String" alt="" coords="5,5,61,31"/>
+<area shape="rect" id="node2" href="$struct_token_1_1equal__visitor.html" title="Token::equal_visitor" alt="" coords="148,5,287,31"/>
+<area shape="rect" id="node3" href="$struct_token_1_1print__visitor.html" title="Token::print_visitor" alt="" coords="151,55,284,80"/>
 </map>

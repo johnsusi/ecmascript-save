@@ -1,4 +1,4 @@
 <map id="ElementList" name="ElementList">
-<area shape="rect" id="node2" href="$struct_list.html" title="List\&lt; Expression \&gt;" alt="" coords="5,79,136,104"/>
-<area shape="rect" id="node3" href="$struct_node.html" title="Node" alt="" coords="44,5,97,31"/>
+<area shape="rect" id="node2" href="$struct_list.html" title="List\&lt; Node \&gt;" alt="" coords="5,79,102,104"/>
+<area shape="rect" id="node3" href="$struct_node.html" title="Node" alt="" coords="27,5,80,31"/>
 </map>

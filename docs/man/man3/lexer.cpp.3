@@ -1,4 +1,4 @@
-.TH "src/lexer.cpp" 3 "Tue May 2 2017" "ECMAScript" \" -*- nroff -*-
+.TH "src/lexer.cpp" 3 "Sun May 7 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -8,26 +8,16 @@ src/lexer.cpp
 .PP
 \fC#include 'lexer\&.h'\fP
 .br
-\fC#include <unicode/errorcode\&.h>\fP
-.br
-\fC#include <unicode/normalizer2\&.h>\fP
+\fC#include 'util\&.h'\fP
 .br
 \fC#include <unicode/uchar\&.h>\fP
-.br
-\fC#include <unicode/unistr\&.h>\fP
 .br
 
 .SS "Functions"
 
 .in +1c
 .ti -1c
-.RI "\fBstd::u16string\fP \fBconvert_utf8_to_utf16\fP (const \fBstd::string\fP &source)"
-.br
-.ti -1c
 .RI "bool \fBis_white_space\fP (int cp)"
-.br
-.ti -1c
-.RI "bool \fBis_line_terminator\fP (int cp)"
 .br
 .ti -1c
 .RI "bool \fBis_non_zero_digit\fP (int cp)"
@@ -71,8 +61,6 @@ src/lexer.cpp
 .in -1c
 .SH "Function Documentation"
 .PP 
-.SS "\fBstd::u16string\fP convert_utf8_to_utf16 (const \fBstd::string\fP & source)"
-
 .SS "bool is_boolean_literal (const \fBstd::string\fP & str)"
 
 .SS "bool is_decimal_digit (int cp)"
@@ -82,8 +70,6 @@ src/lexer.cpp
 .SS "bool is_hex_digit (int cp)"
 
 .SS "bool is_keyword (const \fBstd::string\fP & token)"
-
-.SS "bool is_line_terminator (int cp)"
 
 .SS "bool is_non_zero_digit (int cp)"
 

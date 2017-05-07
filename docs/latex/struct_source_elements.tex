@@ -26,6 +26,10 @@ Collaboration diagram for Source\+Elements\+:\nopagebreak
 \begin{DoxyCompactItemize}
 \item 
 {\footnotesize template$<$typename... Args$>$ }\\\hyperlink{struct_source_elements_a1f7065c95d241407e691f198c8dd9b19}{Source\+Elements} (Args \&\&... args)
+\item 
+void \hyperlink{struct_source_elements_af5c2f1b3c9a9961f4d76734953a4fdf5}{accept} (\hyperlink{struct_visitor}{Visitor} \&visitor) const override
+\item 
+const char $\ast$ \hyperlink{struct_source_elements_a2e6131a995ee5d7e0c8e7a440827245d}{type} () const override
 \end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
@@ -37,6 +41,37 @@ Collaboration diagram for Source\+Elements\+:\nopagebreak
 \subsubsection{\texorpdfstring{Source\+Elements()}{SourceElements()}}
 {\footnotesize\ttfamily template$<$typename... Args$>$ \\
 Source\+Elements\+::\+Source\+Elements (\begin{DoxyParamCaption}\item[{Args \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_source_elements_af5c2f1b3c9a9961f4d76734953a4fdf5}\label{struct_source_elements_af5c2f1b3c9a9961f4d76734953a4fdf5}} 
+\index{Source\+Elements@{Source\+Elements}!accept@{accept}}
+\index{accept@{accept}!Source\+Elements@{Source\+Elements}}
+\subsubsection{\texorpdfstring{accept()}{accept()}}
+{\footnotesize\ttfamily void Source\+Elements\+::accept (\begin{DoxyParamCaption}\item[{\hyperlink{struct_visitor}{Visitor} \&}]{visitor }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_node_a10bd7af968140bbf5fa461298a969c71}{Node}.
+
+
+
+Reimplemented in \hyperlink{struct_function_body_ab6acc0d3e8a2bf452045ee4adc78aa26}{Function\+Body}.
+
+\mbox{\Hypertarget{struct_source_elements_a2e6131a995ee5d7e0c8e7a440827245d}\label{struct_source_elements_a2e6131a995ee5d7e0c8e7a440827245d}} 
+\index{Source\+Elements@{Source\+Elements}!type@{type}}
+\index{type@{type}!Source\+Elements@{Source\+Elements}}
+\subsubsection{\texorpdfstring{type()}{type()}}
+{\footnotesize\ttfamily const char$\ast$ Source\+Elements\+::type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_node_a82f29420d0a38efcc370352528e94e9b}{Node}.
+
+
+
+Reimplemented in \hyperlink{struct_function_body_a8f56476c603667a3a3240de9c2ee02bc}{Function\+Body}.
 
 
 

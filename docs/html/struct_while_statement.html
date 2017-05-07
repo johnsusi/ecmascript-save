@@ -92,8 +92,12 @@ Collaboration diagram for WhileStatement:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a4dfcc4a8b19b8bdc6492e7f8b8921bcc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_while_statement.html#a4dfcc4a8b19b8bdc6492e7f8b8921bcc">WhileStatement</a> (<a class="el" href="struct_expression.html">Expression</a> *<a class="el" href="struct_while_statement.html#acfede7e3d617c685032f657a7a95aa15">test</a>, <a class="el" href="struct_statement.html">Statement</a> *<a class="el" href="struct_while_statement.html#adcb2abe56520e643ad7b1192099c75e6">body</a>)</td></tr>
+<tr class="separator:a4dfcc4a8b19b8bdc6492e7f8b8921bcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a017a8824abdcb5551061dae2a09e8ead"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_while_statement.html#a017a8824abdcb5551061dae2a09e8ead">accept</a> (<a class="el" href="struct_visitor.html">Visitor</a> &amp;visitor) const override</td></tr>
 <tr class="separator:a017a8824abdcb5551061dae2a09e8ead"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e5965e91f9cca73ffa70ca14d7fd123"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_while_statement.html#a4e5965e91f9cca73ffa70ca14d7fd123">type</a> () const override</td></tr>
+<tr class="separator:a4e5965e91f9cca73ffa70ca14d7fd123"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_struct_node"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_struct_node')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="struct_node.html">Node</a></td></tr>
 <tr class="memitem:af5e3fa79300bf5f3f2f3ecae6e795a94 inherit pub_methods_struct_node"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_node.html#af5e3fa79300bf5f3f2f3ecae6e795a94">~Node</a> ()</td></tr>
 <tr class="separator:af5e3fa79300bf5f3f2f3ecae6e795a94 inherit pub_methods_struct_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -105,6 +109,43 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:adcb2abe56520e643ad7b1192099c75e6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_statement.html">Statement</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_while_statement.html#adcb2abe56520e643ad7b1192099c75e6">body</a></td></tr>
 <tr class="separator:adcb2abe56520e643ad7b1192099c75e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a4dfcc4a8b19b8bdc6492e7f8b8921bcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4dfcc4a8b19b8bdc6492e7f8b8921bcc">&#9670;&nbsp;</a></span>WhileStatement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">WhileStatement::WhileStatement </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_expression.html">Expression</a> *&#160;</td>
+          <td class="paramname"><em>test</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_statement.html">Statement</a> *&#160;</td>
+          <td class="paramname"><em>body</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a017a8824abdcb5551061dae2a09e8ead"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a017a8824abdcb5551061dae2a09e8ead">&#9670;&nbsp;</a></span>accept()</h2>
@@ -131,6 +172,33 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Implements <a class="el" href="struct_node.html#a10bd7af968140bbf5fa461298a969c71">Node</a>.</p>
+
+</div>
+</div>
+<a id="a4e5965e91f9cca73ffa70ca14d7fd123"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e5965e91f9cca73ffa70ca14d7fd123">&#9670;&nbsp;</a></span>type()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* WhileStatement::type </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="struct_node.html#a82f29420d0a38efcc370352528e94e9b">Node</a>.</p>
 
 </div>
 </div>

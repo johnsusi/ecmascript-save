@@ -1,0 +1,11 @@
+<map id="LeftHandSideExpression" name="LeftHandSideExpression">
+<area shape="rect" id="node4" href="$struct_primary_expression.html" title="PrimaryExpression" alt="" coords="458,129,591,155"/>
+<area shape="rect" id="node2" href="$struct_expression.html" title="Expression" alt="" coords="107,129,194,155"/>
+<area shape="rect" id="node3" href="$struct_node.html" title="Node" alt="" coords="5,129,59,155"/>
+<area shape="rect" id="node5" href="$struct_array_expression.html" title="ArrayExpression" alt="" coords="649,5,768,31"/>
+<area shape="rect" id="node6" href="$struct_identifier_expression.html" title="IdentifierExpression" alt="" coords="639,55,778,80"/>
+<area shape="rect" id="node7" href="$struct_literal_expression.html" title="LiteralExpression" alt="" coords="647,104,770,129"/>
+<area shape="rect" id="node8" href="$struct_object_expression.html" title="ObjectExpression" alt="" coords="645,153,771,179"/>
+<area shape="rect" id="node9" href="$struct_object_literal.html" title="ObjectLiteral" alt="" coords="660,203,756,228"/>
+<area shape="rect" id="node10" href="$struct_this_expression.html" title="ThisExpression" alt="" coords="652,252,765,277"/>
+</map>

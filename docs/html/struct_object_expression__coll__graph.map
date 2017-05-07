@@ -1,0 +1,10 @@
+<map id="ObjectExpression" name="ObjectExpression">
+<area shape="rect" id="node2" href="$struct_primary_expression.html" title="PrimaryExpression" alt="" coords="29,265,163,291"/>
+<area shape="rect" id="node6" href="$struct_object_literal.html" title="ObjectLiteral" alt="" coords="133,340,229,365"/>
+<area shape="rect" id="node3" href="$struct_left_hand_side_expression.html" title="LeftHandSideExpression" alt="" coords="5,167,173,192"/>
+<area shape="rect" id="node4" href="$struct_expression.html" title="Expression" alt="" coords="18,92,105,117"/>
+<area shape="rect" id="node5" href="$struct_node.html" title="Node" alt="" coords="35,5,88,31"/>
+<area shape="rect" id="node8" href="$struct_list.html" title="List\&lt; PropertyAssignment \&gt;" alt="" coords="129,92,314,117"/>
+<area shape="rect" id="node7" href="$struct_property_name_and_value_list.html" title="PropertyNameAndValueList" alt="" coords="122,216,307,241"/>
+<area shape="rect" id="node9" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/container/vector.html" title="std::vector\&lt; PropertyAssignment *\&gt;" alt="" coords="113,5,344,31"/>
+</map>

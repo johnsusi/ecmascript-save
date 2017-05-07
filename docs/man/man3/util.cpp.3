@@ -1,4 +1,4 @@
-.TH "src/util.cpp" 3 "Tue May 2 2017" "ECMAScript" \" -*- nroff -*-
+.TH "src/util.cpp" 3 "Sun May 7 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -24,14 +24,26 @@ src/util.cpp
 .br
 \fC#include <boost/core/demangle\&.hpp>\fP
 .br
+\fC#include <unicode/errorcode\&.h>\fP
+.br
+\fC#include <unicode/normalizer2\&.h>\fP
+.br
 \fC#include <unicode/uchar\&.h>\fP
+.br
+\fC#include <unicode/unistr\&.h>\fP
 .br
 
 .SS "Functions"
 
 .in +1c
 .ti -1c
-.RI "\fBstd::string\fP \fBleft_align_text\fP (const \fBstd::string\fP &text, const \fBstd::string\fP &\fBindent\fP)"
+.RI "\fBstd::u16string\fP \fBconvert_utf8_to_utf16\fP (const \fBstd::string\fP &source)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBconvert_utf16_to_utf8\fP (const \fBstd::u16string\fP &source)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBleft_align_text\fP (const \fBstd::string\fP &text, const \fBstd::string\fP &indent)"
 .br
 .ti -1c
 .RI "const char * \fBu_charCategory\fP (int c)"
@@ -45,6 +57,12 @@ src/util.cpp
 .in -1c
 .SH "Function Documentation"
 .PP 
+.SS "\fBstd::string\fP convert_utf16_to_utf8 (const \fBstd::u16string\fP & source)"
+Converts \fIsource\fP from UTF-16 to UTF-8\&. 
+.SS "\fBstd::u16string\fP convert_utf8_to_utf16 (const \fBstd::string\fP & source)"
+Converts \fIsource\fP from UTF-8 to UTF-16 and normalised to Unicode Normalization Form C\&.
+.PP
+Throws \fI\fBstd::runtime_error\fP\fP on failure\&. 
 .SS "\fBstd::string\fP left_align_text (const \fBstd::string\fP & text, const \fBstd::string\fP & indent)"
 Left aligns \fItext\fP by first finding the left-most non-whitespace character and then removing that many leading white-space characters from each line\&. The result is then indented using the optional \fIindent\fP and joined into a string\&. 
 .SS "\fBstd::string\fP read_file (const \fBstd::string\fP & filename)"

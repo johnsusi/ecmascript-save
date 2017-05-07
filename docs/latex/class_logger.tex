@@ -1,0 +1,49 @@
+\hypertarget{class_logger}{}\section{Logger Class Reference}
+\label{class_logger}\index{Logger@{Logger}}
+
+
+{\ttfamily \#include $<$logger.\+h$>$}
+
+
+
+Inheritance diagram for Logger\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=280pt]{class_logger__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_logger_a20f6e95efb1eab08269484d8745feb65}{log} (const \textbf{ std\+::string} \&)=0
+\item 
+{\footnotesize template$<$typename T $>$ }\\auto \hyperlink{class_logger_a7ea8858bb20cc869f5e6644c682292d7}{log} (T \&\&callback) -\/$>$ decltype(callback($\ast$this), void())
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_logger_a20f6e95efb1eab08269484d8745feb65}\label{class_logger_a20f6e95efb1eab08269484d8745feb65}} 
+\index{Logger@{Logger}!log@{log}}
+\index{log@{log}!Logger@{Logger}}
+\subsubsection{\texorpdfstring{log()}{log()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void Logger\+::log (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::string} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \hyperlink{class_standard_logger_af09ac6658b0c4826d1b3bd3292736184}{Standard\+Logger$<$ T $>$}, and \hyperlink{class_silent_logger_aa1b9872cb1585ec35051b3264d06aefd}{Silent\+Logger}.
+
+\mbox{\Hypertarget{class_logger_a7ea8858bb20cc869f5e6644c682292d7}\label{class_logger_a7ea8858bb20cc869f5e6644c682292d7}} 
+\index{Logger@{Logger}!log@{log}}
+\index{log@{log}!Logger@{Logger}}
+\subsubsection{\texorpdfstring{log()}{log()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+auto Logger\+::log (\begin{DoxyParamCaption}\item[{T \&\&}]{callback }\end{DoxyParamCaption}) -\/$>$ decltype(callback($\ast$this), void())
+  \hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{logger_8h}{logger.\+h}\end{DoxyCompactItemize}

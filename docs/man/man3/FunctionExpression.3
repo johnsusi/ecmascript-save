@@ -1,4 +1,4 @@
-.TH "FunctionExpression" 3 "Tue May 2 2017" "ECMAScript" \" -*- nroff -*-
+.TH "FunctionExpression" 3 "Sun May 7 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -17,7 +17,10 @@ Inherits \fBExpression\fP\&.
 .RI "\fBFunctionExpression\fP (\fBIdentifier\fP *\fBid\fP, \fBFormalParameterList\fP *\fBparams\fP, \fBFunctionBody\fP *\fBbody\fP)"
 .br
 .ti -1c
-.RI "void \fBaccept\fP (\fBVisitor\fP &visitor) const"
+.RI "void \fBaccept\fP (\fBVisitor\fP &visitor) const override"
+.br
+.ti -1c
+.RI "const char * \fBtype\fP () const override"
 .br
 .in -1c
 .SS "Public Attributes"
@@ -39,7 +42,11 @@ Inherits \fBExpression\fP\&.
 
 .SH "Member Function Documentation"
 .PP 
-.SS "void FunctionExpression::accept (\fBVisitor\fP & visitor) const\fC [inline]\fP, \fC [virtual]\fP"
+.SS "void FunctionExpression::accept (\fBVisitor\fP & visitor) const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBNode\fP\&.
+.SS "const char* FunctionExpression::type () const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
 Implements \fBNode\fP\&.

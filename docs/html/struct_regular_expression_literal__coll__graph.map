@@ -1,6 +1,4 @@
 <map id="RegularExpressionLiteral" name="RegularExpressionLiteral">
-<area shape="rect" id="node2" href="$struct_literal.html" title="Literal" alt="" coords="62,225,119,251"/>
-<area shape="rect" id="node3" href="$struct_primary_expression.html" title="PrimaryExpression" alt="" coords="24,152,157,177"/>
-<area shape="rect" id="node4" href="$struct_expression.html" title="Expression" alt="" coords="47,79,134,104"/>
-<area shape="rect" id="node5" href="$struct_node.html" title="Node" alt="" coords="64,5,117,31"/>
+<area shape="rect" id="node2" href="$struct_literal.html" title="Literal" alt="" coords="62,79,119,104"/>
+<area shape="rect" id="node3" href="$struct_node.html" title="Node" alt="" coords="64,5,117,31"/>
 </map>

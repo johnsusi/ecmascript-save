@@ -1,4 +1,4 @@
-.TH "src/parser.h" 3 "Tue May 2 2017" "ECMAScript" \" -*- nroff -*-
+.TH "src/parser.h" 3 "Sun May 7 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -8,9 +8,13 @@ src/parser.h
 .PP
 \fC#include 'ast\&.h'\fP
 .br
+\fC#include 'logger\&.h'\fP
+.br
 \fC#include 'matcher\&.h'\fP
 .br
 \fC#include 'token\&.h'\fP
+.br
+\fC#include 'tracer\&.h'\fP
 .br
 \fC#include 'util\&.h'\fP
 .br
@@ -30,6 +34,13 @@ src/parser.h
 .RI "class \fBParser\fP"
 .br
 .in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBtrace\fP(method)   \fBTraceGuard\fP tg_##__LINE__(method, __FILE__, __LINE__)"
+.br
+.in -1c
 .SS "Functions"
 
 .in +1c
@@ -40,6 +51,10 @@ src/parser.h
 .RI "template<typename Cont > auto \fBmake_parser\fP (Cont &&cont)"
 .br
 .in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define trace(method)   \fBTraceGuard\fP tg_##__LINE__(method, __FILE__, __LINE__)"
+
 .SH "Function Documentation"
 .PP 
 .SS "template<typename It > \fBParser\fP make_parser (It f, It l)"

@@ -1,0 +1,67 @@
+\hypertarget{logger_8h}{}\section{src/logger.h File Reference}
+\label{logger_8h}\index{src/logger.\+h@{src/logger.\+h}}
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+Include dependency graph for logger.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{logger_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{logger_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_logger}{Logger}
+\item 
+class \hyperlink{class_standard_logger}{Standard\+Logger$<$ T $>$}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_logger}{Logger} \& \hyperlink{logger_8h_ac3b2dcfa2cd44e6c35b0d160fb23f1a6}{operator$<$$<$} (\hyperlink{class_logger}{Logger} \&out, const \textbf{ std\+::string} \&str)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{class_logger}{Logger} \& \hyperlink{logger_8h_a1a0e997623846c8b4665a3df1536e716}{operator$<$$<$} (\hyperlink{class_logger}{Logger} \&out, const T \&value)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\textbf{ std\+::unique\+\_\+ptr}$<$ \hyperlink{class_logger}{Logger} $>$ \hyperlink{logger_8h_ac812b073965fdb43ac0b6198037a0991}{make\+\_\+standard\+\_\+logger} (T \&arg)
+\item 
+\hyperlink{class_logger}{Logger} $\ast$ \hyperlink{logger_8h_a4a91393d9aac15039de84d6a92cadfd0}{make\+\_\+silent\+\_\+logger} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{logger_8h_a4a91393d9aac15039de84d6a92cadfd0}\label{logger_8h_a4a91393d9aac15039de84d6a92cadfd0}} 
+\index{logger.\+h@{logger.\+h}!make\+\_\+silent\+\_\+logger@{make\+\_\+silent\+\_\+logger}}
+\index{make\+\_\+silent\+\_\+logger@{make\+\_\+silent\+\_\+logger}!logger.\+h@{logger.\+h}}
+\subsubsection{\texorpdfstring{make\+\_\+silent\+\_\+logger()}{make\_silent\_logger()}}
+{\footnotesize\ttfamily \hyperlink{class_logger}{Logger}$\ast$ make\+\_\+silent\+\_\+logger (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{logger_8h_ac812b073965fdb43ac0b6198037a0991}\label{logger_8h_ac812b073965fdb43ac0b6198037a0991}} 
+\index{logger.\+h@{logger.\+h}!make\+\_\+standard\+\_\+logger@{make\+\_\+standard\+\_\+logger}}
+\index{make\+\_\+standard\+\_\+logger@{make\+\_\+standard\+\_\+logger}!logger.\+h@{logger.\+h}}
+\subsubsection{\texorpdfstring{make\+\_\+standard\+\_\+logger()}{make\_standard\_logger()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\textbf{ std\+::unique\+\_\+ptr}$<$\hyperlink{class_logger}{Logger}$>$ make\+\_\+standard\+\_\+logger (\begin{DoxyParamCaption}\item[{T \&}]{arg }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{logger_8h_ac3b2dcfa2cd44e6c35b0d160fb23f1a6}\label{logger_8h_ac3b2dcfa2cd44e6c35b0d160fb23f1a6}} 
+\index{logger.\+h@{logger.\+h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!logger.\+h@{logger.\+h}}
+\subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{class_logger}{Logger}\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{\hyperlink{class_logger}{Logger} \&}]{out,  }\item[{const \textbf{ std\+::string} \&}]{str }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{logger_8h_a1a0e997623846c8b4665a3df1536e716}\label{logger_8h_a1a0e997623846c8b4665a3df1536e716}} 
+\index{logger.\+h@{logger.\+h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!logger.\+h@{logger.\+h}}
+\subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\hyperlink{class_logger}{Logger}\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{\hyperlink{class_logger}{Logger} \&}]{out,  }\item[{const T \&}]{value }\end{DoxyParamCaption})}
+

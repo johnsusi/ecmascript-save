@@ -2,7 +2,6 @@ var searchData=
 [
   ['make_5fsigned',['make_signed',['http://en.cppreference.com/w/cpp/types/make_signed.html',1,'std']]],
   ['make_5funsigned',['make_unsigned',['http://en.cppreference.com/w/cpp/types/make_unsigned.html',1,'std']]],
-  ['make_5fvoid',['make_void',['../structmake__void.html',1,'']]],
   ['map',['map',['http://en.cppreference.com/w/cpp/container/map.html',1,'std']]],
   ['mask',['mask',['http://en.cppreference.com/w/cpp/locale/ctype_base.html',1,'std::ctype::mask'],['http://en.cppreference.com/w/cpp/locale/ctype_base.html',1,'std::ctype_byname::mask'],['http://en.cppreference.com/w/cpp/locale/ctype_base.html',1,'std::ctype_base::mask']]],
   ['match_5fresults',['match_results',['http://en.cppreference.com/w/cpp/regex/match_results.html',1,'std']]],

@@ -1,0 +1,6 @@
+<map id="BasicVisitor" name="BasicVisitor">
+<area shape="rect" id="node3" href="$class_eval_visitor.html" title="EvalVisitor" alt="" coords="5,152,89,177"/>
+<area shape="rect" id="node4" href="$class_j_s_o_n_visitor.html" title="JSONVisitor" alt="" coords="114,152,208,177"/>
+<area shape="rect" id="node5" href="$class_simplified_y_a_m_l_visitor.html" title="SimplifiedYAMLVisitor" alt="" coords="231,152,381,177"/>
+<area shape="rect" id="node2" href="$struct_visitor.html" title="Visitor" alt="" coords="132,5,190,31"/>
+</map>

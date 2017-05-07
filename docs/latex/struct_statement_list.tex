@@ -26,6 +26,10 @@ Collaboration diagram for Statement\+List\+:\nopagebreak
 \begin{DoxyCompactItemize}
 \item 
 {\footnotesize template$<$typename... Args$>$ }\\\hyperlink{struct_statement_list_a9e3154be364d96ab840141257183b204}{Statement\+List} (Args \&\&... args)
+\item 
+void \hyperlink{struct_statement_list_a793dafb939f4a4163bc37e0a2f7bf2bf}{accept} (\hyperlink{struct_visitor}{Visitor} \&visitor) const override
+\item 
+const char $\ast$ \hyperlink{struct_statement_list_a720038f01e820f043e7f16e4acc7a0f9}{type} () const override
 \end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
@@ -37,6 +41,29 @@ Collaboration diagram for Statement\+List\+:\nopagebreak
 \subsubsection{\texorpdfstring{Statement\+List()}{StatementList()}}
 {\footnotesize\ttfamily template$<$typename... Args$>$ \\
 Statement\+List\+::\+Statement\+List (\begin{DoxyParamCaption}\item[{Args \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_statement_list_a793dafb939f4a4163bc37e0a2f7bf2bf}\label{struct_statement_list_a793dafb939f4a4163bc37e0a2f7bf2bf}} 
+\index{Statement\+List@{Statement\+List}!accept@{accept}}
+\index{accept@{accept}!Statement\+List@{Statement\+List}}
+\subsubsection{\texorpdfstring{accept()}{accept()}}
+{\footnotesize\ttfamily void Statement\+List\+::accept (\begin{DoxyParamCaption}\item[{\hyperlink{struct_visitor}{Visitor} \&}]{visitor }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_node_a10bd7af968140bbf5fa461298a969c71}{Node}.
+
+\mbox{\Hypertarget{struct_statement_list_a720038f01e820f043e7f16e4acc7a0f9}\label{struct_statement_list_a720038f01e820f043e7f16e4acc7a0f9}} 
+\index{Statement\+List@{Statement\+List}!type@{type}}
+\index{type@{type}!Statement\+List@{Statement\+List}}
+\subsubsection{\texorpdfstring{type()}{type()}}
+{\footnotesize\ttfamily const char$\ast$ Statement\+List\+::type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_node_a82f29420d0a38efcc370352528e94e9b}{Node}.
 
 
 

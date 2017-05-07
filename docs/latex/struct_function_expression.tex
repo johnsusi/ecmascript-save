@@ -15,7 +15,8 @@ Inheritance diagram for Function\+Expression\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for Function\+Expression\+:\nopagebreak
+Collaboration diagram for Function\+Expression\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -27,7 +28,9 @@ Collaboration diagram for Function\+Expression\+:\nopagebreak
 \item 
 \hyperlink{struct_function_expression_aae0ca9ebecd1bdd51e7c7440c8cf2ec3}{Function\+Expression} (\hyperlink{struct_identifier}{Identifier} $\ast$\hyperlink{struct_function_expression_a448321d33ff9d2603dfdb0b14cf4fe24}{id}, \hyperlink{struct_formal_parameter_list}{Formal\+Parameter\+List} $\ast$\hyperlink{struct_function_expression_a5d02f2d692ae86ebdc36a3963042af65}{params}, \hyperlink{struct_function_body}{Function\+Body} $\ast$\hyperlink{struct_function_expression_af08f7dfdb616e122ab79c9a2e706061e}{body})
 \item 
-void \hyperlink{struct_function_expression_a4808466a4242254555340a7e9c5e6dac}{accept} (\hyperlink{struct_visitor}{Visitor} \&visitor) const
+void \hyperlink{struct_function_expression_a66981757d45045284b41aecc85973434}{accept} (\hyperlink{struct_visitor}{Visitor} \&visitor) const override
+\item 
+const char $\ast$ \hyperlink{struct_function_expression_a77dba3202da208b3ba1583dd192856dd}{type} () const override
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -50,15 +53,25 @@ void \hyperlink{struct_function_expression_a4808466a4242254555340a7e9c5e6dac}{ac
 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{struct_function_expression_a4808466a4242254555340a7e9c5e6dac}\label{struct_function_expression_a4808466a4242254555340a7e9c5e6dac}} 
+\mbox{\Hypertarget{struct_function_expression_a66981757d45045284b41aecc85973434}\label{struct_function_expression_a66981757d45045284b41aecc85973434}} 
 \index{Function\+Expression@{Function\+Expression}!accept@{accept}}
 \index{accept@{accept}!Function\+Expression@{Function\+Expression}}
 \subsubsection{\texorpdfstring{accept()}{accept()}}
-{\footnotesize\ttfamily void Function\+Expression\+::accept (\begin{DoxyParamCaption}\item[{\hyperlink{struct_visitor}{Visitor} \&}]{visitor }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily void Function\+Expression\+::accept (\begin{DoxyParamCaption}\item[{\hyperlink{struct_visitor}{Visitor} \&}]{visitor }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
 Implements \hyperlink{struct_node_a10bd7af968140bbf5fa461298a969c71}{Node}.
+
+\mbox{\Hypertarget{struct_function_expression_a77dba3202da208b3ba1583dd192856dd}\label{struct_function_expression_a77dba3202da208b3ba1583dd192856dd}} 
+\index{Function\+Expression@{Function\+Expression}!type@{type}}
+\index{type@{type}!Function\+Expression@{Function\+Expression}}
+\subsubsection{\texorpdfstring{type()}{type()}}
+{\footnotesize\ttfamily const char$\ast$ Function\+Expression\+::type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_node_a82f29420d0a38efcc370352528e94e9b}{Node}.
 
 
 

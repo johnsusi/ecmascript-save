@@ -6,14 +6,13 @@ This inheritance list is sorted roughly, but not completely, alphabetically\+:\b
 \end{DoxyCompactList}
 \item \contentsline{section}{Boolean}{\pageref{struct_boolean}}{}
 \item \contentsline{section}{Token\+:\+:Debug\+Info}{\pageref{struct_token_1_1_debug_info}}{}
-\item std\+:\+:false\+\_\+type{\ttfamily  \mbox{[}external\mbox{]}}\begin{DoxyCompactList}
-\item \contentsline{section}{detail\+:\+:is\+\_\+callable1$<$ class, class, class $>$}{\pageref{structdetail_1_1is__callable1}}{}
-\item \contentsline{section}{detail\+:\+:is\+\_\+callable2$<$ class, class, class, class $>$}{\pageref{structdetail_1_1is__callable2}}{}
-\end{DoxyCompactList}
-\item \contentsline{section}{indentstream}{\pageref{structindentstream}}{}
 \item \contentsline{section}{Input\+Element}{\pageref{class_input_element}}{}
 \item \contentsline{section}{Lexical\+Grammar$<$ T $>$}{\pageref{class_lexical_grammar}}{}
-\item \contentsline{section}{make\+\_\+void$<$ Ts $>$}{\pageref{structmake__void}}{}
+\item \contentsline{section}{Logger}{\pageref{class_logger}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{Silent\+Logger}{\pageref{class_silent_logger}}{}
+\item \contentsline{section}{Standard\+Logger$<$ T $>$}{\pageref{class_standard_logger}}{}
+\end{DoxyCompactList}
 \item \contentsline{section}{Matcher$<$ T, It $>$}{\pageref{class_matcher}}{}
 \item \contentsline{section}{Matcher$<$ T, std\+:\+:u16string\+:\+:const\+\_\+iterator $>$}{\pageref{class_matcher}}{}
 \item \contentsline{section}{Matcher$<$ Token, std\+:\+:vector$<$ Token $>$\+:\+:iterator $>$}{\pageref{class_matcher}}{}
@@ -21,41 +20,40 @@ This inheritance list is sorted roughly, but not completely, alphabetically\+:\b
 \item \contentsline{section}{Named\+Data\+Property}{\pageref{struct_named_data_property}}{}
 \item \contentsline{section}{Node}{\pageref{struct_node}}{}
 \begin{DoxyCompactList}
+\item \contentsline{section}{Array\+Literal}{\pageref{struct_array_literal}}{}
 \item \contentsline{section}{Case\+Clause}{\pageref{struct_case_clause}}{}
 \begin{DoxyCompactList}
 \item \contentsline{section}{Default\+Clause}{\pageref{struct_default_clause}}{}
 \end{DoxyCompactList}
+\item \contentsline{section}{Elision}{\pageref{struct_elision}}{}
 \item \contentsline{section}{Expression}{\pageref{struct_expression}}{}
 \begin{DoxyCompactList}
 \item \contentsline{section}{Arguments}{\pageref{struct_arguments}}{}
 \item \contentsline{section}{Binary\+Expression}{\pageref{struct_binary_expression}}{}
 \item \contentsline{section}{Call\+Expression}{\pageref{struct_call_expression}}{}
 \item \contentsline{section}{Conditional\+Expression}{\pageref{struct_conditional_expression}}{}
-\item \contentsline{section}{Elision}{\pageref{struct_elision}}{}
 \item \contentsline{section}{Function\+Expression}{\pageref{struct_function_expression}}{}
+\item \contentsline{section}{Left\+Hand\+Side\+Expression}{\pageref{struct_left_hand_side_expression}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{Primary\+Expression}{\pageref{struct_primary_expression}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{Array\+Expression}{\pageref{struct_array_expression}}{}
+\item \contentsline{section}{Identifier\+Expression}{\pageref{struct_identifier_expression}}{}
+\item \contentsline{section}{Literal\+Expression}{\pageref{struct_literal_expression}}{}
+\item \contentsline{section}{Object\+Expression}{\pageref{struct_object_expression}}{}
+\item \contentsline{section}{Object\+Literal}{\pageref{struct_object_literal}}{}
+\item \contentsline{section}{This\+Expression}{\pageref{struct_this_expression}}{}
+\end{DoxyCompactList}
+\end{DoxyCompactList}
 \item \contentsline{section}{Member\+Expression}{\pageref{struct_member_expression}}{}
 \item \contentsline{section}{New\+Expression}{\pageref{struct_new_expression}}{}
 \item \contentsline{section}{Postfix\+Expression}{\pageref{struct_postfix_expression}}{}
-\item \contentsline{section}{Primary\+Expression}{\pageref{struct_primary_expression}}{}
-\begin{DoxyCompactList}
-\item \contentsline{section}{Array\+Literal}{\pageref{struct_array_literal}}{}
-\item \contentsline{section}{Identifier}{\pageref{struct_identifier}}{}
-\item \contentsline{section}{Literal}{\pageref{struct_literal}}{}
-\begin{DoxyCompactList}
-\item \contentsline{section}{Boolean\+Literal}{\pageref{struct_boolean_literal}}{}
-\item \contentsline{section}{Null\+Literal}{\pageref{struct_null_literal}}{}
-\item \contentsline{section}{Numeric\+Literal}{\pageref{struct_numeric_literal}}{}
-\item \contentsline{section}{Regular\+Expression\+Literal}{\pageref{struct_regular_expression_literal}}{}
-\item \contentsline{section}{String\+Literal}{\pageref{struct_string_literal}}{}
-\end{DoxyCompactList}
-\item \contentsline{section}{Object\+Literal}{\pageref{struct_object_literal}}{}
-\item \contentsline{section}{This}{\pageref{struct_this}}{}
-\end{DoxyCompactList}
 \item \contentsline{section}{Property\+Assignment}{\pageref{struct_property_assignment}}{}
 \item \contentsline{section}{Property\+Name}{\pageref{struct_property_name}}{}
 \item \contentsline{section}{Unary\+Expression}{\pageref{struct_unary_expression}}{}
 \item \contentsline{section}{Variable\+Declaration}{\pageref{struct_variable_declaration}}{}
 \end{DoxyCompactList}
+\item \contentsline{section}{Identifier}{\pageref{struct_identifier}}{}
 \item \contentsline{section}{List$<$ T $>$}{\pageref{struct_list}}{}
 \item \contentsline{section}{List$<$ Case\+Clause $>$}{\pageref{struct_list}}{}
 \begin{DoxyCompactList}
@@ -64,11 +62,14 @@ This inheritance list is sorted roughly, but not completely, alphabetically\+:\b
 \item \contentsline{section}{List$<$ Expression $>$}{\pageref{struct_list}}{}
 \begin{DoxyCompactList}
 \item \contentsline{section}{Argument\+List}{\pageref{struct_argument_list}}{}
-\item \contentsline{section}{Element\+List}{\pageref{struct_element_list}}{}
 \end{DoxyCompactList}
 \item \contentsline{section}{List$<$ Identifier $>$}{\pageref{struct_list}}{}
 \begin{DoxyCompactList}
 \item \contentsline{section}{Formal\+Parameter\+List}{\pageref{struct_formal_parameter_list}}{}
+\end{DoxyCompactList}
+\item \contentsline{section}{List$<$ Node $>$}{\pageref{struct_list}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{Element\+List}{\pageref{struct_element_list}}{}
 \end{DoxyCompactList}
 \item \contentsline{section}{List$<$ Property\+Assignment $>$}{\pageref{struct_list}}{}
 \begin{DoxyCompactList}
@@ -89,9 +90,20 @@ This inheritance list is sorted roughly, but not completely, alphabetically\+:\b
 \begin{DoxyCompactList}
 \item \contentsline{section}{Variable\+Declaration\+List}{\pageref{struct_variable_declaration_list}}{}
 \end{DoxyCompactList}
+\item \contentsline{section}{Literal}{\pageref{struct_literal}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{Boolean\+Literal}{\pageref{struct_boolean_literal}}{}
+\item \contentsline{section}{Null\+Literal}{\pageref{struct_null_literal}}{}
+\item \contentsline{section}{Numeric\+Literal}{\pageref{struct_numeric_literal}}{}
+\item \contentsline{section}{Regular\+Expression\+Literal}{\pageref{struct_regular_expression_literal}}{}
+\item \contentsline{section}{String\+Literal}{\pageref{struct_string_literal}}{}
+\end{DoxyCompactList}
 \item \contentsline{section}{Source\+Element}{\pageref{struct_source_element}}{}
 \begin{DoxyCompactList}
 \item \contentsline{section}{Declaration}{\pageref{struct_declaration}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{Program\+Declaration}{\pageref{struct_program_declaration}}{}
+\end{DoxyCompactList}
 \item \contentsline{section}{Function\+Declaration}{\pageref{struct_function_declaration}}{}
 \item \contentsline{section}{Statement}{\pageref{struct_statement}}{}
 \begin{DoxyCompactList}
@@ -115,6 +127,7 @@ This inheritance list is sorted roughly, but not completely, alphabetically\+:\b
 \item \contentsline{section}{With\+Statement}{\pageref{struct_with_statement}}{}
 \end{DoxyCompactList}
 \end{DoxyCompactList}
+\item \contentsline{section}{This}{\pageref{struct_this}}{}
 \end{DoxyCompactList}
 \item \contentsline{section}{Null}{\pageref{struct_null}}{}
 \item \contentsline{section}{Number}{\pageref{struct_number}}{}
@@ -129,13 +142,16 @@ This inheritance list is sorted roughly, but not completely, alphabetically\+:\b
 \end{DoxyCompactList}
 \item \contentsline{section}{String}{\pageref{struct_string}}{}
 \item \contentsline{section}{Token}{\pageref{class_token}}{}
-\item std\+:\+:true\+\_\+type{\ttfamily  \mbox{[}external\mbox{]}}\begin{DoxyCompactList}
-\item \contentsline{section}{detail\+:\+:is\+\_\+callable1$<$ T, F, void\+\_\+t$<$ decltype(std\+:\+:declval$<$ F $>$()(std\+:\+:declval$<$ T $>$()))$>$ $>$}{\pageref{structdetail_1_1is__callable1_3_01_t_00_01_f_00_01void__t_3_01decltype_07std_1_1declval_3_01_f_0031734589d10bdb36da443f727c3d6f8}}{}
-\item \contentsline{section}{detail\+:\+:is\+\_\+callable2$<$ T, N, F, void\+\_\+t$<$ decltype(std\+:\+:declval$<$ F $>$()(std\+:\+:declval$<$ T $>$(), std\+:\+:declval$<$ N $>$()))$>$ $>$}{\pageref{structdetail_1_1is__callable2_3_01_t_00_01_n_00_01_f_00_01void__t_3_01decltype_07std_1_1declval_85e36b71e7ce49c039fb03c9fdc1f60f}}{}
-\end{DoxyCompactList}
+\item \contentsline{section}{Trace\+Guard}{\pageref{class_trace_guard}}{}
+\item \contentsline{section}{Tracer}{\pageref{class_tracer}}{}
 \item \contentsline{section}{Undefined}{\pageref{struct_undefined}}{}
 \item \contentsline{section}{Visitor}{\pageref{struct_visitor}}{}
 \begin{DoxyCompactList}
-\item \contentsline{section}{Callable\+Visitor$<$ Callable $>$}{\pageref{struct_callable_visitor}}{}
+\item \contentsline{section}{Basic\+Visitor}{\pageref{struct_basic_visitor}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{Eval\+Visitor}{\pageref{class_eval_visitor}}{}
+\item \contentsline{section}{J\+S\+O\+N\+Visitor}{\pageref{class_j_s_o_n_visitor}}{}
+\item \contentsline{section}{Simplified\+Y\+A\+M\+L\+Visitor}{\pageref{class_simplified_y_a_m_l_visitor}}{}
+\end{DoxyCompactList}
 \end{DoxyCompactList}
 \end{DoxyCompactList}

@@ -1,4 +1,4 @@
-.TH "BooleanLiteral" 3 "Tue May 2 2017" "ECMAScript" \" -*- nroff -*-
+.TH "BooleanLiteral" 3 "Sun May 7 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -19,6 +19,9 @@ Inherits \fBLiteral\fP\&.
 .ti -1c
 .RI "void \fBaccept\fP (\fBVisitor\fP &visitor) const override"
 .br
+.ti -1c
+.RI "const char * \fBtype\fP () const override"
+.br
 .in -1c
 .SS "Public Attributes"
 
@@ -34,6 +37,10 @@ Inherits \fBLiteral\fP\&.
 .SH "Member Function Documentation"
 .PP 
 .SS "void BooleanLiteral::accept (\fBVisitor\fP & visitor) const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBNode\fP\&.
+.SS "const char* BooleanLiteral::type () const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
 Implements \fBNode\fP\&.

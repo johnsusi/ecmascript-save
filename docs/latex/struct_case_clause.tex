@@ -28,6 +28,8 @@ Collaboration diagram for Case\+Clause\+:\nopagebreak
 \hyperlink{struct_case_clause_a05d8bf165e3a4796247b5fbf1f71d3e5}{Case\+Clause} (\hyperlink{struct_expression}{Expression} $\ast$\hyperlink{struct_case_clause_a80b6f256f3d9910250e4b8433ea75d7f}{test}, \hyperlink{struct_statement_list}{Statement\+List} $\ast$\hyperlink{struct_case_clause_a3e6914411610d1893b61172521e11288}{consequent})
 \item 
 void \hyperlink{struct_case_clause_a5bbee9ea9ca206c09b8b79f8c96720a1}{accept} (\hyperlink{struct_visitor}{Visitor} \&visitor) const override
+\item 
+const char $\ast$ \hyperlink{struct_case_clause_a9dcb0a1a072df7d577b272c6bbb3c6dc}{type} () const override
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -61,6 +63,20 @@ Implements \hyperlink{struct_node_a10bd7af968140bbf5fa461298a969c71}{Node}.
 
 
 Reimplemented in \hyperlink{struct_default_clause_ade62e79cf9ad891d974528e1e172e2b6}{Default\+Clause}.
+
+\mbox{\Hypertarget{struct_case_clause_a9dcb0a1a072df7d577b272c6bbb3c6dc}\label{struct_case_clause_a9dcb0a1a072df7d577b272c6bbb3c6dc}} 
+\index{Case\+Clause@{Case\+Clause}!type@{type}}
+\index{type@{type}!Case\+Clause@{Case\+Clause}}
+\subsubsection{\texorpdfstring{type()}{type()}}
+{\footnotesize\ttfamily const char$\ast$ Case\+Clause\+::type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_node_a82f29420d0a38efcc370352528e94e9b}{Node}.
+
+
+
+Reimplemented in \hyperlink{struct_default_clause_a464358dcd7e4e13287482d3c858f3538}{Default\+Clause}.
 
 
 

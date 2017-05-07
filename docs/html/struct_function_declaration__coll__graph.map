@@ -1,15 +1,13 @@
 <map id="FunctionDeclaration" name="FunctionDeclaration">
-<area shape="rect" id="node2" href="$struct_source_element.html" title="SourceElement" alt="" coords="5,141,118,167"/>
-<area shape="rect" id="node3" href="$struct_node.html" title="Node" alt="" coords="202,5,255,31"/>
-<area shape="rect" id="node6" href="$struct_list.html" title="List\&lt; SourceElement \&gt;" alt="" coords="301,92,457,117"/>
-<area shape="rect" id="node10" href="$struct_expression.html" title="Expression" alt="" coords="189,92,276,117"/>
-<area shape="rect" id="node13" href="$struct_list.html" title="List\&lt; Identifier \&gt;" alt="" coords="481,92,597,117"/>
-<area shape="rect" id="node4" href="$struct_function_body.html" title="FunctionBody" alt="" coords="347,289,450,315"/>
-<area shape="rect" id="node5" href="$struct_source_elements.html" title="SourceElements" alt="" coords="359,191,478,216"/>
-<area shape="rect" id="node7" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/container/vector.html" title="std::vector\&lt; SourceElement *\&gt;" alt="" coords="279,5,481,31"/>
-<area shape="rect" id="node8" href="$struct_identifier.html" title="Identifier" alt="" coords="232,289,304,315"/>
-<area shape="rect" id="node9" href="$struct_primary_expression.html" title="PrimaryExpression" alt="" coords="202,191,335,216"/>
-<area shape="rect" id="node11" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/string/basic_string.html" title="std::u16string" alt="" coords="76,191,178,216"/>
-<area shape="rect" id="node12" href="$struct_formal_parameter_list.html" title="FormalParameterList" alt="" coords="450,240,596,265"/>
-<area shape="rect" id="node14" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/container/vector.html" title="std::vector\&lt; Identifier *\&gt;" alt="" coords="506,5,668,31"/>
+<area shape="rect" id="node2" href="$struct_source_element.html" title="SourceElement" alt="" coords="326,141,439,167"/>
+<area shape="rect" id="node3" href="$struct_node.html" title="Node" alt="" coords="357,5,411,31"/>
+<area shape="rect" id="node6" href="$struct_list.html" title="List\&lt; SourceElement \&gt;" alt="" coords="190,92,346,117"/>
+<area shape="rect" id="node8" href="$struct_identifier.html" title="Identifier" alt="" coords="93,92,166,117"/>
+<area shape="rect" id="node11" href="$struct_list.html" title="List\&lt; Identifier \&gt;" alt="" coords="422,92,538,117"/>
+<area shape="rect" id="node4" href="$struct_function_body.html" title="FunctionBody" alt="" coords="234,289,337,315"/>
+<area shape="rect" id="node5" href="$struct_source_elements.html" title="SourceElements" alt="" coords="214,191,333,216"/>
+<area shape="rect" id="node7" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/container/vector.html" title="std::vector\&lt; SourceElement *\&gt;" alt="" coords="131,5,333,31"/>
+<area shape="rect" id="node9" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/string/basic_string.html" title="std::u16string" alt="" coords="5,5,107,31"/>
+<area shape="rect" id="node10" href="$struct_formal_parameter_list.html" title="FormalParameterList" alt="" coords="404,240,550,265"/>
+<area shape="rect" id="node12" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/container/vector.html" title="std::vector\&lt; Identifier *\&gt;" alt="" coords="435,5,597,31"/>
 </map>

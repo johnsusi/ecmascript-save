@@ -97,7 +97,7 @@ var searchData=
   ['rewind',['rewind',['http://en.cppreference.com/w/cpp/io/c/rewind.html',1,'std']]],
   ['rfind',['rfind',['http://en.cppreference.com/w/cpp/string/basic_string/rfind.html',1,'std::string::rfind()'],['http://en.cppreference.com/w/cpp/string/basic_string/rfind.html',1,'std::basic_string::rfind()'],['http://en.cppreference.com/w/cpp/string/basic_string/rfind.html',1,'std::wstring::rfind()'],['http://en.cppreference.com/w/cpp/string/basic_string/rfind.html',1,'std::u16string::rfind()'],['http://en.cppreference.com/w/cpp/string/basic_string/rfind.html',1,'std::u32string::rfind()']]],
   ['rhs',['rhs',['../struct_unary_expression.html#a53e53c6c0a0b76c46cb49a1fa48be5a5',1,'UnaryExpression::rhs()'],['../struct_binary_expression.html#ad569ae3b07f428257b0e7a96746ceb32',1,'BinaryExpression::rhs()']]],
-  ['right',['right',['http://en.cppreference.com/w/cpp/io/manip/left.html',1,'std']]],
+  ['right',['right',['../struct_for_in_statement.html#a8aec27cbc19e2cb038acd3d0fc0a1969',1,'ForInStatement::right()'],['http://en.cppreference.com/w/cpp/io/manip/left.html',1,'std::right()']]],
   ['rint',['rint',['http://en.cppreference.com/w/cpp/numeric/math/rint.html',1,'std']]],
   ['rmatch',['rmatch',['../class_matcher.html#a016cf13b6cf1119494a9723fb9419fd4',1,'Matcher::rmatch(Pred &amp;&amp;pred) -&gt; decltype(pred(), bool())'],['../class_matcher.html#ad0b897b87cede7752c385e7d55bcaff4',1,'Matcher::rmatch(Pred &amp;&amp;pred) -&gt; decltype(pred(*m_cur), bool())']]],
   ['rotate',['rotate',['http://en.cppreference.com/w/cpp/algorithm/rotate.html',1,'std']]],

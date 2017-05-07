@@ -77,7 +77,10 @@ $(function() {
 <code>#include &lt;vector&gt;</code><br />
 <code>#include &lt;boost/algorithm/string.hpp&gt;</code><br />
 <code>#include &lt;boost/core/demangle.hpp&gt;</code><br />
+<code>#include &lt;unicode/errorcode.h&gt;</code><br />
+<code>#include &lt;unicode/normalizer2.h&gt;</code><br />
 <code>#include &lt;unicode/uchar.h&gt;</code><br />
+<code>#include &lt;unicode/unistr.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for util.cpp:</div>
 <div class="dyncontent">
@@ -86,10 +89,22 @@ Include dependency graph for util.cpp:</div>
 <area shape="rect" id="node2" href="util_8h.html" title="util.h" alt="" coords="78,79,128,104"/>
 </map>
 </div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="util_8cpp__dep__incl.png" border="0" usemap="#src_2util_8cppdep" alt=""/></div>
+<map name="src_2util_8cppdep" id="src_2util_8cppdep">
+<area shape="rect" id="node2" href="single_8cpp.html" title="src/single.cpp" alt="" coords="5,79,108,104"/>
+</map>
+</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a963acd6c6383cd6f6479d6a38be9dfcb"><td class="memItemLeft" align="right" valign="top"><a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="util_8cpp.html#a963acd6c6383cd6f6479d6a38be9dfcb">left_align_text</a> (const <a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;text, const <a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;<a class="el" href="ast_8cpp.html#ac2a5fec8451698248996dc924364038f">indent</a>)</td></tr>
+<tr class="memitem:a9e230e1ab47b787562705c322044d2a0"><td class="memItemLeft" align="right" valign="top"><a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::u16string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="util_8cpp.html#a9e230e1ab47b787562705c322044d2a0">convert_utf8_to_utf16</a> (const <a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;source)</td></tr>
+<tr class="separator:a9e230e1ab47b787562705c322044d2a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade563fe4c392b74cebcfbe8b18d6fb6d"><td class="memItemLeft" align="right" valign="top"><a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="util_8cpp.html#ade563fe4c392b74cebcfbe8b18d6fb6d">convert_utf16_to_utf8</a> (const <a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::u16string</a> &amp;source)</td></tr>
+<tr class="separator:ade563fe4c392b74cebcfbe8b18d6fb6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a963acd6c6383cd6f6479d6a38be9dfcb"><td class="memItemLeft" align="right" valign="top"><a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="util_8cpp.html#a963acd6c6383cd6f6479d6a38be9dfcb">left_align_text</a> (const <a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;text, const <a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;indent)</td></tr>
 <tr class="separator:a963acd6c6383cd6f6479d6a38be9dfcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad812ab2de404402e3b80eeeac6f18d75"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="util_8cpp.html#ad812ab2de404402e3b80eeeac6f18d75">u_charCategory</a> (int c)</td></tr>
 <tr class="separator:ad812ab2de404402e3b80eeeac6f18d75"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -99,6 +114,45 @@ Functions</h2></td></tr>
 <tr class="separator:a3fc653067bd9f822c4a444b25f3b5d37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="ade563fe4c392b74cebcfbe8b18d6fb6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade563fe4c392b74cebcfbe8b18d6fb6d">&#9670;&nbsp;</a></span>convert_utf16_to_utf8()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> convert_utf16_to_utf8 </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::u16string</a> &amp;&#160;</td>
+          <td class="paramname"><em>source</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Converts <em>source</em> from UTF-16 to UTF-8. </p>
+
+</div>
+</div>
+<a id="a9e230e1ab47b787562705c322044d2a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e230e1ab47b787562705c322044d2a0">&#9670;&nbsp;</a></span>convert_utf8_to_utf16()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::u16string</a> convert_utf8_to_utf16 </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>source</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Converts <em>source</em> from UTF-8 to UTF-16 and normalised to Unicode Normalization Form C.</p>
+<p>Throws <em><a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/error/runtime_error.html">std::runtime_error</a></em> on failure. </p>
+
+</div>
+</div>
 <a id="a963acd6c6383cd6f6479d6a38be9dfcb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a963acd6c6383cd6f6479d6a38be9dfcb">&#9670;&nbsp;</a></span>left_align_text()</h2>
 

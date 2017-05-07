@@ -1,0 +1,35 @@
+.TH "Logger" 3 "Sun May 7 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Logger
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <logger\&.h>\fP
+.PP
+Inherited by \fBSilentLogger\fP, and \fBStandardLogger< T >\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual void \fBlog\fP (const \fBstd::string\fP &)=0"
+.br
+.ti -1c
+.RI "template<typename T > auto \fBlog\fP (T &&callback) \-> decltype(callback(*this), void())"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual void Logger::log (const \fBstd::string\fP &)\fC [pure virtual]\fP"
+
+.PP
+Implemented in \fBStandardLogger< T >\fP, and \fBSilentLogger\fP\&.
+.SS "template<typename T > auto Logger::log (T && callback) \-> decltype(callback(*this), void())
+  \fC [inline]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

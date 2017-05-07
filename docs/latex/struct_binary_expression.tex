@@ -28,6 +28,8 @@ Collaboration diagram for Binary\+Expression\+:\nopagebreak
 \hyperlink{struct_binary_expression_a6fb4760b068f658a3b65271ab5f46b73}{Binary\+Expression} (\textbf{ std\+::string} \hyperlink{struct_binary_expression_a4c33b66e2ffc0a5ede2cdd190bf4bd75}{op}, \hyperlink{struct_expression}{Expression} $\ast$\hyperlink{struct_binary_expression_ae689284a646929c99e634e75f50cb32c}{lhs}=nullptr, \hyperlink{struct_expression}{Expression} $\ast$\hyperlink{struct_binary_expression_ad569ae3b07f428257b0e7a96746ceb32}{rhs}=nullptr)
 \item 
 void \hyperlink{struct_binary_expression_af8318bd8b21b4bbca064e8a6086a10a0}{accept} (\hyperlink{struct_visitor}{Visitor} \&visitor) const override
+\item 
+const char $\ast$ \hyperlink{struct_binary_expression_a9ab583e823bac39ed8fd8eb34747ac9f}{type} () const override
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -59,6 +61,16 @@ void \hyperlink{struct_binary_expression_af8318bd8b21b4bbca064e8a6086a10a0}{acce
 
 
 Implements \hyperlink{struct_node_a10bd7af968140bbf5fa461298a969c71}{Node}.
+
+\mbox{\Hypertarget{struct_binary_expression_a9ab583e823bac39ed8fd8eb34747ac9f}\label{struct_binary_expression_a9ab583e823bac39ed8fd8eb34747ac9f}} 
+\index{Binary\+Expression@{Binary\+Expression}!type@{type}}
+\index{type@{type}!Binary\+Expression@{Binary\+Expression}}
+\subsubsection{\texorpdfstring{type()}{type()}}
+{\footnotesize\ttfamily const char$\ast$ Binary\+Expression\+::type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_node_a82f29420d0a38efcc370352528e94e9b}{Node}.
 
 
 

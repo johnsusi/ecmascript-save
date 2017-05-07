@@ -1,0 +1,12 @@
+<map id="ArrayExpression" name="ArrayExpression">
+<area shape="rect" id="node2" href="$struct_primary_expression.html" title="PrimaryExpression" alt="" coords="52,253,185,279"/>
+<area shape="rect" id="node3" href="$struct_left_hand_side_expression.html" title="LeftHandSideExpression" alt="" coords="5,167,173,192"/>
+<area shape="rect" id="node4" href="$struct_expression.html" title="Expression" alt="" coords="76,92,164,117"/>
+<area shape="rect" id="node5" href="$struct_node.html" title="Node" alt="" coords="195,5,248,31"/>
+<area shape="rect" id="node6" href="$struct_array_literal.html" title="ArrayLiteral" alt="" coords="222,253,311,279"/>
+<area shape="rect" id="node8" href="$struct_list.html" title="List\&lt; Node \&gt;" alt="" coords="334,92,431,117"/>
+<area shape="rect" id="node10" href="$struct_elision.html" title="Elision" alt="" coords="248,92,309,117"/>
+<area shape="rect" id="node7" href="$struct_element_list.html" title="ElementList" alt="" coords="337,167,428,192"/>
+<area shape="rect" id="node9" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/container/vector.html" title="std::vector\&lt; Node *\&gt;" alt="" coords="386,5,529,31"/>
+<area shape="rect" id="node11" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/types/size_t.html" title="std::size_t" alt="" coords="281,5,362,31"/>
+</map>

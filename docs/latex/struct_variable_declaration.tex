@@ -15,11 +15,12 @@ Inheritance diagram for Variable\+Declaration\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for Variable\+Declaration\+:\nopagebreak
+Collaboration diagram for Variable\+Declaration\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{struct_variable_declaration__coll__graph}
+\includegraphics[width=234pt]{struct_variable_declaration__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
@@ -28,6 +29,8 @@ Collaboration diagram for Variable\+Declaration\+:\nopagebreak
 \hyperlink{struct_variable_declaration_ab1ee3bba021d48bca4da042a32873655}{Variable\+Declaration} (\hyperlink{struct_identifier}{Identifier} $\ast$\hyperlink{struct_variable_declaration_af00ca23e243d1ab865fd094c9be7a5c9}{identifier}, \hyperlink{struct_expression}{Expression} $\ast$\hyperlink{struct_variable_declaration_a472faa13a27b5cc06125787259116a2f}{initializer}=nullptr)
 \item 
 void \hyperlink{struct_variable_declaration_abdf0b5eed5200357de1bd9bf5ce6f6b3}{accept} (\hyperlink{struct_visitor}{Visitor} \&visitor) const override
+\item 
+const char $\ast$ \hyperlink{struct_variable_declaration_ad3a4af0a986f42e3655d1b2f174c9494}{type} () const override
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -57,6 +60,16 @@ void \hyperlink{struct_variable_declaration_abdf0b5eed5200357de1bd9bf5ce6f6b3}{a
 
 
 Implements \hyperlink{struct_node_a10bd7af968140bbf5fa461298a969c71}{Node}.
+
+\mbox{\Hypertarget{struct_variable_declaration_ad3a4af0a986f42e3655d1b2f174c9494}\label{struct_variable_declaration_ad3a4af0a986f42e3655d1b2f174c9494}} 
+\index{Variable\+Declaration@{Variable\+Declaration}!type@{type}}
+\index{type@{type}!Variable\+Declaration@{Variable\+Declaration}}
+\subsubsection{\texorpdfstring{type()}{type()}}
+{\footnotesize\ttfamily const char$\ast$ Variable\+Declaration\+::type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_node_a82f29420d0a38efcc370352528e94e9b}{Node}.
 
 
 

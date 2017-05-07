@@ -1,25 +1,28 @@
 \hypertarget{lexer_8cpp}{}\section{src/lexer.cpp File Reference}
 \label{lexer_8cpp}\index{src/lexer.\+cpp@{src/lexer.\+cpp}}
 {\ttfamily \#include \char`\"{}lexer.\+h\char`\"{}}\newline
-{\ttfamily \#include $<$unicode/errorcode.\+h$>$}\newline
-{\ttfamily \#include $<$unicode/normalizer2.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$unicode/uchar.\+h$>$}\newline
-{\ttfamily \#include $<$unicode/unistr.\+h$>$}\newline
-Include dependency graph for lexer.\+cpp\+:\nopagebreak
+Include dependency graph for lexer.\+cpp\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{lexer_8cpp__incl}
 \end{center}
 \end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=157pt]{lexer_8cpp__dep__incl}
+\end{center}
+\end{figure}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\textbf{ std\+::u16string} \hyperlink{lexer_8cpp_a9e230e1ab47b787562705c322044d2a0}{convert\+\_\+utf8\+\_\+to\+\_\+utf16} (const \textbf{ std\+::string} \&source)
-\item 
 bool \hyperlink{lexer_8cpp_a315b133087b7c8aececd5bb4bb038a33}{is\+\_\+white\+\_\+space} (int cp)
-\item 
-bool \hyperlink{lexer_8cpp_a380934175c0adfde2698f5b15a32eef1}{is\+\_\+line\+\_\+terminator} (int cp)
 \item 
 bool \hyperlink{lexer_8cpp_a9cefc40146b4aa1d5180daf8c09aef76}{is\+\_\+non\+\_\+zero\+\_\+digit} (int cp)
 \item 
@@ -50,12 +53,6 @@ bool \hyperlink{lexer_8cpp_aed55f5443b8d50d91939b6130f3767da}{is\+\_\+boolean\+\
 
 
 \subsection{Function Documentation}
-\mbox{\Hypertarget{lexer_8cpp_a9e230e1ab47b787562705c322044d2a0}\label{lexer_8cpp_a9e230e1ab47b787562705c322044d2a0}} 
-\index{lexer.\+cpp@{lexer.\+cpp}!convert\+\_\+utf8\+\_\+to\+\_\+utf16@{convert\+\_\+utf8\+\_\+to\+\_\+utf16}}
-\index{convert\+\_\+utf8\+\_\+to\+\_\+utf16@{convert\+\_\+utf8\+\_\+to\+\_\+utf16}!lexer.\+cpp@{lexer.\+cpp}}
-\subsubsection{\texorpdfstring{convert\+\_\+utf8\+\_\+to\+\_\+utf16()}{convert\_utf8\_to\_utf16()}}
-{\footnotesize\ttfamily \textbf{ std\+::u16string} convert\+\_\+utf8\+\_\+to\+\_\+utf16 (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::string} \&}]{source }\end{DoxyParamCaption})}
-
 \mbox{\Hypertarget{lexer_8cpp_aed55f5443b8d50d91939b6130f3767da}\label{lexer_8cpp_aed55f5443b8d50d91939b6130f3767da}} 
 \index{lexer.\+cpp@{lexer.\+cpp}!is\+\_\+boolean\+\_\+literal@{is\+\_\+boolean\+\_\+literal}}
 \index{is\+\_\+boolean\+\_\+literal@{is\+\_\+boolean\+\_\+literal}!lexer.\+cpp@{lexer.\+cpp}}
@@ -85,12 +82,6 @@ bool \hyperlink{lexer_8cpp_aed55f5443b8d50d91939b6130f3767da}{is\+\_\+boolean\+\
 \index{is\+\_\+keyword@{is\+\_\+keyword}!lexer.\+cpp@{lexer.\+cpp}}
 \subsubsection{\texorpdfstring{is\+\_\+keyword()}{is\_keyword()}}
 {\footnotesize\ttfamily bool is\+\_\+keyword (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::string} \&}]{token }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{lexer_8cpp_a380934175c0adfde2698f5b15a32eef1}\label{lexer_8cpp_a380934175c0adfde2698f5b15a32eef1}} 
-\index{lexer.\+cpp@{lexer.\+cpp}!is\+\_\+line\+\_\+terminator@{is\+\_\+line\+\_\+terminator}}
-\index{is\+\_\+line\+\_\+terminator@{is\+\_\+line\+\_\+terminator}!lexer.\+cpp@{lexer.\+cpp}}
-\subsubsection{\texorpdfstring{is\+\_\+line\+\_\+terminator()}{is\_line\_terminator()}}
-{\footnotesize\ttfamily bool is\+\_\+line\+\_\+terminator (\begin{DoxyParamCaption}\item[{int}]{cp }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{lexer_8cpp_a9cefc40146b4aa1d5180daf8c09aef76}\label{lexer_8cpp_a9cefc40146b4aa1d5180daf8c09aef76}} 
 \index{lexer.\+cpp@{lexer.\+cpp}!is\+\_\+non\+\_\+zero\+\_\+digit@{is\+\_\+non\+\_\+zero\+\_\+digit}}

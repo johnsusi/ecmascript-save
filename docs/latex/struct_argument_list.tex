@@ -26,6 +26,10 @@ Collaboration diagram for Argument\+List\+:\nopagebreak
 \begin{DoxyCompactItemize}
 \item 
 {\footnotesize template$<$typename... Args$>$ }\\\hyperlink{struct_argument_list_a7df7f5009c8fc56cede100d66e45cb93}{Argument\+List} (Args \&\&... args)
+\item 
+void \hyperlink{struct_argument_list_af99815001d6a741b4a9fb0330971a7dc}{accept} (\hyperlink{struct_visitor}{Visitor} \&visitor) const override
+\item 
+const char $\ast$ \hyperlink{struct_argument_list_a40d37153eb093deadf7045b1ad5ae1fa}{type} () const override
 \end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
@@ -37,6 +41,29 @@ Collaboration diagram for Argument\+List\+:\nopagebreak
 \subsubsection{\texorpdfstring{Argument\+List()}{ArgumentList()}}
 {\footnotesize\ttfamily template$<$typename... Args$>$ \\
 Argument\+List\+::\+Argument\+List (\begin{DoxyParamCaption}\item[{Args \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_argument_list_af99815001d6a741b4a9fb0330971a7dc}\label{struct_argument_list_af99815001d6a741b4a9fb0330971a7dc}} 
+\index{Argument\+List@{Argument\+List}!accept@{accept}}
+\index{accept@{accept}!Argument\+List@{Argument\+List}}
+\subsubsection{\texorpdfstring{accept()}{accept()}}
+{\footnotesize\ttfamily void Argument\+List\+::accept (\begin{DoxyParamCaption}\item[{\hyperlink{struct_visitor}{Visitor} \&}]{visitor }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_node_a10bd7af968140bbf5fa461298a969c71}{Node}.
+
+\mbox{\Hypertarget{struct_argument_list_a40d37153eb093deadf7045b1ad5ae1fa}\label{struct_argument_list_a40d37153eb093deadf7045b1ad5ae1fa}} 
+\index{Argument\+List@{Argument\+List}!type@{type}}
+\index{type@{type}!Argument\+List@{Argument\+List}}
+\subsubsection{\texorpdfstring{type()}{type()}}
+{\footnotesize\ttfamily const char$\ast$ Argument\+List\+::type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_node_a82f29420d0a38efcc370352528e94e9b}{Node}.
 
 
 

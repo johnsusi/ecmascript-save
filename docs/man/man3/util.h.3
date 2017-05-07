@@ -1,4 +1,4 @@
-.TH "src/util.h" 3 "Tue May 2 2017" "ECMAScript" \" -*- nroff -*-
+.TH "src/util.h" 3 "Sun May 7 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -15,7 +15,13 @@ src/util.h
 
 .in +1c
 .ti -1c
-.RI "\fBstd::string\fP \fBleft_align_text\fP (const \fBstd::string\fP &text, const \fBstd::string\fP &\fBindent\fP='')"
+.RI "\fBstd::u16string\fP \fBconvert_utf8_to_utf16\fP (const \fBstd::string\fP &)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBconvert_utf16_to_utf8\fP (const \fBstd::u16string\fP &)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBleft_align_text\fP (const \fBstd::string\fP &text, const \fBstd::string\fP &indent='')"
 .br
 .ti -1c
 .RI "const char * \fBu_charCategory\fP (int c)"
@@ -27,6 +33,9 @@ src/util.h
 .RI "\fBstd::string\fP \fBread_stdin\fP ()"
 .br
 .ti -1c
+.RI "template<typename T > \fBstd::string\fP \fBdemangle\fP ()"
+.br
+.ti -1c
 .RI "template<typename T > \fBstd::string\fP \fBdemangle\fP (T)"
 .br
 .ti -1c
@@ -35,10 +44,23 @@ src/util.h
 .ti -1c
 .RI "template<size_t N, class F > constexpr auto \fBindex_apply\fP (F f)"
 .br
+.ti -1c
+.RI "template<typename F , typename\&.\&.\&. Args> void \fBfor_each_arg\fP (F &&fun, Args &&\&.\&.\&. args)"
+.br
 .in -1c
 .SH "Function Documentation"
 .PP 
+.SS "\fBstd::string\fP convert_utf16_to_utf8 (const \fBstd::u16string\fP & source)"
+Converts \fIsource\fP from UTF-16 to UTF-8\&. 
+.SS "\fBstd::u16string\fP convert_utf8_to_utf16 (const \fBstd::string\fP & source)"
+Converts \fIsource\fP from UTF-8 to UTF-16 and normalised to Unicode Normalization Form C\&.
+.PP
+Throws \fI\fBstd::runtime_error\fP\fP on failure\&. 
+.SS "template<typename T > \fBstd::string\fP demangle ()"
+
 .SS "template<typename T > \fBstd::string\fP demangle (T)"
+
+.SS "template<typename F , typename\&.\&.\&. Args> void for_each_arg (F && fun, Args &&\&.\&.\&. args)"
 
 .SS "template<size_t N, class F > constexpr auto index_apply (F f)"
 

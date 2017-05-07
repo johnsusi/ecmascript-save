@@ -9,7 +9,8 @@ Include dependency graph for util.\+h\+:\nopagebreak
 \includegraphics[width=268pt]{util_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:\nopagebreak
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -19,7 +20,11 @@ This graph shows which files directly or indirectly include this file\+:\nopageb
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\textbf{ std\+::string} \hyperlink{util_8h_a8d66d513d627af35e9f71ea6a498fa2e}{left\+\_\+align\+\_\+text} (const \textbf{ std\+::string} \&text, const \textbf{ std\+::string} \&\hyperlink{ast_8cpp_ac2a5fec8451698248996dc924364038f}{indent}=\char`\"{}\char`\"{})
+\textbf{ std\+::u16string} \hyperlink{util_8h_a06f9be64dcc8a9008c6c29fa697b4b6f}{convert\+\_\+utf8\+\_\+to\+\_\+utf16} (const \textbf{ std\+::string} \&)
+\item 
+\textbf{ std\+::string} \hyperlink{util_8h_a25d61394f453d44809591cf687a982d1}{convert\+\_\+utf16\+\_\+to\+\_\+utf8} (const \textbf{ std\+::u16string} \&)
+\item 
+\textbf{ std\+::string} \hyperlink{util_8h_a8d66d513d627af35e9f71ea6a498fa2e}{left\+\_\+align\+\_\+text} (const \textbf{ std\+::string} \&text, const \textbf{ std\+::string} \&indent=\char`\"{}\char`\"{})
 \item 
 const char $\ast$ \hyperlink{util_8h_ad812ab2de404402e3b80eeeac6f18d75}{u\+\_\+char\+Category} (int c)
 \item 
@@ -27,21 +32,53 @@ const char $\ast$ \hyperlink{util_8h_ad812ab2de404402e3b80eeeac6f18d75}{u\+\_\+c
 \item 
 \textbf{ std\+::string} \hyperlink{util_8h_a3fc653067bd9f822c4a444b25f3b5d37}{read\+\_\+stdin} ()
 \item 
+{\footnotesize template$<$typename T $>$ }\\\textbf{ std\+::string} \hyperlink{util_8h_a9327577e1c1beb9f6fb0adeaa3577da0}{demangle} ()
+\item 
 {\footnotesize template$<$typename T $>$ }\\\textbf{ std\+::string} \hyperlink{util_8h_a3f0424988acdda6bdec38eb51a5982c7}{demangle} (T)
 \item 
 {\footnotesize template$<$class F , size\+\_\+t... Is$>$ }\\constexpr auto \hyperlink{util_8h_a8fdaacbe0718621a0b8767025034a7d5}{index\+\_\+apply\+\_\+impl} (F f, std\+::index\+\_\+sequence$<$ Is... $>$)
 \item 
 {\footnotesize template$<$size\+\_\+t N, class F $>$ }\\constexpr auto \hyperlink{util_8h_a6c74a3bc1e045ee9ab2d4f659c24967d}{index\+\_\+apply} (F f)
+\item 
+{\footnotesize template$<$typename F , typename... Args$>$ }\\void \hyperlink{util_8h_ab5a73945a15953401cbfe150ce2cf080}{for\+\_\+each\+\_\+arg} (F \&\&fun, Args \&\&... args)
 \end{DoxyCompactItemize}
 
 
 \subsection{Function Documentation}
+\mbox{\Hypertarget{util_8h_a25d61394f453d44809591cf687a982d1}\label{util_8h_a25d61394f453d44809591cf687a982d1}} 
+\index{util.\+h@{util.\+h}!convert\+\_\+utf16\+\_\+to\+\_\+utf8@{convert\+\_\+utf16\+\_\+to\+\_\+utf8}}
+\index{convert\+\_\+utf16\+\_\+to\+\_\+utf8@{convert\+\_\+utf16\+\_\+to\+\_\+utf8}!util.\+h@{util.\+h}}
+\subsubsection{\texorpdfstring{convert\+\_\+utf16\+\_\+to\+\_\+utf8()}{convert\_utf16\_to\_utf8()}}
+{\footnotesize\ttfamily \textbf{ std\+::string} convert\+\_\+utf16\+\_\+to\+\_\+utf8 (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::u16string} \&}]{source }\end{DoxyParamCaption})}
+
+Converts {\itshape source} from U\+T\+F-\/16 to U\+T\+F-\/8. \mbox{\Hypertarget{util_8h_a06f9be64dcc8a9008c6c29fa697b4b6f}\label{util_8h_a06f9be64dcc8a9008c6c29fa697b4b6f}} 
+\index{util.\+h@{util.\+h}!convert\+\_\+utf8\+\_\+to\+\_\+utf16@{convert\+\_\+utf8\+\_\+to\+\_\+utf16}}
+\index{convert\+\_\+utf8\+\_\+to\+\_\+utf16@{convert\+\_\+utf8\+\_\+to\+\_\+utf16}!util.\+h@{util.\+h}}
+\subsubsection{\texorpdfstring{convert\+\_\+utf8\+\_\+to\+\_\+utf16()}{convert\_utf8\_to\_utf16()}}
+{\footnotesize\ttfamily \textbf{ std\+::u16string} convert\+\_\+utf8\+\_\+to\+\_\+utf16 (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::string} \&}]{source }\end{DoxyParamCaption})}
+
+Converts {\itshape source} from U\+T\+F-\/8 to U\+T\+F-\/16 and normalised to Unicode Normalization Form C.
+
+Throws {\itshape \textbf{ std\+::runtime\+\_\+error}} on failure. \mbox{\Hypertarget{util_8h_a9327577e1c1beb9f6fb0adeaa3577da0}\label{util_8h_a9327577e1c1beb9f6fb0adeaa3577da0}} 
+\index{util.\+h@{util.\+h}!demangle@{demangle}}
+\index{demangle@{demangle}!util.\+h@{util.\+h}}
+\subsubsection{\texorpdfstring{demangle()}{demangle()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\textbf{ std\+::string} demangle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{util_8h_a3f0424988acdda6bdec38eb51a5982c7}\label{util_8h_a3f0424988acdda6bdec38eb51a5982c7}} 
 \index{util.\+h@{util.\+h}!demangle@{demangle}}
 \index{demangle@{demangle}!util.\+h@{util.\+h}}
-\subsubsection{\texorpdfstring{demangle()}{demangle()}}
+\subsubsection{\texorpdfstring{demangle()}{demangle()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
 \textbf{ std\+::string} demangle (\begin{DoxyParamCaption}\item[{T}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{util_8h_ab5a73945a15953401cbfe150ce2cf080}\label{util_8h_ab5a73945a15953401cbfe150ce2cf080}} 
+\index{util.\+h@{util.\+h}!for\+\_\+each\+\_\+arg@{for\+\_\+each\+\_\+arg}}
+\index{for\+\_\+each\+\_\+arg@{for\+\_\+each\+\_\+arg}!util.\+h@{util.\+h}}
+\subsubsection{\texorpdfstring{for\+\_\+each\+\_\+arg()}{for\_each\_arg()}}
+{\footnotesize\ttfamily template$<$typename F , typename... Args$>$ \\
+void for\+\_\+each\+\_\+arg (\begin{DoxyParamCaption}\item[{F \&\&}]{fun,  }\item[{Args \&\&...}]{args }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{util_8h_a6c74a3bc1e045ee9ab2d4f659c24967d}\label{util_8h_a6c74a3bc1e045ee9ab2d4f659c24967d}} 
 \index{util.\+h@{util.\+h}!index\+\_\+apply@{index\+\_\+apply}}

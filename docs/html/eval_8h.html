@@ -68,14 +68,14 @@ $(function() {
 <div class="title">eval.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="ast_8h_source.html">ast.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="visitor_8h_source.html">visitor.h</a>&quot;</code><br />
 <code>#include &lt;string&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for eval.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="eval_8h__incl.png" border="0" usemap="#src_2eval_8h" alt=""/></div>
 <map name="src_2eval_8h" id="src_2eval_8h">
-<area shape="rect" id="node2" href="ast_8h.html" title="ast.h" alt="" coords="198,79,248,104"/>
+<area shape="rect" id="node2" href="visitor_8h.html" title="visitor.h" alt="" coords="5,79,72,104"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -83,8 +83,9 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="eval_8h__dep__incl.png" border="0" usemap="#src_2eval_8hdep" alt=""/></div>
 <map name="src_2eval_8hdep" id="src_2eval_8hdep">
-<area shape="rect" id="node2" href="eval_8cpp.html" title="src/eval.cpp" alt="" coords="5,79,98,104"/>
-<area shape="rect" id="node3" href="main_8cpp.html" title="src/main.cpp" alt="" coords="122,79,219,104"/>
+<area shape="rect" id="node2" href="eval_8cpp.html" title="src/eval.cpp" alt="" coords="11,79,103,104"/>
+<area shape="rect" id="node4" href="main_8cpp.html" title="src/main.cpp" alt="" coords="127,79,224,104"/>
+<area shape="rect" id="node3" href="single_8cpp.html" title="src/single.cpp" alt="" coords="5,152,108,177"/>
 </map>
 </div>
 </div>
@@ -92,42 +93,74 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a0d0801c3d438a172e44f9086efb3cb77"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_program.html">Program</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8h.html#a0d0801c3d438a172e44f9086efb3cb77">eval</a> (const <a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;)</td></tr>
-<tr class="separator:a0d0801c3d438a172e44f9086efb3cb77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d8195831cfa721b20b9b1949ba65049"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_program.html">Program</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8h.html#a6d8195831cfa721b20b9b1949ba65049">eval</a> (const <a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::u16string</a> &amp;)</td></tr>
-<tr class="separator:a6d8195831cfa721b20b9b1949ba65049"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31c35da24237b68ccb3885fd427b1502"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8h.html#a31c35da24237b68ccb3885fd427b1502">eval</a> (const <a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;, <a class="el" href="struct_visitor.html">Visitor</a> &amp;, bool=false)</td></tr>
+<tr class="separator:a31c35da24237b68ccb3885fd427b1502"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcf66cdd4892e61f9bf01a1f2957f33f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8h.html#abcf66cdd4892e61f9bf01a1f2957f33f">eval</a> (const <a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::u16string</a> &amp;, <a class="el" href="struct_visitor.html">Visitor</a> &amp;, bool=false)</td></tr>
+<tr class="separator:abcf66cdd4892e61f9bf01a1f2957f33f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a0d0801c3d438a172e44f9086efb3cb77"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d0801c3d438a172e44f9086efb3cb77">&#9670;&nbsp;</a></span>eval() <span class="overload">[1/2]</span></h2>
+<a id="a31c35da24237b68ccb3885fd427b1502"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31c35da24237b68ccb3885fd427b1502">&#9670;&nbsp;</a></span>eval() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="struct_program.html">Program</a> eval </td>
+          <td class="memname">void eval </td>
           <td>(</td>
           <td class="paramtype">const <a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="struct_visitor.html">Visitor</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a6d8195831cfa721b20b9b1949ba65049"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6d8195831cfa721b20b9b1949ba65049">&#9670;&nbsp;</a></span>eval() <span class="overload">[2/2]</span></h2>
+<a id="abcf66cdd4892e61f9bf01a1f2957f33f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcf66cdd4892e61f9bf01a1f2957f33f">&#9670;&nbsp;</a></span>eval() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="struct_program.html">Program</a> eval </td>
+          <td class="memname">void eval </td>
           <td>(</td>
           <td class="paramtype">const <a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::u16string</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="struct_visitor.html">Visitor</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">

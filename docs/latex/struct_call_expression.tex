@@ -28,6 +28,8 @@ Collaboration diagram for Call\+Expression\+:\nopagebreak
 \hyperlink{struct_call_expression_a7e6da0437a5f82430af5f31779b830d7}{Call\+Expression} (\hyperlink{struct_expression}{Expression} $\ast$\hyperlink{struct_call_expression_a2d77ccd1a2d6f34d718063f0eb47bc21}{callee}, \hyperlink{struct_arguments}{Arguments} $\ast$\hyperlink{struct_call_expression_ad2dad57df529ef1ef06b43cd438598bd}{arguments}=nullptr)
 \item 
 void \hyperlink{struct_call_expression_a5be626b61944a97f2a6015b632432513}{accept} (\hyperlink{struct_visitor}{Visitor} \&visitor) const override
+\item 
+const char $\ast$ \hyperlink{struct_call_expression_ae2891106618133745e00ac92a6b6b4fd}{type} () const override
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -57,6 +59,16 @@ void \hyperlink{struct_call_expression_a5be626b61944a97f2a6015b632432513}{accept
 
 
 Implements \hyperlink{struct_node_a10bd7af968140bbf5fa461298a969c71}{Node}.
+
+\mbox{\Hypertarget{struct_call_expression_ae2891106618133745e00ac92a6b6b4fd}\label{struct_call_expression_ae2891106618133745e00ac92a6b6b4fd}} 
+\index{Call\+Expression@{Call\+Expression}!type@{type}}
+\index{type@{type}!Call\+Expression@{Call\+Expression}}
+\subsubsection{\texorpdfstring{type()}{type()}}
+{\footnotesize\ttfamily const char$\ast$ Call\+Expression\+::type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_node_a82f29420d0a38efcc370352528e94e9b}{Node}.
 
 
 

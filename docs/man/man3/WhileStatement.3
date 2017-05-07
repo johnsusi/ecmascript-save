@@ -1,4 +1,4 @@
-.TH "WhileStatement" 3 "Tue May 2 2017" "ECMAScript" \" -*- nroff -*-
+.TH "WhileStatement" 3 "Sun May 7 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -14,7 +14,13 @@ Inherits \fBStatement\fP\&.
 
 .in +1c
 .ti -1c
+.RI "\fBWhileStatement\fP (\fBExpression\fP *\fBtest\fP, \fBStatement\fP *\fBbody\fP)"
+.br
+.ti -1c
 .RI "void \fBaccept\fP (\fBVisitor\fP &visitor) const override"
+.br
+.ti -1c
+.RI "const char * \fBtype\fP () const override"
 .br
 .in -1c
 .SS "Public Attributes"
@@ -27,9 +33,17 @@ Inherits \fBStatement\fP\&.
 .RI "\fBStatement\fP * \fBbody\fP"
 .br
 .in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "WhileStatement::WhileStatement (\fBExpression\fP * test, \fBStatement\fP * body)\fC [inline]\fP"
+
 .SH "Member Function Documentation"
 .PP 
 .SS "void WhileStatement::accept (\fBVisitor\fP & visitor) const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBNode\fP\&.
+.SS "const char* WhileStatement::type () const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
 Implements \fBNode\fP\&.

@@ -1,4 +1,4 @@
-.TH "Node" 3 "Tue May 2 2017" "ECMAScript" \" -*- nroff -*-
+.TH "Node" 3 "Sun May 7 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -9,7 +9,7 @@ Node
 .PP
 \fC#include <ast\&.h>\fP
 .PP
-Inherited by \fBCaseClause\fP, \fBExpression\fP, \fBList< T >\fP, \fBList< CaseClause >\fP, \fBList< Expression >\fP, \fBList< Identifier >\fP, \fBList< PropertyAssignment >\fP, \fBList< SourceElement >\fP, \fBList< Statement >\fP, \fBList< VariableDeclaration >\fP, and \fBSourceElement\fP\&.
+Inherited by \fBArrayLiteral\fP, \fBCaseClause\fP, \fBElision\fP, \fBExpression\fP\fC [virtual]\fP, \fBIdentifier\fP, \fBList< T >\fP\fC [virtual]\fP, \fBList< CaseClause >\fP\fC [virtual]\fP, \fBList< Expression >\fP\fC [virtual]\fP, \fBList< Identifier >\fP\fC [virtual]\fP, \fBList< Node >\fP\fC [virtual]\fP, \fBList< PropertyAssignment >\fP\fC [virtual]\fP, \fBList< SourceElement >\fP\fC [virtual]\fP, \fBList< Statement >\fP\fC [virtual]\fP, \fBList< VariableDeclaration >\fP\fC [virtual]\fP, \fBLiteral\fP, \fBSourceElement\fP, and \fBThis\fP\&.
 .SS "Public Member Functions"
 
 .in +1c
@@ -18,6 +18,9 @@ Inherited by \fBCaseClause\fP, \fBExpression\fP, \fBList< T >\fP, \fBList< CaseC
 .br
 .ti -1c
 .RI "virtual void \fBaccept\fP (\fBVisitor\fP &) const =0"
+.br
+.ti -1c
+.RI "virtual const char * \fBtype\fP () const =0"
 .br
 .in -1c
 .SH "Constructor & Destructor Documentation"
@@ -29,7 +32,11 @@ Inherited by \fBCaseClause\fP, \fBExpression\fP, \fBList< T >\fP, \fBList< CaseC
 .SS "virtual void Node::accept (\fBVisitor\fP &) const\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBFunctionExpression\fP, \fBFunctionDeclaration\fP, \fBFunctionBody\fP, \fBDebuggerStatement\fP, \fBTryStatement\fP, \fBThrowStatement\fP, \fBSwitchStatement\fP, \fBDefaultClause\fP, \fBCaseClause\fP, \fBLabelledStatement\fP, \fBWithStatement\fP, \fBReturnStatement\fP, \fBBreakStatement\fP, \fBContinueStatement\fP, \fBForInStatement\fP, \fBForStatement\fP, \fBWhileStatement\fP, \fBDoWhileStatement\fP, \fBIfStatement\fP, \fBExpressionStatement\fP, \fBEmptyStatement\fP, \fBVariableStatement\fP, \fBBlock\fP, \fBVariableDeclaration\fP, \fBConditionalExpression\fP, \fBBinaryExpression\fP, \fBUnaryExpression\fP, \fBPostfixExpression\fP, \fBCallExpression\fP, \fBNewExpression\fP, \fBArguments\fP, \fBMemberExpression\fP, \fBObjectLiteral\fP, \fBArrayLiteral\fP, \fBElision\fP, \fBPropertyAssignment\fP, \fBPropertyName\fP, \fBRegularExpressionLiteral\fP, \fBStringLiteral\fP, \fBNumericLiteral\fP, \fBBooleanLiteral\fP, \fBNullLiteral\fP, \fBIdentifier\fP, \fBThis\fP, \fBList< T >\fP, \fBList< Identifier >\fP, \fBList< Statement >\fP, \fBList< CaseClause >\fP, \fBList< VariableDeclaration >\fP, \fBList< PropertyAssignment >\fP, \fBList< Expression >\fP, and \fBList< SourceElement >\fP\&.
+Implemented in \fBProgramDeclaration\fP, \fBFunctionExpression\fP, \fBFunctionDeclaration\fP, \fBFunctionBody\fP, \fBFormalParameterList\fP, \fBSourceElements\fP, \fBDebuggerStatement\fP, \fBTryStatement\fP, \fBThrowStatement\fP, \fBSwitchStatement\fP, \fBCaseBlock\fP, \fBDefaultClause\fP, \fBCaseClause\fP, \fBLabelledStatement\fP, \fBWithStatement\fP, \fBReturnStatement\fP, \fBBreakStatement\fP, \fBContinueStatement\fP, \fBForInStatement\fP, \fBForStatement\fP, \fBWhileStatement\fP, \fBDoWhileStatement\fP, \fBIfStatement\fP, \fBExpressionStatement\fP, \fBEmptyStatement\fP, \fBVariableStatement\fP, \fBBlock\fP, \fBStatementList\fP, \fBVariableDeclarationList\fP, \fBVariableDeclaration\fP, \fBConditionalExpression\fP, \fBBinaryExpression\fP, \fBUnaryExpression\fP, \fBPostfixExpression\fP, \fBCallExpression\fP, \fBNewExpression\fP, \fBArguments\fP, \fBArgumentList\fP, \fBMemberExpression\fP, \fBObjectLiteral\fP, \fBPropertyNameAndValueList\fP, \fBElementList\fP, \fBElision\fP, \fBPropertyAssignment\fP, \fBPropertyName\fP, \fBObjectExpression\fP, \fBArrayExpression\fP, \fBLiteralExpression\fP, \fBIdentifierExpression\fP, \fBThisExpression\fP, \fBArrayLiteral\fP, \fBRegularExpressionLiteral\fP, \fBStringLiteral\fP, \fBNumericLiteral\fP, \fBBooleanLiteral\fP, \fBNullLiteral\fP, \fBIdentifier\fP, and \fBThis\fP\&.
+.SS "virtual const char* Node::type () const\fC [pure virtual]\fP"
+
+.PP
+Implemented in \fBProgramDeclaration\fP, \fBFunctionExpression\fP, \fBFunctionDeclaration\fP, \fBFunctionBody\fP, \fBFormalParameterList\fP, \fBSourceElements\fP, \fBDebuggerStatement\fP, \fBTryStatement\fP, \fBThrowStatement\fP, \fBSwitchStatement\fP, \fBCaseBlock\fP, \fBDefaultClause\fP, \fBCaseClause\fP, \fBLabelledStatement\fP, \fBWithStatement\fP, \fBReturnStatement\fP, \fBBreakStatement\fP, \fBContinueStatement\fP, \fBForInStatement\fP, \fBForStatement\fP, \fBWhileStatement\fP, \fBDoWhileStatement\fP, \fBIfStatement\fP, \fBExpressionStatement\fP, \fBEmptyStatement\fP, \fBVariableStatement\fP, \fBBlock\fP, \fBStatementList\fP, \fBVariableDeclarationList\fP, \fBVariableDeclaration\fP, \fBConditionalExpression\fP, \fBBinaryExpression\fP, \fBUnaryExpression\fP, \fBPostfixExpression\fP, \fBCallExpression\fP, \fBNewExpression\fP, \fBArguments\fP, \fBArgumentList\fP, \fBMemberExpression\fP, \fBObjectLiteral\fP, \fBPropertyNameAndValueList\fP, \fBElementList\fP, \fBElision\fP, \fBPropertyAssignment\fP, \fBPropertyName\fP, \fBObjectExpression\fP, \fBArrayExpression\fP, \fBLiteralExpression\fP, \fBIdentifierExpression\fP, \fBThisExpression\fP, \fBArrayLiteral\fP, \fBRegularExpressionLiteral\fP, \fBStringLiteral\fP, \fBNumericLiteral\fP, \fBBooleanLiteral\fP, \fBNullLiteral\fP, \fBIdentifier\fP, and \fBThis\fP\&.
 
 .SH "Author"
 .PP 

@@ -1,4 +1,4 @@
-.TH "src/lexer.h" 3 "Tue May 2 2017" "ECMAScript" \" -*- nroff -*-
+.TH "src/lexer.h" 3 "Sun May 7 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -59,8 +59,10 @@ src/lexer.h
 
 .SH "Function Documentation"
 .PP 
-.SS "\fBstd::u16string\fP convert_utf8_to_utf16 (const \fBstd::string\fP &)"
-
+.SS "\fBstd::u16string\fP convert_utf8_to_utf16 (const \fBstd::string\fP & source)"
+Converts \fIsource\fP from UTF-8 to UTF-16 and normalised to Unicode Normalization Form C\&.
+.PP
+Throws \fI\fBstd::runtime_error\fP\fP on failure\&. 
 .SS "template<typename It > auto make_lexer (It f, It l)"
 
 .SS "template<typename Cont > auto make_lexer (Cont && cont)"

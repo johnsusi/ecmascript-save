@@ -1,14 +1,11 @@
 <map id="PrimaryExpression" name="PrimaryExpression">
-<area shape="rect" id="node4" href="$struct_array_literal.html" title="ArrayLiteral" alt="" coords="54,225,143,251"/>
-<area shape="rect" id="node5" href="$struct_identifier.html" title="Identifier" alt="" coords="168,225,240,251"/>
-<area shape="rect" id="node6" href="$struct_literal.html" title="Literal" alt="" coords="264,225,322,251"/>
-<area shape="rect" id="node12" href="$struct_object_literal.html" title="ObjectLiteral" alt="" coords="347,225,443,251"/>
-<area shape="rect" id="node13" href="$struct_this.html" title="This" alt="" coords="467,225,514,251"/>
-<area shape="rect" id="node2" href="$struct_expression.html" title="Expression" alt="" coords="250,79,337,104"/>
-<area shape="rect" id="node3" href="$struct_node.html" title="Node" alt="" coords="267,5,320,31"/>
-<area shape="rect" id="node7" href="$struct_boolean_literal.html" title="BooleanLiteral" alt="" coords="5,299,112,324"/>
-<area shape="rect" id="node8" href="$struct_null_literal.html" title="NullLiteral" alt="" coords="136,299,216,324"/>
-<area shape="rect" id="node9" href="$struct_numeric_literal.html" title="NumericLiteral" alt="" coords="240,299,347,324"/>
-<area shape="rect" id="node10" href="$struct_regular_expression_literal.html" title="RegularExpressionLiteral" alt="" coords="371,299,541,324"/>
-<area shape="rect" id="node11" href="$struct_string_literal.html" title="StringLiteral" alt="" coords="566,299,658,324"/>
+<area shape="rect" id="node5" href="$struct_array_expression.html" title="ArrayExpression" alt="" coords="649,5,768,31"/>
+<area shape="rect" id="node6" href="$struct_identifier_expression.html" title="IdentifierExpression" alt="" coords="639,55,778,80"/>
+<area shape="rect" id="node7" href="$struct_literal_expression.html" title="LiteralExpression" alt="" coords="647,104,770,129"/>
+<area shape="rect" id="node8" href="$struct_object_expression.html" title="ObjectExpression" alt="" coords="645,153,771,179"/>
+<area shape="rect" id="node9" href="$struct_object_literal.html" title="ObjectLiteral" alt="" coords="660,203,756,228"/>
+<area shape="rect" id="node10" href="$struct_this_expression.html" title="ThisExpression" alt="" coords="652,252,765,277"/>
+<area shape="rect" id="node2" href="$struct_left_hand_side_expression.html" title="LeftHandSideExpression" alt="" coords="242,129,410,155"/>
+<area shape="rect" id="node3" href="$struct_expression.html" title="Expression" alt="" coords="107,129,194,155"/>
+<area shape="rect" id="node4" href="$struct_node.html" title="Node" alt="" coords="5,129,59,155"/>
 </map>

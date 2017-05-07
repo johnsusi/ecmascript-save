@@ -28,6 +28,8 @@ Collaboration diagram for Switch\+Statement\+:\nopagebreak
 \hyperlink{struct_switch_statement_adab42f2a56bc686f522587ff6f39b70a}{Switch\+Statement} (\hyperlink{struct_expression}{Expression} $\ast$\hyperlink{struct_switch_statement_a6b04149d29751485e93c698298ebbe5d}{discriminant}, \hyperlink{struct_case_block}{Case\+Block} $\ast$\hyperlink{struct_switch_statement_a2e2f296ddcb9fcb69bd4daeac8c850b0}{cases})
 \item 
 void \hyperlink{struct_switch_statement_a948b1d975437e623ad183d5599ce51f9}{accept} (\hyperlink{struct_visitor}{Visitor} \&visitor) const override
+\item 
+const char $\ast$ \hyperlink{struct_switch_statement_a58f7924f68adeef7f73b0403715182c1}{type} () const override
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -57,6 +59,16 @@ void \hyperlink{struct_switch_statement_a948b1d975437e623ad183d5599ce51f9}{accep
 
 
 Implements \hyperlink{struct_node_a10bd7af968140bbf5fa461298a969c71}{Node}.
+
+\mbox{\Hypertarget{struct_switch_statement_a58f7924f68adeef7f73b0403715182c1}\label{struct_switch_statement_a58f7924f68adeef7f73b0403715182c1}} 
+\index{Switch\+Statement@{Switch\+Statement}!type@{type}}
+\index{type@{type}!Switch\+Statement@{Switch\+Statement}}
+\subsubsection{\texorpdfstring{type()}{type()}}
+{\footnotesize\ttfamily const char$\ast$ Switch\+Statement\+::type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_node_a82f29420d0a38efcc370352528e94e9b}{Node}.
 
 
 

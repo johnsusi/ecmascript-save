@@ -1,18 +1,19 @@
 \hypertarget{ast_8h}{}\section{src/ast.h File Reference}
 \label{ast_8h}\index{src/ast.\+h@{src/ast.\+h}}
+{\ttfamily \#include \char`\"{}visitor.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$iostream$>$}\newline
-{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
 {\ttfamily \#include $<$vector$>$}\newline
-{\ttfamily \#include $<$boost/optional.\+hpp$>$}\newline
-{\ttfamily \#include $<$boost/variant.\+hpp$>$}\newline
-Include dependency graph for ast.\+h\+:\nopagebreak
+Include dependency graph for ast.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{ast_8h__incl}
+\includegraphics[width=322pt]{ast_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:\nopagebreak
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -25,12 +26,6 @@ This graph shows which files directly or indirectly include this file\+:\nopageb
 struct \hyperlink{struct_node}{Node}
 \item 
 struct \hyperlink{struct_list}{List$<$ T $>$}
-\item 
-struct \hyperlink{struct_visitor}{Visitor}
-\item 
-struct \hyperlink{struct_expression}{Expression}
-\item 
-struct \hyperlink{struct_primary_expression}{Primary\+Expression}
 \item 
 struct \hyperlink{struct_this}{This}
 \item 
@@ -48,6 +43,24 @@ struct \hyperlink{struct_string_literal}{String\+Literal}
 \item 
 struct \hyperlink{struct_regular_expression_literal}{Regular\+Expression\+Literal}
 \item 
+struct \hyperlink{struct_array_literal}{Array\+Literal}
+\item 
+struct \hyperlink{struct_expression}{Expression}
+\item 
+struct \hyperlink{struct_left_hand_side_expression}{Left\+Hand\+Side\+Expression}
+\item 
+struct \hyperlink{struct_primary_expression}{Primary\+Expression}
+\item 
+struct \hyperlink{struct_this_expression}{This\+Expression}
+\item 
+struct \hyperlink{struct_identifier_expression}{Identifier\+Expression}
+\item 
+struct \hyperlink{struct_literal_expression}{Literal\+Expression}
+\item 
+struct \hyperlink{struct_array_expression}{Array\+Expression}
+\item 
+struct \hyperlink{struct_object_expression}{Object\+Expression}
+\item 
 struct \hyperlink{struct_property_name}{Property\+Name}
 \item 
 struct \hyperlink{struct_property_assignment}{Property\+Assignment}
@@ -55,8 +68,6 @@ struct \hyperlink{struct_property_assignment}{Property\+Assignment}
 struct \hyperlink{struct_elision}{Elision}
 \item 
 struct \hyperlink{struct_element_list}{Element\+List}
-\item 
-struct \hyperlink{struct_array_literal}{Array\+Literal}
 \item 
 struct \hyperlink{struct_property_name_and_value_list}{Property\+Name\+And\+Value\+List}
 \item 
@@ -143,6 +154,8 @@ struct \hyperlink{struct_function_body}{Function\+Body}
 struct \hyperlink{struct_function_declaration}{Function\+Declaration}
 \item 
 struct \hyperlink{struct_function_expression}{Function\+Expression}
+\item 
+struct \hyperlink{struct_program_declaration}{Program\+Declaration}
 \item 
 struct \hyperlink{struct_program}{Program}
 \end{DoxyCompactItemize}

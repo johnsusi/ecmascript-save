@@ -1,4 +1,4 @@
-.TH "src/ast.cpp" 3 "Tue May 2 2017" "ECMAScript" \" -*- nroff -*-
+.TH "src/ast.cpp" 3 "Sun May 7 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -16,97 +16,6 @@ src/ast.cpp
 .br
 \fC#include <vector>\fP
 .br
-
-.SS "Classes"
-
-.in +1c
-.ti -1c
-.RI "struct \fBCallableVisitor< Callable >\fP"
-.br
-.ti -1c
-.RI "struct \fBmake_void< Ts >\fP"
-.br
-.ti -1c
-.RI "struct \fBdetail::is_callable1< class, class, class >\fP"
-.br
-.ti -1c
-.RI "struct \fBdetail::is_callable1< T, F, void_t< decltype(std::declval< F >()(std::declval< T >()))> >\fP"
-.br
-.ti -1c
-.RI "struct \fBdetail::is_callable2< class, class, class, class >\fP"
-.br
-.ti -1c
-.RI "struct \fBdetail::is_callable2< T, N, F, void_t< decltype(std::declval< F >()(std::declval< T >(), std::declval< N >()))> >\fP"
-.br
-.ti -1c
-.RI "struct \fBindentstream\fP"
-.br
-.in -1c
-.SS "Namespaces"
-
-.in +1c
-.ti -1c
-.RI " \fBdetail\fP"
-.br
-.in -1c
-.SS "Typedefs"
-
-.in +1c
-.ti -1c
-.RI "template<typename\&.\&.\&. Ts> using \fBvoid_t\fP = typename \fBmake_void\fP< Ts\&.\&.\&. >::type"
-.br
-.in -1c
-.SS "Functions"
-
-.in +1c
-.ti -1c
-.RI "template<typename F > \fBCallableVisitor\fP< F > \fBmake_visitor\fP (F callback)"
-.br
-.ti -1c
-.RI "template<typename T , typename N , typename F > auto \fBdetail::apply\fP (T &&value, N &&next, F &&callback)"
-.br
-.ti -1c
-.RI "template<typename T , typename N , typename F > void \fBdetail::apply\fP (T &&value, N &&next, F &&callback, \fBstd::true_type\fP, \fBstd::false_type\fP)"
-.br
-.ti -1c
-.RI "template<typename T , typename N , typename F > void \fBdetail::apply\fP (T &&value, N &&, F &&callback, \fBstd::false_type\fP, \fBstd::true_type\fP)"
-.br
-.ti -1c
-.RI "template<typename T , typename N , typename F > void \fBdetail::apply\fP (T &&value, N &&, F &&callback, \fBstd::false_type\fP, \fBstd::false_type\fP)"
-.br
-.ti -1c
-.RI "template<typename T , typename\&.\&.\&. Args> void \fBaccept\fP (T &&node, Args &&\&.\&.\&. args)"
-.br
-.ti -1c
-.RI "static \fBindentstream\fP & \fBindent\fP (\fBindentstream\fP &out)"
-.br
-.ti -1c
-.RI "static \fBindentstream\fP & \fBunindent\fP (\fBindentstream\fP &out)"
-.br
-.ti -1c
-.RI "static \fBindentstream\fP & \fBskip\fP (\fBindentstream\fP &out)"
-.br
-.ti -1c
-.RI "\fBstd::string\fP \fBto_string\fP (const \fBProgram\fP &program)"
-.br
-.in -1c
-.SH "Typedef Documentation"
-.PP 
-.SS "template<typename\&.\&.\&. Ts> using \fBvoid_t\fP =  typename \fBmake_void\fP<Ts\&.\&.\&.>::type"
-
-.SH "Function Documentation"
-.PP 
-.SS "template<typename T , typename\&.\&.\&. Args> void accept (T && node, Args &&\&.\&.\&. args)"
-
-.SS "static \fBindentstream\fP& indent (\fBindentstream\fP & out)\fC [static]\fP"
-
-.SS "template<typename F > \fBCallableVisitor\fP<F> make_visitor (F callback)"
-
-.SS "static \fBindentstream\fP& skip (\fBindentstream\fP & out)\fC [static]\fP"
-
-.SS "\fBstd::string\fP to_string (const \fBProgram\fP & program)"
-
-.SS "static \fBindentstream\fP& unindent (\fBindentstream\fP & out)\fC [static]\fP"
 
 .SH "Author"
 .PP 

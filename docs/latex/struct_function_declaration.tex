@@ -15,7 +15,8 @@ Inheritance diagram for Function\+Declaration\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for Function\+Declaration\+:\nopagebreak
+Collaboration diagram for Function\+Declaration\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -27,7 +28,9 @@ Collaboration diagram for Function\+Declaration\+:\nopagebreak
 \item 
 \hyperlink{struct_function_declaration_a2760e02567ddf39823e4a0b9a69898fa}{Function\+Declaration} (\hyperlink{struct_identifier}{Identifier} $\ast$\hyperlink{struct_function_declaration_a58de81497de15b01a5f92632c3e6f354}{id}, \hyperlink{struct_formal_parameter_list}{Formal\+Parameter\+List} $\ast$\hyperlink{struct_function_declaration_ab22f1972d3575c2b95778545d871658b}{params}, \hyperlink{struct_function_body}{Function\+Body} $\ast$\hyperlink{struct_function_declaration_ae35697bf8c8a45e490fa352d77a0c19b}{body})
 \item 
-void \hyperlink{struct_function_declaration_a879cc374076bebe3609f66306d6a638d}{accept} (\hyperlink{struct_visitor}{Visitor} \&visitor) const
+void \hyperlink{struct_function_declaration_ada618c9934e5706066e5521afeada149}{accept} (\hyperlink{struct_visitor}{Visitor} \&visitor) const override
+\item 
+const char $\ast$ \hyperlink{struct_function_declaration_aff2da7f2c794e8ce1c3c7c15e9f88eb7}{type} () const override
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -50,15 +53,25 @@ void \hyperlink{struct_function_declaration_a879cc374076bebe3609f66306d6a638d}{a
 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{struct_function_declaration_a879cc374076bebe3609f66306d6a638d}\label{struct_function_declaration_a879cc374076bebe3609f66306d6a638d}} 
+\mbox{\Hypertarget{struct_function_declaration_ada618c9934e5706066e5521afeada149}\label{struct_function_declaration_ada618c9934e5706066e5521afeada149}} 
 \index{Function\+Declaration@{Function\+Declaration}!accept@{accept}}
 \index{accept@{accept}!Function\+Declaration@{Function\+Declaration}}
 \subsubsection{\texorpdfstring{accept()}{accept()}}
-{\footnotesize\ttfamily void Function\+Declaration\+::accept (\begin{DoxyParamCaption}\item[{\hyperlink{struct_visitor}{Visitor} \&}]{visitor }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily void Function\+Declaration\+::accept (\begin{DoxyParamCaption}\item[{\hyperlink{struct_visitor}{Visitor} \&}]{visitor }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
 Implements \hyperlink{struct_node_a10bd7af968140bbf5fa461298a969c71}{Node}.
+
+\mbox{\Hypertarget{struct_function_declaration_aff2da7f2c794e8ce1c3c7c15e9f88eb7}\label{struct_function_declaration_aff2da7f2c794e8ce1c3c7c15e9f88eb7}} 
+\index{Function\+Declaration@{Function\+Declaration}!type@{type}}
+\index{type@{type}!Function\+Declaration@{Function\+Declaration}}
+\subsubsection{\texorpdfstring{type()}{type()}}
+{\footnotesize\ttfamily const char$\ast$ Function\+Declaration\+::type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_node_a82f29420d0a38efcc370352528e94e9b}{Node}.
 
 
 

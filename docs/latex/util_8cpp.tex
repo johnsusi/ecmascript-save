@@ -9,18 +9,34 @@
 {\ttfamily \#include $<$vector$>$}\newline
 {\ttfamily \#include $<$boost/algorithm/string.\+hpp$>$}\newline
 {\ttfamily \#include $<$boost/core/demangle.\+hpp$>$}\newline
+{\ttfamily \#include $<$unicode/errorcode.\+h$>$}\newline
+{\ttfamily \#include $<$unicode/normalizer2.\+h$>$}\newline
 {\ttfamily \#include $<$unicode/uchar.\+h$>$}\newline
-Include dependency graph for util.\+cpp\+:\nopagebreak
+{\ttfamily \#include $<$unicode/unistr.\+h$>$}\newline
+Include dependency graph for util.\+cpp\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{util_8cpp__incl}
 \end{center}
 \end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=157pt]{util_8cpp__dep__incl}
+\end{center}
+\end{figure}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\textbf{ std\+::string} \hyperlink{util_8cpp_a963acd6c6383cd6f6479d6a38be9dfcb}{left\+\_\+align\+\_\+text} (const \textbf{ std\+::string} \&text, const \textbf{ std\+::string} \&\hyperlink{ast_8cpp_ac2a5fec8451698248996dc924364038f}{indent})
+\textbf{ std\+::u16string} \hyperlink{util_8cpp_a9e230e1ab47b787562705c322044d2a0}{convert\+\_\+utf8\+\_\+to\+\_\+utf16} (const \textbf{ std\+::string} \&source)
+\item 
+\textbf{ std\+::string} \hyperlink{util_8cpp_ade563fe4c392b74cebcfbe8b18d6fb6d}{convert\+\_\+utf16\+\_\+to\+\_\+utf8} (const \textbf{ std\+::u16string} \&source)
+\item 
+\textbf{ std\+::string} \hyperlink{util_8cpp_a963acd6c6383cd6f6479d6a38be9dfcb}{left\+\_\+align\+\_\+text} (const \textbf{ std\+::string} \&text, const \textbf{ std\+::string} \&indent)
 \item 
 const char $\ast$ \hyperlink{util_8cpp_ad812ab2de404402e3b80eeeac6f18d75}{u\+\_\+char\+Category} (int c)
 \item 
@@ -31,7 +47,21 @@ const char $\ast$ \hyperlink{util_8cpp_ad812ab2de404402e3b80eeeac6f18d75}{u\+\_\
 
 
 \subsection{Function Documentation}
-\mbox{\Hypertarget{util_8cpp_a963acd6c6383cd6f6479d6a38be9dfcb}\label{util_8cpp_a963acd6c6383cd6f6479d6a38be9dfcb}} 
+\mbox{\Hypertarget{util_8cpp_ade563fe4c392b74cebcfbe8b18d6fb6d}\label{util_8cpp_ade563fe4c392b74cebcfbe8b18d6fb6d}} 
+\index{util.\+cpp@{util.\+cpp}!convert\+\_\+utf16\+\_\+to\+\_\+utf8@{convert\+\_\+utf16\+\_\+to\+\_\+utf8}}
+\index{convert\+\_\+utf16\+\_\+to\+\_\+utf8@{convert\+\_\+utf16\+\_\+to\+\_\+utf8}!util.\+cpp@{util.\+cpp}}
+\subsubsection{\texorpdfstring{convert\+\_\+utf16\+\_\+to\+\_\+utf8()}{convert\_utf16\_to\_utf8()}}
+{\footnotesize\ttfamily \textbf{ std\+::string} convert\+\_\+utf16\+\_\+to\+\_\+utf8 (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::u16string} \&}]{source }\end{DoxyParamCaption})}
+
+Converts {\itshape source} from U\+T\+F-\/16 to U\+T\+F-\/8. \mbox{\Hypertarget{util_8cpp_a9e230e1ab47b787562705c322044d2a0}\label{util_8cpp_a9e230e1ab47b787562705c322044d2a0}} 
+\index{util.\+cpp@{util.\+cpp}!convert\+\_\+utf8\+\_\+to\+\_\+utf16@{convert\+\_\+utf8\+\_\+to\+\_\+utf16}}
+\index{convert\+\_\+utf8\+\_\+to\+\_\+utf16@{convert\+\_\+utf8\+\_\+to\+\_\+utf16}!util.\+cpp@{util.\+cpp}}
+\subsubsection{\texorpdfstring{convert\+\_\+utf8\+\_\+to\+\_\+utf16()}{convert\_utf8\_to\_utf16()}}
+{\footnotesize\ttfamily \textbf{ std\+::u16string} convert\+\_\+utf8\+\_\+to\+\_\+utf16 (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::string} \&}]{source }\end{DoxyParamCaption})}
+
+Converts {\itshape source} from U\+T\+F-\/8 to U\+T\+F-\/16 and normalised to Unicode Normalization Form C.
+
+Throws {\itshape \textbf{ std\+::runtime\+\_\+error}} on failure. \mbox{\Hypertarget{util_8cpp_a963acd6c6383cd6f6479d6a38be9dfcb}\label{util_8cpp_a963acd6c6383cd6f6479d6a38be9dfcb}} 
 \index{util.\+cpp@{util.\+cpp}!left\+\_\+align\+\_\+text@{left\+\_\+align\+\_\+text}}
 \index{left\+\_\+align\+\_\+text@{left\+\_\+align\+\_\+text}!util.\+cpp@{util.\+cpp}}
 \subsubsection{\texorpdfstring{left\+\_\+align\+\_\+text()}{left\_align\_text()}}

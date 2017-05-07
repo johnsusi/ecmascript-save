@@ -1,21 +1,25 @@
 \hypertarget{parser_8h}{}\section{src/parser.h File Reference}
 \label{parser_8h}\index{src/parser.\+h@{src/parser.\+h}}
 {\ttfamily \#include \char`\"{}ast.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}logger.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}matcher.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}token.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}tracer.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$iostream$>$}\newline
 {\ttfamily \#include $<$memory$>$}\newline
 {\ttfamily \#include $<$sstream$>$}\newline
 {\ttfamily \#include $<$vector$>$}\newline
-Include dependency graph for parser.\+h\+:\nopagebreak
+Include dependency graph for parser.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{parser_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:\nopagebreak
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -27,6 +31,11 @@ This graph shows which files directly or indirectly include this file\+:\nopageb
 \item 
 class \hyperlink{class_parser}{Parser}
 \end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{parser_8h_abd6a38fb39140110c158184776cabb34}{trace}(method)~\hyperlink{class_trace_guard}{Trace\+Guard} tg\+\_\+\#\#\+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+(method, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+)
+\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -34,6 +43,15 @@ class \hyperlink{class_parser}{Parser}
 \item 
 {\footnotesize template$<$typename Cont $>$ }\\auto \hyperlink{parser_8h_af84a3849b6796e479c9ce1fd87672dbf}{make\+\_\+parser} (Cont \&\&cont)
 \end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{parser_8h_abd6a38fb39140110c158184776cabb34}\label{parser_8h_abd6a38fb39140110c158184776cabb34}} 
+\index{parser.\+h@{parser.\+h}!trace@{trace}}
+\index{trace@{trace}!parser.\+h@{parser.\+h}}
+\subsubsection{\texorpdfstring{trace}{trace}}
+{\footnotesize\ttfamily \#define trace(\begin{DoxyParamCaption}\item[{}]{method }\end{DoxyParamCaption})~\hyperlink{class_trace_guard}{Trace\+Guard} tg\+\_\+\#\#\+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+(method, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+)}
+
 
 
 \subsection{Function Documentation}

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['callback',['callback',['../struct_callable_visitor.html#a52ce52c399eb34a2a16abec3361e48b8',1,'CallableVisitor']]],
   ['callee',['callee',['../struct_new_expression.html#aa56c9b8daa3725a54fdb2b8fce63d237',1,'NewExpression::callee()'],['../struct_call_expression.html#a2d77ccd1a2d6f34d718063f0eb47bc21',1,'CallExpression::callee()']]],
   ['cases',['cases',['../struct_switch_statement.html#a2e2f296ddcb9fcb69bd4daeac8c850b0',1,'SwitchStatement']]],
   ['configurable',['configurable',['../struct_named_data_property.html#aeb6547dc7d587a6c93d3c65baf3c6307',1,'NamedDataProperty::configurable()'],['../struct_named_accessor_property.html#ac41371f76afc8a2dfb48c4ca52b50da9',1,'NamedAccessorProperty::configurable()']]],

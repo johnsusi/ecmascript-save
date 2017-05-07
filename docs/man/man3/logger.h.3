@@ -1,0 +1,52 @@
+.TH "src/logger.h" 3 "Sun May 7 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/logger.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <functional>\fP
+.br
+\fC#include <sstream>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBLogger\fP"
+.br
+.ti -1c
+.RI "class \fBStandardLogger< T >\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBLogger\fP & \fBoperator<<\fP (\fBLogger\fP &out, const \fBstd::string\fP &str)"
+.br
+.ti -1c
+.RI "template<typename T > \fBLogger\fP & \fBoperator<<\fP (\fBLogger\fP &out, const T &value)"
+.br
+.ti -1c
+.RI "template<typename T > \fBstd::unique_ptr\fP< \fBLogger\fP > \fBmake_standard_logger\fP (T &arg)"
+.br
+.ti -1c
+.RI "\fBLogger\fP * \fBmake_silent_logger\fP ()"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBLogger\fP* make_silent_logger ()"
+
+.SS "template<typename T > \fBstd::unique_ptr\fP<\fBLogger\fP> make_standard_logger (T & arg)"
+
+.SS "\fBLogger\fP& operator<< (\fBLogger\fP & out, const \fBstd::string\fP & str)"
+
+.SS "template<typename T > \fBLogger\fP& operator<< (\fBLogger\fP & out, const T & value)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

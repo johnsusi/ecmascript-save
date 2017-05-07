@@ -6,20 +6,22 @@
 
 
 
-Inheritance diagram for Identifier\+:\nopagebreak
+Inheritance diagram for Identifier\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=180pt]{struct_identifier__inherit__graph}
+\includegraphics[width=134pt]{struct_identifier__inherit__graph}
 \end{center}
 \end{figure}
 
 
-Collaboration diagram for Identifier\+:\nopagebreak
+Collaboration diagram for Identifier\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=274pt]{struct_identifier__coll__graph}
+\includegraphics[width=214pt]{struct_identifier__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
@@ -30,6 +32,8 @@ Collaboration diagram for Identifier\+:\nopagebreak
 \textbf{ std\+::string} \hyperlink{struct_identifier_a86c253d449b695548284efd85ec2be4e}{to\+\_\+string} () const
 \item 
 void \hyperlink{struct_identifier_acc1d00e56e626c8398b4e995578d6769}{accept} (\hyperlink{struct_visitor}{Visitor} \&visitor) const override
+\item 
+const char $\ast$ \hyperlink{struct_identifier_a8b4c74fe6ce48b6e13ae25dff7c60842}{type} () const override
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -63,6 +67,16 @@ Implements \hyperlink{struct_node_a10bd7af968140bbf5fa461298a969c71}{Node}.
 \index{to\+\_\+string@{to\+\_\+string}!Identifier@{Identifier}}
 \subsubsection{\texorpdfstring{to\+\_\+string()}{to\_string()}}
 {\footnotesize\ttfamily \textbf{ std\+::string} Identifier\+::to\+\_\+string (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_identifier_a8b4c74fe6ce48b6e13ae25dff7c60842}\label{struct_identifier_a8b4c74fe6ce48b6e13ae25dff7c60842}} 
+\index{Identifier@{Identifier}!type@{type}}
+\index{type@{type}!Identifier@{Identifier}}
+\subsubsection{\texorpdfstring{type()}{type()}}
+{\footnotesize\ttfamily const char$\ast$ Identifier\+::type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_node_a82f29420d0a38efcc370352528e94e9b}{Node}.
 
 
 

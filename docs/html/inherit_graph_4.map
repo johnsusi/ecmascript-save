@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_lexical_grammar.html" title="LexicalGrammar\&lt; T \&gt;" alt="" coords="5,5,155,31"/>
+<area shape="rect" id="node1" href="$class_logger.html" title="Logger" alt="" coords="5,31,68,56"/>
+<area shape="rect" id="node2" href="$class_silent_logger.html" title="SilentLogger" alt="" coords="142,5,238,31"/>
+<area shape="rect" id="node3" href="$class_standard_logger.html" title="StandardLogger\&lt; T \&gt;" alt="" coords="116,55,264,80"/>
 </map>

@@ -1,4 +1,4 @@
-.TH "src/ast.h" 3 "Tue May 2 2017" "ECMAScript" \" -*- nroff -*-
+.TH "src/ast.h" 3 "Sun May 7 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -6,15 +6,13 @@ src/ast.h
 .SH SYNOPSIS
 .br
 .PP
+\fC#include 'visitor\&.h'\fP
+.br
 \fC#include <iostream>\fP
 .br
-\fC#include <sstream>\fP
+\fC#include <string>\fP
 .br
 \fC#include <vector>\fP
-.br
-\fC#include <boost/optional\&.hpp>\fP
-.br
-\fC#include <boost/variant\&.hpp>\fP
 .br
 
 .SS "Classes"
@@ -25,15 +23,6 @@ src/ast.h
 .br
 .ti -1c
 .RI "struct \fBList< T >\fP"
-.br
-.ti -1c
-.RI "struct \fBVisitor\fP"
-.br
-.ti -1c
-.RI "struct \fBExpression\fP"
-.br
-.ti -1c
-.RI "struct \fBPrimaryExpression\fP"
 .br
 .ti -1c
 .RI "struct \fBThis\fP"
@@ -60,6 +49,33 @@ src/ast.h
 .RI "struct \fBRegularExpressionLiteral\fP"
 .br
 .ti -1c
+.RI "struct \fBArrayLiteral\fP"
+.br
+.ti -1c
+.RI "struct \fBExpression\fP"
+.br
+.ti -1c
+.RI "struct \fBLeftHandSideExpression\fP"
+.br
+.ti -1c
+.RI "struct \fBPrimaryExpression\fP"
+.br
+.ti -1c
+.RI "struct \fBThisExpression\fP"
+.br
+.ti -1c
+.RI "struct \fBIdentifierExpression\fP"
+.br
+.ti -1c
+.RI "struct \fBLiteralExpression\fP"
+.br
+.ti -1c
+.RI "struct \fBArrayExpression\fP"
+.br
+.ti -1c
+.RI "struct \fBObjectExpression\fP"
+.br
+.ti -1c
 .RI "struct \fBPropertyName\fP"
 .br
 .ti -1c
@@ -70,9 +86,6 @@ src/ast.h
 .br
 .ti -1c
 .RI "struct \fBElementList\fP"
-.br
-.ti -1c
-.RI "struct \fBArrayLiteral\fP"
 .br
 .ti -1c
 .RI "struct \fBPropertyNameAndValueList\fP"
@@ -202,6 +215,9 @@ src/ast.h
 .br
 .ti -1c
 .RI "struct \fBFunctionExpression\fP"
+.br
+.ti -1c
+.RI "struct \fBProgramDeclaration\fP"
 .br
 .ti -1c
 .RI "struct \fBProgram\fP"

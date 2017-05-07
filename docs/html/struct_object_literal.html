@@ -73,9 +73,10 @@ Inheritance diagram for ObjectLiteral:</div>
 <div class="dyncontent">
 <div class="center"><img src="struct_object_literal__inherit__graph.png" border="0" usemap="#_object_literal_inherit__map" alt="Inheritance graph"/></div>
 <map name="_object_literal_inherit__map" id="_object_literal_inherit__map">
-<area shape="rect" id="node2" href="struct_primary_expression.html" title="PrimaryExpression" alt="" coords="5,152,139,177"/>
-<area shape="rect" id="node3" href="struct_expression.html" title="Expression" alt="" coords="28,79,116,104"/>
-<area shape="rect" id="node4" href="struct_node.html" title="Node" alt="" coords="45,5,99,31"/>
+<area shape="rect" id="node2" href="struct_primary_expression.html" title="PrimaryExpression" alt="" coords="23,225,156,251"/>
+<area shape="rect" id="node3" href="struct_left_hand_side_expression.html" title="LeftHandSideExpression" alt="" coords="5,152,173,177"/>
+<area shape="rect" id="node4" href="struct_expression.html" title="Expression" alt="" coords="46,79,133,104"/>
+<area shape="rect" id="node5" href="struct_node.html" title="Node" alt="" coords="63,5,116,31"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
@@ -83,12 +84,13 @@ Collaboration diagram for ObjectLiteral:</div>
 <div class="dyncontent">
 <div class="center"><img src="struct_object_literal__coll__graph.png" border="0" usemap="#_object_literal_coll__map" alt="Collaboration graph"/></div>
 <map name="_object_literal_coll__map" id="_object_literal_coll__map">
-<area shape="rect" id="node2" href="struct_primary_expression.html" title="PrimaryExpression" alt="" coords="5,167,139,192"/>
-<area shape="rect" id="node3" href="struct_expression.html" title="Expression" alt="" coords="40,92,128,117"/>
-<area shape="rect" id="node4" href="struct_node.html" title="Node" alt="" coords="60,5,113,31"/>
-<area shape="rect" id="node6" href="struct_list.html" title="List\&lt; PropertyAssignment \&gt;" alt="" coords="161,92,346,117"/>
-<area shape="rect" id="node5" href="struct_property_name_and_value_list.html" title="PropertyNameAndValueList" alt="" coords="162,167,347,192"/>
-<area shape="rect" id="node7" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/container/vector.html" title="std::vector\&lt; PropertyAssignment *\&gt;" alt="" coords="138,5,369,31"/>
+<area shape="rect" id="node2" href="struct_primary_expression.html" title="PrimaryExpression" alt="" coords="27,265,160,291"/>
+<area shape="rect" id="node3" href="struct_left_hand_side_expression.html" title="LeftHandSideExpression" alt="" coords="5,167,173,192"/>
+<area shape="rect" id="node4" href="struct_expression.html" title="Expression" alt="" coords="18,92,105,117"/>
+<area shape="rect" id="node5" href="struct_node.html" title="Node" alt="" coords="35,5,88,31"/>
+<area shape="rect" id="node7" href="struct_list.html" title="List\&lt; PropertyAssignment \&gt;" alt="" coords="129,92,314,117"/>
+<area shape="rect" id="node6" href="struct_property_name_and_value_list.html" title="PropertyNameAndValueList" alt="" coords="121,216,306,241"/>
+<area shape="rect" id="node8" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/container/vector.html" title="std::vector\&lt; PropertyAssignment *\&gt;" alt="" coords="113,5,344,31"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -98,6 +100,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a76693843f59b168d690b99877b9494ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac107a4d1da4363ece10d6823adbbf927"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_object_literal.html#ac107a4d1da4363ece10d6823adbbf927">accept</a> (<a class="el" href="struct_visitor.html">Visitor</a> &amp;visitor) const override</td></tr>
 <tr class="separator:ac107a4d1da4363ece10d6823adbbf927"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a241e2c71f0bca32666d18bff4531c758"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_object_literal.html#a241e2c71f0bca32666d18bff4531c758">type</a> () const override</td></tr>
+<tr class="separator:a241e2c71f0bca32666d18bff4531c758"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_struct_node"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_struct_node')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="struct_node.html">Node</a></td></tr>
 <tr class="memitem:af5e3fa79300bf5f3f2f3ecae6e795a94 inherit pub_methods_struct_node"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_node.html#af5e3fa79300bf5f3f2f3ecae6e795a94">~Node</a> ()</td></tr>
 <tr class="separator:af5e3fa79300bf5f3f2f3ecae6e795a94 inherit pub_methods_struct_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -160,6 +164,33 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Implements <a class="el" href="struct_node.html#a10bd7af968140bbf5fa461298a969c71">Node</a>.</p>
+
+</div>
+</div>
+<a id="a241e2c71f0bca32666d18bff4531c758"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a241e2c71f0bca32666d18bff4531c758">&#9670;&nbsp;</a></span>type()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* ObjectLiteral::type </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="struct_node.html#a82f29420d0a38efcc370352528e94e9b">Node</a>.</p>
 
 </div>
 </div>

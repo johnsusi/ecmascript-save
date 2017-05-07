@@ -1,0 +1,54 @@
+.TH "ObjectExpression" 3 "Sun May 7 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ObjectExpression
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ast\&.h>\fP
+.PP
+Inherits \fBPrimaryExpression\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBObjectExpression\fP (\fBObjectLiteral\fP *\fBobject\fP)"
+.br
+.ti -1c
+.RI "void \fBaccept\fP (\fBVisitor\fP &visitor) const override"
+.br
+.ti -1c
+.RI "const char * \fBtype\fP () const override"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBObjectLiteral\fP * \fBobject\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ObjectExpression::ObjectExpression (\fBObjectLiteral\fP * object)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void ObjectExpression::accept (\fBVisitor\fP & visitor) const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBNode\fP\&.
+.SS "const char* ObjectExpression::type () const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBNode\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBObjectLiteral\fP* ObjectExpression::object"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

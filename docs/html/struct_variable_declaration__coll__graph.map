@@ -1,7 +1,6 @@
 <map id="VariableDeclaration" name="VariableDeclaration">
-<area shape="rect" id="node2" href="$struct_expression.html" title="Expression" alt="" coords="44,80,131,105"/>
-<area shape="rect" id="node5" href="$struct_primary_expression.html" title="PrimaryExpression" alt="" coords="21,155,154,180"/>
-<area shape="rect" id="node3" href="$struct_node.html" title="Node" alt="" coords="61,5,114,31"/>
-<area shape="rect" id="node4" href="$struct_identifier.html" title="Identifier" alt="" coords="157,241,229,267"/>
-<area shape="rect" id="node6" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/string/basic_string.html" title="std::u16string" alt="" coords="178,155,280,180"/>
+<area shape="rect" id="node2" href="$struct_expression.html" title="Expression" alt="" coords="13,92,100,117"/>
+<area shape="rect" id="node3" href="$struct_node.html" title="Node" alt="" coords="32,5,86,31"/>
+<area shape="rect" id="node4" href="$struct_identifier.html" title="Identifier" alt="" coords="124,92,197,117"/>
+<area shape="rect" id="node5" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/string/basic_string.html" title="std::u16string" alt="" coords="110,5,211,31"/>
 </map>

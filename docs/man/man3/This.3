@@ -1,4 +1,4 @@
-.TH "This" 3 "Tue May 2 2017" "ECMAScript" \" -*- nroff -*-
+.TH "This" 3 "Sun May 7 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -9,17 +9,24 @@ This
 .PP
 \fC#include <ast\&.h>\fP
 .PP
-Inherits \fBPrimaryExpression\fP\&.
+Inherits \fBNode\fP\&.
 .SS "Public Member Functions"
 
 .in +1c
 .ti -1c
 .RI "void \fBaccept\fP (\fBVisitor\fP &visitor) const override"
 .br
+.ti -1c
+.RI "const char * \fBtype\fP () const override"
+.br
 .in -1c
 .SH "Member Function Documentation"
 .PP 
 .SS "void This::accept (\fBVisitor\fP & visitor) const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBNode\fP\&.
+.SS "const char* This::type () const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
 Implements \fBNode\fP\&.

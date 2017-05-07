@@ -1,4 +1,4 @@
-.TH "Matcher< T, It >" 3 "Tue May 2 2017" "ECMAScript" \" -*- nroff -*-
+.TH "Matcher< T, It >" 3 "Sun May 7 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -13,6 +13,9 @@ Matcher< T, It >
 .in +1c
 .ti -1c
 .RI "\fBMatcher\fP (It begin, It end)"
+.br
+.ti -1c
+.RI "bool \fBdone\fP () const"
 .br
 .ti -1c
 .RI "bool \fBmatch\fP (const T &value)"
@@ -93,6 +96,8 @@ Matcher< T, It >
 .SS "template<typename T, typename It> template<typename Arg , typename\&.\&.\&. Args> bool \fBMatcher\fP< T, It >::any_of (Arg && arg, Args &&\&.\&.\&. args)\fC [inline]\fP"
 
 .SS "template<typename T, typename It> bool \fBMatcher\fP< T, It >::any_of ()\fC [inline]\fP"
+
+.SS "template<typename T, typename It> bool \fBMatcher\fP< T, It >::done () const\fC [inline]\fP"
 
 .SS "template<typename T, typename It> It \fBMatcher\fP< T, It >::mark () const\fC [inline]\fP"
 

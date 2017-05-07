@@ -1,8 +1,6 @@
 var searchData=
 [
   ['m',['m',['http://en.cppreference.com/w/cpp/numeric/random/lognormal_distribution/params.html',1,'std::lognormal_distribution::m()'],['http://en.cppreference.com/w/cpp/numeric/random/fisher_f_distribution/params.html',1,'std::fisher_f_distribution::m()']]],
-  ['m_5findent',['m_indent',['../structindentstream.html#a679f1453bdd2a44b50d75e08e92132bc',1,'indentstream']]],
-  ['m_5fskip',['m_skip',['../structindentstream.html#a79ad9a59e1315f8b6c29826a3684ad4a',1,'indentstream']]],
   ['main',['main',['../main_8cpp.html#a217dbf8b442f20279ea00b898af96f52',1,'main.cpp']]],
   ['main_2ecpp',['main.cpp',['../main_8cpp.html',1,'']]],
   ['make_5fexception_5fptr',['make_exception_ptr',['http://en.cppreference.com/w/cpp/error/make_exception_ptr.html',1,'std']]],
@@ -15,10 +13,10 @@ var searchData=
   ['make_5fready_5fat_5fthread_5fexit',['make_ready_at_thread_exit',['http://en.cppreference.com/w/cpp/thread/packaged_task/make_ready_at_thread_exit.html',1,'std::packaged_task']]],
   ['make_5fshared',['make_shared',['http://en.cppreference.com/w/cpp/memory/shared_ptr/make_shared.html',1,'std']]],
   ['make_5fsigned',['make_signed',['http://en.cppreference.com/w/cpp/types/make_signed.html',1,'std']]],
+  ['make_5fsilent_5flogger',['make_silent_logger',['../logger_8cpp.html#a4a91393d9aac15039de84d6a92cadfd0',1,'make_silent_logger():&#160;logger.cpp'],['../logger_8h.html#a4a91393d9aac15039de84d6a92cadfd0',1,'make_silent_logger():&#160;logger.cpp']]],
+  ['make_5fstandard_5flogger',['make_standard_logger',['../logger_8h.html#ac812b073965fdb43ac0b6198037a0991',1,'logger.h']]],
   ['make_5ftuple',['make_tuple',['http://en.cppreference.com/w/cpp/utility/tuple/make_tuple.html',1,'std']]],
   ['make_5funsigned',['make_unsigned',['http://en.cppreference.com/w/cpp/types/make_unsigned.html',1,'std']]],
-  ['make_5fvisitor',['make_visitor',['../ast_8cpp.html#a12a81640ea6026881876246d7891ba6d',1,'ast.cpp']]],
-  ['make_5fvoid',['make_void',['../structmake__void.html',1,'']]],
   ['malloc',['malloc',['http://en.cppreference.com/w/cpp/memory/c/malloc.html',1,'std']]],
   ['map',['map',['http://en.cppreference.com/w/cpp/container/map.html',1,'std::map'],['http://en.cppreference.com/w/cpp/container/map/map.html',1,'std::map::map()']]],
   ['mark',['mark',['../class_matcher.html#af9135752ac195a21c230267d52db6623',1,'Matcher']]],

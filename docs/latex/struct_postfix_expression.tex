@@ -28,6 +28,8 @@ Collaboration diagram for Postfix\+Expression\+:\nopagebreak
 \hyperlink{struct_postfix_expression_a51cc535ac4af99bef2f292fb1ead6ad7}{Postfix\+Expression} (\textbf{ std\+::string} \hyperlink{struct_postfix_expression_a9ce1fb591d6787626d2eda8a9ca0a3cd}{op}, \hyperlink{struct_expression}{Expression} $\ast$\hyperlink{struct_postfix_expression_a33a5946e6ded6300ea8552325f22cba9}{lhs}=nullptr)
 \item 
 void \hyperlink{struct_postfix_expression_a2d814c990b7d1fb728f030a2673fe729}{accept} (\hyperlink{struct_visitor}{Visitor} \&visitor) const override
+\item 
+const char $\ast$ \hyperlink{struct_postfix_expression_a9971fc9b1733fa57b257a916102696fd}{type} () const override
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -57,6 +59,16 @@ void \hyperlink{struct_postfix_expression_a2d814c990b7d1fb728f030a2673fe729}{acc
 
 
 Implements \hyperlink{struct_node_a10bd7af968140bbf5fa461298a969c71}{Node}.
+
+\mbox{\Hypertarget{struct_postfix_expression_a9971fc9b1733fa57b257a916102696fd}\label{struct_postfix_expression_a9971fc9b1733fa57b257a916102696fd}} 
+\index{Postfix\+Expression@{Postfix\+Expression}!type@{type}}
+\index{type@{type}!Postfix\+Expression@{Postfix\+Expression}}
+\subsubsection{\texorpdfstring{type()}{type()}}
+{\footnotesize\ttfamily const char$\ast$ Postfix\+Expression\+::type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_node_a82f29420d0a38efcc370352528e94e9b}{Node}.
 
 
 

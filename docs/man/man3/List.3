@@ -1,4 +1,4 @@
-.TH "List< T >" 3 "Tue May 2 2017" "ECMAScript" \" -*- nroff -*-
+.TH "List< T >" 3 "Sun May 7 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -15,6 +15,9 @@ Inherits \fBNode\fP\&.
 .in +1c
 .ti -1c
 .RI "template<typename\&.\&.\&. Args> \fBList\fP (Args &&\&.\&.\&. args)"
+.br
+.ti -1c
+.RI "\fBList\fP (T *arg)"
 .br
 .ti -1c
 .RI "auto \fBfront\fP () const"
@@ -37,9 +40,6 @@ Inherits \fBNode\fP\&.
 .ti -1c
 .RI "auto \fBoperator[]\fP (\fBstd::size_t\fP index)"
 .br
-.ti -1c
-.RI "void \fBaccept\fP (\fBVisitor\fP &visitor) const override"
-.br
 .in -1c
 .SS "Public Attributes"
 
@@ -52,12 +52,10 @@ Inherits \fBNode\fP\&.
 .PP 
 .SS "template<typename T> template<typename\&.\&.\&. Args> \fBList\fP< T >::\fBList\fP (Args &&\&.\&.\&. args)\fC [inline]\fP"
 
+.SS "template<typename T> \fBList\fP< T >::\fBList\fP (T * arg)\fC [inline]\fP, \fC [explicit]\fP"
+
 .SH "Member Function Documentation"
 .PP 
-.SS "template<typename T > void \fBList\fP< T >::accept (\fBVisitor\fP & visitor) const\fC [override]\fP, \fC [virtual]\fP"
-
-.PP
-Implements \fBNode\fP\&.
 .SS "template<typename T> auto \fBList\fP< T >::back () const\fC [inline]\fP"
 
 .SS "template<typename T> auto \fBList\fP< T >::begin () const\fC [inline]\fP"
@@ -74,7 +72,7 @@ Implements \fBNode\fP\&.
 
 .SH "Member Data Documentation"
 .PP 
-.SS "template<typename T> \fBstd::vector\fP<T *> \fBList\fP< T >::data"
+.SS "template<typename T> \fBstd::vector\fP<T*> \fBList\fP< T >::data"
 
 
 .SH "Author"

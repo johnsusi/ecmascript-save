@@ -28,6 +28,8 @@ Collaboration diagram for Unary\+Expression\+:\nopagebreak
 \hyperlink{struct_unary_expression_a0a2158571198f271b43612707666e8fa}{Unary\+Expression} (\textbf{ std\+::string} \hyperlink{struct_unary_expression_a057cfd54844d5b36e15f16ee5272b071}{op}, \hyperlink{struct_expression}{Expression} $\ast$\hyperlink{struct_unary_expression_a53e53c6c0a0b76c46cb49a1fa48be5a5}{rhs}=nullptr)
 \item 
 void \hyperlink{struct_unary_expression_a88c89a0268ecfa5008b5afe7bc47913a}{accept} (\hyperlink{struct_visitor}{Visitor} \&visitor) const override
+\item 
+const char $\ast$ \hyperlink{struct_unary_expression_ae98f7830a67f58e467de4bae7af035ab}{type} () const override
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -57,6 +59,16 @@ void \hyperlink{struct_unary_expression_a88c89a0268ecfa5008b5afe7bc47913a}{accep
 
 
 Implements \hyperlink{struct_node_a10bd7af968140bbf5fa461298a969c71}{Node}.
+
+\mbox{\Hypertarget{struct_unary_expression_ae98f7830a67f58e467de4bae7af035ab}\label{struct_unary_expression_ae98f7830a67f58e467de4bae7af035ab}} 
+\index{Unary\+Expression@{Unary\+Expression}!type@{type}}
+\index{type@{type}!Unary\+Expression@{Unary\+Expression}}
+\subsubsection{\texorpdfstring{type()}{type()}}
+{\footnotesize\ttfamily const char$\ast$ Unary\+Expression\+::type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_node_a82f29420d0a38efcc370352528e94e9b}{Node}.
 
 
 

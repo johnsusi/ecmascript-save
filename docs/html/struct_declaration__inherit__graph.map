@@ -1,4 +1,5 @@
 <map id="Declaration" name="Declaration">
-<area shape="rect" id="node2" href="$struct_source_element.html" title="SourceElement" alt="" coords="5,79,118,104"/>
-<area shape="rect" id="node3" href="$struct_node.html" title="Node" alt="" coords="35,5,88,31"/>
+<area shape="rect" id="node4" href="$struct_program_declaration.html" title="ProgramDeclaration" alt="" coords="5,225,145,251"/>
+<area shape="rect" id="node2" href="$struct_source_element.html" title="SourceElement" alt="" coords="19,79,132,104"/>
+<area shape="rect" id="node3" href="$struct_node.html" title="Node" alt="" coords="49,5,102,31"/>
 </map>

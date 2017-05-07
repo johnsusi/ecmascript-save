@@ -25,7 +25,11 @@ Collaboration diagram for While\+Statement\+:\nopagebreak
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\hyperlink{struct_while_statement_a4dfcc4a8b19b8bdc6492e7f8b8921bcc}{While\+Statement} (\hyperlink{struct_expression}{Expression} $\ast$\hyperlink{struct_while_statement_acfede7e3d617c685032f657a7a95aa15}{test}, \hyperlink{struct_statement}{Statement} $\ast$\hyperlink{struct_while_statement_adcb2abe56520e643ad7b1192099c75e6}{body})
+\item 
 void \hyperlink{struct_while_statement_a017a8824abdcb5551061dae2a09e8ead}{accept} (\hyperlink{struct_visitor}{Visitor} \&visitor) const override
+\item 
+const char $\ast$ \hyperlink{struct_while_statement_a4e5965e91f9cca73ffa70ca14d7fd123}{type} () const override
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -34,6 +38,15 @@ void \hyperlink{struct_while_statement_a017a8824abdcb5551061dae2a09e8ead}{accept
 \item 
 \hyperlink{struct_statement}{Statement} $\ast$ \hyperlink{struct_while_statement_adcb2abe56520e643ad7b1192099c75e6}{body}
 \end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_while_statement_a4dfcc4a8b19b8bdc6492e7f8b8921bcc}\label{struct_while_statement_a4dfcc4a8b19b8bdc6492e7f8b8921bcc}} 
+\index{While\+Statement@{While\+Statement}!While\+Statement@{While\+Statement}}
+\index{While\+Statement@{While\+Statement}!While\+Statement@{While\+Statement}}
+\subsubsection{\texorpdfstring{While\+Statement()}{WhileStatement()}}
+{\footnotesize\ttfamily While\+Statement\+::\+While\+Statement (\begin{DoxyParamCaption}\item[{\hyperlink{struct_expression}{Expression} $\ast$}]{test,  }\item[{\hyperlink{struct_statement}{Statement} $\ast$}]{body }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
 
 
 \subsection{Member Function Documentation}
@@ -46,6 +59,16 @@ void \hyperlink{struct_while_statement_a017a8824abdcb5551061dae2a09e8ead}{accept
 
 
 Implements \hyperlink{struct_node_a10bd7af968140bbf5fa461298a969c71}{Node}.
+
+\mbox{\Hypertarget{struct_while_statement_a4e5965e91f9cca73ffa70ca14d7fd123}\label{struct_while_statement_a4e5965e91f9cca73ffa70ca14d7fd123}} 
+\index{While\+Statement@{While\+Statement}!type@{type}}
+\index{type@{type}!While\+Statement@{While\+Statement}}
+\subsubsection{\texorpdfstring{type()}{type()}}
+{\footnotesize\ttfamily const char$\ast$ While\+Statement\+::type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_node_a82f29420d0a38efcc370352528e94e9b}{Node}.
 
 
 

@@ -1,0 +1,772 @@
+\hypertarget{struct_basic_visitor}{}\section{Basic\+Visitor Struct Reference}
+\label{struct_basic_visitor}\index{Basic\+Visitor@{Basic\+Visitor}}
+
+
+{\ttfamily \#include $<$basic\+\_\+visitor.\+h$>$}
+
+
+
+Inheritance diagram for Basic\+Visitor\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_basic_visitor__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Basic\+Visitor\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=148pt]{struct_basic_visitor__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{struct_basic_visitor_aef8aa82a7e5149b6153f097af8daa647}{apply\+\_\+impl} (const T $\ast$node)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{struct_basic_visitor_a128388a75069690c9c108ce87b69cde8}{apply\+\_\+impl} (const \textbf{ std\+::vector}$<$ T $>$ \&list)
+\item 
+{\footnotesize template$<$typename... Args$>$ }\\void \hyperlink{struct_basic_visitor_a85afee760b9e02733ed01ff56a96f09c}{apply} (Args \&\&... args)
+\item 
+void \hyperlink{struct_basic_visitor_a80dd293b132b869b59f1b87446a86354}{operator()} (const \hyperlink{struct_this}{This} \&)
+\item 
+void \hyperlink{struct_basic_visitor_aa63b7795f0c0cf27fd01dd36d9cc6cbe}{operator()} (const \hyperlink{struct_identifier}{Identifier} \&)
+\item 
+void \hyperlink{struct_basic_visitor_a55220c3af28e07f5890189f076032606}{operator()} (const \hyperlink{struct_null_literal}{Null\+Literal} \&)
+\item 
+void \hyperlink{struct_basic_visitor_ae4b099b2e6e3ef9cbad353c9f3e2d270}{operator()} (const \hyperlink{struct_boolean_literal}{Boolean\+Literal} \&)
+\item 
+void \hyperlink{struct_basic_visitor_a15a06a03234489bef8e938b3c12bc9ed}{operator()} (const \hyperlink{struct_numeric_literal}{Numeric\+Literal} \&)
+\item 
+void \hyperlink{struct_basic_visitor_a01233533d2401acfe3f2f93cb2e3a051}{operator()} (const \hyperlink{struct_string_literal}{String\+Literal} \&)
+\item 
+void \hyperlink{struct_basic_visitor_ab1df85c3eb4de916d811221a9ded9c2f}{operator()} (const \hyperlink{struct_regular_expression_literal}{Regular\+Expression\+Literal} \&)
+\item 
+void \hyperlink{struct_basic_visitor_a90dbd5cdf8d01591b35b1cfd17086758}{operator()} (const \hyperlink{struct_array_literal}{Array\+Literal} \&node)
+\item 
+void \hyperlink{struct_basic_visitor_a56f91fbcd7685332d5d22147ed8ac385}{operator()} (const \hyperlink{struct_object_literal}{Object\+Literal} \&node)
+\item 
+void \hyperlink{struct_basic_visitor_a324c1fa1804aca5286a60c74b7d67997}{operator()} (const \hyperlink{struct_this_expression}{This\+Expression} \&)
+\item 
+void \hyperlink{struct_basic_visitor_a3055e7fe6f87a3b1396a0f334ef5d6b7}{operator()} (const \hyperlink{struct_identifier_expression}{Identifier\+Expression} \&node)
+\item 
+void \hyperlink{struct_basic_visitor_a082a01528e44eba34fe48a1ec2186956}{operator()} (const \hyperlink{struct_literal_expression}{Literal\+Expression} \&node)
+\item 
+void \hyperlink{struct_basic_visitor_afa358b418987b2fe3c93c5d09d06251b}{operator()} (const \hyperlink{struct_array_expression}{Array\+Expression} \&node)
+\item 
+void \hyperlink{struct_basic_visitor_aedba37b1625d76b80bd4b1a636e360c7}{operator()} (const \hyperlink{struct_object_expression}{Object\+Expression} \&node)
+\item 
+void \hyperlink{struct_basic_visitor_ac9a891133f4ee31a34c0b0584f816e20}{operator()} (const \hyperlink{struct_member_expression}{Member\+Expression} \&node)
+\item 
+void \hyperlink{struct_basic_visitor_a2a571e28c7b4f80b3ec8fabcb00a49c5}{operator()} (const \hyperlink{struct_new_expression}{New\+Expression} \&node)
+\item 
+void \hyperlink{struct_basic_visitor_a8dbbfb33bdb5ea39bb6c721b44edcc4c}{operator()} (const \hyperlink{struct_call_expression}{Call\+Expression} \&node)
+\item 
+void \hyperlink{struct_basic_visitor_a30af83cdfc65c4888d5d226a975f1f7c}{operator()} (const \hyperlink{struct_postfix_expression}{Postfix\+Expression} \&node)
+\item 
+void \hyperlink{struct_basic_visitor_ac26ca5f6012bbfdafdc91ad8f896a3d4}{operator()} (const \hyperlink{struct_unary_expression}{Unary\+Expression} \&node)
+\item 
+void \hyperlink{struct_basic_visitor_a354c75bf84d88737eed7900a9c5d2dd6}{operator()} (const \hyperlink{struct_binary_expression}{Binary\+Expression} \&node)
+\item 
+void \hyperlink{struct_basic_visitor_a168eeccdaf38ac6f9cc2f32feefddcc5}{operator()} (const \hyperlink{struct_conditional_expression}{Conditional\+Expression} \&node)
+\item 
+void \hyperlink{struct_basic_visitor_a84f04441edb226fd94d8e9db71543410}{operator()} (const \hyperlink{struct_function_expression}{Function\+Expression} \&node)
+\item 
+void \hyperlink{struct_basic_visitor_aae1410617eb4cfed77871e4b46a7850c}{operator()} (const \hyperlink{struct_block}{Block} \&node)
+\item 
+void \hyperlink{struct_basic_visitor_aa31748356438cd46ef7cbc49fb8055fa}{operator()} (const \hyperlink{struct_variable_statement}{Variable\+Statement} \&stmt)
+\item 
+void \hyperlink{struct_basic_visitor_a210214f50f892e5bdf5b5903b2191ab6}{operator()} (const \hyperlink{struct_empty_statement}{Empty\+Statement} \&)
+\item 
+void \hyperlink{struct_basic_visitor_ae944edc097bb1bcbd5625fbc81c78d0a}{operator()} (const \hyperlink{struct_expression_statement}{Expression\+Statement} \&stmt)
+\item 
+void \hyperlink{struct_basic_visitor_a90af1121005cdaadea708cd60cc016fd}{operator()} (const \hyperlink{struct_if_statement}{If\+Statement} \&stmt)
+\item 
+void \hyperlink{struct_basic_visitor_a7c7caaec50936da8bef52601f1c38d10}{operator()} (const \hyperlink{struct_do_while_statement}{Do\+While\+Statement} \&)
+\item 
+void \hyperlink{struct_basic_visitor_adc70983c2617c6a99fe00e2178af6e14}{operator()} (const \hyperlink{struct_while_statement}{While\+Statement} \&)
+\item 
+void \hyperlink{struct_basic_visitor_a6a973ae3d27c06462637d6ddf5f5d9f1}{operator()} (const \hyperlink{struct_for_statement}{For\+Statement} \&)
+\item 
+void \hyperlink{struct_basic_visitor_a065fa15042daac02f409f3548cc2f687}{operator()} (const \hyperlink{struct_for_in_statement}{For\+In\+Statement} \&)
+\item 
+void \hyperlink{struct_basic_visitor_a58a6a60b11a58e0f545c818ad7e5ad9f}{operator()} (const \hyperlink{struct_continue_statement}{Continue\+Statement} \&stmt)
+\item 
+void \hyperlink{struct_basic_visitor_a9ee1441f235f852663d61203034e788b}{operator()} (const \hyperlink{struct_break_statement}{Break\+Statement} \&stmt)
+\item 
+void \hyperlink{struct_basic_visitor_a367cfaf0409162f7c94e1648e625816e}{operator()} (const \hyperlink{struct_return_statement}{Return\+Statement} \&stmt)
+\item 
+void \hyperlink{struct_basic_visitor_adef187cc02193116879f4697488ddabf}{operator()} (const \hyperlink{struct_with_statement}{With\+Statement} \&stmt)
+\item 
+void \hyperlink{struct_basic_visitor_af81c51e8a36db9ab923df747463afc11}{operator()} (const \hyperlink{struct_labelled_statement}{Labelled\+Statement} \&stmt)
+\item 
+void \hyperlink{struct_basic_visitor_ac83f72616fb477a7a649065185eb3895}{operator()} (const \hyperlink{struct_switch_statement}{Switch\+Statement} \&stmt)
+\item 
+void \hyperlink{struct_basic_visitor_ac42a17b7d2cb244a0b98edce715bd50c}{operator()} (const \hyperlink{struct_throw_statement}{Throw\+Statement} \&stmt)
+\item 
+void \hyperlink{struct_basic_visitor_a670967e4fafdaff24b8191e9d726ca6a}{operator()} (const \hyperlink{struct_try_statement}{Try\+Statement} \&stmt)
+\item 
+void \hyperlink{struct_basic_visitor_a643d2e0e4fa076004a987108a455ab5d}{operator()} (const \hyperlink{struct_debugger_statement}{Debugger\+Statement} \&)
+\item 
+void \hyperlink{struct_basic_visitor_a236e03a953fe8f6c29d764ddd0933653}{operator()} (const \hyperlink{struct_case_clause}{Case\+Clause} \&node)
+\item 
+void \hyperlink{struct_basic_visitor_a427e6c179f8f598d5c24356701ece311}{operator()} (const \hyperlink{struct_default_clause}{Default\+Clause} \&node)
+\item 
+void \hyperlink{struct_basic_visitor_af4a6c12c35d165ecf96361ec3faf0583}{operator()} (const \hyperlink{struct_function_declaration}{Function\+Declaration} \&decl)
+\item 
+void \hyperlink{struct_basic_visitor_a04ba3e59b4d7a7dc9764c3d6fcde6c06}{operator()} (const \hyperlink{struct_function_body}{Function\+Body} \&node)
+\item 
+void \hyperlink{struct_basic_visitor_a89040003d494fc8559a9d0b19d0e657d}{operator()} (const \hyperlink{struct_variable_declaration}{Variable\+Declaration} \&decl)
+\item 
+void \hyperlink{struct_basic_visitor_a365b77b2a395a7525224bcb5d422115a}{operator()} (const \hyperlink{struct_elision}{Elision} \&)
+\item 
+void \hyperlink{struct_basic_visitor_ae447a2098b51b5a9fc6bfd83798ffb01}{operator()} (const \hyperlink{struct_property_name}{Property\+Name} \&)
+\item 
+void \hyperlink{struct_basic_visitor_af6767fb4a5b244ccacc56e1e2fbb2200}{operator()} (const \hyperlink{struct_property_assignment}{Property\+Assignment} \&node)
+\item 
+void \hyperlink{struct_basic_visitor_a965705dcbd97ef0f23ead04af33bfce5}{operator()} (const \hyperlink{struct_arguments}{Arguments} \&node)
+\item 
+void \hyperlink{struct_basic_visitor_ad36bb57f0b62f1b48cf7ed4b0c6d378b}{operator()} (const \hyperlink{struct_program}{Program} \&node)
+\item 
+void \hyperlink{struct_basic_visitor_a2ea35a5ede761a22479ba2be10ad0902}{operator()} (const \hyperlink{struct_program_declaration}{Program\+Declaration} \&decl)
+\item 
+void \hyperlink{struct_basic_visitor_a64c63caf3fbe79ccee28cbec4d2c6144}{operator()} (const \hyperlink{struct_element_list}{Element\+List} \&list)
+\item 
+void \hyperlink{struct_basic_visitor_a5898e5cdfd0c7802141a035d7563da36}{operator()} (const \hyperlink{struct_property_name_and_value_list}{Property\+Name\+And\+Value\+List} \&list)
+\item 
+void \hyperlink{struct_basic_visitor_af813d137040199512b862ee280990e16}{operator()} (const \hyperlink{struct_argument_list}{Argument\+List} \&list)
+\item 
+void \hyperlink{struct_basic_visitor_a210a39743aacc9903d45fe86e8aa72a5}{operator()} (const \hyperlink{struct_variable_declaration_list}{Variable\+Declaration\+List} \&list)
+\item 
+void \hyperlink{struct_basic_visitor_a08f93ca22b6ff855deb2b1d6343123b5}{operator()} (const \hyperlink{struct_statement_list}{Statement\+List} \&list)
+\item 
+void \hyperlink{struct_basic_visitor_afc8e6a4fa1e993522b484308d3b1378d}{operator()} (const \hyperlink{struct_case_block}{Case\+Block} \&list)
+\item 
+void \hyperlink{struct_basic_visitor_a350c9cf47d068cb7de9f4e4a92c07fc8}{operator()} (const \hyperlink{struct_source_elements}{Source\+Elements} \&list)
+\item 
+void \hyperlink{struct_basic_visitor_ad8960cea4118164c4c913b2b3a42ec4a}{operator()} (const \hyperlink{struct_formal_parameter_list}{Formal\+Parameter\+List} \&list)
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_basic_visitor_a85afee760b9e02733ed01ff56a96f09c}\label{struct_basic_visitor_a85afee760b9e02733ed01ff56a96f09c}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!apply@{apply}}
+\index{apply@{apply}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{apply()}{apply()}}
+{\footnotesize\ttfamily template$<$typename... Args$>$ \\
+void Basic\+Visitor\+::apply (\begin{DoxyParamCaption}\item[{Args \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_basic_visitor_aef8aa82a7e5149b6153f097af8daa647}\label{struct_basic_visitor_aef8aa82a7e5149b6153f097af8daa647}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!apply\+\_\+impl@{apply\+\_\+impl}}
+\index{apply\+\_\+impl@{apply\+\_\+impl}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{apply\+\_\+impl()}{apply\_impl()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void Basic\+Visitor\+::apply\+\_\+impl (\begin{DoxyParamCaption}\item[{const T $\ast$}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_basic_visitor_a128388a75069690c9c108ce87b69cde8}\label{struct_basic_visitor_a128388a75069690c9c108ce87b69cde8}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!apply\+\_\+impl@{apply\+\_\+impl}}
+\index{apply\+\_\+impl@{apply\+\_\+impl}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{apply\+\_\+impl()}{apply\_impl()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void Basic\+Visitor\+::apply\+\_\+impl (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::vector}$<$ T $>$ \&}]{list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_basic_visitor_a80dd293b132b869b59f1b87446a86354}\label{struct_basic_visitor_a80dd293b132b869b59f1b87446a86354}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [1/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_this}{This} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_a7a043c9da4e7f8233db48afb82dbc7bc}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_aa63b7795f0c0cf27fd01dd36d9cc6cbe}\label{struct_basic_visitor_aa63b7795f0c0cf27fd01dd36d9cc6cbe}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [2/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_identifier}{Identifier} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_a2d09687aa24b1b618c6205f8413c2dd3}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_a55220c3af28e07f5890189f076032606}\label{struct_basic_visitor_a55220c3af28e07f5890189f076032606}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [3/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_null_literal}{Null\+Literal} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_a2278ee24407bdc0d3addf887754d4c6c}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_ae4b099b2e6e3ef9cbad353c9f3e2d270}\label{struct_basic_visitor_ae4b099b2e6e3ef9cbad353c9f3e2d270}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [4/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_boolean_literal}{Boolean\+Literal} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_af3b394eaf1b9b1db22379aedcb234a2f}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_a15a06a03234489bef8e938b3c12bc9ed}\label{struct_basic_visitor_a15a06a03234489bef8e938b3c12bc9ed}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [5/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_numeric_literal}{Numeric\+Literal} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_a6d707fe0c1563b39aae3ecd7ddb5ab8f}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_a01233533d2401acfe3f2f93cb2e3a051}\label{struct_basic_visitor_a01233533d2401acfe3f2f93cb2e3a051}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [6/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_string_literal}{String\+Literal} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_a6bab8ba66edf0cc73cb92073269e7848}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_ab1df85c3eb4de916d811221a9ded9c2f}\label{struct_basic_visitor_ab1df85c3eb4de916d811221a9ded9c2f}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [7/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_regular_expression_literal}{Regular\+Expression\+Literal} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_aea90f9399628f301f8c25a62ce268097}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_a90dbd5cdf8d01591b35b1cfd17086758}\label{struct_basic_visitor_a90dbd5cdf8d01591b35b1cfd17086758}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [8/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_array_literal}{Array\+Literal} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_a46f9846468f2c12ddc585cfe0421e6f0}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_a56f91fbcd7685332d5d22147ed8ac385}\label{struct_basic_visitor_a56f91fbcd7685332d5d22147ed8ac385}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [9/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_object_literal}{Object\+Literal} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_ad85d9aa9718801a1a8233cf51d8f7055}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_a324c1fa1804aca5286a60c74b7d67997}\label{struct_basic_visitor_a324c1fa1804aca5286a60c74b7d67997}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [10/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_this_expression}{This\+Expression} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_ae8eb5856c0ed7ff4840fa9045c886f59}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_a3055e7fe6f87a3b1396a0f334ef5d6b7}\label{struct_basic_visitor_a3055e7fe6f87a3b1396a0f334ef5d6b7}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [11/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_identifier_expression}{Identifier\+Expression} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_ad804ffa8c84a6fa58b18980cd3ec71af}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_a082a01528e44eba34fe48a1ec2186956}\label{struct_basic_visitor_a082a01528e44eba34fe48a1ec2186956}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [12/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_literal_expression}{Literal\+Expression} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_a4f9ed19fc09fb7f31e8af350d028a5fd}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_afa358b418987b2fe3c93c5d09d06251b}\label{struct_basic_visitor_afa358b418987b2fe3c93c5d09d06251b}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [13/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_array_expression}{Array\+Expression} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_a99d582c067b225f1022a27c44beb801c}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_aedba37b1625d76b80bd4b1a636e360c7}\label{struct_basic_visitor_aedba37b1625d76b80bd4b1a636e360c7}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [14/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_object_expression}{Object\+Expression} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_a58d0e4e708057211465ba14290a0a154}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_ac9a891133f4ee31a34c0b0584f816e20}\label{struct_basic_visitor_ac9a891133f4ee31a34c0b0584f816e20}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [15/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_member_expression}{Member\+Expression} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_a175fd29619240cc378703de4c357f348}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_a2a571e28c7b4f80b3ec8fabcb00a49c5}\label{struct_basic_visitor_a2a571e28c7b4f80b3ec8fabcb00a49c5}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [16/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_new_expression}{New\+Expression} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_a13ead8d5ef82f284e301ba8127e9fb56}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_a8dbbfb33bdb5ea39bb6c721b44edcc4c}\label{struct_basic_visitor_a8dbbfb33bdb5ea39bb6c721b44edcc4c}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [17/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_call_expression}{Call\+Expression} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_aa6152c6f355690fd1c4db37fff303614}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_a30af83cdfc65c4888d5d226a975f1f7c}\label{struct_basic_visitor_a30af83cdfc65c4888d5d226a975f1f7c}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [18/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_postfix_expression}{Postfix\+Expression} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_acd630c29940c6785726ce51c7db0aab9}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_ac26ca5f6012bbfdafdc91ad8f896a3d4}\label{struct_basic_visitor_ac26ca5f6012bbfdafdc91ad8f896a3d4}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [19/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_unary_expression}{Unary\+Expression} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_ad2e06814dadca4469f4036ba9a00afd7}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_a354c75bf84d88737eed7900a9c5d2dd6}\label{struct_basic_visitor_a354c75bf84d88737eed7900a9c5d2dd6}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [20/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_binary_expression}{Binary\+Expression} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_a6132b5969ec220e7c98af3a957f48a0e}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_a168eeccdaf38ac6f9cc2f32feefddcc5}\label{struct_basic_visitor_a168eeccdaf38ac6f9cc2f32feefddcc5}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [21/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_conditional_expression}{Conditional\+Expression} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_a132fc5e3ff45efb2869272fbe5d5f815}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_a84f04441edb226fd94d8e9db71543410}\label{struct_basic_visitor_a84f04441edb226fd94d8e9db71543410}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [22/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_function_expression}{Function\+Expression} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_a3f6eb67942d7e2c83a761de2bd66a60a}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_aae1410617eb4cfed77871e4b46a7850c}\label{struct_basic_visitor_aae1410617eb4cfed77871e4b46a7850c}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [23/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_block}{Block} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_a3a26b45c1ab418661f992d97ed9ec9f0}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_aa31748356438cd46ef7cbc49fb8055fa}\label{struct_basic_visitor_aa31748356438cd46ef7cbc49fb8055fa}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [24/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_variable_statement}{Variable\+Statement} \&}]{stmt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_accbed2e228126d93b162df7bb44bb3c8}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_a210214f50f892e5bdf5b5903b2191ab6}\label{struct_basic_visitor_a210214f50f892e5bdf5b5903b2191ab6}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [25/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_empty_statement}{Empty\+Statement} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_a67719a8d9005a86141e4cb9226c11ca4}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_ae944edc097bb1bcbd5625fbc81c78d0a}\label{struct_basic_visitor_ae944edc097bb1bcbd5625fbc81c78d0a}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [26/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_expression_statement}{Expression\+Statement} \&}]{stmt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_a319554fbb3f24e664a86ef7839201040}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_a90af1121005cdaadea708cd60cc016fd}\label{struct_basic_visitor_a90af1121005cdaadea708cd60cc016fd}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [27/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_if_statement}{If\+Statement} \&}]{stmt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_a9d30bc5ad73a274f7533df4b5a65ae41}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_a7c7caaec50936da8bef52601f1c38d10}\label{struct_basic_visitor_a7c7caaec50936da8bef52601f1c38d10}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [28/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_do_while_statement}{Do\+While\+Statement} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_a077a0025430c4b35d310bdfcbe1b180a}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_adc70983c2617c6a99fe00e2178af6e14}\label{struct_basic_visitor_adc70983c2617c6a99fe00e2178af6e14}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [29/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_while_statement}{While\+Statement} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_a4faef50c61a3c1246589390d925c2f53}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_a6a973ae3d27c06462637d6ddf5f5d9f1}\label{struct_basic_visitor_a6a973ae3d27c06462637d6ddf5f5d9f1}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [30/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_for_statement}{For\+Statement} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_a75180858faf5152f99742e4a19757928}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_a065fa15042daac02f409f3548cc2f687}\label{struct_basic_visitor_a065fa15042daac02f409f3548cc2f687}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [31/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_for_in_statement}{For\+In\+Statement} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_af1c6c55ccfae8b2741e12168d81c45cb}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_a58a6a60b11a58e0f545c818ad7e5ad9f}\label{struct_basic_visitor_a58a6a60b11a58e0f545c818ad7e5ad9f}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [32/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_continue_statement}{Continue\+Statement} \&}]{stmt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_aca30136319d28baf708663a1d823af3a}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_a9ee1441f235f852663d61203034e788b}\label{struct_basic_visitor_a9ee1441f235f852663d61203034e788b}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [33/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_break_statement}{Break\+Statement} \&}]{stmt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_a19997436906171d41bec562d9cf260ef}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_a367cfaf0409162f7c94e1648e625816e}\label{struct_basic_visitor_a367cfaf0409162f7c94e1648e625816e}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [34/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_return_statement}{Return\+Statement} \&}]{stmt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_a041431785a00f9f387c7bc670b3ac660}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_adef187cc02193116879f4697488ddabf}\label{struct_basic_visitor_adef187cc02193116879f4697488ddabf}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [35/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_with_statement}{With\+Statement} \&}]{stmt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_a16b17bbc1c01ed7ce1a0153b5c4c43a6}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_af81c51e8a36db9ab923df747463afc11}\label{struct_basic_visitor_af81c51e8a36db9ab923df747463afc11}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [36/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_labelled_statement}{Labelled\+Statement} \&}]{stmt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_aea8fafb476b979172cc8a76ae511caff}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_ac83f72616fb477a7a649065185eb3895}\label{struct_basic_visitor_ac83f72616fb477a7a649065185eb3895}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [37/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_switch_statement}{Switch\+Statement} \&}]{stmt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_aadc852469aa4f7da11cc9f88084c63a8}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_ac42a17b7d2cb244a0b98edce715bd50c}\label{struct_basic_visitor_ac42a17b7d2cb244a0b98edce715bd50c}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [38/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_throw_statement}{Throw\+Statement} \&}]{stmt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_a806a67e34e7866e3af078b3c2b421a24}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_a670967e4fafdaff24b8191e9d726ca6a}\label{struct_basic_visitor_a670967e4fafdaff24b8191e9d726ca6a}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [39/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_try_statement}{Try\+Statement} \&}]{stmt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_af65bd8aa26745dea293f06d553d4f46f}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_a643d2e0e4fa076004a987108a455ab5d}\label{struct_basic_visitor_a643d2e0e4fa076004a987108a455ab5d}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [40/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_debugger_statement}{Debugger\+Statement} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_a7e091bee5a2d416aef22f9b1abd8c7ee}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_a236e03a953fe8f6c29d764ddd0933653}\label{struct_basic_visitor_a236e03a953fe8f6c29d764ddd0933653}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [41/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_case_clause}{Case\+Clause} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_acf85f394ddde782f9c08103055716d53}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_a427e6c179f8f598d5c24356701ece311}\label{struct_basic_visitor_a427e6c179f8f598d5c24356701ece311}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [42/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_default_clause}{Default\+Clause} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_adf82a6bdb4aad978d8ac6a3878a0d400}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_af4a6c12c35d165ecf96361ec3faf0583}\label{struct_basic_visitor_af4a6c12c35d165ecf96361ec3faf0583}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [43/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_function_declaration}{Function\+Declaration} \&}]{decl }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_aa4450ebee6fecf69499279c0768282f1}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_a04ba3e59b4d7a7dc9764c3d6fcde6c06}\label{struct_basic_visitor_a04ba3e59b4d7a7dc9764c3d6fcde6c06}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [44/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_function_body}{Function\+Body} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_a72bb7e5f0b3bd7ebc8e30f5903a5c5f2}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_a89040003d494fc8559a9d0b19d0e657d}\label{struct_basic_visitor_a89040003d494fc8559a9d0b19d0e657d}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [45/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_variable_declaration}{Variable\+Declaration} \&}]{decl }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_a31c2d34895501d90193ec523c8acde05}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_a365b77b2a395a7525224bcb5d422115a}\label{struct_basic_visitor_a365b77b2a395a7525224bcb5d422115a}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [46/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_elision}{Elision} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_a87450ddc80e1522e8ef06cc7c168bad4}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_ae447a2098b51b5a9fc6bfd83798ffb01}\label{struct_basic_visitor_ae447a2098b51b5a9fc6bfd83798ffb01}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [47/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_property_name}{Property\+Name} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_a51d8b1d3dafa5d6a7d878673a2c4f9a8}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_af6767fb4a5b244ccacc56e1e2fbb2200}\label{struct_basic_visitor_af6767fb4a5b244ccacc56e1e2fbb2200}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [48/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_property_assignment}{Property\+Assignment} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_a698c9aa4b47188061f156fe58c148d55}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_a965705dcbd97ef0f23ead04af33bfce5}\label{struct_basic_visitor_a965705dcbd97ef0f23ead04af33bfce5}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [49/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_arguments}{Arguments} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_a73daac2b555cca03beaf9da73bf540c7}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_ad36bb57f0b62f1b48cf7ed4b0c6d378b}\label{struct_basic_visitor_ad36bb57f0b62f1b48cf7ed4b0c6d378b}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [50/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_program}{Program} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_a768e64f6e6fffb7440e3c1f1a78d9481}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_a2ea35a5ede761a22479ba2be10ad0902}\label{struct_basic_visitor_a2ea35a5ede761a22479ba2be10ad0902}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [51/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_program_declaration}{Program\+Declaration} \&}]{decl }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_ab6afd14c23c1fa6f01d24e2593ac91bf}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_a64c63caf3fbe79ccee28cbec4d2c6144}\label{struct_basic_visitor_a64c63caf3fbe79ccee28cbec4d2c6144}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [52/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_element_list}{Element\+List} \&}]{list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_a339d238c4c4b3c356878817481b398be}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_a5898e5cdfd0c7802141a035d7563da36}\label{struct_basic_visitor_a5898e5cdfd0c7802141a035d7563da36}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [53/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_property_name_and_value_list}{Property\+Name\+And\+Value\+List} \&}]{list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_a91666efb64ff75272e244610bea83717}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_af813d137040199512b862ee280990e16}\label{struct_basic_visitor_af813d137040199512b862ee280990e16}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [54/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_argument_list}{Argument\+List} \&}]{list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_afe0ebb45873b49711e28f543e1be18ab}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_a210a39743aacc9903d45fe86e8aa72a5}\label{struct_basic_visitor_a210a39743aacc9903d45fe86e8aa72a5}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [55/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_variable_declaration_list}{Variable\+Declaration\+List} \&}]{list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_af12d0fa756687bf6e54263bf65832663}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_a08f93ca22b6ff855deb2b1d6343123b5}\label{struct_basic_visitor_a08f93ca22b6ff855deb2b1d6343123b5}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [56/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_statement_list}{Statement\+List} \&}]{list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_a36ea2fb9b8225f7b4c04c3d546c4608a}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_afc8e6a4fa1e993522b484308d3b1378d}\label{struct_basic_visitor_afc8e6a4fa1e993522b484308d3b1378d}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [57/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_case_block}{Case\+Block} \&}]{list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_a6042d08a4d52ec6d3cd76251c88c5202}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_a350c9cf47d068cb7de9f4e4a92c07fc8}\label{struct_basic_visitor_a350c9cf47d068cb7de9f4e4a92c07fc8}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [58/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_source_elements}{Source\+Elements} \&}]{list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_ad9a1464cbbd0ab4e528ac4d22c056647}{Visitor}.
+
+\mbox{\Hypertarget{struct_basic_visitor_ad8960cea4118164c4c913b2b3a42ec4a}\label{struct_basic_visitor_ad8960cea4118164c4c913b2b3a42ec4a}} 
+\index{Basic\+Visitor@{Basic\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Basic\+Visitor@{Basic\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [59/59]}}
+{\footnotesize\ttfamily void Basic\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_formal_parameter_list}{Formal\+Parameter\+List} \&}]{list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_visitor_a1481a506dd79cc99d06ea9ebd2ac08ad}{Visitor}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{basic__visitor_8h}{basic\+\_\+visitor.\+h}\end{DoxyCompactItemize}

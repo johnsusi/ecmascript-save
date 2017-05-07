@@ -27,6 +27,8 @@ Collaboration diagram for List$<$ T $>$\+:\nopagebreak
 \item 
 {\footnotesize template$<$typename... Args$>$ }\\\hyperlink{struct_list_a622a2ade2682950b9346ac692b17039c}{List} (Args \&\&... args)
 \item 
+\hyperlink{struct_list_ac1fba3a80d1d7fffbd2c1853a624f40a}{List} (T $\ast$arg)
+\item 
 auto \hyperlink{struct_list_a4efaea597a8cea09cc9e7717e6a9f80a}{front} () const
 \item 
 auto \hyperlink{struct_list_a6949268f152305afc5bac0ee3e5bb838}{back} () const
@@ -40,13 +42,11 @@ auto \hyperlink{struct_list_afa6f9828eab89e2fcae63b612927fabb}{begin} () const
 auto \hyperlink{struct_list_a22f91e0dfc7ab053952fc8ed33e5cd53}{end} () const
 \item 
 auto \hyperlink{struct_list_a40b4d77cbee9b7c311c304cafbf07d1e}{operator\mbox{[}$\,$\mbox{]}} (\textbf{ std\+::size\+\_\+t} index)
-\item 
-void \hyperlink{struct_list_a9d87bf19af4c0cca46520b694da550f0}{accept} (\hyperlink{struct_visitor}{Visitor} \&visitor) const override
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\textbf{ std\+::vector}$<$ T $\ast$ $>$ \hyperlink{struct_list_afcdf492754937d2dbd6c1f89f8abf888}{data}
+\textbf{ std\+::vector}$<$ T $\ast$ $>$ \hyperlink{struct_list_a63c9cd234577800ed4664dcefebba10e}{data}
 \end{DoxyCompactItemize}
 
 
@@ -54,25 +54,21 @@ void \hyperlink{struct_list_a9d87bf19af4c0cca46520b694da550f0}{accept} (\hyperli
 \mbox{\Hypertarget{struct_list_a622a2ade2682950b9346ac692b17039c}\label{struct_list_a622a2ade2682950b9346ac692b17039c}} 
 \index{List@{List}!List@{List}}
 \index{List@{List}!List@{List}}
-\subsubsection{\texorpdfstring{List()}{List()}}
+\subsubsection{\texorpdfstring{List()}{List()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$typename T$>$ \\
 template$<$typename... Args$>$ \\
 \hyperlink{struct_list}{List}$<$ T $>$\+::\hyperlink{struct_list}{List} (\begin{DoxyParamCaption}\item[{Args \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+\mbox{\Hypertarget{struct_list_ac1fba3a80d1d7fffbd2c1853a624f40a}\label{struct_list_ac1fba3a80d1d7fffbd2c1853a624f40a}} 
+\index{List@{List}!List@{List}}
+\index{List@{List}!List@{List}}
+\subsubsection{\texorpdfstring{List()}{List()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+\hyperlink{struct_list}{List}$<$ T $>$\+::\hyperlink{struct_list}{List} (\begin{DoxyParamCaption}\item[{T $\ast$}]{arg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{struct_list_a9d87bf19af4c0cca46520b694da550f0}\label{struct_list_a9d87bf19af4c0cca46520b694da550f0}} 
-\index{List@{List}!accept@{accept}}
-\index{accept@{accept}!List@{List}}
-\subsubsection{\texorpdfstring{accept()}{accept()}}
-{\footnotesize\ttfamily template$<$typename T $>$ \\
-void \hyperlink{struct_list}{List}$<$ T $>$\+::accept (\begin{DoxyParamCaption}\item[{\hyperlink{struct_visitor}{Visitor} \&}]{visitor }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
-
-
-
-Implements \hyperlink{struct_node_a10bd7af968140bbf5fa461298a969c71}{Node}.
-
 \mbox{\Hypertarget{struct_list_a6949268f152305afc5bac0ee3e5bb838}\label{struct_list_a6949268f152305afc5bac0ee3e5bb838}} 
 \index{List@{List}!back@{back}}
 \index{back@{back}!List@{List}}
@@ -125,12 +121,12 @@ void \hyperlink{struct_list}{List}$<$ T $>$\+::push\+\_\+back (\begin{DoxyParamC
 
 
 \subsection{Member Data Documentation}
-\mbox{\Hypertarget{struct_list_afcdf492754937d2dbd6c1f89f8abf888}\label{struct_list_afcdf492754937d2dbd6c1f89f8abf888}} 
+\mbox{\Hypertarget{struct_list_a63c9cd234577800ed4664dcefebba10e}\label{struct_list_a63c9cd234577800ed4664dcefebba10e}} 
 \index{List@{List}!data@{data}}
 \index{data@{data}!List@{List}}
 \subsubsection{\texorpdfstring{data}{data}}
 {\footnotesize\ttfamily template$<$typename T$>$ \\
-\textbf{ std\+::vector}$<$T $\ast$$>$ \hyperlink{struct_list}{List}$<$ T $>$\+::data}
+\textbf{ std\+::vector}$<$T$\ast$$>$ \hyperlink{struct_list}{List}$<$ T $>$\+::data}
 
 
 

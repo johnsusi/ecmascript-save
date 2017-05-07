@@ -1,0 +1,452 @@
+.TH "BasicVisitor" 3 "Sun May 7 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+BasicVisitor
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <basic_visitor\&.h>\fP
+.PP
+Inherits \fBVisitor\fP\&.
+.PP
+Inherited by \fBEvalVisitor\fP\fC [private]\fP, \fBJSONVisitor\fP, and \fBSimplifiedYAMLVisitor\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "template<typename T > void \fBapply_impl\fP (const T *node)"
+.br
+.ti -1c
+.RI "template<typename T > void \fBapply_impl\fP (const \fBstd::vector\fP< T > &list)"
+.br
+.ti -1c
+.RI "template<typename\&.\&.\&. Args> void \fBapply\fP (Args &&\&.\&.\&. args)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBThis\fP &)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBIdentifier\fP &)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBNullLiteral\fP &)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBBooleanLiteral\fP &)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBNumericLiteral\fP &)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBStringLiteral\fP &)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBRegularExpressionLiteral\fP &)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBArrayLiteral\fP &node)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBObjectLiteral\fP &node)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBThisExpression\fP &)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBIdentifierExpression\fP &node)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBLiteralExpression\fP &node)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBArrayExpression\fP &node)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBObjectExpression\fP &node)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBMemberExpression\fP &node)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBNewExpression\fP &node)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBCallExpression\fP &node)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBPostfixExpression\fP &node)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBUnaryExpression\fP &node)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBBinaryExpression\fP &node)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBConditionalExpression\fP &node)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBFunctionExpression\fP &node)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBBlock\fP &node)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBVariableStatement\fP &stmt)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBEmptyStatement\fP &)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBExpressionStatement\fP &stmt)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBIfStatement\fP &stmt)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBDoWhileStatement\fP &)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBWhileStatement\fP &)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBForStatement\fP &)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBForInStatement\fP &)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBContinueStatement\fP &stmt)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBBreakStatement\fP &stmt)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBReturnStatement\fP &stmt)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBWithStatement\fP &stmt)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBLabelledStatement\fP &stmt)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBSwitchStatement\fP &stmt)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBThrowStatement\fP &stmt)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBTryStatement\fP &stmt)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBDebuggerStatement\fP &)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBCaseClause\fP &node)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBDefaultClause\fP &node)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBFunctionDeclaration\fP &decl)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBFunctionBody\fP &node)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBVariableDeclaration\fP &decl)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBElision\fP &)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBPropertyName\fP &)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBPropertyAssignment\fP &node)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBArguments\fP &node)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBProgram\fP &node)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBProgramDeclaration\fP &decl)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBElementList\fP &list)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBPropertyNameAndValueList\fP &list)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBArgumentList\fP &list)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBVariableDeclarationList\fP &list)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBStatementList\fP &list)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBCaseBlock\fP &list)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBSourceElements\fP &list)"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBFormalParameterList\fP &list)"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "template<typename\&.\&.\&. Args> void BasicVisitor::apply (Args &&\&.\&.\&. args)\fC [inline]\fP"
+
+.SS "template<typename T > void BasicVisitor::apply_impl (const T * node)\fC [inline]\fP"
+
+.SS "template<typename T > void BasicVisitor::apply_impl (const \fBstd::vector\fP< T > & list)\fC [inline]\fP"
+
+.SS "void BasicVisitor::operator() (const \fBThis\fP &)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBIdentifier\fP &)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBNullLiteral\fP &)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBBooleanLiteral\fP &)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBNumericLiteral\fP &)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBStringLiteral\fP &)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBRegularExpressionLiteral\fP &)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBArrayLiteral\fP & node)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBObjectLiteral\fP & node)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBThisExpression\fP &)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBIdentifierExpression\fP & node)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBLiteralExpression\fP & node)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBArrayExpression\fP & node)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBObjectExpression\fP & node)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBMemberExpression\fP & node)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBNewExpression\fP & node)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBCallExpression\fP & node)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBPostfixExpression\fP & node)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBUnaryExpression\fP & node)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBBinaryExpression\fP & node)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBConditionalExpression\fP & node)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBFunctionExpression\fP & node)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBBlock\fP & node)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBVariableStatement\fP & stmt)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBEmptyStatement\fP &)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBExpressionStatement\fP & stmt)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBIfStatement\fP & stmt)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBDoWhileStatement\fP &)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBWhileStatement\fP &)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBForStatement\fP &)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBForInStatement\fP &)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBContinueStatement\fP & stmt)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBBreakStatement\fP & stmt)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBReturnStatement\fP & stmt)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBWithStatement\fP & stmt)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBLabelledStatement\fP & stmt)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBSwitchStatement\fP & stmt)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBThrowStatement\fP & stmt)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBTryStatement\fP & stmt)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBDebuggerStatement\fP &)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBCaseClause\fP & node)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBDefaultClause\fP & node)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBFunctionDeclaration\fP & decl)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBFunctionBody\fP & node)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBVariableDeclaration\fP & decl)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBElision\fP &)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBPropertyName\fP &)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBPropertyAssignment\fP & node)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBArguments\fP & node)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBProgram\fP & node)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBProgramDeclaration\fP & decl)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBElementList\fP & list)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBPropertyNameAndValueList\fP & list)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBArgumentList\fP & list)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBVariableDeclarationList\fP & list)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBStatementList\fP & list)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBCaseBlock\fP & list)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBSourceElements\fP & list)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+.SS "void BasicVisitor::operator() (const \fBFormalParameterList\fP & list)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBVisitor\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.
