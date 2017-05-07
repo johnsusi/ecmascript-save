@@ -323,14 +323,15 @@ class Parser {
     while (true) {
       if (match("[")) {
         if (!expression() || !match("]")) syntax_error();
+        replace<MemberExpression, Expression, Expression>();
       }
       if (match(".")) {
         if (!identifier_name()) syntax_error();
         emplace<Identifier>(*match);
+        replace<MemberExpression, Expression, Identifier>();
       }
       else
         break;
-      replace<MemberExpression, Expression, Expression>();
     }
     return true;
   }

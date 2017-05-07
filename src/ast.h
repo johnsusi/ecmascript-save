@@ -180,9 +180,14 @@ struct ObjectLiteral : PrimaryExpression {
 
 struct MemberExpression : Expression {
   Expression* object;
-  Expression* property;
-  MemberExpression(Expression* object, Expression* property)
-      : object(object), property(property)
+  Identifier* property;
+  Expression* expression;
+  MemberExpression(Expression* object, Identifier* property)
+      : object(object), property(property), expression(nullptr)
+  {
+  }
+  MemberExpression(Expression* object, Expression* expression)
+      : object(object), property(nullptr), expression(expression)
   {
   }
   void accept(Visitor& visitor) const override { return visitor(*this); }

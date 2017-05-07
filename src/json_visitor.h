@@ -6,10 +6,16 @@
 
 #include <sstream>
 
+#include <boost/algorithm/string.hpp>
+
 class JSONVisitor : public BasicVisitor {
   std::stringstream buf;
 
-  std::string quote(const std::string& str) const { return "\"" + str + "\""; }
+  std::string quote(std::string str) const
+  {
+    boost::replace_all(str, "\"", "\\\"");
+    return "\"" + str + "\"";
+  }
 
   void operator()(const Identifier& id) override
   {
@@ -60,6 +66,12 @@ class JSONVisitor : public BasicVisitor {
     buf << "}";
   }
 
+  void operator()(const ThisExpression& expr) override
+  {
+    buf << "{" << quote("type") << ":" << quote("ThisExpression");
+    buf << "}";
+  }
+
   void operator()(const PostfixExpression& expr) override
   {
     buf << "{" << quote("type") << ":" << quote("PostfixExpression");
@@ -72,9 +84,9 @@ class JSONVisitor : public BasicVisitor {
   void operator()(const UnaryExpression& expr) override
   {
     buf << "{" << quote("type") << ":" << quote("PrefixExpression");
-    buf << "," << quote("operator") << ":" << quote(expr.op);
     buf << "," << quote("operand") << ":";
     apply(expr.rhs);
+    buf << "," << quote("operator") << ":" << quote(expr.op);
     buf << "}";
   }
 
@@ -86,6 +98,27 @@ class JSONVisitor : public BasicVisitor {
     apply(expr.lhs);
     buf << "," << quote("right") << ":";
     apply(expr.rhs);
+    buf << "}";
+  }
+
+  void operator()(const MemberExpression& expr) override
+  {
+    buf << "{" << quote("type") << ":";
+
+    if (expr.property)
+      buf << quote("StaticMemberExpression");
+    else
+      buf << quote("ComputedMemberExpression");
+    buf << "," << quote("object") << ":";
+    apply(expr.object);
+    if (expr.property) {
+      buf << "," << quote("property") << ":";
+      apply(expr.property);
+    }
+    else {
+      buf << "," << quote("expression") << ":";
+      apply(expr.expression);
+    }
     buf << "}";
   }
 
@@ -108,10 +141,16 @@ class JSONVisitor : public BasicVisitor {
   }
 
   void operator()(const ArgumentList& list) override { apply(list.data); }
+  void operator()(const StatementList& list) override { apply(list.data); }
 
-  void operator()(const Block& args) override
+  void operator()(const Block& stmt) override
   {
+    buf << "{" << quote("type") << ":" << quote("BlockStatement");
+    buf << "," << quote("block") << ":";
     buf << "{" << quote("type") << ":" << quote("Block");
+    buf << "," << quote("statements") << ":";
+    apply(stmt.body);
+    buf << "}";
     buf << "}";
   }
 
@@ -168,7 +207,20 @@ class JSONVisitor : public BasicVisitor {
     buf << "," << quote("consequent") << ":";
     apply(stmt.consequent);
     buf << "," << quote("alternate") << ":";
-    apply(stmt.alternate);
+    if (stmt.alternate)
+      apply(stmt.alternate);
+    else
+      buf << "null";
+    buf << "}";
+  }
+
+  void operator()(const ReturnStatement& stmt) override
+  {
+    buf << "{" << quote("type") << ":" << quote("ReturnStatement");
+    if (stmt.argument) {
+      buf << "," << quote("expression") << ":";
+      apply(stmt.argument);
+    }
     buf << "}";
   }
 
@@ -192,7 +244,12 @@ class JSONVisitor : public BasicVisitor {
   {
     buf << "{" << quote("type") << ":" << quote("Script");
     buf << "," << quote("body") << ":";
+    buf << "{" << quote("type") << ":" << quote("FunctionBody");
+    buf << "," << quote("directives") << ":"
+        << "[]";
+    buf << "," << quote("statements") << ":";
     apply(decl.body);
+    buf << "}";
     buf << "}";
   }
 
