@@ -160,6 +160,18 @@ class JSONVisitor : public BasicVisitor {
     buf << "}";
   }
 
+  void operator()(const IfStatement& stmt) override
+  {
+    buf << "{" << quote("type") << ":" << quote("IfStatement");
+    buf << "," << quote("test") << ":";
+    apply(stmt.test);
+    buf << "," << quote("consequent") << ":";
+    apply(stmt.consequent);
+    buf << "," << quote("alternate") << ":";
+    apply(stmt.alternate);
+    buf << "}";
+  }
+
   using BasicVisitor::apply;
   template <typename T>
   void apply(const std::vector<T>& list)
