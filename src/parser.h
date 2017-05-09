@@ -13,7 +13,62 @@
 #include <sstream>
 #include <vector>
 
-#define trace(method) TraceGuard tg_##__LINE__(method, __FILE__, __LINE__)
+#include <boost/type_index.hpp>
+
+#define trace(method)                                                          \
+  TraceGuard tg_##__LINE__(                                                    \
+      boost::typeindex::type_id<decltype(*this)>().pretty_name()               \
+          + "::" + __func__,                                                   \
+      __FILE__, __LINE__)
+
+template <typename Node>
+class Builder {
+  std::shared_ptr<std::vector<std::unique_ptr<Node>>> storage;
+  std::vector<Node*>                                  stack;
+
+protected:
+  template <typename T>
+  void push(T* value)
+  {
+    stack.push_back(value);
+  }
+
+  template <typename T, typename... Args>
+  T* emplace(Args&&... args)
+  {
+    T* value = new T{std::forward<Args>(args)...};
+    storage->emplace_back(value);
+    stack.push_back(value);
+    return value;
+  }
+
+  template <typename T>
+  T* pop()
+  {
+    if (auto value = dynamic_cast<T*>(stack.back())) {
+      stack.pop_back();
+      return value;
+    }
+    else
+      logic_error("Expected " + demangle<T>() + ", got "
+                  + stack.back()->type());
+  }
+
+  template <typename T, typename... Ts, typename... Args>
+  T* replace(Args&&... args)
+  {
+    return index_apply<sizeof...(Ts)>([&](auto... Is) {
+      T* value =
+          new T{std::forward<Args>(args)...,
+                dynamic_cast<Ts*>(*(stack.end() - (sizeof...(Ts) - Is)))...};
+
+      stack.resize(stack.size() - sizeof...(Ts));
+      storage->emplace_back(value);
+      stack.push_back(value);
+      return value;
+    });
+  }
+};
 
 class Parser {
 
@@ -22,6 +77,22 @@ class Parser {
   std::shared_ptr<std::vector<std::unique_ptr<Node>>> storage;
   std::vector<Node*>                                  stack;
   Logger*                                             m_logger = nullptr;
+
+  [[noreturn]] bool logic_error(std::string what = {})
+  {
+    auto debug_info = match.done() ? nullptr : match.matching()->debug_info;
+    throw std::runtime_error("InternalCompilerError: " + what + "\n"
+                             + (debug_info ? debug_info->syntax_error_at() : "")
+                             + stack_trace());
+  }
+
+  [[noreturn]] bool syntax_error(std::string what = {})
+  {
+    auto debug_info = match.done() ? nullptr : match.matching()->debug_info;
+    throw std::runtime_error("SyntaxError: " + what + "\n"
+                             + (debug_info ? debug_info->syntax_error_at() : "")
+                             + stack_trace());
+  }
 
   template <typename F>
   void log(F&& callback)
@@ -55,9 +126,8 @@ class Parser {
       return value;
     }
     else
-      syntax_error("Bad pop: Expected " + demangle<T>() + ", got "
-                   + stack.back()->type());
-    return nullptr;
+      logic_error("Expected " + demangle<T>() + ", got "
+                  + stack.back()->type());
   }
 
   template <typename T, typename... Ts, typename... Args>
@@ -96,24 +166,6 @@ class Parser {
     if (match(";")) return true;
     if (no_line_terminator_here() && !match.peek("}")) return false; // 7.9.1
     return true;
-  }
-
-  std::string stack_trace() const
-  {
-    std::stringstream buf;
-    for (auto row : tracer()) {
-      buf << "    at " << row.method << " (" << row.file << ":" << row.line
-          << ")\n";
-    }
-    return buf.str();
-  }
-
-  bool syntax_error(std::string what = {})
-  {
-    auto debug_info = match.done() ? nullptr : match.matching()->debug_info;
-    throw std::runtime_error("SyntaxError: " + what + "\n"
-                             + (debug_info ? debug_info->syntax_error_at() : "")
-                             + stack_trace());
   }
 
   // A.1
@@ -1044,9 +1096,17 @@ class Parser {
     trace("try_statement");
     if (!match("try")) return false;
     if (!block()) syntax_error();
-    auto stmt                             = emplace<TryStatement>(pop<Block>());
-    if (match("catch")) stmt->handler     = pop<Block>();
-    if (match("finally")) stmt->finalizer = pop<Block>();
+    auto stmt = emplace<TryStatement>(pop<Block>());
+    if (match("catch")) {
+      if (!match("(") || !identifier() || !match(")") || !block())
+        syntax_error();
+      stmt->handler = pop<Block>();
+      stmt->binding = pop<Identifier>();
+    }
+    if (match("finally")) {
+      if (!block()) syntax_error();
+      stmt->finalizer = pop<Block>();
+    }
     if (!stmt->handler && !stmt->finalizer) syntax_error();
     return true;
   }

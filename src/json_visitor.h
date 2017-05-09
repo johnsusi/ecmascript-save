@@ -224,6 +224,43 @@ class JSONVisitor : public BasicVisitor {
     buf << "}";
   }
 
+  void operator()(const TryStatement& stmt) override
+  {
+    auto type = stmt.finalizer ? "TryFinallyStatement" : "TryCatchStatement";
+    buf << "{" << quote("type") << ":" << quote(type);
+    buf << "," << quote("body") << ":";
+
+    buf << "{" << quote("type") << ":" << quote("Block");
+    buf << "," << quote("statements") << ":";
+    apply(stmt.block->body);
+    buf << "}";
+
+    buf << "," << quote("catchClause") << ":";
+    if (stmt.handler) {
+      buf << "{" << quote("type") << ":" << quote("CatchClause");
+      buf << "," << quote("binding") << ":";
+      apply(stmt.binding);
+      buf << "," << quote("body") << ":";
+
+      buf << "{" << quote("type") << ":" << quote("Block");
+      buf << "," << quote("statements") << ":";
+      apply(stmt.handler->body);
+      buf << "}";
+
+      buf << "}";
+    }
+    else
+      buf << "null";
+    if (stmt.finalizer) {
+      buf << "," << quote("finalizer") << ":";
+      buf << "{" << quote("type") << ":" << quote("Block");
+      buf << "," << quote("statements") << ":";
+      apply(stmt.finalizer->body);
+      buf << "}";
+    }
+    buf << "}";
+  }
+
   using BasicVisitor::apply;
   template <typename T>
   void apply(const std::vector<T>& list)

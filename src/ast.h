@@ -495,12 +495,13 @@ struct ThrowStatement : Statement {
 };
 
 struct TryStatement : Statement {
-  Block* block;
-  Block* handler;
-  Block* finalizer;
-  TryStatement(Block* block, Block* handler = nullptr,
-               Block* finalizer = nullptr)
-      : block(block), handler(handler), finalizer(finalizer)
+  Block*      block;
+  Identifier* binding;
+  Block*      handler;
+  Block*      finalizer;
+  TryStatement(Block* block, Identifier* binding = nullptr,
+               Block* handler = nullptr, Block* finalizer = nullptr)
+      : block(block), binding(binding), handler(handler), finalizer(finalizer)
   {
   }
   void accept(Visitor& visitor) const override { return visitor(*this); }
