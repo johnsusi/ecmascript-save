@@ -1,0 +1,58 @@
+#!/usr/bin/env node
+const { readFileSync } = require("fs");
+const { resolve } = require("path");
+const glob = require("glob");
+const { spawnPromise: spawn } = require("spawn-rx");
+const { green, red } = require("colors/safe");
+
+let keepGoing = true;
+
+const blackList = /^.*Sbp_7.9_A9_T(3|4).js$/i;
+
+for (var i = 2; i < process.argv.length; i++) {
+  if (process.argv[i] === "-k" || process.argv[i] === "--keep-going") {
+    keepGoing = true;
+  } else {
+    errorExit("Unknown argument: " + process.argv[i]);
+  }
+}
+
+glob(
+  resolve(__dirname, "../vendor/test262/test/suite/**/*.js"),
+  (err, paths) => {
+    if (err) console.warn(err);
+    else
+      paths
+        .filter(path => !blackList.test(path))
+        .reduce((seq, path) => seq.then(() => diff(path)), Promise.resolve())
+        .catch(err => console.error(err));
+  }
+);
+
+function diff(path) {
+  return spawn(__dirname + "/diff_ast", [path])
+    .then(() => console.log(`${path} ${green("OK")}`))
+    .catch(err => {
+      if (readFileSync(path, "utf-8").indexOf("@negative") != -1) {
+        console.log(`${path} ${green("OK")} (negative test)`);
+        return;
+      }
+      console.error(`${path} ${red("FAILED")}`);
+      if (!keepGoing) process.exit(-1);
+      else throw err;
+    });
+}
+
+/*
+# !/ usr / bin / env node
+#  -name "*.js" -print0 | xargs -0 grep -L @negative)
+
+# for test in $tests; do
+#   echo $test
+#   bin/diff_ast $test
+#   if [ $? -ne 0 ]; then
+#     exit
+#   fi
+# done
+
+*/
