@@ -1,6 +1,9 @@
 #include "tracer.h"
 
-void Tracer::enter(const char* method, const char* file, int line)
+#include <sstream>
+#include <string>
+
+void Tracer::enter(std::string method, std::string file, int line)
 {
   m_stack.emplace_back(method, file, line);
 }
@@ -20,7 +23,7 @@ Tracer& tracer()
   return instance;
 }
 
-TraceGuard::TraceGuard(const char* method, const char* file, int line)
+TraceGuard::TraceGuard(std::string method, std::string file, int line)
 {
   tracer().enter(method, file, line);
 }
@@ -28,4 +31,14 @@ TraceGuard::TraceGuard(const char* method, const char* file, int line)
 TraceGuard::~TraceGuard()
 {
   tracer().leave();
+}
+
+std::string stack_trace()
+{
+  std::stringstream buf;
+  for (auto row : tracer()) {
+    buf << "    at " << row.method << " (" << row.file << ":" << row.line
+        << ")\n";
+  }
+  return buf.str();
 }
