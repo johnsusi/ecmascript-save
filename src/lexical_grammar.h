@@ -30,26 +30,60 @@ bool is_unicode_connector_punctuation(int cp);
 bool is_single_escape_character(int cp);
 
 // 7.6.1.1
-bool is_keyword(const std::string &token);
+bool is_keyword(const std::string& token);
 
 // 7.6.1.2
-bool is_future_reserved_word(const std::string &token);
+bool is_future_reserved_word(const std::string& token);
 
 // 7.7
-bool is_punctuator(const std::string &token);
+bool is_punctuator(const std::string& token);
 
 // 7.8.1
-bool is_null_literal(const std::string &str);
+bool is_null_literal(const std::string& str);
 
 // 7.8.2
-bool is_boolean_literal(const std::string &);
+bool is_boolean_literal(const std::string&);
+
+constexpr double pow10(int n)
+{
+  switch (n) {
+  case 0: return 1;
+  case 1: return 1e1;
+  case 2: return 1e2;
+  case 3: return 1e3;
+  case 4: return 1e4;
+  case 5: return 1e5;
+  case 6: return 1e6;
+  case 7: return 1e7;
+  case 8: return 1e8;
+  case 9: return 1e9;
+  case 10: return 1e10;
+  case 11: return 1e11;
+  case 12: return 1e12;
+  case 13: return 1e13;
+  case 14: return 1e14;
+  case 15: return 1e15;
+  case 16: return 1e16;
+  case 17: return 1e17;
+  case 18: return 1e18;
+  case 19: return 1e19;
+  case 20: return 1e20;
+  case 21: return 1e21;
+  case 22: return 1e22;
+  default: return std::numeric_limits<double>::infinity();
+  }
+}
+
+constexpr double mul_pow10(int s, int n)
+{
+  return n < 0 ? s / pow10(-n) : s * pow10(n);
+}
 
 template <typename T>
 class LexicalGrammar {
 public:
   std::u16string buffer;
   Matcher<T, std::u16string::const_iterator> match;
-  // mutable Matcher<T, Iterator> match;
 
   Token token_value;
 
@@ -76,8 +110,10 @@ public:
     if (line_terminator()) return InputElement::line_terminator();
     if (comment())
       return InputElement::comment(std::u16string{match_start, match.mark()});
-    if (token() || div_punctuator())
-      return InputElement::token(std::move(token_value));
+    if (token()) return InputElement::token(std::move(token_value));
+    if (div_punctuator())
+      return InputElement::token(
+          Token::punctuator({match_start, match.mark()}));
     return InputElement::empty();
   }
 
@@ -120,17 +156,16 @@ public:
   bool multi_line_comment()
   {
     return match([&] {
-      return match('/') && match('*') && multi_line_comment_chars_opt() &&
-             match('*') && match('/');
+      return match('/') && match('*') && multi_line_comment_chars_opt()
+             && match('*') && match('/');
     });
   }
 
   bool multi_line_comment_chars()
   {
     return match([this] {
-      return (multi_line_not_asterisk_char() &&
-              multi_line_comment_chars_opt()) ||
-             (match('*') && post_asterisk_comment_chars());
+      return (multi_line_not_asterisk_char() && multi_line_comment_chars_opt())
+             || (match('*') && post_asterisk_comment_chars());
     });
   }
 
@@ -145,8 +180,8 @@ public:
     return match.any_of(
         [this] { return match('*') && post_asterisk_comment_chars(); },
         [this] {
-          return multi_line_not_forward_slash_or_asterisk_char() &&
-                 multi_line_comment_chars_opt();
+          return multi_line_not_forward_slash_or_asterisk_char()
+                 && multi_line_comment_chars_opt();
         });
   }
 
@@ -199,12 +234,18 @@ public:
       return true;
     }
     if (numeric_literal()) {
-      token_value = Token::numeric_literal(
-          std::strtod(std::string{i, match.mark()}.c_str(), nullptr));
+      // double val = std::strtod(std::string{i, match.mark()}.c_str(),
+      // nullptr); std::cout << mv << ", " << val << ", " << (val - mv)
+      //           << ", eps: " << std::numeric_limits<double>::epsilon()
+      //           << " eq? " << (mv == val ? "true" : "false") << std::endl;
+      // mv          = std::strtod(std::string{i, match.mark()}.c_str(),
+      // nullptr);
+      token_value = Token::numeric_literal(mv);
       return true;
     }
     if (string_literal()) {
-      token_value = Token::string_literal({i + 1, match.mark() - 1});
+      // sv = {i + 1, match.mark() - 1};
+      token_value = Token::string_literal(sv);
       return true;
     }
     return false;
@@ -222,15 +263,16 @@ public:
 
   bool identifier_start()
   {
-    return unicode_letter() || match('$') || match('_') ||
-           match([this] { return match('\\') && unicode_escape_sequence(); });
+    return unicode_letter() || match('$') || match('_') || match([this] {
+             return match('\\') && unicode_escape_sequence();
+           });
   }
 
   bool identifier_part()
   {
-    return identifier_start() || unicode_combining_mark() || unicode_digit() ||
-           unicode_connector_punctuation() || match(0x200C) /* <ZWNJ> */ ||
-           match(0x200D) /* <ZWJ> */;
+    return identifier_start() || unicode_combining_mark() || unicode_digit()
+           || unicode_connector_punctuation()
+           || match(0x200C) /* <ZWNJ> */ || match(0x200D) /* <ZWJ> */;
   }
 
   bool unicode_letter() { return match(is_unicode_letter); }
@@ -246,8 +288,8 @@ public:
 
   bool reserved_word()
   {
-    return keyword() || future_reserved_word() || null_literal() ||
-           boolean_literal();
+    return keyword() || future_reserved_word() || null_literal()
+           || boolean_literal();
   }
 
   bool keyword()
@@ -271,26 +313,19 @@ public:
   {
     return match.any_of(
         // Note: Must match longer strings first
-        ">>>=", "<<=", ">>=", ">>>", "!==", "===", "!=", "%=", "&&", "&=", "*",
-        "*=", "++", "+=", "--", "-=", "<<", "<=", "==", ">=", ">>",
+        ">>>=", "<<=", ">>=", ">>>", "!==", "===", "!=", "%=", "&&",
+        "&=", "*=", "*", "++", "+=", "--", "-=", "<<", "<=", "==", ">=", ">>",
         "^=", "|=", "||", "!", "%", "&", "?", "+", ",", "-", ".", ":", ";", "=",
         ">", "<", "(", ")", "[", "]", "^", "{", "|", "}", "~");
   }
 
-  bool div_punctuator()
-  {
-    if (match('/')) {
-      match('=');
-      return true;
-    }
-    return false;
-  }
+  bool div_punctuator() { return match.any_of("/=", "/"); }
 
   // 7.8
   bool literal()
   {
-    return null_literal() || boolean_literal() || numeric_literal() ||
-           string_literal() || regular_expression_literal();
+    return null_literal() || boolean_literal() || numeric_literal()
+           || string_literal() || regular_expression_literal();
   }
 
   // 7.8.1
@@ -319,7 +354,8 @@ public:
   }
 
   // 7.8.3
-  bool numeric_literal()
+  double mv;
+  bool   numeric_literal()
   {
     if (hex_integer_literal() || decimal_literal()) {
       if (identifier_start() || decimal_digit()) syntax_error();
@@ -330,64 +366,78 @@ public:
 
   bool decimal_literal()
   {
-    return match([&] {
-             if (decimal_integer_literal() && match('.')) {
-               decimal_digits();
-               exponent_part();
-               return true;
-             }
-             return false;
-           }) ||
-           match([&] {
-             if (match('.') && decimal_digits()) {
-               exponent_part();
-               return true;
-             }
-             return false;
-           }) ||
-           match([&] {
-             if (decimal_integer_literal()) {
-               exponent_part();
-               return true;
-             }
-             return false;
-           });
+    long s = 0, n = 0;
+
+    if (match('.')) {
+      auto m = match.mark();
+      if (!decimal_integer_literal()) syntax_error();
+      n = match.distance(m);
+      s = std::lround(mv);
+    }
+    else if (decimal_integer_literal()) {
+      s = std::lround(mv);
+      if (match('.')) {
+        auto m = match.mark();
+        if (decimal_integer_literal()) {
+          n = match.distance(m);
+          s = std::lround(mul_pow10(s, n)) + std::lround(mv);
+        }
+      }
+    }
+    else
+      return false;
+
+    if (exponent_part()) n -= std::lround(mv);
+
+    mv = mul_pow10(s, -n);
+
+    return true;
   }
 
   bool decimal_integer_literal()
   {
-    if (match('0')) return true;
-    if (match(is_non_zero_digit)) {
-      decimal_digits();
+    if (match('0')) {
+      mv = 0;
       return true;
     }
-    return false;
+    return decimal_digits();
   }
 
   bool decimal_digits()
   {
-    if (decimal_digit()) {
-      // decimal_value = *match - u'0'; //'
-      // decimal_count = 1;
-      while (decimal_digit()) {
-        // decimal_value = decimal_value * 10 + (*match - u'0'); //'
-        // decimal_count += 1;
-      }
-      return true;
+    if (!decimal_digit()) return false;
+    auto s = mv;
+    while (decimal_digit()) {
+      s = s * 10 + mv;
     }
-    return false;
+    mv = s;
+    return true;
   }
 
-  bool decimal_digit() { return match(is_decimal_digit); }
+  bool decimal_digit()
+  {
+    return match([this](auto cp) {
+      switch (cp) {
+      case '0': mv = 0; return true;
+      case '1': mv = 1; return true;
+      case '2': mv = 2; return true;
+      case '3': mv = 3; return true;
+      case '4': mv = 4; return true;
+      case '5': mv = 5; return true;
+      case '6': mv = 6; return true;
+      case '7': mv = 7; return true;
+      case '8': mv = 8; return true;
+      case '9': mv = 9; return true;
+      default: return false;
+      }
+    });
+  }
 
   bool exponent_part()
   {
-    if (exponent_indicator()) {
-      if (!signed_integer()) syntax_error();
-      // exponent_value = decimal_value;
-      return true;
-    }
-    return false;
+    if (!exponent_indicator()) return false;
+    if (!signed_integer()) syntax_error();
+    return true;
   }
 
   bool exponent_indicator()
@@ -404,6 +454,8 @@ public:
     }
     if (match("-")) {
       if (!decimal_digits()) syntax_error();
+      mv = -mv;
+      return true;
     }
     return decimal_digits();
   }
@@ -418,41 +470,76 @@ public:
   bool hex_digits()
   {
     if (!hex_digit()) return false;
-    while (hex_digit())
-      ;
+    double s = mv;
+    while (hex_digit()) {
+      s = 16 * s + mv;
+    }
+    mv = s;
     return true;
   }
 
-  bool hex_digit() { return match(is_hex_digit); }
+  bool hex_digit()
+  {
+    return match([this](auto cp) {
+      switch (cp) {
+      case '0': mv = 0; return true;
+      case '1': mv = 1; return true;
+      case '2': mv = 2; return true;
+      case '3': mv = 3; return true;
+      case '4': mv = 4; return true;
+      case '5': mv = 5; return true;
+      case '6': mv = 6; return true;
+      case '7': mv = 7; return true;
+      case '8': mv = 8; return true;
+      case '9': mv = 9; return true;
+      case 'a': mv = 10; return true;
+      case 'b': mv = 11; return true;
+      case 'c': mv = 12; return true;
+      case 'd': mv = 13; return true;
+      case 'e': mv = 14; return true;
+      case 'f': mv = 15; return true;
+      case 'A': mv = 10; return true;
+      case 'B': mv = 11; return true;
+      case 'C': mv = 12; return true;
+      case 'D': mv = 13; return true;
+      case 'E': mv = 14; return true;
+      case 'F': mv = 15; return true;
+      default: return false;
+      }
+    });
+  }
 
   // 7.8.4
+
+  std::u16string sv;
+  char16_t       cv = 0;
+
   bool string_literal()
   {
-    if (match([&] {
-          return match('"') && double_string_characters(), match('"');
-        }) ||
-        match([&] {
-          return match('\'') && single_string_characters(), match('\'');
-        })) {
+    if (match('"')) {
+      sv = {};
+      double_string_characters();
+      if (!match('"')) syntax_error();
       return true;
     }
-    return false;
+    else if (match('\'')) {
+      sv = {};
+      single_string_characters();
+      if (!match('\'')) syntax_error();
+      return true;
+    }
+    else
+      return false;
   }
 
-  bool double_string_characters()
+  void double_string_characters()
   {
-    if (!double_string_character()) return false;
-    while (double_string_character())
-      ;
-    return true;
+    while (double_string_character()) sv += cv;
   }
 
-  bool single_string_characters()
+  void single_string_characters()
   {
-    if (!single_string_character()) return false;
-    while (single_string_character())
-      ;
-    return true;
+    while (single_string_character()) sv += cv;
   }
 
   bool double_string_character()
@@ -461,7 +548,10 @@ public:
       switch (cp) {
       case '"': return false;
       case '\\': return escape_sequence() || line_terminator_sequence();
-      default: return !is_line_terminator(cp);
+      default:
+        if (is_line_terminator(cp)) return false;
+        cv = *match;
+        return true;
       }
     });
   }
@@ -472,18 +562,24 @@ public:
       switch (cp) {
       case '\'': return false;
       case '\\': return escape_sequence() || line_terminator_sequence();
-      default: return !is_line_terminator(cp);
+      default:
+        if (is_line_terminator(cp)) return false;
+        cv = *match;
+        return true;
       }
     });
   }
 
   bool escape_sequence()
   {
-    return match([this] {
-      return character_escape_sequence() || hex_escape_sequence() ||
-             unicode_escape_sequence() ||
-             (match('0') && !match(is_decimal_digit));
-    });
+    if (match.peek('0') && !match.lookahead(is_decimal_digit)) {
+      // The CV of EscapeSequence :: 0 [lookahead ∉ DecimalDigit] is a <NUL>
+      // character (Unicode value 0000).
+      cv = u'\u0000';
+      return true;
+    }
+    return character_escape_sequence() || hex_escape_sequence()
+           || unicode_escape_sequence();
   }
 
   bool character_escape_sequence()
@@ -491,31 +587,106 @@ public:
     return single_escape_character() || non_escape_character();
   }
 
-  bool single_escape_character() { return match(is_single_escape_character); }
-
-  bool non_escape_character()
+  static bool is_single_escape_character(int cp)
   {
-    return match([this] {
-      return !escape_character() && !line_terminator() && source_character();
+    switch (cp) {
+    case 'b': return true;
+    case 't': return true;
+    case 'n': return true;
+    case 'v': return true;
+    case 'f': return true;
+    case 'r': return true;
+    case '"': return true;
+    case '\'': return true;
+    case '\\': return true;
+    default: return false;
+    }
+  }
+
+  bool single_escape_character()
+  {
+    return match([this](auto cp) {
+      switch (cp) {
+      case 'b': cv  = u'\u0008'; return true;
+      case 't': cv  = u'\u0009'; return true;
+      case 'n': cv  = u'\u000A'; return true;
+      case 'v': cv  = u'\u000B'; return true;
+      case 'f': cv  = u'\u000C'; return true;
+      case 'r': cv  = u'\u000D'; return true;
+      case '"': cv  = u'\u0022'; return true;
+      case '\'': cv = u'\u0027'; return true;
+      case '\\': cv = u'\u005C'; return true;
+      default: return false;
+      }
     });
   }
 
-  bool escape_character()
+  static bool is_escape_character(int cp)
   {
-    return single_escape_character() || decimal_digit() || match('x') ||
-           match('u');
+    switch (cp) {
+    case 'b': return true;
+    case 't': return true;
+    case 'n': return true;
+    case 'v': return true;
+    case 'f': return true;
+    case 'r': return true;
+    case '"': return true;
+    case '\'': return true;
+    case '\\': return true;
+    case '0': return true;
+    case '1': return true;
+    case '2': return true;
+    case '3': return true;
+    case '4': return true;
+    case '5': return true;
+    case '6': return true;
+    case '7': return true;
+    case '8': return true;
+    case '9': return true;
+    case 'x': return true;
+    case 'u': return true;
+    default: return false;
+    }
   }
+
+  bool non_escape_character()
+  {
+    if (match.peek(is_escape_character) || match.peek(is_line_terminator)
+        || !source_character())
+      return false;
+    cv = *match;
+    // The CV of CharacterEscapeSequence :: NonEscapeCharacter is the CV of
+    // the NonEscapeCharacter.
+    return true;
+  }
+
+  // bool escape_character() { return match(is_escape_character); }
 
   bool hex_escape_sequence()
   {
-    return match([this] { return match('x') && hex_digit() && hex_digit(); });
+    return match([this] {
+      if (!match('x')) return false;
+      if (!hex_digit()) return false;
+      cv = std::lround(mv);
+      if (!hex_digit()) return false;
+      cv = cv * 16 + std::lround(mv);
+      return true;
+    });
   }
 
   bool unicode_escape_sequence()
   {
     return match([this] {
-      return match('u') && hex_digit() && hex_digit() && hex_digit() &&
-             hex_digit();
+      if (!match('u')) return false;
+      if (!hex_digit()) return false;
+      cv = std::lround(mv);
+      if (!hex_digit()) return false;
+      cv = cv * 16 + std::lround(mv);
+      if (!hex_digit()) return false;
+      cv = cv * 16 + std::lround(mv);
+      if (!hex_digit()) return false;
+      cv = cv * 16 + std::lround(mv);
+      return true;
     });
   }
 
@@ -523,8 +694,8 @@ public:
   bool regular_expression_literal()
   {
     return match([this] {
-      return match('/') && regular_expression_body() && match('/') &&
-             regular_expression_flags();
+      return match('/') && regular_expression_body() && match('/')
+             && regular_expression_flags();
     });
   }
 
@@ -544,8 +715,8 @@ public:
   {
     return match.any_of(
         [this] {
-          return !match.any_of('*', '\\', '/', '[') &&
-                 regular_expression_non_terminator();
+          return !match.any_of('*', '\\', '/', '[')
+                 && regular_expression_non_terminator();
         },
         [this] { return regular_expression_backslash_sequence(); },
         [this] { return regular_expression_class(); });
@@ -555,8 +726,8 @@ public:
   {
     return match.any_of(
         [this] {
-          return !match.any_of('\\', '/', '[') &&
-                 regular_expression_non_terminator();
+          return !match.any_of('\\', '/', '[')
+                 && regular_expression_non_terminator();
         },
         [this] { return regular_expression_backslash_sequence(); },
         [this] { return regular_expression_class(); });
@@ -591,8 +762,8 @@ public:
   {
     return match.any_of(
         [this] {
-          return !match.any_of(']', '\\') &&
-                 regular_expression_non_terminator();
+          return !match.any_of(']', '\\')
+                 && regular_expression_non_terminator();
         },
         [this] { return regular_expression_backslash_sequence(); });
   }

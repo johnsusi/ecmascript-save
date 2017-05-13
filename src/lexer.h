@@ -8,7 +8,7 @@
 #include <string>
 #include <vector>
 
-std::u16string convert_utf8_to_utf16(const std::string &);
+std::u16string convert_utf8_to_utf16(const std::string&);
 
 template <typename T>
 class BasicLexer {
@@ -35,28 +35,34 @@ class BasicLexer {
       std::string line2(line1.size() - 1, '.');
       return line1 + std::string{at, to} + "\n" + line2 + "^\n";
     }
+
+    std::string loc() const override
+    {
+      return "[" + std::to_string(col) + ":" + std::to_string(row) + "]";
+    }
   };
 
   mutable std::vector<Token> m_tokens;
 
-  static bool reg_exp_allowed(const Token &token);
+  static bool reg_exp_allowed(const Token& token);
 
   std::u16string buffer;
 
 public:
   BasicLexer() {}
   BasicLexer(std::initializer_list<Token> tokens) : m_tokens(tokens) {}
+  BasicLexer(std::vector<Token>&& tokens) : m_tokens(tokens) {}
 
   template <typename It>
   BasicLexer(It begin, It end) : grammar(new LexicalGrammar<T>(begin, end))
   {
   }
 
-  BasicLexer(const std::u16string &str) : BasicLexer(str.begin(), str.end()) {}
+  BasicLexer(const std::u16string& str) : BasicLexer(str.begin(), str.end()) {}
 
-  BasicLexer(const std::string &str) : BasicLexer(convert_utf8_to_utf16(str)) {}
+  BasicLexer(const std::string& str) : BasicLexer(convert_utf8_to_utf16(str)) {}
 
-  const std::vector<Token> &tokens() const
+  const std::vector<Token>& tokens() const
   {
     if (!m_tokens.empty() || !grammar) return m_tokens;
     bool lt  = false;
@@ -88,7 +94,7 @@ public:
 };
 
 template <typename T>
-bool BasicLexer<T>::reg_exp_allowed(const Token &token)
+bool BasicLexer<T>::reg_exp_allowed(const Token& token)
 {
   return token.any_of("return", "new", "delete", "throw", "else", "case", "in",
                       "instanceof", "typeof", "new", "void", "delete", "+", "-",
@@ -107,26 +113,26 @@ auto make_lexer(It f, It l)
 }
 
 template <typename Cont>
-auto make_lexer(Cont &&cont)
+auto make_lexer(Cont&& cont)
 {
   return make_lexer(std::begin(cont), std::end(cont));
 }
 
 template <typename T>
-bool operator==(const BasicLexer<T> &lhs, const BasicLexer<T> &rhs)
+bool operator==(const BasicLexer<T>& lhs, const BasicLexer<T>& rhs)
 {
   return std::equal(lhs.tokens().begin(), lhs.tokens().end(),
                     rhs.tokens().begin(), rhs.tokens().end());
 }
 
 template <typename T>
-bool operator!=(const BasicLexer<T> &lhs, const BasicLexer<T> &rhs)
+bool operator!=(const BasicLexer<T>& lhs, const BasicLexer<T>& rhs)
 {
   return !(lhs == rhs);
 }
 
 template <typename T>
-std::ostream &operator<<(std::ostream &out, const BasicLexer<T> &lexer)
+std::ostream& operator<<(std::ostream& out, const BasicLexer<T>& lexer)
 {
   out << "[";
   auto it = lexer.tokens().begin();

@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <fstream>
 #include <iostream>
+#include <numeric>
 #include <sstream>
 #include <string>
 #include <vector>
@@ -23,7 +24,7 @@
   Throws \a std::runtime_error on failure.
 
 */
-std::u16string convert_utf8_to_utf16(const std::string &source)
+std::u16string convert_utf8_to_utf16(const std::string& source)
 {
   ErrorCode err;
   auto      buffer     = UnicodeString::fromUTF8(source);
@@ -32,7 +33,7 @@ std::u16string convert_utf8_to_utf16(const std::string &source)
   auto result = normalizer->normalize(buffer, err);
   if (err.isFailure()) throw std::runtime_error(err.errorName());
   return std::u16string(
-      reinterpret_cast<const std::u16string::value_type *>(buffer.getBuffer()),
+      reinterpret_cast<const std::u16string::value_type*>(buffer.getBuffer()),
       buffer.length());
 }
 
@@ -41,31 +42,33 @@ std::u16string convert_utf8_to_utf16(const std::string &source)
   Converts \a source from UTF-16 to UTF-8.
 
 */
-std::string convert_utf16_to_utf8(const std::u16string &source)
+std::string convert_utf16_to_utf8(const std::u16string& source)
 {
 
   std::string result;
 
   // NOTE: ICU59 will use char16_t* instead of UChar
-  UnicodeString(reinterpret_cast<const UChar *>(source.data()), source.size())
+  UnicodeString(reinterpret_cast<const UChar*>(source.data()), source.size())
       .toUTF8String(result);
 
   return result;
 }
 
-// UnicodeString icu::UnicodeString::fromUTF8(StringPiece utf8)
-// {
-//   int32_t destLength;
-//   UErrorCode err = U_ZERO_ERROR;
-//   if (U_FAILURE(err)) throw std::runtime_error(u_errorName(err));
-//   u_strFromUTF8(nullptr, 0, &destLength, utf8.data(), utf8.size(), &err);
-//   auto buffer = std::make_unique<UChar*>(new UChar[destLength]);
-//   err = U_ZERO_ERROR;
-//   u_strFromUTF8(*buffer, destLength, nullptr, utf8.data(), utf8.size(),
-//   &err); if (U_FAILURE(err)) throw std::runtime_error(u_errorName(err));
-//   UnicodeString result(*buffer, destLength);
-//   return result;
-// }
+#ifdef U_DISABLE_RENAMING
+UnicodeString icu::UnicodeString::fromUTF8(StringPiece utf8)
+{
+  int32_t    destLength;
+  UErrorCode err = U_ZERO_ERROR;
+  if (U_FAILURE(err)) throw std::runtime_error(u_errorName(err));
+  u_strFromUTF8(nullptr, 0, &destLength, utf8.data(), utf8.size(), &err);
+  auto buffer = std::make_unique<UChar*>(new UChar[destLength]);
+  err         = U_ZERO_ERROR;
+  u_strFromUTF8(*buffer, destLength, nullptr, utf8.data(), utf8.size(), &err);
+  if (U_FAILURE(err)) throw std::runtime_error(u_errorName(err));
+  UnicodeString result(*buffer, destLength);
+  return result;
+}
+#endif
 
 /*!
 
@@ -75,7 +78,7 @@ std::string convert_utf16_to_utf8(const std::u16string &source)
   joined into a string.
 
 */
-std::string left_align_text(const std::string &text, const std::string &indent)
+std::string left_align_text(const std::string& text, const std::string& indent)
 {
   using namespace std;
   using namespace boost;
@@ -112,7 +115,7 @@ std::string left_align_text(const std::string &text, const std::string &indent)
   length 3.
 
 */
-const char *u_charCategory(int c)
+const char* u_charCategory(int c)
 {
   switch (u_charType(c)) {
   case U_GENERAL_OTHER_TYPES: return "Cn";
@@ -155,7 +158,7 @@ const char *u_charCategory(int c)
   Throws std::runtime_error on failure.
 
 */
-std::string read_file(const std::string &filename)
+std::string read_file(const std::string& filename)
 {
   std::ifstream ifs(filename);
   if (ifs.fail()) throw std::runtime_error("Error reading '" + filename + "'");
@@ -175,4 +178,65 @@ std::string read_stdin()
 {
   using it = std::istreambuf_iterator<char>;
   return std::string(it(std::cin), it());
+}
+
+static char to_hex_digit(int x)
+{
+  switch (x) {
+  case 0: return '0';
+  case 1: return '1';
+  case 2: return '2';
+  case 3: return '3';
+  case 4: return '4';
+  case 5: return '5';
+  case 6: return '6';
+  case 7: return '7';
+  case 8: return '8';
+  case 9: return '9';
+  case 10: return 'a';
+  case 11: return 'b';
+  case 12: return 'c';
+  case 13: return 'd';
+  case 14: return 'e';
+  case 15: return 'f';
+  default: return '?';
+  }
+}
+
+static std::string& encode(std::string& str, int cp)
+{
+  switch (cp) {
+  case '\"': str += "\\\""; break;
+  case '\\': str += "\\\\"; break;
+  case '/': str += "\\/"; break;
+  case '\b': str += "\\b"; break;
+  case '\f': str += "\\f"; break;
+  case '\n': str += "\\n"; break;
+  case '\r': str += "\\r"; break;
+  case '\t': str += "\\t"; break;
+  default:
+    if (cp >= 0 && cp <= 0x0F) {
+      str += "\\u000";
+      str += to_hex_digit(cp & 0x0F);
+    }
+    else if (cp >= 0x10 && cp <= 0x1F) {
+      str += "\\u00";
+      str += to_hex_digit((cp / 16) & 0x0F);
+      str += to_hex_digit(cp & 0x0F);
+    }
+    else
+      str += cp;
+    break;
+  }
+  return str;
+}
+
+/*
+
+  Returns a json encoded string.
+
+*/
+std::string stringify(const std::u16string& str)
+{
+  return accumulate(str.begin(), str.end(), std::string("\""), encode) + "\"";
 }

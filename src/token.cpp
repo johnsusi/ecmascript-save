@@ -1,5 +1,6 @@
 #include "token.h"
 #include "lexer.h"
+#include "util.h"
 
 #include <algorithm>
 #include <cmath>
@@ -8,7 +9,11 @@
 
 using namespace std::string_literals;
 
-Token::Token(const char *str)
+template <typename T>
+using variant = mpark::variant<T>;
+using mpark::get_if;
+
+Token::Token(const char* str)
 {
   if (::is_keyword(str))
     value = Keyword{str};
@@ -22,7 +27,7 @@ Token::Token(const char *str)
     value = BooleanLiteral{false};
 }
 
-Token::Value Token::value_from_string(const std::string &str)
+Token::Value Token::value_from_string(const std::string& str)
 {
   if (::is_keyword(str))
     return Keyword{str};
@@ -48,12 +53,12 @@ Token Token::identifier(std::u16string value)
   return {Value{Identifier{std::move(value)}}};
 }
 
-Token Token::keyword(const std::string &value)
+Token Token::keyword(const std::string& value)
 {
   return {Keyword{value}};
 }
 
-Token Token::punctuator(const std::string &value)
+Token Token::punctuator(const std::string& value)
 {
   return {Punctuator{value}};
 }
@@ -85,17 +90,17 @@ Token Token::regular_expression_literal()
 
 bool Token::is_empty() const
 {
-  return boost::get<Empty>(&value) != nullptr;
+  return get_if<Empty>(&value) != nullptr;
 }
 
 bool Token::is_identifier() const
 {
-  return boost::get<Identifier>(&value) != nullptr;
+  return get_if<Identifier>(&value) != nullptr;
 }
 
 bool Token::is_keyword() const
 {
-  return boost::get<Keyword>(&value) != nullptr;
+  return get_if<Keyword>(&value) != nullptr;
 }
 
 bool Token::is_future_reserved_word() const
@@ -105,151 +110,148 @@ bool Token::is_future_reserved_word() const
 
 bool Token::is_punctuator() const
 {
-  return boost::get<Punctuator>(&value) != nullptr;
+  return get_if<Punctuator>(&value) != nullptr;
 }
 
 bool Token::is_null_literal() const
 {
-  return boost::get<NullLiteral>(&value) != nullptr;
+  return get_if<NullLiteral>(&value) != nullptr;
 }
 
 bool Token::is_boolean_literal() const
 {
-  return boost::get<BooleanLiteral>(&value) != nullptr;
+  return get_if<BooleanLiteral>(&value) != nullptr;
 }
 
 bool Token::is_numeric_literal() const
 {
-  return boost::get<NumericLiteral>(&value) != nullptr;
+  return get_if<NumericLiteral>(&value) != nullptr;
 }
 
 bool Token::is_string_literal() const
 {
-  return boost::get<StringLiteral>(&value) != nullptr;
+  return get_if<StringLiteral>(&value) != nullptr;
 }
 
 bool Token::is_regular_expression_literal() const
 {
-  return boost::get<RegularExpressionLiteral>(&value) != nullptr;
+  return get_if<RegularExpressionLiteral>(&value) != nullptr;
 }
 
 bool Token::is_identifier_name() const
 {
-  return is_identifier() || is_keyword() || is_future_reserved_word() ||
-         is_null_literal() || is_boolean_literal();
+  return is_identifier() || is_keyword() || is_future_reserved_word()
+         || is_null_literal() || is_boolean_literal();
 }
 
-boost::optional<const std::u16string &> Token::to_identifier() const
+boost::optional<const std::u16string&> Token::to_identifier() const
 {
-  if (auto o = boost::get<Identifier>(&value))
+  if (auto o = get_if<Identifier>(&value))
     return o->value;
   else
     return {};
 }
 
-boost::optional<const std::string &> Token::to_keyword() const
+boost::optional<const std::string&> Token::to_keyword() const
 {
-  if (auto o = boost::get<Keyword>(&value))
+  if (auto o = get_if<Keyword>(&value))
     return o->value;
   else
     return {};
 }
 
-boost::optional<const std::string &> Token::to_punctuator() const
+boost::optional<const std::string&> Token::to_punctuator() const
 {
-  if (auto o = boost::get<Punctuator>(&value))
+  if (auto o = get_if<Punctuator>(&value))
     return o->value;
   else
     return {};
 }
 
-boost::optional<const bool &> Token::to_boolean_literal() const
+boost::optional<const bool&> Token::to_boolean_literal() const
 {
-  if (auto o = boost::get<BooleanLiteral>(&value))
+  if (auto o = get_if<BooleanLiteral>(&value))
     return o->value;
   else
     return {};
 }
 
-boost::optional<const double &> Token::to_numeric_literal() const
+boost::optional<const double&> Token::to_numeric_literal() const
 {
-  if (auto o = boost::get<NumericLiteral>(&value))
+  if (auto o = get_if<NumericLiteral>(&value))
     return o->value;
   else
     return {};
 }
 
-boost::optional<const std::u16string &> Token::to_string_literal() const
+boost::optional<const std::u16string&> Token::to_string_literal() const
 {
-  if (auto o = boost::get<StringLiteral>(&value))
+  if (auto o = get_if<StringLiteral>(&value))
     return o->value;
   else
     return {};
 }
 
-struct Token::print_visitor : boost::static_visitor<void> {
+struct Token::print_visitor {
 
-  std::ostream &out;
+  std::ostream& out;
 
-  print_visitor(std::ostream &out) : out(out) {}
+  print_visitor(std::ostream& out) : out(out) {}
 
-  void operator()(const Empty &) const { out << "EmptyToken"; }
-  void operator()(const Identifier &identifier) const
+  void operator()(const Empty&) const { out << "EmptyToken"; }
+  void operator()(const Identifier& identifier) const
   {
     out << std::string{identifier.value.begin(), identifier.value.end()};
   }
-  void operator()(const Keyword &keyword) const { out << keyword.value; }
-  void operator()(const Punctuator &punctuator) const
+  void operator()(const Keyword& keyword) const { out << keyword.value; }
+  void operator()(const Punctuator& punctuator) const
   {
     out << punctuator.value;
   }
-  void operator()(const NullLiteral &) const { out << "null"; }
-  void operator()(const BooleanLiteral &literal) const
+  void operator()(const NullLiteral&) const { out << "null"; }
+  void operator()(const BooleanLiteral& literal) const
   {
     out << (literal.value ? "true" : "false");
   }
-  void operator()(const NumericLiteral &literal) const { out << literal.value; }
-  void operator()(const StringLiteral &literal) const
+  void operator()(const NumericLiteral& literal) const { out << literal.value; }
+  void operator()(const StringLiteral& literal) const
   {
-    out << std::string{literal.value.begin(), literal.value.end()};
+    out << stringify(literal.value);
   }
-  void operator()(const RegularExpressionLiteral &literal) const {}
+  void operator()(const RegularExpressionLiteral& literal) const {}
 };
 
-void Token::print(std::ostream &out) const
+void Token::print(std::ostream& out) const
 {
-  boost::apply_visitor(print_visitor(out), value);
+  mpark::visit(print_visitor(out), value);
 }
 
-struct Token::equal_visitor : boost::static_visitor<bool> {
+struct Token::equal_visitor {
 
   template <typename T>
-  auto operator()(const T &lhs, const T &rhs) const
+  auto operator()(const T& lhs, const T& rhs) const
       -> decltype(lhs.value == rhs.value, bool())
   {
     return lhs.value == rhs.value;
   }
 
-  bool operator()(const Empty &, const Empty &) const { return true; }
+  bool operator()(const Empty&, const Empty&) const { return true; }
 
-  bool operator()(const NullLiteral &, const NullLiteral &) const
-  {
-    return true;
-  }
+  bool operator()(const NullLiteral&, const NullLiteral&) const { return true; }
 
   template <typename T, typename U>
-  bool operator()(const T &, const U &) const
+  bool operator()(const T&, const U&) const
   {
     return false;
   }
 };
 
-bool Token::operator==(const Token &other) const
+bool Token::operator==(const Token& other) const
 {
-  return boost::apply_visitor(equal_visitor(), value, other.value);
+  return mpark::visit(equal_visitor(), value, other.value);
 }
 
-std::ostream &operator<<(std::ostream &out, const Token &token)
+std::ostream& operator<<(std::ostream& out, const Token& token)
 {
   token.print(out);
   return out;

@@ -2,6 +2,7 @@
 #define ECMASCRIPT_MATCHER_H
 
 #include <iostream>
+#include <iterator>
 #include <string>
 #include <type_traits>
 
@@ -84,6 +85,17 @@ public:
     return m_cur != m_end && pred(*m_cur);
   }
 
+  bool lookahead(const T& value) const
+  {
+    return m_cur != m_end && (m_cur + 1) != m_end && *(m_cur + 1) == value;
+  }
+
+  template <typename Pred>
+  auto lookahead(Pred&& pred) const -> decltype(pred(*m_cur), bool())
+  {
+    return m_cur != m_end && (m_cur + 1) != m_end && pred(*(m_cur + 1));
+  }
+
   template <typename Arg, typename... Args>
   bool any_of(Arg&& arg, Args&&... args)
   {
@@ -97,6 +109,8 @@ public:
   void reset(It mark) { m_cur = mark; }
 
   void reset() { m_cur = m_begin; }
+
+  auto distance(It mark) const { return std::distance(mark, m_cur); }
 
   template <typename... Args>
   bool operator()(Args&&... args)

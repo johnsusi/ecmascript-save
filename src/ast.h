@@ -4,6 +4,7 @@
 #include "visitor.h"
 
 #include <iostream>
+#include <memory>
 // #include <sstream>
 #include <string>
 #include <vector>
@@ -136,6 +137,12 @@ struct ObjectExpression : PrimaryExpression {
 };
 
 struct PropertyName : Expression {
+  Identifier*     identifier = nullptr;
+  StringLiteral*  str        = nullptr;
+  NumericLiteral* num        = nullptr;
+  PropertyName(Identifier* identifier) : identifier(identifier) {}
+  PropertyName(StringLiteral* str) : str(str) {}
+  PropertyName(NumericLiteral* num) : num(num) {}
   void accept(Visitor& visitor) const override { return visitor(*this); }
   const char*          type() const override { return "PropertyName"; }
 };
@@ -143,9 +150,21 @@ struct PropertyName : Expression {
 struct PropertyAssignment : Expression {
   enum class Kind { INIT, GET, SET } kind;
   PropertyName* name;
-  Expression*   value;
-  PropertyAssignment(PropertyName* name = nullptr, Expression* value = nullptr)
-      : name(name), value(value)
+  Expression*   expression = nullptr;
+  FunctionBody* body       = nullptr;
+  Identifier*   parameter  = nullptr;
+  PropertyAssignment(PropertyName* name, Expression* expression)
+      : kind(Kind::INIT), name(name), expression(expression)
+  {
+    if (!name) std::cout << "got empty name expression\n";
+  }
+  PropertyAssignment(PropertyName* name, FunctionBody* body)
+      : kind(Kind::GET), name(name), body(body)
+  {
+  }
+  PropertyAssignment(PropertyName* name, Identifier* parameter,
+                     FunctionBody* body)
+      : kind(Kind::SET), name(name), body(body), parameter(parameter)
   {
   }
   void accept(Visitor& visitor) const override { return visitor(*this); }
@@ -159,11 +178,20 @@ struct Elision : Node {
 };
 
 struct ElementList : List<Node> {
+  template <typename... Args>
+  ElementList(Args&&... args) : List<Node>(std::forward<Args>(args)...)
+  {
+  }
   void accept(Visitor& visitor) const override { return visitor(*this); }
   const char*          type() const override { return "ElementList"; }
 };
 
 struct PropertyNameAndValueList : List<PropertyAssignment> {
+  template <typename... Args>
+  PropertyNameAndValueList(Args&&... args)
+      : List<PropertyAssignment>(std::forward<Args>(args)...)
+  {
+  }
   void accept(Visitor& visitor) const override { return visitor(*this); }
   const char* type() const override { return "PropertyNameAndValueList"; }
 };
@@ -277,6 +305,16 @@ struct ConditionalExpression : Expression {
   }
   void accept(Visitor& visitor) const override { return visitor(*this); }
   const char*          type() const override { return "ConditionalExpression"; }
+};
+
+struct AssignmentExpression : BinaryExpression {
+  AssignmentExpression(std::string op, Expression* lhs = nullptr,
+                       Expression* rhs = nullptr)
+      : BinaryExpression(op, lhs, rhs)
+  {
+  }
+  void accept(Visitor& visitor) const override { return visitor(*this); }
+  const char*          type() const override { return "AssignmentExpression"; }
 };
 
 struct VariableDeclaration : Expression {

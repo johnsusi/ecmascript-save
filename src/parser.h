@@ -81,7 +81,8 @@ class Parser {
   [[noreturn]] bool logic_error(std::string what = {})
   {
     auto debug_info = match.done() ? nullptr : match.matching()->debug_info;
-    throw std::runtime_error("InternalCompilerError: " + what + "\n"
+    auto loc        = debug_info ? debug_info->loc() : "";
+    throw std::runtime_error("InternalCompilerError: " + loc + what + "\n"
                              + (debug_info ? debug_info->syntax_error_at() : "")
                              + stack_trace());
   }
@@ -130,22 +131,33 @@ class Parser {
                   + stack.back()->type());
   }
 
+  template <typename T, std::size_t I>
+  T* peek_at()
+  {
+    if (auto value = dynamic_cast<T*>(*(stack.end() - I))) {
+      log([&](auto& log) { log << "pop " << demangle(value) << "\n"; });
+      return value;
+    }
+    else
+      logic_error("Expected " + demangle<T>() + ", got "
+                  + stack.back()->type());
+  }
+
   template <typename T, typename... Ts, typename... Args>
   T* replace(Args&&... args)
   {
 
     return index_apply<sizeof...(Ts)>([&](auto... Is) {
-      T* value =
-          new T{std::forward<Args>(args)...,
-                dynamic_cast<Ts*>(*(stack.end() - (sizeof...(Ts) - Is)))...};
+      T* value = new T{std::forward<Args>(args)...,
+                       peek_at<Ts, sizeof...(Ts) - Is>()...};
 
-      log([&](auto& log) {
-        log << "replace ";
-        for_each_arg(
-            [&](auto arg) { log << " " << demangle(arg); },
-            dynamic_cast<Ts*>(*(stack.end() - (sizeof...(Ts) - Is)))...);
-        log << " with " << demangle(value) << "\n";
-      });
+      // log([&](auto& log) {
+      //   log << "replace [";
+      //   for_each_arg(
+      //       [&](auto arg) { log << " " << demangle(arg) << ","; },
+      //       dynamic_cast<Ts*>(*(stack.end() - (sizeof...(Ts) - Is)))...);
+      //   log << "] with " << demangle(value) << "\n";
+      // });
 
       stack.resize(stack.size() - sizeof...(Ts));
       storage->emplace_back(value);
@@ -181,7 +193,10 @@ class Parser {
   bool identifier_name()
   {
     trace("identifier_name");
-    return match([](const auto& token) { return token.is_identifier_name(); });
+    if (!match([](const auto& token) { return token.is_identifier_name(); }))
+      return false;
+    emplace<Identifier>(*match->to_identifier());
+    return true;
   }
 
   bool literal()
@@ -271,9 +286,11 @@ class Parser {
   {
     trace("array_literal");
     if (!match("[")) return false;
-    auto expr                          = emplace<ArrayLiteral>();
-    if (element_list()) expr->elements = pop<ElementList>();
-    if (elision()) expr->elision       = pop<Elision>();
+    if (!element_list()) emplace<ElementList>();
+
+    auto expr = replace<ArrayLiteral, ElementList>();
+
+    if (elision()) expr->elision = pop<Elision>();
     if (!match("]")) syntax_error("Expected ]");
     return true;
   }
@@ -281,9 +298,8 @@ class Parser {
   bool element_list()
   {
     trace("element_list");
-    if (!elision() || !assignment_expression()) return false;
-    auto list = emplace<ElementList>();
-    list->push_back(pop<Expression>());
+    if (!elision() && !assignment_expression()) return false;
+    auto list = replace<ElementList, Node>();
     while (match([&] {
       if (!match(",")) return false;
       auto el = elision() ? pop<Elision>() : nullptr;
@@ -308,25 +324,26 @@ class Parser {
   bool object_literal()
   {
     trace("object_literal");
-    if (match("{")) {
-      property_name_and_value_list();
-      match(",");
-      if (!match("}")) syntax_error();
+    if (!match("{")) return false;
+    if (property_name_and_value_list())
+      replace<ObjectLiteral, PropertyNameAndValueList>();
+    else
       emplace<ObjectLiteral>();
-      return true;
-    }
-    return false;
+    match(",");
+    if (!match("}")) syntax_error("Expected }");
+    return true;
   }
 
   bool property_name_and_value_list()
   {
     trace("property_name_and_value_list");
-    if (property_assignment()) {
-      while (match(",") && (property_assignment() || syntax_error()))
-        ;
-      return true;
+    if (!property_assignment()) return false;
+    auto list = replace<PropertyNameAndValueList, PropertyAssignment>();
+    while (match(",")) {
+      if (!property_assignment()) syntax_error();
+      list->push_back(pop<PropertyAssignment>());
     }
-    return false;
+    return true;
   }
 
   bool property_assignment()
@@ -337,6 +354,7 @@ class Parser {
           || !function_body()
           || !match("}"))
         syntax_error();
+      replace<PropertyAssignment, PropertyName, FunctionBody>();
       return true;
     }
     else if (match("set")) {
@@ -346,10 +364,12 @@ class Parser {
           || !function_body()
           || !match("}"))
         syntax_error();
+      replace<PropertyAssignment, PropertyName, Identifier, FunctionBody>();
       return true;
     }
     else if (property_name()) {
       if (!match(":") || !assignment_expression()) syntax_error();
+      replace<PropertyAssignment, PropertyName, Expression>();
       return true;
     }
     else
@@ -359,7 +379,20 @@ class Parser {
   bool property_name()
   {
     trace("property_name");
-    return identifier_name() || string_literal() || numeric_literal();
+    if (identifier_name()) {
+      replace<PropertyName, Identifier>();
+      return true;
+    }
+    else if (string_literal()) {
+      replace<PropertyName, StringLiteral>();
+      return true;
+    }
+    else if (numeric_literal()) {
+      replace<PropertyName, NumericLiteral>();
+      return true;
+    }
+    else
+      return false;
   }
 
   bool property_set_parameter_list()
@@ -379,7 +412,7 @@ class Parser {
       }
       if (match(".")) {
         if (!identifier_name()) syntax_error();
-        emplace<Identifier>(*match);
+        // emplace<Identifier>(*match);
         replace<MemberExpression, Expression, Identifier>();
       }
       else
@@ -444,7 +477,7 @@ class Parser {
         else if (match(".")) {
           if (!identifier_name()) syntax_error();
           // emplace<Identifier>(match);
-          emplace<Identifier>(*match->to_identifier());
+          // emplace<Identifier>(*match->to_identifier());
           replace<MemberExpression, Expression, Expression>();
           continue;
         }
@@ -721,7 +754,7 @@ class Parser {
     trace("assignment_expression");
     if (!conditional_expression()) return false;
     if (assignment_operator()) {
-      auto expr = emplace<BinaryExpression>(match, pop<Expression>());
+      auto expr = emplace<AssignmentExpression>(match, pop<Expression>());
       if (!assignment_expression()) syntax_error();
       expr->rhs = pop<Expression>();
     }
@@ -780,7 +813,7 @@ class Parser {
     trace("block");
     if (!match("{")) return false;
     if (statement_list())
-      emplace<Block>(pop<StatementList>());
+      replace<Block, StatementList>();
     else
       emplace<Block>();
     if (!match("}")) syntax_error();

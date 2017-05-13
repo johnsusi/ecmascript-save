@@ -31,6 +31,8 @@ struct PostfixExpression;
 struct UnaryExpression;
 struct BinaryExpression;
 struct ConditionalExpression;
+struct AssignmentExpression;
+
 struct VariableDeclaration;
 struct VariableDeclarationList;
 struct SourceElement;
@@ -99,6 +101,7 @@ struct Visitor {
   virtual void operator()(const UnaryExpression&)       = 0;
   virtual void operator()(const BinaryExpression&)      = 0;
   virtual void operator()(const ConditionalExpression&) = 0;
+  virtual void operator()(const AssignmentExpression&)  = 0;
   virtual void operator()(const FunctionExpression&)    = 0;
 
   virtual void operator()(const Block&)               = 0;
