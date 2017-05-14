@@ -2,13 +2,12 @@
 #define ECMASCRIPT_LOGGER_H
 
 #include <functional>
-
+#include <memory>
 #include <sstream>
 
 class Logger {
 
 public:
-
   virtual void log(const std::string&) = 0;
 
   template <typename T>
@@ -18,10 +17,10 @@ public:
   }
 };
 
-Logger &operator<<(Logger &out, const std::string &str);
+Logger& operator<<(Logger& out, const std::string& str);
 
 template <typename T>
-Logger &operator<<(Logger &out, const T &value)
+Logger& operator<<(Logger& out, const T& value)
 {
   std::stringstream buf;
   buf << value;
@@ -30,11 +29,11 @@ Logger &operator<<(Logger &out, const T &value)
 }
 template <typename T>
 class StandardLogger : public Logger {
-  T &out;
+  T& out;
 
 public:
   StandardLogger(T& out) : out(out) {}
-  void log(const std::string &what) override { out << what; }
+  void log(const std::string& what) override { out << what; }
 };
 
 template <typename T>
