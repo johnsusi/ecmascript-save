@@ -1,14 +1,33 @@
 {
   "dependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.4.0",
     "colors": "^1.1.2",
+    "get-stdin": "^5.0.1",
     "glob": "^7.1.1",
     "js-yaml": "^3.8.3",
     "json-stable-stringify": "^1.0.1",
     "lodash": "^4.17.4",
     "lodash.padend": "^4.6.1",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "rxjs": "^5.4.0",
     "shift-parser": "=1.0.4",
     "spawn-rx": "^2.0.10",
     "spec-md": "^0.4.8",
-    "tmp": "^0.0.31"
+    "tmp": "^0.0.31",
+    "webpack": "^2.5.1"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "uglify": true
+          }
+        }
+      ]
+    ]
   }
 }

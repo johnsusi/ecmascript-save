@@ -14,6 +14,7 @@ endif ()
 option(TESTING "Enable testing" OFF)
 option(LTO     "Enable Link-Time-Optimization" OFF)
 option(ANALYZE "Run static analyzer" OFF)
+option(STATIC  "Avoid dynamic libraries if possible" OFF)
 
 include(Cxx14Support)
 include(ColorDiagnostics)
@@ -26,6 +27,9 @@ if (ANALYZE)
   include(EnableAnalyze)
 endif ()
 
+if (STATIC)
+  set(Boost_USE_STATIC_LIBS ON)
+endif ()
 
 if (APPLE)
   set (icu_include_suffixes "include")
@@ -34,16 +38,14 @@ if (APPLE)
   endif ()
 endif ()
 
-# add_compile_options(-ferror-limit=1)
-
-add_definitions(
-  -DBEGIN_ECMASCRIPT_NAMESPACE="${BEGIN_ECMASCRIPT_NAMESPACE}"
-  -DEND_ECMASCRIPT_NAMESPACE="${END_ECMASCRIPT_NAMESPACE}"
-  -DUSING_ECMASCRIPT_NAMESPACE="${USING_ECMASCRIPT_NAMESPACE}"
-)
-
 find_package(Boost REQUIRED COMPONENTS filesystem program_options)
 find_package(ICU   REQUIRED COMPONENTS uc)
+
+if (STATIC AND APPLE)
+  message("Linking to icucore")
+  set(ICU_LIBRARIES icucore)
+  add_definitions(-DU_DISABLE_RENAMING)
+endif()
 
 include_directories(
   vendor/Catch/include
@@ -53,6 +55,29 @@ include_directories(
   ${ICU_INCLUDE_DIRS}
 )
 
+include(CheckCXXSourceCompiles)
+
+set(CMAKE_REQUIRED_INCLUDES  "${ICU_INCLUDE_DIRS}")
+set(CMAKE_REQUIRED_LIBRARIES "${ICU_LIBRARIES}")
+
+message("CMAKE_REQUIRED_LIBRARIES ${CMAKE_REQUIRED_LIBRARIES}")
+
+check_cxx_source_compiles(
+  "
+    #include <unicode/unistr.h>
+
+    int main()
+    {
+      icu::UnicodeString::fromUTF8(\"test\");
+      return 0;
+    }
+  "
+  HAVE_FROM_UTF8
+)
+
+if (HAVE_FROM_UTF8)
+  add_definitions(-DHAVE_FROM_UTF8)
+endif()
 
 if (TESTING)
 
