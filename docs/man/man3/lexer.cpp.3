@@ -1,4 +1,4 @@
-.TH "src/lexer.cpp" 3 "Sun May 7 2017" "ECMAScript" \" -*- nroff -*-
+.TH "src/lexer.cpp" 3 "Sun May 14 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -53,6 +53,9 @@ src/lexer.cpp
 .RI "bool \fBis_punctuator\fP (const \fBstd::string\fP &token)"
 .br
 .ti -1c
+.RI "bool \fBis_div_punctuator\fP (const \fBstd::string\fP &token)"
+.br
+.ti -1c
 .RI "bool \fBis_null_literal\fP (const \fBstd::string\fP &str)"
 .br
 .ti -1c
@@ -64,6 +67,8 @@ src/lexer.cpp
 .SS "bool is_boolean_literal (const \fBstd::string\fP & str)"
 
 .SS "bool is_decimal_digit (int cp)"
+
+.SS "bool is_div_punctuator (const \fBstd::string\fP & token)"
 
 .SS "bool is_future_reserved_word (const \fBstd::string\fP & token)"
 

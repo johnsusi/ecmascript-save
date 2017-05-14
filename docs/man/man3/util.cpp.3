@@ -1,4 +1,4 @@
-.TH "src/util.cpp" 3 "Sun May 7 2017" "ECMAScript" \" -*- nroff -*-
+.TH "src/util.cpp" 3 "Sun May 14 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -13,6 +13,8 @@ src/util.cpp
 \fC#include <fstream>\fP
 .br
 \fC#include <iostream>\fP
+.br
+\fC#include <numeric>\fP
 .br
 \fC#include <sstream>\fP
 .br
@@ -54,6 +56,15 @@ src/util.cpp
 .ti -1c
 .RI "\fBstd::string\fP \fBread_stdin\fP ()"
 .br
+.ti -1c
+.RI "static char \fBto_hex_digit\fP (int x)"
+.br
+.ti -1c
+.RI "static \fBstd::string\fP & \fBencode\fP (\fBstd::string\fP &str, int cp)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBstringify\fP (const \fBstd::u16string\fP &str)"
+.br
 .in -1c
 .SH "Function Documentation"
 .PP 
@@ -63,11 +74,17 @@ Converts \fIsource\fP from UTF-16 to UTF-8\&.
 Converts \fIsource\fP from UTF-8 to UTF-16 and normalised to Unicode Normalization Form C\&.
 .PP
 Throws \fI\fBstd::runtime_error\fP\fP on failure\&. 
+.SS "static \fBstd::string\fP& encode (\fBstd::string\fP & str, int cp)\fC [static]\fP"
+
 .SS "\fBstd::string\fP left_align_text (const \fBstd::string\fP & text, const \fBstd::string\fP & indent)"
 Left aligns \fItext\fP by first finding the left-most non-whitespace character and then removing that many leading white-space characters from each line\&. The result is then indented using the optional \fIindent\fP and joined into a string\&. 
 .SS "\fBstd::string\fP read_file (const \fBstd::string\fP & filename)"
 
 .SS "\fBstd::string\fP read_stdin ()"
+
+.SS "\fBstd::string\fP stringify (const \fBstd::u16string\fP & str)"
+
+.SS "static char to_hex_digit (int x)\fC [static]\fP"
 
 .SS "const char* u_charCategory (int c)"
 Returns the general category (short) name for the code point\&. If the category is not known '??' is returned\&. Always returns a zero terminated char array of length 3\&. 

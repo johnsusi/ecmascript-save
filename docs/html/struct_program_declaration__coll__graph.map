@@ -2,7 +2,8 @@
 <area shape="rect" id="node2" href="$struct_declaration.html" title="Declaration" alt="" coords="40,167,129,192"/>
 <area shape="rect" id="node3" href="$struct_source_element.html" title="SourceElement" alt="" coords="5,92,118,117"/>
 <area shape="rect" id="node4" href="$struct_node.html" title="Node" alt="" coords="40,5,94,31"/>
-<area shape="rect" id="node6" href="$struct_list.html" title="List\&lt; SourceElement \&gt;" alt="" coords="142,92,298,117"/>
-<area shape="rect" id="node5" href="$struct_source_elements.html" title="SourceElements" alt="" coords="157,167,276,192"/>
-<area shape="rect" id="node7" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/container/vector.html" title="std::vector\&lt; SourceElement *\&gt;" alt="" coords="119,5,321,31"/>
+<area shape="rect" id="node7" href="$struct_list.html" title="List\&lt; SourceElement \&gt;" alt="" coords="142,92,298,117"/>
+<area shape="rect" id="node5" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/container/vector.html" title="std::vector\&lt; StringLiteral *\&gt;" alt="" coords="300,167,482,192"/>
+<area shape="rect" id="node6" href="$struct_source_elements.html" title="SourceElements" alt="" coords="157,167,276,192"/>
+<area shape="rect" id="node8" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/container/vector.html" title="std::vector\&lt; SourceElement *\&gt;" alt="" coords="119,5,321,31"/>
 </map>

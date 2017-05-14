@@ -74,6 +74,7 @@ var searchData=
   ['_7etime_5fget_5fbyname',['~time_get_byname',['http://en.cppreference.com/w/cpp/locale/time_get_byname.html',1,'std::time_get_byname']]],
   ['_7etime_5fput',['~time_put',['http://en.cppreference.com/w/cpp/locale/time_put/~time_put.html',1,'std::time_put']]],
   ['_7etime_5fput_5fbyname',['~time_put_byname',['http://en.cppreference.com/w/cpp/locale/time_put_byname.html',1,'std::time_put_byname']]],
+  ['_7etoken',['~Token',['../class_token.html#aa192083f24d5d5895ad91b20ff0e3399',1,'Token']]],
   ['_7etraceguard',['~TraceGuard',['../class_trace_guard.html#ade02f16dafa92b8835808f1403c730ca',1,'TraceGuard']]],
   ['_7eunique_5flock',['~unique_lock',['http://en.cppreference.com/w/cpp/thread/unique_lock/~unique_lock.html',1,'std::unique_lock']]],
   ['_7eunique_5fptr',['~unique_ptr',['http://en.cppreference.com/w/cpp/memory/unique_ptr/~unique_ptr.html',1,'std::unique_ptr']]],

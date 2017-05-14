@@ -1,4 +1,4 @@
-.TH "ProgramDeclaration" 3 "Sun May 7 2017" "ECMAScript" \" -*- nroff -*-
+.TH "ProgramDeclaration" 3 "Sun May 14 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -27,6 +27,9 @@ Inherits \fBDeclaration\fP\&.
 
 .in +1c
 .ti -1c
+.RI "\fBstd::vector\fP< \fBStringLiteral\fP * > \fBdirectives\fP"
+.br
+.ti -1c
 .RI "\fBSourceElements\fP * \fBbody\fP"
 .br
 .in -1c
@@ -47,6 +50,8 @@ Implements \fBNode\fP\&.
 .SH "Member Data Documentation"
 .PP 
 .SS "\fBSourceElements\fP* ProgramDeclaration::body"
+
+.SS "\fBstd::vector\fP<\fBStringLiteral\fP*> ProgramDeclaration::directives"
 
 
 .SH "Author"

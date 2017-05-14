@@ -15,11 +15,12 @@ Inheritance diagram for Property\+Assignment\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for Property\+Assignment\+:\nopagebreak
+Collaboration diagram for Property\+Assignment\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=258pt]{struct_property_assignment__coll__graph}
+\includegraphics[width=350pt]{struct_property_assignment__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Types}
@@ -33,7 +34,11 @@ enum \hyperlink{struct_property_assignment_a123a67b3e1b5d04a4a34b8d528e9fc96}{Ki
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{struct_property_assignment_a6a41f643e0d85393fac554276a550294}{Property\+Assignment} (\hyperlink{struct_property_name}{Property\+Name} $\ast$\hyperlink{struct_property_assignment_a5e0dc6f37850bd4ae74b811f6548e376}{name}=nullptr, \hyperlink{struct_expression}{Expression} $\ast$\hyperlink{struct_property_assignment_a4da33511737b9d611a62e4bca3d02324}{value}=nullptr)
+\hyperlink{struct_property_assignment_a64236ec1cf776e15b81b31ebf7f0b861}{Property\+Assignment} (\hyperlink{struct_property_name}{Property\+Name} $\ast$\hyperlink{struct_property_assignment_a5e0dc6f37850bd4ae74b811f6548e376}{name}, \hyperlink{struct_expression}{Expression} $\ast$\hyperlink{struct_property_assignment_addee7ee5b0743c84303d1f3fad4a8a38}{expression})
+\item 
+\hyperlink{struct_property_assignment_a8c30ce94f94bf2372e424884b625e2eb}{Property\+Assignment} (\hyperlink{struct_property_name}{Property\+Name} $\ast$\hyperlink{struct_property_assignment_a5e0dc6f37850bd4ae74b811f6548e376}{name}, \hyperlink{struct_function_body}{Function\+Body} $\ast$\hyperlink{struct_property_assignment_a8e2a28f8fa96db3a64a91adad7a64ca1}{body})
+\item 
+\hyperlink{struct_property_assignment_ac53a5f23349fc6e50902b8704e827410}{Property\+Assignment} (\hyperlink{struct_property_name}{Property\+Name} $\ast$\hyperlink{struct_property_assignment_a5e0dc6f37850bd4ae74b811f6548e376}{name}, \hyperlink{struct_identifier}{Identifier} $\ast$\hyperlink{struct_property_assignment_a1f28fd75fe300211ee934a65d33650bc}{parameter}, \hyperlink{struct_function_body}{Function\+Body} $\ast$\hyperlink{struct_property_assignment_a8e2a28f8fa96db3a64a91adad7a64ca1}{body})
 \item 
 void \hyperlink{struct_property_assignment_aaf11e7373f4d7863802c51548ce22317}{accept} (\hyperlink{struct_visitor}{Visitor} \&visitor) const override
 \item 
@@ -46,7 +51,11 @@ enum \hyperlink{struct_property_assignment_a123a67b3e1b5d04a4a34b8d528e9fc96}{Pr
 \item 
 \hyperlink{struct_property_name}{Property\+Name} $\ast$ \hyperlink{struct_property_assignment_a5e0dc6f37850bd4ae74b811f6548e376}{name}
 \item 
-\hyperlink{struct_expression}{Expression} $\ast$ \hyperlink{struct_property_assignment_a4da33511737b9d611a62e4bca3d02324}{value}
+\hyperlink{struct_expression}{Expression} $\ast$ \hyperlink{struct_property_assignment_addee7ee5b0743c84303d1f3fad4a8a38}{expression} = nullptr
+\item 
+\hyperlink{struct_function_body}{Function\+Body} $\ast$ \hyperlink{struct_property_assignment_a8e2a28f8fa96db3a64a91adad7a64ca1}{body} = nullptr
+\item 
+\hyperlink{struct_identifier}{Identifier} $\ast$ \hyperlink{struct_property_assignment_a1f28fd75fe300211ee934a65d33650bc}{parameter} = nullptr
 \end{DoxyCompactItemize}
 
 
@@ -74,11 +83,23 @@ S\+ET&\\
 
 
 \subsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{struct_property_assignment_a6a41f643e0d85393fac554276a550294}\label{struct_property_assignment_a6a41f643e0d85393fac554276a550294}} 
+\mbox{\Hypertarget{struct_property_assignment_a64236ec1cf776e15b81b31ebf7f0b861}\label{struct_property_assignment_a64236ec1cf776e15b81b31ebf7f0b861}} 
 \index{Property\+Assignment@{Property\+Assignment}!Property\+Assignment@{Property\+Assignment}}
 \index{Property\+Assignment@{Property\+Assignment}!Property\+Assignment@{Property\+Assignment}}
-\subsubsection{\texorpdfstring{Property\+Assignment()}{PropertyAssignment()}}
-{\footnotesize\ttfamily Property\+Assignment\+::\+Property\+Assignment (\begin{DoxyParamCaption}\item[{\hyperlink{struct_property_name}{Property\+Name} $\ast$}]{name = {\ttfamily nullptr},  }\item[{\hyperlink{struct_expression}{Expression} $\ast$}]{value = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\subsubsection{\texorpdfstring{Property\+Assignment()}{PropertyAssignment()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Property\+Assignment\+::\+Property\+Assignment (\begin{DoxyParamCaption}\item[{\hyperlink{struct_property_name}{Property\+Name} $\ast$}]{name,  }\item[{\hyperlink{struct_expression}{Expression} $\ast$}]{expression }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_property_assignment_a8c30ce94f94bf2372e424884b625e2eb}\label{struct_property_assignment_a8c30ce94f94bf2372e424884b625e2eb}} 
+\index{Property\+Assignment@{Property\+Assignment}!Property\+Assignment@{Property\+Assignment}}
+\index{Property\+Assignment@{Property\+Assignment}!Property\+Assignment@{Property\+Assignment}}
+\subsubsection{\texorpdfstring{Property\+Assignment()}{PropertyAssignment()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Property\+Assignment\+::\+Property\+Assignment (\begin{DoxyParamCaption}\item[{\hyperlink{struct_property_name}{Property\+Name} $\ast$}]{name,  }\item[{\hyperlink{struct_function_body}{Function\+Body} $\ast$}]{body }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_property_assignment_ac53a5f23349fc6e50902b8704e827410}\label{struct_property_assignment_ac53a5f23349fc6e50902b8704e827410}} 
+\index{Property\+Assignment@{Property\+Assignment}!Property\+Assignment@{Property\+Assignment}}
+\index{Property\+Assignment@{Property\+Assignment}!Property\+Assignment@{Property\+Assignment}}
+\subsubsection{\texorpdfstring{Property\+Assignment()}{PropertyAssignment()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Property\+Assignment\+::\+Property\+Assignment (\begin{DoxyParamCaption}\item[{\hyperlink{struct_property_name}{Property\+Name} $\ast$}]{name,  }\item[{\hyperlink{struct_identifier}{Identifier} $\ast$}]{parameter,  }\item[{\hyperlink{struct_function_body}{Function\+Body} $\ast$}]{body }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -106,6 +127,18 @@ Implements \hyperlink{struct_node_a82f29420d0a38efcc370352528e94e9b}{Node}.
 
 
 \subsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_property_assignment_a8e2a28f8fa96db3a64a91adad7a64ca1}\label{struct_property_assignment_a8e2a28f8fa96db3a64a91adad7a64ca1}} 
+\index{Property\+Assignment@{Property\+Assignment}!body@{body}}
+\index{body@{body}!Property\+Assignment@{Property\+Assignment}}
+\subsubsection{\texorpdfstring{body}{body}}
+{\footnotesize\ttfamily \hyperlink{struct_function_body}{Function\+Body}$\ast$ Property\+Assignment\+::body = nullptr}
+
+\mbox{\Hypertarget{struct_property_assignment_addee7ee5b0743c84303d1f3fad4a8a38}\label{struct_property_assignment_addee7ee5b0743c84303d1f3fad4a8a38}} 
+\index{Property\+Assignment@{Property\+Assignment}!expression@{expression}}
+\index{expression@{expression}!Property\+Assignment@{Property\+Assignment}}
+\subsubsection{\texorpdfstring{expression}{expression}}
+{\footnotesize\ttfamily \hyperlink{struct_expression}{Expression}$\ast$ Property\+Assignment\+::expression = nullptr}
+
 \mbox{\Hypertarget{struct_property_assignment_a7cb6c2f32adf600bb23564cfe6dc0463}\label{struct_property_assignment_a7cb6c2f32adf600bb23564cfe6dc0463}} 
 \index{Property\+Assignment@{Property\+Assignment}!kind@{kind}}
 \index{kind@{kind}!Property\+Assignment@{Property\+Assignment}}
@@ -118,11 +151,11 @@ Implements \hyperlink{struct_node_a82f29420d0a38efcc370352528e94e9b}{Node}.
 \subsubsection{\texorpdfstring{name}{name}}
 {\footnotesize\ttfamily \hyperlink{struct_property_name}{Property\+Name}$\ast$ Property\+Assignment\+::name}
 
-\mbox{\Hypertarget{struct_property_assignment_a4da33511737b9d611a62e4bca3d02324}\label{struct_property_assignment_a4da33511737b9d611a62e4bca3d02324}} 
-\index{Property\+Assignment@{Property\+Assignment}!value@{value}}
-\index{value@{value}!Property\+Assignment@{Property\+Assignment}}
-\subsubsection{\texorpdfstring{value}{value}}
-{\footnotesize\ttfamily \hyperlink{struct_expression}{Expression}$\ast$ Property\+Assignment\+::value}
+\mbox{\Hypertarget{struct_property_assignment_a1f28fd75fe300211ee934a65d33650bc}\label{struct_property_assignment_a1f28fd75fe300211ee934a65d33650bc}} 
+\index{Property\+Assignment@{Property\+Assignment}!parameter@{parameter}}
+\index{parameter@{parameter}!Property\+Assignment@{Property\+Assignment}}
+\subsubsection{\texorpdfstring{parameter}{parameter}}
+{\footnotesize\ttfamily \hyperlink{struct_identifier}{Identifier}$\ast$ Property\+Assignment\+::parameter = nullptr}
 
 
 

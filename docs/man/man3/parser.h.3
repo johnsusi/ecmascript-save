@@ -1,4 +1,4 @@
-.TH "src/parser.h" 3 "Sun May 7 2017" "ECMAScript" \" -*- nroff -*-
+.TH "src/parser.h" 3 "Sun May 14 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -26,10 +26,15 @@ src/parser.h
 .br
 \fC#include <vector>\fP
 .br
+\fC#include <boost/type_index\&.hpp>\fP
+.br
 
 .SS "Classes"
 
 .in +1c
+.ti -1c
+.RI "class \fBSyntaxError\fP"
+.br
 .ti -1c
 .RI "class \fBParser\fP"
 .br
@@ -38,7 +43,7 @@ src/parser.h
 
 .in +1c
 .ti -1c
-.RI "#define \fBtrace\fP(method)   \fBTraceGuard\fP tg_##__LINE__(method, __FILE__, __LINE__)"
+.RI "#define \fBtrace\fP(method)"
 .br
 .in -1c
 .SS "Functions"
@@ -53,8 +58,15 @@ src/parser.h
 .in -1c
 .SH "Macro Definition Documentation"
 .PP 
-.SS "#define trace(method)   \fBTraceGuard\fP tg_##__LINE__(method, __FILE__, __LINE__)"
-
+.SS "#define trace(method)"
+\fBValue:\fP
+.PP
+.nf
+TraceGuard tg_##__LINE__(                                                    \
+      boost::typeindex::type_id<decltype(*this)>()\&.pretty_name()               \
+          + "::" + __func__,                                                   \
+      __FILE__, __LINE__)
+.fi
 .SH "Function Documentation"
 .PP 
 .SS "template<typename It > \fBParser\fP make_parser (It f, It l)"

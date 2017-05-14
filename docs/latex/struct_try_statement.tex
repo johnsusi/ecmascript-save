@@ -15,17 +15,18 @@ Inheritance diagram for Try\+Statement\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for Try\+Statement\+:\nopagebreak
+Collaboration diagram for Try\+Statement\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=294pt]{struct_try_statement__coll__graph}
+\includegraphics[width=350pt]{struct_try_statement__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{struct_try_statement_ac3dece791d96a6aa4ce0b5c944ae20f0}{Try\+Statement} (\hyperlink{struct_block}{Block} $\ast$\hyperlink{struct_try_statement_aeea1fa5fce0062d0f8d427d4706d1f73}{block}, \hyperlink{struct_block}{Block} $\ast$\hyperlink{struct_try_statement_a4d97ad90948102f8e6dca2051f03ceb0}{handler}=nullptr, \hyperlink{struct_block}{Block} $\ast$\hyperlink{struct_try_statement_a95cbb6dbd527aad85fa40f0b8b98b66c}{finalizer}=nullptr)
+\hyperlink{struct_try_statement_aeb83658193f1d21d40a47797deb1942e}{Try\+Statement} (\hyperlink{struct_block}{Block} $\ast$\hyperlink{struct_try_statement_aeea1fa5fce0062d0f8d427d4706d1f73}{block}, \hyperlink{struct_identifier}{Identifier} $\ast$\hyperlink{struct_try_statement_aa34bf615eed7785f87cd063a562ad8c7}{binding}=nullptr, \hyperlink{struct_block}{Block} $\ast$\hyperlink{struct_try_statement_a4d97ad90948102f8e6dca2051f03ceb0}{handler}=nullptr, \hyperlink{struct_block}{Block} $\ast$\hyperlink{struct_try_statement_a95cbb6dbd527aad85fa40f0b8b98b66c}{finalizer}=nullptr)
 \item 
 void \hyperlink{struct_try_statement_af223e8205727843aa77651caeb89b805}{accept} (\hyperlink{struct_visitor}{Visitor} \&visitor) const override
 \item 
@@ -36,6 +37,8 @@ const char $\ast$ \hyperlink{struct_try_statement_a1113af03994575c6d5c0f814642f4
 \item 
 \hyperlink{struct_block}{Block} $\ast$ \hyperlink{struct_try_statement_aeea1fa5fce0062d0f8d427d4706d1f73}{block}
 \item 
+\hyperlink{struct_identifier}{Identifier} $\ast$ \hyperlink{struct_try_statement_aa34bf615eed7785f87cd063a562ad8c7}{binding}
+\item 
 \hyperlink{struct_block}{Block} $\ast$ \hyperlink{struct_try_statement_a4d97ad90948102f8e6dca2051f03ceb0}{handler}
 \item 
 \hyperlink{struct_block}{Block} $\ast$ \hyperlink{struct_try_statement_a95cbb6dbd527aad85fa40f0b8b98b66c}{finalizer}
@@ -43,11 +46,11 @@ const char $\ast$ \hyperlink{struct_try_statement_a1113af03994575c6d5c0f814642f4
 
 
 \subsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{struct_try_statement_ac3dece791d96a6aa4ce0b5c944ae20f0}\label{struct_try_statement_ac3dece791d96a6aa4ce0b5c944ae20f0}} 
+\mbox{\Hypertarget{struct_try_statement_aeb83658193f1d21d40a47797deb1942e}\label{struct_try_statement_aeb83658193f1d21d40a47797deb1942e}} 
 \index{Try\+Statement@{Try\+Statement}!Try\+Statement@{Try\+Statement}}
 \index{Try\+Statement@{Try\+Statement}!Try\+Statement@{Try\+Statement}}
 \subsubsection{\texorpdfstring{Try\+Statement()}{TryStatement()}}
-{\footnotesize\ttfamily Try\+Statement\+::\+Try\+Statement (\begin{DoxyParamCaption}\item[{\hyperlink{struct_block}{Block} $\ast$}]{block,  }\item[{\hyperlink{struct_block}{Block} $\ast$}]{handler = {\ttfamily nullptr},  }\item[{\hyperlink{struct_block}{Block} $\ast$}]{finalizer = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily Try\+Statement\+::\+Try\+Statement (\begin{DoxyParamCaption}\item[{\hyperlink{struct_block}{Block} $\ast$}]{block,  }\item[{\hyperlink{struct_identifier}{Identifier} $\ast$}]{binding = {\ttfamily nullptr},  }\item[{\hyperlink{struct_block}{Block} $\ast$}]{handler = {\ttfamily nullptr},  }\item[{\hyperlink{struct_block}{Block} $\ast$}]{finalizer = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -75,6 +78,12 @@ Implements \hyperlink{struct_node_a82f29420d0a38efcc370352528e94e9b}{Node}.
 
 
 \subsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_try_statement_aa34bf615eed7785f87cd063a562ad8c7}\label{struct_try_statement_aa34bf615eed7785f87cd063a562ad8c7}} 
+\index{Try\+Statement@{Try\+Statement}!binding@{binding}}
+\index{binding@{binding}!Try\+Statement@{Try\+Statement}}
+\subsubsection{\texorpdfstring{binding}{binding}}
+{\footnotesize\ttfamily \hyperlink{struct_identifier}{Identifier}$\ast$ Try\+Statement\+::binding}
+
 \mbox{\Hypertarget{struct_try_statement_aeea1fa5fce0062d0f8d427d4706d1f73}\label{struct_try_statement_aeea1fa5fce0062d0f8d427d4706d1f73}} 
 \index{Try\+Statement@{Try\+Statement}!block@{block}}
 \index{block@{block}!Try\+Statement@{Try\+Statement}}

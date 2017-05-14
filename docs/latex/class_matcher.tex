@@ -31,6 +31,10 @@ bool \hyperlink{class_matcher_a28b154cbc4cb7ae203810043e069ae38}{peek} (const T 
 \item 
 {\footnotesize template$<$typename Pred $>$ }\\auto \hyperlink{class_matcher_a4c92e3958c64eee29812f4ed75c331cf}{peek} (Pred \&\&pred) const -\/$>$ decltype(pred($\ast$m\+\_\+cur), bool())
 \item 
+bool \hyperlink{class_matcher_ab2141c8f5c1d61b41f9d9f70f88e6697}{lookahead} (const T \&value) const
+\item 
+{\footnotesize template$<$typename Pred $>$ }\\auto \hyperlink{class_matcher_a9e9a6c37a2de57596fa66dae29fe7b51}{lookahead} (Pred \&\&pred) const -\/$>$ decltype(pred($\ast$m\+\_\+cur), bool())
+\item 
 {\footnotesize template$<$typename Arg , typename... Args$>$ }\\bool \hyperlink{class_matcher_a1db8b27d158ba0010bf7c69559773112}{any\+\_\+of} (Arg \&\&arg, Args \&\&... args)
 \item 
 bool \hyperlink{class_matcher_a6cfab4944429c85a33d872691e0976c8}{any\+\_\+of} ()
@@ -40,6 +44,8 @@ It \hyperlink{class_matcher_af9135752ac195a21c230267d52db6623}{mark} () const
 void \hyperlink{class_matcher_abb67aa2acac25b34d80ffb2e64eef44c}{reset} (It \hyperlink{class_matcher_af9135752ac195a21c230267d52db6623}{mark})
 \item 
 void \hyperlink{class_matcher_a18de8d97996c28deb6ac787f2a0981a6}{reset} ()
+\item 
+auto \hyperlink{class_matcher_aeaa3afef2409a98c71a1dec0c0bc32b2}{distance} (It \hyperlink{class_matcher_af9135752ac195a21c230267d52db6623}{mark}) const
 \item 
 {\footnotesize template$<$typename... Args$>$ }\\bool \hyperlink{class_matcher_a2c1cbd69f6fcbbcf40e9e66333cfddca}{operator()} (Args \&\&... args)
 \item 
@@ -85,12 +91,35 @@ bool \hyperlink{class_matcher}{Matcher}$<$ T, It $>$\+::any\+\_\+of (\begin{Doxy
 {\footnotesize\ttfamily template$<$typename T, typename It$>$ \\
 bool \hyperlink{class_matcher}{Matcher}$<$ T, It $>$\+::any\+\_\+of (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+\mbox{\Hypertarget{class_matcher_aeaa3afef2409a98c71a1dec0c0bc32b2}\label{class_matcher_aeaa3afef2409a98c71a1dec0c0bc32b2}} 
+\index{Matcher@{Matcher}!distance@{distance}}
+\index{distance@{distance}!Matcher@{Matcher}}
+\subsubsection{\texorpdfstring{distance()}{distance()}}
+{\footnotesize\ttfamily template$<$typename T, typename It$>$ \\
+auto \hyperlink{class_matcher}{Matcher}$<$ T, It $>$\+::distance (\begin{DoxyParamCaption}\item[{It}]{mark }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
 \mbox{\Hypertarget{class_matcher_afb8b791024067df37631ce67dcd4c656}\label{class_matcher_afb8b791024067df37631ce67dcd4c656}} 
 \index{Matcher@{Matcher}!done@{done}}
 \index{done@{done}!Matcher@{Matcher}}
 \subsubsection{\texorpdfstring{done()}{done()}}
 {\footnotesize\ttfamily template$<$typename T, typename It$>$ \\
 bool \hyperlink{class_matcher}{Matcher}$<$ T, It $>$\+::done (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_matcher_ab2141c8f5c1d61b41f9d9f70f88e6697}\label{class_matcher_ab2141c8f5c1d61b41f9d9f70f88e6697}} 
+\index{Matcher@{Matcher}!lookahead@{lookahead}}
+\index{lookahead@{lookahead}!Matcher@{Matcher}}
+\subsubsection{\texorpdfstring{lookahead()}{lookahead()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T, typename It$>$ \\
+bool \hyperlink{class_matcher}{Matcher}$<$ T, It $>$\+::lookahead (\begin{DoxyParamCaption}\item[{const T \&}]{value }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_matcher_a9e9a6c37a2de57596fa66dae29fe7b51}\label{class_matcher_a9e9a6c37a2de57596fa66dae29fe7b51}} 
+\index{Matcher@{Matcher}!lookahead@{lookahead}}
+\index{lookahead@{lookahead}!Matcher@{Matcher}}
+\subsubsection{\texorpdfstring{lookahead()}{lookahead()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T, typename It$>$ \\
+template$<$typename Pred $>$ \\
+auto \hyperlink{class_matcher}{Matcher}$<$ T, It $>$\+::lookahead (\begin{DoxyParamCaption}\item[{Pred \&\&}]{pred }\end{DoxyParamCaption}) const -\/$>$ decltype(pred($\ast$m\+\_\+cur), bool())
+  \hspace{0.3cm}{\ttfamily [inline]}}
 
 \mbox{\Hypertarget{class_matcher_af9135752ac195a21c230267d52db6623}\label{class_matcher_af9135752ac195a21c230267d52db6623}} 
 \index{Matcher@{Matcher}!mark@{mark}}

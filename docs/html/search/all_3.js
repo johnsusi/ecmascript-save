@@ -82,6 +82,7 @@ var searchData=
   ['crc32_2ecpp',['crc32.cpp',['../crc32_8cpp.html',1,'']]],
   ['crc32_2eh',['crc32.h',['../crc32_8h.html',1,'']]],
   ['crc32_5ftab',['crc32_tab',['../crc32_8h.html#af225b53008bf1b5d5811a28892cff3ad',1,'crc32.h']]],
+  ['create_5fstatic_5fstring',['create_static_string',['../token_8cpp.html#aa4fcc75e7324235f56fe28e378bb7960',1,'create_static_string(std::u16string value):&#160;token.cpp'],['../token_8h.html#aa4fcc75e7324235f56fe28e378bb7960',1,'create_static_string(std::u16string value):&#160;token.cpp']]],
   ['cref',['cref',['http://en.cppreference.com/w/cpp/utility/functional/ref.html',1,'std']]],
   ['cregex_5fiterator',['cregex_iterator',['http://en.cppreference.com/w/cpp/regex/regex_iterator.html',1,'std::cregex_iterator'],['http://en.cppreference.com/w/cpp/regex/regex_iterator/regex_iterator.html',1,'std::cregex_iterator::cregex_iterator()']]],
   ['cregex_5ftoken_5fiterator',['cregex_token_iterator',['http://en.cppreference.com/w/cpp/regex/regex_token_iterator.html',1,'std::cregex_token_iterator'],['http://en.cppreference.com/w/cpp/regex/regex_token_iterator/regex_token_iterator.html',1,'std::cregex_token_iterator::cregex_token_iterator()']]],
@@ -92,5 +93,6 @@ var searchData=
   ['ctype_5fbase',['ctype_base',['http://en.cppreference.com/w/cpp/locale/ctype_base.html',1,'std']]],
   ['ctype_5fbyname',['ctype_byname',['http://en.cppreference.com/w/cpp/locale/ctype_byname.html',1,'std::ctype_byname'],['http://en.cppreference.com/w/cpp/locale/ctype_byname.html',1,'std::ctype_byname::ctype_byname()']]],
   ['curr_5fsymbol',['curr_symbol',['http://en.cppreference.com/w/cpp/locale/moneypunct/curr_symbol.html',1,'std::moneypunct_byname::curr_symbol()'],['http://en.cppreference.com/w/cpp/locale/moneypunct/curr_symbol.html',1,'std::moneypunct::curr_symbol()']]],
-  ['current_5fexception',['current_exception',['http://en.cppreference.com/w/cpp/error/current_exception.html',1,'std']]]
+  ['current_5fexception',['current_exception',['http://en.cppreference.com/w/cpp/error/current_exception.html',1,'std']]],
+  ['cv',['cv',['../class_lexical_grammar.html#ad579d5598245aa0ed816102edad07507',1,'LexicalGrammar']]]
 ];

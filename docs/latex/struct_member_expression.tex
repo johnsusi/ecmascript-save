@@ -15,17 +15,20 @@ Inheritance diagram for Member\+Expression\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for Member\+Expression\+:\nopagebreak
+Collaboration diagram for Member\+Expression\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=182pt]{struct_member_expression__coll__graph}
+\includegraphics[width=243pt]{struct_member_expression__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{struct_member_expression_a9a3eaa90cb6280ad3e221694632c22f5}{Member\+Expression} (\hyperlink{struct_expression}{Expression} $\ast$\hyperlink{struct_member_expression_a338f9515daed926c07fd717b9b728f58}{object}, \hyperlink{struct_expression}{Expression} $\ast$\hyperlink{struct_member_expression_a7b33bb4629162523bddbb397b180e31e}{property})
+\hyperlink{struct_member_expression_ad005a695e47f49f03a6f6412da9a2219}{Member\+Expression} (\hyperlink{struct_expression}{Expression} $\ast$\hyperlink{struct_member_expression_a338f9515daed926c07fd717b9b728f58}{object}, \hyperlink{struct_identifier}{Identifier} $\ast$\hyperlink{struct_member_expression_aacf14f0ff4ff8cb0cf5346afc3b97470}{property})
+\item 
+\hyperlink{struct_member_expression_aa14ba789623f83a9aaab2d437bf18c90}{Member\+Expression} (\hyperlink{struct_expression}{Expression} $\ast$\hyperlink{struct_member_expression_a338f9515daed926c07fd717b9b728f58}{object}, \hyperlink{struct_expression}{Expression} $\ast$\hyperlink{struct_member_expression_a81b4f3183db07b7b9350f9199ce5fc97}{expression})
 \item 
 void \hyperlink{struct_member_expression_a04c3360eda4db02e733746882830b92c}{accept} (\hyperlink{struct_visitor}{Visitor} \&visitor) const override
 \item 
@@ -36,16 +39,24 @@ const char $\ast$ \hyperlink{struct_member_expression_a2b3653ea6c4b7447d3eebf21d
 \item 
 \hyperlink{struct_expression}{Expression} $\ast$ \hyperlink{struct_member_expression_a338f9515daed926c07fd717b9b728f58}{object}
 \item 
-\hyperlink{struct_expression}{Expression} $\ast$ \hyperlink{struct_member_expression_a7b33bb4629162523bddbb397b180e31e}{property}
+\hyperlink{struct_identifier}{Identifier} $\ast$ \hyperlink{struct_member_expression_aacf14f0ff4ff8cb0cf5346afc3b97470}{property}
+\item 
+\hyperlink{struct_expression}{Expression} $\ast$ \hyperlink{struct_member_expression_a81b4f3183db07b7b9350f9199ce5fc97}{expression}
 \end{DoxyCompactItemize}
 
 
 \subsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{struct_member_expression_a9a3eaa90cb6280ad3e221694632c22f5}\label{struct_member_expression_a9a3eaa90cb6280ad3e221694632c22f5}} 
+\mbox{\Hypertarget{struct_member_expression_ad005a695e47f49f03a6f6412da9a2219}\label{struct_member_expression_ad005a695e47f49f03a6f6412da9a2219}} 
 \index{Member\+Expression@{Member\+Expression}!Member\+Expression@{Member\+Expression}}
 \index{Member\+Expression@{Member\+Expression}!Member\+Expression@{Member\+Expression}}
-\subsubsection{\texorpdfstring{Member\+Expression()}{MemberExpression()}}
-{\footnotesize\ttfamily Member\+Expression\+::\+Member\+Expression (\begin{DoxyParamCaption}\item[{\hyperlink{struct_expression}{Expression} $\ast$}]{object,  }\item[{\hyperlink{struct_expression}{Expression} $\ast$}]{property }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\subsubsection{\texorpdfstring{Member\+Expression()}{MemberExpression()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Member\+Expression\+::\+Member\+Expression (\begin{DoxyParamCaption}\item[{\hyperlink{struct_expression}{Expression} $\ast$}]{object,  }\item[{\hyperlink{struct_identifier}{Identifier} $\ast$}]{property }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_member_expression_aa14ba789623f83a9aaab2d437bf18c90}\label{struct_member_expression_aa14ba789623f83a9aaab2d437bf18c90}} 
+\index{Member\+Expression@{Member\+Expression}!Member\+Expression@{Member\+Expression}}
+\index{Member\+Expression@{Member\+Expression}!Member\+Expression@{Member\+Expression}}
+\subsubsection{\texorpdfstring{Member\+Expression()}{MemberExpression()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Member\+Expression\+::\+Member\+Expression (\begin{DoxyParamCaption}\item[{\hyperlink{struct_expression}{Expression} $\ast$}]{object,  }\item[{\hyperlink{struct_expression}{Expression} $\ast$}]{expression }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -73,17 +84,23 @@ Implements \hyperlink{struct_node_a82f29420d0a38efcc370352528e94e9b}{Node}.
 
 
 \subsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_member_expression_a81b4f3183db07b7b9350f9199ce5fc97}\label{struct_member_expression_a81b4f3183db07b7b9350f9199ce5fc97}} 
+\index{Member\+Expression@{Member\+Expression}!expression@{expression}}
+\index{expression@{expression}!Member\+Expression@{Member\+Expression}}
+\subsubsection{\texorpdfstring{expression}{expression}}
+{\footnotesize\ttfamily \hyperlink{struct_expression}{Expression}$\ast$ Member\+Expression\+::expression}
+
 \mbox{\Hypertarget{struct_member_expression_a338f9515daed926c07fd717b9b728f58}\label{struct_member_expression_a338f9515daed926c07fd717b9b728f58}} 
 \index{Member\+Expression@{Member\+Expression}!object@{object}}
 \index{object@{object}!Member\+Expression@{Member\+Expression}}
 \subsubsection{\texorpdfstring{object}{object}}
 {\footnotesize\ttfamily \hyperlink{struct_expression}{Expression}$\ast$ Member\+Expression\+::object}
 
-\mbox{\Hypertarget{struct_member_expression_a7b33bb4629162523bddbb397b180e31e}\label{struct_member_expression_a7b33bb4629162523bddbb397b180e31e}} 
+\mbox{\Hypertarget{struct_member_expression_aacf14f0ff4ff8cb0cf5346afc3b97470}\label{struct_member_expression_aacf14f0ff4ff8cb0cf5346afc3b97470}} 
 \index{Member\+Expression@{Member\+Expression}!property@{property}}
 \index{property@{property}!Member\+Expression@{Member\+Expression}}
 \subsubsection{\texorpdfstring{property}{property}}
-{\footnotesize\ttfamily \hyperlink{struct_expression}{Expression}$\ast$ Member\+Expression\+::property}
+{\footnotesize\ttfamily \hyperlink{struct_identifier}{Identifier}$\ast$ Member\+Expression\+::property}
 
 
 

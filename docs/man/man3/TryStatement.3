@@ -1,4 +1,4 @@
-.TH "TryStatement" 3 "Sun May 7 2017" "ECMAScript" \" -*- nroff -*-
+.TH "TryStatement" 3 "Sun May 14 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -14,7 +14,7 @@ Inherits \fBStatement\fP\&.
 
 .in +1c
 .ti -1c
-.RI "\fBTryStatement\fP (\fBBlock\fP *\fBblock\fP, \fBBlock\fP *\fBhandler\fP=nullptr, \fBBlock\fP *\fBfinalizer\fP=nullptr)"
+.RI "\fBTryStatement\fP (\fBBlock\fP *\fBblock\fP, \fBIdentifier\fP *\fBbinding\fP=nullptr, \fBBlock\fP *\fBhandler\fP=nullptr, \fBBlock\fP *\fBfinalizer\fP=nullptr)"
 .br
 .ti -1c
 .RI "void \fBaccept\fP (\fBVisitor\fP &visitor) const override"
@@ -30,6 +30,9 @@ Inherits \fBStatement\fP\&.
 .RI "\fBBlock\fP * \fBblock\fP"
 .br
 .ti -1c
+.RI "\fBIdentifier\fP * \fBbinding\fP"
+.br
+.ti -1c
 .RI "\fBBlock\fP * \fBhandler\fP"
 .br
 .ti -1c
@@ -38,7 +41,7 @@ Inherits \fBStatement\fP\&.
 .in -1c
 .SH "Constructor & Destructor Documentation"
 .PP 
-.SS "TryStatement::TryStatement (\fBBlock\fP * block, \fBBlock\fP * handler = \fCnullptr\fP, \fBBlock\fP * finalizer = \fCnullptr\fP)\fC [inline]\fP"
+.SS "TryStatement::TryStatement (\fBBlock\fP * block, \fBIdentifier\fP * binding = \fCnullptr\fP, \fBBlock\fP * handler = \fCnullptr\fP, \fBBlock\fP * finalizer = \fCnullptr\fP)\fC [inline]\fP"
 
 .SH "Member Function Documentation"
 .PP 
@@ -52,6 +55,8 @@ Implements \fBNode\fP\&.
 Implements \fBNode\fP\&.
 .SH "Member Data Documentation"
 .PP 
+.SS "\fBIdentifier\fP* TryStatement::binding"
+
 .SS "\fBBlock\fP* TryStatement::block"
 
 .SS "\fBBlock\fP* TryStatement::finalizer"

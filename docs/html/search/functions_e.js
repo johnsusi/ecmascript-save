@@ -38,10 +38,11 @@ var searchData=
   ['nouppercase',['nouppercase',['http://en.cppreference.com/w/cpp/io/manip/uppercase.html',1,'std']]],
   ['now',['now',['http://en.cppreference.com/w/cpp/chrono/steady_clock/now.html',1,'std::chrono::steady_clock::now()'],['http://en.cppreference.com/w/cpp/chrono/system_clock/now.html',1,'std::chrono::system_clock::now()'],['http://en.cppreference.com/w/cpp/chrono/high_resolution_clock/now.html',1,'std::chrono::high_resolution_clock::now()']]],
   ['nth_5felement',['nth_element',['http://en.cppreference.com/w/cpp/algorithm/nth_element.html',1,'std']]],
-  ['null_5fliteral',['null_literal',['../class_lexical_grammar.html#a2bd963802a60b5d0e1476bdf3019494b',1,'LexicalGrammar::null_literal()'],['../class_token.html#a14d7666a206aae66e9d78b0c99db9c35',1,'Token::null_literal()']]],
+  ['null_5fliteral',['null_literal',['../class_lexical_grammar.html#a2bd963802a60b5d0e1476bdf3019494b',1,'LexicalGrammar::null_literal()'],['../class_token.html#af892768a64f034c6d941281fd7d6b758',1,'Token::null_literal()'],['../class_token.html#a2b8cea2db3fa862b93feeebec37ec079',1,'Token::null_literal()']]],
   ['num_5fget',['num_get',['http://en.cppreference.com/w/cpp/locale/num_get/num_get.html',1,'std::num_get']]],
   ['num_5fput',['num_put',['http://en.cppreference.com/w/cpp/locale/num_put/num_put.html',1,'std::num_put']]],
-  ['numeric_5fliteral',['numeric_literal',['../class_lexical_grammar.html#a6dd9a9a8baf50e9a99e0df2cbaa8d795',1,'LexicalGrammar::numeric_literal()'],['../class_token.html#ab457a4f53eef0512a5fd2ea0206e3c1e',1,'Token::numeric_literal()']]],
+  ['numeric_5fliteral',['numeric_literal',['../class_lexical_grammar.html#a6dd9a9a8baf50e9a99e0df2cbaa8d795',1,'LexicalGrammar::numeric_literal()'],['../class_token.html#a6b30fa87c5bbd0c0b7b0e7b4344eeb8b',1,'Token::numeric_literal(double value)'],['../class_token.html#a6b30fa87c5bbd0c0b7b0e7b4344eeb8b',1,'Token::numeric_literal(double value)']]],
+  ['numeric_5fvalue',['numeric_value',['../class_token.html#aae9aebc462c07a05b14bf04de8416205',1,'Token']]],
   ['numericliteral',['NumericLiteral',['../struct_numeric_literal.html#a7d8479432e5f17a657279050ca611e33',1,'NumericLiteral']]],
   ['numpunct',['numpunct',['http://en.cppreference.com/w/cpp/locale/numpunct/numpunct.html',1,'std::numpunct']]],
   ['numpunct_5fbyname',['numpunct_byname',['http://en.cppreference.com/w/cpp/locale/numpunct_byname.html',1,'std::numpunct_byname']]]

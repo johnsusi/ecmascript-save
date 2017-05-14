@@ -1,0 +1,44 @@
+.TH "AssignmentExpression" 3 "Sun May 14 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AssignmentExpression
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ast\&.h>\fP
+.PP
+Inherits \fBBinaryExpression\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBAssignmentExpression\fP (\fBstd::string\fP \fBop\fP, \fBExpression\fP *\fBlhs\fP=nullptr, \fBExpression\fP *\fBrhs\fP=nullptr)"
+.br
+.ti -1c
+.RI "void \fBaccept\fP (\fBVisitor\fP &visitor) const override"
+.br
+.ti -1c
+.RI "const char * \fBtype\fP () const override"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "AssignmentExpression::AssignmentExpression (\fBstd::string\fP op, \fBExpression\fP * lhs = \fCnullptr\fP, \fBExpression\fP * rhs = \fCnullptr\fP)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void AssignmentExpression::accept (\fBVisitor\fP & visitor) const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Reimplemented from \fBBinaryExpression\fP\&.
+.SS "const char* AssignmentExpression::type () const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Reimplemented from \fBBinaryExpression\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

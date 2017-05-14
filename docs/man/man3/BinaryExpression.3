@@ -1,4 +1,4 @@
-.TH "BinaryExpression" 3 "Sun May 7 2017" "ECMAScript" \" -*- nroff -*-
+.TH "BinaryExpression" 3 "Sun May 14 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -10,6 +10,8 @@ BinaryExpression
 \fC#include <ast\&.h>\fP
 .PP
 Inherits \fBExpression\fP\&.
+.PP
+Inherited by \fBAssignmentExpression\fP\&.
 .SS "Public Member Functions"
 
 .in +1c
@@ -46,10 +48,14 @@ Inherits \fBExpression\fP\&.
 
 .PP
 Implements \fBNode\fP\&.
+.PP
+Reimplemented in \fBAssignmentExpression\fP\&.
 .SS "const char* BinaryExpression::type () const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
 Implements \fBNode\fP\&.
+.PP
+Reimplemented in \fBAssignmentExpression\fP\&.
 .SH "Member Data Documentation"
 .PP 
 .SS "\fBExpression\fP* BinaryExpression::lhs"

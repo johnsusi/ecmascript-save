@@ -4,6 +4,7 @@
 {\ttfamily \#include $<$algorithm$>$}\newline
 {\ttfamily \#include $<$fstream$>$}\newline
 {\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$numeric$>$}\newline
 {\ttfamily \#include $<$sstream$>$}\newline
 {\ttfamily \#include $<$string$>$}\newline
 {\ttfamily \#include $<$vector$>$}\newline
@@ -43,6 +44,12 @@ const char $\ast$ \hyperlink{util_8cpp_ad812ab2de404402e3b80eeeac6f18d75}{u\+\_\
 \textbf{ std\+::string} \hyperlink{util_8cpp_a0493d1da643dd0e2ded159c13ed9f97e}{read\+\_\+file} (const \textbf{ std\+::string} \&filename)
 \item 
 \textbf{ std\+::string} \hyperlink{util_8cpp_a3fc653067bd9f822c4a444b25f3b5d37}{read\+\_\+stdin} ()
+\item 
+static char \hyperlink{util_8cpp_ae4db72e4c53106ecca9e18f033ac6886}{to\+\_\+hex\+\_\+digit} (int x)
+\item 
+static \textbf{ std\+::string} \& \hyperlink{util_8cpp_a679dab7615746fa3894af264eb65d0da}{encode} (\textbf{ std\+::string} \&str, int cp)
+\item 
+\textbf{ std\+::string} \hyperlink{util_8cpp_a4f1418867f20f41174c8c4dcf0c60262}{stringify} (const \textbf{ std\+::u16string} \&str)
 \end{DoxyCompactItemize}
 
 
@@ -61,7 +68,13 @@ Converts {\itshape source} from U\+T\+F-\/16 to U\+T\+F-\/8. \mbox{\Hypertarget{
 
 Converts {\itshape source} from U\+T\+F-\/8 to U\+T\+F-\/16 and normalised to Unicode Normalization Form C.
 
-Throws {\itshape \textbf{ std\+::runtime\+\_\+error}} on failure. \mbox{\Hypertarget{util_8cpp_a963acd6c6383cd6f6479d6a38be9dfcb}\label{util_8cpp_a963acd6c6383cd6f6479d6a38be9dfcb}} 
+Throws {\itshape \textbf{ std\+::runtime\+\_\+error}} on failure. \mbox{\Hypertarget{util_8cpp_a679dab7615746fa3894af264eb65d0da}\label{util_8cpp_a679dab7615746fa3894af264eb65d0da}} 
+\index{util.\+cpp@{util.\+cpp}!encode@{encode}}
+\index{encode@{encode}!util.\+cpp@{util.\+cpp}}
+\subsubsection{\texorpdfstring{encode()}{encode()}}
+{\footnotesize\ttfamily static \textbf{ std\+::string}\& encode (\begin{DoxyParamCaption}\item[{\textbf{ std\+::string} \&}]{str,  }\item[{int}]{cp }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{util_8cpp_a963acd6c6383cd6f6479d6a38be9dfcb}\label{util_8cpp_a963acd6c6383cd6f6479d6a38be9dfcb}} 
 \index{util.\+cpp@{util.\+cpp}!left\+\_\+align\+\_\+text@{left\+\_\+align\+\_\+text}}
 \index{left\+\_\+align\+\_\+text@{left\+\_\+align\+\_\+text}!util.\+cpp@{util.\+cpp}}
 \subsubsection{\texorpdfstring{left\+\_\+align\+\_\+text()}{left\_align\_text()}}
@@ -78,6 +91,18 @@ Left aligns {\itshape text} by first finding the left-\/most non-\/whitespace ch
 \index{read\+\_\+stdin@{read\+\_\+stdin}!util.\+cpp@{util.\+cpp}}
 \subsubsection{\texorpdfstring{read\+\_\+stdin()}{read\_stdin()}}
 {\footnotesize\ttfamily \textbf{ std\+::string} read\+\_\+stdin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{util_8cpp_a4f1418867f20f41174c8c4dcf0c60262}\label{util_8cpp_a4f1418867f20f41174c8c4dcf0c60262}} 
+\index{util.\+cpp@{util.\+cpp}!stringify@{stringify}}
+\index{stringify@{stringify}!util.\+cpp@{util.\+cpp}}
+\subsubsection{\texorpdfstring{stringify()}{stringify()}}
+{\footnotesize\ttfamily \textbf{ std\+::string} stringify (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::u16string} \&}]{str }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{util_8cpp_ae4db72e4c53106ecca9e18f033ac6886}\label{util_8cpp_ae4db72e4c53106ecca9e18f033ac6886}} 
+\index{util.\+cpp@{util.\+cpp}!to\+\_\+hex\+\_\+digit@{to\+\_\+hex\+\_\+digit}}
+\index{to\+\_\+hex\+\_\+digit@{to\+\_\+hex\+\_\+digit}!util.\+cpp@{util.\+cpp}}
+\subsubsection{\texorpdfstring{to\+\_\+hex\+\_\+digit()}{to\_hex\_digit()}}
+{\footnotesize\ttfamily static char to\+\_\+hex\+\_\+digit (\begin{DoxyParamCaption}\item[{int}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 \mbox{\Hypertarget{util_8cpp_ad812ab2de404402e3b80eeeac6f18d75}\label{util_8cpp_ad812ab2de404402e3b80eeeac6f18d75}} 
 \index{util.\+cpp@{util.\+cpp}!u\+\_\+char\+Category@{u\+\_\+char\+Category}}

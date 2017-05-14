@@ -1,4 +1,4 @@
-.TH "LexicalGrammar< T >" 3 "Sun May 7 2017" "ECMAScript" \" -*- nroff -*-
+.TH "LexicalGrammar< T >" 3 "Sun May 14 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -150,10 +150,10 @@ LexicalGrammar< T >
 .RI "bool \fBstring_literal\fP ()"
 .br
 .ti -1c
-.RI "bool \fBdouble_string_characters\fP ()"
+.RI "void \fBdouble_string_characters\fP ()"
 .br
 .ti -1c
-.RI "bool \fBsingle_string_characters\fP ()"
+.RI "void \fBsingle_string_characters\fP ()"
 .br
 .ti -1c
 .RI "bool \fBdouble_string_character\fP ()"
@@ -172,9 +172,6 @@ LexicalGrammar< T >
 .br
 .ti -1c
 .RI "bool \fBnon_escape_character\fP ()"
-.br
-.ti -1c
-.RI "bool \fBescape_character\fP ()"
 .br
 .ti -1c
 .RI "bool \fBhex_escape_sequence\fP ()"
@@ -216,6 +213,16 @@ LexicalGrammar< T >
 .RI "bool \fBregular_expression_flags\fP ()"
 .br
 .in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static bool \fBis_single_escape_character\fP (int cp)"
+.br
+.ti -1c
+.RI "static bool \fBis_escape_character\fP (int cp)"
+.br
+.in -1c
 .SS "Public Attributes"
 
 .in +1c
@@ -226,7 +233,16 @@ LexicalGrammar< T >
 .RI "\fBMatcher\fP< T, std::u16string::const_iterator > \fBmatch\fP"
 .br
 .ti -1c
-.RI "\fBToken\fP \fBtoken_value\fP"
+.RI "\fBToken\fP \fBtoken_value\fP = \fBToken::null_literal\fP()"
+.br
+.ti -1c
+.RI "double \fBmv\fP"
+.br
+.ti -1c
+.RI "\fBstd::u16string\fP \fBsv\fP"
+.br
+.ti -1c
+.RI "char16_t \fBcv\fP = 0"
 .br
 .in -1c
 .SH "Constructor & Destructor Documentation"
@@ -253,9 +269,7 @@ LexicalGrammar< T >
 
 .SS "template<typename T > bool \fBLexicalGrammar\fP< T >::double_string_character ()\fC [inline]\fP"
 
-.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::double_string_characters ()\fC [inline]\fP"
-
-.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::escape_character ()\fC [inline]\fP"
+.SS "template<typename T > void \fBLexicalGrammar\fP< T >::double_string_characters ()\fC [inline]\fP"
 
 .SS "template<typename T > bool \fBLexicalGrammar\fP< T >::escape_sequence ()\fC [inline]\fP"
 
@@ -282,6 +296,10 @@ LexicalGrammar< T >
 .SS "template<typename T > \fBInputElement\fP \fBLexicalGrammar\fP< T >::input_element_div ()\fC [inline]\fP"
 
 .SS "template<typename T > \fBInputElement\fP \fBLexicalGrammar\fP< T >::input_element_reg_exp ()\fC [inline]\fP"
+
+.SS "template<typename T > static bool \fBLexicalGrammar\fP< T >::is_escape_character (int cp)\fC [inline]\fP, \fC [static]\fP"
+
+.SS "template<typename T > static bool \fBLexicalGrammar\fP< T >::is_single_escape_character (int cp)\fC [inline]\fP, \fC [static]\fP"
 
 .SS "template<typename T > bool \fBLexicalGrammar\fP< T >::keyword ()\fC [inline]\fP"
 
@@ -347,7 +365,7 @@ LexicalGrammar< T >
 
 .SS "template<typename T > bool \fBLexicalGrammar\fP< T >::single_string_character ()\fC [inline]\fP"
 
-.SS "template<typename T > bool \fBLexicalGrammar\fP< T >::single_string_characters ()\fC [inline]\fP"
+.SS "template<typename T > void \fBLexicalGrammar\fP< T >::single_string_characters ()\fC [inline]\fP"
 
 .SS "template<typename T > bool \fBLexicalGrammar\fP< T >::source_character ()\fC [inline]\fP"
 
@@ -373,9 +391,15 @@ LexicalGrammar< T >
 .PP 
 .SS "template<typename T > \fBstd::u16string\fP \fBLexicalGrammar\fP< T >::buffer"
 
+.SS "template<typename T > char16_t \fBLexicalGrammar\fP< T >::cv = 0"
+
 .SS "template<typename T > \fBMatcher\fP<T, std::u16string::const_iterator> \fBLexicalGrammar\fP< T >::match"
 
-.SS "template<typename T > \fBToken\fP \fBLexicalGrammar\fP< T >::token_value"
+.SS "template<typename T > double \fBLexicalGrammar\fP< T >::mv"
+
+.SS "template<typename T > \fBstd::u16string\fP \fBLexicalGrammar\fP< T >::sv"
+
+.SS "template<typename T > \fBToken\fP \fBLexicalGrammar\fP< T >::token_value = \fBToken::null_literal\fP()"
 
 
 .SH "Author"

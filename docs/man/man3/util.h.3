@@ -1,4 +1,4 @@
-.TH "src/util.h" 3 "Sun May 7 2017" "ECMAScript" \" -*- nroff -*-
+.TH "src/util.h" 3 "Sun May 14 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -7,6 +7,8 @@ src/util.h
 .br
 .PP
 \fC#include <string>\fP
+.br
+\fC#include <utility>\fP
 .br
 \fC#include <boost/core/demangle\&.hpp>\fP
 .br
@@ -31,6 +33,9 @@ src/util.h
 .br
 .ti -1c
 .RI "\fBstd::string\fP \fBread_stdin\fP ()"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBstringify\fP (const \fBstd::u16string\fP &)"
 .br
 .ti -1c
 .RI "template<typename T > \fBstd::string\fP \fBdemangle\fP ()"
@@ -71,6 +76,8 @@ Left aligns \fItext\fP by first finding the left-most non-whitespace character a
 .SS "\fBstd::string\fP read_file (const \fBstd::string\fP & filename)"
 
 .SS "\fBstd::string\fP read_stdin ()"
+
+.SS "\fBstd::string\fP stringify (const \fBstd::u16string\fP &)"
 
 .SS "const char* u_charCategory (int c)"
 Returns the general category (short) name for the code point\&. If the category is not known '??' is returned\&. Always returns a zero terminated char array of length 3\&. 

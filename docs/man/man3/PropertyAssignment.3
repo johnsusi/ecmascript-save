@@ -1,4 +1,4 @@
-.TH "PropertyAssignment" 3 "Sun May 7 2017" "ECMAScript" \" -*- nroff -*-
+.TH "PropertyAssignment" 3 "Sun May 14 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -21,7 +21,13 @@ Inherits \fBExpression\fP\&.
 
 .in +1c
 .ti -1c
-.RI "\fBPropertyAssignment\fP (\fBPropertyName\fP *\fBname\fP=nullptr, \fBExpression\fP *\fBvalue\fP=nullptr)"
+.RI "\fBPropertyAssignment\fP (\fBPropertyName\fP *\fBname\fP, \fBExpression\fP *\fBexpression\fP)"
+.br
+.ti -1c
+.RI "\fBPropertyAssignment\fP (\fBPropertyName\fP *\fBname\fP, \fBFunctionBody\fP *\fBbody\fP)"
+.br
+.ti -1c
+.RI "\fBPropertyAssignment\fP (\fBPropertyName\fP *\fBname\fP, \fBIdentifier\fP *\fBparameter\fP, \fBFunctionBody\fP *\fBbody\fP)"
 .br
 .ti -1c
 .RI "void \fBaccept\fP (\fBVisitor\fP &visitor) const override"
@@ -40,7 +46,13 @@ Inherits \fBExpression\fP\&.
 .RI "\fBPropertyName\fP * \fBname\fP"
 .br
 .ti -1c
-.RI "\fBExpression\fP * \fBvalue\fP"
+.RI "\fBExpression\fP * \fBexpression\fP = nullptr"
+.br
+.ti -1c
+.RI "\fBFunctionBody\fP * \fBbody\fP = nullptr"
+.br
+.ti -1c
+.RI "\fBIdentifier\fP * \fBparameter\fP = nullptr"
 .br
 .in -1c
 .SH "Member Enumeration Documentation"
@@ -58,7 +70,11 @@ Inherits \fBExpression\fP\&.
 \fB\fISET \fP\fP
 .SH "Constructor & Destructor Documentation"
 .PP 
-.SS "PropertyAssignment::PropertyAssignment (\fBPropertyName\fP * name = \fCnullptr\fP, \fBExpression\fP * value = \fCnullptr\fP)\fC [inline]\fP"
+.SS "PropertyAssignment::PropertyAssignment (\fBPropertyName\fP * name, \fBExpression\fP * expression)\fC [inline]\fP"
+
+.SS "PropertyAssignment::PropertyAssignment (\fBPropertyName\fP * name, \fBFunctionBody\fP * body)\fC [inline]\fP"
+
+.SS "PropertyAssignment::PropertyAssignment (\fBPropertyName\fP * name, \fBIdentifier\fP * parameter, \fBFunctionBody\fP * body)\fC [inline]\fP"
 
 .SH "Member Function Documentation"
 .PP 
@@ -72,11 +88,15 @@ Implements \fBNode\fP\&.
 Implements \fBNode\fP\&.
 .SH "Member Data Documentation"
 .PP 
+.SS "\fBFunctionBody\fP* PropertyAssignment::body = nullptr"
+
+.SS "\fBExpression\fP* PropertyAssignment::expression = nullptr"
+
 .SS "enum \fBPropertyAssignment::Kind\fP  PropertyAssignment::kind"
 
 .SS "\fBPropertyName\fP* PropertyAssignment::name"
 
-.SS "\fBExpression\fP* PropertyAssignment::value"
+.SS "\fBIdentifier\fP* PropertyAssignment::parameter = nullptr"
 
 
 .SH "Author"

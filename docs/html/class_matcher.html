@@ -99,6 +99,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4c92e3958c64eee29812f4ed75c331cf"><td class="memTemplParams" colspan="2">template&lt;typename Pred &gt; </td></tr>
 <tr class="memitem:a4c92e3958c64eee29812f4ed75c331cf"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_matcher.html#a4c92e3958c64eee29812f4ed75c331cf">peek</a> (Pred &amp;&amp;pred) const -&gt; decltype(pred(*m_cur), bool())</td></tr>
 <tr class="separator:a4c92e3958c64eee29812f4ed75c331cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2141c8f5c1d61b41f9d9f70f88e6697"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matcher.html#ab2141c8f5c1d61b41f9d9f70f88e6697">lookahead</a> (const T &amp;value) const</td></tr>
+<tr class="separator:ab2141c8f5c1d61b41f9d9f70f88e6697"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e9a6c37a2de57596fa66dae29fe7b51"><td class="memTemplParams" colspan="2">template&lt;typename Pred &gt; </td></tr>
+<tr class="memitem:a9e9a6c37a2de57596fa66dae29fe7b51"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_matcher.html#a9e9a6c37a2de57596fa66dae29fe7b51">lookahead</a> (Pred &amp;&amp;pred) const -&gt; decltype(pred(*m_cur), bool())</td></tr>
+<tr class="separator:a9e9a6c37a2de57596fa66dae29fe7b51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1db8b27d158ba0010bf7c69559773112"><td class="memTemplParams" colspan="2">template&lt;typename Arg , typename... Args&gt; </td></tr>
 <tr class="memitem:a1db8b27d158ba0010bf7c69559773112"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_matcher.html#a1db8b27d158ba0010bf7c69559773112">any_of</a> (Arg &amp;&amp;arg, Args &amp;&amp;... args)</td></tr>
 <tr class="separator:a1db8b27d158ba0010bf7c69559773112"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -110,6 +115,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:abb67aa2acac25b34d80ffb2e64eef44c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a18de8d97996c28deb6ac787f2a0981a6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matcher.html#a18de8d97996c28deb6ac787f2a0981a6">reset</a> ()</td></tr>
 <tr class="separator:a18de8d97996c28deb6ac787f2a0981a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeaa3afef2409a98c71a1dec0c0bc32b2"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matcher.html#aeaa3afef2409a98c71a1dec0c0bc32b2">distance</a> (It <a class="el" href="class_matcher.html#af9135752ac195a21c230267d52db6623">mark</a>) const</td></tr>
+<tr class="separator:aeaa3afef2409a98c71a1dec0c0bc32b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c1cbd69f6fcbbcf40e9e66333cfddca"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
 <tr class="memitem:a2c1cbd69f6fcbbcf40e9e66333cfddca"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_matcher.html#a2c1cbd69f6fcbbcf40e9e66333cfddca">operator()</a> (Args &amp;&amp;... args)</td></tr>
 <tr class="separator:a2c1cbd69f6fcbbcf40e9e66333cfddca"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -236,6 +243,34 @@ template&lt;typename T, typename It&gt; </div>
 
 </div>
 </div>
+<a id="aeaa3afef2409a98c71a1dec0c0bc32b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeaa3afef2409a98c71a1dec0c0bc32b2">&#9670;&nbsp;</a></span>distance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, typename It&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto <a class="el" href="class_matcher.html">Matcher</a>&lt; T, It &gt;::distance </td>
+          <td>(</td>
+          <td class="paramtype">It&#160;</td>
+          <td class="paramname"><em>mark</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="afb8b791024067df37631ce67dcd4c656"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afb8b791024067df37631ce67dcd4c656">&#9670;&nbsp;</a></span>done()</h2>
 
@@ -252,6 +287,65 @@ template&lt;typename T, typename It&gt; </div>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab2141c8f5c1d61b41f9d9f70f88e6697"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2141c8f5c1d61b41f9d9f70f88e6697">&#9670;&nbsp;</a></span>lookahead() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, typename It&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="class_matcher.html">Matcher</a>&lt; T, It &gt;::lookahead </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9e9a6c37a2de57596fa66dae29fe7b51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e9a6c37a2de57596fa66dae29fe7b51">&#9670;&nbsp;</a></span>lookahead() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, typename It&gt; </div>
+<div class="memtemplate">
+template&lt;typename Pred &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto <a class="el" href="class_matcher.html">Matcher</a>&lt; T, It &gt;::lookahead </td>
+          <td>(</td>
+          <td class="paramtype">Pred &amp;&amp;&#160;</td>
+          <td class="paramname"><em>pred</em></td><td>)</td>
+          <td> const -&gt; decltype(pred(*m_cur), bool())
+  </td>
         </tr>
       </table>
   </td>

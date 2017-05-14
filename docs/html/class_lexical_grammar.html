@@ -60,6 +60,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="class_lexical_grammar-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -75,8 +76,9 @@ Collaboration diagram for LexicalGrammar&lt; T &gt;:</div>
 <map name="_lexical_grammar_3_01_t_01_4_coll__map" id="_lexical_grammar_3_01_t_01_4_coll__map">
 <area shape="rect" id="node2" href="class_matcher.html" title="Matcher\&lt; T, std::u16string\l::const_iterator \&gt;" alt="" coords="5,105,180,144"/>
 <area shape="rect" id="node3" href="class_token.html" title="Token" alt="" coords="204,112,261,137"/>
-<area shape="rect" id="node4" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="std::shared_ptr\&lt; Token\l::DebugInfo \&gt;" alt="" coords="154,5,311,44"/>
-<area shape="rect" id="node5" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html" title="std::u16string" alt="" coords="286,112,387,137"/>
+<area shape="rect" id="node4" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="std::shared_ptr\&lt; Token\l::DebugInfo \&gt;" alt="" coords="72,5,229,44"/>
+<area shape="rect" id="node5" href="struct_token_1_1_debug_info.html" title="Token::DebugInfo" alt="" coords="253,12,378,37"/>
+<area shape="rect" id="node6" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html" title="std::u16string" alt="" coords="286,112,387,137"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -175,10 +177,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:afa260bdb5dc9224215a68ba07cce3a4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11294149e962d00a92cacc8c6567cdc5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lexical_grammar.html#a11294149e962d00a92cacc8c6567cdc5">string_literal</a> ()</td></tr>
 <tr class="separator:a11294149e962d00a92cacc8c6567cdc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab6bf886c515b469bfd7bf034148c9ee"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lexical_grammar.html#aab6bf886c515b469bfd7bf034148c9ee">double_string_characters</a> ()</td></tr>
-<tr class="separator:aab6bf886c515b469bfd7bf034148c9ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a881666d88772759f7e2f532150b6bf93"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lexical_grammar.html#a881666d88772759f7e2f532150b6bf93">single_string_characters</a> ()</td></tr>
-<tr class="separator:a881666d88772759f7e2f532150b6bf93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a390981ebfe1b2819225b04e65ac1aae0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lexical_grammar.html#a390981ebfe1b2819225b04e65ac1aae0">double_string_characters</a> ()</td></tr>
+<tr class="separator:a390981ebfe1b2819225b04e65ac1aae0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7f181acaa775e99a212d2e357cae599"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lexical_grammar.html#aa7f181acaa775e99a212d2e357cae599">single_string_characters</a> ()</td></tr>
+<tr class="separator:aa7f181acaa775e99a212d2e357cae599"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a473842f8e78b003d65e4459eec57bf8d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lexical_grammar.html#a473842f8e78b003d65e4459eec57bf8d">double_string_character</a> ()</td></tr>
 <tr class="separator:a473842f8e78b003d65e4459eec57bf8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae052b9eae96cf939b760c0f5e6cdfdfa"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lexical_grammar.html#ae052b9eae96cf939b760c0f5e6cdfdfa">single_string_character</a> ()</td></tr>
@@ -191,8 +193,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a5ef26a3dd4d2c39ba5016675d3afa8dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c3dc0efec370cfadc61e11ae53af449"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lexical_grammar.html#a6c3dc0efec370cfadc61e11ae53af449">non_escape_character</a> ()</td></tr>
 <tr class="separator:a6c3dc0efec370cfadc61e11ae53af449"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f2624873c3468c05a40c2e186253eec"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lexical_grammar.html#a5f2624873c3468c05a40c2e186253eec">escape_character</a> ()</td></tr>
-<tr class="separator:a5f2624873c3468c05a40c2e186253eec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76722915a4ae4e864ffd7c750da8c9aa"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lexical_grammar.html#a76722915a4ae4e864ffd7c750da8c9aa">hex_escape_sequence</a> ()</td></tr>
 <tr class="separator:a76722915a4ae4e864ffd7c750da8c9aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a411dd476c213ddb338a80766596d0d74"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lexical_grammar.html#a411dd476c213ddb338a80766596d0d74">unicode_escape_sequence</a> ()</td></tr>
@@ -220,14 +220,27 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:adf9549c929bfd16abf7b7b880c9ee3cf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lexical_grammar.html#adf9549c929bfd16abf7b7b880c9ee3cf">regular_expression_flags</a> ()</td></tr>
 <tr class="separator:adf9549c929bfd16abf7b7b880c9ee3cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a1648e4991fdcbb71709e73924171a92c"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lexical_grammar.html#a1648e4991fdcbb71709e73924171a92c">is_single_escape_character</a> (int cp)</td></tr>
+<tr class="separator:a1648e4991fdcbb71709e73924171a92c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c6aad40b7a73bc8e431906738311d66"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lexical_grammar.html#a6c6aad40b7a73bc8e431906738311d66">is_escape_character</a> (int cp)</td></tr>
+<tr class="separator:a6c6aad40b7a73bc8e431906738311d66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:af23cc1b7472da117c7e39a8b8fe45e04"><td class="memItemLeft" align="right" valign="top"><a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::u16string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lexical_grammar.html#af23cc1b7472da117c7e39a8b8fe45e04">buffer</a></td></tr>
 <tr class="separator:af23cc1b7472da117c7e39a8b8fe45e04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a868dc475274f55ff285fd26593f9d0a5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matcher.html">Matcher</a>&lt; T, std::u16string::const_iterator &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lexical_grammar.html#a868dc475274f55ff285fd26593f9d0a5">match</a></td></tr>
 <tr class="separator:a868dc475274f55ff285fd26593f9d0a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3230ebef29d379b7b4c276e2a771edc4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_token.html">Token</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lexical_grammar.html#a3230ebef29d379b7b4c276e2a771edc4">token_value</a></td></tr>
+<tr class="memitem:a3230ebef29d379b7b4c276e2a771edc4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_token.html">Token</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lexical_grammar.html#a3230ebef29d379b7b4c276e2a771edc4">token_value</a> = <a class="el" href="class_token.html#af892768a64f034c6d941281fd7d6b758">Token::null_literal</a>()</td></tr>
 <tr class="separator:a3230ebef29d379b7b4c276e2a771edc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e73d081df33b375d2f6e75e1569a31b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lexical_grammar.html#a9e73d081df33b375d2f6e75e1569a31b">mv</a></td></tr>
+<tr class="separator:a9e73d081df33b375d2f6e75e1569a31b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb7fa78005ee277768cde788efb7a667"><td class="memItemLeft" align="right" valign="top"><a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::u16string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lexical_grammar.html#adb7fa78005ee277768cde788efb7a667">sv</a></td></tr>
+<tr class="separator:adb7fa78005ee277768cde788efb7a667"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad579d5598245aa0ed816102edad07507"><td class="memItemLeft" align="right" valign="top">char16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lexical_grammar.html#ad579d5598245aa0ed816102edad07507">cv</a> = 0</td></tr>
+<tr class="separator:ad579d5598245aa0ed816102edad07507"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae00a07b2f2c282a59d8df82c0596cc04"></a>
@@ -514,8 +527,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="aab6bf886c515b469bfd7bf034148c9ee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab6bf886c515b469bfd7bf034148c9ee">&#9670;&nbsp;</a></span>double_string_characters()</h2>
+<a id="a390981ebfe1b2819225b04e65ac1aae0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a390981ebfe1b2819225b04e65ac1aae0">&#9670;&nbsp;</a></span>double_string_characters()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -526,34 +539,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="class_lexical_grammar.html">LexicalGrammar</a>&lt; T &gt;::double_string_characters </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a5f2624873c3468c05a40c2e186253eec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f2624873c3468c05a40c2e186253eec">&#9670;&nbsp;</a></span>escape_character()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="class_lexical_grammar.html">LexicalGrammar</a>&lt; T &gt;::escape_character </td>
+          <td class="memname">void <a class="el" href="class_lexical_grammar.html">LexicalGrammar</a>&lt; T &gt;::double_string_characters </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -913,6 +899,62 @@ template&lt;typename T &gt; </div>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6c6aad40b7a73bc8e431906738311d66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c6aad40b7a73bc8e431906738311d66">&#9670;&nbsp;</a></span>is_escape_character()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool <a class="el" href="class_lexical_grammar.html">LexicalGrammar</a>&lt; T &gt;::is_escape_character </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>cp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1648e4991fdcbb71709e73924171a92c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1648e4991fdcbb71709e73924171a92c">&#9670;&nbsp;</a></span>is_single_escape_character()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool <a class="el" href="class_lexical_grammar.html">LexicalGrammar</a>&lt; T &gt;::is_single_escape_character </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>cp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1783,8 +1825,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a881666d88772759f7e2f532150b6bf93"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a881666d88772759f7e2f532150b6bf93">&#9670;&nbsp;</a></span>single_string_characters()</h2>
+<a id="aa7f181acaa775e99a212d2e357cae599"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7f181acaa775e99a212d2e357cae599">&#9670;&nbsp;</a></span>single_string_characters()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1795,7 +1837,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="class_lexical_grammar.html">LexicalGrammar</a>&lt; T &gt;::single_string_characters </td>
+          <td class="memname">void <a class="el" href="class_lexical_grammar.html">LexicalGrammar</a>&lt; T &gt;::single_string_characters </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -2097,6 +2139,22 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="ad579d5598245aa0ed816102edad07507"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad579d5598245aa0ed816102edad07507">&#9670;&nbsp;</a></span>cv</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">char16_t <a class="el" href="class_lexical_grammar.html">LexicalGrammar</a>&lt; T &gt;::cv = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a868dc475274f55ff285fd26593f9d0a5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a868dc475274f55ff285fd26593f9d0a5">&#9670;&nbsp;</a></span>match</h2>
 
@@ -2113,6 +2171,38 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="a9e73d081df33b375d2f6e75e1569a31b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e73d081df33b375d2f6e75e1569a31b">&#9670;&nbsp;</a></span>mv</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_lexical_grammar.html">LexicalGrammar</a>&lt; T &gt;::mv</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adb7fa78005ee277768cde788efb7a667"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb7fa78005ee277768cde788efb7a667">&#9670;&nbsp;</a></span>sv</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::u16string</a> <a class="el" href="class_lexical_grammar.html">LexicalGrammar</a>&lt; T &gt;::sv</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a3230ebef29d379b7b4c276e2a771edc4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3230ebef29d379b7b4c276e2a771edc4">&#9670;&nbsp;</a></span>token_value</h2>
 
@@ -2122,7 +2212,7 @@ template&lt;typename T &gt; </div>
 template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_token.html">Token</a> <a class="el" href="class_lexical_grammar.html">LexicalGrammar</a>&lt; T &gt;::token_value</td>
+          <td class="memname"><a class="el" href="class_token.html">Token</a> <a class="el" href="class_lexical_grammar.html">LexicalGrammar</a>&lt; T &gt;::token_value = <a class="el" href="class_token.html#af892768a64f034c6d941281fd7d6b758">Token::null_literal</a>()</td>
         </tr>
       </table>
 </div><div class="memdoc">

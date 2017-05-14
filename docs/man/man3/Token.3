@@ -1,4 +1,4 @@
-.TH "Token" 3 "Sun May 7 2017" "ECMAScript" \" -*- nroff -*-
+.TH "Token" 3 "Sun May 14 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -14,16 +14,130 @@ Token
 .ti -1c
 .RI "struct \fBDebugInfo\fP"
 .br
-.ti -1c
-.RI "struct \fBequal_visitor\fP"
-.br
-.ti -1c
-.RI "struct \fBprint_visitor\fP"
-.br
 .in -1c
 .SS "Public Member Functions"
 
 .in +1c
+.ti -1c
+.RI "\fBToken\fP (const \fBstd::u16string\fP &str)"
+.br
+.ti -1c
+.RI "constexpr \fBToken\fP ()"
+.br
+.ti -1c
+.RI "constexpr \fBToken\fP (const char *str)"
+.br
+.ti -1c
+.RI "constexpr \fBToken\fP (const char16_t *str)"
+.br
+.ti -1c
+.RI "constexpr \fBToken\fP (\fBstd::nullptr_t\fP)"
+.br
+.ti -1c
+.RI "constexpr \fBToken\fP (bool value)"
+.br
+.ti -1c
+.RI "constexpr \fBToken\fP (double value)"
+.br
+.ti -1c
+.RI "constexpr \fBToken\fP (\fBstd::u16string\fP *value)"
+.br
+.ti -1c
+.RI "constexpr \fBToken\fP (const \fBToken\fP &)=default"
+.br
+.ti -1c
+.RI "constexpr \fBToken\fP (\fBToken\fP &&)=default"
+.br
+.ti -1c
+.RI "\fB~Token\fP ()=default"
+.br
+.ti -1c
+.RI "constexpr \fBToken\fP & \fBoperator=\fP (const \fBToken\fP &)=default"
+.br
+.ti -1c
+.RI "constexpr \fBToken\fP & \fBoperator=\fP (\fBToken\fP &&)=default"
+.br
+.ti -1c
+.RI "constexpr \fBtype_t\fP \fBtype\fP () const"
+.br
+.ti -1c
+.RI "constexpr \fBoperator type_t\fP () const"
+.br
+.ti -1c
+.RI "constexpr bool \fBis_identifier\fP () const"
+.br
+.ti -1c
+.RI "constexpr bool \fBis_identifier_name\fP () const"
+.br
+.ti -1c
+.RI "constexpr bool \fBis_reserved_word\fP () const"
+.br
+.ti -1c
+.RI "constexpr bool \fBis_keyword\fP () const"
+.br
+.ti -1c
+.RI "constexpr bool \fBis_future_reserved_word\fP () const"
+.br
+.ti -1c
+.RI "constexpr bool \fBis_punctuator\fP () const"
+.br
+.ti -1c
+.RI "constexpr bool \fBis_null_literal\fP () const"
+.br
+.ti -1c
+.RI "constexpr bool \fBis_boolean_literal\fP () const"
+.br
+.ti -1c
+.RI "constexpr bool \fBis_numeric_literal\fP () const"
+.br
+.ti -1c
+.RI "constexpr bool \fBis_string_literal\fP () const"
+.br
+.ti -1c
+.RI "constexpr bool \fBis_regular_expression_literal\fP () const"
+.br
+.ti -1c
+.RI "constexpr bool \fBboolean_value\fP () const"
+.br
+.ti -1c
+.RI "constexpr double \fBnumeric_value\fP () const"
+.br
+.ti -1c
+.RI "\fBstd::u16string\fP \fBstring_value\fP () const"
+.br
+.ti -1c
+.RI "constexpr bool \fBoperator==\fP (const \fBToken\fP &other) const"
+.br
+.ti -1c
+.RI "constexpr bool \fBoperator!=\fP (const \fBToken\fP &other) const"
+.br
+.ti -1c
+.RI "constexpr bool \fBany_of\fP (\fBstd::initializer_list\fP< \fBToken\fP > tokens) const"
+.br
+.ti -1c
+.RI "template<typename\&.\&.\&. Args> constexpr bool \fBany_of\fP (Args &&\&.\&.\&. args) const"
+.br
+.ti -1c
+.RI "\fBoperator std::string\fP () const"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBto_string\fP () const"
+.br
+.ti -1c
+.RI "void \fBprint\fP (\fBstd::ostream\fP &out) const"
+.br
+.ti -1c
+.RI "constexpr bool \fBpreceded_by_line_terminator\fP () const"
+.br
+.ti -1c
+.RI "constexpr void \fBset_preceded_by_line_terminator\fP ()"
+.br
+.ti -1c
+.RI "constexpr bool \fBempty\fP () const"
+.br
+.ti -1c
+.RI "constexpr bool \fBis_empty\fP () const"
+.br
 .ti -1c
 .RI "\fBToken\fP ()=default"
 .br
@@ -31,7 +145,7 @@ Token
 .RI "\fBToken\fP (const \fBToken\fP &)=default"
 .br
 .ti -1c
-.RI "\fBToken\fP (\fBToken\fP &&)=default"
+.RI "\fBToken\fP (\fBToken\fP &&other)=default"
 .br
 .ti -1c
 .RI "\fBToken\fP & \fBoperator=\fP (const \fBToken\fP &)=default"
@@ -128,6 +242,27 @@ Token
 
 .in +1c
 .ti -1c
+.RI "static \fBToken\fP \fBidentifier\fP (\fBstd::u16string\fP value)"
+.br
+.ti -1c
+.RI "static \fBToken\fP \fBidentifier_name\fP (\fBstd::u16string\fP value)"
+.br
+.ti -1c
+.RI "static constexpr \fBToken\fP \fBnull_literal\fP ()"
+.br
+.ti -1c
+.RI "static constexpr \fBToken\fP \fBpunctuator\fP (const char *str)"
+.br
+.ti -1c
+.RI "static \fBToken\fP \fBpunctuator\fP (const \fBstd::u16string\fP &str)"
+.br
+.ti -1c
+.RI "static \fBToken\fP \fBnumeric_literal\fP (double value)"
+.br
+.ti -1c
+.RI "static \fBToken\fP \fBstring_literal\fP (\fBstd::u16string\fP value)"
+.br
+.ti -1c
 .RI "static \fBToken\fP \fBidentifier\fP (\fBstd::string\fP value)"
 .br
 .ti -1c
@@ -159,6 +294,9 @@ Token
 
 .in +1c
 .ti -1c
+.RI "\fBDebugInfo\fP * \fBdebug_info\fP = nullptr"
+.br
+.ti -1c
 .RI "bool \fBpreceded_by_line_terminator\fP = false"
 .br
 .ti -1c
@@ -167,11 +305,33 @@ Token
 .in -1c
 .SH "Constructor & Destructor Documentation"
 .PP 
+.SS "Token::Token (const \fBstd::u16string\fP & str)\fC [inline]\fP"
+
+.SS "constexpr Token::Token ()\fC [inline]\fP"
+
+.SS "constexpr Token::Token (const char * str)\fC [inline]\fP"
+
+.SS "constexpr Token::Token (const char16_t * str)\fC [inline]\fP"
+
+.SS "constexpr Token::Token (\fBstd::nullptr_t\fP)\fC [inline]\fP"
+
+.SS "constexpr Token::Token (bool value)\fC [inline]\fP, \fC [explicit]\fP"
+
+.SS "constexpr Token::Token (double value)\fC [inline]\fP"
+
+.SS "constexpr Token::Token (\fBstd::u16string\fP * value)\fC [inline]\fP"
+
+.SS "constexpr Token::Token (const \fBToken\fP &)\fC [default]\fP"
+
+.SS "constexpr Token::Token (\fBToken\fP &&)\fC [default]\fP"
+
+.SS "Token::~Token ()\fC [default]\fP"
+
 .SS "Token::Token ()\fC [default]\fP"
 
 .SS "Token::Token (const \fBToken\fP &)\fC [default]\fP"
 
-.SS "Token::Token (\fBToken\fP &&)\fC [default]\fP"
+.SS "Token::Token (\fBToken\fP && other)\fC [default]\fP"
 
 .SS "Token::Token (const char * str)"
 
@@ -183,41 +343,83 @@ Token
 .PP 
 .SS "template<typename\&.\&.\&. Args> bool Token::any_of (Args &&\&.\&.\&. args) const\fC [inline]\fP"
 
+.SS "constexpr bool Token::any_of (\fBstd::initializer_list\fP< \fBToken\fP > tokens) const\fC [inline]\fP"
+
+.SS "template<typename\&.\&.\&. Args> constexpr bool Token::any_of (Args &&\&.\&.\&. args) const\fC [inline]\fP"
+
 .SS "bool Token::any_of_impl (const \fBstd::initializer_list\fP< \fBToken\fP > & tokens) const\fC [inline]\fP"
 
-.SS "\fBToken\fP Token::boolean_literal (bool value)\fC [static]\fP"
+.SS "static \fBToken\fP Token::boolean_literal (bool value)\fC [static]\fP"
 
-.SS "\fBToken\fP Token::identifier (\fBstd::string\fP value)\fC [static]\fP"
+.SS "constexpr bool Token::boolean_value () const\fC [inline]\fP"
 
-.SS "\fBToken\fP Token::identifier (\fBstd::u16string\fP value)\fC [static]\fP"
+.SS "constexpr bool Token::empty () const\fC [inline]\fP"
+
+.SS "static \fBToken\fP Token::identifier (\fBstd::string\fP value)\fC [static]\fP"
+
+.SS "static \fBToken\fP Token::identifier (\fBstd::u16string\fP value)\fC [static]\fP"
+
+.SS "static \fBToken\fP Token::identifier (\fBstd::u16string\fP value)\fC [inline]\fP, \fC [static]\fP"
+
+.SS "static \fBToken\fP Token::identifier_name (\fBstd::u16string\fP value)\fC [inline]\fP, \fC [static]\fP"
 
 .SS "bool Token::is_boolean_literal () const"
 
+.SS "constexpr bool Token::is_boolean_literal () const\fC [inline]\fP"
+
 .SS "bool Token::is_empty () const"
+
+.SS "constexpr bool Token::is_empty () const\fC [inline]\fP"
 
 .SS "bool Token::is_future_reserved_word () const"
 
+.SS "constexpr bool Token::is_future_reserved_word () const\fC [inline]\fP"
+
 .SS "bool Token::is_identifier () const"
+
+.SS "constexpr bool Token::is_identifier () const\fC [inline]\fP"
 
 .SS "bool Token::is_identifier_name () const"
 
+.SS "constexpr bool Token::is_identifier_name () const\fC [inline]\fP"
+
 .SS "bool Token::is_keyword () const"
+
+.SS "constexpr bool Token::is_keyword () const\fC [inline]\fP"
 
 .SS "bool Token::is_null_literal () const"
 
+.SS "constexpr bool Token::is_null_literal () const\fC [inline]\fP"
+
 .SS "bool Token::is_numeric_literal () const"
+
+.SS "constexpr bool Token::is_numeric_literal () const\fC [inline]\fP"
 
 .SS "bool Token::is_punctuator () const"
 
+.SS "constexpr bool Token::is_punctuator () const\fC [inline]\fP"
+
 .SS "bool Token::is_regular_expression_literal () const"
+
+.SS "constexpr bool Token::is_regular_expression_literal () const\fC [inline]\fP"
+
+.SS "constexpr bool Token::is_reserved_word () const\fC [inline]\fP"
 
 .SS "bool Token::is_string_literal () const"
 
-.SS "\fBToken\fP Token::keyword (const \fBstd::string\fP & value)\fC [static]\fP"
+.SS "constexpr bool Token::is_string_literal () const\fC [inline]\fP"
 
-.SS "\fBToken\fP Token::null_literal ()\fC [static]\fP"
+.SS "static \fBToken\fP Token::keyword (const \fBstd::string\fP & value)\fC [static]\fP"
 
-.SS "\fBToken\fP Token::numeric_literal (double value)\fC [static]\fP"
+.SS "static \fBToken\fP Token::null_literal ()\fC [static]\fP"
+
+.SS "static constexpr \fBToken\fP Token::null_literal ()\fC [inline]\fP, \fC [static]\fP"
+
+.SS "static \fBToken\fP Token::numeric_literal (double value)\fC [static]\fP"
+
+.SS "static \fBToken\fP Token::numeric_literal (double value)\fC [inline]\fP, \fC [static]\fP"
+
+.SS "constexpr double Token::numeric_value () const\fC [inline]\fP"
 
 .SS "Token::operator bool () const"
 
@@ -225,37 +427,69 @@ Token
 
 .SS "Token::operator \fBstd::string\fP () const"
 
+.SS "Token::operator \fBstd::string\fP () const\fC [inline]\fP"
+
 .SS "Token::operator \fBstd::u16string\fP () const"
+
+.SS "constexpr Token::operator \fBtype_t\fP () const\fC [inline]\fP"
+
+.SS "constexpr bool Token::operator!= (const \fBToken\fP & other) const\fC [inline]\fP"
 
 .SS "\fBToken\fP& Token::operator= (const \fBToken\fP &)\fC [default]\fP"
 
 .SS "\fBToken\fP& Token::operator= (\fBToken\fP &&)\fC [default]\fP"
 
+.SS "constexpr \fBToken\fP& Token::operator= (const \fBToken\fP &)\fC [default]\fP"
+
+.SS "constexpr \fBToken\fP& Token::operator= (\fBToken\fP &&)\fC [default]\fP"
+
 .SS "bool Token::operator== (const \fBToken\fP & other) const"
 
-.SS "void Token::print (\fBstd::ostream\fP & out) const"
+.SS "constexpr bool Token::operator== (const \fBToken\fP & other) const\fC [inline]\fP"
 
-.SS "\fBToken\fP Token::punctuator (const \fBstd::string\fP & value)\fC [static]\fP"
+.SS "constexpr bool Token::preceded_by_line_terminator () const\fC [inline]\fP"
 
-.SS "\fBToken\fP Token::regular_expression_literal ()\fC [static]\fP"
+.SS "void Token::print (\fBstd::ostream\fP &) const"
 
-.SS "\fBToken\fP Token::string_literal (\fBstd::u16string\fP value)\fC [static]\fP"
+.SS "void Token::print (\fBstd::ostream\fP & out) const\fC [inline]\fP"
 
-.SS "boost::optional< const bool & > Token::to_boolean_literal () const"
+.SS "static \fBToken\fP Token::punctuator (const \fBstd::string\fP & value)\fC [static]\fP"
 
-.SS "boost::optional< const \fBstd::u16string\fP & > Token::to_identifier () const"
+.SS "static constexpr \fBToken\fP Token::punctuator (const char * str)\fC [inline]\fP, \fC [static]\fP"
 
-.SS "boost::optional< const \fBstd::string\fP & > Token::to_keyword () const"
+.SS "static \fBToken\fP Token::punctuator (const \fBstd::u16string\fP & str)\fC [inline]\fP, \fC [static]\fP"
 
-.SS "boost::optional< const double & > Token::to_numeric_literal () const"
+.SS "static \fBToken\fP Token::regular_expression_literal ()\fC [static]\fP"
 
-.SS "boost::optional< const \fBstd::string\fP & > Token::to_punctuator () const"
+.SS "constexpr void Token::set_preceded_by_line_terminator ()\fC [inline]\fP"
 
-.SS "boost::optional< const \fBstd::u16string\fP & > Token::to_string_literal () const"
+.SS "static \fBToken\fP Token::string_literal (\fBstd::u16string\fP value)\fC [static]\fP"
+
+.SS "static \fBToken\fP Token::string_literal (\fBstd::u16string\fP value)\fC [inline]\fP, \fC [static]\fP"
+
+.SS "\fBstd::u16string\fP Token::string_value () const\fC [inline]\fP"
+
+.SS "boost::optional<const bool&> Token::to_boolean_literal () const"
+
+.SS "boost::optional<const \fBstd::u16string\fP&> Token::to_identifier () const"
+
+.SS "boost::optional<const \fBstd::string\fP&> Token::to_keyword () const"
+
+.SS "boost::optional<const double&> Token::to_numeric_literal () const"
+
+.SS "boost::optional<const \fBstd::string\fP&> Token::to_punctuator () const"
+
+.SS "\fBstd::string\fP Token::to_string () const\fC [inline]\fP"
+
+.SS "boost::optional<const \fBstd::u16string\fP&> Token::to_string_literal () const"
+
+.SS "constexpr \fBtype_t\fP Token::type () const\fC [inline]\fP"
 
 .SH "Member Data Documentation"
 .PP 
 .SS "\fBstd::shared_ptr\fP<\fBDebugInfo\fP> Token::debug_info"
+
+.SS "\fBDebugInfo\fP* Token::debug_info = nullptr"
 
 .SS "bool Token::preceded_by_line_terminator = false"
 

@@ -1,0 +1,73 @@
+\hypertarget{struct_assignment_expression}{}\section{Assignment\+Expression Struct Reference}
+\label{struct_assignment_expression}\index{Assignment\+Expression@{Assignment\+Expression}}
+
+
+{\ttfamily \#include $<$ast.\+h$>$}
+
+
+
+Inheritance diagram for Assignment\+Expression\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{struct_assignment_expression__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Assignment\+Expression\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{struct_assignment_expression__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_assignment_expression_a52c4ebecbb914085110db6fdef413ae6}{Assignment\+Expression} (\textbf{ std\+::string} \hyperlink{struct_binary_expression_a4c33b66e2ffc0a5ede2cdd190bf4bd75}{op}, \hyperlink{struct_expression}{Expression} $\ast$\hyperlink{struct_binary_expression_ae689284a646929c99e634e75f50cb32c}{lhs}=nullptr, \hyperlink{struct_expression}{Expression} $\ast$\hyperlink{struct_binary_expression_ad569ae3b07f428257b0e7a96746ceb32}{rhs}=nullptr)
+\item 
+void \hyperlink{struct_assignment_expression_ac3d1a00abf176502782937938f629a9f}{accept} (\hyperlink{struct_visitor}{Visitor} \&visitor) const override
+\item 
+const char $\ast$ \hyperlink{struct_assignment_expression_a9c5da03eec8d7c10f1127ec5029de263}{type} () const override
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_assignment_expression_a52c4ebecbb914085110db6fdef413ae6}\label{struct_assignment_expression_a52c4ebecbb914085110db6fdef413ae6}} 
+\index{Assignment\+Expression@{Assignment\+Expression}!Assignment\+Expression@{Assignment\+Expression}}
+\index{Assignment\+Expression@{Assignment\+Expression}!Assignment\+Expression@{Assignment\+Expression}}
+\subsubsection{\texorpdfstring{Assignment\+Expression()}{AssignmentExpression()}}
+{\footnotesize\ttfamily Assignment\+Expression\+::\+Assignment\+Expression (\begin{DoxyParamCaption}\item[{\textbf{ std\+::string}}]{op,  }\item[{\hyperlink{struct_expression}{Expression} $\ast$}]{lhs = {\ttfamily nullptr},  }\item[{\hyperlink{struct_expression}{Expression} $\ast$}]{rhs = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_assignment_expression_ac3d1a00abf176502782937938f629a9f}\label{struct_assignment_expression_ac3d1a00abf176502782937938f629a9f}} 
+\index{Assignment\+Expression@{Assignment\+Expression}!accept@{accept}}
+\index{accept@{accept}!Assignment\+Expression@{Assignment\+Expression}}
+\subsubsection{\texorpdfstring{accept()}{accept()}}
+{\footnotesize\ttfamily void Assignment\+Expression\+::accept (\begin{DoxyParamCaption}\item[{\hyperlink{struct_visitor}{Visitor} \&}]{visitor }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \hyperlink{struct_binary_expression_af8318bd8b21b4bbca064e8a6086a10a0}{Binary\+Expression}.
+
+\mbox{\Hypertarget{struct_assignment_expression_a9c5da03eec8d7c10f1127ec5029de263}\label{struct_assignment_expression_a9c5da03eec8d7c10f1127ec5029de263}} 
+\index{Assignment\+Expression@{Assignment\+Expression}!type@{type}}
+\index{type@{type}!Assignment\+Expression@{Assignment\+Expression}}
+\subsubsection{\texorpdfstring{type()}{type()}}
+{\footnotesize\ttfamily const char$\ast$ Assignment\+Expression\+::type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \hyperlink{struct_binary_expression_a9ab583e823bac39ed8fd8eb34747ac9f}{Binary\+Expression}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{ast_8h}{ast.\+h}\end{DoxyCompactItemize}

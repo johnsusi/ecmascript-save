@@ -1,4 +1,6 @@
 <map id="MemberExpression" name="MemberExpression">
-<area shape="rect" id="node2" href="$struct_expression.html" title="Expression" alt="" coords="30,80,117,105"/>
-<area shape="rect" id="node3" href="$struct_node.html" title="Node" alt="" coords="47,5,100,31"/>
+<area shape="rect" id="node2" href="$struct_expression.html" title="Expression" alt="" coords="24,92,112,117"/>
+<area shape="rect" id="node3" href="$struct_node.html" title="Node" alt="" coords="44,5,97,31"/>
+<area shape="rect" id="node4" href="$struct_identifier.html" title="Identifier" alt="" coords="136,92,208,117"/>
+<area shape="rect" id="node5" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/string/basic_string.html" title="std::u16string" alt="" coords="121,5,223,31"/>
 </map>

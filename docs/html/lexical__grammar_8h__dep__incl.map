@@ -1,9 +1,8 @@
 <map id="src/lexical_grammar.h" name="src/lexical_grammar.h">
-<area shape="rect" id="node2" href="$lexer_8h.html" title="src/lexer.h" alt="" coords="249,79,331,104"/>
+<area shape="rect" id="node2" href="$lexer_8h.html" title="src/lexer.h" alt="" coords="189,79,271,104"/>
 <area shape="rect" id="node3" href="$eval_8cpp.html" title="src/eval.cpp" alt="" coords="5,152,98,177"/>
 <area shape="rect" id="node5" href="$lexer_8cpp.html" title="src/lexer.cpp" alt="" coords="122,152,218,177"/>
 <area shape="rect" id="node6" href="$main_8cpp.html" title="src/main.cpp" alt="" coords="242,152,339,177"/>
-<area shape="rect" id="node7" href="$token_8cpp.html" title="src/token.cpp" alt="" coords="363,152,463,177"/>
-<area shape="rect" id="node8" href="$types_8cpp.html" title="src/types.cpp" alt="" coords="487,152,587,177"/>
-<area shape="rect" id="node4" href="$single_8cpp.html" title="src/single.cpp" alt="" coords="119,225,222,251"/>
+<area shape="rect" id="node7" href="$types_8cpp.html" title="src/types.cpp" alt="" coords="363,152,463,177"/>
+<area shape="rect" id="node4" href="$single_8cpp.html" title="src/single.cpp" alt="" coords="59,225,162,251"/>
 </map>

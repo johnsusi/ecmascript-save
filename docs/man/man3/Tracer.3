@@ -1,4 +1,4 @@
-.TH "Tracer" 3 "Sun May 7 2017" "ECMAScript" \" -*- nroff -*-
+.TH "Tracer" 3 "Sun May 14 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -12,7 +12,7 @@ Tracer
 
 .in +1c
 .ti -1c
-.RI "void \fBenter\fP (const char *, const char *, int)"
+.RI "void \fBenter\fP (\fBstd::string\fP, \fBstd::string\fP, int)"
 .br
 .ti -1c
 .RI "void \fBleave\fP ()"
@@ -33,7 +33,7 @@ Tracer
 
 .SS "auto Tracer::end () const\fC [inline]\fP"
 
-.SS "void Tracer::enter (const char * method, const char * file, int line)"
+.SS "void Tracer::enter (\fBstd::string\fP method, \fBstd::string\fP file, int line)"
 
 .SS "void Tracer::leave ()"
 

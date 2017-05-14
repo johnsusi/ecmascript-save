@@ -71,6 +71,7 @@ $(function() {
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="visitor_8h_source.html">visitor.h</a>&quot;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -86,25 +87,18 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="ast_8h__dep__incl.png" border="0" usemap="#src_2ast_8hdep" alt=""/></div>
 <map name="src_2ast_8hdep" id="src_2ast_8hdep">
-<area shape="rect" id="node2" href="ast_8cpp.html" title="src/ast.cpp" alt="" coords="389,152,475,177"/>
-<area shape="rect" id="node4" href="basic__visitor_8h.html" title="src/basic_visitor.h" alt="" coords="857,225,983,251"/>
-<area shape="rect" id="node10" href="eval_8cpp.html" title="src/eval.cpp" alt="" coords="499,372,591,397"/>
-<area shape="rect" id="node11" href="token_8h.html" title="src/token.h" alt="" coords="305,79,391,104"/>
-<area shape="rect" id="node19" href="parser_8h.html" title="src/parser.h" alt="" coords="590,299,681,324"/>
-<area shape="rect" id="node3" href="single_8cpp.html" title="src/single.cpp" alt="" coords="304,445,407,471"/>
-<area shape="rect" id="node5" href="ast__visitor_8h.html" title="src/ast_visitor.h" alt="" coords="1158,299,1271,324"/>
-<area shape="rect" id="node7" href="basic__visitor_8cpp.html" title="src/basic_visitor.cpp" alt="" coords="850,299,990,324"/>
-<area shape="rect" id="node8" href="eval__visitor_8h.html" title="src/eval_visitor.h" alt="" coords="705,299,825,324"/>
-<area shape="rect" id="node9" href="json__visitor_8h.html" title="src/json_visitor.h" alt="" coords="1015,299,1135,324"/>
-<area shape="rect" id="node6" href="main_8cpp.html" title="src/main.cpp" alt="" coords="745,372,842,397"/>
-<area shape="rect" id="node12" href="input__element_8h.html" title="src/input_element.h" alt="" coords="59,152,197,177"/>
-<area shape="rect" id="node13" href="lexical__grammar_8h.html" title="src/lexical_grammar.h" alt="" coords="272,225,423,251"/>
-<area shape="rect" id="node16" href="token_8cpp.html" title="src/token.cpp" alt="" coords="79,372,180,397"/>
-<area shape="rect" id="node18" href="input__element_8cpp.html" title="src/input_element.cpp" alt="" coords="5,225,157,251"/>
-<area shape="rect" id="node14" href="lexer_8h.html" title="src/lexer.h" alt="" coords="320,299,402,324"/>
-<area shape="rect" id="node15" href="lexer_8cpp.html" title="src/lexer.cpp" alt="" coords="204,372,300,397"/>
-<area shape="rect" id="node17" href="types_8cpp.html" title="src/types.cpp" alt="" coords="325,372,424,397"/>
-<area shape="rect" id="node20" href="parser_8cpp.html" title="src/parser.cpp" alt="" coords="615,372,720,397"/>
+<area shape="rect" id="node2" href="ast_8cpp.html" title="src/ast.cpp" alt="" coords="847,79,933,104"/>
+<area shape="rect" id="node4" href="basic__visitor_8h.html" title="src/basic_visitor.h" alt="" coords="304,79,431,104"/>
+<area shape="rect" id="node10" href="eval_8cpp.html" title="src/eval.cpp" alt="" coords="774,152,867,177"/>
+<area shape="rect" id="node11" href="parser_8h.html" title="src/parser.h" alt="" coords="662,79,753,104"/>
+<area shape="rect" id="node13" href="token__old_8h.html" title="src/token_old.h" alt="" coords="957,79,1068,104"/>
+<area shape="rect" id="node3" href="single_8cpp.html" title="src/single.cpp" alt="" coords="769,225,872,251"/>
+<area shape="rect" id="node5" href="ast__visitor_8h.html" title="src/ast_visitor.h" alt="" coords="5,152,119,177"/>
+<area shape="rect" id="node7" href="basic__visitor_8cpp.html" title="src/basic_visitor.cpp" alt="" coords="142,152,283,177"/>
+<area shape="rect" id="node8" href="eval__visitor_8h.html" title="src/eval_visitor.h" alt="" coords="307,152,427,177"/>
+<area shape="rect" id="node9" href="json__visitor_8h.html" title="src/json_visitor.h" alt="" coords="451,152,571,177"/>
+<area shape="rect" id="node6" href="main_8cpp.html" title="src/main.cpp" alt="" coords="391,225,488,251"/>
+<area shape="rect" id="node12" href="parser_8cpp.html" title="src/parser.cpp" alt="" coords="645,152,750,177"/>
 </map>
 </div>
 </div>
@@ -179,6 +173,8 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_binary_expression.html">BinaryExpression</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_conditional_expression.html">ConditionalExpression</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_assignment_expression.html">AssignmentExpression</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_variable_declaration.html">VariableDeclaration</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>

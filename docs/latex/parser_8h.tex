@@ -10,6 +10,7 @@
 {\ttfamily \#include $<$memory$>$}\newline
 {\ttfamily \#include $<$sstream$>$}\newline
 {\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$boost/type\+\_\+index.\+hpp$>$}\newline
 Include dependency graph for parser.\+h\+:
 \nopagebreak
 \begin{figure}[H]
@@ -29,12 +30,14 @@ This graph shows which files directly or indirectly include this file\+:
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
+class \hyperlink{class_syntax_error}{Syntax\+Error}
+\item 
 class \hyperlink{class_parser}{Parser}
 \end{DoxyCompactItemize}
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \hyperlink{parser_8h_abd6a38fb39140110c158184776cabb34}{trace}(method)~\hyperlink{class_trace_guard}{Trace\+Guard} tg\+\_\+\#\#\+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+(method, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+)
+\#define \hyperlink{parser_8h_abd6a38fb39140110c158184776cabb34}{trace}(method)
 \end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
@@ -50,8 +53,15 @@ class \hyperlink{class_parser}{Parser}
 \index{parser.\+h@{parser.\+h}!trace@{trace}}
 \index{trace@{trace}!parser.\+h@{parser.\+h}}
 \subsubsection{\texorpdfstring{trace}{trace}}
-{\footnotesize\ttfamily \#define trace(\begin{DoxyParamCaption}\item[{}]{method }\end{DoxyParamCaption})~\hyperlink{class_trace_guard}{Trace\+Guard} tg\+\_\+\#\#\+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+(method, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+)}
+{\footnotesize\ttfamily \#define trace(\begin{DoxyParamCaption}\item[{}]{method }\end{DoxyParamCaption})}
 
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\hyperlink{class_trace_guard}{TraceGuard} tg\_##\_\_LINE\_\_(                                                    \(\backslash\)
+      boost::typeindex::type\_id<decltype(*\textcolor{keyword}{this})>().pretty\_name()               \(\backslash\)
+          + \textcolor{stringliteral}{"::"} + \_\_func\_\_,                                                   \(\backslash\)
+      \_\_FILE\_\_, \_\_LINE\_\_)
+\end{DoxyCode}
 
 
 \subsection{Function Documentation}

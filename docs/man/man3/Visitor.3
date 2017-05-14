@@ -1,4 +1,4 @@
-.TH "Visitor" 3 "Sun May 7 2017" "ECMAScript" \" -*- nroff -*-
+.TH "Visitor" 3 "Sun May 14 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -75,6 +75,9 @@ Inherited by \fBBasicVisitor\fP\&.
 .br
 .ti -1c
 .RI "virtual void \fBoperator()\fP (const \fBConditionalExpression\fP &)=0"
+.br
+.ti -1c
+.RI "virtual void \fBoperator()\fP (const \fBAssignmentExpression\fP &)=0"
 .br
 .ti -1c
 .RI "virtual void \fBoperator()\fP (const \fBFunctionExpression\fP &)=0"
@@ -274,6 +277,10 @@ Implemented in \fBBasicVisitor\fP\&.
 .PP
 Implemented in \fBBasicVisitor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBConditionalExpression\fP &)\fC [pure virtual]\fP"
+
+.PP
+Implemented in \fBBasicVisitor\fP\&.
+.SS "virtual void Visitor::operator() (const \fBAssignmentExpression\fP &)\fC [pure virtual]\fP"
 
 .PP
 Implemented in \fBBasicVisitor\fP\&.

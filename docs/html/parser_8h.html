@@ -80,18 +80,19 @@ $(function() {
 <code>#include &lt;memory&gt;</code><br />
 <code>#include &lt;sstream&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;boost/type_index.hpp&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for parser.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="parser_8h__incl.png" border="0" usemap="#src_2parser_8h" alt=""/></div>
 <map name="src_2parser_8h" id="src_2parser_8h">
-<area shape="rect" id="node2" href="ast_8h.html" title="ast.h" alt="" coords="212,152,263,177"/>
-<area shape="rect" id="node7" href="logger_8h.html" title="logger.h" alt="" coords="1087,79,1156,104"/>
-<area shape="rect" id="node10" href="matcher_8h.html" title="matcher.h" alt="" coords="108,152,188,177"/>
-<area shape="rect" id="node12" href="token_8h.html" title="token.h" alt="" coords="502,79,567,104"/>
-<area shape="rect" id="node16" href="tracer_8h.html" title="tracer.h" alt="" coords="934,79,1000,104"/>
-<area shape="rect" id="node17" href="util_8h.html" title="util.h" alt="" coords="850,79,900,104"/>
-<area shape="rect" id="node3" href="visitor_8h.html" title="visitor.h" alt="" coords="208,225,275,251"/>
+<area shape="rect" id="node2" href="ast_8h.html" title="ast.h" alt="" coords="737,79,787,104"/>
+<area shape="rect" id="node8" href="logger_8h.html" title="logger.h" alt="" coords="1161,79,1230,104"/>
+<area shape="rect" id="node11" href="matcher_8h.html" title="matcher.h" alt="" coords="910,79,990,104"/>
+<area shape="rect" id="node14" href="token_8h.html" title="token.h" alt="" coords="435,79,500,104"/>
+<area shape="rect" id="node15" href="util_8h.html" title="util.h" alt="" coords="140,152,189,177"/>
+<area shape="rect" id="node20" href="tracer_8h.html" title="tracer.h" alt="" coords="1014,79,1080,104"/>
+<area shape="rect" id="node3" href="visitor_8h.html" title="visitor.h" alt="" coords="694,152,761,177"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -110,12 +111,14 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_syntax_error.html">SyntaxError</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_parser.html">Parser</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:abd6a38fb39140110c158184776cabb34"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8h.html#abd6a38fb39140110c158184776cabb34">trace</a>(method)&#160;&#160;&#160;<a class="el" href="class_trace_guard.html">TraceGuard</a> tg_##__LINE__(method, __FILE__, __LINE__)</td></tr>
+<tr class="memitem:abd6a38fb39140110c158184776cabb34"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8h.html#abd6a38fb39140110c158184776cabb34">trace</a>(method)</td></tr>
 <tr class="separator:abd6a38fb39140110c158184776cabb34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -139,11 +142,12 @@ Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">method</td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="el" href="class_trace_guard.html">TraceGuard</a> tg_##__LINE__(method, __FILE__, __LINE__)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<b>Value:</b><div class="fragment"><div class="line"><a class="code" href="class_trace_guard.html">TraceGuard</a> tg_##__LINE__(                                                    \</div><div class="line">      boost::typeindex::type_id&lt;decltype(*<span class="keyword">this</span>)&gt;().pretty_name()               \</div><div class="line">          + <span class="stringliteral">&quot;::&quot;</span> + __func__,                                                   \</div><div class="line">      __FILE__, __LINE__)</div><div class="ttc" id="class_trace_guard_html"><div class="ttname"><a href="class_trace_guard.html">TraceGuard</a></div><div class="ttdef"><b>Definition:</b> tracer.h:29</div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>

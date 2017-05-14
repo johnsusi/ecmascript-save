@@ -1,4 +1,4 @@
-.TH "SyntaxError" 3 "Sun May 7 2017" "ECMAScript" \" -*- nroff -*-
+.TH "SyntaxError" 3 "Sun May 14 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -7,18 +7,23 @@ SyntaxError
 .br
 .PP
 .PP
-\fC#include <syntax_error\&.h>\fP
+\fC#include <parser\&.h>\fP
 .PP
-Inherits \fBstd::runtime_error\fP\&.
+Inherits \fBstd::runtime_error\fP, and \fBstd::runtime_error\fP\&.
 .SS "Public Member Functions"
 
 .in +1c
+.ti -1c
+.RI "\fBSyntaxError\fP (\fBstd::string\fP \fBwhat\fP)"
+.br
 .ti -1c
 .RI "\fBSyntaxError\fP (const \fBstd::string\fP &filename, const \fBstd::string\fP &what_arg, int col=\-1, int row=\-1)"
 .br
 .in -1c
 .SH "Constructor & Destructor Documentation"
 .PP 
+.SS "SyntaxError::SyntaxError (\fBstd::string\fP what)\fC [inline]\fP"
+
 .SS "SyntaxError::SyntaxError (const \fBstd::string\fP & filename, const \fBstd::string\fP & what_arg, int col = \fC\-1\fP, int row = \fC\-1\fP)\fC [inline]\fP"
 
 

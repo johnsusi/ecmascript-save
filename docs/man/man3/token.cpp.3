@@ -1,4 +1,4 @@
-.TH "src/token.cpp" 3 "Sun May 7 2017" "ECMAScript" \" -*- nroff -*-
+.TH "src/token.cpp" 3 "Sun May 14 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -8,36 +8,21 @@ src/token.cpp
 .PP
 \fC#include 'token\&.h'\fP
 .br
-\fC#include 'lexer\&.h'\fP
-.br
-\fC#include <algorithm>\fP
-.br
-\fC#include <cmath>\fP
-.br
-\fC#include <string>\fP
-.br
-\fC#include <vector>\fP
-.br
 
-.SS "Classes"
-
-.in +1c
-.ti -1c
-.RI "struct \fBToken::print_visitor\fP"
-.br
-.ti -1c
-.RI "struct \fBToken::equal_visitor\fP"
-.br
-.in -1c
 .SS "Functions"
 
 .in +1c
 .ti -1c
 .RI "\fBstd::ostream\fP & \fBoperator<<\fP (\fBstd::ostream\fP &out, const \fBToken\fP &token)"
 .br
+.ti -1c
+.RI "\fBstd::u16string\fP & \fBcreate_static_string\fP (\fBstd::u16string\fP value)"
+.br
 .in -1c
 .SH "Function Documentation"
 .PP 
+.SS "\fBstd::u16string\fP& create_static_string (\fBstd::u16string\fP value)"
+
 .SS "\fBstd::ostream\fP& operator<< (\fBstd::ostream\fP & out, const \fBToken\fP & token)"
 
 .SH "Author"

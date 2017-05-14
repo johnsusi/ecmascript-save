@@ -1,4 +1,4 @@
-.TH "Matcher< T, It >" 3 "Sun May 7 2017" "ECMAScript" \" -*- nroff -*-
+.TH "Matcher< T, It >" 3 "Sun May 14 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -48,6 +48,12 @@ Matcher< T, It >
 .RI "template<typename Pred > auto \fBpeek\fP (Pred &&pred) const \-> decltype(pred(*m_cur), bool())"
 .br
 .ti -1c
+.RI "bool \fBlookahead\fP (const T &value) const"
+.br
+.ti -1c
+.RI "template<typename Pred > auto \fBlookahead\fP (Pred &&pred) const \-> decltype(pred(*m_cur), bool())"
+.br
+.ti -1c
 .RI "template<typename Arg , typename\&.\&.\&. Args> bool \fBany_of\fP (Arg &&arg, Args &&\&.\&.\&. args)"
 .br
 .ti -1c
@@ -61,6 +67,9 @@ Matcher< T, It >
 .br
 .ti -1c
 .RI "void \fBreset\fP ()"
+.br
+.ti -1c
+.RI "auto \fBdistance\fP (It \fBmark\fP) const"
 .br
 .ti -1c
 .RI "template<typename\&.\&.\&. Args> bool \fBoperator()\fP (Args &&\&.\&.\&. args)"
@@ -97,7 +106,14 @@ Matcher< T, It >
 
 .SS "template<typename T, typename It> bool \fBMatcher\fP< T, It >::any_of ()\fC [inline]\fP"
 
+.SS "template<typename T, typename It> auto \fBMatcher\fP< T, It >::distance (It mark) const\fC [inline]\fP"
+
 .SS "template<typename T, typename It> bool \fBMatcher\fP< T, It >::done () const\fC [inline]\fP"
+
+.SS "template<typename T, typename It> bool \fBMatcher\fP< T, It >::lookahead (const T & value) const\fC [inline]\fP"
+
+.SS "template<typename T, typename It> template<typename Pred > auto \fBMatcher\fP< T, It >::lookahead (Pred && pred) const \-> decltype(pred(*m_cur), bool())
+  \fC [inline]\fP"
 
 .SS "template<typename T, typename It> It \fBMatcher\fP< T, It >::mark () const\fC [inline]\fP"
 

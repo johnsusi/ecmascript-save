@@ -1,11 +1,6 @@
 \hypertarget{token_8cpp}{}\section{src/token.cpp File Reference}
 \label{token_8cpp}\index{src/token.\+cpp@{src/token.\+cpp}}
 {\ttfamily \#include \char`\"{}token.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}lexer.\+h\char`\"{}}\newline
-{\ttfamily \#include $<$algorithm$>$}\newline
-{\ttfamily \#include $<$cmath$>$}\newline
-{\ttfamily \#include $<$string$>$}\newline
-{\ttfamily \#include $<$vector$>$}\newline
 Include dependency graph for token.\+cpp\+:
 \nopagebreak
 \begin{figure}[H]
@@ -22,21 +17,22 @@ This graph shows which files directly or indirectly include this file\+:
 \includegraphics[width=157pt]{token_8cpp__dep__incl}
 \end{center}
 \end{figure}
-\subsection*{Classes}
-\begin{DoxyCompactItemize}
-\item 
-struct \hyperlink{struct_token_1_1print__visitor}{Token\+::print\+\_\+visitor}
-\item 
-struct \hyperlink{struct_token_1_1equal__visitor}{Token\+::equal\+\_\+visitor}
-\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 \textbf{ std\+::ostream} \& \hyperlink{token_8cpp_a9209854573e66d53ab24a5915e2f6638}{operator$<$$<$} (\textbf{ std\+::ostream} \&out, const \hyperlink{class_token}{Token} \&token)
+\item 
+\textbf{ std\+::u16string} \& \hyperlink{token_8cpp_aa4fcc75e7324235f56fe28e378bb7960}{create\+\_\+static\+\_\+string} (\textbf{ std\+::u16string} value)
 \end{DoxyCompactItemize}
 
 
 \subsection{Function Documentation}
+\mbox{\Hypertarget{token_8cpp_aa4fcc75e7324235f56fe28e378bb7960}\label{token_8cpp_aa4fcc75e7324235f56fe28e378bb7960}} 
+\index{token.\+cpp@{token.\+cpp}!create\+\_\+static\+\_\+string@{create\+\_\+static\+\_\+string}}
+\index{create\+\_\+static\+\_\+string@{create\+\_\+static\+\_\+string}!token.\+cpp@{token.\+cpp}}
+\subsubsection{\texorpdfstring{create\+\_\+static\+\_\+string()}{create\_static\_string()}}
+{\footnotesize\ttfamily \textbf{ std\+::u16string}\& create\+\_\+static\+\_\+string (\begin{DoxyParamCaption}\item[{\textbf{ std\+::u16string}}]{value }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{token_8cpp_a9209854573e66d53ab24a5915e2f6638}\label{token_8cpp_a9209854573e66d53ab24a5915e2f6638}} 
 \index{token.\+cpp@{token.\+cpp}!operator$<$$<$@{operator$<$$<$}}
 \index{operator$<$$<$@{operator$<$$<$}!token.\+cpp@{token.\+cpp}}

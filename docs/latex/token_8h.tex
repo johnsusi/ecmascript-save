@@ -1,10 +1,13 @@
 \hypertarget{token_8h}{}\section{src/token.h File Reference}
 \label{token_8h}\index{src/token.\+h@{src/token.\+h}}
-{\ttfamily \#include \char`\"{}ast.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cstddef$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
 {\ttfamily \#include $<$string$>$}\newline
-{\ttfamily \#include $<$boost/optional.\+hpp$>$}\newline
-{\ttfamily \#include $<$boost/variant.\+hpp$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
 Include dependency graph for token.\+h\+:
 \nopagebreak
 \begin{figure}[H]
@@ -31,11 +34,19 @@ struct \hyperlink{struct_token_1_1_debug_info}{Token\+::\+Debug\+Info}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
+\textbf{ std\+::u16string} \& \hyperlink{token_8h_aa4fcc75e7324235f56fe28e378bb7960}{create\+\_\+static\+\_\+string} (\textbf{ std\+::u16string} value)
+\item 
 \textbf{ std\+::ostream} \& \hyperlink{token_8h_a9209854573e66d53ab24a5915e2f6638}{operator$<$$<$} (\textbf{ std\+::ostream} \&out, const \hyperlink{class_token}{Token} \&token)
 \end{DoxyCompactItemize}
 
 
 \subsection{Function Documentation}
+\mbox{\Hypertarget{token_8h_aa4fcc75e7324235f56fe28e378bb7960}\label{token_8h_aa4fcc75e7324235f56fe28e378bb7960}} 
+\index{token.\+h@{token.\+h}!create\+\_\+static\+\_\+string@{create\+\_\+static\+\_\+string}}
+\index{create\+\_\+static\+\_\+string@{create\+\_\+static\+\_\+string}!token.\+h@{token.\+h}}
+\subsubsection{\texorpdfstring{create\+\_\+static\+\_\+string()}{create\_static\_string()}}
+{\footnotesize\ttfamily \textbf{ std\+::u16string}\& create\+\_\+static\+\_\+string (\begin{DoxyParamCaption}\item[{\textbf{ std\+::u16string}}]{value }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{token_8h_a9209854573e66d53ab24a5915e2f6638}\label{token_8h_a9209854573e66d53ab24a5915e2f6638}} 
 \index{token.\+h@{token.\+h}!operator$<$$<$@{operator$<$$<$}}
 \index{operator$<$$<$@{operator$<$$<$}!token.\+h@{token.\+h}}

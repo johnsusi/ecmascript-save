@@ -1,7 +1,6 @@
 <map id="src/lexical_grammar.h" name="src/lexical_grammar.h">
-<area shape="rect" id="node2" href="$input__element_8h.html" title="input_element.h" alt="" coords="241,79,357,104"/>
-<area shape="rect" id="node3" href="$token_8h.html" title="token.h" alt="" coords="267,152,332,177"/>
-<area shape="rect" id="node14" href="$matcher_8h.html" title="matcher.h" alt="" coords="614,225,694,251"/>
-<area shape="rect" id="node4" href="$ast_8h.html" title="ast.h" alt="" coords="389,225,439,251"/>
-<area shape="rect" id="node5" href="$visitor_8h.html" title="visitor.h" alt="" coords="362,299,429,324"/>
+<area shape="rect" id="node2" href="$input__element_8h.html" title="input_element.h" alt="" coords="391,79,507,104"/>
+<area shape="rect" id="node3" href="$token_8h.html" title="token.h" alt="" coords="323,152,388,177"/>
+<area shape="rect" id="node17" href="$matcher_8h.html" title="matcher.h" alt="" coords="80,79,159,104"/>
+<area shape="rect" id="node4" href="$util_8h.html" title="util.h" alt="" coords="465,225,515,251"/>
 </map>
