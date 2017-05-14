@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
-const fs = require("fs");
+const fs   = require("fs");
 const path = require("path");
-const { trimStart, padEnd } = require("lodash");
-const { green, red } = require("colors/safe");
-const { max, min } = Math;
+const {trimStart, padEnd} = require("lodash");
+const {green, red}        = require("colors/safe");
+const {max, min}          = Math;
 const stringify = require("json-stable-stringify");
 
-const { spawnPromise: spawn } = require("spawn-rx");
+const {spawnPromise : spawn} = require("spawn-rx");
 
 var source = "";
 var silent = false;
@@ -15,18 +15,22 @@ var silent = false;
 for (var i = 2; i < process.argv.length; i++) {
   if (process.argv[i] === "-e" || process.argv[i] === "--eval") {
     source = source + process.argv[++i];
-  } else if (process.argv[i] === "-s" || process.argv[i] === "--silent") {
+  }
+  else if (process.argv[i] === "-s" || process.argv[i] === "--silent") {
     silent = true;
-  } else if (process.argv[i][0] === "-") {
+  }
+  else if (process.argv[i][0] === "-") {
     errorExit("Unknown argument: " + process.argv[i]);
-  } else {
+  }
+  else {
     source = source + fs.readFileSync(process.argv[i], "utf-8");
   }
 }
 
 main();
 
-function main() {
+function main()
+{
   Promise.all([
     spawn(__dirname + "/dump_ast", ["--json", "-e", source])
       .then(text => JSON.parse(text))
@@ -66,17 +70,16 @@ function main() {
     });
 }
 
-function diff(start, row, end, left, right) {
+function diff(start, row, end, left, right)
+{
   let i = max(0, start);
   let j = min(end, max(left.length, right.length));
 
-  left = left.slice(i, j);
+  left  = left.slice(i, j);
   right = right.slice(i, j);
 
   const k = left.reduce(
-    (acc, val) => min(acc, val.length - trimStart(val).length),
-    99
-  );
+      (acc, val) => min(acc, val.length - trimStart(val).length), 99);
 
   left = left.map(line => line.slice(k));
   right = right.map(line => line.slice(k));
@@ -84,10 +87,10 @@ function diff(start, row, end, left, right) {
   const l = left.reduce((acc, val) => max(acc, val.length), 0);
 
   for (i = 0; i < left.length; ++i) {
-    const x = left[i];
-    const y = i < right.length ? right[i] : "";
+    const x      = left[i];
+    const y      = i < right.length ? right[i] : "";
     const indent = i === row - start ? "-->" : "   ";
     const color = x === y ? green : red;
-    console.log(color(`${indent} ${padEnd(x, l)} : $ { y }`));
+    console.log(color(`${indent} ${padEnd(x, l)} : ${y}`));
   }
 }

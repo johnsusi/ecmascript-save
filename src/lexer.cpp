@@ -3,8 +3,6 @@
 
 #include <unicode/uchar.h>
 
-
-
 // 7.2
 bool is_white_space(int cp)
 {
@@ -51,8 +49,8 @@ bool is_decimal_digit(int cp)
 
 bool is_hex_digit(int cp)
 {
-  return is_decimal_digit(cp) || (cp >= 'a' && cp <= 'f') ||
-         (cp >= 'A' && cp <= 'F');
+  return is_decimal_digit(cp) || (cp >= 'a' && cp <= 'f')
+         || (cp >= 'A' && cp <= 'F');
 }
 
 // 7.6
@@ -113,7 +111,7 @@ bool is_single_escape_character(int cp)
 }
 
 // 7.6.1.1
-bool is_keyword(const std::string &token)
+bool is_keyword(const std::string& token)
 {
   std::vector<std::string> keywords{
       "break",  "case",  "catch",      "continue", "debugger", "default",
@@ -125,7 +123,7 @@ bool is_keyword(const std::string &token)
 }
 
 // 7.6.1.2
-bool is_future_reserved_word(const std::string &token)
+bool is_future_reserved_word(const std::string& token)
 {
   static std::vector<std::string> keywords = {
       "class",  "const",     "enum",  "export",  "extends", "implements",
@@ -135,7 +133,7 @@ bool is_future_reserved_word(const std::string &token)
 }
 
 // 7.7
-bool is_punctuator(const std::string &token)
+bool is_punctuator(const std::string& token)
 {
   static std::vector<std::string> punctuators = {
       "!",  "!=", "!==", "%",   "%=",   "&",  "&&", "&=", "(",   ")",
@@ -146,14 +144,19 @@ bool is_punctuator(const std::string &token)
   return std::binary_search(punctuators.begin(), punctuators.end(), token);
 }
 
+bool is_div_punctuator(const std::string& token)
+{
+  return token == "/" || token == "/=";
+}
+
 // 7.8.1
-bool is_null_literal(const std::string &str)
+bool is_null_literal(const std::string& str)
 {
   return std::string{"null"} == str;
 }
 
 // 7.8.2
-bool is_boolean_literal(const std::string &str)
+bool is_boolean_literal(const std::string& str)
 {
   return std::string{"true"} == str || std::string{"false"} == str;
 }

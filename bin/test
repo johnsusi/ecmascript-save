@@ -3,19 +3,25 @@ const { readFileSync } = require("fs");
 const { resolve } = require("path");
 const glob = require("glob");
 const { spawnPromise: spawn } = require("spawn-rx");
-const { green, red } = require("colors/safe");
+const { green, yellow, red } = require("colors/safe");
 
 let keepGoing = true;
 
-const blackList = /^.*Sbp_7.9_A9_T(3|4).js$/i;
+const blackList = /^.*(S7.3_A7_T.|Sbp_7.9_A9_T(3|4)|S7.6.1.2.*ns).js$/i;
+
+const whiteListData = [];
 
 for (var i = 2; i < process.argv.length; i++) {
   if (process.argv[i] === "-k" || process.argv[i] === "--keep-going") {
     keepGoing = true;
-  } else {
+  } else if (process.argv[i][0] == '-') {
     errorExit("Unknown argument: " + process.argv[i]);
+  } else {
+    whiteListData.push(process.argv[i]);
   }
 }
+
+const whiteList = whiteListData.length == 0 ? /.*/ : new RegExp( whiteListData.join("|"), 'i' );
 
 glob(
   resolve(__dirname, "../vendor/test262/test/suite/**/*.js"),
@@ -23,36 +29,26 @@ glob(
     if (err) console.warn(err);
     else
       paths
-        .filter(path => !blackList.test(path))
+        .filter(path => whiteList.test(path))
+        .filter(path => !negativeTest(path))
         .reduce((seq, path) => seq.then(() => diff(path)), Promise.resolve())
         .catch(err => console.error(err));
   }
 );
 
 function diff(path) {
-  return spawn(__dirname + "/diff_ast", [path])
+  return spawn(__dirname + "/diff_ast", ['-s', path])
     .then(() => console.log(`${path} ${green("OK")}`))
     .catch(err => {
-      if (readFileSync(path, "utf-8").indexOf("@negative") != -1) {
-        console.log(`${path} ${green("OK")} (negative test)`);
-        return;
-      }
-      console.error(`${path} ${red("FAILED")}`);
-      if (!keepGoing) process.exit(-1);
-      else throw err;
+      if (blackList.test(path)) console.log(`${path} ${yellow("BLACKLISTED")}`);
+      else console.error(`${path} ${red("FAILED")}`);
+      // if (!keepGoing) process.exit(-1);
+      // else throw err;
     });
 }
 
-/*
-# !/ usr / bin / env node
-#  -name "*.js" -print0 | xargs -0 grep -L @negative)
+function negativeTest(path)
+{
+  return readFileSync(path, 'utf-8').indexOf("@negative") != -1;
+}
 
-# for test in $tests; do
-#   echo $test
-#   bin/diff_ast $test
-#   if [ $? -ne 0 ]; then
-#     exit
-#   fi
-# done
-
-*/

@@ -3,12 +3,9 @@
 
 #include "basic_visitor.h"
 
-class EvalVisitor : BasicVisitor
-{
-
-
-
+class EvalVisitor : public BasicVisitor {
+public:
+  std::string str() const { return ""; }
 };
-
 
 #endif

@@ -22,13 +22,13 @@ namespace fs = boost::filesystem;
 namespace po = boost::program_options;
 
 template <class T>
-std::ostream &operator<<(std::ostream &os, const std::vector<T> &v)
+std::ostream& operator<<(std::ostream& os, const std::vector<T>& v)
 {
   std::copy(v.begin(), v.end(), std::ostream_iterator<T>(os, " "));
   return os;
 }
 
-int main(int argc, const char **argv)
+int main(int argc, const char** argv)
 {
   using namespace std;
 
@@ -60,7 +60,7 @@ int main(int argc, const char **argv)
     desc.add_options()("lex,l", "Perform lexing only");
     desc.add_options()("json,j", "Prist AST as JSON (implies -p)");
 
-        po::options_description hidden("Hidden options");
+    po::options_description hidden("Hidden options");
     hidden.add_options()("input-file", po::value<vector<string>>(),
                          "input file");
 
@@ -91,6 +91,11 @@ int main(int argc, const char **argv)
         eval(source, visitor, verbose);
         std::cout << visitor.str() << std::endl;
       }
+      else {
+        EvalVisitor visitor;
+        eval(source, visitor, verbose);
+        std::cout << visitor.str() << std::endl;
+      }
     };
 
     if (vm.count("help")) {
@@ -101,7 +106,7 @@ int main(int argc, const char **argv)
     }
     else if (vm.count("input-file")) {
       auto filenames = vm["input-file"].as<vector<string>>();
-      for (const auto &filename : filenames) {
+      for (const auto& filename : filenames) {
         if (verbose) std::cout << "Evaluating " << filename << std::endl;
         run(read_file(filename));
       }
@@ -116,7 +121,7 @@ int main(int argc, const char **argv)
       }
     }
   }
-  catch (const std::exception &err) {
+  catch (const std::exception& err) {
     cerr << err.what() << endl;
     return -1;
   }

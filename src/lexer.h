@@ -42,16 +42,42 @@ class BasicLexer {
     }
   };
 
-  mutable std::vector<Token> m_tokens;
-
   static bool reg_exp_allowed(const Token& token);
 
   std::u16string buffer;
 
+  struct Tokens {
+
+    struct storage_t {
+      std::vector<Token>                           tokens;
+      std::vector<std::unique_ptr<DebugInfo>>      debug_infos;
+      std::vector<std::unique_ptr<std::u16string>> strings;
+      storage_t() {}
+      storage_t(std::vector<Token>&& tokens) : tokens(tokens) {}
+    };
+
+    std::shared_ptr<storage_t> storage;
+
+    Tokens() {}
+    Tokens(std::vector<Token> tokens)
+        : storage(std::make_shared<storage_t>(std::move(tokens)))
+    {
+    }
+
+    auto begin() const { return storage->tokens.begin(); }
+    auto end() const { return storage->tokens.end(); }
+
+    void init() { storage = std::make_shared<storage_t>(); }
+
+    explicit operator bool() const { return storage ? true : false; }
+  };
+
+  mutable Tokens m_tokens;
+
 public:
   BasicLexer() {}
   BasicLexer(std::initializer_list<Token> tokens) : m_tokens(tokens) {}
-  BasicLexer(std::vector<Token>&& tokens) : m_tokens(tokens) {}
+  BasicLexer(std::vector<Token> tokens) : m_tokens(tokens) {}
 
   template <typename It>
   BasicLexer(It begin, It end) : grammar(new LexicalGrammar<T>(begin, end))
@@ -62,9 +88,10 @@ public:
 
   BasicLexer(const std::string& str) : BasicLexer(convert_utf8_to_utf16(str)) {}
 
-  const std::vector<Token>& tokens() const
+  Tokens tokens() const
   {
-    if (!m_tokens.empty() || !grammar) return m_tokens;
+    if (m_tokens || !grammar) return m_tokens;
+    m_tokens.init();
     bool lt  = false;
     int  col = 0, row = 0;
     bool re = false;
@@ -80,12 +107,15 @@ public:
         row++;
       }
       else if (auto token = input_element.to_token()) {
-        token->preceded_by_line_terminator = lt;
-        token->debug_info                  = std::make_shared<DebugInfo>(
-            s, m + 1, grammar->match.mark(), col, row);
+        if (lt) token->set_preceded_by_line_terminator();
+        m_tokens.storage->debug_infos.push_back(std::make_unique<DebugInfo>(
+            s, m + 1, grammar->match.mark(), col, row));
+        token->debug_info = m_tokens.storage->debug_infos.back().get();
+
         re = reg_exp_allowed(*token);
         lt = false;
-        m_tokens.push_back(std::move(*token));
+
+        m_tokens.storage->tokens.push_back(*token);
       }
       m = grammar->match.mark();
     }

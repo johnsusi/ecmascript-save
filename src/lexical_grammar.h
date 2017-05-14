@@ -37,6 +37,7 @@ bool is_future_reserved_word(const std::string& token);
 
 // 7.7
 bool is_punctuator(const std::string& token);
+bool is_div_punctuator(const std::string& token);
 
 // 7.8.1
 bool is_null_literal(const std::string& str);
@@ -85,7 +86,7 @@ public:
   std::u16string buffer;
   Matcher<T, std::u16string::const_iterator> match;
 
-  Token token_value;
+  Token token_value = Token::null_literal();
 
   template <typename It>
   LexicalGrammar(It begin, It end)
@@ -223,10 +224,10 @@ public:
   // 7.5 Tokens
   bool token()
   {
-    token_value = {};
+    token_value = Token("null");
     auto i      = match.mark();
     if (identifier_name()) {
-      token_value = {i, match.mark()};
+      token_value = Token::identifier_name(std::u16string{i, match.mark()});
       return true;
     }
     if (punctuator()) {
@@ -234,17 +235,10 @@ public:
       return true;
     }
     if (numeric_literal()) {
-      // double val = std::strtod(std::string{i, match.mark()}.c_str(),
-      // nullptr); std::cout << mv << ", " << val << ", " << (val - mv)
-      //           << ", eps: " << std::numeric_limits<double>::epsilon()
-      //           << " eq? " << (mv == val ? "true" : "false") << std::endl;
-      // mv          = std::strtod(std::string{i, match.mark()}.c_str(),
-      // nullptr);
       token_value = Token::numeric_literal(mv);
       return true;
     }
     if (string_literal()) {
-      // sv = {i + 1, match.mark() - 1};
       token_value = Token::string_literal(sv);
       return true;
     }
@@ -332,7 +326,7 @@ public:
   bool null_literal()
   {
     if (match("null")) {
-      token_value = Token::null_literal();
+      token_value = Token(nullptr);
       return true;
     }
     return false;
@@ -342,11 +336,11 @@ public:
   bool boolean_literal()
   {
     if (match("true")) {
-      token_value = Token::boolean_literal(true);
+      token_value = Token(true);
       return true;
     }
     else if (match("false")) {
-      token_value = Token::boolean_literal(false);
+      token_value = Token(false);
       return true;
     }
     else

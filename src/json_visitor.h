@@ -125,7 +125,10 @@ class JSONVisitor : public BasicVisitor {
 
   void operator()(const ObjectLiteral& literal) override
   {
-    apply(literal.declarations);
+    if (literal.declarations)
+      apply(literal.declarations);
+    else
+      buf << "[]";
   }
 
   void operator()(const ThisExpression& expr) override
@@ -146,7 +149,10 @@ class JSONVisitor : public BasicVisitor {
   {
     buf << "{" << quote("type") << ":" << quote("ObjectExpression");
     buf << "," << quote("properties") << ":";
-    apply(expr.object);
+    if (expr.object)
+      apply(expr.object);
+    else
+      buf << "[]";
     buf << "}";
   }
 
@@ -158,6 +164,10 @@ class JSONVisitor : public BasicVisitor {
       buf << "," << quote("value") << ":"
           << quote(convert_utf16_to_utf8(expr.identifier->value));
     }
+    // else if (expr.str) {
+    // }
+    // else if (expr.num) {
+    // }
     else
       buf << quote("todo");
     buf << "}";
@@ -174,8 +184,24 @@ class JSONVisitor : public BasicVisitor {
       apply(expr.expression);
       buf << "}";
       break;
-    case PropertyAssignment::Kind::GET: break;
-    case PropertyAssignment::Kind::SET: break;
+    case PropertyAssignment::Kind::GET:
+      buf << "{" << quote("type") << ":" << quote("Getter");
+      buf << "," << quote("name") << ":";
+      apply(expr.name);
+      buf << "," << quote("body") << ":";
+      apply(expr.body);
+      buf << "}";
+      break;
+    case PropertyAssignment::Kind::SET:
+      buf << "{" << quote("type") << ":" << quote("Setter");
+      buf << "," << quote("name") << ":";
+      apply(expr.name);
+      buf << "," << quote("parameter") << ":";
+      apply(expr.parameter);
+      buf << "," << quote("body") << ":";
+      apply(expr.body);
+      buf << "}";
+      break;
     }
   }
   void operator()(const PostfixExpression& expr) override
@@ -368,6 +394,24 @@ class JSONVisitor : public BasicVisitor {
     buf << "}";
   }
 
+  void operator()(const ForInStatement& stmt) override
+  {
+    buf << "{" << quote("type") << ":" << quote("ForInStatement");
+    buf << "," << quote("body") << ":";
+    apply(stmt.body);
+    buf << "," << quote("left") << ":";
+    buf << "{" << quote("type") << ":" << quote("VariableDeclaration");
+    buf << "," << quote("kind") << ":" << quote("var");
+    buf << "," << quote("declarators") << ":";
+    buf << "[";
+    apply(stmt.left);
+    buf << "]";
+    buf << "}";
+    buf << "," << quote("right") << ":";
+    apply(stmt.right);
+    buf << "}";
+  }
+
   void operator()(const ReturnStatement& stmt) override
   {
     buf << "{" << quote("type") << ":" << quote("ReturnStatement");
@@ -439,15 +483,45 @@ class JSONVisitor : public BasicVisitor {
 
   void operator()(const SourceElements& list) override { apply(list.data); }
 
+  template <typename InputIt>
+  auto print_directives(InputIt first, InputIt last)
+  {
+    auto it = first;
+    while (it != last) {
+      if (auto stmt = dynamic_cast<ExpressionStatement*>(*it)) {
+        if (auto expr = dynamic_cast<LiteralExpression*>(stmt->expression)) {
+          if (auto literal = dynamic_cast<StringLiteral*>(expr->literal)) {
+            if (literal->value == u"use strict") {
+              buf << "{" << quote("type") << ":" << quote("UseStrictDirective");
+              buf << "}";
+            }
+            else {
+              buf << "{" << quote("type") << ":" << quote("UnknownDirective");
+              buf << "," << quote("value") << ":"
+                  << quote(convert_utf16_to_utf8(literal->value));
+              buf << "}";
+            }
+            ++it;
+            continue;
+          }
+        }
+      }
+      break;
+    }
+    return it;
+  }
+
   void operator()(const ProgramDeclaration& decl) override
   {
     buf << "{" << quote("type") << ":" << quote("Script");
     buf << "," << quote("body") << ":";
     buf << "{" << quote("type") << ":" << quote("FunctionBody");
     buf << "," << quote("directives") << ":"
-        << "[]";
+        << "[";
+    auto it = print_directives(decl.body->begin(), decl.body->end());
+    buf << "]";
     buf << "," << quote("statements") << ":";
-    apply(decl.body);
+    apply(it, decl.body->end());
     buf << "}";
     buf << "}";
   }
@@ -456,9 +530,11 @@ class JSONVisitor : public BasicVisitor {
   {
     buf << "{" << quote("type") << ":" << quote("FunctionBody");
     buf << "," << quote("directives") << ":"
-        << "[]";
+        << "[";
+    auto it = print_directives(body.data.begin(), body.data.end());
+    buf << "]";
     buf << "," << quote("statements") << ":";
-    apply(body.data);
+    apply(it, body.data.end());
     buf << "}";
   }
 

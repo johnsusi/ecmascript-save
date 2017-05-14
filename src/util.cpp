@@ -54,7 +54,7 @@ std::string convert_utf16_to_utf8(const std::u16string& source)
   return result;
 }
 
-#ifdef U_DISABLE_RENAMING
+#ifndef HAVE_FROM_UTF8
 UnicodeString icu::UnicodeString::fromUTF8(StringPiece utf8)
 {
   int32_t    destLength;

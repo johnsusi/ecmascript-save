@@ -8,6 +8,7 @@
 #include <ostream>
 #include <string>
 
+#include <boost/optional.hpp>
 #include <boost/variant.hpp>
 
 class InputElement {
@@ -30,7 +31,7 @@ class InputElement {
   Value value;
 
   InputElement() = delete;
-  InputElement(Value &&value) : value(value) {}
+  InputElement(Value&& value) : value(value) {}
 
 public:
   static InputElement empty();

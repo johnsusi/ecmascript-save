@@ -604,7 +604,8 @@ struct FunctionExpression : Expression {
 };
 
 struct ProgramDeclaration : Declaration {
-  SourceElements* body;
+  std::vector<StringLiteral*> directives;
+  SourceElements*             body;
   ProgramDeclaration(SourceElements* body = nullptr) : body(body) {}
   void accept(Visitor& visitor) const override { return visitor(*this); }
   const char*          type() const override { return "ProgramDeclaration"; }

@@ -21,53 +21,9 @@
           + "::" + __func__,                                                   \
       __FILE__, __LINE__)
 
-template <typename Node>
-class Builder {
-  std::shared_ptr<std::vector<std::unique_ptr<Node>>> storage;
-  std::vector<Node*>                                  stack;
-
-protected:
-  template <typename T>
-  void push(T* value)
-  {
-    stack.push_back(value);
-  }
-
-  template <typename T, typename... Args>
-  T* emplace(Args&&... args)
-  {
-    T* value = new T{std::forward<Args>(args)...};
-    storage->emplace_back(value);
-    stack.push_back(value);
-    return value;
-  }
-
-  template <typename T>
-  T* pop()
-  {
-    if (auto value = dynamic_cast<T*>(stack.back())) {
-      stack.pop_back();
-      return value;
-    }
-    else
-      logic_error("Expected " + demangle<T>() + ", got "
-                  + stack.back()->type());
-  }
-
-  template <typename T, typename... Ts, typename... Args>
-  T* replace(Args&&... args)
-  {
-    return index_apply<sizeof...(Ts)>([&](auto... Is) {
-      T* value =
-          new T{std::forward<Args>(args)...,
-                dynamic_cast<Ts*>(*(stack.end() - (sizeof...(Ts) - Is)))...};
-
-      stack.resize(stack.size() - sizeof...(Ts));
-      storage->emplace_back(value);
-      stack.push_back(value);
-      return value;
-    });
-  }
+class SyntaxError : public std::runtime_error {
+public:
+  SyntaxError(std::string what) : std::runtime_error(what) {}
 };
 
 class Parser {
@@ -82,17 +38,18 @@ class Parser {
   {
     auto debug_info = match.done() ? nullptr : match.matching()->debug_info;
     auto loc        = debug_info ? debug_info->loc() : "";
-    throw std::runtime_error("InternalCompilerError: " + loc + what + "\n"
-                             + (debug_info ? debug_info->syntax_error_at() : "")
-                             + stack_trace());
+    throw SyntaxError("InternalCompilerError: " + loc + what + "\n"
+                      + (debug_info ? debug_info->syntax_error_at() : "")
+                      + stack_trace());
   }
 
   [[noreturn]] bool syntax_error(std::string what = {})
   {
     auto debug_info = match.done() ? nullptr : match.matching()->debug_info;
-    throw std::runtime_error("SyntaxError: " + what + "\n"
-                             + (debug_info ? debug_info->syntax_error_at() : "")
-                             + stack_trace());
+
+    throw SyntaxError("SyntaxError: " + what + "\n"
+                      + (debug_info ? debug_info->syntax_error_at() : "")
+                      + stack_trace());
   }
 
   template <typename F>
@@ -151,13 +108,13 @@ class Parser {
       T* value = new T{std::forward<Args>(args)...,
                        peek_at<Ts, sizeof...(Ts) - Is>()...};
 
-      // log([&](auto& log) {
-      //   log << "replace [";
-      //   for_each_arg(
-      //       [&](auto arg) { log << " " << demangle(arg) << ","; },
-      //       dynamic_cast<Ts*>(*(stack.end() - (sizeof...(Ts) - Is)))...);
-      //   log << "] with " << demangle(value) << "\n";
-      // });
+      log([&](auto& log) {
+        log << "replace [";
+        for_each_arg(
+            [&](auto arg) { log << " " << demangle(arg) << ","; },
+            dynamic_cast<Ts*>(*(stack.end() - (sizeof...(Ts) - Is)))...);
+        log << "] with " << demangle(value) << "\n";
+      });
 
       stack.resize(stack.size() - sizeof...(Ts));
       storage->emplace_back(value);
@@ -168,8 +125,9 @@ class Parser {
 
   bool no_line_terminator_here()
   {
-    return match.peek(
-        [](const Token& token) { return !token.preceded_by_line_terminator; });
+    return match.peek([](const Token& token) {
+      return !token.preceded_by_line_terminator();
+    });
   }
 
   // 7.9
@@ -186,7 +144,7 @@ class Parser {
     trace("identifier");
     if (!match([](const auto& token) { return token.is_identifier(); }))
       return false;
-    emplace<Identifier>(*match->to_identifier());
+    emplace<Identifier>(match->string_value());
     return true;
   }
 
@@ -195,7 +153,7 @@ class Parser {
     trace("identifier_name");
     if (!match([](const auto& token) { return token.is_identifier_name(); }))
       return false;
-    emplace<Identifier>(*match->to_identifier());
+    emplace<Identifier>(match->string_value());
     return true;
   }
 
@@ -220,7 +178,7 @@ class Parser {
     trace("boolean_literal");
     if (!match([](const auto& token) { return token.is_boolean_literal(); }))
       return false;
-    emplace<BooleanLiteral>(*match->to_boolean_literal());
+    emplace<BooleanLiteral>(match->boolean_value());
     return true;
   }
 
@@ -229,7 +187,7 @@ class Parser {
     trace("numeric_literal");
     if (!match([](const auto& token) { return token.is_numeric_literal(); }))
       return false;
-    emplace<NumericLiteral>(*match->to_numeric_literal());
+    emplace<NumericLiteral>(match->numeric_value());
     return true;
   }
 
@@ -238,7 +196,7 @@ class Parser {
     trace("string_literal");
     if (!match([](const auto& token) { return token.is_string_literal(); }))
       return false;
-    emplace<StringLiteral>(*match->to_string_literal());
+    emplace<StringLiteral>(match->string_value());
     return true;
   }
 
@@ -353,7 +311,7 @@ class Parser {
       if (!property_name() || !match("(") || !match(")") || !match("{")
           || !function_body()
           || !match("}"))
-        syntax_error();
+        syntax_error("get");
       replace<PropertyAssignment, PropertyName, FunctionBody>();
       return true;
     }
@@ -363,12 +321,12 @@ class Parser {
           || !match("{")
           || !function_body()
           || !match("}"))
-        syntax_error();
+        syntax_error("set");
       replace<PropertyAssignment, PropertyName, Identifier, FunctionBody>();
       return true;
     }
     else if (property_name()) {
-      if (!match(":") || !assignment_expression()) syntax_error();
+      if (!match(":") || !assignment_expression()) syntax_error("other");
       replace<PropertyAssignment, PropertyName, Expression>();
       return true;
     }
@@ -969,12 +927,17 @@ class Parser {
   bool for_statement()
   {
     trace("for_statement");
-    if (!match("for")) return false;
-    if (!match("(")) syntax_error("Expected (");
     return match([this] {
+      if (!match("for")) return false;
+      if (!match("(")) syntax_error("Expected (");
       ForStatement* stmt;
-      if (match("var") && variable_declaration_list_no_in() && match(";"))
+      if (match("var") && variable_declaration_list_no_in()) {
+        if (!match(";")) {
+          pop<VariableDeclarationList>();
+          return false;
+        }
         stmt = replace<ForStatement, VariableDeclarationList>();
+      }
       else if (expression(), match(";"))
         stmt = replace<ForStatement, Expression>();
       else
@@ -992,9 +955,9 @@ class Parser {
   bool for_in_statement()
   {
     trace("for_in_statement");
-    if (!match("for")) return false;
-    if (!match("(")) syntax_error("Expected (");
     return match([this] {
+      if (!match("for")) return false;
+      if (!match("(")) syntax_error("Expected (");
       ForInStatement* stmt;
       if (match("var") && variable_declaration_no_in() && match("in"))
         stmt = replace<ForInStatement, VariableDeclaration>();

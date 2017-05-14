@@ -44,11 +44,11 @@ constexpr auto index_apply(F f)
   return index_apply_impl(f, std::make_index_sequence<N>{});
 }
 
-// template <typename F, typename... Args>
-// void for_each_arg(F&& fun, Args&&... args)
-// {
-//   (void)(int[]){(fun(std::forward<Args>(args)), 0)...};
-//   // https://twitter.com/SeanParent/status/558330478541803522
-// }
+template <typename F, typename... Args>
+void for_each_arg(F&& fun, Args&&... args)
+{
+  (void)(int[]){(fun(std::forward<Args>(args)), 0)...};
+  // https://twitter.com/SeanParent/status/558330478541803522
+}
 
 #endif

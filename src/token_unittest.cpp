@@ -4,77 +4,40 @@
 
 #include <boost/optional/optional_io.hpp>
 
-TEST_CASE("A compile time token")
+TEST_CASE("test")
 {
-  Token subject("break");
+  REQUIRE(Token("null") == Token(nullptr));
+  REQUIRE(Token("true") == Token(true));
+  REQUIRE(Token("false") == Token(false));
+}
 
-  SECTION("is a keyword and nothing else")
-  {
-    REQUIRE(subject.is_keyword());
-    REQUIRE(!subject.is_punctuator());
-    REQUIRE(!subject.is_identifier());
-    REQUIRE(!subject.is_null_literal());
-    REQUIRE(!subject.is_numeric_literal());
-    REQUIRE(!subject.is_string_literal());
-  }
+TEST_CASE("Keywords")
+{
+  auto tokens = std::vector<Token>{
+      "break",  "case",  "catch",      "continue", "debugger", "default",
+      "delete", "do",    "else",       "finally",  "for",      "function",
+      "if",     "in",    "instanceof", "new",      "return",   "switch",
+      "this",   "throw", "try",        "typeof",   "var",      "void",
+      "while",  "with"};
 
-  SECTION(
-      "compared to another compile time token with the same content is equal")
-  {
-    REQUIRE(subject == Token("break"));
-  }
+  for (const auto& token : tokens) {
 
-  SECTION("compared to an explicit compile time token with the same content is "
-          "equal")
-  {
-    REQUIRE(subject == Token::keyword("break"));
-  }
+    REQUIRE(token.is_identifier_name());
+    REQUIRE(token.is_keyword());
 
-  SECTION("compared to a runtime token with the same content is equal")
-  {
-    std::string s = "break";
-    REQUIRE(subject == Token(s.begin(), s.end()));
-  }
-
-  SECTION(
-      "compared to a runtime token with the same content in UTF-16 is equal")
-  {
-    auto source = u"break";
-    REQUIRE(subject == Token(source, source + 5));
+    REQUIRE_FALSE(token.is_empty());
+    REQUIRE_FALSE(token.is_identifier());
+    REQUIRE_FALSE(token.is_future_reserved_word());
+    REQUIRE_FALSE(token.is_punctuator());
+    REQUIRE_FALSE(token.is_null_literal());
+    REQUIRE_FALSE(token.is_boolean_literal());
+    REQUIRE_FALSE(token.is_numeric_literal());
+    REQUIRE_FALSE(token.is_string_literal());
+    REQUIRE_FALSE(token.is_regular_expression_literal());
   }
 }
 
-TEST_CASE("A random string")
+TEST_CASE("Get/Set")
 {
-
-  // Token subject(u"random string");
-
-  // REQUIRE(subject.is_identifier());
+  REQUIRE(Token("get").string_value() == u"get");
 }
-
-TEST_CASE("keywords")
-{
-  REQUIRE(*Token::keyword("break").to_keyword() == "break");
-}
-
-// TEST_CASE("x")
-// {
-//   std::vector<std::string> punctuators = {
-//     "!", "!=", "!==", "%", "%=", "&", "&&", "&=", "(", ")", "*", "*=", "+",
-//     "++", "+=", ",", "-", "--", "-=", ".", ":", ";", "<", "<<", "<<=", "<=",
-//     "=", "==", "===", ">", ">=", ">>", ">>=", ">>>", ">>>=", "?", "[", "]",
-//     "^",
-//     "^=", "{", "|", "|=", "||", "}", "~"
-//   };
-
-//   while (!punctuators.empty()) {
-//     Token subject { Token::Type::PUNCTUATOR, punctuators.back() };
-//     punctuators.pop_back();
-
-//     REQUIRE(subject.is_punctuator());
-
-//     for (auto i : punctuators) REQUIRE(subject != i);
-
-//   }
-
-// }
