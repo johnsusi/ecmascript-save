@@ -2,6 +2,7 @@
 #define ECMASCRIPT_JSON_VISITOR_H
 
 #include "basic_visitor.h"
+#include "to_string.h"
 #include "util.h"
 
 #include <numeric>
@@ -96,6 +97,14 @@ class JSONVisitor : public BasicVisitor {
     return accumulate(str.begin(), str.end(), std::string("\""), encode) + "\"";
   }
 
+  void operator()(const Elision &el) override {
+    buf << "null";
+    for (std::size_t i = 1; i < el.count; ++i) {
+      buf << ","
+          << "null";
+    }
+  }
+
   void operator()(const Identifier &id) override {
     // buf << "{" << quote("type") << ":" << quote("IdentifierExpression");
     // buf << "," << quote("identifier") << ":";
@@ -128,11 +137,7 @@ class JSONVisitor : public BasicVisitor {
 
   void operator()(const NumericLiteral &literal) override {
     buf << "{" << quote("type") << ":" << quote("LiteralNumericExpression");
-    buf << "," << quote("value") << ":";
-    auto value = std::to_string(literal.value);
-    value.erase(value.find_last_not_of('0') + 1, std::string::npos);
-    value.erase(value.find_last_not_of('.') + 1, std::string::npos);
-    buf << value;
+    buf << "," << quote("value") << ":" << ToString(literal.value);
     buf << "}";
   }
 
@@ -151,7 +156,23 @@ class JSONVisitor : public BasicVisitor {
   }
 
   void operator()(const ArrayLiteral &literal) override {
-    apply(literal.elements);
+
+    buf << "[";
+    auto it = literal.elements->begin();
+    auto end = literal.elements->end();
+    if (it != end)
+      apply(*it++);
+    while (it != end) {
+      buf << ",";
+      apply(*it++);
+    }
+    if (auto el = literal.elision) {
+      for (std::size_t i = 1; i < el->count; ++i) {
+        buf << ","
+            << "null";
+      }
+    }
+    buf << "]";
   }
 
   void operator()(const ObjectLiteral &literal) override {
@@ -300,7 +321,10 @@ class JSONVisitor : public BasicVisitor {
     buf << "," << quote("callee") << ":";
     apply(expr.callee);
     buf << "," << quote("arguments") << ":";
-    apply(expr.arguments);
+    if (expr.arguments)
+      apply(expr.arguments);
+    else
+      buf << "[]";
     buf << "}";
   }
 
