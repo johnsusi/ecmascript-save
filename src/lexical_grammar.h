@@ -226,8 +226,9 @@ public:
   {
     token_value = Token("null");
     auto i      = match.mark();
-    if (identifier_name()) {
-      token_value = Token::identifier_name(std::u16string{i, match.mark()});
+    sv          = {};
+    if (identifier_name()) { // std::u16string{i, match.mark()}
+      token_value = Token::identifier_name(sv);
       return true;
     }
     if (punctuator()) {
@@ -257,16 +258,28 @@ public:
 
   bool identifier_start()
   {
-    return unicode_letter() || match('$') || match('_') || match([this] {
-             return match('\\') && unicode_escape_sequence();
-           });
+    if (unicode_letter() || match.any_of('$', '_')) {
+      sv += *match;
+      return true;
+    }
+    if (match([this] { return match('\\') && unicode_escape_sequence(); })) {
+      sv += cv;
+      return true;
+    }
+    return false;
   }
 
   bool identifier_part()
   {
-    return identifier_start() || unicode_combining_mark() || unicode_digit()
-           || unicode_connector_punctuation()
-           || match(0x200C) /* <ZWNJ> */ || match(0x200D) /* <ZWJ> */;
+    if (identifier_start()) return true;
+    if (unicode_combining_mark() || unicode_digit()
+        || unicode_connector_punctuation()
+        || match.any_of(0x200C, 0x200D)) {
+      sv += *match;
+
+      return true;
+    }
+    return false;
   }
 
   bool unicode_letter() { return match(is_unicode_letter); }

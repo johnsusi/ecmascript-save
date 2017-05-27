@@ -126,9 +126,35 @@ class SimplifiedYAMLVisitor : public BasicVisitor {
     buf << "Block" << indent << stmt.body << unindent;
   }
 
+  void operator()(const EmptyStatement&) override { buf << "EmptyStatement"; }
+
   void operator()(const ExpressionStatement& stmt) override
   {
     buf << "ExpressionStatement" << indent << stmt.expression << unindent;
+  }
+
+  void operator()(const IfStatement& stmt) override
+  {
+    buf << "IfStatement" << indent << stmt.test << stmt.consequent
+        << stmt.alternate << unindent;
+  }
+
+  void operator()(const ForStatement& stmt) override
+  {
+    buf << "ForStatement" << indent;
+    if (stmt.init)
+      buf << stmt.init;
+    else
+      buf << "null";
+    if (stmt.test)
+      buf << stmt.test;
+    else
+      buf << "null";
+    if (stmt.update)
+      buf << stmt.update;
+    else
+      buf << "null";
+    buf << stmt.body << unindent;
   }
 
   void operator()(const ContinueStatement& stmt) override
@@ -144,6 +170,11 @@ class SimplifiedYAMLVisitor : public BasicVisitor {
   void operator()(const ReturnStatement& stmt) override
   {
     buf << "ReturnStatement" << indent << stmt.argument << unindent;
+  }
+
+  void operator()(const LabelledStatement& stmt) override
+  {
+    buf << "LabelledStatement" << indent << stmt.label << stmt.body << unindent;
   }
 
   void operator()(const Program& program) override

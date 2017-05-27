@@ -18,7 +18,7 @@ Program parse(std::string source)
   return parser.parse();
 }
 
-bool operator==(const Program &program, const std::string &expected)
+bool operator==(const Program& program, const std::string& expected)
 {
   SimplifiedYAMLVisitor yaml;
   program.accept(yaml);
@@ -29,7 +29,7 @@ bool operator==(const Program &program, const std::string &expected)
   return lhs == rhs;
 }
 
-std::ostream &operator<<(std::ostream &out, const Program &program)
+std::ostream& operator<<(std::ostream& out, const Program& program)
 {
   SimplifiedYAMLVisitor yaml;
   program.accept(yaml);
@@ -72,5 +72,65 @@ TEST_CASE("7.9.2 Automatic Semicolon Insertion")
       ExpressionStatement
         ++
           c
+  )");
+}
+
+TEST_CASE("EmptyStatement")
+{
+  REQUIRE(parse(";") == R"(
+    Program
+      EmptyStatement
+  )");
+  REQUIRE(parse(";;") == R"(
+    Program
+      EmptyStatement
+      EmptyStatement
+  )");
+}
+
+TEST_CASE("IfStatement")
+{
+  REQUIRE(parse("if (true);") == R"(
+    Program
+      IfStatement
+        true
+        EmptyStatement
+  )");
+
+  REQUIRE(parse("if (true);else;") == R"(
+    Program
+      IfStatement
+        true
+        EmptyStatement
+        EmptyStatement
+  )");
+}
+
+TEST_CASE("ForStatement")
+{
+  REQUIRE(parse("for(;;);") == R"(
+    Program
+      ForStatement
+        null
+        null
+        null
+        EmptyStatement
+  )");
+}
+
+TEST_CASE("LabelledStatement")
+{
+  REQUIRE(parse("t:;") == R"(
+    Program
+      LabelledStatement
+        t
+        EmptyStatement
+  )");
+  REQUIRE(parse("t:t;") == R"(
+    Program
+      LabelledStatement
+        t
+        ExpressionStatement
+          t
   )");
 }

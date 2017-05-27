@@ -92,7 +92,7 @@ class Parser {
   T* peek_at()
   {
     if (auto value = dynamic_cast<T*>(*(stack.end() - I))) {
-      log([&](auto& log) { log << "pop " << demangle(value) << "\n"; });
+      log([&](auto& log) { log << "peek " << demangle(value) << "\n"; });
       return value;
     }
     else
@@ -121,6 +121,12 @@ class Parser {
       stack.push_back(value);
       return value;
     });
+  }
+
+  template <typename T>
+  bool last_match_is_a()
+  {
+    return !(stack.empty() || !dynamic_cast<T*>(stack.back()));
   }
 
   bool no_line_terminator_here()
@@ -307,7 +313,13 @@ class Parser {
   bool property_assignment()
   {
     trace("property_assignment");
-    if (match("get")) {
+    if (match.lookahead(":")) {
+      if (!property_name()) return false;
+      if (!match(":") || !assignment_expression()) syntax_error();
+      replace<PropertyAssignment, PropertyName, Expression>();
+      return true;
+    }
+    else if (match("get")) {
       if (!property_name() || !match("(") || !match(")") || !match("{")
           || !function_body()
           || !match("}"))
@@ -323,11 +335,6 @@ class Parser {
           || !match("}"))
         syntax_error("set");
       replace<PropertyAssignment, PropertyName, Identifier, FunctionBody>();
-      return true;
-    }
-    else if (property_name()) {
-      if (!match(":") || !assignment_expression()) syntax_error("other");
-      replace<PropertyAssignment, PropertyName, Expression>();
       return true;
     }
     else
@@ -362,15 +369,24 @@ class Parser {
   bool member_expression()
   {
     trace("member_expression");
-    if (!primary_expression() && !function_expression()) return false;
+    if (match("new")) {
+      if (!member_expression()) return false;
+      if (!arguments()) {
+        // new NewExpression
+        replace<NewExpression, Expression>();
+        return true;
+      }
+      replace<NewExpression, Expression, Arguments>();
+    }
+    else if (!primary_expression() && !function_expression())
+      return false;
     while (true) {
       if (match("[")) {
         if (!expression() || !match("]")) syntax_error();
         replace<MemberExpression, Expression, Expression>();
       }
-      if (match(".")) {
+      else if (match(".")) {
         if (!identifier_name()) syntax_error();
-        // emplace<Identifier>(*match);
         replace<MemberExpression, Expression, Identifier>();
       }
       else
@@ -382,11 +398,32 @@ class Parser {
   bool new_expression()
   {
     trace("new_expression");
-    if (!match("new")) return member_expression();
-    if (!new_expression()) syntax_error();
-    auto expr = replace<NewExpression, Expression>();
+    return member_expression();
+  }
 
-    if (arguments()) expr->arguments = pop<Arguments>();
+  bool call_expression()
+  {
+    trace("call_expression");
+    // if (!last_match_is_a<MemberExpression>()
+    //     && !last_match_is_a<NewExpression>())
+    //   return false;
+    if (!arguments()) return false;
+    replace<CallExpression, Expression, Arguments>();
+    while (true) {
+      if (arguments()) {
+        replace<CallExpression, Expression, Arguments>();
+      }
+      else if (match("[")) {
+        if (!expression() || !match("]")) syntax_error();
+        replace<MemberExpression, Expression, Expression>();
+      }
+      else if (match(".")) {
+        if (!identifier_name()) syntax_error();
+        replace<MemberExpression, Expression, Identifier>();
+      }
+      else
+        break;
+    }
     return true;
   }
 
@@ -418,31 +455,7 @@ class Parser {
   {
     trace("left_hand_side_expression");
     if (!new_expression()) return false;
-    if (arguments()) {
-      replace<CallExpression, Expression, Arguments>();
-      while (true) {
-
-        if (arguments()) {
-
-          replace<CallExpression, Expression, Arguments>();
-          continue;
-        }
-        else if (match("[")) {
-          if (!expression() || !match("]")) syntax_error();
-          replace<MemberExpression, Expression, Expression>();
-          continue;
-        }
-        else if (match(".")) {
-          if (!identifier_name()) syntax_error();
-          // emplace<Identifier>(match);
-          // emplace<Identifier>(*match->to_identifier());
-          replace<MemberExpression, Expression, Expression>();
-          continue;
-        }
-        else
-          break;
-      }
-    }
+    call_expression();
     return true;
   }
 
@@ -871,7 +884,8 @@ class Parser {
   bool expression_statement()
   {
     trace("expression_statement");
-    if (match.peek("{") || match.peek("function") || !expression())
+    if (match.peek("{") || match.peek("function") || match.lookahead(":")
+        || !expression())
       return false;
     if (!automatic_semicolon_insertion()) syntax_error();
     replace<ExpressionStatement, Expression>();
@@ -938,10 +952,16 @@ class Parser {
         }
         stmt = replace<ForStatement, VariableDeclarationList>();
       }
-      else if (expression(), match(";"))
-        stmt = replace<ForStatement, Expression>();
-      else
-        return false;
+      else {
+        if (expression())
+          stmt = replace<ForStatement, Expression>();
+        else
+          stmt = emplace<ForStatement>();
+        if (!match(";")) {
+          pop<ForStatement>();
+          return false;
+        }
+      }
       stmt->test = expression() ? pop<Expression>() : nullptr;
       if (!match(";")) syntax_error("Expected ;");
       stmt->update = expression() ? pop<Expression>() : nullptr;
@@ -1068,12 +1088,14 @@ class Parser {
   bool labelled_statement()
   {
     trace("labelled_statement");
-    if (!identifier()) return false;
-    if (!match(":") || !statement()) syntax_error();
-    auto stmt  = pop<Statement>();
-    auto label = pop<Identifier>();
-    emplace<LabelledStatement>(label, stmt);
-    return true;
+    return match([this] {
+      if (!identifier() || !match(":")) return false;
+      if (!statement()) syntax_error();
+      auto stmt  = pop<Statement>();
+      auto label = pop<Identifier>();
+      emplace<LabelledStatement>(label, stmt);
+      return true;
+    });
   }
 
   bool throw_statement()
