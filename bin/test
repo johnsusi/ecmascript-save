@@ -7,21 +7,23 @@ const { green, yellow, red } = require("colors/safe");
 
 let keepGoing = true;
 
-const blackList = /^.*(S7.3_A7_T.|Sbp_7.9_A9_T(3|4)|S7.6.1.2.*ns).js$/i;
+const blackList = /^.*(S7.3_A7_T.|Sbp_7.9_A9_T(3|4)|S7.6.1.2.*ns|S7.9_A8_T4).js$/i;
 
 const whiteListData = [];
 
 for (var i = 2; i < process.argv.length; i++) {
   if (process.argv[i] === "-k" || process.argv[i] === "--keep-going") {
     keepGoing = true;
-  } else if (process.argv[i][0] == '-') {
+  } else if (process.argv[i][0] == "-") {
     errorExit("Unknown argument: " + process.argv[i]);
   } else {
     whiteListData.push(process.argv[i]);
   }
 }
 
-const whiteList = whiteListData.length == 0 ? /.*/ : new RegExp( whiteListData.join("|"), 'i' );
+const whiteList = whiteListData.length == 0
+  ? /.*/
+  : new RegExp(whiteListData.join("|"), "i");
 
 glob(
   resolve(__dirname, "../vendor/test262/test/suite/**/*.js"),
@@ -37,7 +39,7 @@ glob(
 );
 
 function diff(path) {
-  return spawn(__dirname + "/diff_ast", ['-s', path])
+  return spawn(__dirname + "/diff_ast", ["-s", path])
     .then(() => console.log(`${path} ${green("OK")}`))
     .catch(err => {
       if (blackList.test(path)) console.log(`${path} ${yellow("BLACKLISTED")}`);
@@ -47,8 +49,6 @@ function diff(path) {
     });
 }
 
-function negativeTest(path)
-{
-  return readFileSync(path, 'utf-8').indexOf("@negative") != -1;
+function negativeTest(path) {
+  return readFileSync(path, "utf-8").indexOf("@negative") != -1;
 }
-

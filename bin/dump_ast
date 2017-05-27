@@ -1,32 +1,31 @@
 #!/usr/bin/env node
 
-var fs   = require('fs');
-var path = require('path');
+var fs = require("fs");
+var path = require("path");
 
 const { parseScript: from_js } = require("shift-parser");
-const { safeDump: to_yaml }    = require('js-yaml');
+const { safeDump: to_yaml } = require("js-yaml");
 
 var source;
 var json = false;
 
 for (var i = 2; i < process.argv.length; i++) {
-  if (process.argv[i] === '-e' || process.argv[i] === '--eval') {
+  if (process.argv[i] === "-e" || process.argv[i] === "--eval") {
     source = process.argv[++i];
-  } else if (process.argv[i] === '-j' || process.argv[i] === '--json') {
+  } else if (process.argv[i] === "-j" || process.argv[i] === "--json") {
     json = true;
-  } else if (process.argv[i][0] === '-') {
-    errorExit('Unknown argument: ' + process.argv[i]);
-  }
-  else {
-    source = fs.readFileSync(process.argv[i], 'utf-8');
+  } else if (process.argv[i][0] === "-") {
+    errorExit("Unknown argument: " + process.argv[i]);
+  } else {
+    source = fs.readFileSync(process.argv[i], "utf-8");
   }
 }
 
 if (json) console.log(to_json(from_js(source)));
-else      console.log(to_yaml(from_js(source)));
+else console.log(to_yaml(from_js(source)));
 
 function errorExit(msg) {
-  process.stderr.write(msg + '\n');
+  process.stderr.write(msg + "\n");
   process.exit(1);
 }
 
