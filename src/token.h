@@ -11,38 +11,36 @@
 #include <utility>
 #include <vector>
 
-std::u16string& create_static_string(std::u16string value);
+std::u16string &create_static_string(std::u16string value);
 
 class Token {
 
   using type_t = std::size_t;
 
   // Lower 7 bits reserved for type index [0 94).
-  static const type_t IDENTIFIER                 = 0b0000000010000000;
-  static const type_t KEYWORD                    = 0b0000000100000000;
-  static const type_t PUNCTUATOR                 = 0b0000001000000000;
-  static const type_t FUTURE_RESERVED_WORD       = 0b0000010000000000;
-  static const type_t NULL_LITERAL               = 0b0000100000000000;
-  static const type_t BOOLEAN_LITERAL            = 0b0001000000000000;
-  static const type_t NUMERIC_LITERAL            = 0b0010000000000000;
-  static const type_t STRING_LITERAL             = 0b0100000000000000;
+  static const type_t IDENTIFIER = 0b0000000010000000;
+  static const type_t KEYWORD = 0b0000000100000000;
+  static const type_t PUNCTUATOR = 0b0000001000000000;
+  static const type_t FUTURE_RESERVED_WORD = 0b0000010000000000;
+  static const type_t NULL_LITERAL = 0b0000100000000000;
+  static const type_t BOOLEAN_LITERAL = 0b0001000000000000;
+  static const type_t NUMERIC_LITERAL = 0b0010000000000000;
+  static const type_t STRING_LITERAL = 0b0100000000000000;
   static const type_t REGULAR_EXPRESSION_LITERAL = 0b1000000000000000;
 
   static const type_t RESERVED_WORD =
       KEYWORD | FUTURE_RESERVED_WORD | NULL_LITERAL | BOOLEAN_LITERAL;
 
   template <typename T1, typename T2>
-  static constexpr bool less(const T1* lhs, const T2* rhs)
-  {
+  static constexpr bool less(const T1 *lhs, const T2 *rhs) {
     for (; *lhs || *rhs; ++lhs, ++rhs)
-      if (*lhs != *rhs) return *lhs < *rhs;
+      if (*lhs != *rhs)
+        return *lhs < *rhs;
     return false;
   }
 
-  template <typename T>
-  static constexpr type_t type(const T* str)
-  {
-    std::initializer_list<std::pair<const char*, type_t>> tokens{
+  template <typename T> static constexpr type_t type(const T *str) {
+    std::initializer_list<std::pair<const char *, type_t>> tokens{
         {"!", PUNCTUATOR | 1},
         {"!=", PUNCTUATOR | 2},
         {"!==", PUNCTUATOR | 3},
@@ -143,319 +141,410 @@ class Token {
     auto count = tokens.size();
     auto first = tokens.begin();
     while (count > 0) {
-      auto it   = first;
+      auto it = first;
       auto step = count / 2;
       it += step;
       if (less(it->first, str)) {
         first = ++it;
         count -= step + 1;
-      }
-      else
+      } else
         count = step;
     }
 
-    if (first == tokens.end() || less(str, first->first)) return 0;
+    if (first == tokens.end() || less(str, first->first))
+      return 0;
     return first->second;
   }
 
   type_t m_type;
 
   union value_t {
-    std::nullptr_t  empty;
-    double          numeric_value;
-    std::u16string* string_value;
+    std::nullptr_t empty;
+    double numeric_value;
+    std::u16string *string_value;
     constexpr value_t() : empty(nullptr) {}
     constexpr value_t(double value) : numeric_value(value) {}
-    constexpr value_t(std::u16string* value) : string_value(value) {}
+    constexpr value_t(std::u16string *value) : string_value(value) {}
   } m_value;
 
   bool m_lt = false;
 
   template <typename Value>
   constexpr explicit Token(type_t type, Value value)
-      : m_type(type), m_value(value)
-  {
+      : m_type(type), m_value(value) {
     // if (type == 0) throw std::logic_error("");
   }
 
   constexpr explicit Token(type_t type) : Token(type, nullptr) {}
 
 public:
-  static Token identifier(std::u16string value)
-  {
+  static Token identifier(std::u16string value) {
     return Token(IDENTIFIER, &create_static_string(std::move(value)));
   }
 
-  static Token identifier_name(std::u16string value)
-  {
+  static Token identifier_name(std::u16string value) {
     if (auto t = type(value.data())) {
       return Token(t);
-    }
-    else {
+    } else {
       return Token(IDENTIFIER, &create_static_string(std::move(value)));
     }
   }
   static constexpr Token null_literal() { return Token(nullptr); }
-  constexpr static Token punctuator(const char* str) { return Token(str); }
-  static Token punctuator(const std::u16string& str) { return Token(str); }
+  constexpr static Token punctuator(const char *str) { return Token(str); }
+  static Token punctuator(const std::u16string &str) { return Token(str); }
   static Token numeric_literal(double value) { return Token(value); }
-  static Token string_literal(std::u16string value)
-  {
+  static Token string_literal(std::u16string value) {
     return Token(STRING_LITERAL, &create_static_string(std::move(value)));
+  }
+  static Token regular_expression_literal(std::u16string value) {
+    return Token(REGULAR_EXPRESSION_LITERAL,
+                 &create_static_string(std::move(value)));
   }
   struct DebugInfo {
     virtual std::string syntax_error_at() const = 0;
-    virtual std::string loc() const             = 0;
+    virtual std::string loc() const = 0;
   };
 
-  DebugInfo* debug_info = nullptr;
+  DebugInfo *debug_info = nullptr;
 
-  Token(const std::u16string& str) : Token(type(str.data())) {}
+  Token(const std::u16string &str) : Token(type(str.data())) {}
 
   constexpr Token() : Token(0, nullptr) {}
 
-  constexpr Token(const char* str) : Token(type(str))
-  {
-    if (m_type == 0) throw std::logic_error("Cannot create compile time token");
+  constexpr Token(const char *str) : Token(type(str)) {
+    if (m_type == 0)
+      throw std::logic_error("Cannot create compile time token");
   }
 
-  constexpr Token(const char16_t* str) : Token(type(str)) {}
+  constexpr Token(const char16_t *str) : Token(type(str)) {}
 
   constexpr Token(std::nullptr_t) : Token(type("null")) {}
 
   constexpr explicit Token(bool value)
-      : Token(value ? type("true") : type("false"))
-  {
-  }
+      : Token(value ? type("true") : type("false")) {}
 
   constexpr Token(double value) : Token(NUMERIC_LITERAL, value) {}
 
-  constexpr Token(std::u16string* value) : Token(STRING_LITERAL, value) {}
+  constexpr Token(std::u16string *value) : Token(STRING_LITERAL, value) {}
 
-  constexpr Token(const Token&) = default;
+  constexpr Token(const Token &) = default;
 
-  constexpr Token(Token&&) = default;
+  constexpr Token(Token &&) = default;
 
   ~Token() = default;
 
-  constexpr Token& operator=(const Token&) = default;
+  constexpr Token &operator=(const Token &) = default;
 
-  constexpr Token& operator=(Token&&) = default;
+  constexpr Token &operator=(Token &&) = default;
 
   constexpr type_t type() const { return m_type; }
 
   constexpr operator type_t() const { return m_type; }
 
-  constexpr bool is_identifier() const
-  {
+  constexpr bool is_identifier() const {
     return (m_type & IDENTIFIER) == IDENTIFIER;
   }
 
-  constexpr bool is_identifier_name() const
-  {
+  constexpr bool is_identifier_name() const {
     return is_identifier() || is_reserved_word();
   }
 
-  constexpr bool is_reserved_word() const
-  {
+  constexpr bool is_reserved_word() const {
     return (m_type & RESERVED_WORD) > 0;
   }
 
   constexpr bool is_keyword() const { return (m_type & KEYWORD) == KEYWORD; }
 
-  constexpr bool is_future_reserved_word() const
-  {
+  constexpr bool is_future_reserved_word() const {
     return (m_type & FUTURE_RESERVED_WORD) == FUTURE_RESERVED_WORD;
   }
 
-  constexpr bool is_punctuator() const
-  {
+  constexpr bool is_punctuator() const {
     return (m_type & PUNCTUATOR) == PUNCTUATOR;
   }
 
-  constexpr bool is_null_literal() const
-  {
+  constexpr bool is_null_literal() const {
     return (m_type & NULL_LITERAL) == NULL_LITERAL;
   }
 
-  constexpr bool is_boolean_literal() const
-  {
+  constexpr bool is_boolean_literal() const {
     return (m_type & BOOLEAN_LITERAL) == BOOLEAN_LITERAL;
   }
 
-  constexpr bool is_numeric_literal() const
-  {
+  constexpr bool is_numeric_literal() const {
     return (m_type & NUMERIC_LITERAL) == NUMERIC_LITERAL;
   }
 
-  constexpr bool is_string_literal() const
-  {
+  constexpr bool is_string_literal() const {
     return (m_type & STRING_LITERAL) == STRING_LITERAL;
   }
 
-  constexpr bool is_regular_expression_literal() const
-  {
+  constexpr bool is_regular_expression_literal() const {
     return (m_type & REGULAR_EXPRESSION_LITERAL) == REGULAR_EXPRESSION_LITERAL;
   }
 
-  constexpr bool boolean_value() const
-  {
+  constexpr bool boolean_value() const {
     switch (m_type) {
-    case type("true"): return true;
-    case type("false"): return false;
-    default: throw std::runtime_error("Invalid type");
+    case type("true"):
+      return true;
+    case type("false"):
+      return false;
+    default:
+      throw std::runtime_error("Invalid type");
     }
   }
 
   constexpr double numeric_value() const { return m_value.numeric_value; }
 
-  std::u16string string_value() const
-  {
-    if (is_reserved_word()) return convert_utf8_to_utf16(to_string());
+  std::u16string string_value() const {
+    if (is_reserved_word())
+      return convert_utf8_to_utf16(to_string());
     return *m_value.string_value;
   }
 
-  constexpr bool operator==(const Token& other) const
-  {
-    if (type() != other.type()) return false;
+  constexpr bool operator==(const Token &other) const {
+    if (type() != other.type())
+      return false;
     switch (type()) {
-    case NULL_LITERAL: return true;
-    case BOOLEAN_LITERAL: return boolean_value() == other.boolean_value();
-    case NUMERIC_LITERAL: return numeric_value() == other.numeric_value();
-    case STRING_LITERAL: return string_value() == other.string_value();
-    case REGULAR_EXPRESSION_LITERAL: return false;
-    default: return true;
+    case NULL_LITERAL:
+      return true;
+    case BOOLEAN_LITERAL:
+      return boolean_value() == other.boolean_value();
+    case NUMERIC_LITERAL:
+      return numeric_value() == other.numeric_value();
+    case STRING_LITERAL:
+      return string_value() == other.string_value();
+    case REGULAR_EXPRESSION_LITERAL:
+      return string_value() == other.string_value();
+    default:
+      return true;
     }
   }
 
-  constexpr bool operator!=(const Token& other) const
-  {
+  constexpr bool operator!=(const Token &other) const {
     return !operator==(other);
   }
 
-  constexpr bool any_of(std::initializer_list<Token> tokens) const
-  {
+  constexpr bool any_of(std::initializer_list<Token> tokens) const {
     for (auto it = tokens.begin(); it != tokens.end(); ++it)
-      if (*this == *it) return true;
+      if (*this == *it)
+        return true;
     return false;
   }
 
-  template <typename... Args>
-  constexpr bool any_of(Args&&... args) const
-  {
+  template <typename... Args> constexpr bool any_of(Args &&... args) const {
     return any_of(std::initializer_list<Token>{std::forward<Args>(args)...});
   }
 
   operator std::string() const { return to_string(); }
 
-  std::string to_string() const
-  {
+  std::string to_string() const {
     switch (m_type) {
-    case type("!"): return "!";
-    case type("!="): return "!=";
-    case type("!=="): return "!==";
-    case type("%"): return "%";
-    case type("%="): return "%=";
-    case type("&"): return "&";
-    case type("&&"): return "&&";
-    case type("&="): return "&=";
-    case type("("): return "(";
-    case type(")"): return ")";
-    case type("*"): return "*";
-    case type("*="): return "*=";
-    case type("+"): return "+";
-    case type("++"): return "++";
-    case type("+="): return "+=";
-    case type(","): return ",";
-    case type("-"): return "-";
-    case type("--"): return "--";
-    case type("-="): return "-=";
-    case type("."): return ".";
-    case type("/"): return "/";
-    case type("/="): return "/=";
-    case type(":"): return ":";
-    case type(";"): return ";";
-    case type("<"): return "<";
-    case type("<<"): return "<<";
-    case type("<<="): return "<<=";
-    case type("<="): return "<=";
-    case type("="): return "=";
-    case type("=="): return "==";
-    case type("==="): return "===";
-    case type(">"): return ">";
-    case type(">="): return ">=";
-    case type(">>"): return ">>";
-    case type(">>="): return ">>=";
-    case type(">>>"): return ">>>";
-    case type(">>>="): return ">>>=";
-    case type("?"): return "?";
-    case type("["): return "[";
-    case type("]"): return "]";
-    case type("^"): return "^";
-    case type("^="): return "^=";
-    case type("break"): return "break";
-    case type("case"): return "case";
-    case type("catch"): return "catch";
-    case type("class"): return "class";
-    case type("const"): return "const";
-    case type("continue"): return "continue";
-    case type("debugger"): return "debugger";
-    case type("default"): return "default";
-    case type("delete"): return "delete";
-    case type("do"): return "do";
-    case type("else"): return "else";
-    case type("enum"): return "enum";
-    case type("export"): return "export";
-    case type("extends"): return "extends";
-    case type("false"): return "false";
-    case type("finally"): return "finally";
-    case type("for"): return "for";
-    case type("function"): return "function";
-    case type("get"): return "get";
-    case type("if"): return "if";
-    case type("implements"): return "implements";
-    case type("import"): return "import";
-    case type("in"): return "in";
-    case type("instanceof"): return "instanceof";
-    case type("interface"): return "interface";
-    case type("let"): return "let";
-    case type("new"): return "new";
-    case type("null"): return "null";
-    case type("package"): return "package";
-    case type("private"): return "private";
-    case type("protected"): return "protected";
-    case type("public"): return "public";
-    case type("return"): return "return";
-    case type("set"): return "set";
-    case type("static"): return "static";
-    case type("super"): return "super";
-    case type("switch"): return "switch";
-    case type("this"): return "this";
-    case type("throw"): return "throw";
-    case type("true"): return "true";
-    case type("try"): return "try";
-    case type("typeof"): return "typeof";
-    case type("var"): return "var";
-    case type("void"): return "void";
-    case type("while"): return "while";
-    case type("with"): return "with";
-    case type("yield"): return "yield";
-    case type("{"): return "{";
-    case type("|"): return "|";
-    case type("|="): return "|=";
-    case type("||"): return "||";
-    case type("}"): return "}";
-    case type("~"): return "~";
-    case NUMERIC_LITERAL: return std::to_string(numeric_value());
-    case STRING_LITERAL: return convert_utf16_to_utf8(string_value());
-    case IDENTIFIER: return convert_utf16_to_utf8(string_value());
+    case type("!"):
+      return "!";
+    case type("!="):
+      return "!=";
+    case type("!=="):
+      return "!==";
+    case type("%"):
+      return "%";
+    case type("%="):
+      return "%=";
+    case type("&"):
+      return "&";
+    case type("&&"):
+      return "&&";
+    case type("&="):
+      return "&=";
+    case type("("):
+      return "(";
+    case type(")"):
+      return ")";
+    case type("*"):
+      return "*";
+    case type("*="):
+      return "*=";
+    case type("+"):
+      return "+";
+    case type("++"):
+      return "++";
+    case type("+="):
+      return "+=";
+    case type(","):
+      return ",";
+    case type("-"):
+      return "-";
+    case type("--"):
+      return "--";
+    case type("-="):
+      return "-=";
+    case type("."):
+      return ".";
+    case type("/"):
+      return "/";
+    case type("/="):
+      return "/=";
+    case type(":"):
+      return ":";
+    case type(";"):
+      return ";";
+    case type("<"):
+      return "<";
+    case type("<<"):
+      return "<<";
+    case type("<<="):
+      return "<<=";
+    case type("<="):
+      return "<=";
+    case type("="):
+      return "=";
+    case type("=="):
+      return "==";
+    case type("==="):
+      return "===";
+    case type(">"):
+      return ">";
+    case type(">="):
+      return ">=";
+    case type(">>"):
+      return ">>";
+    case type(">>="):
+      return ">>=";
+    case type(">>>"):
+      return ">>>";
+    case type(">>>="):
+      return ">>>=";
+    case type("?"):
+      return "?";
+    case type("["):
+      return "[";
+    case type("]"):
+      return "]";
+    case type("^"):
+      return "^";
+    case type("^="):
+      return "^=";
+    case type("break"):
+      return "break";
+    case type("case"):
+      return "case";
+    case type("catch"):
+      return "catch";
+    case type("class"):
+      return "class";
+    case type("const"):
+      return "const";
+    case type("continue"):
+      return "continue";
+    case type("debugger"):
+      return "debugger";
+    case type("default"):
+      return "default";
+    case type("delete"):
+      return "delete";
+    case type("do"):
+      return "do";
+    case type("else"):
+      return "else";
+    case type("enum"):
+      return "enum";
+    case type("export"):
+      return "export";
+    case type("extends"):
+      return "extends";
+    case type("false"):
+      return "false";
+    case type("finally"):
+      return "finally";
+    case type("for"):
+      return "for";
+    case type("function"):
+      return "function";
+    case type("get"):
+      return "get";
+    case type("if"):
+      return "if";
+    case type("implements"):
+      return "implements";
+    case type("import"):
+      return "import";
+    case type("in"):
+      return "in";
+    case type("instanceof"):
+      return "instanceof";
+    case type("interface"):
+      return "interface";
+    case type("let"):
+      return "let";
+    case type("new"):
+      return "new";
+    case type("null"):
+      return "null";
+    case type("package"):
+      return "package";
+    case type("private"):
+      return "private";
+    case type("protected"):
+      return "protected";
+    case type("public"):
+      return "public";
+    case type("return"):
+      return "return";
+    case type("set"):
+      return "set";
+    case type("static"):
+      return "static";
+    case type("super"):
+      return "super";
+    case type("switch"):
+      return "switch";
+    case type("this"):
+      return "this";
+    case type("throw"):
+      return "throw";
+    case type("true"):
+      return "true";
+    case type("try"):
+      return "try";
+    case type("typeof"):
+      return "typeof";
+    case type("var"):
+      return "var";
+    case type("void"):
+      return "void";
+    case type("while"):
+      return "while";
+    case type("with"):
+      return "with";
+    case type("yield"):
+      return "yield";
+    case type("{"):
+      return "{";
+    case type("|"):
+      return "|";
+    case type("|="):
+      return "|=";
+    case type("||"):
+      return "||";
+    case type("}"):
+      return "}";
+    case type("~"):
+      return "~";
+    case NUMERIC_LITERAL:
+      return std::to_string(numeric_value());
+    case STRING_LITERAL:
+      return convert_utf16_to_utf8(string_value());
+    case REGULAR_EXPRESSION_LITERAL:
+      return convert_utf16_to_utf8(string_value());
+    case IDENTIFIER:
+      return convert_utf16_to_utf8(string_value());
     default:
-      throw std::runtime_error("Do not know what to do with Token of type "
-                               + std::to_string(m_type));
+      throw std::runtime_error("Do not know what to do with Token of type " +
+                               std::to_string(m_type));
     }
   }
 
-  void print(std::ostream& out) const { out << to_string(); }
+  void print(std::ostream &out) const { out << to_string(); }
 
   constexpr bool preceded_by_line_terminator() const { return m_lt; }
   constexpr void set_preceded_by_line_terminator() { m_lt = true; }
@@ -464,6 +553,6 @@ public:
   constexpr bool is_empty() const { return m_type == 0; }
 };
 
-std::ostream& operator<<(std::ostream& out, const Token& token);
+std::ostream &operator<<(std::ostream &out, const Token &token);
 
 #endif

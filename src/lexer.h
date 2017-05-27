@@ -8,25 +8,23 @@
 #include <string>
 #include <vector>
 
-std::u16string convert_utf8_to_utf16(const std::string&);
+#include <iostream>
 
-template <typename T>
-class BasicLexer {
+std::u16string convert_utf8_to_utf16(const std::string &);
+
+template <typename T> class BasicLexer {
   std::unique_ptr<LexicalGrammar<T>> grammar;
 
   using Iterator = std::u16string::const_iterator;
 
   struct DebugInfo : Token::DebugInfo {
     Iterator s, at, to;
-    int      col, row;
+    int col, row;
 
     DebugInfo(Iterator s, Iterator at, Iterator to, int col, int row)
-        : s(s), at(at), to(to), col(col), row(row)
-    {
-    }
+        : s(s), at(at), to(to), col(col), row(row) {}
 
-    std::string syntax_error_at() const override
-    {
+    std::string syntax_error_at() const override {
       auto it = at;
       while (!is_line_terminator(*it) && it != s) {
         --it;
@@ -36,33 +34,30 @@ class BasicLexer {
       return line1 + std::string{at, to} + "\n" + line2 + "^\n";
     }
 
-    std::string loc() const override
-    {
+    std::string loc() const override {
       return "[" + std::to_string(col) + ":" + std::to_string(row) + "]";
     }
   };
 
-  static bool reg_exp_allowed(const Token& token);
+  static bool reg_exp_allowed(const Token &token);
 
   std::u16string buffer;
 
   struct Tokens {
 
     struct storage_t {
-      std::vector<Token>                           tokens;
-      std::vector<std::unique_ptr<DebugInfo>>      debug_infos;
+      std::vector<Token> tokens;
+      std::vector<std::unique_ptr<DebugInfo>> debug_infos;
       std::vector<std::unique_ptr<std::u16string>> strings;
       storage_t() {}
-      storage_t(std::vector<Token>&& tokens) : tokens(tokens) {}
+      storage_t(std::vector<Token> &&tokens) : tokens(tokens) {}
     };
 
     std::shared_ptr<storage_t> storage;
 
     Tokens() {}
     Tokens(std::vector<Token> tokens)
-        : storage(std::make_shared<storage_t>(std::move(tokens)))
-    {
-    }
+        : storage(std::make_shared<storage_t>(std::move(tokens))) {}
 
     auto begin() const { return storage->tokens.begin(); }
     auto end() const { return storage->tokens.end(); }
@@ -80,34 +75,33 @@ public:
   BasicLexer(std::vector<Token> tokens) : m_tokens(tokens) {}
 
   template <typename It>
-  BasicLexer(It begin, It end) : grammar(new LexicalGrammar<T>(begin, end))
-  {
-  }
+  BasicLexer(It begin, It end) : grammar(new LexicalGrammar<T>(begin, end)) {}
 
-  BasicLexer(const std::u16string& str) : BasicLexer(str.begin(), str.end()) {}
+  BasicLexer(const std::u16string &str) : BasicLexer(str.begin(), str.end()) {}
 
-  BasicLexer(const std::string& str) : BasicLexer(convert_utf8_to_utf16(str)) {}
+  BasicLexer(const std::string &str) : BasicLexer(convert_utf8_to_utf16(str)) {}
 
-  Tokens tokens() const
-  {
-    if (m_tokens || !grammar) return m_tokens;
+  Tokens tokens() const {
+    if (m_tokens || !grammar)
+      return m_tokens;
     m_tokens.init();
-    bool lt  = false;
-    int  col = 0, row = 0;
-    bool re = false;
-    auto s  = grammar->match.mark();
-    auto m  = grammar->match.mark();
+    bool lt = false;
+    int col = 0, row = 0;
+    bool re = true;
+    auto s = grammar->match.mark();
+    auto m = grammar->match.mark();
     while (auto input_element = re ? grammar->input_element_reg_exp()
                                    : grammar->input_element_div()) {
+
       if (input_element.is_white_space())
         col++;
       else if (input_element.has_line_terminator()) {
-        lt  = true;
+        lt = true;
         col = 0;
         row++;
-      }
-      else if (auto token = input_element.to_token()) {
-        if (lt) token->set_preceded_by_line_terminator();
+      } else if (auto token = input_element.to_token()) {
+        if (lt)
+          token->set_preceded_by_line_terminator();
         m_tokens.storage->debug_infos.push_back(std::make_unique<DebugInfo>(
             s, m + 1, grammar->match.mark(), col, row));
         token->debug_info = m_tokens.storage->debug_infos.back().get();
@@ -123,9 +117,7 @@ public:
   }
 };
 
-template <typename T>
-bool BasicLexer<T>::reg_exp_allowed(const Token& token)
-{
+template <typename T> bool BasicLexer<T>::reg_exp_allowed(const Token &token) {
   return token.any_of("return", "new", "delete", "throw", "else", "case", "in",
                       "instanceof", "typeof", "new", "void", "delete", "+", "-",
                       "!", "~", "&", "|", "^", "*", "/", "%", ">>", "<<", ">>>",
@@ -136,38 +128,30 @@ bool BasicLexer<T>::reg_exp_allowed(const Token& token)
 
 using Lexer = BasicLexer<char16_t>;
 
-template <typename It>
-auto make_lexer(It f, It l)
-{
-  return Lexer{f, l};
-}
+template <typename It> auto make_lexer(It f, It l) { return Lexer{f, l}; }
 
-template <typename Cont>
-auto make_lexer(Cont&& cont)
-{
+template <typename Cont> auto make_lexer(Cont &&cont) {
   return make_lexer(std::begin(cont), std::end(cont));
 }
 
 template <typename T>
-bool operator==(const BasicLexer<T>& lhs, const BasicLexer<T>& rhs)
-{
+bool operator==(const BasicLexer<T> &lhs, const BasicLexer<T> &rhs) {
   return std::equal(lhs.tokens().begin(), lhs.tokens().end(),
                     rhs.tokens().begin(), rhs.tokens().end());
 }
 
 template <typename T>
-bool operator!=(const BasicLexer<T>& lhs, const BasicLexer<T>& rhs)
-{
+bool operator!=(const BasicLexer<T> &lhs, const BasicLexer<T> &rhs) {
   return !(lhs == rhs);
 }
 
 template <typename T>
-std::ostream& operator<<(std::ostream& out, const BasicLexer<T>& lexer)
-{
+std::ostream &operator<<(std::ostream &out, const BasicLexer<T> &lexer) {
   out << "[";
   auto it = lexer.tokens().begin();
   out << *it++;
-  while (it != lexer.tokens().end()) out << ", " << *it++;
+  while (it != lexer.tokens().end())
+    out << ", " << *it++;
   out << "]";
   return out;
 }
