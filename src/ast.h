@@ -33,6 +33,7 @@ template <typename T> struct List : virtual Node {
   auto begin() const { return data.begin(); }
   auto end() const { return data.end(); }
   auto operator[](std::size_t index) { return data[index]; }
+  auto size() const { return data.size(); }
 };
 
 struct This : Node {
