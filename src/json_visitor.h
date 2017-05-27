@@ -164,12 +164,16 @@ class JSONVisitor : public BasicVisitor {
       buf << "," << quote("value") << ":"
           << quote(convert_utf16_to_utf8(expr.identifier->value));
     }
-    // else if (expr.str) {
-    // }
-    // else if (expr.num) {
-    // }
-    else
-      buf << quote("todo");
+    else if (expr.str) {
+      buf << "," << quote("kind") << ":" << quote("string");
+      buf << "," << quote("value") << ":"
+          << quote(convert_utf16_to_utf8(expr.str->value));
+    }
+    else if (expr.num) {
+      buf << "," << quote("kind") << ":" << quote("number");
+      buf << "," << quote("value") << ":"
+          << "\"" << expr.num->value << "\"";
+    }
     buf << "}";
   }
 
@@ -272,6 +276,18 @@ class JSONVisitor : public BasicVisitor {
     apply(expr.callee);
     buf << "," << quote("arguments") << ":";
     apply(expr.arguments);
+    buf << "}";
+  }
+
+  void operator()(const ConditionalExpression& expr) override
+  {
+    buf << "{" << quote("type") << ":" << quote("ConditionalExpression");
+    buf << "," << quote("test") << ":";
+    apply(expr.test);
+    buf << "," << quote("consequent") << ":";
+    apply(expr.consequent);
+    buf << "," << quote("alternate") << ":";
+    apply(expr.alternate);
     buf << "}";
   }
 
