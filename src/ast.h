@@ -422,7 +422,7 @@ struct ForStatement : Statement {
       : init(init), test(test), update(update), body(body)
   {
   }
-  ForStatement(Expression* init, Expression* test = nullptr,
+  ForStatement(Expression* init = nullptr, Expression* test = nullptr,
                Expression* update = nullptr, Statement* body = nullptr)
       : init(init), test(test), update(update), body(body)
   {
