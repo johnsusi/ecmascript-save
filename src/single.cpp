@@ -5,6 +5,7 @@
 #include "logger.cpp"
 #include "matcher.cpp"
 #include "parser.cpp"
+#include "to_string.cpp"
 #include "token.cpp"
 #include "tracer.cpp"
 #include "util.cpp"
