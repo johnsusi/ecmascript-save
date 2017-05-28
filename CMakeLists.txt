@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
 # 3.7 with compability support for 3.5
 
-project(ECMAScript CXX)
+project(ECMAScript C CXX)
 
 include(CMakeToolsHelpers OPTIONAL)
 
@@ -79,6 +79,8 @@ if (HAVE_FROM_UTF8)
   add_definitions(-DHAVE_FROM_UTF8)
 endif()
 
+add_definitions(-DIEEE_8087)
+
 if (TESTING)
 
   set(SOURCES
@@ -89,10 +91,12 @@ if (TESTING)
     src/logger.cpp
     src/matcher.cpp
     src/parser.cpp
+    src/to_string.cpp
     src/token.cpp
     src/tracer.cpp
     src/util.cpp
     src/visitor.cpp
+    src/dtoa.c
   )
 
   include(WarningsAsErrors)
@@ -109,7 +113,7 @@ if (TESTING)
 
 else ()
 
-  set(SOURCES src/single.cpp)
+  set(SOURCES src/single.cpp src/dtoa.c)
 
 endif ()
 
