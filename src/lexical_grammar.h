@@ -3,6 +3,7 @@
 
 #include "input_element.h"
 #include "matcher.h"
+#include "to_string.h"
 #include "token.h"
 
 #include <algorithm>
@@ -21,6 +22,7 @@ bool is_line_terminator(int cp);
 bool is_non_zero_digit(int cp);
 bool is_decimal_digit(int cp);
 bool is_hex_digit(int cp);
+bool is_exponent_indicator(int);
 
 // 7.6
 bool is_unicode_letter(int cp);
@@ -94,12 +96,14 @@ constexpr double pow10(int n) {
   case 22:
     return 1e22;
   default:
-    return std::numeric_limits<double>::infinity();
+    return std::pow(10, n);
+    // return std::numeric_limits<double>::infinity();
   }
 }
 
-constexpr double mul_pow10(int s, int n) {
-  return n < 0 ? s / pow10(-n) : s * pow10(n);
+static inline double mul_pow10(int s, int n) {
+  std::cout << "s: " << s << ", n: " << n << "\n";
+  return n < 0 ? s * pow10(n) : s * pow10(n);
 }
 
 template <typename T> class LexicalGrammar {
@@ -368,40 +372,53 @@ public:
   // 7.8.3
   double mv;
   bool numeric_literal() {
-    if (hex_integer_literal() || decimal_literal()) {
-      if (identifier_start() || decimal_digit())
-        syntax_error();
-      return true;
-    }
-    return false;
+    if (!hex_integer_literal() && !decimal_literal())
+      return false;
+    if (identifier_start() || decimal_digit())
+      syntax_error();
+    return true;
   }
 
   bool decimal_literal() {
-    long s = 0, n = 0;
-
+    auto s0 = match.mark();
     if (match('.')) {
-      auto m = match.mark();
       if (!decimal_digits())
         syntax_error();
-      n = match.distance(m);
-      s = std::lround(mv);
     } else if (decimal_integer_literal()) {
-      s = std::lround(mv);
       if (match('.')) {
-        auto m = match.mark();
         if (decimal_digits()) {
-          n = match.distance(m);
-          s = std::lround(mul_pow10(s, n)) + std::lround(mv);
         }
       }
     } else
       return false;
 
+    // auto s1 = match.mark();
     if (exponent_part())
-      n -= std::lround(mv);
+      ;
+    auto s2 = match.mark();
+    std::string s{s0, s2};
+    // auto i = s.begin();
+    // auto j = i + std::distance(s0, s1);
 
-    mv = mul_pow10(s, -n);
+    // while (i != j && !is_non_zero_digit(*i))
+    //   ++i;
+    // while (i != j - 1 && !is_non_zero_digit(*(j - 1)))
+    //   --j;
 
+    // int count = 0;
+    // for (auto ii = i; ii != j; ++ii) {
+    //   if (is_decimal_digit(*ii)) {
+    //     ++count;
+    //     if (count > 20)
+    //       *ii = '0';
+    //   }
+    // }
+    mv = strtod(s.data(), nullptr);
+    // int exp;
+    // double m = std::frexp(mv, &exp);
+
+    // if (m < (2 << 52))
+    //   mv = m * std::pow(2, 1074 + exp) * std::pow(2, -1074);
     return true;
   }
 
