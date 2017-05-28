@@ -234,13 +234,13 @@ class Parser {
 
   bool element_list() {
     trace("element_list");
-    auto list = emplace<ElementList>();
+    ElementList *list;
     if (elision()) {
-      list->push_back(pop<Elision>());
+      list = replace<ElementList, Node>();
       if (assignment_expression())
         list->push_back(pop<Expression>());
     } else if (assignment_expression()) {
-      list->push_back(pop<Expression>());
+      list = replace<ElementList, Node>();
     } else
       return false;
     while (match([&] {
