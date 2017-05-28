@@ -101,7 +101,7 @@ class Token {
         {"finally", KEYWORD | 58},
         {"for", KEYWORD | 59},
         {"function", KEYWORD | 60},
-        {"get", KEYWORD | 101},
+        {"get", IDENTIFIER | 101},
         {"if", KEYWORD | 61},
         {"implements", FUTURE_RESERVED_WORD | 62},
         {"import", FUTURE_RESERVED_WORD | 63},
@@ -116,7 +116,7 @@ class Token {
         {"protected", FUTURE_RESERVED_WORD | 72},
         {"public", FUTURE_RESERVED_WORD | 73},
         {"return", KEYWORD | 74},
-        {"set", KEYWORD | 102},
+        {"set", IDENTIFIER | 102},
         {"static", FUTURE_RESERVED_WORD | 75},
         {"super", FUTURE_RESERVED_WORD | 76},
         {"switch", KEYWORD | 77},
@@ -299,6 +299,9 @@ public:
   std::u16string string_value() const {
     if (is_reserved_word())
       return convert_utf8_to_utf16(to_string());
+    else if (!m_value.string_value) {
+      return convert_utf8_to_utf16(to_string());
+    }
     return *m_value.string_value;
   }
 
