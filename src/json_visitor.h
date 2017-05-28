@@ -656,6 +656,8 @@ class JSONVisitor : public BasicVisitor {
       if (auto stmt = dynamic_cast<ExpressionStatement *>(*it)) {
         if (auto expr = dynamic_cast<LiteralExpression *>(stmt->expression)) {
           if (auto literal = dynamic_cast<StringLiteral *>(expr->literal)) {
+            if (it != first)
+              buf << ",";
             if (literal->value == u"use strict") {
               buf << "{" << quote("type") << ":" << quote("UseStrictDirective");
               buf << "}";
