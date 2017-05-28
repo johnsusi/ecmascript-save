@@ -234,9 +234,15 @@ class Parser {
 
   bool element_list() {
     trace("element_list");
-    if (!elision() && !assignment_expression())
+    auto list = emplace<ElementList>();
+    if (elision()) {
+      list->push_back(pop<Elision>());
+      if (assignment_expression())
+        list->push_back(pop<Expression>());
+    } else if (assignment_expression()) {
+      list->push_back(pop<Expression>());
+    } else
       return false;
-    auto list = replace<ElementList, Node>();
     while (match([&] {
       if (!match(","))
         return false;
