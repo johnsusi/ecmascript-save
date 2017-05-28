@@ -287,7 +287,7 @@ class Parser {
     if (!property_assignment())
       return false;
     auto list = replace<PropertyNameAndValueList, PropertyAssignment>();
-    while (match(",")) {
+    while (!match.lookahead("}") && match(",")) {
       if (!property_assignment())
         syntax_error();
       list->push_back(pop<PropertyAssignment>());
