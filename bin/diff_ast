@@ -9,18 +9,19 @@ const stringify = require("json-stable-stringify");
 
 const { spawnPromise: spawn } = require("spawn-rx");
 
-var source = "";
+var source = [];
 var silent = false;
 
 for (var i = 2; i < process.argv.length; i++) {
   if (process.argv[i] === "-e" || process.argv[i] === "--eval") {
-    source = source + process.argv[++i];
+    source = ["-e", process.argv[++i]];
   } else if (process.argv[i] === "-s" || process.argv[i] === "--silent") {
     silent = true;
   } else if (process.argv[i][0] === "-") {
     errorExit("Unknown argument: " + process.argv[i]);
   } else {
-    source = source + fs.readFileSync(process.argv[i], "utf-8");
+    source = [process.argv[i]];
+    // source = source + fs.readFileSync(process.argv[i], "utf-8");
   }
 }
 
@@ -28,11 +29,11 @@ main();
 
 function main() {
   Promise.all([
-    spawn(__dirname + "/dump_ast", ["--json", "-e", source])
+    spawn(__dirname + "/dump_ast", ["--json", ...source])
       .then(text => JSON.parse(text))
       .then(json => stringify(json, { space: 2 }))
       .then(text => text.split("\n")),
-    spawn(__dirname + "/../build/ECMAScript", ["--json", "-e", source])
+    spawn(__dirname + "/../build/ECMAScript", ["--json", ...source])
       .then(text => JSON.parse(text))
       .then(json => stringify(json, { space: 2 }))
       .then(text => text.split("\n"))

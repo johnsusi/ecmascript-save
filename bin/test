@@ -1,13 +1,34 @@
 #!/usr/bin/env node
-const { readFileSync } = require("fs");
+const { existsSync: exists, readFileSync } = require("fs");
 const { resolve } = require("path");
-const glob = require("glob");
+// const glob = require("glob");
 const { spawnPromise: spawn } = require("spawn-rx");
 const { green, yellow, red } = require("colors/safe");
 
 let keepGoing = true;
 
-const blackList = /^.*(S7.3_A7_T.|Sbp_7.9_A9_T(3|4)|S7.6.1.2.*ns|S7.9_A8_T4).js$/i;
+const {
+  glob,
+  readFile,
+  writeFile,
+  log,
+  logError,
+  exitWithError
+} = require("../lib");
+
+const blackListData = [
+  "S7\.3_A7_T.",
+  "Sbp_7\.9_A9_T(3|4)",
+  "S7\.6\.1\.2.*ns",
+  "S7\.9_A8_T4",
+  "12\.14-13", // FunctionDeclaration is not a Statement
+  "S12\.8_A3", // -- " --
+  "S12\.8_A4_T1", // -- " --
+  "S12\.8_A4_T2", // -- " --
+  "S12\.8_A4_T3", // -- " --
+  "12\.9-1" // return \n; should not create an EmptyStatement
+];
+const blackList = new RegExp("^.*" + blackListData.join("|") + ".js$", "i");
 
 const whiteListData = [];
 
@@ -25,18 +46,25 @@ const whiteList = whiteListData.length == 0
   ? /.*/
   : new RegExp(whiteListData.join("|"), "i");
 
-glob(
-  resolve(__dirname, "../vendor/test262/test/suite/**/*.js"),
-  (err, paths) => {
-    if (err) console.warn(err);
-    else
-      paths
-        .filter(path => whiteList.test(path))
-        .filter(path => !negativeTest(path))
-        .reduce((seq, path) => seq.then(() => diff(path)), Promise.resolve())
-        .catch(err => console.error(err));
-  }
-);
+glob(resolve(__dirname, "../vendor/test262/test/suite/**/*.js"))
+  .then(handleFiles())
+  .then(log("Done"))
+  .catch(logError())
+  .catch(exitWithError());
+
+function handleFiles() {
+  return paths =>
+    paths
+      .filter(path => exists(path + ".ast"))
+      .filter(path => whiteList.test(path))
+      // .filter(path => !negativeTest(path))
+      .reduce((tasks, path) => tasks.then(() => diff(path)), Promise.resolve())
+      .catch(err => console.error(err));
+}
+
+function task(run) {
+  return (tasks, ...args) => tasks.then((...args2) => run(...args, ...args2));
+}
 
 function diff(path) {
   return spawn(__dirname + "/diff_ast", ["-s", path])
