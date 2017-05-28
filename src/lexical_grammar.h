@@ -660,7 +660,7 @@ public:
         return false;
       case '\\':
         if (line_terminator_sequence())
-          return double_string_character();
+          return single_string_character();
         return escape_sequence();
       default:
         if (is_line_terminator(cp))
