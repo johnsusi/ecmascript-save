@@ -3,6 +3,7 @@
 
 #include "visitor.h"
 
+#include <cmath>
 #include <iostream>
 #include <memory>
 // #include <sstream>
@@ -65,6 +66,8 @@ struct NumericLiteral : Literal {
   NumericLiteral(double value) : value(value) {}
   void accept(Visitor &visitor) const override { return visitor(*this); }
   const char *type() const override { return "NumericLiteral"; }
+  bool infinite() const { return std::isinf(value); }
+  bool nan() const { return std::isnan(value); }
 };
 struct StringLiteral : Literal {
   std::u16string value;
