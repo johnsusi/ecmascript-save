@@ -136,9 +136,17 @@ class JSONVisitor : public BasicVisitor {
   }
 
   void operator()(const NumericLiteral &literal) override {
-    buf << "{" << quote("type") << ":" << quote("LiteralNumericExpression");
-    buf << "," << quote("value") << ":" << ToString(literal.value);
-    buf << "}";
+    if (literal.infinite()) {
+      buf << "{" << quote("type") << ":" << quote("LiteralInfinityExpression")
+          << "}";
+    } else if (literal.nan()) {
+      buf << "{" << quote("type") << ":" << quote("LiteralNaNExpression")
+          << "}";
+    } else {
+      buf << "{" << quote("type") << ":" << quote("LiteralNumericExpression");
+      buf << "," << quote("value") << ":" << ToString(literal.value);
+      buf << "}";
+    }
   }
 
   void operator()(const StringLiteral &literal) override {
@@ -436,7 +444,7 @@ class JSONVisitor : public BasicVisitor {
   }
 
   void operator()(const WhileStatement &stmt) override {
-    buf << "{" << quote("type") << ":" << quote("DoWhileStatement");
+    buf << "{" << quote("type") << ":" << quote("WhileStatement");
     buf << "," << quote("body") << ":";
     apply(stmt.body);
     buf << "," << quote("test") << ":";
@@ -510,6 +518,15 @@ class JSONVisitor : public BasicVisitor {
       apply(stmt.argument);
     } else
       buf << "null";
+    buf << "}";
+  }
+
+  void operator()(const WithStatement &stmt) override {
+    buf << "{" << quote("type") << ":" << quote("WithStatement");
+    buf << "," << quote("object") << ":";
+    apply(stmt.object);
+    buf << "," << quote("body") << ":";
+    apply(stmt.body);
     buf << "}";
   }
 
