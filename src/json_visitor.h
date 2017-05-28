@@ -544,6 +544,50 @@ class JSONVisitor : public BasicVisitor {
     buf << "}";
   }
 
+  void operator()(const SwitchStatement &stmt) override {
+
+    auto i = stmt.cases->begin();
+    auto j = stmt.cases->end();
+    auto k = i;
+
+    while (k != j && !(*k)->is_default())
+      ++k;
+
+    buf << "{" << quote("type") << ":"
+        << quote(k == j ? "SwitchStatement" : "SwitchStatementWithDefault");
+    buf << "," << quote("discriminant") << ":";
+    apply(stmt.discriminant);
+
+    if (k == j) {
+      buf << "," << quote("cases") << ":";
+      apply(i, j);
+    } else {
+      buf << "," << quote("preDefaultCases") << ":";
+      apply(i, k);
+      buf << "," << quote("defaultCase") << ":";
+      apply(*k++);
+      buf << "," << quote("postDefaultCases") << ":";
+      apply(k, j);
+    }
+    buf << "}";
+  }
+
+  void operator()(const CaseClause &clause) override {
+    buf << "{" << quote("type") << ":" << quote("SwitchCase");
+    buf << "," << quote("test") << ":";
+    apply(clause.test);
+    buf << "," << quote("consequent") << ":";
+    apply(clause.consequent);
+    buf << "}";
+  }
+
+  void operator()(const DefaultClause &clause) override {
+    buf << "{" << quote("type") << ":" << quote("SwitchDefault");
+    buf << "," << quote("consequent") << ":";
+    apply(clause.consequent);
+    buf << "}";
+  }
+
   void operator()(const ThrowStatement &stmt) override {
     buf << "{" << quote("type") << ":" << quote("ThrowStatement");
     buf << "," << quote("expression") << ":";

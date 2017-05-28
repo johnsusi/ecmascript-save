@@ -438,12 +438,13 @@ struct LabelledStatement : Statement {
 };
 
 struct CaseClause : Node {
-  Expression *test;
+  Expression *test = nullptr;
   StatementList *consequent;
   CaseClause(Expression *test, StatementList *consequent)
       : test(test), consequent(consequent) {}
   void accept(Visitor &visitor) const override { return visitor(*this); }
   const char *type() const override { return "CaseClause"; }
+  bool is_default() const { return test == nullptr; }
 };
 
 struct DefaultClause : CaseClause {
