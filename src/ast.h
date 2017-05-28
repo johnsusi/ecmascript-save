@@ -384,15 +384,16 @@ struct ForStatement : Statement {
 };
 
 struct ForInStatement : Statement {
+  VariableDeclaration *decl;
   Expression *left;
   Expression *right;
   Statement *body;
   ForInStatement(LeftHandSideExpression *left, Expression *right = nullptr,
                  Statement *body = nullptr)
-      : left(left), right(right), body(body) {}
-  ForInStatement(VariableDeclaration *left, Expression *right = nullptr,
+      : decl(nullptr), left(left), right(right), body(body) {}
+  ForInStatement(VariableDeclaration *decl, Expression *right = nullptr,
                  Statement *body = nullptr)
-      : left(left), right(right), body(body) {}
+      : decl(decl), left(nullptr), right(right), body(body) {}
   void accept(Visitor &visitor) const override { return visitor(*this); }
   const char *type() const override { return "ForInStatement"; }
 };

@@ -479,13 +479,18 @@ class JSONVisitor : public BasicVisitor {
     buf << "," << quote("body") << ":";
     apply(stmt.body);
     buf << "," << quote("left") << ":";
-    buf << "{" << quote("type") << ":" << quote("VariableDeclaration");
-    buf << "," << quote("kind") << ":" << quote("var");
-    buf << "," << quote("declarators") << ":";
-    buf << "[";
-    apply(stmt.left);
-    buf << "]";
-    buf << "}";
+    if (stmt.decl) {
+      VariableDeclarationList list{stmt.decl};
+      apply(&list);
+    } else
+      apply(stmt.left);
+    // buf << "{" << quote("type") << ":" << quote("VariableDeclaration");
+    // buf << "," << quote("kind") << ":" << quote("var");
+    // buf << "," << quote("declarators") << ":";
+    // buf << "[";
+    // apply(stmt.left);
+    // buf << "]";
+    // buf << "}";
     buf << "," << quote("right") << ":";
     apply(stmt.right);
     buf << "}";
