@@ -169,6 +169,7 @@ public:
       case 0x000A: // Line Feed <LF>
       case 0x2028: // Line separator <LS>
       case 0x2029: // Paragraph separator <PS>
+        cv = ' ';
         return true;
       default:
         return false;
@@ -640,7 +641,9 @@ public:
       case '"':
         return false;
       case '\\':
-        return escape_sequence() || line_terminator_sequence();
+        if (line_terminator_sequence())
+          return double_string_character();
+        return escape_sequence();
       default:
         if (is_line_terminator(cp))
           return false;
@@ -656,7 +659,9 @@ public:
       case '\'':
         return false;
       case '\\':
-        return escape_sequence() || line_terminator_sequence();
+        if (line_terminator_sequence())
+          return double_string_character();
+        return escape_sequence();
       default:
         if (is_line_terminator(cp))
           return false;
