@@ -3,18 +3,16 @@ cmake_minimum_required(VERSION 3.5)
 
 project(ECMAScript C CXX)
 
-include(CMakeToolsHelpers OPTIONAL)
-
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 
 if (CMAKE_VERSION VERSION_LESS 3.7)
-  set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake/compat;${CMAKE_MODULE_PATH}")
+  list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake/compat")
 endif ()
 
-option(TESTING "Enable testing" OFF)
-option(LTO     "Enable Link-Time-Optimization" OFF)
-option(ANALYZE "Run static analyzer" OFF)
+option(LTO     "Enable Link-Time-Optimization"       OFF)
+option(RELEASE "Enable release build"                OFF)
 option(STATIC  "Avoid dynamic libraries if possible" OFF)
+option(TESTING "Enable testing"                      OFF)
 
 include(Cxx14Support)
 include(ColorDiagnostics)
@@ -23,12 +21,12 @@ if (LTO)
   include(EnableLTO)
 endif ()
 
-if (ANALYZE)
-  include(EnableAnalyze)
-endif ()
-
 if (STATIC)
   set(Boost_USE_STATIC_LIBS ON)
+endif ()
+
+if (RELEASE)
+  add_definitions(-DECMASCRIPT_RELEASE)
 endif ()
 
 if (APPLE)
@@ -55,29 +53,7 @@ include_directories(
   ${ICU_INCLUDE_DIRS}
 )
 
-include(CheckCXXSourceCompiles)
-
-set(CMAKE_REQUIRED_INCLUDES  "${ICU_INCLUDE_DIRS}")
-set(CMAKE_REQUIRED_LIBRARIES "${ICU_LIBRARIES}")
-
-message("CMAKE_REQUIRED_LIBRARIES ${CMAKE_REQUIRED_LIBRARIES}")
-
-check_cxx_source_compiles(
-  "
-    #include <unicode/unistr.h>
-
-    int main()
-    {
-      icu::UnicodeString::fromUTF8(\"test\");
-      return 0;
-    }
-  "
-  HAVE_FROM_UTF8
-)
-
-if (HAVE_FROM_UTF8)
-  add_definitions(-DHAVE_FROM_UTF8)
-endif()
+include(FromUTF8)
 
 add_definitions(-DIEEE_8087)
 
@@ -113,7 +89,10 @@ if (TESTING)
 
 else ()
 
-  set(SOURCES src/single.cpp src/dtoa.c)
+  set(SOURCES
+    src/single.cpp
+    src/dtoa.c
+  )
 
 endif ()
 
