@@ -7,6 +7,6 @@
 #include "parser.cpp"
 #include "to_string.cpp"
 #include "token.cpp"
-#include "tracer.cpp"
+#include "trace.cpp"
 #include "util.cpp"
 #include "visitor.cpp"

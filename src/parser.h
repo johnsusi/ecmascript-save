@@ -5,7 +5,7 @@
 #include "logger.h"
 #include "matcher.h"
 #include "token.h"
-#include "tracer.h"
+#include "trace.h"
 #include "util.h"
 
 #include <iostream>
@@ -14,12 +14,6 @@
 #include <vector>
 
 #include <boost/type_index.hpp>
-
-#define trace(method)                                                          \
-  TraceGuard tg_##__LINE__(                                                    \
-      boost::typeindex::type_id<decltype(*this)>().pretty_name() +             \
-          "::" + __func__,                                                     \
-      __FILE__, __LINE__)
 
 class SyntaxError : public std::runtime_error {
 public:
