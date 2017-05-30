@@ -65,7 +65,8 @@ bool InputElement::has_line_terminator() const
   if (is_line_terminator()) return true;
   if (auto comment = boost::get<Comment>(&value)) {
     return std::find_if(comment->value.begin(), comment->value.end(),
-                        ::is_line_terminator) != comment->value.end();
+                        ::is_line_terminator)
+           != comment->value.end();
   }
   return false;
 }

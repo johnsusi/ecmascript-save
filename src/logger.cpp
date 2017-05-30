@@ -2,7 +2,7 @@
 
 class SilentLogger final : public Logger {
 public:
-  void log(const std::string &what) final {}
+  void log(const std::string& what) final {}
 };
 
 Logger* make_silent_logger()
@@ -11,7 +11,7 @@ Logger* make_silent_logger()
   return &instance;
 }
 
-Logger &operator<<(Logger &out, const std::string &str)
+Logger& operator<<(Logger& out, const std::string& str)
 {
   out.log(str);
   return out;

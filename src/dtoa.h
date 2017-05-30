@@ -3,11 +3,11 @@
 
 #ifdef __cplusplus
 
-extern "C" char *dtoa(double d, int mode, int ndigits, int *decpt, int *sign,
-                      char **rve);
-extern "C" void freedtoa(char *);
+extern "C" char* dtoa(double d, int mode, int ndigits, int* decpt, int* sign,
+                      char** rve);
+extern "C" void freedtoa(char*);
 
-extern "C" double strtod(const char *s00, char **se);
+extern "C" double strtod(const char* s00, char** se);
 
 #endif
 

@@ -6,27 +6,24 @@
 
 #include "dtoa.h"
 
-std::string ToString(double m) {
+std::string ToString(double m)
+{
   //   9.8.1 ToString Applied to the Number Type
   // The abstract operation ToString converts a Number m to String format as
   // follows:
 
   // 1. If m is NaN, return the String "NaN".
-  if (std::isnan(m))
-    return "NaN";
+  if (std::isnan(m)) return "NaN";
 
   // 2. If m is +0 or  0, return the String "0".
-  if (m == 0)
-    return std::signbit(m) ? "-0" : "0";
+  if (m == 0) return std::signbit(m) ? "-0" : "0";
 
   // 3. If m is less than zero, return the String concatenation of the String
   // "-" and ToString(-m).
-  if (std::isless(m, 0.0))
-    return "-" + ToString(-m);
+  if (std::isless(m, 0.0)) return "-" + ToString(-m);
 
   // 4. If m is infinity, return the String "Infinity".
-  if (std::isinf(m))
-    return "Infinity";
+  if (std::isinf(m)) return "Infinity";
 
   // 5. Otherwise, let n, k, and s be integers such that k >= 1, 10^(k-1) <= s <
   // 10^k, the Number value for s x 10^(n-k) is m, and
@@ -35,10 +32,10 @@ std::string ToString(double m) {
   // least significant digit of s is not necessarily uniquely determined by
   // these criteria.
 
-  int n, sign;
-  char *s1;
-  char *s0 = dtoa(m, 0, 0, &n, &sign, &s1);
-  int k = s1 - s0;
+  int   n, sign;
+  char* s1;
+  char* s0 = dtoa(m, 0, 0, &n, &sign, &s1);
+  int   k  = s1 - s0;
 
   std::string ss(s0);
   freedtoa(s0);
@@ -48,8 +45,7 @@ std::string ToString(double m) {
   // decimal
   // representation of s (in order, with no leading zeroes), followed by n k
   // occurrences of the character  '0'.
-  if (k <= n && n <= 21)
-    return s + std::string(n - k, '0');
+  if (k <= n && n <= 21) return s + std::string(n - k, '0');
 
   // 7. If 0 < n <= 21, return the String consisting of the most significant n
   // digits
@@ -74,8 +70,8 @@ std::string ToString(double m) {
   // according to whether n 1 is positive or negative, followed by the decimal
   // representation of the integer abs(n-1) (with no leading zeroes).
   if (k == 1)
-    return std::string{s, s + 1} + "e" + (n > 0 ? "+" : "-") +
-           std::to_string(std::abs(n - 1));
+    return std::string{s, s + 1} + "e" + (n > 0 ? "+" : "-")
+           + std::to_string(std::abs(n - 1));
 
   //  10. Return the String consisting of the most significant digit of the
   //  decimal
@@ -87,6 +83,6 @@ std::string ToString(double m) {
   // of
   // the integer abs(n-1) (with no leading zeroes).
 
-  return std::string{s, s + 1} + "." + std::string{s + 1, s + k} + "e" +
-         (n - 1 > 0 ? "+" : "-") + std::to_string(std::abs(n - 1));
+  return std::string{s, s + 1} + "." + std::string{s + 1, s + k} + "e"
+         + (n - 1 > 0 ? "+" : "-") + std::to_string(std::abs(n - 1));
 }

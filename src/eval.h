@@ -5,7 +5,7 @@
 
 #include <string>
 
-void eval(const std::string &, Visitor&, bool = false);
-void eval(const std::u16string &, Visitor&, bool = false);
+void eval(const std::string&, Visitor&, bool = false);
+void eval(const std::u16string&, Visitor&, bool = false);
 
 #endif

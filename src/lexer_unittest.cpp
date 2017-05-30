@@ -2,12 +2,14 @@
 
 #include <catch.hpp>
 
-TEST_CASE("7.8.1 Null literals") {
+TEST_CASE("7.8.1 Null literals")
+{
   REQUIRE(Lexer("null") == Lexer{Token::null_literal()});
   REQUIRE(Lexer("'null'") == Lexer{Token::string_literal(u"null")});
 }
 
-TEST_CASE("7.8.3 Numeric Literals") {
+TEST_CASE("7.8.3 Numeric Literals")
+{
 
   REQUIRE_THROWS(Lexer("3in").tokens());
 
@@ -47,17 +49,20 @@ TEST_CASE("7.8.3 Numeric Literals") {
   REQUIRE(Lexer("9e+1") == Lexer{Token::numeric_literal(90)});
 }
 
-TEST_CASE("7.8.5 Regular Expression Literals") {
+TEST_CASE("7.8.5 Regular Expression Literals")
+{
 
   REQUIRE(Lexer("/1/") == Lexer{Token::regular_expression_literal(u"/1/")});
 }
 
 template <typename... Args>
-std::vector<Token> make_string_literals(Args &&... args) {
+std::vector<Token> make_string_literals(Args&&... args)
+{
   return {Token::string_literal(std::forward<Args>(args))...};
 }
 
-TEST_CASE("String Literals") {
+TEST_CASE("String Literals")
+{
 
   auto expected = Lexer{make_string_literals(
       u"\b", u"\b", u"\b", u"\b", u"\b", u"\b", u"\t", u"\t", u"\t", u"\t",
@@ -81,11 +86,13 @@ TEST_CASE("String Literals") {
 }
 
 template <typename... Args>
-std::vector<Token> make_punctuators(Args &&... args) {
+std::vector<Token> make_punctuators(Args&&... args)
+{
   return {Token::punctuator(std::forward<Args>(args))...};
 }
 
-TEST_CASE("Punctuators") {
+TEST_CASE("Punctuators")
+{
 
   auto expected = Lexer(make_punctuators(
       "!", "!=", "!==", "%", "%=", "&", "&&", "&=", "(", ")", "*", "*=", "+",
@@ -100,7 +107,9 @@ TEST_CASE("Punctuators") {
   )") == expected);
 }
 
-template <typename... Args> std::vector<Token> make_tokens(Args &&... args) {
+template <typename... Args>
+std::vector<Token> make_tokens(Args&&... args)
+{
   return {Token(std::forward<Args>(args))...};
 }
 

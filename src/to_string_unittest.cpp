@@ -2,7 +2,8 @@
 
 #include <catch.hpp>
 
-TEST_CASE("ToString") {
+TEST_CASE("ToString")
+{
 
   REQUIRE(ToString(0.0) == "0");
   REQUIRE(ToString(+0.0) == "0");

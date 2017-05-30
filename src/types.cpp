@@ -7,12 +7,12 @@
 Type ToPrimitive(Type input, boost::optional<Type> preferred_type)
 {
   struct detail_t : boost::static_visitor<Type> {
-    Type operator()(const Undefined &value) const { return value; }
-    Type operator()(const Null &value) const { return value; }
-    Type operator()(const Boolean &value) const { return value; }
-    Type operator()(const String &value) const { return value; }
-    Type operator()(const Number &value) const { return value; }
-    Type operator()(const Object &value) const
+    Type operator()(const Undefined& value) const { return value; }
+    Type operator()(const Null& value) const { return value; }
+    Type operator()(const Boolean& value) const { return value; }
+    Type operator()(const String& value) const { return value; }
+    Type operator()(const Number& value) const { return value; }
+    Type operator()(const Object& value) const
     {
       // TODO
       return Undefined{};
@@ -25,14 +25,14 @@ Type ToPrimitive(Type input, boost::optional<Type> preferred_type)
 Boolean ToBoolean(Type input)
 {
   struct detail_t : boost::static_visitor<Boolean> {
-    Boolean operator()(const Undefined &value) const { return {false}; }
-    Boolean operator()(const Null &value) const { return {false}; }
-    Boolean operator()(const Boolean &value) const { return value; }
-    Boolean operator()(const String &value) const
+    Boolean operator()(const Undefined& value) const { return {false}; }
+    Boolean operator()(const Null& value) const { return {false}; }
+    Boolean operator()(const Boolean& value) const { return value; }
+    Boolean operator()(const String& value) const
     {
       return {value.value.size() > 0};
     }
-    Boolean operator()(const Number &value) const
+    Boolean operator()(const Number& value) const
     {
       switch (std::fpclassify(value.value)) {
       case FP_NAN: return {false};
@@ -40,7 +40,7 @@ Boolean ToBoolean(Type input)
       default: return {true};
       }
     }
-    Boolean operator()(const Object &value) const { return {true}; }
+    Boolean operator()(const Object& value) const { return {true}; }
   } detail;
   return boost::apply_visitor(detail, input);
 }
@@ -49,19 +49,19 @@ Boolean ToBoolean(Type input)
 Number ToNumber(Type input)
 {
   struct detail_t : boost::static_visitor<Number> {
-    Number operator()(const Undefined &value) const { return {std::nan("")}; }
-    Number operator()(const Null &value) const { return {0}; }
-    Number operator()(const Boolean &value) const
+    Number operator()(const Undefined& value) const { return {std::nan("")}; }
+    Number operator()(const Null& value) const { return {0}; }
+    Number operator()(const Boolean& value) const
     {
       return value.value ? Number{1.0} : Number{0};
     }
-    Number operator()(const String &value) const
+    Number operator()(const String& value) const
     {
       // TODO
       return {};
     }
-    Number operator()(const Number &value) const { return value; }
-    Number operator()(const Object &value) const { return {true}; }
+    Number operator()(const Number& value) const { return value; }
+    Number operator()(const Object& value) const { return {true}; }
   } detail;
   return boost::apply_visitor(detail, input);
 }

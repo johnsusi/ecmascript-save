@@ -275,17 +275,18 @@
 //   void operator()(const BooleanLiteral &node) override { call(node); }
 //   void operator()(const NumericLiteral &node) override { call(node); }
 //   void operator()(const StringLiteral &node) override { call(node); }
-//   void operator()(const RegularExpressionLiteral &node) override { call(node); }
-//   void operator()(const ArrayLiteral &node) override { call(node); }
-//   void operator()(const ObjectLiteral &node) override { call(node); }
-//   void operator()(const MemberExpression &node) override { call(node); }
-//   void operator()(const NewExpression &node) override { call(node); }
-//   void operator()(const CallExpression &node) override { call(node); }
-//   void operator()(const PostfixExpression &node) override { call(node); }
-//   void operator()(const UnaryExpression &node) override { call(node); }
-//   void operator()(const BinaryExpression &node) override { call(node); }
-//   void operator()(const ConditionalExpression &node) override { call(node); }
-//   void operator()(const FunctionExpression &node) override { call(node); }
+//   void operator()(const RegularExpressionLiteral &node) override {
+//   call(node); } void operator()(const ArrayLiteral &node) override {
+//   call(node); } void operator()(const ObjectLiteral &node) override {
+//   call(node); } void operator()(const MemberExpression &node) override {
+//   call(node); } void operator()(const NewExpression &node) override {
+//   call(node); } void operator()(const CallExpression &node) override {
+//   call(node); } void operator()(const PostfixExpression &node) override {
+//   call(node); } void operator()(const UnaryExpression &node) override {
+//   call(node); } void operator()(const BinaryExpression &node) override {
+//   call(node); } void operator()(const ConditionalExpression &node) override {
+//   call(node); } void operator()(const FunctionExpression &node) override {
+//   call(node); }
 
 //   void operator()(const Block &node) override { call(node); }
 //   void operator()(const VariableStatement &node) override { call(node); }
@@ -320,13 +321,13 @@
 //   void operator()(const Program &node) override { call(node); }
 
 //   void operator()(const ElementList &node) override { call(node); }
-//   void operator()(const PropertyNameAndValueList &node) override { call(node); }
-//   void operator()(const ArgumentList &node) override { call(node); }
-//   void operator()(const VariableDeclarationList &node) override { call(node); }
-//   void operator()(const StatementList &node) override { call(node); }
-//   void operator()(const CaseBlock &node) override { call(node); }
-//   void operator()(const SourceElements &node) override { call(node); }
-//   void operator()(const FormalParameterList &node) override { call(node); }
+//   void operator()(const PropertyNameAndValueList &node) override {
+//   call(node); } void operator()(const ArgumentList &node) override {
+//   call(node); } void operator()(const VariableDeclarationList &node) override
+//   { call(node); } void operator()(const StatementList &node) override {
+//   call(node); } void operator()(const CaseBlock &node) override { call(node);
+//   } void operator()(const SourceElements &node) override { call(node); } void
+//   operator()(const FormalParameterList &node) override { call(node); }
 // };
 
 // template <typename F>
@@ -361,8 +362,8 @@
 // template <class T, class N, class F>
 // struct is_callable2<
 //     T, N, F,
-//     void_t<decltype(std::declval<F>()(std::declval<T>(), std::declval<N>()))>>
-//     : std::true_type {
+//     void_t<decltype(std::declval<F>()(std::declval<T>(),
+//     std::declval<N>()))>> : std::true_type {
 // };
 
 // template <typename T, typename N, typename F>
@@ -374,7 +375,8 @@
 // }
 
 // template <typename T, typename N, typename F>
-// void apply(T &&value, N &&next, F &&callback, std::true_type, std::false_type)
+// void apply(T &&value, N &&next, F &&callback, std::true_type,
+// std::false_type)
 // {
 //   callback(value, next);
 // }
@@ -398,7 +400,8 @@
 // void accept(T &&node, Args &&... args)
 // {
 //   auto visitor = make_visitor([&](auto node, auto next) {
-//     (void)(int[]){(detail::apply(node, next, std::forward<Args>(args)), 0)...};
+//     (void)(int[]){(detail::apply(node, next, std::forward<Args>(args)),
+//     0)...};
 //   });
 
 //   node.accept(visitor);
@@ -507,7 +510,8 @@
 //          [&](const Identifier &identifier) {
 //            out << identifier.to_string() << "\n";
 //          },
-//          [&](const NumericLiteral &literal) { out << literal.value << "\n"; },
+//          [&](const NumericLiteral &literal) { out << literal.value << "\n";
+//          },
 //          [&](const StringLiteral &literal) {
 //            out << "\"" + literal.to_string() + "\"\n";
 //          },
