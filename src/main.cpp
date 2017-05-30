@@ -22,14 +22,12 @@ namespace fs = boost::filesystem;
 namespace po = boost::program_options;
 
 template <class T>
-std::ostream& operator<<(std::ostream& os, const std::vector<T>& v)
-{
+std::ostream &operator<<(std::ostream &os, const std::vector<T> &v) {
   std::copy(v.begin(), v.end(), std::ostream_iterator<T>(os, " "));
   return os;
 }
 
-int main(int argc, const char** argv)
-{
+int main(int argc, const char **argv) {
   using namespace std;
 
   try {
@@ -85,13 +83,11 @@ int main(int argc, const char** argv)
         JSONVisitor visitor;
         eval(source, visitor, verbose);
         std::cout << visitor.str() << std::endl;
-      }
-      else if (vm.count("ast")) {
+      } else if (vm.count("ast")) {
         SimplifiedYAMLVisitor visitor;
         eval(source, visitor, verbose);
         std::cout << visitor.str() << std::endl;
-      }
-      else {
+      } else {
         EvalVisitor visitor;
         eval(source, visitor, verbose);
         std::cout << visitor.str() << std::endl;
@@ -100,28 +96,24 @@ int main(int argc, const char** argv)
 
     if (vm.count("help")) {
       std::cout << usage;
-    }
-    else if (vm.count("eval")) {
+    } else if (vm.count("eval")) {
       run(vm["eval"].as<string>());
-    }
-    else if (vm.count("input-file")) {
+    } else if (vm.count("input-file")) {
       auto filenames = vm["input-file"].as<vector<string>>();
-      for (const auto& filename : filenames) {
-        if (verbose) std::cout << "Evaluating " << filename << std::endl;
+      for (const auto &filename : filenames) {
+        if (verbose)
+          std::cout << "Evaluating " << filename << std::endl;
         run(read_file(filename));
       }
-    }
-    else { // Try reading from stdin
+    } else { // Try reading from stdin
       auto source = read_stdin();
       if (source.size() > 0) {
         run(source);
-      }
-      else {
+      } else {
         std::cout << usage;
       }
     }
-  }
-  catch (const std::exception& err) {
+  } catch (const std::exception &err) {
     cerr << err.what() << endl;
     return -1;
   }
