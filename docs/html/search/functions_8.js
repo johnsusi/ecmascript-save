@@ -12,6 +12,7 @@ var searchData=
   ['hex_5fescape_5fsequence',['hex_escape_sequence',['../class_lexical_grammar.html#a76722915a4ae4e864ffd7c750da8c9aa',1,'LexicalGrammar']]],
   ['hex_5finteger_5fliteral',['hex_integer_literal',['../class_lexical_grammar.html#aca046d0a2eacbece1c05fb59548efdbd',1,'LexicalGrammar']]],
   ['hexfloat',['hexfloat',['http://en.cppreference.com/w/cpp/io/manip/fixed.html',1,'std']]],
+  ['hi0bits',['hi0bits',['../dtoa_8c.html#acde19b583452155815db5ec8c09fa2fb',1,'dtoa.c']]],
   ['hours',['hours',['http://en.cppreference.com/w/cpp/chrono/duration/duration.html',1,'std::chrono::hours']]],
   ['hypot',['hypot',['http://en.cppreference.com/w/cpp/numeric/math/hypot.html',1,'std']]]
 ];

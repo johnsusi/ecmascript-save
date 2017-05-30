@@ -1,9 +1,8 @@
 <map id="src/ast.h" name="src/ast.h">
-<area shape="rect" id="node2" href="$ast_8cpp.html" title="src/ast.cpp" alt="" coords="847,79,933,104"/>
+<area shape="rect" id="node2" href="$ast_8cpp.html" title="src/ast.cpp" alt="" coords="855,79,941,104"/>
 <area shape="rect" id="node4" href="$basic__visitor_8h.html" title="src/basic_visitor.h" alt="" coords="304,79,431,104"/>
 <area shape="rect" id="node10" href="$eval_8cpp.html" title="src/eval.cpp" alt="" coords="774,152,867,177"/>
-<area shape="rect" id="node11" href="$parser_8h.html" title="src/parser.h" alt="" coords="662,79,753,104"/>
-<area shape="rect" id="node13" href="$token__old_8h.html" title="src/token_old.h" alt="" coords="957,79,1068,104"/>
+<area shape="rect" id="node11" href="$parser_8h.html" title="src/parser.h" alt="" coords="658,79,749,104"/>
 <area shape="rect" id="node3" href="$single_8cpp.html" title="src/single.cpp" alt="" coords="769,225,872,251"/>
 <area shape="rect" id="node5" href="$ast__visitor_8h.html" title="src/ast_visitor.h" alt="" coords="5,152,119,177"/>
 <area shape="rect" id="node7" href="$basic__visitor_8cpp.html" title="src/basic_visitor.cpp" alt="" coords="142,152,283,177"/>

@@ -3,14 +3,16 @@
 {\ttfamily \#include \char`\"{}lexer.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$unicode/uchar.\+h$>$}\newline
-Include dependency graph for lexer.\+cpp\+:\nopagebreak
+Include dependency graph for lexer.\+cpp\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{lexer_8cpp__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:\nopagebreak
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -27,6 +29,8 @@ bool \hyperlink{lexer_8cpp_a9cefc40146b4aa1d5180daf8c09aef76}{is\+\_\+non\+\_\+z
 bool \hyperlink{lexer_8cpp_af6705427c418482a10880319f2440157}{is\+\_\+decimal\+\_\+digit} (int cp)
 \item 
 bool \hyperlink{lexer_8cpp_ab5142564f94422574c9696dd2643848f}{is\+\_\+hex\+\_\+digit} (int cp)
+\item 
+bool \hyperlink{lexer_8cpp_a68bc185c02e026218909bbf474865ef8}{is\+\_\+exponent\+\_\+indicator} (int cp)
 \item 
 bool \hyperlink{lexer_8cpp_aab548932d0a5af9ce41ece5a9341167b}{is\+\_\+unicode\+\_\+letter} (int cp)
 \item 
@@ -70,6 +74,12 @@ bool \hyperlink{lexer_8cpp_aed55f5443b8d50d91939b6130f3767da}{is\+\_\+boolean\+\
 \index{is\+\_\+div\+\_\+punctuator@{is\+\_\+div\+\_\+punctuator}!lexer.\+cpp@{lexer.\+cpp}}
 \subsubsection{\texorpdfstring{is\+\_\+div\+\_\+punctuator()}{is\_div\_punctuator()}}
 {\footnotesize\ttfamily bool is\+\_\+div\+\_\+punctuator (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::string} \&}]{token }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexer_8cpp_a68bc185c02e026218909bbf474865ef8}\label{lexer_8cpp_a68bc185c02e026218909bbf474865ef8}} 
+\index{lexer.\+cpp@{lexer.\+cpp}!is\+\_\+exponent\+\_\+indicator@{is\+\_\+exponent\+\_\+indicator}}
+\index{is\+\_\+exponent\+\_\+indicator@{is\+\_\+exponent\+\_\+indicator}!lexer.\+cpp@{lexer.\+cpp}}
+\subsubsection{\texorpdfstring{is\+\_\+exponent\+\_\+indicator()}{is\_exponent\_indicator()}}
+{\footnotesize\ttfamily bool is\+\_\+exponent\+\_\+indicator (\begin{DoxyParamCaption}\item[{int}]{cp }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{lexer_8cpp_abafa8f3968318d8d7a9e5e61d4f0037b}\label{lexer_8cpp_abafa8f3968318d8d7a9e5e61d4f0037b}} 
 \index{lexer.\+cpp@{lexer.\+cpp}!is\+\_\+future\+\_\+reserved\+\_\+word@{is\+\_\+future\+\_\+reserved\+\_\+word}}

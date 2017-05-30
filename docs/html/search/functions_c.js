@@ -5,7 +5,7 @@ var searchData=
   ['lambda',['lambda',['http://en.cppreference.com/w/cpp/numeric/random/exponential_distribution/lambda.html',1,'std::exponential_distribution']]],
   ['ldexp',['ldexp',['http://en.cppreference.com/w/cpp/numeric/math/ldexp.html',1,'std']]],
   ['ldiv',['ldiv',['http://en.cppreference.com/w/cpp/numeric/math/div.html',1,'std']]],
-  ['leave',['leave',['../class_tracer.html#a436f4f1c904d748c93be33966f8a40ed',1,'Tracer']]],
+  ['leave',['leave',['../class_trace.html#ad8d6fe43bf7fc6d770d317da87557b42',1,'Trace']]],
   ['left',['left',['http://en.cppreference.com/w/cpp/io/manip/left.html',1,'std']]],
   ['left_5falign_5ftext',['left_align_text',['../util_8cpp.html#a963acd6c6383cd6f6479d6a38be9dfcb',1,'left_align_text(const std::string &amp;text, const std::string &amp;indent):&#160;util.cpp'],['../util_8h.html#a8d66d513d627af35e9f71ea6a498fa2e',1,'left_align_text(const std::string &amp;text, const std::string &amp;indent=&quot;&quot;):&#160;util.cpp']]],
   ['length',['length',['http://en.cppreference.com/w/cpp/regex/match_results/length.html',1,'std::match_results::length()'],['http://en.cppreference.com/w/cpp/locale/codecvt/length.html',1,'std::codecvt::length()'],['http://en.cppreference.com/w/cpp/string/char_traits/length.html',1,'std::char_traits::length()'],['http://en.cppreference.com/w/cpp/string/basic_string/size.html',1,'std::string::length()'],['http://en.cppreference.com/w/cpp/locale/codecvt/length.html',1,'std::codecvt_byname::length()'],['http://en.cppreference.com/w/cpp/regex/match_results/length.html',1,'std::wsmatch::length()'],['http://en.cppreference.com/w/cpp/locale/codecvt/length.html',1,'std::codecvt_utf8::length()'],['http://en.cppreference.com/w/cpp/regex/sub_match/length.html',1,'std::wcsub_match::length()'],['http://en.cppreference.com/w/cpp/regex/match_results/length.html',1,'std::smatch::length()'],['http://en.cppreference.com/w/cpp/locale/codecvt/length.html',1,'std::codecvt_utf8_utf16::length()'],['http://en.cppreference.com/w/cpp/regex/match_results/length.html',1,'std::wcmatch::length()'],['http://en.cppreference.com/w/cpp/regex/sub_match/length.html',1,'std::wssub_match::length()'],['http://en.cppreference.com/w/cpp/regex/regex_traits/length.html',1,'std::regex_traits::length()'],['http://en.cppreference.com/w/cpp/regex/sub_match/length.html',1,'std::csub_match::length()'],['http://en.cppreference.com/w/cpp/regex/sub_match/length.html',1,'std::ssub_match::length()'],['http://en.cppreference.com/w/cpp/string/basic_string/size.html',1,'std::basic_string::length()'],['http://en.cppreference.com/w/cpp/string/basic_string/size.html',1,'std::wstring::length()'],['http://en.cppreference.com/w/cpp/string/basic_string/size.html',1,'std::u16string::length()'],['http://en.cppreference.com/w/cpp/string/basic_string/size.html',1,'std::u32string::length()'],['http://en.cppreference.com/w/cpp/locale/codecvt/length.html',1,'std::codecvt_utf16::length()'],['http://en.cppreference.com/w/cpp/regex/match_results/length.html',1,'std::cmatch::length()'],['http://en.cppreference.com/w/cpp/regex/sub_match/length.html',1,'std::sub_match::length()']]],
@@ -22,9 +22,10 @@ var searchData=
   ['llabs',['llabs',['http://en.cppreference.com/w/cpp/numeric/math/abs.html',1,'std']]],
   ['llrint',['llrint',['http://en.cppreference.com/w/cpp/numeric/math/rint.html',1,'std']]],
   ['llround',['llround',['http://en.cppreference.com/w/cpp/numeric/math/round.html',1,'std']]],
+  ['lo0bits',['lo0bits',['../dtoa_8c.html#a27739a75589e9a8a9480855431e10f09',1,'dtoa.c']]],
   ['load',['load',['http://en.cppreference.com/w/cpp/atomic/atomic/load.html',1,'std::atomic']]],
   ['load_5ffactor',['load_factor',['http://en.cppreference.com/w/cpp/container/unordered_map/load_factor.html',1,'std::unordered_map::load_factor()'],['http://en.cppreference.com/w/cpp/container/unordered_multimap/load_factor.html',1,'std::unordered_multimap::load_factor()'],['http://en.cppreference.com/w/cpp/container/unordered_multiset/load_factor.html',1,'std::unordered_multiset::load_factor()'],['http://en.cppreference.com/w/cpp/container/unordered_set/load_factor.html',1,'std::unordered_set::load_factor()']]],
-  ['loc',['loc',['../struct_token_1_1_debug_info.html#a0860d9b875240dafa0e00756d27e55bb',1,'Token::DebugInfo::loc() const =0'],['../struct_token_1_1_debug_info.html#a0860d9b875240dafa0e00756d27e55bb',1,'Token::DebugInfo::loc() const =0']]],
+  ['loc',['loc',['../struct_token_1_1_debug_info.html#a0860d9b875240dafa0e00756d27e55bb',1,'Token::DebugInfo']]],
   ['locale',['locale',['http://en.cppreference.com/w/cpp/locale/locale/locale.html',1,'std::locale']]],
   ['localeconv',['localeconv',['http://en.cppreference.com/w/cpp/locale/localeconv.html',1,'std']]],
   ['localtime',['localtime',['http://en.cppreference.com/w/cpp/chrono/c/localtime.html',1,'std']]],
@@ -46,5 +47,6 @@ var searchData=
   ['lowest',['lowest',['http://en.cppreference.com/w/cpp/types/numeric_limits/lowest.html',1,'std::numeric_limits']]],
   ['lrint',['lrint',['http://en.cppreference.com/w/cpp/numeric/math/rint.html',1,'std']]],
   ['lround',['lround',['http://en.cppreference.com/w/cpp/numeric/math/round.html',1,'std']]],
+  ['lshift',['lshift',['../dtoa_8c.html#a2fd4220bc75509df9a88873777a1b0f6',1,'dtoa.c']]],
   ['lt',['lt',['http://en.cppreference.com/w/cpp/string/char_traits/cmp.html',1,'std::char_traits']]]
 ];

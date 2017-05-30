@@ -30,11 +30,13 @@ Collaboration diagram for Case\+Clause\+:\nopagebreak
 void \hyperlink{struct_case_clause_a5bbee9ea9ca206c09b8b79f8c96720a1}{accept} (\hyperlink{struct_visitor}{Visitor} \&visitor) const override
 \item 
 const char $\ast$ \hyperlink{struct_case_clause_a9dcb0a1a072df7d577b272c6bbb3c6dc}{type} () const override
+\item 
+bool \hyperlink{struct_case_clause_a8ef15339531ef33d3ae335d96317b30a}{is\+\_\+default} () const
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{struct_expression}{Expression} $\ast$ \hyperlink{struct_case_clause_a80b6f256f3d9910250e4b8433ea75d7f}{test}
+\hyperlink{struct_expression}{Expression} $\ast$ \hyperlink{struct_case_clause_a80b6f256f3d9910250e4b8433ea75d7f}{test} = nullptr
 \item 
 \hyperlink{struct_statement_list}{Statement\+List} $\ast$ \hyperlink{struct_case_clause_a3e6914411610d1893b61172521e11288}{consequent}
 \end{DoxyCompactItemize}
@@ -64,6 +66,12 @@ Implements \hyperlink{struct_node_a10bd7af968140bbf5fa461298a969c71}{Node}.
 
 Reimplemented in \hyperlink{struct_default_clause_ade62e79cf9ad891d974528e1e172e2b6}{Default\+Clause}.
 
+\mbox{\Hypertarget{struct_case_clause_a8ef15339531ef33d3ae335d96317b30a}\label{struct_case_clause_a8ef15339531ef33d3ae335d96317b30a}} 
+\index{Case\+Clause@{Case\+Clause}!is\+\_\+default@{is\+\_\+default}}
+\index{is\+\_\+default@{is\+\_\+default}!Case\+Clause@{Case\+Clause}}
+\subsubsection{\texorpdfstring{is\+\_\+default()}{is\_default()}}
+{\footnotesize\ttfamily bool Case\+Clause\+::is\+\_\+default (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
 \mbox{\Hypertarget{struct_case_clause_a9dcb0a1a072df7d577b272c6bbb3c6dc}\label{struct_case_clause_a9dcb0a1a072df7d577b272c6bbb3c6dc}} 
 \index{Case\+Clause@{Case\+Clause}!type@{type}}
 \index{type@{type}!Case\+Clause@{Case\+Clause}}
@@ -91,7 +99,7 @@ Reimplemented in \hyperlink{struct_default_clause_a464358dcd7e4e13287482d3c858f3
 \index{Case\+Clause@{Case\+Clause}!test@{test}}
 \index{test@{test}!Case\+Clause@{Case\+Clause}}
 \subsubsection{\texorpdfstring{test}{test}}
-{\footnotesize\ttfamily \hyperlink{struct_expression}{Expression}$\ast$ Case\+Clause\+::test}
+{\footnotesize\ttfamily \hyperlink{struct_expression}{Expression}$\ast$ Case\+Clause\+::test = nullptr}
 
 
 

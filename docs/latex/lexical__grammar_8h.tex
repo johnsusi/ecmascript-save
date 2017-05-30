@@ -2,20 +2,23 @@
 \label{lexical__grammar_8h}\index{src/lexical\+\_\+grammar.\+h@{src/lexical\+\_\+grammar.\+h}}
 {\ttfamily \#include \char`\"{}input\+\_\+element.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}matcher.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}to\+\_\+string.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}token.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$algorithm$>$}\newline
 {\ttfamily \#include $<$cmath$>$}\newline
 {\ttfamily \#include $<$iterator$>$}\newline
 {\ttfamily \#include $<$string$>$}\newline
 {\ttfamily \#include $<$vector$>$}\newline
-Include dependency graph for lexical\+\_\+grammar.\+h\+:\nopagebreak
+Include dependency graph for lexical\+\_\+grammar.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{lexical__grammar_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:\nopagebreak
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -39,6 +42,8 @@ bool \hyperlink{lexical__grammar_8h_a9cefc40146b4aa1d5180daf8c09aef76}{is\+\_\+n
 bool \hyperlink{lexical__grammar_8h_af6705427c418482a10880319f2440157}{is\+\_\+decimal\+\_\+digit} (int cp)
 \item 
 bool \hyperlink{lexical__grammar_8h_ab5142564f94422574c9696dd2643848f}{is\+\_\+hex\+\_\+digit} (int cp)
+\item 
+bool \hyperlink{lexical__grammar_8h_a0ac2768956cf5ba5a5b9dfa346fb9ab7}{is\+\_\+exponent\+\_\+indicator} (int)
 \item 
 bool \hyperlink{lexical__grammar_8h_aab548932d0a5af9ce41ece5a9341167b}{is\+\_\+unicode\+\_\+letter} (int cp)
 \item 
@@ -64,7 +69,7 @@ bool \hyperlink{lexical__grammar_8h_a3d61917c173c0bd1f70a70056d7f3107}{is\+\_\+b
 \item 
 constexpr double \hyperlink{lexical__grammar_8h_a65a41e546ff8d9a3ae287ad722e4dab6}{pow10} (int n)
 \item 
-constexpr double \hyperlink{lexical__grammar_8h_af14140cd98daab6a40dff9ac8d1c95f4}{mul\+\_\+pow10} (int s, int n)
+static double \hyperlink{lexical__grammar_8h_a65a49ada405e821b1b0301918290fa9e}{mul\+\_\+pow10} (int s, int n)
 \end{DoxyCompactItemize}
 
 
@@ -86,6 +91,12 @@ constexpr double \hyperlink{lexical__grammar_8h_af14140cd98daab6a40dff9ac8d1c95f
 \index{is\+\_\+div\+\_\+punctuator@{is\+\_\+div\+\_\+punctuator}!lexical\+\_\+grammar.\+h@{lexical\+\_\+grammar.\+h}}
 \subsubsection{\texorpdfstring{is\+\_\+div\+\_\+punctuator()}{is\_div\_punctuator()}}
 {\footnotesize\ttfamily bool is\+\_\+div\+\_\+punctuator (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::string} \&}]{token }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lexical__grammar_8h_a0ac2768956cf5ba5a5b9dfa346fb9ab7}\label{lexical__grammar_8h_a0ac2768956cf5ba5a5b9dfa346fb9ab7}} 
+\index{lexical\+\_\+grammar.\+h@{lexical\+\_\+grammar.\+h}!is\+\_\+exponent\+\_\+indicator@{is\+\_\+exponent\+\_\+indicator}}
+\index{is\+\_\+exponent\+\_\+indicator@{is\+\_\+exponent\+\_\+indicator}!lexical\+\_\+grammar.\+h@{lexical\+\_\+grammar.\+h}}
+\subsubsection{\texorpdfstring{is\+\_\+exponent\+\_\+indicator()}{is\_exponent\_indicator()}}
+{\footnotesize\ttfamily bool is\+\_\+exponent\+\_\+indicator (\begin{DoxyParamCaption}\item[{int}]{ }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{lexical__grammar_8h_abafa8f3968318d8d7a9e5e61d4f0037b}\label{lexical__grammar_8h_abafa8f3968318d8d7a9e5e61d4f0037b}} 
 \index{lexical\+\_\+grammar.\+h@{lexical\+\_\+grammar.\+h}!is\+\_\+future\+\_\+reserved\+\_\+word@{is\+\_\+future\+\_\+reserved\+\_\+word}}
@@ -165,11 +176,11 @@ constexpr double \hyperlink{lexical__grammar_8h_af14140cd98daab6a40dff9ac8d1c95f
 \subsubsection{\texorpdfstring{is\+\_\+white\+\_\+space()}{is\_white\_space()}}
 {\footnotesize\ttfamily bool is\+\_\+white\+\_\+space (\begin{DoxyParamCaption}\item[{int}]{cp }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{lexical__grammar_8h_af14140cd98daab6a40dff9ac8d1c95f4}\label{lexical__grammar_8h_af14140cd98daab6a40dff9ac8d1c95f4}} 
+\mbox{\Hypertarget{lexical__grammar_8h_a65a49ada405e821b1b0301918290fa9e}\label{lexical__grammar_8h_a65a49ada405e821b1b0301918290fa9e}} 
 \index{lexical\+\_\+grammar.\+h@{lexical\+\_\+grammar.\+h}!mul\+\_\+pow10@{mul\+\_\+pow10}}
 \index{mul\+\_\+pow10@{mul\+\_\+pow10}!lexical\+\_\+grammar.\+h@{lexical\+\_\+grammar.\+h}}
 \subsubsection{\texorpdfstring{mul\+\_\+pow10()}{mul\_pow10()}}
-{\footnotesize\ttfamily constexpr double mul\+\_\+pow10 (\begin{DoxyParamCaption}\item[{int}]{s,  }\item[{int}]{n }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily static double mul\+\_\+pow10 (\begin{DoxyParamCaption}\item[{int}]{s,  }\item[{int}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
 \mbox{\Hypertarget{lexical__grammar_8h_a65a41e546ff8d9a3ae287ad722e4dab6}\label{lexical__grammar_8h_a65a41e546ff8d9a3ae287ad722e4dab6}} 
 \index{lexical\+\_\+grammar.\+h@{lexical\+\_\+grammar.\+h}!pow10@{pow10}}

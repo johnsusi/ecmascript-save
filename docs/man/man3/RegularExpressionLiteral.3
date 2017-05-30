@@ -1,4 +1,4 @@
-.TH "RegularExpressionLiteral" 3 "Sun May 14 2017" "ECMAScript" \" -*- nroff -*-
+.TH "RegularExpressionLiteral" 3 "Tue May 30 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -14,12 +14,26 @@ Inherits \fBLiteral\fP\&.
 
 .in +1c
 .ti -1c
+.RI "\fBRegularExpressionLiteral\fP (\fBstd::u16string\fP \fBvalue\fP)"
+.br
+.ti -1c
 .RI "void \fBaccept\fP (\fBVisitor\fP &visitor) const override"
 .br
 .ti -1c
 .RI "const char * \fBtype\fP () const override"
 .br
 .in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBstd::u16string\fP \fBvalue\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "RegularExpressionLiteral::RegularExpressionLiteral (\fBstd::u16string\fP value)\fC [inline]\fP"
+
 .SH "Member Function Documentation"
 .PP 
 .SS "void RegularExpressionLiteral::accept (\fBVisitor\fP & visitor) const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
@@ -30,6 +44,10 @@ Implements \fBNode\fP\&.
 
 .PP
 Implements \fBNode\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBstd::u16string\fP RegularExpressionLiteral::value"
+
 
 .SH "Author"
 .PP 

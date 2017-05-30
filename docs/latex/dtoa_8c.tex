@@ -1,0 +1,1141 @@
+\hypertarget{dtoa_8c}{}\section{src/dtoa.c File Reference}
+\label{dtoa_8c}\index{src/dtoa.\+c@{src/dtoa.\+c}}
+{\ttfamily \#include \char`\"{}stdlib.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}string.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}errno.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}float.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}math.\+h\char`\"{}}\newline
+Include dependency graph for dtoa.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dtoa_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_b_f96}{B\+F96}
+\item 
+union \hyperlink{union_u}{U}
+\item 
+struct \hyperlink{struct_b_cinfo}{B\+Cinfo}
+\item 
+struct \hyperlink{struct_bigint}{Bigint}
+\item 
+struct \hyperlink{struct_th_info}{Th\+Info}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{dtoa_8c_a459e268fc98c742d2983c7c23bda1cc2}{Long}~int
+\item 
+\#define \hyperlink{dtoa_8c_af576bf8ffa22a44e53018c67095ffbf0}{assert}(x)~/$\ast$nothing$\ast$/
+\item 
+\#define \hyperlink{dtoa_8c_af7175a265010efbf3a5bff41e0f75135}{Debug}(x)~/$\ast$nothing$\ast$/
+\item 
+\#define \hyperlink{dtoa_8c_a3e218828af7ddd3f4cd0d3772562b520}{M\+A\+L\+L\+OC}~malloc
+\item 
+\#define \hyperlink{dtoa_8c_a2e501a3b49991d5e526b5c52c1522df4}{R\+E\+A\+L\+L\+OC}~realloc
+\item 
+\#define \hyperlink{dtoa_8c_a9a8e700d56e7d858108b755ad3edb52e}{F\+R\+EE}~free
+\item 
+\#define \hyperlink{dtoa_8c_af4bea1000fe710351b41e8bc8eacebcf}{P\+R\+I\+V\+A\+T\+E\+\_\+\+M\+EM}~2304
+\item 
+\#define \hyperlink{dtoa_8c_a4c4c8560d0f1ca391ca934a0c8a3c068}{P\+R\+I\+V\+A\+T\+E\+\_\+mem}~((\hyperlink{dtoa_8c_af4bea1000fe710351b41e8bc8eacebcf}{P\+R\+I\+V\+A\+T\+E\+\_\+\+M\+EM} + sizeof(double) -\/ 1) / sizeof(double))
+\item 
+\#define \hyperlink{dtoa_8c_a9d45605ba2c65d49975981ba99b3aeb3}{N\+O\+\_\+\+S\+T\+R\+T\+O\+D\+\_\+\+B\+I\+G\+C\+O\+MP}
+\item 
+\#define \hyperlink{dtoa_8c_a12ad2308776ad97dd109f585ba97c821}{Set\+\_\+errno}(x)~errno = x
+\item 
+\#define \hyperlink{dtoa_8c_a6301625eb2bb3ef4046677ceb8e935b8}{Llong}~long long
+\item 
+\#define \hyperlink{dtoa_8c_a0378f05bb0539a1ed6149576a0919413}{U\+L\+Long}~unsigned \hyperlink{dtoa_8c_a6301625eb2bb3ef4046677ceb8e935b8}{Llong}
+\item 
+\#define \hyperlink{dtoa_8c_a3eb2a3269e6ca555dff82c5e2dc0e241}{U\+S\+E\+\_\+\+B\+F96}
+\item 
+\#define \hyperlink{dtoa_8c_a9f4fed61dce8a790b612a69fe51a5890}{word0}(x)~(x)-\/$>$L\mbox{[}0\mbox{]}
+\item 
+\#define \hyperlink{dtoa_8c_a3bd6bbe2f9344552f2f6f0bf75edcd03}{word1}(x)~(x)-\/$>$L\mbox{[}1\mbox{]}
+\item 
+\#define \hyperlink{dtoa_8c_a563b7321ed8e8cd9f8e385235e518836}{dval}(x)~(x)-\/$>$d
+\item 
+\#define \hyperlink{dtoa_8c_a8850861e4b9beaa169d1c301ef18465f}{L\+Lval}(x)~(x)-\/$>$LL
+\item 
+\#define \hyperlink{dtoa_8c_a66fb45f978badd5001a1eb3b436961fd}{S\+T\+R\+T\+O\+D\+\_\+\+D\+I\+G\+L\+IM}~40
+\item 
+\#define \hyperlink{dtoa_8c_a989a59e7b8da25a4d4b076c45c426f8e}{strtod\+\_\+diglim}~\hyperlink{dtoa_8c_a66fb45f978badd5001a1eb3b436961fd}{S\+T\+R\+T\+O\+D\+\_\+\+D\+I\+G\+L\+IM}
+\item 
+\#define \hyperlink{dtoa_8c_a9b21b8e0cb3af7c9d736d923c0870886}{Storeinc}(a,  b,  c)
+\item 
+\#define \hyperlink{dtoa_8c_abcb3498cf63cce98113f89b974f04f33}{Sudden\+\_\+\+Underflow}
+\item 
+\#define \hyperlink{dtoa_8c_a99e35e070982190437423aa4c0dfc963}{Flt\+\_\+\+Rounds}~1
+\item 
+\#define \hyperlink{dtoa_8c_a07374c5f75e3cc6b3698571623a8b2fc}{Exp\+\_\+shift}~23
+\item 
+\#define \hyperlink{dtoa_8c_ab48843da1ee5cd92ff22ff6f85c87d0b}{Exp\+\_\+shift1}~7
+\item 
+\#define \hyperlink{dtoa_8c_a17838ce0aab7b674b231fa855935ed1b}{Exp\+\_\+msk1}~0x80
+\item 
+\#define \hyperlink{dtoa_8c_a0997add05e477b3a97fcb24f1600468e}{Exp\+\_\+msk11}~0x800000
+\item 
+\#define \hyperlink{dtoa_8c_a6017ed8769d5e61958b3a5e7344867ac}{Exp\+\_\+mask}~0x7f80
+\item 
+\#define \hyperlink{dtoa_8c_a2748566f4c443ee77aa831e63dbb5ebe}{P}~56
+\item 
+\#define \hyperlink{dtoa_8c_a2e35a68531e5dc7de8ab9f3cd1b3a56f}{Nbits}~56
+\item 
+\#define \hyperlink{dtoa_8c_a4a718198deb1f843bf9791779dee6b01}{Bias}~129
+\item 
+\#define \hyperlink{dtoa_8c_a02382c604e3b5b550e0cd3d3f55d601b}{Emax}~126
+\item 
+\#define \hyperlink{dtoa_8c_abf22a1cc99d53140ccdf6c3952c7f508}{Emin}~(-\/129)
+\item 
+\#define \hyperlink{dtoa_8c_aa258ff5c9670492b514c622717c2f3fa}{Exp\+\_\+1}~0x40800000
+\item 
+\#define \hyperlink{dtoa_8c_af184552d63b7337750b0fe90e478a3b1}{Exp\+\_\+11}~0x4080
+\item 
+\#define \hyperlink{dtoa_8c_a3390bb384fe7269bfb9b854a7de1d8c9}{Ebits}~8
+\item 
+\#define \hyperlink{dtoa_8c_a3e6dc09a955126ee74b3870ac287e370}{Frac\+\_\+mask}~0x7fffff
+\item 
+\#define \hyperlink{dtoa_8c_a43ee899575a77aa4154e188c522e7875}{Frac\+\_\+mask1}~0xffff007f
+\item 
+\#define \hyperlink{dtoa_8c_a60c21efe38979482c071108abd8431d0}{Ten\+\_\+pmax}~24
+\item 
+\#define \hyperlink{dtoa_8c_a7c80938abca604122c8f7afb66d59331}{Bletch}~2
+\item 
+\#define \hyperlink{dtoa_8c_a328cff0f8990e802688af178354211ff}{Bndry\+\_\+mask}~0xffff007f
+\item 
+\#define \hyperlink{dtoa_8c_ad1db7929322cfb6d39c183e032d4c680}{Bndry\+\_\+mask1}~0xffff007f
+\item 
+\#define \hyperlink{dtoa_8c_a525d3ca9955b22e489a749a548831a1d}{L\+SB}~0x10000
+\item 
+\#define \hyperlink{dtoa_8c_a63c55d45c8c26a4d0c9d2d5c1afe5caa}{Sign\+\_\+bit}~0x8000
+\item 
+\#define \hyperlink{dtoa_8c_ae4965879c4ea641940c6e8a190df8142}{Log2P}~1
+\item 
+\#define \hyperlink{dtoa_8c_a0ff2aa401024cf1d9c294764d3989d5f}{Tiny0}~0x80
+\item 
+\#define \hyperlink{dtoa_8c_a41b55bb8829507cb221f0fa73f71bb64}{Tiny1}~0
+\item 
+\#define \hyperlink{dtoa_8c_a4a1aa87d88576b92517b427bb7e09e21}{Quick\+\_\+max}~15
+\item 
+\#define \hyperlink{dtoa_8c_af2bdae8b2a1a2c6cc68215ef219d2673}{Int\+\_\+max}~15
+\item 
+\#define \hyperlink{dtoa_8c_adc3a63a6f1466ef1d0be5949ae90f8c0}{R\+O\+U\+N\+D\+\_\+\+B\+I\+A\+S\+ED}
+\item 
+\#define \hyperlink{dtoa_8c_a09227e189a0ccbe91a702ddd894940ee}{rounded\+\_\+product}(a,  b)~a $\ast$= b
+\item 
+\#define \hyperlink{dtoa_8c_a34f631126fba1aa87949f45721457cd1}{rounded\+\_\+quotient}(a,  b)~a /= b
+\item 
+\#define \hyperlink{dtoa_8c_ae709fda6b3328d495c3addb13d51c8ec}{Big0}~(\hyperlink{dtoa_8c_a43ee899575a77aa4154e188c522e7875}{Frac\+\_\+mask1} $\vert$ \hyperlink{dtoa_8c_a17838ce0aab7b674b231fa855935ed1b}{Exp\+\_\+msk1} $\ast$ (D\+B\+L\+\_\+\+M\+A\+X\+\_\+\+E\+XP + \hyperlink{dtoa_8c_a4a718198deb1f843bf9791779dee6b01}{Bias} -\/ 1))
+\item 
+\#define \hyperlink{dtoa_8c_a16bd098794b12e962a30252ed02ee37d}{Big1}~0xffffffff
+\item 
+\#define \hyperlink{dtoa_8c_af520e0ebe2ee2e65ed8e07305dc73bc9}{Pack\+\_\+32}
+\item 
+\#define \hyperlink{dtoa_8c_ad617f62b0e8e52faab151e40342bbaeb}{F\+F\+F\+F\+F\+F\+FF}~0xffffffff\+UL
+\item 
+\#define \hyperlink{dtoa_8c_aa398fe0c5f3aff1b2de1da702a499114}{M\+Ta}~/$\ast$nothing$\ast$/
+\item 
+\#define \hyperlink{dtoa_8c_a8747b0bbf7915aa34e4266834b1722cd}{M\+Tb}~/$\ast$nothing$\ast$/
+\item 
+\#define \hyperlink{dtoa_8c_ab31bd30f79a4b54ecdc2016374f85852}{M\+Td}~/$\ast$nothing$\ast$/
+\item 
+\#define \hyperlink{dtoa_8c_a60a2b72a9437564147596c3308b55845}{Kmax}~7
+\item 
+\#define \hyperlink{dtoa_8c_a896e77038c659ca416b686f1e7a93eb8}{freelist}~T\+I0.\+Freelist
+\item 
+\#define \hyperlink{dtoa_8c_a9da7d9a4233c4cc1cbb9573cd8af604e}{p5s}~T\+I0.\+P5s
+\item 
+\#define \hyperlink{dtoa_8c_acb2492181a9c5310befb7e45e65c35c9}{Bcopy}(x,  y)
+\item 
+\#define \hyperlink{dtoa_8c_ade11f3df9cc63f54fa743250c646e270}{d0}~\hyperlink{dtoa_8c_a9f4fed61dce8a790b612a69fe51a5890}{word0}(\&d)
+\item 
+\#define \hyperlink{dtoa_8c_a1fe17aa2ff1722c937379044a27da68a}{d1}~\hyperlink{dtoa_8c_a3bd6bbe2f9344552f2f6f0bf75edcd03}{word1}(\&d)
+\item 
+\#define \hyperlink{dtoa_8c_ade11f3df9cc63f54fa743250c646e270}{d0}~\hyperlink{dtoa_8c_a9f4fed61dce8a790b612a69fe51a5890}{word0}(d)
+\item 
+\#define \hyperlink{dtoa_8c_a1fe17aa2ff1722c937379044a27da68a}{d1}~\hyperlink{dtoa_8c_a3bd6bbe2f9344552f2f6f0bf75edcd03}{word1}(d)
+\item 
+\#define \hyperlink{dtoa_8c_a4fd98445d772ae9d9b92f1f23fb228a5}{n\+\_\+bigtens}~2
+\item 
+\#define \hyperlink{dtoa_8c_af164689b401ef7d85df456a92bafdb18}{Need\+\_\+\+Hexdig}
+\item 
+\#define \hyperlink{dtoa_8c_af85dfd9f1aa421f438bc15ba49ce0ba2}{U\+Lbits}~32
+\item 
+\#define \hyperlink{dtoa_8c_abb17159a538a6ee20126daeb4415207a}{kshift}~5
+\item 
+\#define \hyperlink{dtoa_8c_a752db913a54cd91a160b4d0afa622d78}{kmask}~31
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef unsigned \hyperlink{dtoa_8c_a459e268fc98c742d2983c7c23bda1cc2}{Long} \hyperlink{dtoa_8c_afa5f820499f9d3fb566021c346784449}{U\+Long}
+\item 
+typedef struct \hyperlink{struct_b_f96}{B\+F96} \hyperlink{dtoa_8c_ae0d862410d98621397cdb63d55eab67f}{B\+F96}
+\item 
+typedef struct \hyperlink{struct_b_cinfo}{B\+Cinfo} \hyperlink{dtoa_8c_a4dfff2dc00844610692c1bee5bfe1521}{B\+Cinfo}
+\item 
+typedef struct \hyperlink{struct_bigint}{Bigint} \hyperlink{dtoa_8c_af4d1f814f7bcd9a50ee45efea0942d99}{Bigint}
+\item 
+typedef struct \hyperlink{struct_th_info}{Th\+Info} \hyperlink{dtoa_8c_a411457096211e78c4636c42726d8f383}{Th\+Info}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \hyperlink{dtoa_8c_a06fc87d81c62e9abb8790b6e5713c55ba5747931610802384231335f4f5419e93}{Round\+\_\+zero} = 0, 
+\hyperlink{dtoa_8c_a06fc87d81c62e9abb8790b6e5713c55ba8d763dda6e775e0f83dab8be18dfc118}{Round\+\_\+near} = 1, 
+\hyperlink{dtoa_8c_a06fc87d81c62e9abb8790b6e5713c55ba7e605f09e3b793da0ee27ceb80bdcb0b}{Round\+\_\+up} = 2, 
+\hyperlink{dtoa_8c_a06fc87d81c62e9abb8790b6e5713c55baf1bdb8a4d76fe731261a48d9954c2f50}{Round\+\_\+down} = 3
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{struct_bigint}{Bigint} $\ast$ \hyperlink{dtoa_8c_a8b14f41cd7e305022404dda70d57a3bf}{Balloc} (int k \hyperlink{dtoa_8c_ab31bd30f79a4b54ecdc2016374f85852}{M\+Td})
+\item 
+static void \hyperlink{dtoa_8c_a58b1ccc42ab64fd0b4c071c0d5811dd9}{Bfree} (\hyperlink{struct_bigint}{Bigint} $\ast$v \hyperlink{dtoa_8c_ab31bd30f79a4b54ecdc2016374f85852}{M\+Td})
+\item 
+static \hyperlink{struct_bigint}{Bigint} $\ast$ \hyperlink{dtoa_8c_adc704b175b6951612fba22a7269f06a5}{multadd} (\hyperlink{struct_bigint}{Bigint} $\ast$b, int m, int a \hyperlink{dtoa_8c_ab31bd30f79a4b54ecdc2016374f85852}{M\+Td})
+\item 
+static \hyperlink{struct_bigint}{Bigint} $\ast$ \hyperlink{dtoa_8c_a3e28f0c0837d2f9fcbd54e52782f543b}{s2b} (const char $\ast$s, int nd0, int nd, \hyperlink{dtoa_8c_afa5f820499f9d3fb566021c346784449}{U\+Long} y9, int dplen \hyperlink{dtoa_8c_ab31bd30f79a4b54ecdc2016374f85852}{M\+Td})
+\item 
+static int \hyperlink{dtoa_8c_acde19b583452155815db5ec8c09fa2fb}{hi0bits} (\hyperlink{dtoa_8c_afa5f820499f9d3fb566021c346784449}{U\+Long} x)
+\item 
+static int \hyperlink{dtoa_8c_a27739a75589e9a8a9480855431e10f09}{lo0bits} (\hyperlink{dtoa_8c_afa5f820499f9d3fb566021c346784449}{U\+Long} $\ast$y)
+\item 
+static \hyperlink{struct_bigint}{Bigint} $\ast$ \hyperlink{dtoa_8c_afda8241bb24dc40cce9e9fd79658fce9}{i2b} (int i \hyperlink{dtoa_8c_ab31bd30f79a4b54ecdc2016374f85852}{M\+Td})
+\item 
+static \hyperlink{struct_bigint}{Bigint} $\ast$ \hyperlink{dtoa_8c_ae88e43ae9d1f830c2292850ff81f77ab}{mult} (\hyperlink{struct_bigint}{Bigint} $\ast$a, \hyperlink{struct_bigint}{Bigint} $\ast$b \hyperlink{dtoa_8c_ab31bd30f79a4b54ecdc2016374f85852}{M\+Td})
+\item 
+static \hyperlink{struct_bigint}{Bigint} $\ast$ \hyperlink{dtoa_8c_a949ef4ea131256c82f558e281882d71a}{pow5mult} (\hyperlink{struct_bigint}{Bigint} $\ast$b, int k \hyperlink{dtoa_8c_ab31bd30f79a4b54ecdc2016374f85852}{M\+Td})
+\item 
+static \hyperlink{struct_bigint}{Bigint} $\ast$ \hyperlink{dtoa_8c_a2fd4220bc75509df9a88873777a1b0f6}{lshift} (\hyperlink{struct_bigint}{Bigint} $\ast$b, int k \hyperlink{dtoa_8c_ab31bd30f79a4b54ecdc2016374f85852}{M\+Td})
+\item 
+static int \hyperlink{dtoa_8c_ae3b60d76128298cf2780a4612b47befe}{cmp} (\hyperlink{struct_bigint}{Bigint} $\ast$a, \hyperlink{struct_bigint}{Bigint} $\ast$b)
+\item 
+static \hyperlink{struct_bigint}{Bigint} $\ast$ \hyperlink{dtoa_8c_a28cdebcca33f1695baee238db41cfb7d}{diff} (\hyperlink{struct_bigint}{Bigint} $\ast$a, \hyperlink{struct_bigint}{Bigint} $\ast$b \hyperlink{dtoa_8c_ab31bd30f79a4b54ecdc2016374f85852}{M\+Td})
+\item 
+static double \hyperlink{dtoa_8c_ae129a6a95377a7e000345e8d8c0e9fac}{ulp} (\hyperlink{union_u}{U} $\ast$x)
+\item 
+static double \hyperlink{dtoa_8c_a1064d3e97f2c0a459a42eed3e18dd9e5}{b2d} (\hyperlink{struct_bigint}{Bigint} $\ast$a, int $\ast$e)
+\item 
+static \hyperlink{struct_bigint}{Bigint} $\ast$ \hyperlink{dtoa_8c_abfce26ad8ef6ccc1b97c18802d40ed21}{d2b} (\hyperlink{union_u}{U} $\ast$d, int $\ast$e, int $\ast$bits \hyperlink{dtoa_8c_ab31bd30f79a4b54ecdc2016374f85852}{M\+Td})
+\item 
+static double \hyperlink{dtoa_8c_ae5567a2ba4448098128614fe9779209b}{ratio} (\hyperlink{struct_bigint}{Bigint} $\ast$a, \hyperlink{struct_bigint}{Bigint} $\ast$b)
+\item 
+static \hyperlink{struct_bigint}{Bigint} $\ast$ \hyperlink{dtoa_8c_ae404fe4af3fdabd5a2a44a6aee51bef8}{increment} (\hyperlink{struct_bigint}{Bigint} $\ast$b \hyperlink{dtoa_8c_ab31bd30f79a4b54ecdc2016374f85852}{M\+Td})
+\item 
+static void \hyperlink{dtoa_8c_a340d7438a88723384714662b643a1f8b}{rshift} (\hyperlink{struct_bigint}{Bigint} $\ast$b, int k)
+\item 
+static \hyperlink{dtoa_8c_afa5f820499f9d3fb566021c346784449}{U\+Long} \hyperlink{dtoa_8c_ad05c82c5db51c311dbf3f8304ce75a5f}{any\+\_\+on} (\hyperlink{struct_bigint}{Bigint} $\ast$b, int k)
+\item 
+void \hyperlink{dtoa_8c_abcb15114e7f9ce772ecb5e7dc5592f85}{gethex} (const char $\ast$$\ast$sp, \hyperlink{union_u}{U} $\ast$rvp, int rounding, int sign \hyperlink{dtoa_8c_ab31bd30f79a4b54ecdc2016374f85852}{M\+Td})
+\item 
+static int \hyperlink{dtoa_8c_aa83eea23c9d4149de2891e08fc404f9c}{dshift} (\hyperlink{struct_bigint}{Bigint} $\ast$b, int p2)
+\item 
+static int \hyperlink{dtoa_8c_a5259fef784f48e6d345d7c1338bc46cf}{quorem} (\hyperlink{struct_bigint}{Bigint} $\ast$b, \hyperlink{struct_bigint}{Bigint} $\ast$S)
+\item 
+double \hyperlink{dtoa_8c_ad7520c49e901c1d0c76d9d3a260614dc}{strtod} (const char $\ast$s00, char $\ast$$\ast$se)
+\item 
+static char $\ast$ \hyperlink{dtoa_8c_ae039154cacc9426db1a4f005015aa6bf}{rv\+\_\+alloc} (int i \hyperlink{dtoa_8c_ab31bd30f79a4b54ecdc2016374f85852}{M\+Td})
+\item 
+static char $\ast$ \hyperlink{dtoa_8c_aa8a4b45a334b1edf209c62cd09c9ffb8}{nrv\+\_\+alloc} (const char $\ast$s, char $\ast$s0, size\+\_\+t s0len, char $\ast$$\ast$rve, int n \hyperlink{dtoa_8c_ab31bd30f79a4b54ecdc2016374f85852}{M\+Td})
+\item 
+void \hyperlink{dtoa_8c_a0233452d5cf4f80cd8001660410da54a}{freedtoa} (char $\ast$s)
+\item 
+char $\ast$ \hyperlink{dtoa_8c_addeae1656dc3af769c2e2703310e5fb7}{dtoa\+\_\+r} (double dd, int mode, int ndigits, int $\ast$decpt, int $\ast$sign, char $\ast$$\ast$rve, char $\ast$buf, size\+\_\+t blen)
+\item 
+char $\ast$ \hyperlink{dtoa_8c_aa5e1ae8c86a615eade9613ab7700b889}{dtoa} (double dd, int mode, int ndigits, int $\ast$decpt, int $\ast$sign, char $\ast$$\ast$rve)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static double \hyperlink{dtoa_8c_ae90ee92993a4c23db3d96d1e204e340d}{private\+\_\+mem} \mbox{[}\hyperlink{dtoa_8c_a4c4c8560d0f1ca391ca934a0c8a3c068}{P\+R\+I\+V\+A\+T\+E\+\_\+mem}\mbox{]}
+\item 
+static double $\ast$ \hyperlink{dtoa_8c_af76ccd58185261778dbfc0c5f13d9f83}{pmem\+\_\+next} = \hyperlink{dtoa_8c_ae90ee92993a4c23db3d96d1e204e340d}{private\+\_\+mem}
+\item 
+Exactly one of \hyperlink{dtoa_8c_afac4e36a82c37be5356e2fca6bd00fec}{I\+E\+E\+E\+\_\+8087}
+\item 
+Exactly one of \hyperlink{dtoa_8c_a5a9013e5e6b73ef271657e091095cbce}{I\+E\+E\+E\+\_\+\+M\+C68k}
+\item 
+Exactly one of \hyperlink{dtoa_8c_a6f5065da6f30a7ecf67f3a22bb215adb}{V\+AX}
+\item 
+int \hyperlink{dtoa_8c_a0ac77f7c34b87b413754865d8ceaf248}{dtoa\+\_\+divmax} = 2
+\item 
+static \hyperlink{struct_b_f96}{B\+F96} \hyperlink{dtoa_8c_a7ed993099169d4c6d03cc55c53e78827}{pten} \mbox{[}667\mbox{]}
+\item 
+static short int \hyperlink{dtoa_8c_a526dd6d10df86fc4e5fa1fa7ce0c9416}{Lhint} \mbox{[}2098\mbox{]}
+\item 
+static \hyperlink{dtoa_8c_a0378f05bb0539a1ed6149576a0919413}{U\+L\+Long} \hyperlink{dtoa_8c_a4becb6b54e3f0640d6d48fd561d30ade}{pfive} \mbox{[}27\mbox{]}
+\item 
+static int \hyperlink{dtoa_8c_a494e71755608595f84c446e6c26e78b5}{pfivebits} \mbox{[}25\mbox{]}
+\item 
+static \hyperlink{struct_th_info}{Th\+Info} \hyperlink{dtoa_8c_a09165dac1c4a20c20589575ebc96f58b}{T\+I0}
+\item 
+static const double \hyperlink{dtoa_8c_aa112b30f67ae87ee166cb9b5e25a7b23}{tens} \mbox{[}$\,$\mbox{]}
+\item 
+static const double \hyperlink{dtoa_8c_a92490e11aa7d7a0444b9ba7187df2b21}{bigtens} \mbox{[}$\,$\mbox{]} = \{1e16, 1e32\}
+\item 
+static const double \hyperlink{dtoa_8c_aa35df39ef3e9737363c1f3976895c167}{tinytens} \mbox{[}$\,$\mbox{]} = \{1e-\/16, 1e-\/32\}
+\item 
+static unsigned char \hyperlink{dtoa_8c_afef8549d0f3c8db7c0ee2d198d8b0686}{hexdig} \mbox{[}256\mbox{]}
+\item 
+static char $\ast$ \hyperlink{dtoa_8c_ac4f497801c4769bc3c7344084008ad87}{dtoa\+\_\+result}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{dtoa_8c_af576bf8ffa22a44e53018c67095ffbf0}\label{dtoa_8c_af576bf8ffa22a44e53018c67095ffbf0}} 
+\index{dtoa.\+c@{dtoa.\+c}!assert@{assert}}
+\index{assert@{assert}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{assert}{assert}}
+{\footnotesize\ttfamily \#define assert(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~/$\ast$nothing$\ast$/}
+
+\mbox{\Hypertarget{dtoa_8c_acb2492181a9c5310befb7e45e65c35c9}\label{dtoa_8c_acb2492181a9c5310befb7e45e65c35c9}} 
+\index{dtoa.\+c@{dtoa.\+c}!Bcopy@{Bcopy}}
+\index{Bcopy@{Bcopy}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{Bcopy}{Bcopy}}
+{\footnotesize\ttfamily \#define Bcopy(\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{y }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+memcpy((\textcolor{keywordtype}{char} *)&x->sign, (\textcolor{keywordtype}{char} *)&y->sign,                                   \(\backslash\)
+         y->wds * \textcolor{keyword}{sizeof}(\hyperlink{dtoa_8c_a459e268fc98c742d2983c7c23bda1cc2}{Long}) + 2 * \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}))
+\end{DoxyCode}
+\mbox{\Hypertarget{dtoa_8c_a4a718198deb1f843bf9791779dee6b01}\label{dtoa_8c_a4a718198deb1f843bf9791779dee6b01}} 
+\index{dtoa.\+c@{dtoa.\+c}!Bias@{Bias}}
+\index{Bias@{Bias}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{Bias}{Bias}}
+{\footnotesize\ttfamily \#define Bias~129}
+
+\mbox{\Hypertarget{dtoa_8c_ae709fda6b3328d495c3addb13d51c8ec}\label{dtoa_8c_ae709fda6b3328d495c3addb13d51c8ec}} 
+\index{dtoa.\+c@{dtoa.\+c}!Big0@{Big0}}
+\index{Big0@{Big0}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{Big0}{Big0}}
+{\footnotesize\ttfamily \#define Big0~(\hyperlink{dtoa_8c_a43ee899575a77aa4154e188c522e7875}{Frac\+\_\+mask1} $\vert$ \hyperlink{dtoa_8c_a17838ce0aab7b674b231fa855935ed1b}{Exp\+\_\+msk1} $\ast$ (D\+B\+L\+\_\+\+M\+A\+X\+\_\+\+E\+XP + \hyperlink{dtoa_8c_a4a718198deb1f843bf9791779dee6b01}{Bias} -\/ 1))}
+
+\mbox{\Hypertarget{dtoa_8c_a16bd098794b12e962a30252ed02ee37d}\label{dtoa_8c_a16bd098794b12e962a30252ed02ee37d}} 
+\index{dtoa.\+c@{dtoa.\+c}!Big1@{Big1}}
+\index{Big1@{Big1}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{Big1}{Big1}}
+{\footnotesize\ttfamily \#define Big1~0xffffffff}
+
+\mbox{\Hypertarget{dtoa_8c_a7c80938abca604122c8f7afb66d59331}\label{dtoa_8c_a7c80938abca604122c8f7afb66d59331}} 
+\index{dtoa.\+c@{dtoa.\+c}!Bletch@{Bletch}}
+\index{Bletch@{Bletch}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{Bletch}{Bletch}}
+{\footnotesize\ttfamily \#define Bletch~2}
+
+\mbox{\Hypertarget{dtoa_8c_a328cff0f8990e802688af178354211ff}\label{dtoa_8c_a328cff0f8990e802688af178354211ff}} 
+\index{dtoa.\+c@{dtoa.\+c}!Bndry\+\_\+mask@{Bndry\+\_\+mask}}
+\index{Bndry\+\_\+mask@{Bndry\+\_\+mask}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{Bndry\+\_\+mask}{Bndry\_mask}}
+{\footnotesize\ttfamily \#define Bndry\+\_\+mask~0xffff007f}
+
+\mbox{\Hypertarget{dtoa_8c_ad1db7929322cfb6d39c183e032d4c680}\label{dtoa_8c_ad1db7929322cfb6d39c183e032d4c680}} 
+\index{dtoa.\+c@{dtoa.\+c}!Bndry\+\_\+mask1@{Bndry\+\_\+mask1}}
+\index{Bndry\+\_\+mask1@{Bndry\+\_\+mask1}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{Bndry\+\_\+mask1}{Bndry\_mask1}}
+{\footnotesize\ttfamily \#define Bndry\+\_\+mask1~0xffff007f}
+
+\mbox{\Hypertarget{dtoa_8c_ade11f3df9cc63f54fa743250c646e270}\label{dtoa_8c_ade11f3df9cc63f54fa743250c646e270}} 
+\index{dtoa.\+c@{dtoa.\+c}!d0@{d0}}
+\index{d0@{d0}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{d0}{d0}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define d0~\hyperlink{dtoa_8c_a9f4fed61dce8a790b612a69fe51a5890}{word0}(\&d)}
+
+\mbox{\Hypertarget{dtoa_8c_ade11f3df9cc63f54fa743250c646e270}\label{dtoa_8c_ade11f3df9cc63f54fa743250c646e270}} 
+\index{dtoa.\+c@{dtoa.\+c}!d0@{d0}}
+\index{d0@{d0}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{d0}{d0}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define d0~\hyperlink{dtoa_8c_a9f4fed61dce8a790b612a69fe51a5890}{word0}(d)}
+
+\mbox{\Hypertarget{dtoa_8c_a1fe17aa2ff1722c937379044a27da68a}\label{dtoa_8c_a1fe17aa2ff1722c937379044a27da68a}} 
+\index{dtoa.\+c@{dtoa.\+c}!d1@{d1}}
+\index{d1@{d1}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{d1}{d1}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define d1~\hyperlink{dtoa_8c_a3bd6bbe2f9344552f2f6f0bf75edcd03}{word1}(\&d)}
+
+\mbox{\Hypertarget{dtoa_8c_a1fe17aa2ff1722c937379044a27da68a}\label{dtoa_8c_a1fe17aa2ff1722c937379044a27da68a}} 
+\index{dtoa.\+c@{dtoa.\+c}!d1@{d1}}
+\index{d1@{d1}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{d1}{d1}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define d1~\hyperlink{dtoa_8c_a3bd6bbe2f9344552f2f6f0bf75edcd03}{word1}(d)}
+
+\mbox{\Hypertarget{dtoa_8c_af7175a265010efbf3a5bff41e0f75135}\label{dtoa_8c_af7175a265010efbf3a5bff41e0f75135}} 
+\index{dtoa.\+c@{dtoa.\+c}!Debug@{Debug}}
+\index{Debug@{Debug}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{Debug}{Debug}}
+{\footnotesize\ttfamily \#define Debug(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~/$\ast$nothing$\ast$/}
+
+\mbox{\Hypertarget{dtoa_8c_a563b7321ed8e8cd9f8e385235e518836}\label{dtoa_8c_a563b7321ed8e8cd9f8e385235e518836}} 
+\index{dtoa.\+c@{dtoa.\+c}!dval@{dval}}
+\index{dval@{dval}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{dval}{dval}}
+{\footnotesize\ttfamily \#define dval(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~(x)-\/$>$d}
+
+\mbox{\Hypertarget{dtoa_8c_a3390bb384fe7269bfb9b854a7de1d8c9}\label{dtoa_8c_a3390bb384fe7269bfb9b854a7de1d8c9}} 
+\index{dtoa.\+c@{dtoa.\+c}!Ebits@{Ebits}}
+\index{Ebits@{Ebits}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{Ebits}{Ebits}}
+{\footnotesize\ttfamily \#define Ebits~8}
+
+\mbox{\Hypertarget{dtoa_8c_a02382c604e3b5b550e0cd3d3f55d601b}\label{dtoa_8c_a02382c604e3b5b550e0cd3d3f55d601b}} 
+\index{dtoa.\+c@{dtoa.\+c}!Emax@{Emax}}
+\index{Emax@{Emax}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{Emax}{Emax}}
+{\footnotesize\ttfamily \#define Emax~126}
+
+\mbox{\Hypertarget{dtoa_8c_abf22a1cc99d53140ccdf6c3952c7f508}\label{dtoa_8c_abf22a1cc99d53140ccdf6c3952c7f508}} 
+\index{dtoa.\+c@{dtoa.\+c}!Emin@{Emin}}
+\index{Emin@{Emin}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{Emin}{Emin}}
+{\footnotesize\ttfamily \#define Emin~(-\/129)}
+
+\mbox{\Hypertarget{dtoa_8c_aa258ff5c9670492b514c622717c2f3fa}\label{dtoa_8c_aa258ff5c9670492b514c622717c2f3fa}} 
+\index{dtoa.\+c@{dtoa.\+c}!Exp\+\_\+1@{Exp\+\_\+1}}
+\index{Exp\+\_\+1@{Exp\+\_\+1}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{Exp\+\_\+1}{Exp\_1}}
+{\footnotesize\ttfamily \#define Exp\+\_\+1~0x40800000}
+
+\mbox{\Hypertarget{dtoa_8c_af184552d63b7337750b0fe90e478a3b1}\label{dtoa_8c_af184552d63b7337750b0fe90e478a3b1}} 
+\index{dtoa.\+c@{dtoa.\+c}!Exp\+\_\+11@{Exp\+\_\+11}}
+\index{Exp\+\_\+11@{Exp\+\_\+11}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{Exp\+\_\+11}{Exp\_11}}
+{\footnotesize\ttfamily \#define Exp\+\_\+11~0x4080}
+
+\mbox{\Hypertarget{dtoa_8c_a6017ed8769d5e61958b3a5e7344867ac}\label{dtoa_8c_a6017ed8769d5e61958b3a5e7344867ac}} 
+\index{dtoa.\+c@{dtoa.\+c}!Exp\+\_\+mask@{Exp\+\_\+mask}}
+\index{Exp\+\_\+mask@{Exp\+\_\+mask}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{Exp\+\_\+mask}{Exp\_mask}}
+{\footnotesize\ttfamily \#define Exp\+\_\+mask~0x7f80}
+
+\mbox{\Hypertarget{dtoa_8c_a17838ce0aab7b674b231fa855935ed1b}\label{dtoa_8c_a17838ce0aab7b674b231fa855935ed1b}} 
+\index{dtoa.\+c@{dtoa.\+c}!Exp\+\_\+msk1@{Exp\+\_\+msk1}}
+\index{Exp\+\_\+msk1@{Exp\+\_\+msk1}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{Exp\+\_\+msk1}{Exp\_msk1}}
+{\footnotesize\ttfamily \#define Exp\+\_\+msk1~0x80}
+
+\mbox{\Hypertarget{dtoa_8c_a0997add05e477b3a97fcb24f1600468e}\label{dtoa_8c_a0997add05e477b3a97fcb24f1600468e}} 
+\index{dtoa.\+c@{dtoa.\+c}!Exp\+\_\+msk11@{Exp\+\_\+msk11}}
+\index{Exp\+\_\+msk11@{Exp\+\_\+msk11}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{Exp\+\_\+msk11}{Exp\_msk11}}
+{\footnotesize\ttfamily \#define Exp\+\_\+msk11~0x800000}
+
+\mbox{\Hypertarget{dtoa_8c_a07374c5f75e3cc6b3698571623a8b2fc}\label{dtoa_8c_a07374c5f75e3cc6b3698571623a8b2fc}} 
+\index{dtoa.\+c@{dtoa.\+c}!Exp\+\_\+shift@{Exp\+\_\+shift}}
+\index{Exp\+\_\+shift@{Exp\+\_\+shift}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{Exp\+\_\+shift}{Exp\_shift}}
+{\footnotesize\ttfamily \#define Exp\+\_\+shift~23}
+
+\mbox{\Hypertarget{dtoa_8c_ab48843da1ee5cd92ff22ff6f85c87d0b}\label{dtoa_8c_ab48843da1ee5cd92ff22ff6f85c87d0b}} 
+\index{dtoa.\+c@{dtoa.\+c}!Exp\+\_\+shift1@{Exp\+\_\+shift1}}
+\index{Exp\+\_\+shift1@{Exp\+\_\+shift1}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{Exp\+\_\+shift1}{Exp\_shift1}}
+{\footnotesize\ttfamily \#define Exp\+\_\+shift1~7}
+
+\mbox{\Hypertarget{dtoa_8c_ad617f62b0e8e52faab151e40342bbaeb}\label{dtoa_8c_ad617f62b0e8e52faab151e40342bbaeb}} 
+\index{dtoa.\+c@{dtoa.\+c}!F\+F\+F\+F\+F\+F\+FF@{F\+F\+F\+F\+F\+F\+FF}}
+\index{F\+F\+F\+F\+F\+F\+FF@{F\+F\+F\+F\+F\+F\+FF}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{F\+F\+F\+F\+F\+F\+FF}{FFFFFFFF}}
+{\footnotesize\ttfamily \#define F\+F\+F\+F\+F\+F\+FF~0xffffffff\+UL}
+
+\mbox{\Hypertarget{dtoa_8c_a99e35e070982190437423aa4c0dfc963}\label{dtoa_8c_a99e35e070982190437423aa4c0dfc963}} 
+\index{dtoa.\+c@{dtoa.\+c}!Flt\+\_\+\+Rounds@{Flt\+\_\+\+Rounds}}
+\index{Flt\+\_\+\+Rounds@{Flt\+\_\+\+Rounds}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{Flt\+\_\+\+Rounds}{Flt\_Rounds}}
+{\footnotesize\ttfamily \#define Flt\+\_\+\+Rounds~1}
+
+\mbox{\Hypertarget{dtoa_8c_a3e6dc09a955126ee74b3870ac287e370}\label{dtoa_8c_a3e6dc09a955126ee74b3870ac287e370}} 
+\index{dtoa.\+c@{dtoa.\+c}!Frac\+\_\+mask@{Frac\+\_\+mask}}
+\index{Frac\+\_\+mask@{Frac\+\_\+mask}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{Frac\+\_\+mask}{Frac\_mask}}
+{\footnotesize\ttfamily \#define Frac\+\_\+mask~0x7fffff}
+
+\mbox{\Hypertarget{dtoa_8c_a43ee899575a77aa4154e188c522e7875}\label{dtoa_8c_a43ee899575a77aa4154e188c522e7875}} 
+\index{dtoa.\+c@{dtoa.\+c}!Frac\+\_\+mask1@{Frac\+\_\+mask1}}
+\index{Frac\+\_\+mask1@{Frac\+\_\+mask1}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{Frac\+\_\+mask1}{Frac\_mask1}}
+{\footnotesize\ttfamily \#define Frac\+\_\+mask1~0xffff007f}
+
+\mbox{\Hypertarget{dtoa_8c_a9a8e700d56e7d858108b755ad3edb52e}\label{dtoa_8c_a9a8e700d56e7d858108b755ad3edb52e}} 
+\index{dtoa.\+c@{dtoa.\+c}!F\+R\+EE@{F\+R\+EE}}
+\index{F\+R\+EE@{F\+R\+EE}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{F\+R\+EE}{FREE}}
+{\footnotesize\ttfamily \#define F\+R\+EE~free}
+
+\mbox{\Hypertarget{dtoa_8c_a896e77038c659ca416b686f1e7a93eb8}\label{dtoa_8c_a896e77038c659ca416b686f1e7a93eb8}} 
+\index{dtoa.\+c@{dtoa.\+c}!freelist@{freelist}}
+\index{freelist@{freelist}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{freelist}{freelist}}
+{\footnotesize\ttfamily \#define freelist~T\+I0.\+Freelist}
+
+\mbox{\Hypertarget{dtoa_8c_af2bdae8b2a1a2c6cc68215ef219d2673}\label{dtoa_8c_af2bdae8b2a1a2c6cc68215ef219d2673}} 
+\index{dtoa.\+c@{dtoa.\+c}!Int\+\_\+max@{Int\+\_\+max}}
+\index{Int\+\_\+max@{Int\+\_\+max}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{Int\+\_\+max}{Int\_max}}
+{\footnotesize\ttfamily \#define Int\+\_\+max~15}
+
+\mbox{\Hypertarget{dtoa_8c_a752db913a54cd91a160b4d0afa622d78}\label{dtoa_8c_a752db913a54cd91a160b4d0afa622d78}} 
+\index{dtoa.\+c@{dtoa.\+c}!kmask@{kmask}}
+\index{kmask@{kmask}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{kmask}{kmask}}
+{\footnotesize\ttfamily \#define kmask~31}
+
+\mbox{\Hypertarget{dtoa_8c_a60a2b72a9437564147596c3308b55845}\label{dtoa_8c_a60a2b72a9437564147596c3308b55845}} 
+\index{dtoa.\+c@{dtoa.\+c}!Kmax@{Kmax}}
+\index{Kmax@{Kmax}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{Kmax}{Kmax}}
+{\footnotesize\ttfamily \#define Kmax~7}
+
+\mbox{\Hypertarget{dtoa_8c_abb17159a538a6ee20126daeb4415207a}\label{dtoa_8c_abb17159a538a6ee20126daeb4415207a}} 
+\index{dtoa.\+c@{dtoa.\+c}!kshift@{kshift}}
+\index{kshift@{kshift}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{kshift}{kshift}}
+{\footnotesize\ttfamily \#define kshift~5}
+
+\mbox{\Hypertarget{dtoa_8c_a6301625eb2bb3ef4046677ceb8e935b8}\label{dtoa_8c_a6301625eb2bb3ef4046677ceb8e935b8}} 
+\index{dtoa.\+c@{dtoa.\+c}!Llong@{Llong}}
+\index{Llong@{Llong}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{Llong}{Llong}}
+{\footnotesize\ttfamily \#define Llong~long long}
+
+\mbox{\Hypertarget{dtoa_8c_a8850861e4b9beaa169d1c301ef18465f}\label{dtoa_8c_a8850861e4b9beaa169d1c301ef18465f}} 
+\index{dtoa.\+c@{dtoa.\+c}!L\+Lval@{L\+Lval}}
+\index{L\+Lval@{L\+Lval}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{L\+Lval}{LLval}}
+{\footnotesize\ttfamily \#define L\+Lval(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~(x)-\/$>$LL}
+
+\mbox{\Hypertarget{dtoa_8c_ae4965879c4ea641940c6e8a190df8142}\label{dtoa_8c_ae4965879c4ea641940c6e8a190df8142}} 
+\index{dtoa.\+c@{dtoa.\+c}!Log2P@{Log2P}}
+\index{Log2P@{Log2P}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{Log2P}{Log2P}}
+{\footnotesize\ttfamily \#define Log2P~1}
+
+\mbox{\Hypertarget{dtoa_8c_a459e268fc98c742d2983c7c23bda1cc2}\label{dtoa_8c_a459e268fc98c742d2983c7c23bda1cc2}} 
+\index{dtoa.\+c@{dtoa.\+c}!Long@{Long}}
+\index{Long@{Long}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{Long}{Long}}
+{\footnotesize\ttfamily \#define Long~int}
+
+\mbox{\Hypertarget{dtoa_8c_a525d3ca9955b22e489a749a548831a1d}\label{dtoa_8c_a525d3ca9955b22e489a749a548831a1d}} 
+\index{dtoa.\+c@{dtoa.\+c}!L\+SB@{L\+SB}}
+\index{L\+SB@{L\+SB}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{L\+SB}{LSB}}
+{\footnotesize\ttfamily \#define L\+SB~0x10000}
+
+\mbox{\Hypertarget{dtoa_8c_a3e218828af7ddd3f4cd0d3772562b520}\label{dtoa_8c_a3e218828af7ddd3f4cd0d3772562b520}} 
+\index{dtoa.\+c@{dtoa.\+c}!M\+A\+L\+L\+OC@{M\+A\+L\+L\+OC}}
+\index{M\+A\+L\+L\+OC@{M\+A\+L\+L\+OC}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{M\+A\+L\+L\+OC}{MALLOC}}
+{\footnotesize\ttfamily \#define M\+A\+L\+L\+OC~malloc}
+
+\mbox{\Hypertarget{dtoa_8c_aa398fe0c5f3aff1b2de1da702a499114}\label{dtoa_8c_aa398fe0c5f3aff1b2de1da702a499114}} 
+\index{dtoa.\+c@{dtoa.\+c}!M\+Ta@{M\+Ta}}
+\index{M\+Ta@{M\+Ta}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{M\+Ta}{MTa}}
+{\footnotesize\ttfamily \#define M\+Ta~/$\ast$nothing$\ast$/}
+
+\mbox{\Hypertarget{dtoa_8c_a8747b0bbf7915aa34e4266834b1722cd}\label{dtoa_8c_a8747b0bbf7915aa34e4266834b1722cd}} 
+\index{dtoa.\+c@{dtoa.\+c}!M\+Tb@{M\+Tb}}
+\index{M\+Tb@{M\+Tb}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{M\+Tb}{MTb}}
+{\footnotesize\ttfamily \#define M\+Tb~/$\ast$nothing$\ast$/}
+
+\mbox{\Hypertarget{dtoa_8c_ab31bd30f79a4b54ecdc2016374f85852}\label{dtoa_8c_ab31bd30f79a4b54ecdc2016374f85852}} 
+\index{dtoa.\+c@{dtoa.\+c}!M\+Td@{M\+Td}}
+\index{M\+Td@{M\+Td}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{M\+Td}{MTd}}
+{\footnotesize\ttfamily \#define M\+Td~/$\ast$nothing$\ast$/}
+
+\mbox{\Hypertarget{dtoa_8c_a4fd98445d772ae9d9b92f1f23fb228a5}\label{dtoa_8c_a4fd98445d772ae9d9b92f1f23fb228a5}} 
+\index{dtoa.\+c@{dtoa.\+c}!n\+\_\+bigtens@{n\+\_\+bigtens}}
+\index{n\+\_\+bigtens@{n\+\_\+bigtens}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{n\+\_\+bigtens}{n\_bigtens}}
+{\footnotesize\ttfamily \#define n\+\_\+bigtens~2}
+
+\mbox{\Hypertarget{dtoa_8c_a2e35a68531e5dc7de8ab9f3cd1b3a56f}\label{dtoa_8c_a2e35a68531e5dc7de8ab9f3cd1b3a56f}} 
+\index{dtoa.\+c@{dtoa.\+c}!Nbits@{Nbits}}
+\index{Nbits@{Nbits}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{Nbits}{Nbits}}
+{\footnotesize\ttfamily \#define Nbits~56}
+
+\mbox{\Hypertarget{dtoa_8c_af164689b401ef7d85df456a92bafdb18}\label{dtoa_8c_af164689b401ef7d85df456a92bafdb18}} 
+\index{dtoa.\+c@{dtoa.\+c}!Need\+\_\+\+Hexdig@{Need\+\_\+\+Hexdig}}
+\index{Need\+\_\+\+Hexdig@{Need\+\_\+\+Hexdig}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{Need\+\_\+\+Hexdig}{Need\_Hexdig}}
+{\footnotesize\ttfamily \#define Need\+\_\+\+Hexdig}
+
+\mbox{\Hypertarget{dtoa_8c_a9d45605ba2c65d49975981ba99b3aeb3}\label{dtoa_8c_a9d45605ba2c65d49975981ba99b3aeb3}} 
+\index{dtoa.\+c@{dtoa.\+c}!N\+O\+\_\+\+S\+T\+R\+T\+O\+D\+\_\+\+B\+I\+G\+C\+O\+MP@{N\+O\+\_\+\+S\+T\+R\+T\+O\+D\+\_\+\+B\+I\+G\+C\+O\+MP}}
+\index{N\+O\+\_\+\+S\+T\+R\+T\+O\+D\+\_\+\+B\+I\+G\+C\+O\+MP@{N\+O\+\_\+\+S\+T\+R\+T\+O\+D\+\_\+\+B\+I\+G\+C\+O\+MP}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{N\+O\+\_\+\+S\+T\+R\+T\+O\+D\+\_\+\+B\+I\+G\+C\+O\+MP}{NO\_STRTOD\_BIGCOMP}}
+{\footnotesize\ttfamily \#define N\+O\+\_\+\+S\+T\+R\+T\+O\+D\+\_\+\+B\+I\+G\+C\+O\+MP}
+
+\mbox{\Hypertarget{dtoa_8c_a2748566f4c443ee77aa831e63dbb5ebe}\label{dtoa_8c_a2748566f4c443ee77aa831e63dbb5ebe}} 
+\index{dtoa.\+c@{dtoa.\+c}!P@{P}}
+\index{P@{P}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{P}{P}}
+{\footnotesize\ttfamily \#define P~56}
+
+\mbox{\Hypertarget{dtoa_8c_a9da7d9a4233c4cc1cbb9573cd8af604e}\label{dtoa_8c_a9da7d9a4233c4cc1cbb9573cd8af604e}} 
+\index{dtoa.\+c@{dtoa.\+c}!p5s@{p5s}}
+\index{p5s@{p5s}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{p5s}{p5s}}
+{\footnotesize\ttfamily \#define p5s~T\+I0.\+P5s}
+
+\mbox{\Hypertarget{dtoa_8c_af520e0ebe2ee2e65ed8e07305dc73bc9}\label{dtoa_8c_af520e0ebe2ee2e65ed8e07305dc73bc9}} 
+\index{dtoa.\+c@{dtoa.\+c}!Pack\+\_\+32@{Pack\+\_\+32}}
+\index{Pack\+\_\+32@{Pack\+\_\+32}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{Pack\+\_\+32}{Pack\_32}}
+{\footnotesize\ttfamily \#define Pack\+\_\+32}
+
+\mbox{\Hypertarget{dtoa_8c_af4bea1000fe710351b41e8bc8eacebcf}\label{dtoa_8c_af4bea1000fe710351b41e8bc8eacebcf}} 
+\index{dtoa.\+c@{dtoa.\+c}!P\+R\+I\+V\+A\+T\+E\+\_\+\+M\+EM@{P\+R\+I\+V\+A\+T\+E\+\_\+\+M\+EM}}
+\index{P\+R\+I\+V\+A\+T\+E\+\_\+\+M\+EM@{P\+R\+I\+V\+A\+T\+E\+\_\+\+M\+EM}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{P\+R\+I\+V\+A\+T\+E\+\_\+\+M\+EM}{PRIVATE\_MEM}}
+{\footnotesize\ttfamily \#define P\+R\+I\+V\+A\+T\+E\+\_\+\+M\+EM~2304}
+
+\mbox{\Hypertarget{dtoa_8c_a4c4c8560d0f1ca391ca934a0c8a3c068}\label{dtoa_8c_a4c4c8560d0f1ca391ca934a0c8a3c068}} 
+\index{dtoa.\+c@{dtoa.\+c}!P\+R\+I\+V\+A\+T\+E\+\_\+mem@{P\+R\+I\+V\+A\+T\+E\+\_\+mem}}
+\index{P\+R\+I\+V\+A\+T\+E\+\_\+mem@{P\+R\+I\+V\+A\+T\+E\+\_\+mem}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{P\+R\+I\+V\+A\+T\+E\+\_\+mem}{PRIVATE\_mem}}
+{\footnotesize\ttfamily \#define P\+R\+I\+V\+A\+T\+E\+\_\+mem~((\hyperlink{dtoa_8c_af4bea1000fe710351b41e8bc8eacebcf}{P\+R\+I\+V\+A\+T\+E\+\_\+\+M\+EM} + sizeof(double) -\/ 1) / sizeof(double))}
+
+\mbox{\Hypertarget{dtoa_8c_a4a1aa87d88576b92517b427bb7e09e21}\label{dtoa_8c_a4a1aa87d88576b92517b427bb7e09e21}} 
+\index{dtoa.\+c@{dtoa.\+c}!Quick\+\_\+max@{Quick\+\_\+max}}
+\index{Quick\+\_\+max@{Quick\+\_\+max}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{Quick\+\_\+max}{Quick\_max}}
+{\footnotesize\ttfamily \#define Quick\+\_\+max~15}
+
+\mbox{\Hypertarget{dtoa_8c_a2e501a3b49991d5e526b5c52c1522df4}\label{dtoa_8c_a2e501a3b49991d5e526b5c52c1522df4}} 
+\index{dtoa.\+c@{dtoa.\+c}!R\+E\+A\+L\+L\+OC@{R\+E\+A\+L\+L\+OC}}
+\index{R\+E\+A\+L\+L\+OC@{R\+E\+A\+L\+L\+OC}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{R\+E\+A\+L\+L\+OC}{REALLOC}}
+{\footnotesize\ttfamily \#define R\+E\+A\+L\+L\+OC~realloc}
+
+\mbox{\Hypertarget{dtoa_8c_adc3a63a6f1466ef1d0be5949ae90f8c0}\label{dtoa_8c_adc3a63a6f1466ef1d0be5949ae90f8c0}} 
+\index{dtoa.\+c@{dtoa.\+c}!R\+O\+U\+N\+D\+\_\+\+B\+I\+A\+S\+ED@{R\+O\+U\+N\+D\+\_\+\+B\+I\+A\+S\+ED}}
+\index{R\+O\+U\+N\+D\+\_\+\+B\+I\+A\+S\+ED@{R\+O\+U\+N\+D\+\_\+\+B\+I\+A\+S\+ED}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{R\+O\+U\+N\+D\+\_\+\+B\+I\+A\+S\+ED}{ROUND\_BIASED}}
+{\footnotesize\ttfamily \#define R\+O\+U\+N\+D\+\_\+\+B\+I\+A\+S\+ED}
+
+\mbox{\Hypertarget{dtoa_8c_a09227e189a0ccbe91a702ddd894940ee}\label{dtoa_8c_a09227e189a0ccbe91a702ddd894940ee}} 
+\index{dtoa.\+c@{dtoa.\+c}!rounded\+\_\+product@{rounded\+\_\+product}}
+\index{rounded\+\_\+product@{rounded\+\_\+product}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{rounded\+\_\+product}{rounded\_product}}
+{\footnotesize\ttfamily \#define rounded\+\_\+product(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b }\end{DoxyParamCaption})~a $\ast$= b}
+
+\mbox{\Hypertarget{dtoa_8c_a34f631126fba1aa87949f45721457cd1}\label{dtoa_8c_a34f631126fba1aa87949f45721457cd1}} 
+\index{dtoa.\+c@{dtoa.\+c}!rounded\+\_\+quotient@{rounded\+\_\+quotient}}
+\index{rounded\+\_\+quotient@{rounded\+\_\+quotient}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{rounded\+\_\+quotient}{rounded\_quotient}}
+{\footnotesize\ttfamily \#define rounded\+\_\+quotient(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b }\end{DoxyParamCaption})~a /= b}
+
+\mbox{\Hypertarget{dtoa_8c_a12ad2308776ad97dd109f585ba97c821}\label{dtoa_8c_a12ad2308776ad97dd109f585ba97c821}} 
+\index{dtoa.\+c@{dtoa.\+c}!Set\+\_\+errno@{Set\+\_\+errno}}
+\index{Set\+\_\+errno@{Set\+\_\+errno}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{Set\+\_\+errno}{Set\_errno}}
+{\footnotesize\ttfamily \#define Set\+\_\+errno(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~errno = x}
+
+\mbox{\Hypertarget{dtoa_8c_a63c55d45c8c26a4d0c9d2d5c1afe5caa}\label{dtoa_8c_a63c55d45c8c26a4d0c9d2d5c1afe5caa}} 
+\index{dtoa.\+c@{dtoa.\+c}!Sign\+\_\+bit@{Sign\+\_\+bit}}
+\index{Sign\+\_\+bit@{Sign\+\_\+bit}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{Sign\+\_\+bit}{Sign\_bit}}
+{\footnotesize\ttfamily \#define Sign\+\_\+bit~0x8000}
+
+\mbox{\Hypertarget{dtoa_8c_a9b21b8e0cb3af7c9d736d923c0870886}\label{dtoa_8c_a9b21b8e0cb3af7c9d736d923c0870886}} 
+\index{dtoa.\+c@{dtoa.\+c}!Storeinc@{Storeinc}}
+\index{Storeinc@{Storeinc}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{Storeinc}{Storeinc}}
+{\footnotesize\ttfamily \#define Storeinc(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b,  }\item[{}]{c }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+(((\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short} *)a)[0] = (\textcolor{keywordtype}{unsigned} short)b,                               \(\backslash\)
+   ((\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short} *)a)[1] = (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short})c, a++)
+\end{DoxyCode}
+\mbox{\Hypertarget{dtoa_8c_a66fb45f978badd5001a1eb3b436961fd}\label{dtoa_8c_a66fb45f978badd5001a1eb3b436961fd}} 
+\index{dtoa.\+c@{dtoa.\+c}!S\+T\+R\+T\+O\+D\+\_\+\+D\+I\+G\+L\+IM@{S\+T\+R\+T\+O\+D\+\_\+\+D\+I\+G\+L\+IM}}
+\index{S\+T\+R\+T\+O\+D\+\_\+\+D\+I\+G\+L\+IM@{S\+T\+R\+T\+O\+D\+\_\+\+D\+I\+G\+L\+IM}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{S\+T\+R\+T\+O\+D\+\_\+\+D\+I\+G\+L\+IM}{STRTOD\_DIGLIM}}
+{\footnotesize\ttfamily \#define S\+T\+R\+T\+O\+D\+\_\+\+D\+I\+G\+L\+IM~40}
+
+\mbox{\Hypertarget{dtoa_8c_a989a59e7b8da25a4d4b076c45c426f8e}\label{dtoa_8c_a989a59e7b8da25a4d4b076c45c426f8e}} 
+\index{dtoa.\+c@{dtoa.\+c}!strtod\+\_\+diglim@{strtod\+\_\+diglim}}
+\index{strtod\+\_\+diglim@{strtod\+\_\+diglim}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{strtod\+\_\+diglim}{strtod\_diglim}}
+{\footnotesize\ttfamily \#define strtod\+\_\+diglim~\hyperlink{dtoa_8c_a66fb45f978badd5001a1eb3b436961fd}{S\+T\+R\+T\+O\+D\+\_\+\+D\+I\+G\+L\+IM}}
+
+\mbox{\Hypertarget{dtoa_8c_abcb3498cf63cce98113f89b974f04f33}\label{dtoa_8c_abcb3498cf63cce98113f89b974f04f33}} 
+\index{dtoa.\+c@{dtoa.\+c}!Sudden\+\_\+\+Underflow@{Sudden\+\_\+\+Underflow}}
+\index{Sudden\+\_\+\+Underflow@{Sudden\+\_\+\+Underflow}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{Sudden\+\_\+\+Underflow}{Sudden\_Underflow}}
+{\footnotesize\ttfamily \#define Sudden\+\_\+\+Underflow}
+
+\mbox{\Hypertarget{dtoa_8c_a60c21efe38979482c071108abd8431d0}\label{dtoa_8c_a60c21efe38979482c071108abd8431d0}} 
+\index{dtoa.\+c@{dtoa.\+c}!Ten\+\_\+pmax@{Ten\+\_\+pmax}}
+\index{Ten\+\_\+pmax@{Ten\+\_\+pmax}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{Ten\+\_\+pmax}{Ten\_pmax}}
+{\footnotesize\ttfamily \#define Ten\+\_\+pmax~24}
+
+\mbox{\Hypertarget{dtoa_8c_a0ff2aa401024cf1d9c294764d3989d5f}\label{dtoa_8c_a0ff2aa401024cf1d9c294764d3989d5f}} 
+\index{dtoa.\+c@{dtoa.\+c}!Tiny0@{Tiny0}}
+\index{Tiny0@{Tiny0}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{Tiny0}{Tiny0}}
+{\footnotesize\ttfamily \#define Tiny0~0x80}
+
+\mbox{\Hypertarget{dtoa_8c_a41b55bb8829507cb221f0fa73f71bb64}\label{dtoa_8c_a41b55bb8829507cb221f0fa73f71bb64}} 
+\index{dtoa.\+c@{dtoa.\+c}!Tiny1@{Tiny1}}
+\index{Tiny1@{Tiny1}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{Tiny1}{Tiny1}}
+{\footnotesize\ttfamily \#define Tiny1~0}
+
+\mbox{\Hypertarget{dtoa_8c_af85dfd9f1aa421f438bc15ba49ce0ba2}\label{dtoa_8c_af85dfd9f1aa421f438bc15ba49ce0ba2}} 
+\index{dtoa.\+c@{dtoa.\+c}!U\+Lbits@{U\+Lbits}}
+\index{U\+Lbits@{U\+Lbits}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{U\+Lbits}{ULbits}}
+{\footnotesize\ttfamily \#define U\+Lbits~32}
+
+\mbox{\Hypertarget{dtoa_8c_a0378f05bb0539a1ed6149576a0919413}\label{dtoa_8c_a0378f05bb0539a1ed6149576a0919413}} 
+\index{dtoa.\+c@{dtoa.\+c}!U\+L\+Long@{U\+L\+Long}}
+\index{U\+L\+Long@{U\+L\+Long}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{U\+L\+Long}{ULLong}}
+{\footnotesize\ttfamily \#define U\+L\+Long~unsigned \hyperlink{dtoa_8c_a6301625eb2bb3ef4046677ceb8e935b8}{Llong}}
+
+\mbox{\Hypertarget{dtoa_8c_a3eb2a3269e6ca555dff82c5e2dc0e241}\label{dtoa_8c_a3eb2a3269e6ca555dff82c5e2dc0e241}} 
+\index{dtoa.\+c@{dtoa.\+c}!U\+S\+E\+\_\+\+B\+F96@{U\+S\+E\+\_\+\+B\+F96}}
+\index{U\+S\+E\+\_\+\+B\+F96@{U\+S\+E\+\_\+\+B\+F96}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{U\+S\+E\+\_\+\+B\+F96}{USE\_BF96}}
+{\footnotesize\ttfamily \#define U\+S\+E\+\_\+\+B\+F96}
+
+\mbox{\Hypertarget{dtoa_8c_a9f4fed61dce8a790b612a69fe51a5890}\label{dtoa_8c_a9f4fed61dce8a790b612a69fe51a5890}} 
+\index{dtoa.\+c@{dtoa.\+c}!word0@{word0}}
+\index{word0@{word0}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{word0}{word0}}
+{\footnotesize\ttfamily \#define word0(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~(x)-\/$>$L\mbox{[}0\mbox{]}}
+
+\mbox{\Hypertarget{dtoa_8c_a3bd6bbe2f9344552f2f6f0bf75edcd03}\label{dtoa_8c_a3bd6bbe2f9344552f2f6f0bf75edcd03}} 
+\index{dtoa.\+c@{dtoa.\+c}!word1@{word1}}
+\index{word1@{word1}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{word1}{word1}}
+{\footnotesize\ttfamily \#define word1(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~(x)-\/$>$L\mbox{[}1\mbox{]}}
+
+
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{dtoa_8c_a4dfff2dc00844610692c1bee5bfe1521}\label{dtoa_8c_a4dfff2dc00844610692c1bee5bfe1521}} 
+\index{dtoa.\+c@{dtoa.\+c}!B\+Cinfo@{B\+Cinfo}}
+\index{B\+Cinfo@{B\+Cinfo}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{B\+Cinfo}{BCinfo}}
+{\footnotesize\ttfamily typedef struct \hyperlink{struct_b_cinfo}{B\+Cinfo} \hyperlink{struct_b_cinfo}{B\+Cinfo}}
+
+\mbox{\Hypertarget{dtoa_8c_ae0d862410d98621397cdb63d55eab67f}\label{dtoa_8c_ae0d862410d98621397cdb63d55eab67f}} 
+\index{dtoa.\+c@{dtoa.\+c}!B\+F96@{B\+F96}}
+\index{B\+F96@{B\+F96}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{B\+F96}{BF96}}
+{\footnotesize\ttfamily typedef struct \hyperlink{struct_b_f96}{B\+F96}  \hyperlink{struct_b_f96}{B\+F96}}
+
+\mbox{\Hypertarget{dtoa_8c_af4d1f814f7bcd9a50ee45efea0942d99}\label{dtoa_8c_af4d1f814f7bcd9a50ee45efea0942d99}} 
+\index{dtoa.\+c@{dtoa.\+c}!Bigint@{Bigint}}
+\index{Bigint@{Bigint}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{Bigint}{Bigint}}
+{\footnotesize\ttfamily typedef struct \hyperlink{struct_bigint}{Bigint} \hyperlink{struct_bigint}{Bigint}}
+
+\mbox{\Hypertarget{dtoa_8c_a411457096211e78c4636c42726d8f383}\label{dtoa_8c_a411457096211e78c4636c42726d8f383}} 
+\index{dtoa.\+c@{dtoa.\+c}!Th\+Info@{Th\+Info}}
+\index{Th\+Info@{Th\+Info}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{Th\+Info}{ThInfo}}
+{\footnotesize\ttfamily typedef struct \hyperlink{struct_th_info}{Th\+Info}  \hyperlink{struct_th_info}{Th\+Info}}
+
+\mbox{\Hypertarget{dtoa_8c_afa5f820499f9d3fb566021c346784449}\label{dtoa_8c_afa5f820499f9d3fb566021c346784449}} 
+\index{dtoa.\+c@{dtoa.\+c}!U\+Long@{U\+Long}}
+\index{U\+Long@{U\+Long}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{U\+Long}{ULong}}
+{\footnotesize\ttfamily typedef unsigned \hyperlink{dtoa_8c_a459e268fc98c742d2983c7c23bda1cc2}{Long} \hyperlink{dtoa_8c_afa5f820499f9d3fb566021c346784449}{U\+Long}}
+
+
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{dtoa_8c_a06fc87d81c62e9abb8790b6e5713c55b}\label{dtoa_8c_a06fc87d81c62e9abb8790b6e5713c55b}} 
+\subsubsection{\texorpdfstring{anonymous enum}{anonymous enum}}
+{\footnotesize\ttfamily anonymous enum}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Round\+\_\+zero@{Round\+\_\+zero}!dtoa.\+c@{dtoa.\+c}}\index{dtoa.\+c@{dtoa.\+c}!Round\+\_\+zero@{Round\+\_\+zero}}}\mbox{\Hypertarget{dtoa_8c_a06fc87d81c62e9abb8790b6e5713c55ba5747931610802384231335f4f5419e93}\label{dtoa_8c_a06fc87d81c62e9abb8790b6e5713c55ba5747931610802384231335f4f5419e93}} 
+Round\+\_\+zero&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Round\+\_\+near@{Round\+\_\+near}!dtoa.\+c@{dtoa.\+c}}\index{dtoa.\+c@{dtoa.\+c}!Round\+\_\+near@{Round\+\_\+near}}}\mbox{\Hypertarget{dtoa_8c_a06fc87d81c62e9abb8790b6e5713c55ba8d763dda6e775e0f83dab8be18dfc118}\label{dtoa_8c_a06fc87d81c62e9abb8790b6e5713c55ba8d763dda6e775e0f83dab8be18dfc118}} 
+Round\+\_\+near&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Round\+\_\+up@{Round\+\_\+up}!dtoa.\+c@{dtoa.\+c}}\index{dtoa.\+c@{dtoa.\+c}!Round\+\_\+up@{Round\+\_\+up}}}\mbox{\Hypertarget{dtoa_8c_a06fc87d81c62e9abb8790b6e5713c55ba7e605f09e3b793da0ee27ceb80bdcb0b}\label{dtoa_8c_a06fc87d81c62e9abb8790b6e5713c55ba7e605f09e3b793da0ee27ceb80bdcb0b}} 
+Round\+\_\+up&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Round\+\_\+down@{Round\+\_\+down}!dtoa.\+c@{dtoa.\+c}}\index{dtoa.\+c@{dtoa.\+c}!Round\+\_\+down@{Round\+\_\+down}}}\mbox{\Hypertarget{dtoa_8c_a06fc87d81c62e9abb8790b6e5713c55baf1bdb8a4d76fe731261a48d9954c2f50}\label{dtoa_8c_a06fc87d81c62e9abb8790b6e5713c55baf1bdb8a4d76fe731261a48d9954c2f50}} 
+Round\+\_\+down&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{dtoa_8c_ad05c82c5db51c311dbf3f8304ce75a5f}\label{dtoa_8c_ad05c82c5db51c311dbf3f8304ce75a5f}} 
+\index{dtoa.\+c@{dtoa.\+c}!any\+\_\+on@{any\+\_\+on}}
+\index{any\+\_\+on@{any\+\_\+on}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{any\+\_\+on()}{any\_on()}}
+{\footnotesize\ttfamily static \hyperlink{dtoa_8c_afa5f820499f9d3fb566021c346784449}{U\+Long} any\+\_\+on (\begin{DoxyParamCaption}\item[{\hyperlink{struct_bigint}{Bigint} $\ast$}]{b,  }\item[{int}]{k }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{dtoa_8c_a1064d3e97f2c0a459a42eed3e18dd9e5}\label{dtoa_8c_a1064d3e97f2c0a459a42eed3e18dd9e5}} 
+\index{dtoa.\+c@{dtoa.\+c}!b2d@{b2d}}
+\index{b2d@{b2d}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{b2d()}{b2d()}}
+{\footnotesize\ttfamily static double b2d (\begin{DoxyParamCaption}\item[{\hyperlink{struct_bigint}{Bigint} $\ast$}]{a,  }\item[{int $\ast$}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{dtoa_8c_a8b14f41cd7e305022404dda70d57a3bf}\label{dtoa_8c_a8b14f41cd7e305022404dda70d57a3bf}} 
+\index{dtoa.\+c@{dtoa.\+c}!Balloc@{Balloc}}
+\index{Balloc@{Balloc}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{Balloc()}{Balloc()}}
+{\footnotesize\ttfamily static \hyperlink{struct_bigint}{Bigint}$\ast$ Balloc (\begin{DoxyParamCaption}\item[{int k}]{M\+Td }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{dtoa_8c_a58b1ccc42ab64fd0b4c071c0d5811dd9}\label{dtoa_8c_a58b1ccc42ab64fd0b4c071c0d5811dd9}} 
+\index{dtoa.\+c@{dtoa.\+c}!Bfree@{Bfree}}
+\index{Bfree@{Bfree}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{Bfree()}{Bfree()}}
+{\footnotesize\ttfamily static void Bfree (\begin{DoxyParamCaption}\item[{\hyperlink{struct_bigint}{Bigint} $\ast$v}]{M\+Td }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{dtoa_8c_ae3b60d76128298cf2780a4612b47befe}\label{dtoa_8c_ae3b60d76128298cf2780a4612b47befe}} 
+\index{dtoa.\+c@{dtoa.\+c}!cmp@{cmp}}
+\index{cmp@{cmp}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{cmp()}{cmp()}}
+{\footnotesize\ttfamily static int cmp (\begin{DoxyParamCaption}\item[{\hyperlink{struct_bigint}{Bigint} $\ast$}]{a,  }\item[{\hyperlink{struct_bigint}{Bigint} $\ast$}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{dtoa_8c_abfce26ad8ef6ccc1b97c18802d40ed21}\label{dtoa_8c_abfce26ad8ef6ccc1b97c18802d40ed21}} 
+\index{dtoa.\+c@{dtoa.\+c}!d2b@{d2b}}
+\index{d2b@{d2b}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{d2b()}{d2b()}}
+{\footnotesize\ttfamily static \hyperlink{struct_bigint}{Bigint}$\ast$ d2b (\begin{DoxyParamCaption}\item[{\hyperlink{union_u}{U} $\ast$}]{d,  }\item[{int $\ast$}]{e,  }\item[{int $\ast$bits}]{M\+Td }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{dtoa_8c_a28cdebcca33f1695baee238db41cfb7d}\label{dtoa_8c_a28cdebcca33f1695baee238db41cfb7d}} 
+\index{dtoa.\+c@{dtoa.\+c}!diff@{diff}}
+\index{diff@{diff}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{diff()}{diff()}}
+{\footnotesize\ttfamily static \hyperlink{struct_bigint}{Bigint}$\ast$ diff (\begin{DoxyParamCaption}\item[{\hyperlink{struct_bigint}{Bigint} $\ast$}]{a,  }\item[{\hyperlink{struct_bigint}{Bigint} $\ast$b}]{M\+Td }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{dtoa_8c_aa83eea23c9d4149de2891e08fc404f9c}\label{dtoa_8c_aa83eea23c9d4149de2891e08fc404f9c}} 
+\index{dtoa.\+c@{dtoa.\+c}!dshift@{dshift}}
+\index{dshift@{dshift}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{dshift()}{dshift()}}
+{\footnotesize\ttfamily static int dshift (\begin{DoxyParamCaption}\item[{\hyperlink{struct_bigint}{Bigint} $\ast$}]{b,  }\item[{int}]{p2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+N\+O\+\_\+\+H\+E\+X\+\_\+\+FP\} \mbox{\Hypertarget{dtoa_8c_aa5e1ae8c86a615eade9613ab7700b889}\label{dtoa_8c_aa5e1ae8c86a615eade9613ab7700b889}} 
+\index{dtoa.\+c@{dtoa.\+c}!dtoa@{dtoa}}
+\index{dtoa@{dtoa}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{dtoa()}{dtoa()}}
+{\footnotesize\ttfamily char$\ast$ dtoa (\begin{DoxyParamCaption}\item[{double}]{dd,  }\item[{int}]{mode,  }\item[{int}]{ndigits,  }\item[{int $\ast$}]{decpt,  }\item[{int $\ast$}]{sign,  }\item[{char $\ast$$\ast$}]{rve }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{dtoa_8c_addeae1656dc3af769c2e2703310e5fb7}\label{dtoa_8c_addeae1656dc3af769c2e2703310e5fb7}} 
+\index{dtoa.\+c@{dtoa.\+c}!dtoa\+\_\+r@{dtoa\+\_\+r}}
+\index{dtoa\+\_\+r@{dtoa\+\_\+r}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{dtoa\+\_\+r()}{dtoa\_r()}}
+{\footnotesize\ttfamily char$\ast$ dtoa\+\_\+r (\begin{DoxyParamCaption}\item[{double}]{dd,  }\item[{int}]{mode,  }\item[{int}]{ndigits,  }\item[{int $\ast$}]{decpt,  }\item[{int $\ast$}]{sign,  }\item[{char $\ast$$\ast$}]{rve,  }\item[{char $\ast$}]{buf,  }\item[{size\+\_\+t}]{blen }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{dtoa_8c_a0233452d5cf4f80cd8001660410da54a}\label{dtoa_8c_a0233452d5cf4f80cd8001660410da54a}} 
+\index{dtoa.\+c@{dtoa.\+c}!freedtoa@{freedtoa}}
+\index{freedtoa@{freedtoa}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{freedtoa()}{freedtoa()}}
+{\footnotesize\ttfamily void freedtoa (\begin{DoxyParamCaption}\item[{char $\ast$}]{s }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{dtoa_8c_abcb15114e7f9ce772ecb5e7dc5592f85}\label{dtoa_8c_abcb15114e7f9ce772ecb5e7dc5592f85}} 
+\index{dtoa.\+c@{dtoa.\+c}!gethex@{gethex}}
+\index{gethex@{gethex}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{gethex()}{gethex()}}
+{\footnotesize\ttfamily void gethex (\begin{DoxyParamCaption}\item[{const char $\ast$$\ast$}]{sp,  }\item[{\hyperlink{union_u}{U} $\ast$}]{rvp,  }\item[{int}]{rounding,  }\item[{int sign}]{M\+Td }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{dtoa_8c_acde19b583452155815db5ec8c09fa2fb}\label{dtoa_8c_acde19b583452155815db5ec8c09fa2fb}} 
+\index{dtoa.\+c@{dtoa.\+c}!hi0bits@{hi0bits}}
+\index{hi0bits@{hi0bits}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{hi0bits()}{hi0bits()}}
+{\footnotesize\ttfamily static int hi0bits (\begin{DoxyParamCaption}\item[{\hyperlink{dtoa_8c_afa5f820499f9d3fb566021c346784449}{U\+Long}}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{dtoa_8c_afda8241bb24dc40cce9e9fd79658fce9}\label{dtoa_8c_afda8241bb24dc40cce9e9fd79658fce9}} 
+\index{dtoa.\+c@{dtoa.\+c}!i2b@{i2b}}
+\index{i2b@{i2b}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{i2b()}{i2b()}}
+{\footnotesize\ttfamily static \hyperlink{struct_bigint}{Bigint}$\ast$ i2b (\begin{DoxyParamCaption}\item[{int i}]{M\+Td }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{dtoa_8c_ae404fe4af3fdabd5a2a44a6aee51bef8}\label{dtoa_8c_ae404fe4af3fdabd5a2a44a6aee51bef8}} 
+\index{dtoa.\+c@{dtoa.\+c}!increment@{increment}}
+\index{increment@{increment}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{increment()}{increment()}}
+{\footnotesize\ttfamily static \hyperlink{struct_bigint}{Bigint}$\ast$ increment (\begin{DoxyParamCaption}\item[{\hyperlink{struct_bigint}{Bigint} $\ast$b}]{M\+Td }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{dtoa_8c_a27739a75589e9a8a9480855431e10f09}\label{dtoa_8c_a27739a75589e9a8a9480855431e10f09}} 
+\index{dtoa.\+c@{dtoa.\+c}!lo0bits@{lo0bits}}
+\index{lo0bits@{lo0bits}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{lo0bits()}{lo0bits()}}
+{\footnotesize\ttfamily static int lo0bits (\begin{DoxyParamCaption}\item[{\hyperlink{dtoa_8c_afa5f820499f9d3fb566021c346784449}{U\+Long} $\ast$}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{dtoa_8c_a2fd4220bc75509df9a88873777a1b0f6}\label{dtoa_8c_a2fd4220bc75509df9a88873777a1b0f6}} 
+\index{dtoa.\+c@{dtoa.\+c}!lshift@{lshift}}
+\index{lshift@{lshift}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{lshift()}{lshift()}}
+{\footnotesize\ttfamily static \hyperlink{struct_bigint}{Bigint}$\ast$ lshift (\begin{DoxyParamCaption}\item[{\hyperlink{struct_bigint}{Bigint} $\ast$}]{b,  }\item[{int k}]{M\+Td }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{dtoa_8c_ae88e43ae9d1f830c2292850ff81f77ab}\label{dtoa_8c_ae88e43ae9d1f830c2292850ff81f77ab}} 
+\index{dtoa.\+c@{dtoa.\+c}!mult@{mult}}
+\index{mult@{mult}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{mult()}{mult()}}
+{\footnotesize\ttfamily static \hyperlink{struct_bigint}{Bigint}$\ast$ mult (\begin{DoxyParamCaption}\item[{\hyperlink{struct_bigint}{Bigint} $\ast$}]{a,  }\item[{\hyperlink{struct_bigint}{Bigint} $\ast$b}]{M\+Td }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{dtoa_8c_adc704b175b6951612fba22a7269f06a5}\label{dtoa_8c_adc704b175b6951612fba22a7269f06a5}} 
+\index{dtoa.\+c@{dtoa.\+c}!multadd@{multadd}}
+\index{multadd@{multadd}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{multadd()}{multadd()}}
+{\footnotesize\ttfamily static \hyperlink{struct_bigint}{Bigint}$\ast$ multadd (\begin{DoxyParamCaption}\item[{\hyperlink{struct_bigint}{Bigint} $\ast$}]{b,  }\item[{int}]{m,  }\item[{int a}]{M\+Td }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{dtoa_8c_aa8a4b45a334b1edf209c62cd09c9ffb8}\label{dtoa_8c_aa8a4b45a334b1edf209c62cd09c9ffb8}} 
+\index{dtoa.\+c@{dtoa.\+c}!nrv\+\_\+alloc@{nrv\+\_\+alloc}}
+\index{nrv\+\_\+alloc@{nrv\+\_\+alloc}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{nrv\+\_\+alloc()}{nrv\_alloc()}}
+{\footnotesize\ttfamily static char$\ast$ nrv\+\_\+alloc (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s,  }\item[{char $\ast$}]{s0,  }\item[{size\+\_\+t}]{s0len,  }\item[{char $\ast$$\ast$}]{rve,  }\item[{int n}]{M\+Td }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{dtoa_8c_a949ef4ea131256c82f558e281882d71a}\label{dtoa_8c_a949ef4ea131256c82f558e281882d71a}} 
+\index{dtoa.\+c@{dtoa.\+c}!pow5mult@{pow5mult}}
+\index{pow5mult@{pow5mult}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{pow5mult()}{pow5mult()}}
+{\footnotesize\ttfamily static \hyperlink{struct_bigint}{Bigint}$\ast$ pow5mult (\begin{DoxyParamCaption}\item[{\hyperlink{struct_bigint}{Bigint} $\ast$}]{b,  }\item[{int k}]{M\+Td }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{dtoa_8c_a5259fef784f48e6d345d7c1338bc46cf}\label{dtoa_8c_a5259fef784f48e6d345d7c1338bc46cf}} 
+\index{dtoa.\+c@{dtoa.\+c}!quorem@{quorem}}
+\index{quorem@{quorem}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{quorem()}{quorem()}}
+{\footnotesize\ttfamily static int quorem (\begin{DoxyParamCaption}\item[{\hyperlink{struct_bigint}{Bigint} $\ast$}]{b,  }\item[{\hyperlink{struct_bigint}{Bigint} $\ast$}]{S }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{dtoa_8c_ae5567a2ba4448098128614fe9779209b}\label{dtoa_8c_ae5567a2ba4448098128614fe9779209b}} 
+\index{dtoa.\+c@{dtoa.\+c}!ratio@{ratio}}
+\index{ratio@{ratio}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{ratio()}{ratio()}}
+{\footnotesize\ttfamily static double ratio (\begin{DoxyParamCaption}\item[{\hyperlink{struct_bigint}{Bigint} $\ast$}]{a,  }\item[{\hyperlink{struct_bigint}{Bigint} $\ast$}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{dtoa_8c_a340d7438a88723384714662b643a1f8b}\label{dtoa_8c_a340d7438a88723384714662b643a1f8b}} 
+\index{dtoa.\+c@{dtoa.\+c}!rshift@{rshift}}
+\index{rshift@{rshift}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{rshift()}{rshift()}}
+{\footnotesize\ttfamily static void rshift (\begin{DoxyParamCaption}\item[{\hyperlink{struct_bigint}{Bigint} $\ast$}]{b,  }\item[{int}]{k }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{dtoa_8c_ae039154cacc9426db1a4f005015aa6bf}\label{dtoa_8c_ae039154cacc9426db1a4f005015aa6bf}} 
+\index{dtoa.\+c@{dtoa.\+c}!rv\+\_\+alloc@{rv\+\_\+alloc}}
+\index{rv\+\_\+alloc@{rv\+\_\+alloc}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{rv\+\_\+alloc()}{rv\_alloc()}}
+{\footnotesize\ttfamily static char$\ast$ rv\+\_\+alloc (\begin{DoxyParamCaption}\item[{int i}]{M\+Td }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{dtoa_8c_a3e28f0c0837d2f9fcbd54e52782f543b}\label{dtoa_8c_a3e28f0c0837d2f9fcbd54e52782f543b}} 
+\index{dtoa.\+c@{dtoa.\+c}!s2b@{s2b}}
+\index{s2b@{s2b}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{s2b()}{s2b()}}
+{\footnotesize\ttfamily static \hyperlink{struct_bigint}{Bigint}$\ast$ s2b (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s,  }\item[{int}]{nd0,  }\item[{int}]{nd,  }\item[{\hyperlink{dtoa_8c_afa5f820499f9d3fb566021c346784449}{U\+Long}}]{y9,  }\item[{int dplen}]{M\+Td }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{dtoa_8c_ad7520c49e901c1d0c76d9d3a260614dc}\label{dtoa_8c_ad7520c49e901c1d0c76d9d3a260614dc}} 
+\index{dtoa.\+c@{dtoa.\+c}!strtod@{strtod}}
+\index{strtod@{strtod}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{strtod()}{strtod()}}
+{\footnotesize\ttfamily double strtod (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s00,  }\item[{char $\ast$$\ast$}]{se }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{dtoa_8c_ae129a6a95377a7e000345e8d8c0e9fac}\label{dtoa_8c_ae129a6a95377a7e000345e8d8c0e9fac}} 
+\index{dtoa.\+c@{dtoa.\+c}!ulp@{ulp}}
+\index{ulp@{ulp}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{ulp()}{ulp()}}
+{\footnotesize\ttfamily static double ulp (\begin{DoxyParamCaption}\item[{\hyperlink{union_u}{U} $\ast$}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{dtoa_8c_a92490e11aa7d7a0444b9ba7187df2b21}\label{dtoa_8c_a92490e11aa7d7a0444b9ba7187df2b21}} 
+\index{dtoa.\+c@{dtoa.\+c}!bigtens@{bigtens}}
+\index{bigtens@{bigtens}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{bigtens}{bigtens}}
+{\footnotesize\ttfamily const double bigtens\mbox{[}$\,$\mbox{]} = \{1e16, 1e32\}\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{dtoa_8c_a0ac77f7c34b87b413754865d8ceaf248}\label{dtoa_8c_a0ac77f7c34b87b413754865d8ceaf248}} 
+\index{dtoa.\+c@{dtoa.\+c}!dtoa\+\_\+divmax@{dtoa\+\_\+divmax}}
+\index{dtoa\+\_\+divmax@{dtoa\+\_\+divmax}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{dtoa\+\_\+divmax}{dtoa\_divmax}}
+{\footnotesize\ttfamily int dtoa\+\_\+divmax = 2}
+
+\mbox{\Hypertarget{dtoa_8c_ac4f497801c4769bc3c7344084008ad87}\label{dtoa_8c_ac4f497801c4769bc3c7344084008ad87}} 
+\index{dtoa.\+c@{dtoa.\+c}!dtoa\+\_\+result@{dtoa\+\_\+result}}
+\index{dtoa\+\_\+result@{dtoa\+\_\+result}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{dtoa\+\_\+result}{dtoa\_result}}
+{\footnotesize\ttfamily char$\ast$ dtoa\+\_\+result\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{dtoa_8c_afef8549d0f3c8db7c0ee2d198d8b0686}\label{dtoa_8c_afef8549d0f3c8db7c0ee2d198d8b0686}} 
+\index{dtoa.\+c@{dtoa.\+c}!hexdig@{hexdig}}
+\index{hexdig@{hexdig}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{hexdig}{hexdig}}
+{\footnotesize\ttfamily unsigned char hexdig\mbox{[}256\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \{
+    0,  0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+    0,  0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+    0,  0, 0,  0,  0,  0,  0,  0,  0,  0,  16, 17, 18, 19, 20, 21, 22, 23, 24,
+    25, 0, 0,  0,  0,  0,  0,  0,  26, 27, 28, 29, 30, 31, 0,  0,  0,  0,  0,
+    0,  0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+    0,  0, 26, 27, 28, 29, 30, 31, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+    0,  0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+    0,  0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+    0,  0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+    0,  0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+    0,  0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+    0,  0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+    0,  0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+    0,  0, 0,  0,  0,  0,  0,  0,  0\}
+\end{DoxyCode}
+\mbox{\Hypertarget{dtoa_8c_afac4e36a82c37be5356e2fca6bd00fec}\label{dtoa_8c_afac4e36a82c37be5356e2fca6bd00fec}} 
+\index{dtoa.\+c@{dtoa.\+c}!I\+E\+E\+E\+\_\+8087@{I\+E\+E\+E\+\_\+8087}}
+\index{I\+E\+E\+E\+\_\+8087@{I\+E\+E\+E\+\_\+8087}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{I\+E\+E\+E\+\_\+8087}{IEEE\_8087}}
+{\footnotesize\ttfamily Exactly one of I\+E\+E\+E\+\_\+8087}
+
+\mbox{\Hypertarget{dtoa_8c_a5a9013e5e6b73ef271657e091095cbce}\label{dtoa_8c_a5a9013e5e6b73ef271657e091095cbce}} 
+\index{dtoa.\+c@{dtoa.\+c}!I\+E\+E\+E\+\_\+\+M\+C68k@{I\+E\+E\+E\+\_\+\+M\+C68k}}
+\index{I\+E\+E\+E\+\_\+\+M\+C68k@{I\+E\+E\+E\+\_\+\+M\+C68k}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{I\+E\+E\+E\+\_\+\+M\+C68k}{IEEE\_MC68k}}
+{\footnotesize\ttfamily Exactly one of I\+E\+E\+E\+\_\+\+M\+C68k}
+
+\mbox{\Hypertarget{dtoa_8c_a526dd6d10df86fc4e5fa1fa7ce0c9416}\label{dtoa_8c_a526dd6d10df86fc4e5fa1fa7ce0c9416}} 
+\index{dtoa.\+c@{dtoa.\+c}!Lhint@{Lhint}}
+\index{Lhint@{Lhint}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{Lhint}{Lhint}}
+{\footnotesize\ttfamily short int Lhint\mbox{[}2098\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{dtoa_8c_a4becb6b54e3f0640d6d48fd561d30ade}\label{dtoa_8c_a4becb6b54e3f0640d6d48fd561d30ade}} 
+\index{dtoa.\+c@{dtoa.\+c}!pfive@{pfive}}
+\index{pfive@{pfive}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{pfive}{pfive}}
+{\footnotesize\ttfamily \hyperlink{dtoa_8c_a0378f05bb0539a1ed6149576a0919413}{U\+L\+Long} pfive\mbox{[}27\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \{5ll,
+                           25ll,
+                           125ll,
+                           625ll,
+                           3125ll,
+                           15625ll,
+                           78125ll,
+                           390625ll,
+                           1953125ll,
+                           9765625ll,
+                           48828125ll,
+                           244140625ll,
+                           1220703125ll,
+                           6103515625ll,
+                           30517578125ll,
+                           152587890625ll,
+                           762939453125ll,
+                           3814697265625ll,
+                           19073486328125ll,
+                           95367431640625ll,
+                           476837158203125ll,
+                           2384185791015625ll,
+                           11920928955078125ll,
+                           59604644775390625ll,
+                           298023223876953125ll,
+                           1490116119384765625ll,
+                           7450580596923828125ll\}
+\end{DoxyCode}
+\mbox{\Hypertarget{dtoa_8c_a494e71755608595f84c446e6c26e78b5}\label{dtoa_8c_a494e71755608595f84c446e6c26e78b5}} 
+\index{dtoa.\+c@{dtoa.\+c}!pfivebits@{pfivebits}}
+\index{pfivebits@{pfivebits}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{pfivebits}{pfivebits}}
+{\footnotesize\ttfamily int pfivebits\mbox{[}25\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \{3,  5,  7,  10, 12, 14, 17, 19, 21, 24, 26, 28, 31,
+                            33, 35, 38, 40, 42, 45, 47, 49, 52, 54, 56, 59\}
+\end{DoxyCode}
+\mbox{\Hypertarget{dtoa_8c_af76ccd58185261778dbfc0c5f13d9f83}\label{dtoa_8c_af76ccd58185261778dbfc0c5f13d9f83}} 
+\index{dtoa.\+c@{dtoa.\+c}!pmem\+\_\+next@{pmem\+\_\+next}}
+\index{pmem\+\_\+next@{pmem\+\_\+next}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{pmem\+\_\+next}{pmem\_next}}
+{\footnotesize\ttfamily double $\ast$ pmem\+\_\+next = \hyperlink{dtoa_8c_ae90ee92993a4c23db3d96d1e204e340d}{private\+\_\+mem}\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{dtoa_8c_ae90ee92993a4c23db3d96d1e204e340d}\label{dtoa_8c_ae90ee92993a4c23db3d96d1e204e340d}} 
+\index{dtoa.\+c@{dtoa.\+c}!private\+\_\+mem@{private\+\_\+mem}}
+\index{private\+\_\+mem@{private\+\_\+mem}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{private\+\_\+mem}{private\_mem}}
+{\footnotesize\ttfamily double private\+\_\+mem\mbox{[}\hyperlink{dtoa_8c_a4c4c8560d0f1ca391ca934a0c8a3c068}{P\+R\+I\+V\+A\+T\+E\+\_\+mem}\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{dtoa_8c_a7ed993099169d4c6d03cc55c53e78827}\label{dtoa_8c_a7ed993099169d4c6d03cc55c53e78827}} 
+\index{dtoa.\+c@{dtoa.\+c}!pten@{pten}}
+\index{pten@{pten}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{pten}{pten}}
+{\footnotesize\ttfamily \hyperlink{struct_b_f96}{B\+F96} pten\mbox{[}667\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{dtoa_8c_aa112b30f67ae87ee166cb9b5e25a7b23}\label{dtoa_8c_aa112b30f67ae87ee166cb9b5e25a7b23}} 
+\index{dtoa.\+c@{dtoa.\+c}!tens@{tens}}
+\index{tens@{tens}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{tens}{tens}}
+{\footnotesize\ttfamily const double tens\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \{1e0,
+                              1e1,
+                              1e2,
+                              1e3,
+                              1e4,
+                              1e5,
+                              1e6,
+                              1e7,
+                              1e8,
+                              1e9,
+                              1e10,
+                              1e11,
+                              1e12,
+                              1e13,
+                              1e14,
+                              1e15,
+                              1e16,
+                              1e17,
+                              1e18,
+                              1e19,
+                              1e20,
+                              1e21,
+                              1e22
+
+
+
+
+
+\}
+\end{DoxyCode}
+\mbox{\Hypertarget{dtoa_8c_a09165dac1c4a20c20589575ebc96f58b}\label{dtoa_8c_a09165dac1c4a20c20589575ebc96f58b}} 
+\index{dtoa.\+c@{dtoa.\+c}!T\+I0@{T\+I0}}
+\index{T\+I0@{T\+I0}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{T\+I0}{TI0}}
+{\footnotesize\ttfamily \hyperlink{struct_th_info}{Th\+Info} T\+I0\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{dtoa_8c_aa35df39ef3e9737363c1f3976895c167}\label{dtoa_8c_aa35df39ef3e9737363c1f3976895c167}} 
+\index{dtoa.\+c@{dtoa.\+c}!tinytens@{tinytens}}
+\index{tinytens@{tinytens}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{tinytens}{tinytens}}
+{\footnotesize\ttfamily const double tinytens\mbox{[}$\,$\mbox{]} = \{1e-\/16, 1e-\/32\}\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{dtoa_8c_a6f5065da6f30a7ecf67f3a22bb215adb}\label{dtoa_8c_a6f5065da6f30a7ecf67f3a22bb215adb}} 
+\index{dtoa.\+c@{dtoa.\+c}!V\+AX@{V\+AX}}
+\index{V\+AX@{V\+AX}!dtoa.\+c@{dtoa.\+c}}
+\subsubsection{\texorpdfstring{V\+AX}{VAX}}
+{\footnotesize\ttfamily Exactly one of V\+AX}
+

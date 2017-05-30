@@ -4,21 +4,23 @@
 {\ttfamily \#include \char`\"{}logger.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}matcher.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}token.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}tracer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}trace.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$iostream$>$}\newline
 {\ttfamily \#include $<$memory$>$}\newline
 {\ttfamily \#include $<$sstream$>$}\newline
 {\ttfamily \#include $<$vector$>$}\newline
 {\ttfamily \#include $<$boost/type\+\_\+index.\+hpp$>$}\newline
-Include dependency graph for parser.\+h\+:\nopagebreak
+Include dependency graph for parser.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{parser_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:\nopagebreak
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -32,11 +34,6 @@ class \hyperlink{class_syntax_error}{Syntax\+Error}
 \item 
 class \hyperlink{class_parser}{Parser}
 \end{DoxyCompactItemize}
-\subsection*{Macros}
-\begin{DoxyCompactItemize}
-\item 
-\#define \hyperlink{parser_8h_abd6a38fb39140110c158184776cabb34}{trace}(method)
-\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -44,22 +41,6 @@ class \hyperlink{class_parser}{Parser}
 \item 
 {\footnotesize template$<$typename Cont $>$ }\\auto \hyperlink{parser_8h_af84a3849b6796e479c9ce1fd87672dbf}{make\+\_\+parser} (Cont \&\&cont)
 \end{DoxyCompactItemize}
-
-
-\subsection{Macro Definition Documentation}
-\mbox{\Hypertarget{parser_8h_abd6a38fb39140110c158184776cabb34}\label{parser_8h_abd6a38fb39140110c158184776cabb34}} 
-\index{parser.\+h@{parser.\+h}!trace@{trace}}
-\index{trace@{trace}!parser.\+h@{parser.\+h}}
-\subsubsection{\texorpdfstring{trace}{trace}}
-{\footnotesize\ttfamily \#define trace(\begin{DoxyParamCaption}\item[{}]{method }\end{DoxyParamCaption})}
-
-{\bfseries Value\+:}
-\begin{DoxyCode}
-\hyperlink{class_trace_guard}{TraceGuard} tg\_##\_\_LINE\_\_(                                                    \(\backslash\)
-      boost::typeindex::type\_id<decltype(*\textcolor{keyword}{this})>().pretty\_name()               \(\backslash\)
-          + \textcolor{stringliteral}{"::"} + \_\_func\_\_,                                                   \(\backslash\)
-      \_\_FILE\_\_, \_\_LINE\_\_)
-\end{DoxyCode}
 
 
 \subsection{Function Documentation}

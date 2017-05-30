@@ -1,4 +1,5 @@
 <map id="RegularExpressionLiteral" name="RegularExpressionLiteral">
-<area shape="rect" id="node2" href="$struct_literal.html" title="Literal" alt="" coords="62,79,119,104"/>
-<area shape="rect" id="node3" href="$struct_node.html" title="Node" alt="" coords="64,5,117,31"/>
+<area shape="rect" id="node2" href="$struct_literal.html" title="Literal" alt="" coords="10,80,67,105"/>
+<area shape="rect" id="node3" href="$struct_node.html" title="Node" alt="" coords="12,5,65,31"/>
+<area shape="rect" id="node4" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/string/basic_string.html" title="std::u16string" alt="" coords="92,80,193,105"/>
 </map>

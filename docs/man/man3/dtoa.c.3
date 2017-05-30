@@ -1,0 +1,782 @@
+.TH "src/dtoa.c" 3 "Tue May 30 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/dtoa.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'stdlib\&.h'\fP
+.br
+\fC#include 'string\&.h'\fP
+.br
+\fC#include 'errno\&.h'\fP
+.br
+\fC#include 'float\&.h'\fP
+.br
+\fC#include 'math\&.h'\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBBF96\fP"
+.br
+.ti -1c
+.RI "union \fBU\fP"
+.br
+.ti -1c
+.RI "struct \fBBCinfo\fP"
+.br
+.ti -1c
+.RI "struct \fBBigint\fP"
+.br
+.ti -1c
+.RI "struct \fBThInfo\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBLong\fP   int"
+.br
+.ti -1c
+.RI "#define \fBassert\fP(x)   /*nothing*/"
+.br
+.ti -1c
+.RI "#define \fBDebug\fP(x)   /*nothing*/"
+.br
+.ti -1c
+.RI "#define \fBMALLOC\fP   malloc"
+.br
+.ti -1c
+.RI "#define \fBREALLOC\fP   realloc"
+.br
+.ti -1c
+.RI "#define \fBFREE\fP   free"
+.br
+.ti -1c
+.RI "#define \fBPRIVATE_MEM\fP   2304"
+.br
+.ti -1c
+.RI "#define \fBPRIVATE_mem\fP   ((\fBPRIVATE_MEM\fP + sizeof(double) \- 1) / sizeof(double))"
+.br
+.ti -1c
+.RI "#define \fBNO_STRTOD_BIGCOMP\fP"
+.br
+.ti -1c
+.RI "#define \fBSet_errno\fP(x)   errno = x"
+.br
+.ti -1c
+.RI "#define \fBLlong\fP   long long"
+.br
+.ti -1c
+.RI "#define \fBULLong\fP   unsigned \fBLlong\fP"
+.br
+.ti -1c
+.RI "#define \fBUSE_BF96\fP"
+.br
+.ti -1c
+.RI "#define \fBword0\fP(x)   (x)\->L[0]"
+.br
+.ti -1c
+.RI "#define \fBword1\fP(x)   (x)\->L[1]"
+.br
+.ti -1c
+.RI "#define \fBdval\fP(x)   (x)\->d"
+.br
+.ti -1c
+.RI "#define \fBLLval\fP(x)   (x)\->LL"
+.br
+.ti -1c
+.RI "#define \fBSTRTOD_DIGLIM\fP   40"
+.br
+.ti -1c
+.RI "#define \fBstrtod_diglim\fP   \fBSTRTOD_DIGLIM\fP"
+.br
+.ti -1c
+.RI "#define \fBStoreinc\fP(a,  b,  c)"
+.br
+.ti -1c
+.RI "#define \fBSudden_Underflow\fP"
+.br
+.ti -1c
+.RI "#define \fBFlt_Rounds\fP   1"
+.br
+.ti -1c
+.RI "#define \fBExp_shift\fP   23"
+.br
+.ti -1c
+.RI "#define \fBExp_shift1\fP   7"
+.br
+.ti -1c
+.RI "#define \fBExp_msk1\fP   0x80"
+.br
+.ti -1c
+.RI "#define \fBExp_msk11\fP   0x800000"
+.br
+.ti -1c
+.RI "#define \fBExp_mask\fP   0x7f80"
+.br
+.ti -1c
+.RI "#define \fBP\fP   56"
+.br
+.ti -1c
+.RI "#define \fBNbits\fP   56"
+.br
+.ti -1c
+.RI "#define \fBBias\fP   129"
+.br
+.ti -1c
+.RI "#define \fBEmax\fP   126"
+.br
+.ti -1c
+.RI "#define \fBEmin\fP   (\-129)"
+.br
+.ti -1c
+.RI "#define \fBExp_1\fP   0x40800000"
+.br
+.ti -1c
+.RI "#define \fBExp_11\fP   0x4080"
+.br
+.ti -1c
+.RI "#define \fBEbits\fP   8"
+.br
+.ti -1c
+.RI "#define \fBFrac_mask\fP   0x7fffff"
+.br
+.ti -1c
+.RI "#define \fBFrac_mask1\fP   0xffff007f"
+.br
+.ti -1c
+.RI "#define \fBTen_pmax\fP   24"
+.br
+.ti -1c
+.RI "#define \fBBletch\fP   2"
+.br
+.ti -1c
+.RI "#define \fBBndry_mask\fP   0xffff007f"
+.br
+.ti -1c
+.RI "#define \fBBndry_mask1\fP   0xffff007f"
+.br
+.ti -1c
+.RI "#define \fBLSB\fP   0x10000"
+.br
+.ti -1c
+.RI "#define \fBSign_bit\fP   0x8000"
+.br
+.ti -1c
+.RI "#define \fBLog2P\fP   1"
+.br
+.ti -1c
+.RI "#define \fBTiny0\fP   0x80"
+.br
+.ti -1c
+.RI "#define \fBTiny1\fP   0"
+.br
+.ti -1c
+.RI "#define \fBQuick_max\fP   15"
+.br
+.ti -1c
+.RI "#define \fBInt_max\fP   15"
+.br
+.ti -1c
+.RI "#define \fBROUND_BIASED\fP"
+.br
+.ti -1c
+.RI "#define \fBrounded_product\fP(a,  b)   a *= b"
+.br
+.ti -1c
+.RI "#define \fBrounded_quotient\fP(a,  b)   a /= b"
+.br
+.ti -1c
+.RI "#define \fBBig0\fP   (\fBFrac_mask1\fP | \fBExp_msk1\fP * (DBL_MAX_EXP + \fBBias\fP \- 1))"
+.br
+.ti -1c
+.RI "#define \fBBig1\fP   0xffffffff"
+.br
+.ti -1c
+.RI "#define \fBPack_32\fP"
+.br
+.ti -1c
+.RI "#define \fBFFFFFFFF\fP   0xffffffffUL"
+.br
+.ti -1c
+.RI "#define \fBMTa\fP   /*nothing*/"
+.br
+.ti -1c
+.RI "#define \fBMTb\fP   /*nothing*/"
+.br
+.ti -1c
+.RI "#define \fBMTd\fP   /*nothing*/"
+.br
+.ti -1c
+.RI "#define \fBKmax\fP   7"
+.br
+.ti -1c
+.RI "#define \fBfreelist\fP   TI0\&.Freelist"
+.br
+.ti -1c
+.RI "#define \fBp5s\fP   TI0\&.P5s"
+.br
+.ti -1c
+.RI "#define \fBBcopy\fP(x,  y)"
+.br
+.ti -1c
+.RI "#define \fBd0\fP   \fBword0\fP(&d)"
+.br
+.ti -1c
+.RI "#define \fBd1\fP   \fBword1\fP(&d)"
+.br
+.ti -1c
+.RI "#define \fBd0\fP   \fBword0\fP(d)"
+.br
+.ti -1c
+.RI "#define \fBd1\fP   \fBword1\fP(d)"
+.br
+.ti -1c
+.RI "#define \fBn_bigtens\fP   2"
+.br
+.ti -1c
+.RI "#define \fBNeed_Hexdig\fP"
+.br
+.ti -1c
+.RI "#define \fBULbits\fP   32"
+.br
+.ti -1c
+.RI "#define \fBkshift\fP   5"
+.br
+.ti -1c
+.RI "#define \fBkmask\fP   31"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef unsigned \fBLong\fP \fBULong\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBBF96\fP \fBBF96\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBBCinfo\fP \fBBCinfo\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBBigint\fP \fBBigint\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBThInfo\fP \fBThInfo\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBRound_zero\fP = 0, \fBRound_near\fP = 1, \fBRound_up\fP = 2, \fBRound_down\fP = 3 }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBBigint\fP * \fBBalloc\fP (int k \fBMTd\fP)"
+.br
+.ti -1c
+.RI "static void \fBBfree\fP (\fBBigint\fP *v \fBMTd\fP)"
+.br
+.ti -1c
+.RI "static \fBBigint\fP * \fBmultadd\fP (\fBBigint\fP *b, int m, int a \fBMTd\fP)"
+.br
+.ti -1c
+.RI "static \fBBigint\fP * \fBs2b\fP (const char *s, int nd0, int nd, \fBULong\fP y9, int dplen \fBMTd\fP)"
+.br
+.ti -1c
+.RI "static int \fBhi0bits\fP (\fBULong\fP x)"
+.br
+.ti -1c
+.RI "static int \fBlo0bits\fP (\fBULong\fP *y)"
+.br
+.ti -1c
+.RI "static \fBBigint\fP * \fBi2b\fP (int i \fBMTd\fP)"
+.br
+.ti -1c
+.RI "static \fBBigint\fP * \fBmult\fP (\fBBigint\fP *a, \fBBigint\fP *b \fBMTd\fP)"
+.br
+.ti -1c
+.RI "static \fBBigint\fP * \fBpow5mult\fP (\fBBigint\fP *b, int k \fBMTd\fP)"
+.br
+.ti -1c
+.RI "static \fBBigint\fP * \fBlshift\fP (\fBBigint\fP *b, int k \fBMTd\fP)"
+.br
+.ti -1c
+.RI "static int \fBcmp\fP (\fBBigint\fP *a, \fBBigint\fP *b)"
+.br
+.ti -1c
+.RI "static \fBBigint\fP * \fBdiff\fP (\fBBigint\fP *a, \fBBigint\fP *b \fBMTd\fP)"
+.br
+.ti -1c
+.RI "static double \fBulp\fP (\fBU\fP *x)"
+.br
+.ti -1c
+.RI "static double \fBb2d\fP (\fBBigint\fP *a, int *e)"
+.br
+.ti -1c
+.RI "static \fBBigint\fP * \fBd2b\fP (\fBU\fP *d, int *e, int *bits \fBMTd\fP)"
+.br
+.ti -1c
+.RI "static double \fBratio\fP (\fBBigint\fP *a, \fBBigint\fP *b)"
+.br
+.ti -1c
+.RI "static \fBBigint\fP * \fBincrement\fP (\fBBigint\fP *b \fBMTd\fP)"
+.br
+.ti -1c
+.RI "static void \fBrshift\fP (\fBBigint\fP *b, int k)"
+.br
+.ti -1c
+.RI "static \fBULong\fP \fBany_on\fP (\fBBigint\fP *b, int k)"
+.br
+.ti -1c
+.RI "void \fBgethex\fP (const char **sp, \fBU\fP *rvp, int rounding, int sign \fBMTd\fP)"
+.br
+.ti -1c
+.RI "static int \fBdshift\fP (\fBBigint\fP *b, int p2)"
+.br
+.ti -1c
+.RI "static int \fBquorem\fP (\fBBigint\fP *b, \fBBigint\fP *S)"
+.br
+.ti -1c
+.RI "double \fBstrtod\fP (const char *s00, char **se)"
+.br
+.ti -1c
+.RI "static char * \fBrv_alloc\fP (int i \fBMTd\fP)"
+.br
+.ti -1c
+.RI "static char * \fBnrv_alloc\fP (const char *s, char *s0, size_t s0len, char **rve, int n \fBMTd\fP)"
+.br
+.ti -1c
+.RI "void \fBfreedtoa\fP (char *s)"
+.br
+.ti -1c
+.RI "char * \fBdtoa_r\fP (double dd, int mode, int ndigits, int *decpt, int *sign, char **rve, char *buf, size_t blen)"
+.br
+.ti -1c
+.RI "char * \fBdtoa\fP (double dd, int mode, int ndigits, int *decpt, int *sign, char **rve)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "static double \fBprivate_mem\fP [\fBPRIVATE_mem\fP]"
+.br
+.ti -1c
+.RI "static double * \fBpmem_next\fP = \fBprivate_mem\fP"
+.br
+.ti -1c
+.RI "Exactly one of \fBIEEE_8087\fP"
+.br
+.ti -1c
+.RI "Exactly one of \fBIEEE_MC68k\fP"
+.br
+.ti -1c
+.RI "Exactly one of \fBVAX\fP"
+.br
+.ti -1c
+.RI "int \fBdtoa_divmax\fP = 2"
+.br
+.ti -1c
+.RI "static \fBBF96\fP \fBpten\fP [667]"
+.br
+.ti -1c
+.RI "static short int \fBLhint\fP [2098]"
+.br
+.ti -1c
+.RI "static \fBULLong\fP \fBpfive\fP [27]"
+.br
+.ti -1c
+.RI "static int \fBpfivebits\fP [25]"
+.br
+.ti -1c
+.RI "static \fBThInfo\fP \fBTI0\fP"
+.br
+.ti -1c
+.RI "static const double \fBtens\fP []"
+.br
+.ti -1c
+.RI "static const double \fBbigtens\fP [] = {1e16, 1e32}"
+.br
+.ti -1c
+.RI "static const double \fBtinytens\fP [] = {1e\-16, 1e\-32}"
+.br
+.ti -1c
+.RI "static unsigned char \fBhexdig\fP [256]"
+.br
+.ti -1c
+.RI "static char * \fBdtoa_result\fP"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define assert(x)   /*nothing*/"
+
+.SS "#define Bcopy(x, y)"
+\fBValue:\fP
+.PP
+.nf
+memcpy((char *)&x->sign, (char *)&y->sign,                                   \
+         y->wds * sizeof(Long) + 2 * sizeof(int))
+.fi
+.SS "#define Bias   129"
+
+.SS "#define Big0   (\fBFrac_mask1\fP | \fBExp_msk1\fP * (DBL_MAX_EXP + \fBBias\fP \- 1))"
+
+.SS "#define Big1   0xffffffff"
+
+.SS "#define Bletch   2"
+
+.SS "#define Bndry_mask   0xffff007f"
+
+.SS "#define Bndry_mask1   0xffff007f"
+
+.SS "#define d0   \fBword0\fP(&d)"
+
+.SS "#define d0   \fBword0\fP(d)"
+
+.SS "#define d1   \fBword1\fP(&d)"
+
+.SS "#define d1   \fBword1\fP(d)"
+
+.SS "#define Debug(x)   /*nothing*/"
+
+.SS "#define dval(x)   (x)\->d"
+
+.SS "#define Ebits   8"
+
+.SS "#define Emax   126"
+
+.SS "#define Emin   (\-129)"
+
+.SS "#define Exp_1   0x40800000"
+
+.SS "#define Exp_11   0x4080"
+
+.SS "#define Exp_mask   0x7f80"
+
+.SS "#define Exp_msk1   0x80"
+
+.SS "#define Exp_msk11   0x800000"
+
+.SS "#define Exp_shift   23"
+
+.SS "#define Exp_shift1   7"
+
+.SS "#define FFFFFFFF   0xffffffffUL"
+
+.SS "#define Flt_Rounds   1"
+
+.SS "#define Frac_mask   0x7fffff"
+
+.SS "#define Frac_mask1   0xffff007f"
+
+.SS "#define FREE   free"
+
+.SS "#define freelist   TI0\&.Freelist"
+
+.SS "#define Int_max   15"
+
+.SS "#define kmask   31"
+
+.SS "#define Kmax   7"
+
+.SS "#define kshift   5"
+
+.SS "#define Llong   long long"
+
+.SS "#define LLval(x)   (x)\->LL"
+
+.SS "#define Log2P   1"
+
+.SS "#define Long   int"
+
+.SS "#define LSB   0x10000"
+
+.SS "#define MALLOC   malloc"
+
+.SS "#define MTa   /*nothing*/"
+
+.SS "#define MTb   /*nothing*/"
+
+.SS "#define MTd   /*nothing*/"
+
+.SS "#define n_bigtens   2"
+
+.SS "#define Nbits   56"
+
+.SS "#define Need_Hexdig"
+
+.SS "#define NO_STRTOD_BIGCOMP"
+
+.SS "#define P   56"
+
+.SS "#define p5s   TI0\&.P5s"
+
+.SS "#define Pack_32"
+
+.SS "#define PRIVATE_MEM   2304"
+
+.SS "#define PRIVATE_mem   ((\fBPRIVATE_MEM\fP + sizeof(double) \- 1) / sizeof(double))"
+
+.SS "#define Quick_max   15"
+
+.SS "#define REALLOC   realloc"
+
+.SS "#define ROUND_BIASED"
+
+.SS "#define rounded_product(a, b)   a *= b"
+
+.SS "#define rounded_quotient(a, b)   a /= b"
+
+.SS "#define Set_errno(x)   errno = x"
+
+.SS "#define Sign_bit   0x8000"
+
+.SS "#define Storeinc(a, b, c)"
+\fBValue:\fP
+.PP
+.nf
+(((unsigned short *)a)[0] = (unsigned short)b,                               \
+   ((unsigned short *)a)[1] = (unsigned short)c, a++)
+.fi
+.SS "#define STRTOD_DIGLIM   40"
+
+.SS "#define strtod_diglim   \fBSTRTOD_DIGLIM\fP"
+
+.SS "#define Sudden_Underflow"
+
+.SS "#define Ten_pmax   24"
+
+.SS "#define Tiny0   0x80"
+
+.SS "#define Tiny1   0"
+
+.SS "#define ULbits   32"
+
+.SS "#define ULLong   unsigned \fBLlong\fP"
+
+.SS "#define USE_BF96"
+
+.SS "#define word0(x)   (x)\->L[0]"
+
+.SS "#define word1(x)   (x)\->L[1]"
+
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBBCinfo\fP \fBBCinfo\fP"
+
+.SS "typedef struct \fBBF96\fP  \fBBF96\fP"
+
+.SS "typedef struct \fBBigint\fP \fBBigint\fP"
+
+.SS "typedef struct \fBThInfo\fP  \fBThInfo\fP"
+
+.SS "typedef unsigned \fBLong\fP \fBULong\fP"
+
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "anonymous enum"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIRound_zero \fP\fP
+.TP
+\fB\fIRound_near \fP\fP
+.TP
+\fB\fIRound_up \fP\fP
+.TP
+\fB\fIRound_down \fP\fP
+.SH "Function Documentation"
+.PP 
+.SS "static \fBULong\fP any_on (\fBBigint\fP * b, int k)\fC [static]\fP"
+
+.SS "static double b2d (\fBBigint\fP * a, int * e)\fC [static]\fP"
+
+.SS "static \fBBigint\fP* Balloc (int k MTd)\fC [static]\fP"
+
+.SS "static void Bfree (\fBBigint\fP *v MTd)\fC [static]\fP"
+
+.SS "static int cmp (\fBBigint\fP * a, \fBBigint\fP * b)\fC [static]\fP"
+
+.SS "static \fBBigint\fP* d2b (\fBU\fP * d, int * e, int *bits MTd)\fC [static]\fP"
+
+.SS "static \fBBigint\fP* diff (\fBBigint\fP * a, \fBBigint\fP *b MTd)\fC [static]\fP"
+
+.SS "static int dshift (\fBBigint\fP * b, int p2)\fC [static]\fP"
+NO_HEX_FP} 
+.SS "char* dtoa (double dd, int mode, int ndigits, int * decpt, int * sign, char ** rve)"
+
+.SS "char* dtoa_r (double dd, int mode, int ndigits, int * decpt, int * sign, char ** rve, char * buf, size_t blen)"
+
+.SS "void freedtoa (char * s)"
+
+.SS "void gethex (const char ** sp, \fBU\fP * rvp, int rounding, int sign MTd)"
+
+.SS "static int hi0bits (\fBULong\fP x)\fC [static]\fP"
+
+.SS "static \fBBigint\fP* i2b (int i MTd)\fC [static]\fP"
+
+.SS "static \fBBigint\fP* increment (\fBBigint\fP *b MTd)\fC [static]\fP"
+
+.SS "static int lo0bits (\fBULong\fP * y)\fC [static]\fP"
+
+.SS "static \fBBigint\fP* lshift (\fBBigint\fP * b, int k MTd)\fC [static]\fP"
+
+.SS "static \fBBigint\fP* mult (\fBBigint\fP * a, \fBBigint\fP *b MTd)\fC [static]\fP"
+
+.SS "static \fBBigint\fP* multadd (\fBBigint\fP * b, int m, int a MTd)\fC [static]\fP"
+
+.SS "static char* nrv_alloc (const char * s, char * s0, size_t s0len, char ** rve, int n MTd)\fC [static]\fP"
+
+.SS "static \fBBigint\fP* pow5mult (\fBBigint\fP * b, int k MTd)\fC [static]\fP"
+
+.SS "static int quorem (\fBBigint\fP * b, \fBBigint\fP * S)\fC [static]\fP"
+
+.SS "static double ratio (\fBBigint\fP * a, \fBBigint\fP * b)\fC [static]\fP"
+
+.SS "static void rshift (\fBBigint\fP * b, int k)\fC [static]\fP"
+
+.SS "static char* rv_alloc (int i MTd)\fC [static]\fP"
+
+.SS "static \fBBigint\fP* s2b (const char * s, int nd0, int nd, \fBULong\fP y9, int dplen MTd)\fC [static]\fP"
+
+.SS "double strtod (const char * s00, char ** se)"
+
+.SS "static double ulp (\fBU\fP * x)\fC [static]\fP"
+
+.SH "Variable Documentation"
+.PP 
+.SS "const double bigtens[] = {1e16, 1e32}\fC [static]\fP"
+
+.SS "int dtoa_divmax = 2"
+
+.SS "char* dtoa_result\fC [static]\fP"
+
+.SS "unsigned char hexdig[256]\fC [static]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    0,  0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+    0,  0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+    0,  0, 0,  0,  0,  0,  0,  0,  0,  0,  16, 17, 18, 19, 20, 21, 22, 23, 24,
+    25, 0, 0,  0,  0,  0,  0,  0,  26, 27, 28, 29, 30, 31, 0,  0,  0,  0,  0,
+    0,  0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+    0,  0, 26, 27, 28, 29, 30, 31, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+    0,  0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+    0,  0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+    0,  0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+    0,  0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+    0,  0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+    0,  0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+    0,  0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+    0,  0, 0,  0,  0,  0,  0,  0,  0}
+.fi
+.SS "Exactly one of IEEE_8087"
+
+.SS "Exactly one of IEEE_MC68k"
+
+.SS "short int Lhint[2098]\fC [static]\fP"
+
+.SS "\fBULLong\fP pfive[27]\fC [static]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+= {5ll,
+                           25ll,
+                           125ll,
+                           625ll,
+                           3125ll,
+                           15625ll,
+                           78125ll,
+                           390625ll,
+                           1953125ll,
+                           9765625ll,
+                           48828125ll,
+                           244140625ll,
+                           1220703125ll,
+                           6103515625ll,
+                           30517578125ll,
+                           152587890625ll,
+                           762939453125ll,
+                           3814697265625ll,
+                           19073486328125ll,
+                           95367431640625ll,
+                           476837158203125ll,
+                           2384185791015625ll,
+                           11920928955078125ll,
+                           59604644775390625ll,
+                           298023223876953125ll,
+                           1490116119384765625ll,
+                           7450580596923828125ll}
+.fi
+.SS "int pfivebits[25]\fC [static]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+= {3,  5,  7,  10, 12, 14, 17, 19, 21, 24, 26, 28, 31,
+                            33, 35, 38, 40, 42, 45, 47, 49, 52, 54, 56, 59}
+.fi
+.SS "double * pmem_next = \fBprivate_mem\fP\fC [static]\fP"
+
+.SS "double private_mem[\fBPRIVATE_mem\fP]\fC [static]\fP"
+
+.SS "\fBBF96\fP pten[667]\fC [static]\fP"
+
+.SS "const double tens[]\fC [static]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+= {1e0,
+                              1e1,
+                              1e2,
+                              1e3,
+                              1e4,
+                              1e5,
+                              1e6,
+                              1e7,
+                              1e8,
+                              1e9,
+                              1e10,
+                              1e11,
+                              1e12,
+                              1e13,
+                              1e14,
+                              1e15,
+                              1e16,
+                              1e17,
+                              1e18,
+                              1e19,
+                              1e20,
+                              1e21,
+                              1e22
+
+
+
+
+
+}
+.fi
+.SS "\fBThInfo\fP TI0\fC [static]\fP"
+
+.SS "const double tinytens[] = {1e\-16, 1e\-32}\fC [static]\fP"
+
+.SS "Exactly one of VAX"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

@@ -1,6 +1,9 @@
 <map id="ForInStatement" name="ForInStatement">
 <area shape="rect" id="node2" href="$struct_statement.html" title="Statement" alt="" coords="21,179,103,205"/>
-<area shape="rect" id="node3" href="$struct_source_element.html" title="SourceElement" alt="" coords="5,80,118,105"/>
-<area shape="rect" id="node4" href="$struct_node.html" title="Node" alt="" coords="82,5,135,31"/>
-<area shape="rect" id="node5" href="$struct_expression.html" title="Expression" alt="" coords="111,129,199,155"/>
+<area shape="rect" id="node3" href="$struct_source_element.html" title="SourceElement" alt="" coords="5,92,118,117"/>
+<area shape="rect" id="node4" href="$struct_node.html" title="Node" alt="" coords="159,5,212,31"/>
+<area shape="rect" id="node5" href="$struct_expression.html" title="Expression" alt="" coords="142,92,229,117"/>
+<area shape="rect" id="node7" href="$struct_identifier.html" title="Identifier" alt="" coords="265,92,338,117"/>
+<area shape="rect" id="node6" href="$struct_variable_declaration.html" title="VariableDeclaration" alt="" coords="204,179,341,205"/>
+<area shape="rect" id="node8" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/string/basic_string.html" title="std::u16string" alt="" coords="251,5,352,31"/>
 </map>

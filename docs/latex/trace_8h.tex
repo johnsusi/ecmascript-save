@@ -1,0 +1,62 @@
+\hypertarget{trace_8h}{}\section{src/trace.h File Reference}
+\label{trace_8h}\index{src/trace.\+h@{src/trace.\+h}}
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+Include dependency graph for trace.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=182pt]{trace_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{trace_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_trace}{Trace}
+\item 
+class \hyperlink{class_trace_guard}{Trace\+Guard}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{trace_8h_abd6a38fb39140110c158184776cabb34}{trace}(method)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ std\+::string} \hyperlink{trace_8h_a1f0c50896d6282eca983056dfa955bcd}{stack\+\_\+trace} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{trace_8h_abd6a38fb39140110c158184776cabb34}\label{trace_8h_abd6a38fb39140110c158184776cabb34}} 
+\index{trace.\+h@{trace.\+h}!trace@{trace}}
+\index{trace@{trace}!trace.\+h@{trace.\+h}}
+\subsubsection{\texorpdfstring{trace}{trace}}
+{\footnotesize\ttfamily \#define trace(\begin{DoxyParamCaption}\item[{}]{method }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\hyperlink{class_trace_guard}{TraceGuard} tg\_##\_\_LINE\_\_(                                                    \(\backslash\)
+      boost::typeindex::type\_id<decltype(*\textcolor{keyword}{this})>().pretty\_name()               \(\backslash\)
+          + \textcolor{stringliteral}{"::"} + \_\_func\_\_,                                                   \(\backslash\)
+      \_\_FILE\_\_, \_\_LINE\_\_)
+\end{DoxyCode}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{trace_8h_a1f0c50896d6282eca983056dfa955bcd}\label{trace_8h_a1f0c50896d6282eca983056dfa955bcd}} 
+\index{trace.\+h@{trace.\+h}!stack\+\_\+trace@{stack\+\_\+trace}}
+\index{stack\+\_\+trace@{stack\+\_\+trace}!trace.\+h@{trace.\+h}}
+\subsubsection{\texorpdfstring{stack\+\_\+trace()}{stack\_trace()}}
+{\footnotesize\ttfamily \textbf{ std\+::string} stack\+\_\+trace (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+

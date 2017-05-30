@@ -1,0 +1,55 @@
+.TH "src/trace.h" 3 "Tue May 30 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/trace.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <string>\fP
+.br
+\fC#include <vector>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBTrace\fP"
+.br
+.ti -1c
+.RI "class \fBTraceGuard\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBtrace\fP(method)"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBstd::string\fP \fBstack_trace\fP ()"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define trace(method)"
+\fBValue:\fP
+.PP
+.nf
+TraceGuard tg_##__LINE__(                                                    \
+      boost::typeindex::type_id<decltype(*this)>()\&.pretty_name()               \
+          + "::" + __func__,                                                   \
+      __FILE__, __LINE__)
+.fi
+.SH "Function Documentation"
+.PP 
+.SS "\fBstd::string\fP stack_trace ()"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

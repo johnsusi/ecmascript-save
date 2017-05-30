@@ -71,6 +71,7 @@ $(function() {
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="input__element_8h_source.html">input_element.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="matcher_8h_source.html">matcher.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="to__string_8h_source.html">to_string.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="token_8h_source.html">token.h</a>&quot;</code><br />
 <code>#include &lt;algorithm&gt;</code><br />
 <code>#include &lt;cmath&gt;</code><br />
@@ -82,10 +83,11 @@ Include dependency graph for lexical_grammar.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="lexical__grammar_8h__incl.png" border="0" usemap="#src_2lexical__grammar_8h" alt=""/></div>
 <map name="src_2lexical__grammar_8h" id="src_2lexical__grammar_8h">
-<area shape="rect" id="node2" href="input__element_8h.html" title="input_element.h" alt="" coords="391,79,507,104"/>
-<area shape="rect" id="node3" href="token_8h.html" title="token.h" alt="" coords="323,152,388,177"/>
-<area shape="rect" id="node17" href="matcher_8h.html" title="matcher.h" alt="" coords="80,79,159,104"/>
-<area shape="rect" id="node4" href="util_8h.html" title="util.h" alt="" coords="465,225,515,251"/>
+<area shape="rect" id="node2" href="input__element_8h.html" title="input_element.h" alt="" coords="583,79,699,104"/>
+<area shape="rect" id="node3" href="token_8h.html" title="token.h" alt="" coords="819,152,884,177"/>
+<area shape="rect" id="node18" href="matcher_8h.html" title="matcher.h" alt="" coords="209,79,289,104"/>
+<area shape="rect" id="node20" href="to__string_8h.html" title="to_string.h" alt="" coords="65,79,148,104"/>
+<area shape="rect" id="node4" href="util_8h.html" title="util.h" alt="" coords="678,225,727,251"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -121,6 +123,8 @@ Functions</h2></td></tr>
 <tr class="separator:af6705427c418482a10880319f2440157"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5142564f94422574c9696dd2643848f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lexical__grammar_8h.html#ab5142564f94422574c9696dd2643848f">is_hex_digit</a> (int cp)</td></tr>
 <tr class="separator:ab5142564f94422574c9696dd2643848f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ac2768956cf5ba5a5b9dfa346fb9ab7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lexical__grammar_8h.html#a0ac2768956cf5ba5a5b9dfa346fb9ab7">is_exponent_indicator</a> (int)</td></tr>
+<tr class="separator:a0ac2768956cf5ba5a5b9dfa346fb9ab7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab548932d0a5af9ce41ece5a9341167b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lexical__grammar_8h.html#aab548932d0a5af9ce41ece5a9341167b">is_unicode_letter</a> (int cp)</td></tr>
 <tr class="separator:aab548932d0a5af9ce41ece5a9341167b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a77ceb9bedb3fcd420006ad82a4cb2869"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lexical__grammar_8h.html#a77ceb9bedb3fcd420006ad82a4cb2869">is_unicode_combining_mark</a> (int cp)</td></tr>
@@ -145,8 +149,8 @@ Functions</h2></td></tr>
 <tr class="separator:a3d61917c173c0bd1f70a70056d7f3107"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65a41e546ff8d9a3ae287ad722e4dab6"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lexical__grammar_8h.html#a65a41e546ff8d9a3ae287ad722e4dab6">pow10</a> (int n)</td></tr>
 <tr class="separator:a65a41e546ff8d9a3ae287ad722e4dab6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af14140cd98daab6a40dff9ac8d1c95f4"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lexical__grammar_8h.html#af14140cd98daab6a40dff9ac8d1c95f4">mul_pow10</a> (int s, int n)</td></tr>
-<tr class="separator:af14140cd98daab6a40dff9ac8d1c95f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65a49ada405e821b1b0301918290fa9e"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lexical__grammar_8h.html#a65a49ada405e821b1b0301918290fa9e">mul_pow10</a> (int s, int n)</td></tr>
+<tr class="separator:a65a49ada405e821b1b0301918290fa9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a3d61917c173c0bd1f70a70056d7f3107"></a>
@@ -196,6 +200,24 @@ Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">const <a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;&#160;</td>
           <td class="paramname"><em>token</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0ac2768956cf5ba5a5b9dfa346fb9ab7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ac2768956cf5ba5a5b9dfa346fb9ab7">&#9670;&nbsp;</a></span>is_exponent_indicator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool is_exponent_indicator </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -437,14 +459,17 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="af14140cd98daab6a40dff9ac8d1c95f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af14140cd98daab6a40dff9ac8d1c95f4">&#9670;&nbsp;</a></span>mul_pow10()</h2>
+<a id="a65a49ada405e821b1b0301918290fa9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65a49ada405e821b1b0301918290fa9e">&#9670;&nbsp;</a></span>mul_pow10()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr double mul_pow10 </td>
+          <td class="memname">static double mul_pow10 </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>s</em>, </td>
@@ -461,6 +486,11 @@ Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>

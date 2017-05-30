@@ -1,3 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_lexical_grammar.html" title="LexicalGrammar\&lt; T \&gt;" alt="" coords="5,5,155,31"/>
+<area shape="rect" id="node1" href="$struct_visitor.html" title="Visitor" alt="" coords="5,55,63,80"/>
+<area shape="rect" id="node2" href="$struct_basic_visitor.html" title="BasicVisitor" alt="" coords="111,55,202,80"/>
+<area shape="rect" id="node3" href="$class_eval_visitor.html" title="EvalVisitor" alt="" coords="283,5,367,31"/>
+<area shape="rect" id="node4" href="$class_j_s_o_n_visitor.html" title="JSONVisitor" alt="" coords="279,55,372,80"/>
+<area shape="rect" id="node5" href="$class_simplified_y_a_m_l_visitor.html" title="SimplifiedYAMLVisitor" alt="" coords="250,104,401,129"/>
 </map>

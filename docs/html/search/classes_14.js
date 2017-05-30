@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['u',['U',['../union_u.html',1,'']]],
   ['u16streampos',['u16streampos',['http://en.cppreference.com/w/cpp/io/fpos.html',1,'std']]],
   ['u16string',['u16string',['http://en.cppreference.com/w/cpp/string/basic_string.html',1,'std']]],
   ['u32streampos',['u32streampos',['http://en.cppreference.com/w/cpp/io/fpos.html',1,'std']]],

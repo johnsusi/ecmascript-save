@@ -1,4 +1,4 @@
-.TH "src/lexical_grammar.h" 3 "Sun May 14 2017" "ECMAScript" \" -*- nroff -*-
+.TH "src/lexical_grammar.h" 3 "Tue May 30 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -9,6 +9,8 @@ src/lexical_grammar.h
 \fC#include 'input_element\&.h'\fP
 .br
 \fC#include 'matcher\&.h'\fP
+.br
+\fC#include 'to_string\&.h'\fP
 .br
 \fC#include 'token\&.h'\fP
 .br
@@ -49,6 +51,9 @@ src/lexical_grammar.h
 .RI "bool \fBis_hex_digit\fP (int cp)"
 .br
 .ti -1c
+.RI "bool \fBis_exponent_indicator\fP (int)"
+.br
+.ti -1c
 .RI "bool \fBis_unicode_letter\fP (int cp)"
 .br
 .ti -1c
@@ -85,7 +90,7 @@ src/lexical_grammar.h
 .RI "constexpr double \fBpow10\fP (int n)"
 .br
 .ti -1c
-.RI "constexpr double \fBmul_pow10\fP (int s, int n)"
+.RI "static double \fBmul_pow10\fP (int s, int n)"
 .br
 .in -1c
 .SH "Function Documentation"
@@ -95,6 +100,8 @@ src/lexical_grammar.h
 .SS "bool is_decimal_digit (int cp)"
 
 .SS "bool is_div_punctuator (const \fBstd::string\fP & token)"
+
+.SS "bool is_exponent_indicator (int)"
 
 .SS "bool is_future_reserved_word (const \fBstd::string\fP & token)"
 
@@ -122,7 +129,7 @@ src/lexical_grammar.h
 
 .SS "bool is_white_space (int cp)"
 
-.SS "constexpr double mul_pow10 (int s, int n)"
+.SS "static double mul_pow10 (int s, int n)\fC [inline]\fP, \fC [static]\fP"
 
 .SS "constexpr double pow10 (int n)"
 

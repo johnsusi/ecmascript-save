@@ -19,6 +19,6 @@ var searchData=
   ['expression',['Expression',['../struct_expression.html',1,'']]],
   ['expressionstatement',['ExpressionStatement',['../struct_expression_statement.html',1,'']]],
   ['extent',['extent',['http://en.cppreference.com/w/cpp/types/extent.html',1,'std']]],
-  ['extern_5ftype',['extern_type',['http://en.cppreference.com/w/cpp/locale/codecvt.html',1,'std::codecvt_byname::extern_type'],['http://en.cppreference.com/w/cpp/locale/codecvt.html',1,'std::codecvt_utf8::extern_type'],['http://en.cppreference.com/w/cpp/locale/codecvt.html',1,'std::codecvt::extern_type'],['http://en.cppreference.com/w/cpp/locale/codecvt.html',1,'std::codecvt_utf8_utf16::extern_type'],['http://en.cppreference.com/w/cpp/locale/codecvt.html',1,'std::codecvt_utf16::extern_type']]],
+  ['extern_5ftype',['extern_type',['http://en.cppreference.com/w/cpp/locale/codecvt.html',1,'std::codecvt_utf8::extern_type'],['http://en.cppreference.com/w/cpp/locale/codecvt.html',1,'std::codecvt_byname::extern_type'],['http://en.cppreference.com/w/cpp/locale/codecvt.html',1,'std::codecvt::extern_type'],['http://en.cppreference.com/w/cpp/locale/codecvt.html',1,'std::codecvt_utf8_utf16::extern_type'],['http://en.cppreference.com/w/cpp/locale/codecvt.html',1,'std::codecvt_utf16::extern_type']]],
   ['extreme_5fvalue_5fdistribution',['extreme_value_distribution',['http://en.cppreference.com/w/cpp/numeric/random/extreme_value_distribution.html',1,'std']]]
 ];

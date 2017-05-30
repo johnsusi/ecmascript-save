@@ -15,11 +15,12 @@ Inheritance diagram for For\+In\+Statement\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for For\+In\+Statement\+:\nopagebreak
+Collaboration diagram for For\+In\+Statement\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=225pt]{struct_for_in_statement__coll__graph}
+\includegraphics[width=340pt]{struct_for_in_statement__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
@@ -27,7 +28,7 @@ Collaboration diagram for For\+In\+Statement\+:\nopagebreak
 \item 
 \hyperlink{struct_for_in_statement_aa3565db4851cca290147f4d98b275c68}{For\+In\+Statement} (\hyperlink{struct_left_hand_side_expression}{Left\+Hand\+Side\+Expression} $\ast$\hyperlink{struct_for_in_statement_acb865c777a9c3ccbe84ed09532f1a22f}{left}, \hyperlink{struct_expression}{Expression} $\ast$\hyperlink{struct_for_in_statement_a8aec27cbc19e2cb038acd3d0fc0a1969}{right}=nullptr, \hyperlink{struct_statement}{Statement} $\ast$\hyperlink{struct_for_in_statement_a865933063222b4eb53866423c444c1ca}{body}=nullptr)
 \item 
-\hyperlink{struct_for_in_statement_aa78680c185913cd46be68a67cbe43b27}{For\+In\+Statement} (\hyperlink{struct_variable_declaration}{Variable\+Declaration} $\ast$\hyperlink{struct_for_in_statement_acb865c777a9c3ccbe84ed09532f1a22f}{left}, \hyperlink{struct_expression}{Expression} $\ast$\hyperlink{struct_for_in_statement_a8aec27cbc19e2cb038acd3d0fc0a1969}{right}=nullptr, \hyperlink{struct_statement}{Statement} $\ast$\hyperlink{struct_for_in_statement_a865933063222b4eb53866423c444c1ca}{body}=nullptr)
+\hyperlink{struct_for_in_statement_a3949dca565a177d23000804470272be6}{For\+In\+Statement} (\hyperlink{struct_variable_declaration}{Variable\+Declaration} $\ast$\hyperlink{struct_for_in_statement_a145dd51f7e729b6f065edc16d913662f}{decl}, \hyperlink{struct_expression}{Expression} $\ast$\hyperlink{struct_for_in_statement_a8aec27cbc19e2cb038acd3d0fc0a1969}{right}=nullptr, \hyperlink{struct_statement}{Statement} $\ast$\hyperlink{struct_for_in_statement_a865933063222b4eb53866423c444c1ca}{body}=nullptr)
 \item 
 void \hyperlink{struct_for_in_statement_ab5ee623aba6eebd12e52a9196e33e64b}{accept} (\hyperlink{struct_visitor}{Visitor} \&visitor) const override
 \item 
@@ -35,6 +36,8 @@ const char $\ast$ \hyperlink{struct_for_in_statement_a5dd65175f49087b46e5e2f6d34
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_variable_declaration}{Variable\+Declaration} $\ast$ \hyperlink{struct_for_in_statement_a145dd51f7e729b6f065edc16d913662f}{decl}
 \item 
 \hyperlink{struct_expression}{Expression} $\ast$ \hyperlink{struct_for_in_statement_acb865c777a9c3ccbe84ed09532f1a22f}{left}
 \item 
@@ -51,11 +54,11 @@ const char $\ast$ \hyperlink{struct_for_in_statement_a5dd65175f49087b46e5e2f6d34
 \subsubsection{\texorpdfstring{For\+In\+Statement()}{ForInStatement()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily For\+In\+Statement\+::\+For\+In\+Statement (\begin{DoxyParamCaption}\item[{\hyperlink{struct_left_hand_side_expression}{Left\+Hand\+Side\+Expression} $\ast$}]{left,  }\item[{\hyperlink{struct_expression}{Expression} $\ast$}]{right = {\ttfamily nullptr},  }\item[{\hyperlink{struct_statement}{Statement} $\ast$}]{body = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-\mbox{\Hypertarget{struct_for_in_statement_aa78680c185913cd46be68a67cbe43b27}\label{struct_for_in_statement_aa78680c185913cd46be68a67cbe43b27}} 
+\mbox{\Hypertarget{struct_for_in_statement_a3949dca565a177d23000804470272be6}\label{struct_for_in_statement_a3949dca565a177d23000804470272be6}} 
 \index{For\+In\+Statement@{For\+In\+Statement}!For\+In\+Statement@{For\+In\+Statement}}
 \index{For\+In\+Statement@{For\+In\+Statement}!For\+In\+Statement@{For\+In\+Statement}}
 \subsubsection{\texorpdfstring{For\+In\+Statement()}{ForInStatement()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily For\+In\+Statement\+::\+For\+In\+Statement (\begin{DoxyParamCaption}\item[{\hyperlink{struct_variable_declaration}{Variable\+Declaration} $\ast$}]{left,  }\item[{\hyperlink{struct_expression}{Expression} $\ast$}]{right = {\ttfamily nullptr},  }\item[{\hyperlink{struct_statement}{Statement} $\ast$}]{body = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily For\+In\+Statement\+::\+For\+In\+Statement (\begin{DoxyParamCaption}\item[{\hyperlink{struct_variable_declaration}{Variable\+Declaration} $\ast$}]{decl,  }\item[{\hyperlink{struct_expression}{Expression} $\ast$}]{right = {\ttfamily nullptr},  }\item[{\hyperlink{struct_statement}{Statement} $\ast$}]{body = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -88,6 +91,12 @@ Implements \hyperlink{struct_node_a82f29420d0a38efcc370352528e94e9b}{Node}.
 \index{body@{body}!For\+In\+Statement@{For\+In\+Statement}}
 \subsubsection{\texorpdfstring{body}{body}}
 {\footnotesize\ttfamily \hyperlink{struct_statement}{Statement}$\ast$ For\+In\+Statement\+::body}
+
+\mbox{\Hypertarget{struct_for_in_statement_a145dd51f7e729b6f065edc16d913662f}\label{struct_for_in_statement_a145dd51f7e729b6f065edc16d913662f}} 
+\index{For\+In\+Statement@{For\+In\+Statement}!decl@{decl}}
+\index{decl@{decl}!For\+In\+Statement@{For\+In\+Statement}}
+\subsubsection{\texorpdfstring{decl}{decl}}
+{\footnotesize\ttfamily \hyperlink{struct_variable_declaration}{Variable\+Declaration}$\ast$ For\+In\+Statement\+::decl}
 
 \mbox{\Hypertarget{struct_for_in_statement_acb865c777a9c3ccbe84ed09532f1a22f}\label{struct_for_in_statement_acb865c777a9c3ccbe84ed09532f1a22f}} 
 \index{For\+In\+Statement@{For\+In\+Statement}!left@{left}}
