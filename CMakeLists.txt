@@ -69,7 +69,7 @@ if (TESTING)
     src/parser.cpp
     src/to_string.cpp
     src/token.cpp
-    src/tracer.cpp
+    src/trace.cpp
     src/util.cpp
     src/visitor.cpp
     src/dtoa.c
