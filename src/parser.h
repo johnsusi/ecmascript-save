@@ -726,7 +726,7 @@ class Parser {
     if (!conditional_expression_no_in())
       return false;
     if (assignment_operator()) {
-      auto expr = emplace<BinaryExpression>(match, pop<Expression>());
+      auto expr = emplace<AssignmentExpression>(match, pop<Expression>());
       if (!assignment_expression_no_in())
         syntax_error();
       expr->rhs = pop<Expression>();
