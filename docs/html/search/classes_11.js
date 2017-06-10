@@ -22,7 +22,7 @@ var searchData=
   ['raw_5fstorage_5fiterator',['raw_storage_iterator',['http://en.cppreference.com/w/cpp/memory/raw_storage_iterator.html',1,'std']]],
   ['recursive_5fmutex',['recursive_mutex',['http://en.cppreference.com/w/cpp/thread/recursive_mutex.html',1,'std']]],
   ['recursive_5ftimed_5fmutex',['recursive_timed_mutex',['http://en.cppreference.com/w/cpp/thread/recursive_timed_mutex.html',1,'std']]],
-  ['reference',['reference',['http://en.cppreference.com/w/cpp/utility/bitset/reference.html',1,'std::bitset']]],
+  ['reference',['Reference',['../struct_reference.html',1,'Reference'],['http://en.cppreference.com/w/cpp/utility/bitset/reference.html',1,'std::bitset::reference']]],
   ['reference_5fwrapper',['reference_wrapper',['http://en.cppreference.com/w/cpp/utility/functional/reference_wrapper.html',1,'std']]],
   ['regex',['regex',['http://en.cppreference.com/w/cpp/regex/basic_regex.html',1,'std']]],
   ['regex_5ferror',['regex_error',['http://en.cppreference.com/w/cpp/regex/regex_error.html',1,'std']]],

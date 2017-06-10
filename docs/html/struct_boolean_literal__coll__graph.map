@@ -1,4 +1,5 @@
 <map id="BooleanLiteral" name="BooleanLiteral">
-<area shape="rect" id="node2" href="$struct_literal.html" title="Literal" alt="" coords="30,79,87,104"/>
-<area shape="rect" id="node3" href="$struct_node.html" title="Node" alt="" coords="32,5,85,31"/>
+<area shape="rect" id="node2" href="$struct_literal.html" title="Literal" alt="" coords="5,80,63,105"/>
+<area shape="rect" id="node3" href="$struct_node.html" title="Node" alt="" coords="8,5,61,31"/>
+<area shape="rect" id="node4" href="$struct_boolean.html" title="Boolean" alt="" coords="87,80,157,105"/>
 </map>

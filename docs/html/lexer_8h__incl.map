@@ -1,8 +1,7 @@
 <map id="src/lexer.h" name="src/lexer.h">
-<area shape="rect" id="node2" href="$lexical__grammar_8h.html" title="lexical_grammar.h" alt="" coords="723,79,852,104"/>
-<area shape="rect" id="node3" href="$input__element_8h.html" title="input_element.h" alt="" coords="480,152,596,177"/>
-<area shape="rect" id="node4" href="$token_8h.html" title="token.h" alt="" coords="207,225,272,251"/>
-<area shape="rect" id="node19" href="$matcher_8h.html" title="matcher.h" alt="" coords="927,152,1007,177"/>
-<area shape="rect" id="node21" href="$to__string_8h.html" title="to_string.h" alt="" coords="1031,152,1115,177"/>
-<area shape="rect" id="node5" href="$util_8h.html" title="util.h" alt="" coords="257,299,307,324"/>
+<area shape="rect" id="node2" href="$lexical__grammar_8h.html" title="lexical_grammar.h" alt="" coords="437,79,566,104"/>
+<area shape="rect" id="node3" href="$input__element_8h.html" title="input_element.h" alt="" coords="606,152,722,177"/>
+<area shape="rect" id="node4" href="$token_8h.html" title="token.h" alt="" coords="541,225,606,251"/>
+<area shape="rect" id="node19" href="$matcher_8h.html" title="matcher.h" alt="" coords="267,152,347,177"/>
+<area shape="rect" id="node5" href="$util_8h.html" title="util.h" alt="" coords="951,299,1001,324"/>
 </map>

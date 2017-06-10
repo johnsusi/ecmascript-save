@@ -33,10 +33,11 @@ var searchData=
   ['ready',['ready',['http://en.cppreference.com/w/cpp/regex/match_results/ready.html',1,'std::match_results::ready()'],['http://en.cppreference.com/w/cpp/regex/match_results/ready.html',1,'std::wsmatch::ready()'],['http://en.cppreference.com/w/cpp/regex/match_results/ready.html',1,'std::smatch::ready()'],['http://en.cppreference.com/w/cpp/regex/match_results/ready.html',1,'std::wcmatch::ready()'],['http://en.cppreference.com/w/cpp/regex/match_results/ready.html',1,'std::cmatch::ready()']]],
   ['real',['real',['http://en.cppreference.com/w/cpp/numeric/complex/real.html',1,'std::complex']]],
   ['realloc',['REALLOC',['../dtoa_8c.html#a2e501a3b49991d5e526b5c52c1522df4',1,'REALLOC():&#160;dtoa.c'],['http://en.cppreference.com/w/cpp/memory/c/realloc.html',1,'std::realloc()']]],
+  ['record',['record',['../struct_lexical_environment.html#a8cbbf5a6ba52bd6bc9d18a1405a27f93',1,'LexicalEnvironment']]],
   ['recursive_5fmutex',['recursive_mutex',['http://en.cppreference.com/w/cpp/thread/recursive_mutex.html',1,'std::recursive_mutex'],['http://en.cppreference.com/w/cpp/thread/recursive_mutex/recursive_mutex.html',1,'std::recursive_mutex::recursive_mutex()']]],
   ['recursive_5ftimed_5fmutex',['recursive_timed_mutex',['http://en.cppreference.com/w/cpp/thread/recursive_timed_mutex.html',1,'std::recursive_timed_mutex'],['http://en.cppreference.com/w/cpp/thread/recursive_timed_mutex/recursive_timed_mutex.html',1,'std::recursive_timed_mutex::recursive_timed_mutex()']]],
   ['ref',['ref',['http://en.cppreference.com/w/cpp/utility/functional/ref.html',1,'std']]],
-  ['reference',['reference',['http://en.cppreference.com/w/cpp/utility/bitset/reference.html',1,'std::bitset']]],
+  ['reference',['Reference',['../struct_reference.html',1,'Reference'],['http://en.cppreference.com/w/cpp/utility/bitset/reference.html',1,'std::bitset::reference']]],
   ['reference_5fwrapper',['reference_wrapper',['http://en.cppreference.com/w/cpp/utility/functional/reference_wrapper.html',1,'std::reference_wrapper'],['http://en.cppreference.com/w/cpp/utility/functional/reference_wrapper/reference_wrapper.html',1,'std::reference_wrapper::reference_wrapper()']]],
   ['regex',['regex',['http://en.cppreference.com/w/cpp/regex/basic_regex.html',1,'std::regex'],['http://en.cppreference.com/w/cpp/regex/basic_regex/basic_regex.html',1,'std::regex::regex()']]],
   ['regex_5ferror',['regex_error',['http://en.cppreference.com/w/cpp/regex/regex_error.html',1,'std::regex_error'],['http://en.cppreference.com/w/cpp/regex/regex_error/regex_error.html',1,'std::regex_error::regex_error()']]],
@@ -113,6 +114,8 @@ var searchData=
   ['rounded_5fquotient',['rounded_quotient',['../dtoa_8c.html#a34f631126fba1aa87949f45721457cd1',1,'dtoa.c']]],
   ['rounding',['rounding',['../struct_b_cinfo.html#af42ca3177f8bd75dfe6435461332e748',1,'BCinfo']]],
   ['rshift',['rshift',['../dtoa_8c.html#a340d7438a88723384714662b643a1f8b',1,'dtoa.c']]],
+  ['runtime_2ecpp',['runtime.cpp',['../runtime_8cpp.html',1,'']]],
+  ['runtime_2eh',['runtime.h',['../runtime_8h.html',1,'']]],
   ['runtime_5ferror',['runtime_error',['http://en.cppreference.com/w/cpp/error/runtime_error.html',1,'std::runtime_error'],['http://en.cppreference.com/w/cpp/error/runtime_error.html',1,'std::runtime_error::runtime_error()']]],
   ['rv_5falloc',['rv_alloc',['../dtoa_8c.html#ae039154cacc9426db1a4f005015aa6bf',1,'dtoa.c']]]
 ];

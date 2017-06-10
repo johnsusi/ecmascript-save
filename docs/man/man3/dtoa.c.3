@@ -1,4 +1,4 @@
-.TH "src/dtoa.c" 3 "Tue May 30 2017" "ECMAScript" \" -*- nroff -*-
+.TH "src/dtoa.c" 3 "Sat Jun 10 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -340,7 +340,7 @@ src/dtoa.c
 .RI "static \fBULong\fP \fBany_on\fP (\fBBigint\fP *b, int k)"
 .br
 .ti -1c
-.RI "void \fBgethex\fP (const char **sp, \fBU\fP *rvp, int rounding, int sign \fBMTd\fP)"
+.RI "void \fBgethex\fP (const char **sp, \fBU\fP *rvp, int rounding, int \fBsign\fP \fBMTd\fP)"
 .br
 .ti -1c
 .RI "static int \fBdshift\fP (\fBBigint\fP *b, int p2)"
@@ -361,10 +361,10 @@ src/dtoa.c
 .RI "void \fBfreedtoa\fP (char *s)"
 .br
 .ti -1c
-.RI "char * \fBdtoa_r\fP (double dd, int mode, int ndigits, int *decpt, int *sign, char **rve, char *buf, size_t blen)"
+.RI "char * \fBdtoa_r\fP (double dd, int mode, int ndigits, int *decpt, int *\fBsign\fP, char **rve, char *buf, size_t blen)"
 .br
 .ti -1c
-.RI "char * \fBdtoa\fP (double dd, int mode, int ndigits, int *decpt, int *sign, char **rve)"
+.RI "char * \fBdtoa\fP (double dd, int mode, int ndigits, int *decpt, int *\fBsign\fP, char **rve)"
 .br
 .in -1c
 .SS "Variables"
@@ -624,7 +624,7 @@ NO_HEX_FP}
 
 .SS "void freedtoa (char * s)"
 
-.SS "void gethex (const char ** sp, \fBU\fP * rvp, int rounding, int sign MTd)"
+.SS "void gethex (const char ** sp, \fBU\fP * rvp, int rounding, int \fBsign\fP MTd)"
 
 .SS "static int hi0bits (\fBULong\fP x)\fC [static]\fP"
 

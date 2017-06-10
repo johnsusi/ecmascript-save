@@ -90,14 +90,22 @@ $(function() {
 <li>IfStatement()
 : <a class="el" href="struct_if_statement.html#aa34756942dc6b3c68abd60f697ea2237">IfStatement</a>
 </li>
+<li>ImplicitThisValue()
+: <a class="el" href="struct_declarative_environment_record.html#aafb5da7123366dd48562e07fd393af2d">DeclarativeEnvironmentRecord</a>
+, <a class="el" href="struct_environment_record.html#a9c60c0ab4900f6a8cdc50ceefdbf0507">EnvironmentRecord</a>
+, <a class="el" href="struct_object_environment_record.html#a8b10ec38bc18347950dffdfb4d34a634">ObjectEnvironmentRecord</a>
+</li>
 <li>inexact
 : <a class="el" href="struct_b_cinfo.html#acac9270192035aab53d5832fb681040a">BCinfo</a>
 </li>
-<li>infinite()
-: <a class="el" href="struct_numeric_literal.html#ae14a02de1106d09cd661b18deee1ac2e">NumericLiteral</a>
+<li>Infinity
+: <a class="el" href="struct_number.html#a78c5c53ddee47730fcbd10ad1af7c8ba">Number</a>
 </li>
 <li>init
 : <a class="el" href="struct_for_statement.html#aa4516b04bff706f5ad80915357da05e5">ForStatement</a>
+</li>
+<li>InitializeImmutableBinding()
+: <a class="el" href="struct_declarative_environment_record.html#afe3114f214e519ce7562e43adb5b54ae">DeclarativeEnvironmentRecord</a>
 </li>
 <li>initializer
 : <a class="el" href="struct_variable_declaration.html#a472faa13a27b5cc06125787259116a2f">VariableDeclaration</a>
@@ -111,6 +119,10 @@ $(function() {
 <li>instance()
 : <a class="el" href="class_trace.html#a60d1c997d646ffd36310ffd79dd08b14">Trace</a>
 </li>
+<li>invoke()
+: <a class="el" href="struct_delegate_vistor.html#af9662a5d46b463eaf5687383d0720da9">DelegateVistor</a>
+, <a class="el" href="struct_lambda_visitor.html#a02b7b65a100c0f548592d1747a2b7ef8">LambdaVisitor&lt; Lambda &gt;</a>
+</li>
 <li>is_boolean_literal()
 : <a class="el" href="class_token.html#a296a03d064fa381593ac2af270739859">Token</a>
 </li>
@@ -119,6 +131,9 @@ $(function() {
 </li>
 <li>is_default()
 : <a class="el" href="struct_case_clause.html#a8ef15339531ef33d3ae335d96317b30a">CaseClause</a>
+</li>
+<li>is_deletable
+: <a class="el" href="struct_binding.html#af14c764fbd856958c8c13db394f7f30b">Binding</a>
 </li>
 <li>is_empty()
 : <a class="el" href="class_input_element.html#a4e4b6b2005fe0b8d07f30ef27210a51b">InputElement</a>
@@ -136,11 +151,17 @@ $(function() {
 <li>is_identifier_name()
 : <a class="el" href="class_token.html#a93c80aa20d87a2bc8111a77507e9b582">Token</a>
 </li>
+<li>is_initialized
+: <a class="el" href="struct_binding.html#aae232d870009e0669bf9d81229eafa80">Binding</a>
+</li>
 <li>is_keyword()
 : <a class="el" href="class_token.html#a032c6c9570a68d806f22b679ebe0f59a">Token</a>
 </li>
 <li>is_line_terminator()
 : <a class="el" href="class_input_element.html#adef5e449a8107adaac4f570994d698b9">InputElement</a>
+</li>
+<li>is_mutable
+: <a class="el" href="struct_binding.html#a0a6daae772f7935ec9b2ecd3d7c8b260">Binding</a>
 </li>
 <li>is_null_literal()
 : <a class="el" href="class_token.html#a6f797ec295dfd9bd23ec1c044b577471">Token</a>
@@ -169,11 +190,35 @@ $(function() {
 <li>is_white_space()
 : <a class="el" href="class_input_element.html#af9fdf1da0079e858a7a6ad0b5e68d2be">InputElement</a>
 </li>
-<li>isInfinity()
-: <a class="el" href="struct_number.html#a34c22c3727cb3678d81c000807a617b6">Number</a>
+<li>IsBoolean()
+: <a class="el" href="class_type.html#ae6f13d051ad6e6bef19f2501b6d4405d">Type</a>
+</li>
+<li>IsCallable
+: <a class="el" href="class_type.html#a891f7c233613f70b05bc4f9403498c8e">Type</a>
+</li>
+<li>isEmpty()
+: <a class="el" href="struct_string.html#a47438e7b744f5b96be767302c525b351">String</a>
 </li>
 <li>isNaN()
 : <a class="el" href="struct_number.html#a2f56b142a6c2f7a91435e4f2081466c5">Number</a>
+</li>
+<li>IsNull()
+: <a class="el" href="class_type.html#a8d7b724a3acd08a8f7f2bb9af48280e3">Type</a>
+</li>
+<li>IsNumber()
+: <a class="el" href="class_type.html#a66a75ac94e749abc366ea9a6a4a1c35f">Type</a>
+</li>
+<li>IsObject()
+: <a class="el" href="class_type.html#abbc365cac181652bdeb3c04bdaffea29">Type</a>
+</li>
+<li>IsReference()
+: <a class="el" href="class_type.html#af8cf2c61d621a1fe279c7be850158906">Type</a>
+</li>
+<li>IsString()
+: <a class="el" href="class_type.html#a0deae255e3c14229999eba05ad9f8e64">Type</a>
+</li>
+<li>IsUndefined()
+: <a class="el" href="class_type.html#aaa2f4f96dd01eb3fd832f9a5e1d57615">Type</a>
 </li>
 <li>isZero()
 : <a class="el" href="struct_number.html#a81a3c3689b85c8fe4ad70a275c8ba1b6">Number</a>

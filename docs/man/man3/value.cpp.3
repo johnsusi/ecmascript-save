@@ -1,0 +1,98 @@
+.TH "src/value.cpp" 3 "Sat Jun 10 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/value.cpp
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'value\&.h'\fP
+.br
+\fC#include 'util\&.h'\fP
+.br
+\fC#include <iostream>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBoverloaded_t< Ts >\fP"
+.br
+.ti -1c
+.RI "struct \fBoverloaded_t< T, Ts\&.\&.\&. >\fP"
+.br
+.ti -1c
+.RI "struct \fBoverloaded_t< T >\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<class\&.\&.\&. Ts> auto \fBoverloaded\fP (Ts\&.\&.\&. args) \-> \fBoverloaded_t\fP< Ts\&.\&.\&. >"
+.br
+.ti -1c
+.RI "template<typename\&.\&.\&. Ts> \fBValue\fP \fBvisit\fP (Ts\&.\&.\&. args, const \fBValue\fP &value)"
+.br
+.ti -1c
+.RI "\fBValue\fP \fBToPrimitive\fP (const \fBValue\fP &input)"
+.br
+.ti -1c
+.RI "\fBValue\fP \fBToBoolean\fP (const \fBValue\fP &input)"
+.br
+.ti -1c
+.RI "\fBValue\fP \fBToNumber\fP (const \fBValue\fP &input)"
+.br
+.ti -1c
+.RI "double \fBsign\fP (double value)"
+.br
+.ti -1c
+.RI "\fBValue\fP \fBToInteger\fP (const \fBValue\fP &input)"
+.br
+.ti -1c
+.RI "\fBValue\fP \fBToInt32\fP (const \fBValue\fP &input)"
+.br
+.ti -1c
+.RI "\fBValue\fP \fBToUint32\fP (const \fBValue\fP &input)"
+.br
+.ti -1c
+.RI "\fBValue\fP \fBToUint16\fP (const \fBValue\fP &input)"
+.br
+.ti -1c
+.RI "\fBValue\fP \fBToString\fP (const \fBValue\fP &input)"
+.br
+.ti -1c
+.RI "\fBstd::ostream\fP & \fBoperator<<\fP (\fBstd::ostream\fP &out, const \fBValue\fP &value)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBstd::ostream\fP& operator<< (\fBstd::ostream\fP & out, const \fBValue\fP & value)"
+
+.SS "template<class\&.\&.\&. Ts> auto overloaded (Ts\&.\&.\&. args) \-> \fBoverloaded_t\fP<Ts\&.\&.\&.>
+"
+
+.SS "double sign (double value)"
+
+.SS "\fBValue\fP ToBoolean (const \fBValue\fP & input)"
+
+.SS "\fBValue\fP ToInt32 (const \fBValue\fP & input)"
+
+.SS "\fBValue\fP ToInteger (const \fBValue\fP & input)"
+
+.SS "\fBValue\fP ToNumber (const \fBValue\fP & input)"
+
+.SS "\fBValue\fP ToPrimitive (const \fBValue\fP & input)"
+
+.SS "\fBValue\fP ToString (const \fBValue\fP & input)"
+
+.SS "\fBValue\fP ToUint16 (const \fBValue\fP & input)"
+
+.SS "\fBValue\fP ToUint32 (const \fBValue\fP & input)"
+
+.SS "template<typename\&.\&.\&. Ts> \fBValue\fP visit (Ts\&.\&.\&. args, const \fBValue\fP & value)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

@@ -1,0 +1,42 @@
+.TH "LambdaVisitor< Lambda >" 3 "Sat Jun 10 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LambdaVisitor< Lambda >
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBVisitor\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "template<typename T > auto \fBinvoke\fP (const T &node) \-> decltype(\fBlambda\fP(node), void())"
+.br
+.ti -1c
+.RI "void \fBinvoke\fP (\&.\&.\&.)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "Lambda \fBlambda\fP"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "template<typename Lambda > template<typename T > auto \fBLambdaVisitor\fP< Lambda >::invoke (const T & node) \-> decltype(\fBlambda\fP(node), void())
+  \fC [inline]\fP"
+
+.SS "template<typename Lambda > void \fBLambdaVisitor\fP< Lambda >::invoke ( \&.\&.\&.)\fC [inline]\fP"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "template<typename Lambda > Lambda \fBLambdaVisitor\fP< Lambda >::lambda"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

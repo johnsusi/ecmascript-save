@@ -1,0 +1,73 @@
+\hypertarget{runtime_8h}{}\section{src/runtime.h File Reference}
+\label{runtime_8h}\index{src/runtime.\+h@{src/runtime.\+h}}
+{\ttfamily \#include \char`\"{}type.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+Include dependency graph for runtime.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{runtime_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=272pt]{runtime_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structstd_1_1hash_3_01_string_01_4}{std\+::hash$<$ String $>$}
+\item 
+struct \hyperlink{struct_binding}{Binding}
+\item 
+struct \hyperlink{struct_reference}{Reference}
+\item 
+struct \hyperlink{struct_environment_record}{Environment\+Record}
+\item 
+struct \hyperlink{struct_declarative_environment_record}{Declarative\+Environment\+Record}
+\item 
+struct \hyperlink{struct_object_environment_record}{Object\+Environment\+Record}
+\item 
+struct \hyperlink{struct_lexical_environment}{Lexical\+Environment}
+\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespacestd}{std}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_reference}{Reference} \hyperlink{runtime_8h_a617e42114cabaf1c7a2b87465c3df0cb}{Get\+Identifier\+Reference} (\hyperlink{struct_lexical_environment}{Lexical\+Environment} $\ast$, const \hyperlink{struct_string}{String} \&, const \hyperlink{struct_boolean}{Boolean} \&)
+\item 
+\textbf{ std\+::shared\+\_\+ptr}$<$ \hyperlink{struct_lexical_environment}{Lexical\+Environment} $>$ \hyperlink{runtime_8h_aea2adbadc521f38ca2335cddc958abd3}{New\+Declarative\+Environment} (\hyperlink{struct_lexical_environment}{Lexical\+Environment} $\ast$)
+\item 
+\textbf{ std\+::shared\+\_\+ptr}$<$ \hyperlink{struct_lexical_environment}{Lexical\+Environment} $>$ \hyperlink{runtime_8h_aa611185a2e286ab2cc77215e8d64d670}{New\+Object\+Environment} (const \hyperlink{struct_object}{Object} \&, \hyperlink{struct_lexical_environment}{Lexical\+Environment} $\ast$)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{runtime_8h_a617e42114cabaf1c7a2b87465c3df0cb}\label{runtime_8h_a617e42114cabaf1c7a2b87465c3df0cb}} 
+\index{runtime.\+h@{runtime.\+h}!Get\+Identifier\+Reference@{Get\+Identifier\+Reference}}
+\index{Get\+Identifier\+Reference@{Get\+Identifier\+Reference}!runtime.\+h@{runtime.\+h}}
+\subsubsection{\texorpdfstring{Get\+Identifier\+Reference()}{GetIdentifierReference()}}
+{\footnotesize\ttfamily \hyperlink{struct_reference}{Reference} Get\+Identifier\+Reference (\begin{DoxyParamCaption}\item[{\hyperlink{struct_lexical_environment}{Lexical\+Environment} $\ast$}]{,  }\item[{const \hyperlink{struct_string}{String} \&}]{,  }\item[{const \hyperlink{struct_boolean}{Boolean} \&}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{runtime_8h_aea2adbadc521f38ca2335cddc958abd3}\label{runtime_8h_aea2adbadc521f38ca2335cddc958abd3}} 
+\index{runtime.\+h@{runtime.\+h}!New\+Declarative\+Environment@{New\+Declarative\+Environment}}
+\index{New\+Declarative\+Environment@{New\+Declarative\+Environment}!runtime.\+h@{runtime.\+h}}
+\subsubsection{\texorpdfstring{New\+Declarative\+Environment()}{NewDeclarativeEnvironment()}}
+{\footnotesize\ttfamily \textbf{ std\+::shared\+\_\+ptr}$<$\hyperlink{struct_lexical_environment}{Lexical\+Environment}$>$ New\+Declarative\+Environment (\begin{DoxyParamCaption}\item[{\hyperlink{struct_lexical_environment}{Lexical\+Environment} $\ast$}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{runtime_8h_aa611185a2e286ab2cc77215e8d64d670}\label{runtime_8h_aa611185a2e286ab2cc77215e8d64d670}} 
+\index{runtime.\+h@{runtime.\+h}!New\+Object\+Environment@{New\+Object\+Environment}}
+\index{New\+Object\+Environment@{New\+Object\+Environment}!runtime.\+h@{runtime.\+h}}
+\subsubsection{\texorpdfstring{New\+Object\+Environment()}{NewObjectEnvironment()}}
+{\footnotesize\ttfamily \textbf{ std\+::shared\+\_\+ptr}$<$\hyperlink{struct_lexical_environment}{Lexical\+Environment}$>$ New\+Object\+Environment (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_object}{Object} \&}]{,  }\item[{\hyperlink{struct_lexical_environment}{Lexical\+Environment} $\ast$}]{ }\end{DoxyParamCaption})}
+

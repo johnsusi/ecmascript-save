@@ -1,4 +1,4 @@
-.TH "Visitor" 3 "Tue May 30 2017" "ECMAScript" \" -*- nroff -*-
+.TH "Visitor" 3 "Sat Jun 10 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -9,7 +9,7 @@ Visitor
 .PP
 \fC#include <visitor\&.h>\fP
 .PP
-Inherited by \fBBasicVisitor\fP\&.
+Inherited by \fBBasicVisitor\fP, \fBDelegateVistor\fP, and \fBLambdaVisitor< Lambda >\fP\&.
 .SS "Public Member Functions"
 
 .in +1c
@@ -199,243 +199,243 @@ Inherited by \fBBasicVisitor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBThis\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBIdentifier\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBNullLiteral\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBBooleanLiteral\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBNumericLiteral\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBStringLiteral\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBRegularExpressionLiteral\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBArrayLiteral\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBObjectLiteral\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBThisExpression\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBIdentifierExpression\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBLiteralExpression\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBArrayExpression\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBObjectExpression\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBMemberExpression\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBNewExpression\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBCallExpression\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBPostfixExpression\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBUnaryExpression\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBBinaryExpression\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBConditionalExpression\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBAssignmentExpression\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBFunctionExpression\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBBlock\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBVariableStatement\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBEmptyStatement\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBExpressionStatement\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBIfStatement\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBDoWhileStatement\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBWhileStatement\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBForStatement\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBForInStatement\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBContinueStatement\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBBreakStatement\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBReturnStatement\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBWithStatement\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBLabelledStatement\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBSwitchStatement\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBThrowStatement\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBTryStatement\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBDebuggerStatement\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBCaseClause\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBDefaultClause\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBFunctionDeclaration\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBFunctionBody\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBVariableDeclaration\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBElision\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBPropertyName\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBPropertyAssignment\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBArguments\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBProgram\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBElementList\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBPropertyNameAndValueList\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBArgumentList\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBVariableDeclarationList\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBStatementList\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBCaseBlock\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBSourceElements\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBFormalParameterList\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBProgramDeclaration\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP\&.
+Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 
 .SH "Author"
 .PP 

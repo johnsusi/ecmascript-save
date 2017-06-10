@@ -1,0 +1,71 @@
+.TH "src/runtime.h" 3 "Sat Jun 10 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/runtime.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'type\&.h'\fP
+.br
+\fC#include <memory>\fP
+.br
+\fC#include <unordered_map>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBstd::hash< String >\fP"
+.br
+.ti -1c
+.RI "struct \fBBinding\fP"
+.br
+.ti -1c
+.RI "struct \fBReference\fP"
+.br
+.ti -1c
+.RI "struct \fBEnvironmentRecord\fP"
+.br
+.ti -1c
+.RI "struct \fBDeclarativeEnvironmentRecord\fP"
+.br
+.ti -1c
+.RI "struct \fBObjectEnvironmentRecord\fP"
+.br
+.ti -1c
+.RI "struct \fBLexicalEnvironment\fP"
+.br
+.in -1c
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI " \fBstd\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBReference\fP \fBGetIdentifierReference\fP (\fBLexicalEnvironment\fP *, const \fBString\fP &, const \fBBoolean\fP &)"
+.br
+.ti -1c
+.RI "\fBstd::shared_ptr\fP< \fBLexicalEnvironment\fP > \fBNewDeclarativeEnvironment\fP (\fBLexicalEnvironment\fP *)"
+.br
+.ti -1c
+.RI "\fBstd::shared_ptr\fP< \fBLexicalEnvironment\fP > \fBNewObjectEnvironment\fP (const \fBObject\fP &, \fBLexicalEnvironment\fP *)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBReference\fP GetIdentifierReference (\fBLexicalEnvironment\fP *, const \fBString\fP &, const \fBBoolean\fP &)"
+
+.SS "\fBstd::shared_ptr\fP<\fBLexicalEnvironment\fP> NewDeclarativeEnvironment (\fBLexicalEnvironment\fP *)"
+
+.SS "\fBstd::shared_ptr\fP<\fBLexicalEnvironment\fP> NewObjectEnvironment (const \fBObject\fP &, \fBLexicalEnvironment\fP *)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

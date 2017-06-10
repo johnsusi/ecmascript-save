@@ -1,0 +1,127 @@
+\hypertarget{value_8cpp}{}\section{src/value.cpp File Reference}
+\label{value_8cpp}\index{src/value.\+cpp@{src/value.\+cpp}}
+{\ttfamily \#include \char`\"{}value.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+Include dependency graph for value.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{value_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structoverloaded__t}{overloaded\+\_\+t$<$ Ts $>$}
+\item 
+struct \hyperlink{structoverloaded__t_3_01_t_00_01_ts_8_8_8_01_4}{overloaded\+\_\+t$<$ T, Ts... $>$}
+\item 
+struct \hyperlink{structoverloaded__t_3_01_t_01_4}{overloaded\+\_\+t$<$ T $>$}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class... Ts$>$ }\\auto \hyperlink{value_8cpp_a928fd1ce606e3d07c2fbfd50e41c93bb}{overloaded} (Ts... args) -\/$>$ \hyperlink{structoverloaded__t}{overloaded\+\_\+t}$<$ Ts... $>$
+\item 
+{\footnotesize template$<$typename... Ts$>$ }\\\hyperlink{value_8h_a1882706e4f2d631f705767ad4a973ee5}{Value} \hyperlink{value_8cpp_a8702f5eccb5a38ff420853e70733b67b}{visit} (Ts... args, const \hyperlink{value_8h_a1882706e4f2d631f705767ad4a973ee5}{Value} \&value)
+\item 
+\hyperlink{value_8h_a1882706e4f2d631f705767ad4a973ee5}{Value} \hyperlink{value_8cpp_a25cf617f8c61ee0a1a1d6ba147a04108}{To\+Primitive} (const \hyperlink{value_8h_a1882706e4f2d631f705767ad4a973ee5}{Value} \&input)
+\item 
+\hyperlink{value_8h_a1882706e4f2d631f705767ad4a973ee5}{Value} \hyperlink{value_8cpp_ad005f07d4b21b1f068d5b2d0939e0c92}{To\+Boolean} (const \hyperlink{value_8h_a1882706e4f2d631f705767ad4a973ee5}{Value} \&input)
+\item 
+\hyperlink{value_8h_a1882706e4f2d631f705767ad4a973ee5}{Value} \hyperlink{value_8cpp_a3beca6634582580587cb0216688e761f}{To\+Number} (const \hyperlink{value_8h_a1882706e4f2d631f705767ad4a973ee5}{Value} \&input)
+\item 
+double \hyperlink{value_8cpp_a884b8c0f90784c7f02dbd616d624f48a}{sign} (double value)
+\item 
+\hyperlink{value_8h_a1882706e4f2d631f705767ad4a973ee5}{Value} \hyperlink{value_8cpp_a7e7485c0e221e0858ae8db11480c5119}{To\+Integer} (const \hyperlink{value_8h_a1882706e4f2d631f705767ad4a973ee5}{Value} \&input)
+\item 
+\hyperlink{value_8h_a1882706e4f2d631f705767ad4a973ee5}{Value} \hyperlink{value_8cpp_a211598f8761a80bcc0f3c60b1709dc93}{To\+Int32} (const \hyperlink{value_8h_a1882706e4f2d631f705767ad4a973ee5}{Value} \&input)
+\item 
+\hyperlink{value_8h_a1882706e4f2d631f705767ad4a973ee5}{Value} \hyperlink{value_8cpp_a4bb5336fccd341e2335c28712634a3a1}{To\+Uint32} (const \hyperlink{value_8h_a1882706e4f2d631f705767ad4a973ee5}{Value} \&input)
+\item 
+\hyperlink{value_8h_a1882706e4f2d631f705767ad4a973ee5}{Value} \hyperlink{value_8cpp_ae08bb4f0549199b786f6e8bd592b2f0e}{To\+Uint16} (const \hyperlink{value_8h_a1882706e4f2d631f705767ad4a973ee5}{Value} \&input)
+\item 
+\hyperlink{value_8h_a1882706e4f2d631f705767ad4a973ee5}{Value} \hyperlink{value_8cpp_a93502c39ff04cdb9aabfca651f0cf76a}{To\+String} (const \hyperlink{value_8h_a1882706e4f2d631f705767ad4a973ee5}{Value} \&input)
+\item 
+\textbf{ std\+::ostream} \& \hyperlink{value_8cpp_aab09271c4d92b2d725b69766c854eb23}{operator$<$$<$} (\textbf{ std\+::ostream} \&out, const \hyperlink{value_8h_a1882706e4f2d631f705767ad4a973ee5}{Value} \&value)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{value_8cpp_aab09271c4d92b2d725b69766c854eb23}\label{value_8cpp_aab09271c4d92b2d725b69766c854eb23}} 
+\index{value.\+cpp@{value.\+cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!value.\+cpp@{value.\+cpp}}
+\subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily \textbf{ std\+::ostream}\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{\textbf{ std\+::ostream} \&}]{out,  }\item[{const \hyperlink{value_8h_a1882706e4f2d631f705767ad4a973ee5}{Value} \&}]{value }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{value_8cpp_a928fd1ce606e3d07c2fbfd50e41c93bb}\label{value_8cpp_a928fd1ce606e3d07c2fbfd50e41c93bb}} 
+\index{value.\+cpp@{value.\+cpp}!overloaded@{overloaded}}
+\index{overloaded@{overloaded}!value.\+cpp@{value.\+cpp}}
+\subsubsection{\texorpdfstring{overloaded()}{overloaded()}}
+{\footnotesize\ttfamily template$<$class... Ts$>$ \\
+auto overloaded (\begin{DoxyParamCaption}\item[{Ts...}]{args }\end{DoxyParamCaption}) -\/$>$ \hyperlink{structoverloaded__t}{overloaded\+\_\+t}$<$Ts...$>$
+}
+
+\mbox{\Hypertarget{value_8cpp_a884b8c0f90784c7f02dbd616d624f48a}\label{value_8cpp_a884b8c0f90784c7f02dbd616d624f48a}} 
+\index{value.\+cpp@{value.\+cpp}!sign@{sign}}
+\index{sign@{sign}!value.\+cpp@{value.\+cpp}}
+\subsubsection{\texorpdfstring{sign()}{sign()}}
+{\footnotesize\ttfamily double sign (\begin{DoxyParamCaption}\item[{double}]{value }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{value_8cpp_ad005f07d4b21b1f068d5b2d0939e0c92}\label{value_8cpp_ad005f07d4b21b1f068d5b2d0939e0c92}} 
+\index{value.\+cpp@{value.\+cpp}!To\+Boolean@{To\+Boolean}}
+\index{To\+Boolean@{To\+Boolean}!value.\+cpp@{value.\+cpp}}
+\subsubsection{\texorpdfstring{To\+Boolean()}{ToBoolean()}}
+{\footnotesize\ttfamily \hyperlink{value_8h_a1882706e4f2d631f705767ad4a973ee5}{Value} To\+Boolean (\begin{DoxyParamCaption}\item[{const \hyperlink{value_8h_a1882706e4f2d631f705767ad4a973ee5}{Value} \&}]{input }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{value_8cpp_a211598f8761a80bcc0f3c60b1709dc93}\label{value_8cpp_a211598f8761a80bcc0f3c60b1709dc93}} 
+\index{value.\+cpp@{value.\+cpp}!To\+Int32@{To\+Int32}}
+\index{To\+Int32@{To\+Int32}!value.\+cpp@{value.\+cpp}}
+\subsubsection{\texorpdfstring{To\+Int32()}{ToInt32()}}
+{\footnotesize\ttfamily \hyperlink{value_8h_a1882706e4f2d631f705767ad4a973ee5}{Value} To\+Int32 (\begin{DoxyParamCaption}\item[{const \hyperlink{value_8h_a1882706e4f2d631f705767ad4a973ee5}{Value} \&}]{input }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{value_8cpp_a7e7485c0e221e0858ae8db11480c5119}\label{value_8cpp_a7e7485c0e221e0858ae8db11480c5119}} 
+\index{value.\+cpp@{value.\+cpp}!To\+Integer@{To\+Integer}}
+\index{To\+Integer@{To\+Integer}!value.\+cpp@{value.\+cpp}}
+\subsubsection{\texorpdfstring{To\+Integer()}{ToInteger()}}
+{\footnotesize\ttfamily \hyperlink{value_8h_a1882706e4f2d631f705767ad4a973ee5}{Value} To\+Integer (\begin{DoxyParamCaption}\item[{const \hyperlink{value_8h_a1882706e4f2d631f705767ad4a973ee5}{Value} \&}]{input }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{value_8cpp_a3beca6634582580587cb0216688e761f}\label{value_8cpp_a3beca6634582580587cb0216688e761f}} 
+\index{value.\+cpp@{value.\+cpp}!To\+Number@{To\+Number}}
+\index{To\+Number@{To\+Number}!value.\+cpp@{value.\+cpp}}
+\subsubsection{\texorpdfstring{To\+Number()}{ToNumber()}}
+{\footnotesize\ttfamily \hyperlink{value_8h_a1882706e4f2d631f705767ad4a973ee5}{Value} To\+Number (\begin{DoxyParamCaption}\item[{const \hyperlink{value_8h_a1882706e4f2d631f705767ad4a973ee5}{Value} \&}]{input }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{value_8cpp_a25cf617f8c61ee0a1a1d6ba147a04108}\label{value_8cpp_a25cf617f8c61ee0a1a1d6ba147a04108}} 
+\index{value.\+cpp@{value.\+cpp}!To\+Primitive@{To\+Primitive}}
+\index{To\+Primitive@{To\+Primitive}!value.\+cpp@{value.\+cpp}}
+\subsubsection{\texorpdfstring{To\+Primitive()}{ToPrimitive()}}
+{\footnotesize\ttfamily \hyperlink{value_8h_a1882706e4f2d631f705767ad4a973ee5}{Value} To\+Primitive (\begin{DoxyParamCaption}\item[{const \hyperlink{value_8h_a1882706e4f2d631f705767ad4a973ee5}{Value} \&}]{input }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{value_8cpp_a93502c39ff04cdb9aabfca651f0cf76a}\label{value_8cpp_a93502c39ff04cdb9aabfca651f0cf76a}} 
+\index{value.\+cpp@{value.\+cpp}!To\+String@{To\+String}}
+\index{To\+String@{To\+String}!value.\+cpp@{value.\+cpp}}
+\subsubsection{\texorpdfstring{To\+String()}{ToString()}}
+{\footnotesize\ttfamily \hyperlink{value_8h_a1882706e4f2d631f705767ad4a973ee5}{Value} To\+String (\begin{DoxyParamCaption}\item[{const \hyperlink{value_8h_a1882706e4f2d631f705767ad4a973ee5}{Value} \&}]{input }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{value_8cpp_ae08bb4f0549199b786f6e8bd592b2f0e}\label{value_8cpp_ae08bb4f0549199b786f6e8bd592b2f0e}} 
+\index{value.\+cpp@{value.\+cpp}!To\+Uint16@{To\+Uint16}}
+\index{To\+Uint16@{To\+Uint16}!value.\+cpp@{value.\+cpp}}
+\subsubsection{\texorpdfstring{To\+Uint16()}{ToUint16()}}
+{\footnotesize\ttfamily \hyperlink{value_8h_a1882706e4f2d631f705767ad4a973ee5}{Value} To\+Uint16 (\begin{DoxyParamCaption}\item[{const \hyperlink{value_8h_a1882706e4f2d631f705767ad4a973ee5}{Value} \&}]{input }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{value_8cpp_a4bb5336fccd341e2335c28712634a3a1}\label{value_8cpp_a4bb5336fccd341e2335c28712634a3a1}} 
+\index{value.\+cpp@{value.\+cpp}!To\+Uint32@{To\+Uint32}}
+\index{To\+Uint32@{To\+Uint32}!value.\+cpp@{value.\+cpp}}
+\subsubsection{\texorpdfstring{To\+Uint32()}{ToUint32()}}
+{\footnotesize\ttfamily \hyperlink{value_8h_a1882706e4f2d631f705767ad4a973ee5}{Value} To\+Uint32 (\begin{DoxyParamCaption}\item[{const \hyperlink{value_8h_a1882706e4f2d631f705767ad4a973ee5}{Value} \&}]{input }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{value_8cpp_a8702f5eccb5a38ff420853e70733b67b}\label{value_8cpp_a8702f5eccb5a38ff420853e70733b67b}} 
+\index{value.\+cpp@{value.\+cpp}!visit@{visit}}
+\index{visit@{visit}!value.\+cpp@{value.\+cpp}}
+\subsubsection{\texorpdfstring{visit()}{visit()}}
+{\footnotesize\ttfamily template$<$typename... Ts$>$ \\
+\hyperlink{value_8h_a1882706e4f2d631f705767ad4a973ee5}{Value} visit (\begin{DoxyParamCaption}\item[{Ts...}]{args,  }\item[{const \hyperlink{value_8h_a1882706e4f2d631f705767ad4a973ee5}{Value} \&}]{value }\end{DoxyParamCaption})}
+

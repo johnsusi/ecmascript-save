@@ -1,4 +1,4 @@
-.TH "src/lexical_grammar.h" 3 "Tue May 30 2017" "ECMAScript" \" -*- nroff -*-
+.TH "src/lexical_grammar.h" 3 "Sat Jun 10 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -9,8 +9,6 @@ src/lexical_grammar.h
 \fC#include 'input_element\&.h'\fP
 .br
 \fC#include 'matcher\&.h'\fP
-.br
-\fC#include 'to_string\&.h'\fP
 .br
 \fC#include 'token\&.h'\fP
 .br
@@ -86,12 +84,6 @@ src/lexical_grammar.h
 .ti -1c
 .RI "bool \fBis_boolean_literal\fP (const \fBstd::string\fP &)"
 .br
-.ti -1c
-.RI "constexpr double \fBpow10\fP (int n)"
-.br
-.ti -1c
-.RI "static double \fBmul_pow10\fP (int s, int n)"
-.br
 .in -1c
 .SH "Function Documentation"
 .PP 
@@ -128,10 +120,6 @@ src/lexical_grammar.h
 .SS "bool is_unicode_letter (int cp)"
 
 .SS "bool is_white_space (int cp)"
-
-.SS "static double mul_pow10 (int s, int n)\fC [inline]\fP, \fC [static]\fP"
-
-.SS "constexpr double pow10 (int n)"
 
 .SH "Author"
 .PP 

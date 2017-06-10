@@ -1,4 +1,4 @@
-.TH "Number" 3 "Tue May 30 2017" "ECMAScript" \" -*- nroff -*-
+.TH "Number" 3 "Sat Jun 10 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -7,18 +7,15 @@ Number
 .br
 .PP
 .PP
-\fC#include <types\&.h>\fP
+\fC#include <value\&.h>\fP
 .SS "Public Member Functions"
 
 .in +1c
 .ti -1c
-.RI "bool \fBisNaN\fP () const"
-.br
-.ti -1c
 .RI "bool \fBisZero\fP () const"
 .br
 .ti -1c
-.RI "bool \fBisInfinity\fP () const"
+.RI "bool \fBisNaN\fP () const"
 .br
 .in -1c
 .SS "Public Attributes"
@@ -28,16 +25,28 @@ Number
 .RI "double \fBvalue\fP"
 .br
 .in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static const \fBValue\fP \fBNaN\fP = \fBValue\fP{std::NAN}"
+.br
+.ti -1c
+.RI "static const \fBValue\fP \fBInfinity\fP = \fBValue\fP{std::INFINITY}"
+.br
+.in -1c
 .SH "Member Function Documentation"
 .PP 
-.SS "bool Number::isInfinity () const\fC [inline]\fP"
-
 .SS "bool Number::isNaN () const\fC [inline]\fP"
 
 .SS "bool Number::isZero () const\fC [inline]\fP"
 
 .SH "Member Data Documentation"
 .PP 
+.SS "const \fBValue\fP Number::Infinity = \fBValue\fP{std::INFINITY}\fC [static]\fP"
+
+.SS "const \fBValue\fP Number::NaN = \fBValue\fP{std::NAN}\fC [static]\fP"
+
 .SS "double Number::value"
 
 

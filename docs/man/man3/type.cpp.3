@@ -1,0 +1,111 @@
+.TH "src/type.cpp" 3 "Sat Jun 10 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/type.cpp
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'type\&.h'\fP
+.br
+\fC#include <cmath>\fP
+.br
+\fC#include <string>\fP
+.br
+\fC#include 'dtoa\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBObject\fP \fBTypeError\fP ()"
+.br
+.ti -1c
+.RI "\fBObject\fP \fBBooleanObject\fP (const \fBBoolean\fP &value)"
+.br
+.ti -1c
+.RI "\fBObject\fP \fBNumberObject\fP (const \fBNumber\fP &value)"
+.br
+.ti -1c
+.RI "\fBObject\fP \fBStringObject\fP (const \fBString\fP &value)"
+.br
+.ti -1c
+.RI "\fBType\fP \fBToPrimitive\fP (const \fBType\fP &input, const char *PreferredType)"
+.br
+.ti -1c
+.RI "\fBBoolean\fP \fBToBoolean\fP (const \fBType\fP &input)"
+.br
+.ti -1c
+.RI "\fBNumber\fP \fBToNumber\fP (const \fBType\fP &input)"
+.br
+.ti -1c
+.RI "\fBNumber\fP \fBToInteger\fP (const \fBType\fP &input)"
+.br
+.ti -1c
+.RI "\fBString\fP \fBToString\fP (const \fBType\fP &input)"
+.br
+.ti -1c
+.RI "\fBObject\fP \fBToObject\fP (const \fBType\fP &input)"
+.br
+.ti -1c
+.RI "\fBType\fP \fBCheckObjectCoercible\fP (const \fBType\fP &input)"
+.br
+.ti -1c
+.RI "bool \fBIsCallable\fP (const \fBType\fP &x)"
+.br
+.ti -1c
+.RI "bool \fBSameValue\fP (const \fBType\fP &x, const \fBType\fP &y)"
+.br
+.ti -1c
+.RI "bool \fBAbstractEqualityComparison\fP (const \fBType\fP &x, const \fBType\fP &y)"
+.br
+.ti -1c
+.RI "bool \fBStrictEqualityComparison\fP (const \fBType\fP &x, const \fBType\fP &y)"
+.br
+.ti -1c
+.RI "bool \fBoperator==\fP (const \fBType\fP &x, const \fBType\fP &y)"
+.br
+.ti -1c
+.RI "bool \fBoperator!=\fP (const \fBType\fP &x, const \fBType\fP &y)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "bool AbstractEqualityComparison (const \fBType\fP & x, const \fBType\fP & y)"
+
+.SS "\fBObject\fP BooleanObject (const \fBBoolean\fP & value)"
+
+.SS "\fBType\fP CheckObjectCoercible (const \fBType\fP & input)"
+
+.SS "bool IsCallable (const \fBType\fP & x)"
+
+.SS "\fBObject\fP NumberObject (const \fBNumber\fP & value)"
+
+.SS "bool operator!= (const \fBType\fP & x, const \fBType\fP & y)"
+
+.SS "bool operator== (const \fBType\fP & x, const \fBType\fP & y)"
+
+.SS "bool SameValue (const \fBType\fP & x, const \fBType\fP & y)"
+
+.SS "bool StrictEqualityComparison (const \fBType\fP & x, const \fBType\fP & y)"
+
+.SS "\fBObject\fP StringObject (const \fBString\fP & value)"
+
+.SS "\fBBoolean\fP ToBoolean (const \fBType\fP & input)"
+
+.SS "\fBNumber\fP ToInteger (const \fBType\fP & input)"
+
+.SS "\fBNumber\fP ToNumber (const \fBType\fP & input)"
+
+.SS "\fBObject\fP ToObject (const \fBType\fP & input)"
+
+.SS "\fBType\fP ToPrimitive (const \fBType\fP & input, const char * PreferredType)"
+
+.SS "\fBString\fP ToString (const \fBType\fP & input)"
+
+.SS "\fBObject\fP TypeError ()"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

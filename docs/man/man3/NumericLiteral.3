@@ -1,4 +1,4 @@
-.TH "NumericLiteral" 3 "Tue May 30 2017" "ECMAScript" \" -*- nroff -*-
+.TH "NumericLiteral" 3 "Sat Jun 10 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -22,18 +22,12 @@ Inherits \fBLiteral\fP\&.
 .ti -1c
 .RI "const char * \fBtype\fP () const override"
 .br
-.ti -1c
-.RI "bool \fBinfinite\fP () const"
-.br
-.ti -1c
-.RI "bool \fBnan\fP () const"
-.br
 .in -1c
 .SS "Public Attributes"
 
 .in +1c
 .ti -1c
-.RI "double \fBvalue\fP"
+.RI "\fBNumber\fP \fBvalue\fP"
 .br
 .in -1c
 .SH "Constructor & Destructor Documentation"
@@ -46,17 +40,13 @@ Inherits \fBLiteral\fP\&.
 
 .PP
 Implements \fBNode\fP\&.
-.SS "bool NumericLiteral::infinite () const\fC [inline]\fP"
-
-.SS "bool NumericLiteral::nan () const\fC [inline]\fP"
-
 .SS "const char* NumericLiteral::type () const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
 Implements \fBNode\fP\&.
 .SH "Member Data Documentation"
 .PP 
-.SS "double NumericLiteral::value"
+.SS "\fBNumber\fP NumericLiteral::value"
 
 
 .SH "Author"

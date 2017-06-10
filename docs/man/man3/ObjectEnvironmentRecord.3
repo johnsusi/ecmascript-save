@@ -1,0 +1,123 @@
+.TH "ObjectEnvironmentRecord" 3 "Sat Jun 10 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ObjectEnvironmentRecord
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <object_environment_record\&.h>\fP
+.PP
+Inherits \fBEnvironmentRecord\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "bool \fBHasBinding\fP (const \fBstd::string\fP &) final"
+.br
+.ti -1c
+.RI "void \fBCreateMutableBinding\fP (const \fBstd::string\fP &, bool) final"
+.br
+.ti -1c
+.RI "void \fBSetMutableBinding\fP (const \fBstd::string\fP &, const \fBType\fP &, bool) final"
+.br
+.ti -1c
+.RI "\fBType\fP \fBGetBindingValue\fP (const \fBstd::string\fP &\&.bool) final"
+.br
+.ti -1c
+.RI "bool \fBDeleteBinding\fP (const \fBstd::string\fP &) final"
+.br
+.ti -1c
+.RI "\fBType\fP \fBImplicitThisValue\fP () final"
+.br
+.ti -1c
+.RI "\fBObjectEnvironmentRecord\fP (const \fBObject\fP &\fBbinding\fP)"
+.br
+.ti -1c
+.RI "\fBBoolean\fP \fBHasBinding\fP (const \fBString\fP &N) const final"
+.br
+.ti -1c
+.RI "void \fBCreateMutableBinding\fP (const \fBString\fP &, const \fBBoolean\fP &) final"
+.br
+.ti -1c
+.RI "void \fBSetMutableBinding\fP (const \fBString\fP &, const \fBType\fP &, const \fBBoolean\fP &) final"
+.br
+.ti -1c
+.RI "\fBType\fP \fBGetBindingValue\fP (const \fBString\fP &, const \fBBoolean\fP &) const final"
+.br
+.ti -1c
+.RI "\fBBoolean\fP \fBDeleteBinding\fP (const \fBString\fP &) final"
+.br
+.ti -1c
+.RI "\fBType\fP \fBImplicitThisValue\fP () const final"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBObject\fP * \fBbinding\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ObjectEnvironmentRecord::ObjectEnvironmentRecord (const \fBObject\fP & binding)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "bool ObjectEnvironmentRecord::CreateMutableBinding (const \fBstd::string\fP & N, bool D)\fC [final]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBEnvironmentRecord\fP\&.
+.SS "void ObjectEnvironmentRecord::CreateMutableBinding (const \fBString\fP &, const \fBBoolean\fP &)\fC [final]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBEnvironmentRecord\fP\&.
+.SS "bool ObjectEnvironmentRecord::DeleteBinding (const \fBstd::string\fP &)\fC [final]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBEnvironmentRecord\fP\&.
+.SS "\fBBoolean\fP ObjectEnvironmentRecord::DeleteBinding (const \fBString\fP &)\fC [final]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBEnvironmentRecord\fP\&.
+.SS "\fBType\fP ObjectEnvironmentRecord::GetBindingValue (const \fBstd::string\fP &\&. bool)\fC [final]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBEnvironmentRecord\fP\&.
+.SS "\fBType\fP ObjectEnvironmentRecord::GetBindingValue (const \fBString\fP &, const \fBBoolean\fP &) const\fC [final]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBEnvironmentRecord\fP\&.
+.SS "bool ObjectEnvironmentRecord::HasBinding (const \fBstd::string\fP & N)\fC [final]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBEnvironmentRecord\fP\&.
+.SS "\fBBoolean\fP ObjectEnvironmentRecord::HasBinding (const \fBString\fP & N) const\fC [final]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBEnvironmentRecord\fP\&.
+.SS "\fBType\fP ObjectEnvironmentRecord::ImplicitThisValue ()\fC [final]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBEnvironmentRecord\fP\&.
+.SS "\fBType\fP ObjectEnvironmentRecord::ImplicitThisValue () const\fC [final]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBEnvironmentRecord\fP\&.
+.SS "void ObjectEnvironmentRecord::SetMutableBinding (const \fBstd::string\fP &, const \fBType\fP &, bool)\fC [final]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBEnvironmentRecord\fP\&.
+.SS "void ObjectEnvironmentRecord::SetMutableBinding (const \fBString\fP &, const \fBType\fP &, const \fBBoolean\fP &)\fC [final]\fP"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBObject\fP* ObjectEnvironmentRecord::binding"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

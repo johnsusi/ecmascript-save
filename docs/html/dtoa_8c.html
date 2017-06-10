@@ -82,8 +82,6 @@ $(function() {
 Include dependency graph for dtoa.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="dtoa_8c__incl.png" border="0" usemap="#src_2dtoa_8c" alt=""/></div>
-<map name="src_2dtoa_8c" id="src_2dtoa_8c">
-</map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
@@ -306,7 +304,7 @@ Functions</h2></td></tr>
 <tr class="separator:a340d7438a88723384714662b643a1f8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad05c82c5db51c311dbf3f8304ce75a5f"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="dtoa_8c.html#afa5f820499f9d3fb566021c346784449">ULong</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dtoa_8c.html#ad05c82c5db51c311dbf3f8304ce75a5f">any_on</a> (<a class="el" href="struct_bigint.html">Bigint</a> *b, int k)</td></tr>
 <tr class="separator:ad05c82c5db51c311dbf3f8304ce75a5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abcb15114e7f9ce772ecb5e7dc5592f85"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dtoa_8c.html#abcb15114e7f9ce772ecb5e7dc5592f85">gethex</a> (const char **sp, <a class="el" href="union_u.html">U</a> *rvp, int rounding, int sign <a class="el" href="dtoa_8c.html#ab31bd30f79a4b54ecdc2016374f85852">MTd</a>)</td></tr>
+<tr class="memitem:abcb15114e7f9ce772ecb5e7dc5592f85"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dtoa_8c.html#abcb15114e7f9ce772ecb5e7dc5592f85">gethex</a> (const char **sp, <a class="el" href="union_u.html">U</a> *rvp, int rounding, int <a class="el" href="value_8cpp.html#a884b8c0f90784c7f02dbd616d624f48a">sign</a> <a class="el" href="dtoa_8c.html#ab31bd30f79a4b54ecdc2016374f85852">MTd</a>)</td></tr>
 <tr class="separator:abcb15114e7f9ce772ecb5e7dc5592f85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa83eea23c9d4149de2891e08fc404f9c"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dtoa_8c.html#aa83eea23c9d4149de2891e08fc404f9c">dshift</a> (<a class="el" href="struct_bigint.html">Bigint</a> *b, int p2)</td></tr>
 <tr class="separator:aa83eea23c9d4149de2891e08fc404f9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -320,9 +318,9 @@ Functions</h2></td></tr>
 <tr class="separator:aa8a4b45a334b1edf209c62cd09c9ffb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0233452d5cf4f80cd8001660410da54a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dtoa_8c.html#a0233452d5cf4f80cd8001660410da54a">freedtoa</a> (char *s)</td></tr>
 <tr class="separator:a0233452d5cf4f80cd8001660410da54a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:addeae1656dc3af769c2e2703310e5fb7"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dtoa_8c.html#addeae1656dc3af769c2e2703310e5fb7">dtoa_r</a> (double dd, int mode, int ndigits, int *decpt, int *sign, char **rve, char *buf, size_t blen)</td></tr>
+<tr class="memitem:addeae1656dc3af769c2e2703310e5fb7"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dtoa_8c.html#addeae1656dc3af769c2e2703310e5fb7">dtoa_r</a> (double dd, int mode, int ndigits, int *decpt, int *<a class="el" href="value_8cpp.html#a884b8c0f90784c7f02dbd616d624f48a">sign</a>, char **rve, char *buf, size_t blen)</td></tr>
 <tr class="separator:addeae1656dc3af769c2e2703310e5fb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5e1ae8c86a615eade9613ab7700b889"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dtoa_8c.html#aa5e1ae8c86a615eade9613ab7700b889">dtoa</a> (double dd, int mode, int ndigits, int *decpt, int *sign, char **rve)</td></tr>
+<tr class="memitem:aa5e1ae8c86a615eade9613ab7700b889"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dtoa_8c.html#aa5e1ae8c86a615eade9613ab7700b889">dtoa</a> (double dd, int mode, int ndigits, int *decpt, int *<a class="el" href="value_8cpp.html#a884b8c0f90784c7f02dbd616d624f48a">sign</a>, char **rve)</td></tr>
 <tr class="separator:aa5e1ae8c86a615eade9613ab7700b889"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
@@ -1976,7 +1974,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int sign&#160;</td>
+          <td class="paramtype">int <a class="el" href="value_8cpp.html#a884b8c0f90784c7f02dbd616d624f48a">sign</a>&#160;</td>
           <td class="paramname"><em>MTd</em>&#160;</td>
         </tr>
         <tr>

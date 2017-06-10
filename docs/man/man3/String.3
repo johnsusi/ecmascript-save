@@ -1,4 +1,4 @@
-.TH "String" 3 "Tue May 30 2017" "ECMAScript" \" -*- nroff -*-
+.TH "String" 3 "Sat Jun 10 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -7,7 +7,14 @@ String
 .br
 .PP
 .PP
-\fC#include <types\&.h>\fP
+\fC#include <value\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "bool \fBisEmpty\fP () const"
+.br
+.in -1c
 .SS "Public Attributes"
 
 .in +1c
@@ -15,6 +22,10 @@ String
 .RI "\fBstd::u16string\fP \fBvalue\fP"
 .br
 .in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "bool String::isEmpty () const\fC [inline]\fP"
+
 .SH "Member Data Documentation"
 .PP 
 .SS "\fBstd::u16string\fP String::value"

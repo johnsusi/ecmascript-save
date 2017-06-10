@@ -1,0 +1,112 @@
+.TH "src/type.h" 3 "Sat Jun 10 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/type.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'types/boolean\&.h'\fP
+.br
+\fC#include 'types/null\&.h'\fP
+.br
+\fC#include 'types/number\&.h'\fP
+.br
+\fC#include 'types/object\&.h'\fP
+.br
+\fC#include 'types/string\&.h'\fP
+.br
+\fC#include 'types/undefined\&.h'\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBType\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBType\fP \fBToPrimitive\fP (const \fBType\fP &, const char *=nullptr)"
+.br
+.ti -1c
+.RI "\fBBoolean\fP \fBToBoolean\fP (const \fBType\fP &)"
+.br
+.ti -1c
+.RI "\fBNumber\fP \fBToNumber\fP (const \fBType\fP &)"
+.br
+.ti -1c
+.RI "\fBNumber\fP \fBToInteger\fP (const \fBType\fP &)"
+.br
+.ti -1c
+.RI "\fBNumber\fP \fBToInt32\fP (const \fBType\fP &)"
+.br
+.ti -1c
+.RI "\fBNumber\fP \fBToUint32\fP (const \fBType\fP &)"
+.br
+.ti -1c
+.RI "\fBNumber\fP \fBToUint16\fP (const \fBType\fP &)"
+.br
+.ti -1c
+.RI "\fBString\fP \fBToString\fP (const \fBType\fP &)"
+.br
+.ti -1c
+.RI "\fBObject\fP \fBToObject\fP (const \fBType\fP &)"
+.br
+.ti -1c
+.RI "\fBType\fP \fBCheckObjectCoercible\fP (const \fBType\fP &)"
+.br
+.ti -1c
+.RI "bool \fBIsCallable\fP (const \fBType\fP &)"
+.br
+.ti -1c
+.RI "bool \fBSameValue\fP (const \fBType\fP &, const \fBType\fP &)"
+.br
+.ti -1c
+.RI "bool \fBAbstractEqualityComparison\fP (const \fBType\fP &, const \fBType\fP &)"
+.br
+.ti -1c
+.RI "bool \fBStrictEqualityComparison\fP (const \fBType\fP &, const \fBType\fP &)"
+.br
+.ti -1c
+.RI "bool \fBoperator==\fP (const \fBType\fP &, const \fBType\fP &)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "bool AbstractEqualityComparison (const \fBType\fP &, const \fBType\fP &)"
+
+.SS "\fBType\fP CheckObjectCoercible (const \fBType\fP &)"
+
+.SS "bool IsCallable (const \fBType\fP &)"
+
+.SS "bool operator== (const \fBType\fP &, const \fBType\fP &)"
+
+.SS "bool SameValue (const \fBType\fP &, const \fBType\fP &)"
+
+.SS "bool StrictEqualityComparison (const \fBType\fP &, const \fBType\fP &)"
+
+.SS "\fBBoolean\fP ToBoolean (const \fBType\fP &)"
+
+.SS "\fBNumber\fP ToInt32 (const \fBType\fP &)"
+
+.SS "\fBNumber\fP ToInteger (const \fBType\fP &)"
+
+.SS "\fBNumber\fP ToNumber (const \fBType\fP &)"
+
+.SS "\fBObject\fP ToObject (const \fBType\fP &)"
+
+.SS "\fBType\fP ToPrimitive (const \fBType\fP &, const char * = \fCnullptr\fP)"
+
+.SS "\fBString\fP ToString (const \fBType\fP &)"
+
+.SS "\fBNumber\fP ToUint16 (const \fBType\fP &)"
+
+.SS "\fBNumber\fP ToUint32 (const \fBType\fP &)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

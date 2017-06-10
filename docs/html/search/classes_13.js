@@ -24,6 +24,7 @@ var searchData=
   ['try_5fto_5flock_5ft',['try_to_lock_t',['http://en.cppreference.com/w/cpp/thread/lock_tag_t.html',1,'std']]],
   ['trystatement',['TryStatement',['../struct_try_statement.html',1,'']]],
   ['tuple',['tuple',['http://en.cppreference.com/w/cpp/utility/tuple.html',1,'std']]],
+  ['type',['Type',['../class_type.html',1,'']]],
   ['type_5findex',['type_index',['http://en.cppreference.com/w/cpp/types/type_index.html',1,'std']]],
   ['type_5finfo',['type_info',['http://en.cppreference.com/w/cpp/types/type_info.html',1,'std']]]
 ];

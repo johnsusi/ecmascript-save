@@ -1,0 +1,205 @@
+\hypertarget{struct_object_environment_record}{}\section{Object\+Environment\+Record Struct Reference}
+\label{struct_object_environment_record}\index{Object\+Environment\+Record@{Object\+Environment\+Record}}
+
+
+{\ttfamily \#include $<$object\+\_\+environment\+\_\+record.\+h$>$}
+
+
+
+Inheritance diagram for Object\+Environment\+Record\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=213pt]{struct_object_environment_record__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Object\+Environment\+Record\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=248pt]{struct_object_environment_record__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{struct_object_environment_record_a02908375958d95ff57da4f24572949f4}{Has\+Binding} (const \textbf{ std\+::string} \&) final
+\item 
+void \hyperlink{struct_object_environment_record_ae54124ae909a73fb5d3b8e9f7b9f3807}{Create\+Mutable\+Binding} (const \textbf{ std\+::string} \&, bool) final
+\item 
+void \hyperlink{struct_object_environment_record_acbc8e93de3f48c41c0413957974642b0}{Set\+Mutable\+Binding} (const \textbf{ std\+::string} \&, const \hyperlink{class_type}{Type} \&, bool) final
+\item 
+\hyperlink{class_type}{Type} \hyperlink{struct_object_environment_record_ad0e2d2c1d5010c81bee1df1988260dc7}{Get\+Binding\+Value} (const \textbf{ std\+::string} \&.bool) final
+\item 
+bool \hyperlink{struct_object_environment_record_a19be623695ff3da2895707cde2e014b9}{Delete\+Binding} (const \textbf{ std\+::string} \&) final
+\item 
+\hyperlink{class_type}{Type} \hyperlink{struct_object_environment_record_a8b10ec38bc18347950dffdfb4d34a634}{Implicit\+This\+Value} () final
+\item 
+\hyperlink{struct_object_environment_record_ae71db7c77c0d6829e8b73eb14ca0e601}{Object\+Environment\+Record} (const \hyperlink{struct_object}{Object} \&\hyperlink{struct_object_environment_record_ac373ab33014da05eb9d81ed78429b1ca}{binding})
+\item 
+\hyperlink{struct_boolean}{Boolean} \hyperlink{struct_object_environment_record_a88d20bcdf70ed4b5f5a837b99e26a963}{Has\+Binding} (const \hyperlink{struct_string}{String} \&N) const final
+\item 
+void \hyperlink{struct_object_environment_record_a253c1137a60f79ea6d07ec89d04ca067}{Create\+Mutable\+Binding} (const \hyperlink{struct_string}{String} \&, const \hyperlink{struct_boolean}{Boolean} \&) final
+\item 
+void \hyperlink{struct_object_environment_record_a495af7053fd2a7b122a56b31418f7324}{Set\+Mutable\+Binding} (const \hyperlink{struct_string}{String} \&, const \hyperlink{class_type}{Type} \&, const \hyperlink{struct_boolean}{Boolean} \&) final
+\item 
+\hyperlink{class_type}{Type} \hyperlink{struct_object_environment_record_a8b7aabb730c9d2bd738f32b4a36e6bf4}{Get\+Binding\+Value} (const \hyperlink{struct_string}{String} \&, const \hyperlink{struct_boolean}{Boolean} \&) const final
+\item 
+\hyperlink{struct_boolean}{Boolean} \hyperlink{struct_object_environment_record_a86c73af4072c8a60c80ca98113f608fd}{Delete\+Binding} (const \hyperlink{struct_string}{String} \&) final
+\item 
+\hyperlink{class_type}{Type} \hyperlink{struct_object_environment_record_a4c620b161bb8939304bb688bfa2e5d3b}{Implicit\+This\+Value} () const final
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_object}{Object} $\ast$ \hyperlink{struct_object_environment_record_ac373ab33014da05eb9d81ed78429b1ca}{binding}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_object_environment_record_ae71db7c77c0d6829e8b73eb14ca0e601}\label{struct_object_environment_record_ae71db7c77c0d6829e8b73eb14ca0e601}} 
+\index{Object\+Environment\+Record@{Object\+Environment\+Record}!Object\+Environment\+Record@{Object\+Environment\+Record}}
+\index{Object\+Environment\+Record@{Object\+Environment\+Record}!Object\+Environment\+Record@{Object\+Environment\+Record}}
+\subsubsection{\texorpdfstring{Object\+Environment\+Record()}{ObjectEnvironmentRecord()}}
+{\footnotesize\ttfamily Object\+Environment\+Record\+::\+Object\+Environment\+Record (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_object}{Object} \&}]{binding }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_object_environment_record_ae54124ae909a73fb5d3b8e9f7b9f3807}\label{struct_object_environment_record_ae54124ae909a73fb5d3b8e9f7b9f3807}} 
+\index{Object\+Environment\+Record@{Object\+Environment\+Record}!Create\+Mutable\+Binding@{Create\+Mutable\+Binding}}
+\index{Create\+Mutable\+Binding@{Create\+Mutable\+Binding}!Object\+Environment\+Record@{Object\+Environment\+Record}}
+\subsubsection{\texorpdfstring{Create\+Mutable\+Binding()}{CreateMutableBinding()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Object\+Environment\+Record\+::\+Create\+Mutable\+Binding (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::string} \&}]{N,  }\item[{bool}]{D }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_environment_record_af5563437dc966f3ad9bbafe951375e23}{Environment\+Record}.
+
+\mbox{\Hypertarget{struct_object_environment_record_a253c1137a60f79ea6d07ec89d04ca067}\label{struct_object_environment_record_a253c1137a60f79ea6d07ec89d04ca067}} 
+\index{Object\+Environment\+Record@{Object\+Environment\+Record}!Create\+Mutable\+Binding@{Create\+Mutable\+Binding}}
+\index{Create\+Mutable\+Binding@{Create\+Mutable\+Binding}!Object\+Environment\+Record@{Object\+Environment\+Record}}
+\subsubsection{\texorpdfstring{Create\+Mutable\+Binding()}{CreateMutableBinding()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Object\+Environment\+Record\+::\+Create\+Mutable\+Binding (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_string}{String} \&}]{,  }\item[{const \hyperlink{struct_boolean}{Boolean} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_environment_record_aded45e79485e73e080980e6ff611dc0d}{Environment\+Record}.
+
+\mbox{\Hypertarget{struct_object_environment_record_a19be623695ff3da2895707cde2e014b9}\label{struct_object_environment_record_a19be623695ff3da2895707cde2e014b9}} 
+\index{Object\+Environment\+Record@{Object\+Environment\+Record}!Delete\+Binding@{Delete\+Binding}}
+\index{Delete\+Binding@{Delete\+Binding}!Object\+Environment\+Record@{Object\+Environment\+Record}}
+\subsubsection{\texorpdfstring{Delete\+Binding()}{DeleteBinding()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Object\+Environment\+Record\+::\+Delete\+Binding (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::string} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_environment_record_a41079a3969168b9fc4839fd89aa14dc0}{Environment\+Record}.
+
+\mbox{\Hypertarget{struct_object_environment_record_a86c73af4072c8a60c80ca98113f608fd}\label{struct_object_environment_record_a86c73af4072c8a60c80ca98113f608fd}} 
+\index{Object\+Environment\+Record@{Object\+Environment\+Record}!Delete\+Binding@{Delete\+Binding}}
+\index{Delete\+Binding@{Delete\+Binding}!Object\+Environment\+Record@{Object\+Environment\+Record}}
+\subsubsection{\texorpdfstring{Delete\+Binding()}{DeleteBinding()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{struct_boolean}{Boolean} Object\+Environment\+Record\+::\+Delete\+Binding (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_string}{String} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_environment_record_ac8fe8ad8e0146d5d7e3d9c0f3d873717}{Environment\+Record}.
+
+\mbox{\Hypertarget{struct_object_environment_record_ad0e2d2c1d5010c81bee1df1988260dc7}\label{struct_object_environment_record_ad0e2d2c1d5010c81bee1df1988260dc7}} 
+\index{Object\+Environment\+Record@{Object\+Environment\+Record}!Get\+Binding\+Value@{Get\+Binding\+Value}}
+\index{Get\+Binding\+Value@{Get\+Binding\+Value}!Object\+Environment\+Record@{Object\+Environment\+Record}}
+\subsubsection{\texorpdfstring{Get\+Binding\+Value()}{GetBindingValue()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{class_type}{Type} Object\+Environment\+Record\+::\+Get\+Binding\+Value (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::string} \&.}]{bool }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_environment_record_afd78e04157f5d84cac025d2b0c867b4e}{Environment\+Record}.
+
+\mbox{\Hypertarget{struct_object_environment_record_a8b7aabb730c9d2bd738f32b4a36e6bf4}\label{struct_object_environment_record_a8b7aabb730c9d2bd738f32b4a36e6bf4}} 
+\index{Object\+Environment\+Record@{Object\+Environment\+Record}!Get\+Binding\+Value@{Get\+Binding\+Value}}
+\index{Get\+Binding\+Value@{Get\+Binding\+Value}!Object\+Environment\+Record@{Object\+Environment\+Record}}
+\subsubsection{\texorpdfstring{Get\+Binding\+Value()}{GetBindingValue()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{class_type}{Type} Object\+Environment\+Record\+::\+Get\+Binding\+Value (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_string}{String} \&}]{,  }\item[{const \hyperlink{struct_boolean}{Boolean} \&}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_environment_record_a38f1293eb4b23d22c0ee37ffff58dbdb}{Environment\+Record}.
+
+\mbox{\Hypertarget{struct_object_environment_record_a02908375958d95ff57da4f24572949f4}\label{struct_object_environment_record_a02908375958d95ff57da4f24572949f4}} 
+\index{Object\+Environment\+Record@{Object\+Environment\+Record}!Has\+Binding@{Has\+Binding}}
+\index{Has\+Binding@{Has\+Binding}!Object\+Environment\+Record@{Object\+Environment\+Record}}
+\subsubsection{\texorpdfstring{Has\+Binding()}{HasBinding()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Object\+Environment\+Record\+::\+Has\+Binding (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::string} \&}]{N }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_environment_record_aa9e241cd34f23e84ecaa19cf35657e9e}{Environment\+Record}.
+
+\mbox{\Hypertarget{struct_object_environment_record_a88d20bcdf70ed4b5f5a837b99e26a963}\label{struct_object_environment_record_a88d20bcdf70ed4b5f5a837b99e26a963}} 
+\index{Object\+Environment\+Record@{Object\+Environment\+Record}!Has\+Binding@{Has\+Binding}}
+\index{Has\+Binding@{Has\+Binding}!Object\+Environment\+Record@{Object\+Environment\+Record}}
+\subsubsection{\texorpdfstring{Has\+Binding()}{HasBinding()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{struct_boolean}{Boolean} Object\+Environment\+Record\+::\+Has\+Binding (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_string}{String} \&}]{N }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_environment_record_a4e9bc2438be3466fd0d9607cdbd20225}{Environment\+Record}.
+
+\mbox{\Hypertarget{struct_object_environment_record_a8b10ec38bc18347950dffdfb4d34a634}\label{struct_object_environment_record_a8b10ec38bc18347950dffdfb4d34a634}} 
+\index{Object\+Environment\+Record@{Object\+Environment\+Record}!Implicit\+This\+Value@{Implicit\+This\+Value}}
+\index{Implicit\+This\+Value@{Implicit\+This\+Value}!Object\+Environment\+Record@{Object\+Environment\+Record}}
+\subsubsection{\texorpdfstring{Implicit\+This\+Value()}{ImplicitThisValue()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{class_type}{Type} Object\+Environment\+Record\+::\+Implicit\+This\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_environment_record_acef5c0dac3d58cbef25daa495c5d0e00}{Environment\+Record}.
+
+\mbox{\Hypertarget{struct_object_environment_record_a4c620b161bb8939304bb688bfa2e5d3b}\label{struct_object_environment_record_a4c620b161bb8939304bb688bfa2e5d3b}} 
+\index{Object\+Environment\+Record@{Object\+Environment\+Record}!Implicit\+This\+Value@{Implicit\+This\+Value}}
+\index{Implicit\+This\+Value@{Implicit\+This\+Value}!Object\+Environment\+Record@{Object\+Environment\+Record}}
+\subsubsection{\texorpdfstring{Implicit\+This\+Value()}{ImplicitThisValue()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{class_type}{Type} Object\+Environment\+Record\+::\+Implicit\+This\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_environment_record_a9c60c0ab4900f6a8cdc50ceefdbf0507}{Environment\+Record}.
+
+\mbox{\Hypertarget{struct_object_environment_record_acbc8e93de3f48c41c0413957974642b0}\label{struct_object_environment_record_acbc8e93de3f48c41c0413957974642b0}} 
+\index{Object\+Environment\+Record@{Object\+Environment\+Record}!Set\+Mutable\+Binding@{Set\+Mutable\+Binding}}
+\index{Set\+Mutable\+Binding@{Set\+Mutable\+Binding}!Object\+Environment\+Record@{Object\+Environment\+Record}}
+\subsubsection{\texorpdfstring{Set\+Mutable\+Binding()}{SetMutableBinding()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Object\+Environment\+Record\+::\+Set\+Mutable\+Binding (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::string} \&}]{,  }\item[{const \hyperlink{class_type}{Type} \&}]{,  }\item[{bool}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{struct_environment_record_a9d5250a9cc6fa4d1f9ecbf5213b6cb24}{Environment\+Record}.
+
+\mbox{\Hypertarget{struct_object_environment_record_a495af7053fd2a7b122a56b31418f7324}\label{struct_object_environment_record_a495af7053fd2a7b122a56b31418f7324}} 
+\index{Object\+Environment\+Record@{Object\+Environment\+Record}!Set\+Mutable\+Binding@{Set\+Mutable\+Binding}}
+\index{Set\+Mutable\+Binding@{Set\+Mutable\+Binding}!Object\+Environment\+Record@{Object\+Environment\+Record}}
+\subsubsection{\texorpdfstring{Set\+Mutable\+Binding()}{SetMutableBinding()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Object\+Environment\+Record\+::\+Set\+Mutable\+Binding (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_string}{String} \&}]{,  }\item[{const \hyperlink{class_type}{Type} \&}]{,  }\item[{const \hyperlink{struct_boolean}{Boolean} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}}
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_object_environment_record_ac373ab33014da05eb9d81ed78429b1ca}\label{struct_object_environment_record_ac373ab33014da05eb9d81ed78429b1ca}} 
+\index{Object\+Environment\+Record@{Object\+Environment\+Record}!binding@{binding}}
+\index{binding@{binding}!Object\+Environment\+Record@{Object\+Environment\+Record}}
+\subsubsection{\texorpdfstring{binding}{binding}}
+{\footnotesize\ttfamily \hyperlink{struct_object}{Object}$\ast$ Object\+Environment\+Record\+::binding}
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{object__environment__record_8h}{object\+\_\+environment\+\_\+record.\+h}\item 
+src/\hyperlink{runtime_8h}{runtime.\+h}\item 
+src/\hyperlink{object__environment__record_8cpp}{object\+\_\+environment\+\_\+record.\+cpp}\end{DoxyCompactItemize}

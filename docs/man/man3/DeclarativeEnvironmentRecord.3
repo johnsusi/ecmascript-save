@@ -1,0 +1,127 @@
+.TH "DeclarativeEnvironmentRecord" 3 "Sat Jun 10 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+DeclarativeEnvironmentRecord
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <declarative_environment_record\&.h>\fP
+.PP
+Inherits \fBEnvironmentRecord\fP, and \fBEnvironmentRecord\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "bool \fBHasBinding\fP (const \fBstd::string\fP &) final"
+.br
+.ti -1c
+.RI "void \fBCreateMutableBinding\fP (const \fBstd::string\fP &, bool) final"
+.br
+.ti -1c
+.RI "void \fBSetMutableBinding\fP (const \fBstd::string\fP &, const \fBType\fP &, bool) final"
+.br
+.ti -1c
+.RI "\fBType\fP \fBGetBindingValue\fP (const \fBstd::string\fP &\&.bool) final"
+.br
+.ti -1c
+.RI "bool \fBDeleteBinding\fP (const \fBstd::string\fP &) final"
+.br
+.ti -1c
+.RI "\fBType\fP \fBImplicitThisValue\fP () final"
+.br
+.ti -1c
+.RI "void \fBCreateImmutableBinding\fP (const \fBstd::string\fP &)"
+.br
+.ti -1c
+.RI "void \fBInitializeImmutableBinding\fP (const \fBstd::string\fP &, const \fBType\fP &)"
+.br
+.ti -1c
+.RI "\fBBoolean\fP \fBHasBinding\fP (const \fBString\fP &N) const final"
+.br
+.ti -1c
+.RI "void \fBCreateMutableBinding\fP (const \fBString\fP &N, const \fBBoolean\fP &D) final"
+.br
+.ti -1c
+.RI "void \fBSetMutableBinding\fP (\fBStringRef\fP, const \fBType\fP &, const \fBBoolean\fP &) final"
+.br
+.ti -1c
+.RI "\fBType\fP \fBGetBindingValue\fP (const \fBString\fP &, const \fBBoolean\fP &S) const final"
+.br
+.ti -1c
+.RI "\fBBoolean\fP \fBDeleteBinding\fP (const \fBString\fP &) final"
+.br
+.ti -1c
+.RI "\fBType\fP \fBImplicitThisValue\fP () const final"
+.br
+.ti -1c
+.RI "void \fBCreateImmutableBinding\fP (const \fBString\fP &)"
+.br
+.ti -1c
+.RI "void \fBInitializeImmutableBinding\fP (const \fBString\fP &, const \fBType\fP &)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Member Function Documentation"
+.PP 
+.SS "void DeclarativeEnvironmentRecord::CreateImmutableBinding (const \fBstd::string\fP &)"
+
+.SS "void DeclarativeEnvironmentRecord::CreateImmutableBinding (const \fBString\fP &)"
+
+.SS "void DeclarativeEnvironmentRecord::CreateMutableBinding (const \fBstd::string\fP &, bool)\fC [final]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBEnvironmentRecord\fP\&.
+.SS "void DeclarativeEnvironmentRecord::CreateMutableBinding (const \fBString\fP & N, const \fBBoolean\fP & D)\fC [final]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBEnvironmentRecord\fP\&.
+.SS "bool DeclarativeEnvironmentRecord::DeleteBinding (const \fBstd::string\fP &)\fC [final]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBEnvironmentRecord\fP\&.
+.SS "\fBBoolean\fP DeclarativeEnvironmentRecord::DeleteBinding (const \fBString\fP &)\fC [final]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBEnvironmentRecord\fP\&.
+.SS "\fBType\fP DeclarativeEnvironmentRecord::GetBindingValue (const \fBstd::string\fP &\&. bool)\fC [final]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBEnvironmentRecord\fP\&.
+.SS "\fBType\fP DeclarativeEnvironmentRecord::GetBindingValue (const \fBString\fP &, const \fBBoolean\fP & S) const\fC [final]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBEnvironmentRecord\fP\&.
+.SS "bool DeclarativeEnvironmentRecord::HasBinding (const \fBstd::string\fP &)\fC [final]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBEnvironmentRecord\fP\&.
+.SS "\fBBoolean\fP DeclarativeEnvironmentRecord::HasBinding (const \fBString\fP & N) const\fC [final]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBEnvironmentRecord\fP\&.
+.SS "\fBType\fP DeclarativeEnvironmentRecord::ImplicitThisValue ()\fC [final]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBEnvironmentRecord\fP\&.
+.SS "\fBType\fP DeclarativeEnvironmentRecord::ImplicitThisValue () const\fC [final]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBEnvironmentRecord\fP\&.
+.SS "void DeclarativeEnvironmentRecord::InitializeImmutableBinding (const \fBstd::string\fP &, const \fBType\fP &)"
+
+.SS "void DeclarativeEnvironmentRecord::InitializeImmutableBinding (const \fBString\fP &, const \fBType\fP &)"
+
+.SS "void DeclarativeEnvironmentRecord::SetMutableBinding (const \fBstd::string\fP &, const \fBType\fP &, bool)\fC [final]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBEnvironmentRecord\fP\&.
+.SS "void DeclarativeEnvironmentRecord::SetMutableBinding (\fBStringRef\fP, const \fBType\fP &, const \fBBoolean\fP &)\fC [final]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBEnvironmentRecord\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

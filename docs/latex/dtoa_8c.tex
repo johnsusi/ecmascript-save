@@ -5,8 +5,7 @@
 {\ttfamily \#include \char`\"{}errno.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}float.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}math.\+h\char`\"{}}\newline
-Include dependency graph for dtoa.\+c\+:
-\nopagebreak
+Include dependency graph for dtoa.\+c\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -234,7 +233,7 @@ static void \hyperlink{dtoa_8c_a340d7438a88723384714662b643a1f8b}{rshift} (\hype
 \item 
 static \hyperlink{dtoa_8c_afa5f820499f9d3fb566021c346784449}{U\+Long} \hyperlink{dtoa_8c_ad05c82c5db51c311dbf3f8304ce75a5f}{any\+\_\+on} (\hyperlink{struct_bigint}{Bigint} $\ast$b, int k)
 \item 
-void \hyperlink{dtoa_8c_abcb15114e7f9ce772ecb5e7dc5592f85}{gethex} (const char $\ast$$\ast$sp, \hyperlink{union_u}{U} $\ast$rvp, int rounding, int sign \hyperlink{dtoa_8c_ab31bd30f79a4b54ecdc2016374f85852}{M\+Td})
+void \hyperlink{dtoa_8c_abcb15114e7f9ce772ecb5e7dc5592f85}{gethex} (const char $\ast$$\ast$sp, \hyperlink{union_u}{U} $\ast$rvp, int rounding, int \hyperlink{value_8cpp_a884b8c0f90784c7f02dbd616d624f48a}{sign} \hyperlink{dtoa_8c_ab31bd30f79a4b54ecdc2016374f85852}{M\+Td})
 \item 
 static int \hyperlink{dtoa_8c_aa83eea23c9d4149de2891e08fc404f9c}{dshift} (\hyperlink{struct_bigint}{Bigint} $\ast$b, int p2)
 \item 
@@ -248,9 +247,9 @@ static char $\ast$ \hyperlink{dtoa_8c_aa8a4b45a334b1edf209c62cd09c9ffb8}{nrv\+\_
 \item 
 void \hyperlink{dtoa_8c_a0233452d5cf4f80cd8001660410da54a}{freedtoa} (char $\ast$s)
 \item 
-char $\ast$ \hyperlink{dtoa_8c_addeae1656dc3af769c2e2703310e5fb7}{dtoa\+\_\+r} (double dd, int mode, int ndigits, int $\ast$decpt, int $\ast$sign, char $\ast$$\ast$rve, char $\ast$buf, size\+\_\+t blen)
+char $\ast$ \hyperlink{dtoa_8c_addeae1656dc3af769c2e2703310e5fb7}{dtoa\+\_\+r} (double dd, int mode, int ndigits, int $\ast$decpt, int $\ast$\hyperlink{value_8cpp_a884b8c0f90784c7f02dbd616d624f48a}{sign}, char $\ast$$\ast$rve, char $\ast$buf, size\+\_\+t blen)
 \item 
-char $\ast$ \hyperlink{dtoa_8c_aa5e1ae8c86a615eade9613ab7700b889}{dtoa} (double dd, int mode, int ndigits, int $\ast$decpt, int $\ast$sign, char $\ast$$\ast$rve)
+char $\ast$ \hyperlink{dtoa_8c_aa5e1ae8c86a615eade9613ab7700b889}{dtoa} (double dd, int mode, int ndigits, int $\ast$decpt, int $\ast$\hyperlink{value_8cpp_a884b8c0f90784c7f02dbd616d624f48a}{sign}, char $\ast$$\ast$rve)
 \end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
@@ -857,7 +856,7 @@ N\+O\+\_\+\+H\+E\+X\+\_\+\+FP\} \mbox{\Hypertarget{dtoa_8c_aa5e1ae8c86a615eade96
 \index{dtoa.\+c@{dtoa.\+c}!gethex@{gethex}}
 \index{gethex@{gethex}!dtoa.\+c@{dtoa.\+c}}
 \subsubsection{\texorpdfstring{gethex()}{gethex()}}
-{\footnotesize\ttfamily void gethex (\begin{DoxyParamCaption}\item[{const char $\ast$$\ast$}]{sp,  }\item[{\hyperlink{union_u}{U} $\ast$}]{rvp,  }\item[{int}]{rounding,  }\item[{int sign}]{M\+Td }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void gethex (\begin{DoxyParamCaption}\item[{const char $\ast$$\ast$}]{sp,  }\item[{\hyperlink{union_u}{U} $\ast$}]{rvp,  }\item[{int}]{rounding,  }\item[{int \hyperlink{value_8cpp_a884b8c0f90784c7f02dbd616d624f48a}{sign}}]{M\+Td }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{dtoa_8c_acde19b583452155815db5ec8c09fa2fb}\label{dtoa_8c_acde19b583452155815db5ec8c09fa2fb}} 
 \index{dtoa.\+c@{dtoa.\+c}!hi0bits@{hi0bits}}

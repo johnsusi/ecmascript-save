@@ -1,0 +1,212 @@
+\hypertarget{class_type}{}\section{Type Class Reference}
+\label{class_type}\index{Type@{Type}}
+
+
+{\ttfamily \#include $<$type.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_type_a78339313d36891f18427c431ea84e306}{Type} ()
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{class_type_aba2b55a99317139e0e5b272695b34a2b}{Type} (const T \&value)
+\item 
+bool \hyperlink{class_type_aaa2f4f96dd01eb3fd832f9a5e1d57615}{Is\+Undefined} () const
+\item 
+bool \hyperlink{class_type_a8d7b724a3acd08a8f7f2bb9af48280e3}{Is\+Null} () const
+\item 
+bool \hyperlink{class_type_ae6f13d051ad6e6bef19f2501b6d4405d}{Is\+Boolean} () const
+\item 
+bool \hyperlink{class_type_a66a75ac94e749abc366ea9a6a4a1c35f}{Is\+Number} () const
+\item 
+bool \hyperlink{class_type_a0deae255e3c14229999eba05ad9f8e64}{Is\+String} () const
+\item 
+bool \hyperlink{class_type_abbc365cac181652bdeb3c04bdaffea29}{Is\+Object} () const
+\item 
+bool \hyperlink{class_type_af8cf2c61d621a1fe279c7be850158906}{Is\+Reference} () const
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_type}{Type} \hyperlink{class_type_ab93b9585041e82792e33de6f7eacb5f4}{To\+Primitive} (const \hyperlink{class_type}{Type} \&, const char $\ast$)
+\item 
+\hyperlink{struct_boolean}{Boolean} \hyperlink{class_type_ac4625c21a844f06bfb4d4fe0d90ab781}{To\+Boolean} (const \hyperlink{class_type}{Type} \&)
+\item 
+\hyperlink{struct_number}{Number} \hyperlink{class_type_a0b2401b5884928a806b431da0b8114b1}{To\+Number} (const \hyperlink{class_type}{Type} \&)
+\item 
+\hyperlink{struct_number}{Number} \hyperlink{class_type_a828ad4c60bd60a33336cd7b3e919e53b}{To\+Integer} (const \hyperlink{class_type}{Type} \&)
+\item 
+\hyperlink{struct_number}{Number} \hyperlink{class_type_a95e159f5fe19a5aa297da9d7d06347da}{To\+Int32} (const \hyperlink{class_type}{Type} \&)
+\item 
+\hyperlink{struct_number}{Number} \hyperlink{class_type_adf104091b3326711c9de0cc2c691df0a}{To\+Uint32} (const \hyperlink{class_type}{Type} \&)
+\item 
+\hyperlink{struct_number}{Number} \hyperlink{class_type_acc847f7cb96eb525a1cca35ce6e575aa}{To\+Uint16} (const \hyperlink{class_type}{Type} \&)
+\item 
+\hyperlink{struct_string}{String} \hyperlink{class_type_a3a55c50f81af046525d7e158a2625e57}{To\+String} (const \hyperlink{class_type}{Type} \&)
+\item 
+\hyperlink{struct_object}{Object} \hyperlink{class_type_ac73ac7844a40bcd630b4be9d49b88b45}{To\+Object} (const \hyperlink{class_type}{Type} \&)
+\item 
+\hyperlink{class_type}{Type} \hyperlink{class_type_aa64e7c736bb488746fa28a526d381f53}{Check\+Object\+Coercible} (const \hyperlink{class_type}{Type} \&)
+\item 
+bool \hyperlink{class_type_a891f7c233613f70b05bc4f9403498c8e}{Is\+Callable} (const \hyperlink{class_type}{Type} \&)
+\item 
+bool \hyperlink{class_type_a9970cda2e5a3a4beab27346bf77ec13d}{Same\+Value} (const \hyperlink{class_type}{Type} \&, const \hyperlink{class_type}{Type} \&)
+\item 
+bool \hyperlink{class_type_afd48ec25622d42183a8c9daaf4f470df}{Abstract\+Equality\+Comparison} (const \hyperlink{class_type}{Type} \&, const \hyperlink{class_type}{Type} \&)
+\item 
+bool \hyperlink{class_type_aca07020739c6731d8f674adc21e97edd}{Strict\+Equality\+Comparison} (const \hyperlink{class_type}{Type} \&, const \hyperlink{class_type}{Type} \&)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_type_a78339313d36891f18427c431ea84e306}\label{class_type_a78339313d36891f18427c431ea84e306}} 
+\index{Type@{Type}!Type@{Type}}
+\index{Type@{Type}!Type@{Type}}
+\subsubsection{\texorpdfstring{Type()}{Type()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Type\+::\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_type_aba2b55a99317139e0e5b272695b34a2b}\label{class_type_aba2b55a99317139e0e5b272695b34a2b}} 
+\index{Type@{Type}!Type@{Type}}
+\index{Type@{Type}!Type@{Type}}
+\subsubsection{\texorpdfstring{Type()}{Type()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+Type\+::\+Type (\begin{DoxyParamCaption}\item[{const T \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_type_ae6f13d051ad6e6bef19f2501b6d4405d}\label{class_type_ae6f13d051ad6e6bef19f2501b6d4405d}} 
+\index{Type@{Type}!Is\+Boolean@{Is\+Boolean}}
+\index{Is\+Boolean@{Is\+Boolean}!Type@{Type}}
+\subsubsection{\texorpdfstring{Is\+Boolean()}{IsBoolean()}}
+{\footnotesize\ttfamily bool Type\+::\+Is\+Boolean (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_type_a8d7b724a3acd08a8f7f2bb9af48280e3}\label{class_type_a8d7b724a3acd08a8f7f2bb9af48280e3}} 
+\index{Type@{Type}!Is\+Null@{Is\+Null}}
+\index{Is\+Null@{Is\+Null}!Type@{Type}}
+\subsubsection{\texorpdfstring{Is\+Null()}{IsNull()}}
+{\footnotesize\ttfamily bool Type\+::\+Is\+Null (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_type_a66a75ac94e749abc366ea9a6a4a1c35f}\label{class_type_a66a75ac94e749abc366ea9a6a4a1c35f}} 
+\index{Type@{Type}!Is\+Number@{Is\+Number}}
+\index{Is\+Number@{Is\+Number}!Type@{Type}}
+\subsubsection{\texorpdfstring{Is\+Number()}{IsNumber()}}
+{\footnotesize\ttfamily bool Type\+::\+Is\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_type_abbc365cac181652bdeb3c04bdaffea29}\label{class_type_abbc365cac181652bdeb3c04bdaffea29}} 
+\index{Type@{Type}!Is\+Object@{Is\+Object}}
+\index{Is\+Object@{Is\+Object}!Type@{Type}}
+\subsubsection{\texorpdfstring{Is\+Object()}{IsObject()}}
+{\footnotesize\ttfamily bool Type\+::\+Is\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_type_af8cf2c61d621a1fe279c7be850158906}\label{class_type_af8cf2c61d621a1fe279c7be850158906}} 
+\index{Type@{Type}!Is\+Reference@{Is\+Reference}}
+\index{Is\+Reference@{Is\+Reference}!Type@{Type}}
+\subsubsection{\texorpdfstring{Is\+Reference()}{IsReference()}}
+{\footnotesize\ttfamily bool Type\+::\+Is\+Reference (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_type_a0deae255e3c14229999eba05ad9f8e64}\label{class_type_a0deae255e3c14229999eba05ad9f8e64}} 
+\index{Type@{Type}!Is\+String@{Is\+String}}
+\index{Is\+String@{Is\+String}!Type@{Type}}
+\subsubsection{\texorpdfstring{Is\+String()}{IsString()}}
+{\footnotesize\ttfamily bool Type\+::\+Is\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_type_aaa2f4f96dd01eb3fd832f9a5e1d57615}\label{class_type_aaa2f4f96dd01eb3fd832f9a5e1d57615}} 
+\index{Type@{Type}!Is\+Undefined@{Is\+Undefined}}
+\index{Is\+Undefined@{Is\+Undefined}!Type@{Type}}
+\subsubsection{\texorpdfstring{Is\+Undefined()}{IsUndefined()}}
+{\footnotesize\ttfamily bool Type\+::\+Is\+Undefined (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+\subsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_type_afd48ec25622d42183a8c9daaf4f470df}\label{class_type_afd48ec25622d42183a8c9daaf4f470df}} 
+\index{Type@{Type}!Abstract\+Equality\+Comparison@{Abstract\+Equality\+Comparison}}
+\index{Abstract\+Equality\+Comparison@{Abstract\+Equality\+Comparison}!Type@{Type}}
+\subsubsection{\texorpdfstring{Abstract\+Equality\+Comparison}{AbstractEqualityComparison}}
+{\footnotesize\ttfamily bool Abstract\+Equality\+Comparison (\begin{DoxyParamCaption}\item[{const \hyperlink{class_type}{Type} \&}]{,  }\item[{const \hyperlink{class_type}{Type} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\mbox{\Hypertarget{class_type_aa64e7c736bb488746fa28a526d381f53}\label{class_type_aa64e7c736bb488746fa28a526d381f53}} 
+\index{Type@{Type}!Check\+Object\+Coercible@{Check\+Object\+Coercible}}
+\index{Check\+Object\+Coercible@{Check\+Object\+Coercible}!Type@{Type}}
+\subsubsection{\texorpdfstring{Check\+Object\+Coercible}{CheckObjectCoercible}}
+{\footnotesize\ttfamily \hyperlink{class_type}{Type} Check\+Object\+Coercible (\begin{DoxyParamCaption}\item[{const \hyperlink{class_type}{Type} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\mbox{\Hypertarget{class_type_a891f7c233613f70b05bc4f9403498c8e}\label{class_type_a891f7c233613f70b05bc4f9403498c8e}} 
+\index{Type@{Type}!Is\+Callable@{Is\+Callable}}
+\index{Is\+Callable@{Is\+Callable}!Type@{Type}}
+\subsubsection{\texorpdfstring{Is\+Callable}{IsCallable}}
+{\footnotesize\ttfamily bool Is\+Callable (\begin{DoxyParamCaption}\item[{const \hyperlink{class_type}{Type} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\mbox{\Hypertarget{class_type_a9970cda2e5a3a4beab27346bf77ec13d}\label{class_type_a9970cda2e5a3a4beab27346bf77ec13d}} 
+\index{Type@{Type}!Same\+Value@{Same\+Value}}
+\index{Same\+Value@{Same\+Value}!Type@{Type}}
+\subsubsection{\texorpdfstring{Same\+Value}{SameValue}}
+{\footnotesize\ttfamily bool Same\+Value (\begin{DoxyParamCaption}\item[{const \hyperlink{class_type}{Type} \&}]{,  }\item[{const \hyperlink{class_type}{Type} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\mbox{\Hypertarget{class_type_aca07020739c6731d8f674adc21e97edd}\label{class_type_aca07020739c6731d8f674adc21e97edd}} 
+\index{Type@{Type}!Strict\+Equality\+Comparison@{Strict\+Equality\+Comparison}}
+\index{Strict\+Equality\+Comparison@{Strict\+Equality\+Comparison}!Type@{Type}}
+\subsubsection{\texorpdfstring{Strict\+Equality\+Comparison}{StrictEqualityComparison}}
+{\footnotesize\ttfamily bool Strict\+Equality\+Comparison (\begin{DoxyParamCaption}\item[{const \hyperlink{class_type}{Type} \&}]{,  }\item[{const \hyperlink{class_type}{Type} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\mbox{\Hypertarget{class_type_ac4625c21a844f06bfb4d4fe0d90ab781}\label{class_type_ac4625c21a844f06bfb4d4fe0d90ab781}} 
+\index{Type@{Type}!To\+Boolean@{To\+Boolean}}
+\index{To\+Boolean@{To\+Boolean}!Type@{Type}}
+\subsubsection{\texorpdfstring{To\+Boolean}{ToBoolean}}
+{\footnotesize\ttfamily \hyperlink{struct_boolean}{Boolean} To\+Boolean (\begin{DoxyParamCaption}\item[{const \hyperlink{class_type}{Type} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\mbox{\Hypertarget{class_type_a95e159f5fe19a5aa297da9d7d06347da}\label{class_type_a95e159f5fe19a5aa297da9d7d06347da}} 
+\index{Type@{Type}!To\+Int32@{To\+Int32}}
+\index{To\+Int32@{To\+Int32}!Type@{Type}}
+\subsubsection{\texorpdfstring{To\+Int32}{ToInt32}}
+{\footnotesize\ttfamily \hyperlink{struct_number}{Number} To\+Int32 (\begin{DoxyParamCaption}\item[{const \hyperlink{class_type}{Type} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\mbox{\Hypertarget{class_type_a828ad4c60bd60a33336cd7b3e919e53b}\label{class_type_a828ad4c60bd60a33336cd7b3e919e53b}} 
+\index{Type@{Type}!To\+Integer@{To\+Integer}}
+\index{To\+Integer@{To\+Integer}!Type@{Type}}
+\subsubsection{\texorpdfstring{To\+Integer}{ToInteger}}
+{\footnotesize\ttfamily \hyperlink{struct_number}{Number} To\+Integer (\begin{DoxyParamCaption}\item[{const \hyperlink{class_type}{Type} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\mbox{\Hypertarget{class_type_a0b2401b5884928a806b431da0b8114b1}\label{class_type_a0b2401b5884928a806b431da0b8114b1}} 
+\index{Type@{Type}!To\+Number@{To\+Number}}
+\index{To\+Number@{To\+Number}!Type@{Type}}
+\subsubsection{\texorpdfstring{To\+Number}{ToNumber}}
+{\footnotesize\ttfamily \hyperlink{struct_number}{Number} To\+Number (\begin{DoxyParamCaption}\item[{const \hyperlink{class_type}{Type} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\mbox{\Hypertarget{class_type_ac73ac7844a40bcd630b4be9d49b88b45}\label{class_type_ac73ac7844a40bcd630b4be9d49b88b45}} 
+\index{Type@{Type}!To\+Object@{To\+Object}}
+\index{To\+Object@{To\+Object}!Type@{Type}}
+\subsubsection{\texorpdfstring{To\+Object}{ToObject}}
+{\footnotesize\ttfamily \hyperlink{struct_object}{Object} To\+Object (\begin{DoxyParamCaption}\item[{const \hyperlink{class_type}{Type} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\mbox{\Hypertarget{class_type_ab93b9585041e82792e33de6f7eacb5f4}\label{class_type_ab93b9585041e82792e33de6f7eacb5f4}} 
+\index{Type@{Type}!To\+Primitive@{To\+Primitive}}
+\index{To\+Primitive@{To\+Primitive}!Type@{Type}}
+\subsubsection{\texorpdfstring{To\+Primitive}{ToPrimitive}}
+{\footnotesize\ttfamily \hyperlink{class_type}{Type} To\+Primitive (\begin{DoxyParamCaption}\item[{const \hyperlink{class_type}{Type} \&}]{,  }\item[{const char $\ast$}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\mbox{\Hypertarget{class_type_a3a55c50f81af046525d7e158a2625e57}\label{class_type_a3a55c50f81af046525d7e158a2625e57}} 
+\index{Type@{Type}!To\+String@{To\+String}}
+\index{To\+String@{To\+String}!Type@{Type}}
+\subsubsection{\texorpdfstring{To\+String}{ToString}}
+{\footnotesize\ttfamily \hyperlink{struct_string}{String} To\+String (\begin{DoxyParamCaption}\item[{const \hyperlink{class_type}{Type} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\mbox{\Hypertarget{class_type_acc847f7cb96eb525a1cca35ce6e575aa}\label{class_type_acc847f7cb96eb525a1cca35ce6e575aa}} 
+\index{Type@{Type}!To\+Uint16@{To\+Uint16}}
+\index{To\+Uint16@{To\+Uint16}!Type@{Type}}
+\subsubsection{\texorpdfstring{To\+Uint16}{ToUint16}}
+{\footnotesize\ttfamily \hyperlink{struct_number}{Number} To\+Uint16 (\begin{DoxyParamCaption}\item[{const \hyperlink{class_type}{Type} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\mbox{\Hypertarget{class_type_adf104091b3326711c9de0cc2c691df0a}\label{class_type_adf104091b3326711c9de0cc2c691df0a}} 
+\index{Type@{Type}!To\+Uint32@{To\+Uint32}}
+\index{To\+Uint32@{To\+Uint32}!Type@{Type}}
+\subsubsection{\texorpdfstring{To\+Uint32}{ToUint32}}
+{\footnotesize\ttfamily \hyperlink{struct_number}{Number} To\+Uint32 (\begin{DoxyParamCaption}\item[{const \hyperlink{class_type}{Type} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{type_8h}{type.\+h}\item 
+src/\hyperlink{type_8cpp}{type.\+cpp}\end{DoxyCompactItemize}

@@ -35,6 +35,7 @@ var searchData=
   ['binary_5ffunction',['binary_function',['http://en.cppreference.com/w/cpp/utility/functional/binary_function.html',1,'std']]],
   ['binary_5fnegate',['binary_negate',['http://en.cppreference.com/w/cpp/utility/functional/binary_negate.html',1,'std']]],
   ['binaryexpression',['BinaryExpression',['../struct_binary_expression.html',1,'']]],
+  ['binding',['Binding',['../struct_binding.html',1,'']]],
   ['binomial_5fdistribution',['binomial_distribution',['http://en.cppreference.com/w/cpp/numeric/random/binomial_distribution.html',1,'std']]],
   ['bit_5fand',['bit_and',['http://en.cppreference.com/w/cpp/utility/functional/bit_and.html',1,'std']]],
   ['bit_5fnot',['bit_not',['http://en.cppreference.com/w/cpp/utility/functional/bit_not.html',1,'std']]],

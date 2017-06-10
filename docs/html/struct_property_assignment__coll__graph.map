@@ -1,14 +1,16 @@
 <map id="PropertyAssignment" name="PropertyAssignment">
-<area shape="rect" id="node2" href="$struct_expression.html" title="Expression" alt="" coords="349,179,437,204"/>
-<area shape="rect" id="node10" href="$struct_property_name.html" title="PropertyName" alt="" coords="129,265,236,291"/>
-<area shape="rect" id="node3" href="$struct_node.html" title="Node" alt="" coords="329,5,382,31"/>
-<area shape="rect" id="node4" href="$struct_identifier.html" title="Identifier" alt="" coords="253,179,325,204"/>
-<area shape="rect" id="node8" href="$struct_list.html" title="List\&lt; SourceElement \&gt;" alt="" coords="436,92,592,117"/>
-<area shape="rect" id="node12" href="$struct_literal.html" title="Literal" alt="" coords="121,92,179,117"/>
-<area shape="rect" id="node5" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/string/basic_string.html" title="std::u16string" alt="" coords="204,92,305,117"/>
-<area shape="rect" id="node11" href="$struct_string_literal.html" title="StringLiteral" alt="" coords="5,179,98,204"/>
-<area shape="rect" id="node6" href="$struct_function_body.html" title="FunctionBody" alt="" coords="545,265,648,291"/>
-<area shape="rect" id="node7" href="$struct_source_elements.html" title="SourceElements" alt="" coords="497,179,616,204"/>
-<area shape="rect" id="node9" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/container/vector.html" title="std::vector\&lt; SourceElement *\&gt;" alt="" coords="413,5,615,31"/>
-<area shape="rect" id="node13" href="$struct_numeric_literal.html" title="NumericLiteral" alt="" coords="122,179,229,204"/>
+<area shape="rect" id="node2" href="$struct_expression.html" title="Expression" alt="" coords="373,191,460,216"/>
+<area shape="rect" id="node10" href="$struct_property_name.html" title="PropertyName" alt="" coords="208,277,315,303"/>
+<area shape="rect" id="node3" href="$struct_node.html" title="Node" alt="" coords="327,5,380,31"/>
+<area shape="rect" id="node4" href="$struct_identifier.html" title="Identifier" alt="" coords="119,141,191,167"/>
+<area shape="rect" id="node8" href="$struct_list.html" title="List\&lt; SourceElement \&gt;" alt="" coords="460,92,616,117"/>
+<area shape="rect" id="node12" href="$struct_literal.html" title="Literal" alt="" coords="229,92,287,117"/>
+<area shape="rect" id="node5" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/string/basic_string.html" title="std::u16string" alt="" coords="51,5,152,31"/>
+<area shape="rect" id="node13" href="$struct_string.html" title="String" alt="" coords="40,92,96,117"/>
+<area shape="rect" id="node6" href="$struct_function_body.html" title="FunctionBody" alt="" coords="506,277,609,303"/>
+<area shape="rect" id="node7" href="$struct_source_elements.html" title="SourceElements" alt="" coords="491,191,611,216"/>
+<area shape="rect" id="node9" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/container/vector.html" title="std::vector\&lt; SourceElement *\&gt;" alt="" coords="437,5,639,31"/>
+<area shape="rect" id="node11" href="$struct_string_literal.html" title="StringLiteral" alt="" coords="22,191,115,216"/>
+<area shape="rect" id="node14" href="$struct_numeric_literal.html" title="NumericLiteral" alt="" coords="241,191,349,216"/>
+<area shape="rect" id="node15" href="$struct_number.html" title="Number" alt="" coords="310,92,379,117"/>
 </map>

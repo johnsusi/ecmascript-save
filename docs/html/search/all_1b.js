@@ -21,6 +21,7 @@ var searchData=
   ['_7edeque',['~deque',['http://en.cppreference.com/w/cpp/container/deque/~deque.html',1,'std::deque']]],
   ['_7edynarray',['~dynarray',['http://en.cppreference.com/w/cpp/container/dynarray/~dynarray.html',1,'std::dynarray']]],
   ['_7eenable_5fshared_5ffrom_5fthis',['~enable_shared_from_this',['http://en.cppreference.com/w/cpp/memory/enable_shared_from_this/~enable_shared_from_this.html',1,'std::enable_shared_from_this']]],
+  ['_7eenvironmentrecord',['~EnvironmentRecord',['../struct_environment_record.html#a3162aad344051610e1e1fd197d8ca5a2',1,'EnvironmentRecord']]],
   ['_7eerror_5fcategory',['~error_category',['http://en.cppreference.com/w/cpp/error/error_category/~error_category.html',1,'std::error_category']]],
   ['_7eexception',['~exception',['http://en.cppreference.com/w/cpp/error/exception/~exception.html',1,'std::exception']]],
   ['_7efilebuf',['~filebuf',['http://en.cppreference.com/w/cpp/io/basic_filebuf/~basic_filebuf.html',1,'std::filebuf']]],

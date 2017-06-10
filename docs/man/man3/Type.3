@@ -1,0 +1,143 @@
+.TH "Type" 3 "Sat Jun 10 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Type
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <type\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBType\fP ()"
+.br
+.ti -1c
+.RI "template<typename T > \fBType\fP (const T &value)"
+.br
+.ti -1c
+.RI "bool \fBIsUndefined\fP () const"
+.br
+.ti -1c
+.RI "bool \fBIsNull\fP () const"
+.br
+.ti -1c
+.RI "bool \fBIsBoolean\fP () const"
+.br
+.ti -1c
+.RI "bool \fBIsNumber\fP () const"
+.br
+.ti -1c
+.RI "bool \fBIsString\fP () const"
+.br
+.ti -1c
+.RI "bool \fBIsObject\fP () const"
+.br
+.ti -1c
+.RI "bool \fBIsReference\fP () const"
+.br
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "\fBType\fP \fBToPrimitive\fP (const \fBType\fP &, const char *)"
+.br
+.ti -1c
+.RI "\fBBoolean\fP \fBToBoolean\fP (const \fBType\fP &)"
+.br
+.ti -1c
+.RI "\fBNumber\fP \fBToNumber\fP (const \fBType\fP &)"
+.br
+.ti -1c
+.RI "\fBNumber\fP \fBToInteger\fP (const \fBType\fP &)"
+.br
+.ti -1c
+.RI "\fBNumber\fP \fBToInt32\fP (const \fBType\fP &)"
+.br
+.ti -1c
+.RI "\fBNumber\fP \fBToUint32\fP (const \fBType\fP &)"
+.br
+.ti -1c
+.RI "\fBNumber\fP \fBToUint16\fP (const \fBType\fP &)"
+.br
+.ti -1c
+.RI "\fBString\fP \fBToString\fP (const \fBType\fP &)"
+.br
+.ti -1c
+.RI "\fBObject\fP \fBToObject\fP (const \fBType\fP &)"
+.br
+.ti -1c
+.RI "\fBType\fP \fBCheckObjectCoercible\fP (const \fBType\fP &)"
+.br
+.ti -1c
+.RI "bool \fBIsCallable\fP (const \fBType\fP &)"
+.br
+.ti -1c
+.RI "bool \fBSameValue\fP (const \fBType\fP &, const \fBType\fP &)"
+.br
+.ti -1c
+.RI "bool \fBAbstractEqualityComparison\fP (const \fBType\fP &, const \fBType\fP &)"
+.br
+.ti -1c
+.RI "bool \fBStrictEqualityComparison\fP (const \fBType\fP &, const \fBType\fP &)"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Type::Type ()"
+
+.SS "template<typename T > Type::Type (const T & value)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "bool Type::IsBoolean () const"
+
+.SS "bool Type::IsNull () const"
+
+.SS "bool Type::IsNumber () const"
+
+.SS "bool Type::IsObject () const"
+
+.SS "bool Type::IsReference () const"
+
+.SS "bool Type::IsString () const"
+
+.SS "bool Type::IsUndefined () const"
+
+.SH "Friends And Related Function Documentation"
+.PP 
+.SS "bool AbstractEqualityComparison (const \fBType\fP &, const \fBType\fP &)\fC [friend]\fP"
+
+.SS "\fBType\fP CheckObjectCoercible (const \fBType\fP &)\fC [friend]\fP"
+
+.SS "bool IsCallable (const \fBType\fP &)\fC [friend]\fP"
+
+.SS "bool SameValue (const \fBType\fP &, const \fBType\fP &)\fC [friend]\fP"
+
+.SS "bool StrictEqualityComparison (const \fBType\fP &, const \fBType\fP &)\fC [friend]\fP"
+
+.SS "\fBBoolean\fP ToBoolean (const \fBType\fP &)\fC [friend]\fP"
+
+.SS "\fBNumber\fP ToInt32 (const \fBType\fP &)\fC [friend]\fP"
+
+.SS "\fBNumber\fP ToInteger (const \fBType\fP &)\fC [friend]\fP"
+
+.SS "\fBNumber\fP ToNumber (const \fBType\fP &)\fC [friend]\fP"
+
+.SS "\fBObject\fP ToObject (const \fBType\fP &)\fC [friend]\fP"
+
+.SS "\fBType\fP ToPrimitive (const \fBType\fP &, const char *)\fC [friend]\fP"
+
+.SS "\fBString\fP ToString (const \fBType\fP &)\fC [friend]\fP"
+
+.SS "\fBNumber\fP ToUint16 (const \fBType\fP &)\fC [friend]\fP"
+
+.SS "\fBNumber\fP ToUint32 (const \fBType\fP &)\fC [friend]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

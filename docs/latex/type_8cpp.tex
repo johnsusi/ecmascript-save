@@ -1,0 +1,164 @@
+\hypertarget{type_8cpp}{}\section{src/type.cpp File Reference}
+\label{type_8cpp}\index{src/type.\+cpp@{src/type.\+cpp}}
+{\ttfamily \#include \char`\"{}type.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include \char`\"{}dtoa.\+h\char`\"{}}\newline
+Include dependency graph for type.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{type_8cpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=157pt]{type_8cpp__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_object}{Object} \hyperlink{type_8cpp_a5fb513c8197faf4d5d8eeee6b54a29f6}{Type\+Error} ()
+\item 
+\hyperlink{struct_object}{Object} \hyperlink{type_8cpp_a92db5e2d97576c409bdac66f1a990e6f}{Boolean\+Object} (const \hyperlink{struct_boolean}{Boolean} \&value)
+\item 
+\hyperlink{struct_object}{Object} \hyperlink{type_8cpp_a4289844a5f506b45f30dadc49a97d5e3}{Number\+Object} (const \hyperlink{struct_number}{Number} \&value)
+\item 
+\hyperlink{struct_object}{Object} \hyperlink{type_8cpp_a515f375e80d62a486173e1b4eee415e0}{String\+Object} (const \hyperlink{struct_string}{String} \&value)
+\item 
+\hyperlink{class_type}{Type} \hyperlink{type_8cpp_ac8659da01f5fdae0bd87c3f77c7d00f2}{To\+Primitive} (const \hyperlink{class_type}{Type} \&input, const char $\ast$Preferred\+Type)
+\item 
+\hyperlink{struct_boolean}{Boolean} \hyperlink{type_8cpp_a6be119ba1c7d3a604c9bf0653a1acc6a}{To\+Boolean} (const \hyperlink{class_type}{Type} \&input)
+\item 
+\hyperlink{struct_number}{Number} \hyperlink{type_8cpp_a021fac46f8c85aae57fe9f5713ec9717}{To\+Number} (const \hyperlink{class_type}{Type} \&input)
+\item 
+\hyperlink{struct_number}{Number} \hyperlink{type_8cpp_a5802956e61a9c9dec8956aeef20545f2}{To\+Integer} (const \hyperlink{class_type}{Type} \&input)
+\item 
+\hyperlink{struct_string}{String} \hyperlink{type_8cpp_a4d62fb90ff9b9adecc117068ec68b2f9}{To\+String} (const \hyperlink{class_type}{Type} \&input)
+\item 
+\hyperlink{struct_object}{Object} \hyperlink{type_8cpp_af50913be542426adfab6b25f23c9c7e8}{To\+Object} (const \hyperlink{class_type}{Type} \&input)
+\item 
+\hyperlink{class_type}{Type} \hyperlink{type_8cpp_a1f306adb59096d2569c6d1ec812c1d14}{Check\+Object\+Coercible} (const \hyperlink{class_type}{Type} \&input)
+\item 
+bool \hyperlink{type_8cpp_a1e9a29d668d0faff1a9f0d0a1f2393db}{Is\+Callable} (const \hyperlink{class_type}{Type} \&x)
+\item 
+bool \hyperlink{type_8cpp_aaeab8916c6aa61d10b39878350a69618}{Same\+Value} (const \hyperlink{class_type}{Type} \&x, const \hyperlink{class_type}{Type} \&y)
+\item 
+bool \hyperlink{type_8cpp_a42121e85ab87f78e6b4dd11ce4181fdf}{Abstract\+Equality\+Comparison} (const \hyperlink{class_type}{Type} \&x, const \hyperlink{class_type}{Type} \&y)
+\item 
+bool \hyperlink{type_8cpp_a811a9a85ec16aa9a69d8180bfca7e547}{Strict\+Equality\+Comparison} (const \hyperlink{class_type}{Type} \&x, const \hyperlink{class_type}{Type} \&y)
+\item 
+bool \hyperlink{type_8cpp_ab56c3ee042cec03a7b9a143c050cc651}{operator==} (const \hyperlink{class_type}{Type} \&x, const \hyperlink{class_type}{Type} \&y)
+\item 
+bool \hyperlink{type_8cpp_a6f8aaf8026ae86dc8dc6861d4f1bb3f7}{operator!=} (const \hyperlink{class_type}{Type} \&x, const \hyperlink{class_type}{Type} \&y)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{type_8cpp_a42121e85ab87f78e6b4dd11ce4181fdf}\label{type_8cpp_a42121e85ab87f78e6b4dd11ce4181fdf}} 
+\index{type.\+cpp@{type.\+cpp}!Abstract\+Equality\+Comparison@{Abstract\+Equality\+Comparison}}
+\index{Abstract\+Equality\+Comparison@{Abstract\+Equality\+Comparison}!type.\+cpp@{type.\+cpp}}
+\subsubsection{\texorpdfstring{Abstract\+Equality\+Comparison()}{AbstractEqualityComparison()}}
+{\footnotesize\ttfamily bool Abstract\+Equality\+Comparison (\begin{DoxyParamCaption}\item[{const \hyperlink{class_type}{Type} \&}]{x,  }\item[{const \hyperlink{class_type}{Type} \&}]{y }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{type_8cpp_a92db5e2d97576c409bdac66f1a990e6f}\label{type_8cpp_a92db5e2d97576c409bdac66f1a990e6f}} 
+\index{type.\+cpp@{type.\+cpp}!Boolean\+Object@{Boolean\+Object}}
+\index{Boolean\+Object@{Boolean\+Object}!type.\+cpp@{type.\+cpp}}
+\subsubsection{\texorpdfstring{Boolean\+Object()}{BooleanObject()}}
+{\footnotesize\ttfamily \hyperlink{struct_object}{Object} Boolean\+Object (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_boolean}{Boolean} \&}]{value }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{type_8cpp_a1f306adb59096d2569c6d1ec812c1d14}\label{type_8cpp_a1f306adb59096d2569c6d1ec812c1d14}} 
+\index{type.\+cpp@{type.\+cpp}!Check\+Object\+Coercible@{Check\+Object\+Coercible}}
+\index{Check\+Object\+Coercible@{Check\+Object\+Coercible}!type.\+cpp@{type.\+cpp}}
+\subsubsection{\texorpdfstring{Check\+Object\+Coercible()}{CheckObjectCoercible()}}
+{\footnotesize\ttfamily \hyperlink{class_type}{Type} Check\+Object\+Coercible (\begin{DoxyParamCaption}\item[{const \hyperlink{class_type}{Type} \&}]{input }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{type_8cpp_a1e9a29d668d0faff1a9f0d0a1f2393db}\label{type_8cpp_a1e9a29d668d0faff1a9f0d0a1f2393db}} 
+\index{type.\+cpp@{type.\+cpp}!Is\+Callable@{Is\+Callable}}
+\index{Is\+Callable@{Is\+Callable}!type.\+cpp@{type.\+cpp}}
+\subsubsection{\texorpdfstring{Is\+Callable()}{IsCallable()}}
+{\footnotesize\ttfamily bool Is\+Callable (\begin{DoxyParamCaption}\item[{const \hyperlink{class_type}{Type} \&}]{x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{type_8cpp_a4289844a5f506b45f30dadc49a97d5e3}\label{type_8cpp_a4289844a5f506b45f30dadc49a97d5e3}} 
+\index{type.\+cpp@{type.\+cpp}!Number\+Object@{Number\+Object}}
+\index{Number\+Object@{Number\+Object}!type.\+cpp@{type.\+cpp}}
+\subsubsection{\texorpdfstring{Number\+Object()}{NumberObject()}}
+{\footnotesize\ttfamily \hyperlink{struct_object}{Object} Number\+Object (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_number}{Number} \&}]{value }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{type_8cpp_a6f8aaf8026ae86dc8dc6861d4f1bb3f7}\label{type_8cpp_a6f8aaf8026ae86dc8dc6861d4f1bb3f7}} 
+\index{type.\+cpp@{type.\+cpp}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!type.\+cpp@{type.\+cpp}}
+\subsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool operator!= (\begin{DoxyParamCaption}\item[{const \hyperlink{class_type}{Type} \&}]{x,  }\item[{const \hyperlink{class_type}{Type} \&}]{y }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{type_8cpp_ab56c3ee042cec03a7b9a143c050cc651}\label{type_8cpp_ab56c3ee042cec03a7b9a143c050cc651}} 
+\index{type.\+cpp@{type.\+cpp}!operator==@{operator==}}
+\index{operator==@{operator==}!type.\+cpp@{type.\+cpp}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool operator== (\begin{DoxyParamCaption}\item[{const \hyperlink{class_type}{Type} \&}]{x,  }\item[{const \hyperlink{class_type}{Type} \&}]{y }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{type_8cpp_aaeab8916c6aa61d10b39878350a69618}\label{type_8cpp_aaeab8916c6aa61d10b39878350a69618}} 
+\index{type.\+cpp@{type.\+cpp}!Same\+Value@{Same\+Value}}
+\index{Same\+Value@{Same\+Value}!type.\+cpp@{type.\+cpp}}
+\subsubsection{\texorpdfstring{Same\+Value()}{SameValue()}}
+{\footnotesize\ttfamily bool Same\+Value (\begin{DoxyParamCaption}\item[{const \hyperlink{class_type}{Type} \&}]{x,  }\item[{const \hyperlink{class_type}{Type} \&}]{y }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{type_8cpp_a811a9a85ec16aa9a69d8180bfca7e547}\label{type_8cpp_a811a9a85ec16aa9a69d8180bfca7e547}} 
+\index{type.\+cpp@{type.\+cpp}!Strict\+Equality\+Comparison@{Strict\+Equality\+Comparison}}
+\index{Strict\+Equality\+Comparison@{Strict\+Equality\+Comparison}!type.\+cpp@{type.\+cpp}}
+\subsubsection{\texorpdfstring{Strict\+Equality\+Comparison()}{StrictEqualityComparison()}}
+{\footnotesize\ttfamily bool Strict\+Equality\+Comparison (\begin{DoxyParamCaption}\item[{const \hyperlink{class_type}{Type} \&}]{x,  }\item[{const \hyperlink{class_type}{Type} \&}]{y }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{type_8cpp_a515f375e80d62a486173e1b4eee415e0}\label{type_8cpp_a515f375e80d62a486173e1b4eee415e0}} 
+\index{type.\+cpp@{type.\+cpp}!String\+Object@{String\+Object}}
+\index{String\+Object@{String\+Object}!type.\+cpp@{type.\+cpp}}
+\subsubsection{\texorpdfstring{String\+Object()}{StringObject()}}
+{\footnotesize\ttfamily \hyperlink{struct_object}{Object} String\+Object (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_string}{String} \&}]{value }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{type_8cpp_a6be119ba1c7d3a604c9bf0653a1acc6a}\label{type_8cpp_a6be119ba1c7d3a604c9bf0653a1acc6a}} 
+\index{type.\+cpp@{type.\+cpp}!To\+Boolean@{To\+Boolean}}
+\index{To\+Boolean@{To\+Boolean}!type.\+cpp@{type.\+cpp}}
+\subsubsection{\texorpdfstring{To\+Boolean()}{ToBoolean()}}
+{\footnotesize\ttfamily \hyperlink{struct_boolean}{Boolean} To\+Boolean (\begin{DoxyParamCaption}\item[{const \hyperlink{class_type}{Type} \&}]{input }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{type_8cpp_a5802956e61a9c9dec8956aeef20545f2}\label{type_8cpp_a5802956e61a9c9dec8956aeef20545f2}} 
+\index{type.\+cpp@{type.\+cpp}!To\+Integer@{To\+Integer}}
+\index{To\+Integer@{To\+Integer}!type.\+cpp@{type.\+cpp}}
+\subsubsection{\texorpdfstring{To\+Integer()}{ToInteger()}}
+{\footnotesize\ttfamily \hyperlink{struct_number}{Number} To\+Integer (\begin{DoxyParamCaption}\item[{const \hyperlink{class_type}{Type} \&}]{input }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{type_8cpp_a021fac46f8c85aae57fe9f5713ec9717}\label{type_8cpp_a021fac46f8c85aae57fe9f5713ec9717}} 
+\index{type.\+cpp@{type.\+cpp}!To\+Number@{To\+Number}}
+\index{To\+Number@{To\+Number}!type.\+cpp@{type.\+cpp}}
+\subsubsection{\texorpdfstring{To\+Number()}{ToNumber()}}
+{\footnotesize\ttfamily \hyperlink{struct_number}{Number} To\+Number (\begin{DoxyParamCaption}\item[{const \hyperlink{class_type}{Type} \&}]{input }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{type_8cpp_af50913be542426adfab6b25f23c9c7e8}\label{type_8cpp_af50913be542426adfab6b25f23c9c7e8}} 
+\index{type.\+cpp@{type.\+cpp}!To\+Object@{To\+Object}}
+\index{To\+Object@{To\+Object}!type.\+cpp@{type.\+cpp}}
+\subsubsection{\texorpdfstring{To\+Object()}{ToObject()}}
+{\footnotesize\ttfamily \hyperlink{struct_object}{Object} To\+Object (\begin{DoxyParamCaption}\item[{const \hyperlink{class_type}{Type} \&}]{input }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{type_8cpp_ac8659da01f5fdae0bd87c3f77c7d00f2}\label{type_8cpp_ac8659da01f5fdae0bd87c3f77c7d00f2}} 
+\index{type.\+cpp@{type.\+cpp}!To\+Primitive@{To\+Primitive}}
+\index{To\+Primitive@{To\+Primitive}!type.\+cpp@{type.\+cpp}}
+\subsubsection{\texorpdfstring{To\+Primitive()}{ToPrimitive()}}
+{\footnotesize\ttfamily \hyperlink{class_type}{Type} To\+Primitive (\begin{DoxyParamCaption}\item[{const \hyperlink{class_type}{Type} \&}]{input,  }\item[{const char $\ast$}]{Preferred\+Type }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{type_8cpp_a4d62fb90ff9b9adecc117068ec68b2f9}\label{type_8cpp_a4d62fb90ff9b9adecc117068ec68b2f9}} 
+\index{type.\+cpp@{type.\+cpp}!To\+String@{To\+String}}
+\index{To\+String@{To\+String}!type.\+cpp@{type.\+cpp}}
+\subsubsection{\texorpdfstring{To\+String()}{ToString()}}
+{\footnotesize\ttfamily \hyperlink{struct_string}{String} To\+String (\begin{DoxyParamCaption}\item[{const \hyperlink{class_type}{Type} \&}]{input }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{type_8cpp_a5fb513c8197faf4d5d8eeee6b54a29f6}\label{type_8cpp_a5fb513c8197faf4d5d8eeee6b54a29f6}} 
+\index{type.\+cpp@{type.\+cpp}!Type\+Error@{Type\+Error}}
+\index{Type\+Error@{Type\+Error}!type.\+cpp@{type.\+cpp}}
+\subsubsection{\texorpdfstring{Type\+Error()}{TypeError()}}
+{\footnotesize\ttfamily \hyperlink{struct_object}{Object} Type\+Error (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+

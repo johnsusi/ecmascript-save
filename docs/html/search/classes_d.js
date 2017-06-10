@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['namedaccessorproperty',['NamedAccessorProperty',['../struct_named_accessor_property.html',1,'']]],
-  ['nameddataproperty',['NamedDataProperty',['../struct_named_data_property.html',1,'']]],
   ['nano',['nano',['http://en.cppreference.com/w/cpp/numeric/ratio/ratio.html',1,'std']]],
   ['nanoseconds',['nanoseconds',['http://en.cppreference.com/w/cpp/chrono/duration.html',1,'std::chrono']]],
   ['negate',['negate',['http://en.cppreference.com/w/cpp/utility/functional/negate.html',1,'std']]],
