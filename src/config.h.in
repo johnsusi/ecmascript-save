@@ -5,57 +5,15 @@
 #cmakedefine HAVE_STD_EXPERIMENTAL_OPTIONAL
 #cmakedefine HAVE_BOOST_OPTIONAL
 
-#if defined(HAVE_STD_OPTIONAL)
-
-#include <optional>
-
-template <typename T> using optional = std::optional<T>;
-
-#elif defined(HAVE_STD_EXPERIMENTAL_OPTIONAL)
-
-#include <experimental/optional>
-
-template <typename T> using optional = std::experimental::optional<T>;
-
-#elif defined(HAVE_BOOST_OPTIONAL)
-
-#include <boost/optional.hpp>
-
-template <typename T> using optional = boost::optional<T>;
-
-#endif
-
-
 #cmakedefine HAVE_STD_VARIANT
 #cmakedefine HAVE_STD_EXPERIMENTAL_VARIANT
 #cmakedefine HAVE_MPARK_VARIANT
 #cmakedefine HAVE_BOOST_VARIANT
 
-#if defined(HAVE_STD_VARIANT)
+#cmakedefine HAVE_STD_FILESYSTEM
+#cmakedefine HAVE_STD_EXPERIMENTAL_FILESYSTEM
+#cmakedefine HAVE_BOOST_FILESYSTEM
 
-#include <variant>
-
-template <typename T> using variant = std::variant<T>;
-
-#elif defined(HAVE_STD_EXPERIMENTAL_VARIANT)
-
-#include <experimental/variant>
-
-template <typename T> using variant = std::experimental::variant<T>;
-
-#elif defined(HAVE_MPARK_VARIANT)
-
-#include <mpark/variant.hpp>
-
-template <typename T> using variant = mpark::variant<T>;
-
-#elif defined(HAVE_BOOST_VARIANT)
-
-#include <boost/variant.hpp>
-
-template <typename T> using variant = boost::variant<T>;
-
-#endif
-
+#cmakedefine HAVE_ICU_FROM_UTF8
 
 #endif

@@ -33,9 +33,8 @@ class Parser {
     auto debug_info = match.done() ? nullptr : match.matching()->debug_info;
     auto loc        = debug_info ? debug_info->loc() : "";
     throw SyntaxError(
-        "InternalCompilerError: " + loc + what + "\n"
-        + (debug_info ? debug_info->syntax_error_at() : "")
-        + stack_trace());
+        "InternalCompilerError: " + loc + what
+        + (debug_info ? "\n" + debug_info->syntax_error_at() : ""));
   }
 
   [[noreturn]] bool syntax_error(std::string what = {})
@@ -43,9 +42,8 @@ class Parser {
     auto debug_info = match.done() ? nullptr : match.matching()->debug_info;
 
     throw SyntaxError(
-        "SyntaxError: " + what + "\n"
-        + (debug_info ? debug_info->syntax_error_at() : "")
-        + stack_trace());
+        "SyntaxError: " + what
+        + (debug_info ? "\n" + debug_info->syntax_error_at() : ""));
   }
 
   template <typename F>
@@ -127,6 +125,7 @@ class Parser {
 
   bool no_line_terminator_here()
   {
+    trace();
     return match.peek([](const Token& token) {
       return !token.preceded_by_line_terminator();
     });
@@ -135,6 +134,7 @@ class Parser {
   // 7.9
   bool automatic_semicolon_insertion()
   {
+    trace();
     if (match(";")) return true;
     if (no_line_terminator_here() && !match.peek("}")) return false; // 7.9.1
     return true;
@@ -143,7 +143,7 @@ class Parser {
   // A.1
   bool identifier()
   {
-    trace("identifier");
+    trace();
     if (!match([](const auto& token) { return token.is_identifier(); }))
       return false;
     emplace<Identifier>(match->string_value());
@@ -152,7 +152,7 @@ class Parser {
 
   bool identifier_name()
   {
-    trace("identifier_name");
+    trace();
     if (!match([](const auto& token) { return token.is_identifier_name(); }))
       return false;
     emplace<Identifier>(match->string_value());
@@ -161,14 +161,14 @@ class Parser {
 
   bool literal()
   {
-    trace("literal");
+    trace();
     return null_literal() || boolean_literal() || numeric_literal()
            || string_literal() || regular_expression_literal();
   }
 
   bool null_literal()
   {
-    trace("null_literal");
+    trace();
     if (!match([](const auto& token) { return token.is_null_literal(); }))
       return false;
     emplace<NullLiteral>();
@@ -177,7 +177,7 @@ class Parser {
 
   bool boolean_literal()
   {
-    trace("boolean_literal");
+    trace();
     if (!match([](const auto& token) { return token.is_boolean_literal(); }))
       return false;
     emplace<BooleanLiteral>(match->boolean_value());
@@ -186,7 +186,7 @@ class Parser {
 
   bool numeric_literal()
   {
-    trace("numeric_literal");
+    trace();
     if (!match([](const auto& token) { return token.is_numeric_literal(); }))
       return false;
     emplace<NumericLiteral>(match->numeric_value());
@@ -195,7 +195,7 @@ class Parser {
 
   bool string_literal()
   {
-    trace("string_literal");
+    trace();
     if (!match([](const auto& token) { return token.is_string_literal(); }))
       return false;
     emplace<StringLiteral>(match->string_value());
@@ -204,7 +204,7 @@ class Parser {
 
   bool regular_expression_literal()
   {
-    trace("regular_expression_literal");
+    trace();
     if (!match([](const auto& token) {
           return token.is_regular_expression_literal();
         }))
@@ -216,7 +216,7 @@ class Parser {
   // A.3
   bool primary_expression()
   {
-    trace("primary_expression");
+    trace();
     if (match("(")) {
       if (!expression() || !match(")")) syntax_error();
     }
@@ -243,7 +243,7 @@ class Parser {
 
   bool array_literal()
   {
-    trace("array_literal");
+    trace();
     if (!match("[")) return false;
     if (!element_list()) emplace<ElementList>();
 
@@ -256,7 +256,7 @@ class Parser {
 
   bool element_list()
   {
-    trace("element_list");
+    trace();
     ElementList* list;
     if (elision()) {
       list = replace<ElementList, Node>();
@@ -281,7 +281,7 @@ class Parser {
 
   bool elision()
   {
-    trace("elision");
+    trace();
     if (!match(",")) return false;
     auto expr = emplace<Elision>();
     while (match(",")) ++expr->count;
@@ -290,7 +290,7 @@ class Parser {
 
   bool object_literal()
   {
-    trace("object_literal");
+    trace();
     if (!match("{")) return false;
     if (property_name_and_value_list())
       replace<ObjectLiteral, PropertyNameAndValueList>();
@@ -303,7 +303,7 @@ class Parser {
 
   bool property_name_and_value_list()
   {
-    trace("property_name_and_value_list");
+    trace();
     if (!property_assignment()) return false;
     auto list = replace<PropertyNameAndValueList, PropertyAssignment>();
     while (!match.lookahead("}") && match(",")) {
@@ -315,7 +315,7 @@ class Parser {
 
   bool property_assignment()
   {
-    trace("property_assignment");
+    trace();
     if (match.lookahead(":")) {
       if (!property_name()) return false;
       if (!match(":") || !assignment_expression()) syntax_error();
@@ -346,7 +346,7 @@ class Parser {
 
   bool property_name()
   {
-    trace("property_name");
+    trace();
     if (identifier_name()) {
       replace<PropertyName, Identifier>();
       return true;
@@ -365,13 +365,13 @@ class Parser {
 
   bool property_set_parameter_list()
   {
-    trace("property_set_parameter_list");
+    trace();
     return identifier();
   }
 
   bool member_expression()
   {
-    trace("member_expression");
+    trace();
     if (match("new")) {
       if (!member_expression()) return false;
       if (!arguments()) {
@@ -400,16 +400,13 @@ class Parser {
 
   bool new_expression()
   {
-    trace("new_expression");
+    trace();
     return member_expression();
   }
 
   bool call_expression()
   {
-    trace("call_expression");
-    // if (!last_match_is_a<MemberExpression>()
-    //     && !last_match_is_a<NewExpression>())
-    //   return false;
+    trace();
     if (!arguments()) return false;
     replace<CallExpression, Expression, Arguments>();
     while (true) {
@@ -432,7 +429,7 @@ class Parser {
 
   bool arguments()
   {
-    trace("arguments");
+    trace();
     if (!match("(")) return false;
     if (argument_list())
       replace<Arguments, ArgumentList>();
@@ -444,7 +441,7 @@ class Parser {
 
   bool argument_list()
   {
-    trace("argument_list");
+    trace();
     if (!assignment_expression()) return false;
     auto list = replace<ArgumentList, Expression>();
     while (match(",")) {
@@ -456,7 +453,7 @@ class Parser {
 
   bool left_hand_side_expression()
   {
-    trace("left_hand_side_expression");
+    trace();
     if (!new_expression()) return false;
     call_expression();
     return true;
@@ -464,7 +461,7 @@ class Parser {
 
   bool postfix_expression()
   {
-    trace("postfix_expression");
+    trace();
     if (!left_hand_side_expression()) return false;
     if (no_line_terminator_here()) {
       if (match("++") || match("--"))
@@ -475,7 +472,7 @@ class Parser {
 
   bool unary_expression()
   {
-    trace("unary_expression");
+    trace();
     if (match.any_of(
             "delete", "void", "typeof", "++", "--", "+", "-", "~", "!")) {
       auto expr = emplace<UnaryExpression>(*match);
@@ -488,7 +485,7 @@ class Parser {
 
   bool multiplicative_expression()
   {
-    trace("multiplicative_expression");
+    trace();
     if (!unary_expression()) return false;
     while (match.any_of("*", "/", "%")) {
       auto expr = replace<BinaryExpression, Expression>(*match);
@@ -500,7 +497,7 @@ class Parser {
 
   bool additive_expression()
   {
-    trace("additive_expression");
+    trace();
     if (!multiplicative_expression()) return false;
     while (match.any_of("+", "-")) {
       auto expr = emplace<BinaryExpression>(*match, pop<Expression>());
@@ -513,7 +510,7 @@ class Parser {
 
   bool shift_expression()
   {
-    trace("shift_expression");
+    trace();
     if (!additive_expression()) return false;
     while (match.any_of("<<", ">>", ">>>")) {
       auto expr = emplace<BinaryExpression>(match, pop<Expression>());
@@ -525,7 +522,7 @@ class Parser {
 
   bool relational_expression()
   {
-    trace("relational_expression");
+    trace();
     if (!shift_expression()) return false;
     while (match.any_of("<", ">", "<=", ">=", "instanceof", "in")) {
       auto expr = replace<BinaryExpression, Expression>(match);
@@ -537,7 +534,7 @@ class Parser {
 
   bool relational_expression_no_in()
   {
-    trace("relational_expression_no_in");
+    trace();
     if (!shift_expression()) return false;
     while (match.any_of("<", ">", "<=", ">=", "instanceof")) {
       auto expr = replace<BinaryExpression, Expression>(match);
@@ -549,7 +546,7 @@ class Parser {
 
   bool equality_expression()
   {
-    trace("equality_expression");
+    trace();
     if (!relational_expression()) return false;
     while (match.any_of("==", "!=", "===", "!==")) {
       auto expr = emplace<BinaryExpression>(match, pop<Expression>());
@@ -561,7 +558,7 @@ class Parser {
 
   bool equality_expression_no_in()
   {
-    trace("equality_expression_no_in");
+    trace();
     if (!relational_expression_no_in()) return false;
     while (match.any_of("==", "!=", "===", "!==")) {
       auto expr = emplace<BinaryExpression>(match, pop<Expression>());
@@ -573,7 +570,7 @@ class Parser {
 
   bool bitwise_and_expression()
   {
-    trace("bitwise_and_expression");
+    trace();
     if (!equality_expression()) return false;
     while (match("&")) {
       auto expr = emplace<BinaryExpression>(match, pop<Expression>());
@@ -585,7 +582,7 @@ class Parser {
 
   bool bitwise_and_expression_no_in()
   {
-    trace("bitwise_and_expression_no_in");
+    trace();
     if (!equality_expression_no_in()) return false;
     while (match("&")) {
       auto expr = emplace<BinaryExpression>(match, pop<Expression>());
@@ -597,7 +594,7 @@ class Parser {
 
   bool bitwise_xor_expression()
   {
-    trace("bitwise_xor_expression");
+    trace();
     if (!bitwise_and_expression()) return false;
     while (match("^")) {
       auto expr = emplace<BinaryExpression>(match, pop<Expression>());
@@ -609,7 +606,7 @@ class Parser {
 
   bool bitwise_xor_expression_no_in()
   {
-    trace("bitwise_xor_expression_no_in");
+    trace();
     if (!bitwise_and_expression_no_in()) return false;
     while (match("^")) {
       auto expr = emplace<BinaryExpression>(match, pop<Expression>());
@@ -621,7 +618,7 @@ class Parser {
 
   bool bitwise_or_expression()
   {
-    trace("bitwise_or_expression");
+    trace();
     if (!bitwise_xor_expression()) return false;
     while (match("|")) {
       auto expr = emplace<BinaryExpression>(match, pop<Expression>());
@@ -633,7 +630,7 @@ class Parser {
 
   bool bitwise_or_expression_no_in()
   {
-    trace("bitwise_or_expression_no_in");
+    trace();
     if (!bitwise_xor_expression_no_in()) return false;
     while (match("|")) {
       auto expr = emplace<BinaryExpression>(match, pop<Expression>());
@@ -645,7 +642,7 @@ class Parser {
 
   bool logical_and_expression()
   {
-    trace("logical_and_expression");
+    trace();
     if (!bitwise_or_expression()) return false;
     while (match("&&")) {
       auto expr = emplace<BinaryExpression>(match, pop<Expression>());
@@ -657,7 +654,7 @@ class Parser {
 
   bool logical_and_expression_no_in()
   {
-    trace("logical_and_expression_no_in");
+    trace();
     if (!bitwise_or_expression_no_in()) return false;
     while (match("&&")) {
       auto expr = emplace<BinaryExpression>(match, pop<Expression>());
@@ -669,7 +666,7 @@ class Parser {
 
   bool logical_or_expression()
   {
-    trace("logical_or_expression");
+    trace();
     if (!logical_and_expression()) return false;
     while (match("||")) {
       auto expr = emplace<BinaryExpression>(match, pop<Expression>());
@@ -681,7 +678,7 @@ class Parser {
 
   bool logical_or_expression_no_in()
   {
-    trace("logical_or_expression_no_in");
+    trace();
     if (!logical_and_expression_no_in()) return false;
     while (match("||")) {
       auto expr = emplace<BinaryExpression>(match, pop<Expression>());
@@ -693,7 +690,7 @@ class Parser {
 
   bool conditional_expression()
   {
-    trace("conditional_expression");
+    trace();
     if (!logical_or_expression()) return false;
     if (match("?")) {
       if (!assignment_expression() || !match(":") || !assignment_expression())
@@ -705,7 +702,7 @@ class Parser {
 
   bool conditional_expression_no_in()
   {
-    trace("conditional_expression_no_in");
+    trace();
     if (!logical_or_expression_no_in()) return false;
     if (match("?")) {
       if (!assignment_expression() || !match(":")
@@ -718,7 +715,7 @@ class Parser {
 
   bool assignment_operator()
   {
-    trace("assignment_operator");
+    trace();
     return match.any_of(
         "=",
         "*=", "/=", "%=", "+=", "-=", "<<=", ">>=", ">>>=", "&=", "^=", "|=");
@@ -726,7 +723,7 @@ class Parser {
 
   bool assignment_expression()
   {
-    trace("assignment_expression");
+    trace();
     if (!conditional_expression()) return false;
     if (assignment_operator()) {
       auto expr = emplace<AssignmentExpression>(match, pop<Expression>());
@@ -738,7 +735,7 @@ class Parser {
 
   bool assignment_expression_no_in()
   {
-    trace("assignment_expression_no_in");
+    trace();
     if (!conditional_expression_no_in()) return false;
     if (assignment_operator()) {
       auto expr = emplace<AssignmentExpression>(match, pop<Expression>());
@@ -750,7 +747,7 @@ class Parser {
 
   bool expression()
   {
-    trace("expression");
+    trace();
     if (!assignment_expression()) return false;
     while (match(",")) {
       auto expr = emplace<BinaryExpression>(match, pop<Expression>());
@@ -762,7 +759,7 @@ class Parser {
 
   bool expression_no_in()
   {
-    trace("expression_no_in");
+    trace();
     if (!assignment_expression_no_in()) return false;
     while (match(",")) {
       auto expr = emplace<BinaryExpression>(match, pop<Expression>());
@@ -775,7 +772,7 @@ class Parser {
   // A.4
   bool statement()
   {
-    trace("statement");
+    trace();
     return block() || variable_statement() || empty_statement()
            || expression_statement() || if_statement() || iteration_statement()
            || continue_statement() || break_statement() || return_statement()
@@ -785,7 +782,7 @@ class Parser {
 
   bool block()
   {
-    trace("block");
+    trace();
     if (!match("{")) return false;
     if (statement_list())
       replace<Block, StatementList>();
@@ -797,7 +794,7 @@ class Parser {
 
   bool statement_list()
   {
-    trace("statement_list");
+    trace();
     auto list = emplace<StatementList>();
     while (statement()) list->push_back(pop<Statement>());
     return true;
@@ -805,7 +802,7 @@ class Parser {
 
   bool variable_statement()
   {
-    trace("variable_statement");
+    trace();
     if (!match("var")) return false;
     if (!variable_declaration_list()) syntax_error();
     if (!automatic_semicolon_insertion()) syntax_error("Expected ;");
@@ -815,7 +812,7 @@ class Parser {
 
   bool variable_declaration_list()
   {
-    trace("variable_declaration_list");
+    trace();
     auto list = emplace<VariableDeclarationList>();
     if (variable_declaration()) {
       list->push_back(pop<VariableDeclaration>());
@@ -829,7 +826,7 @@ class Parser {
 
   bool variable_declaration_list_no_in()
   {
-    trace("variable_declaration_list_no_in");
+    trace();
     auto list = emplace<VariableDeclarationList>();
     if (variable_declaration_no_in()) {
       list->push_back(pop<VariableDeclaration>());
@@ -843,7 +840,7 @@ class Parser {
 
   bool variable_declaration()
   {
-    trace("variable_declaration");
+    trace();
     if (!identifier()) return false;
     auto id = pop<Identifier>();
     if (initializer())
@@ -855,7 +852,7 @@ class Parser {
 
   bool variable_declaration_no_in()
   {
-    trace("variable_declaration_no_in");
+    trace();
     if (!identifier()) return false;
     auto id = pop<Identifier>();
     if (initializer_no_in())
@@ -867,19 +864,19 @@ class Parser {
 
   bool initializer()
   {
-    trace("initializer");
+    trace();
     return match("=") && (assignment_expression() || syntax_error());
   }
 
   bool initializer_no_in()
   {
-    trace("initializer_no_in");
+    trace();
     return match("=") && assignment_expression_no_in();
   }
 
   bool empty_statement()
   {
-    trace("empty_statement");
+    trace();
     if (!match(";")) return false;
     emplace<EmptyStatement>();
     return true;
@@ -887,7 +884,7 @@ class Parser {
 
   bool expression_statement()
   {
-    trace("expression_statement");
+    trace();
     if (match.peek("{") || match.peek("function") || match.lookahead(":")
         || !expression())
       return false;
@@ -898,7 +895,7 @@ class Parser {
 
   bool if_statement()
   {
-    trace("if_statement");
+    trace();
     if (!match("if")) return false;
     if (!match("(") || !expression() || !match(")") || !statement())
       syntax_error();
@@ -915,14 +912,14 @@ class Parser {
 
   bool iteration_statement()
   {
-    trace("iteration_statement");
+    trace();
     return do_while_statement() || while_statement() || for_statement()
            || for_in_statement();
   }
 
   bool do_while_statement()
   {
-    trace("do_while_statement");
+    trace();
     if (!match("do")) return false;
     if (!statement() || !match("while") || !match("(") || !expression()
         || !match(")")
@@ -934,7 +931,7 @@ class Parser {
 
   bool while_statement()
   {
-    trace("while_statement");
+    trace();
     if (!match("while")) return false;
     if (!match("(") || !expression() || !match(")") || !statement())
       syntax_error();
@@ -944,7 +941,7 @@ class Parser {
 
   bool for_statement()
   {
-    trace("for_statement");
+    trace();
     return match([this] {
       if (!match("for")) return false;
       if (!match("(")) syntax_error("Expected (");
@@ -978,7 +975,7 @@ class Parser {
 
   bool for_in_statement()
   {
-    trace("for_in_statement");
+    trace();
     return match([this] {
       if (!match("for")) return false;
       if (!match("(")) syntax_error("Expected (");
@@ -1000,7 +997,7 @@ class Parser {
 
   bool continue_statement()
   {
-    trace("continue_statement");
+    trace();
     if (!match("continue")) return false;
     auto label = (no_line_terminator_here() && identifier()) ? pop<Identifier>()
                                                              : nullptr;
@@ -1011,7 +1008,7 @@ class Parser {
 
   bool break_statement()
   {
-    trace("break_statement");
+    trace();
     if (!match("break")) return false;
     auto label = (no_line_terminator_here() && identifier()) ? pop<Identifier>()
                                                              : nullptr;
@@ -1023,7 +1020,7 @@ class Parser {
 
   bool return_statement()
   {
-    trace("return_statement");
+    trace();
     if (!match("return")) return false;
     auto expr = (no_line_terminator_here() && expression()) ? pop<Expression>()
                                                             : nullptr;
@@ -1034,7 +1031,7 @@ class Parser {
 
   bool with_statement()
   {
-    trace("with_statement");
+    trace();
     if (!match("with")) return false;
     if (!match("(") || !expression() || !match(")") || !statement())
       syntax_error();
@@ -1044,7 +1041,7 @@ class Parser {
 
   bool switch_statement()
   {
-    trace("switch_statement");
+    trace();
     if (!match("switch")) return false;
     if (!match("(") || !expression() || !match(")") || !case_block())
       syntax_error();
@@ -1054,7 +1051,7 @@ class Parser {
 
   bool case_block()
   {
-    trace("case_block");
+    trace();
     if (!match("{")) return false;
     auto list = emplace<CaseBlock>();
     while (case_clause()) list->push_back(pop<CaseClause>());
@@ -1068,7 +1065,7 @@ class Parser {
 
   bool case_clause()
   {
-    trace("case_clause");
+    trace();
     if (!match("case")) return false;
     if (!expression()) syntax_error();
     if (!match(":")) syntax_error("missing : after case label");
@@ -1081,7 +1078,7 @@ class Parser {
 
   bool default_clause()
   {
-    trace("default_clause");
+    trace();
     if (!match("default")) return false;
     if (!match(":")) syntax_error("missing : after case label");
     if (!statement_list()) syntax_error();
@@ -1091,7 +1088,7 @@ class Parser {
 
   bool labelled_statement()
   {
-    trace("labelled_statement");
+    trace();
     return match([this] {
       if (!identifier() || !match(":")) return false;
       if (!statement()) syntax_error();
@@ -1104,7 +1101,7 @@ class Parser {
 
   bool throw_statement()
   {
-    trace("throw_statement");
+    trace();
     if (!match("throw")) return false;
     if (!no_line_terminator_here() || !expression()
         || !automatic_semicolon_insertion())
@@ -1115,7 +1112,7 @@ class Parser {
 
   bool try_statement()
   {
-    trace("try_statement");
+    trace();
     if (!match("try")) return false;
     if (!block()) syntax_error();
     auto stmt = emplace<TryStatement>(pop<Block>());
@@ -1135,7 +1132,7 @@ class Parser {
 
   bool debugger_statement()
   {
-    trace("debugger_statement");
+    trace();
     if (!match("debugger")) return false;
     if (!automatic_semicolon_insertion()) syntax_error();
     emplace<DebuggerStatement>();
@@ -1145,7 +1142,7 @@ class Parser {
   // A.5
   bool function_declaration()
   {
-    trace("function_declaration");
+    trace();
     if (!match("function")) return false;
 
     if (!identifier() || !match("(") || !formal_parameter_list() || !match(")")
@@ -1160,7 +1157,7 @@ class Parser {
 
   bool function_expression()
   {
-    trace("function_expression");
+    trace();
     if (!match("function")) return false;
 
     auto id = identifier() ? pop<Identifier>() : nullptr;
@@ -1178,7 +1175,7 @@ class Parser {
 
   bool formal_parameter_list()
   {
-    trace("formal_parameter_list");
+    trace();
     auto list = emplace<FormalParameterList>();
     while (identifier()) {
       list->push_back(pop<Identifier>());
@@ -1189,7 +1186,7 @@ class Parser {
 
   bool function_body()
   {
-    trace("function_body");
+    trace();
     if (source_elements())
       emplace<FunctionBody>(pop<SourceElements>());
     else
@@ -1199,7 +1196,7 @@ class Parser {
 
   bool program()
   {
-    trace("program");
+    trace();
     if (source_elements())
       replace<ProgramDeclaration, SourceElements>();
     else
@@ -1209,7 +1206,7 @@ class Parser {
 
   bool source_elements()
   {
-    trace("source_elements");
+    trace();
     auto list = emplace<SourceElements>();
     while (source_element()) list->push_back(pop<SourceElement>());
     return true;
@@ -1217,7 +1214,7 @@ class Parser {
 
   bool source_element()
   {
-    trace("source_element");
+    trace();
     return statement() || function_declaration();
   }
 
@@ -1231,7 +1228,7 @@ public:
 
   Program parse()
   {
-    trace("parse");
+    trace();
     if (!program()) syntax_error();
     return {storage, pop<ProgramDeclaration>()};
   }

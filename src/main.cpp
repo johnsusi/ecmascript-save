@@ -1,31 +1,67 @@
+#include "ast_visitor.h"
 #include "eval.h"
-#include "lexer.h"
-#include "parser.h"
+#include "eval_visitor.h"
+#include "filesystem.h"
+#include "json_visitor.h"
+#include "trace.h"
 #include "util.h"
 
-#include "ast_visitor.h"
-#include "eval_visitor.h"
-#include "json_visitor.h"
-
-#include <algorithm>
 #include <iostream>
-#include <iterator>
 #include <string>
 #include <vector>
 
-#include <boost/filesystem.hpp>
 #include <boost/program_options.hpp>
 
 using namespace std::literals::string_literals;
 
-namespace fs = boost::filesystem;
-namespace po = boost::program_options;
+constexpr auto usage = R"(
+  Usage:
 
-template <class T>
-std::ostream& operator<<(std::ostream& os, const std::vector<T>& v)
+    ECMAScript [options] file1 file2...
+    ECMAScript [options] -e script
+
+  Options:
+
+    -h [ --help      ]             Print this message
+    -v [ --verbose   ]             Be verbose
+    -e [ --eval      ] <source>    Execute <source>
+    -p [ --print-ast ]             Pretty print the resulting AST
+    -l [ --lex       ]             Only perform lexing on the input
+    -j [ --json      ]             Print AST as JSON (implies -p)
+)";
+
+auto parse_command_line(int argc, const char** argv)
 {
-  std::copy(v.begin(), v.end(), std::ostream_iterator<T>(os, " "));
-  return os;
+  using namespace std;
+  using namespace boost::program_options;
+
+  options_description desc("Options");
+
+  desc.add_options()("help,h", "print usage message");
+  desc.add_options()("verbose,v", "be verbose");
+  desc.add_options()("eval,e", value<string>(), "string");
+  desc.add_options()("ast,p", "print AST to stdout");
+  desc.add_options()("lex,l", "Perform lexing only");
+  desc.add_options()("json,j", "Prist AST as JSON (implies -p)");
+
+  options_description hidden("Hidden options");
+  hidden.add_options()("input-file", value<vector<string>>(), "input file");
+
+  options_description cmdline_options;
+  cmdline_options.add(desc).add(hidden);
+
+  positional_options_description p;
+  p.add("input-file", -1);
+
+  variables_map vm;
+  store(
+      command_line_parser(argc, argv)
+          .options(cmdline_options)
+          .positional(p)
+          .run(),
+      vm);
+  notify(vm);
+  return vm;
 }
 
 int main(int argc, const char** argv)
@@ -34,50 +70,10 @@ int main(int argc, const char** argv)
 
   try {
 
-    const auto usage = left_align_text(
-        R"(
-        Usage:
+    auto vm = parse_command_line(argc, argv);
 
-          ECMAScript [options] file1 file2...
-          ECMAScript [options] -e script
-
-        Options:
-
-          -h [ --help      ]             Print this message
-          -v [ --verbose   ]             Be verbose
-          -e [ --eval      ] <source>    Execute <source>
-          -p [ --print-ast ]             Pretty print the resulting AST
-          -l [ --lex       ]             Only perform lexing on the input
-          -j [ --json      ]             Print AST as JSON (implies -p)
-      )");
-
-    po::options_description desc("Options");
-
-    desc.add_options()("help,h", "print usage message");
-    desc.add_options()("verbose,v", "be verbose");
-    desc.add_options()("eval,e", po::value<string>(), "string");
-    desc.add_options()("ast,p", "print AST to stdout");
-    desc.add_options()("lex,l", "Perform lexing only");
-    desc.add_options()("json,j", "Prist AST as JSON (implies -p)");
-
-    po::options_description hidden("Hidden options");
-    hidden.add_options()("input-file", po::value<vector<string>>(),
-                         "input file");
-
-    po::options_description cmdline_options;
-    cmdline_options.add(desc).add(hidden);
-
-    po::positional_options_description p;
-    p.add("input-file", -1);
-
-    po::variables_map vm;
-    po::store(po::command_line_parser(argc, argv)
-                  .options(cmdline_options)
-                  .positional(p)
-                  .run(),
-              vm);
-    po::notify(vm);
     bool verbose = vm.count("verbose");
+    bool ast     = vm.count("json");
 
     auto run = [&](auto source) {
 
@@ -123,6 +119,9 @@ int main(int argc, const char** argv)
   }
   catch (const std::exception& err) {
     cerr << err.what() << endl;
+    for (auto line : stack_trace()) {
+      cerr << line << endl;
+    }
     return -1;
   }
   return 0;

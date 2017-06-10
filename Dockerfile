@@ -15,7 +15,17 @@ COPY . /usr/project
 
 RUN mkdir /build && \
     cd /build && \
-    cmake /usr/project -GNinja -DCMAKE_BUILD_TYPE=Release -DTESTING=NO -DSTATIC=YES -DRELEASE=YES && \
+    cmake /usr/project \
+        -GNinja \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DTESTING=NO \
+        -DSTATIC=YES \
+        -DLTO=YES \
+        -DCMAKE_AR="/usr/bin/gcc-ar" \
+        -DCMAKE_CXX_ARCHIVE_CREATE="<CMAKE_AR> qcs <TARGET> <LINK_FLAGS> <OBJECTS>" \
+        -DCMAKE_CXX_ARCHIVE_FINISH="true" \
+        && \
     ninja
+
 
 

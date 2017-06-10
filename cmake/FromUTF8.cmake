@@ -1,7 +1,7 @@
 include(CheckCXXSourceCompiles)
 
-set(CMAKE_REQUIRED_INCLUDES  "${ICU_INCLUDE_DIRS}")
-set(CMAKE_REQUIRED_LIBRARIES "${ICU_LIBRARIES}")
+# set(CMAKE_REQUIRED_INCLUDES  "${ICU_INCLUDE_DIRS}")
+# set(CMAKE_REQUIRED_LIBRARIES "${ICU_LIBRARIES}")
 
 check_cxx_source_compiles(
   "

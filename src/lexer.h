@@ -2,6 +2,7 @@
 #define ECMASCRIPT_LEXER_H
 
 #include "lexical_grammar.h"
+#include "trace.h"
 
 #include <algorithm>
 #include <iterator>
@@ -92,6 +93,7 @@ public:
 
   Tokens tokens() const
   {
+    trace();
     if (m_tokens || !grammar) return m_tokens;
     m_tokens.init();
     bool lt  = false;
@@ -129,12 +131,13 @@ public:
 template <typename T>
 bool BasicLexer<T>::reg_exp_allowed(const Token& token)
 {
-  return token.any_of("return", "new", "delete", "throw", "else", "case", "in",
-                      "instanceof", "typeof", "new", "void", "delete", "+", "-",
-                      "!", "~", "&", "|", "^", "*", "/", "%", ">>", "<<", ">>>",
-                      "<", ">", "<=", ">=", "==", "===", "!=", "!==", "?", "=",
-                      "+=", "-=", "/=", "*=", "%=", ">>=", "<<=", ">>>=", "|=",
-                      "^=", "&=", "&&", "||", "[", "{", "(", ",", ";", ":");
+  return token.any_of(
+      "return", "new", "delete", "throw", "else", "case", "in", "instanceof",
+      "typeof", "new", "void", "delete", "+", "-", "!", "~", "&", "|", "^", "*",
+      "/", "%", ">>", "<<", ">>>", "<", ">",
+      "<=", ">=", "==", "===", "!=", "!==", "?", "=", "+=", "-=", "/=", "*=",
+      "%=", ">>=", "<<=", ">>>=", "|=", "^=", "&=", "&&", "||", "[", "{", "(",
+      ",", ";", ":");
 }
 
 using Lexer = BasicLexer<char16_t>;
@@ -154,8 +157,9 @@ auto make_lexer(Cont&& cont)
 template <typename T>
 bool operator==(const BasicLexer<T>& lhs, const BasicLexer<T>& rhs)
 {
-  return std::equal(lhs.tokens().begin(), lhs.tokens().end(),
-                    rhs.tokens().begin(), rhs.tokens().end());
+  return std::equal(
+      lhs.tokens().begin(), lhs.tokens().end(), rhs.tokens().begin(),
+      rhs.tokens().end());
 }
 
 template <typename T>

@@ -4,6 +4,7 @@
 #include "input_element.h"
 #include "matcher.h"
 #include "token.h"
+#include "trace.h"
 
 #include <algorithm>
 #include <cmath>
@@ -60,7 +61,10 @@ public:
   {
   }
 
-  void syntax_error() { throw std::runtime_error("Syntax Error"); }
+  void syntax_error(const std::string& what = {})
+  {
+    throw std::runtime_error("Syntax Error: " + what);
+  }
   // Lexical Grammar
 
   // 6
@@ -72,6 +76,7 @@ public:
   // 7
   InputElement input_element_div()
   {
+    trace();
     auto match_start = match.mark();
     if (white_space()) return InputElement::white_space();
     if (line_terminator()) return InputElement::line_terminator();
@@ -86,6 +91,7 @@ public:
 
   InputElement input_element_reg_exp()
   {
+    trace();
     auto match_start = match.mark();
     if (white_space()) return InputElement::white_space();
     if (line_terminator()) return InputElement::line_terminator();
@@ -97,13 +103,22 @@ public:
   }
 
   // 7.2 White Space
-  bool white_space() { return match(is_white_space); }
+  bool white_space()
+  {
+    trace();
+    return match(is_white_space);
+  }
 
   // 7.3 Line Terminators
-  bool line_terminator() { return match(is_line_terminator); }
+  bool line_terminator()
+  {
+    trace();
+    return match(is_line_terminator);
+  }
 
   bool line_terminator_sequence()
   {
+    trace();
     return match([&](auto cp) {
       switch (cp) {
       case 0x000D: // Carriage Return <CR>
@@ -119,10 +134,15 @@ public:
   }
 
   // 7.4 Comments
-  bool comment() { return multi_line_comment() || single_line_comment(); }
+  bool comment()
+  {
+    trace();
+    return multi_line_comment() || single_line_comment();
+  }
 
   bool multi_line_comment()
   {
+    trace();
     return match([&] {
       return match('/') && match('*') && multi_line_comment_chars_opt()
              && match('*') && match('/');
@@ -131,6 +151,7 @@ public:
 
   bool multi_line_comment_chars()
   {
+    trace();
     if (multi_line_not_asterisk_char()) {
       multi_line_comment_chars();
       return true;
@@ -146,12 +167,14 @@ public:
 
   bool multi_line_comment_chars_opt()
   {
+    trace();
     multi_line_comment_chars();
     return true;
   }
 
   bool post_asterisk_comment_chars()
   {
+    trace();
     if (multi_line_not_forward_slash_or_asterisk_char()) {
       multi_line_comment_chars();
       return true;
@@ -166,16 +189,19 @@ public:
 
   bool multi_line_not_asterisk_char()
   {
+    trace();
     return (!match.peek('*') && source_character());
   }
 
   bool multi_line_not_forward_slash_or_asterisk_char()
   {
+    trace();
     return (!match.peek('/') && !match.peek('*') && source_character());
   }
 
   bool single_line_comment()
   {
+    trace();
     return match([this] {
       return match('/') && match('/') && single_line_comment_chars();
     });
@@ -183,6 +209,7 @@ public:
 
   bool single_line_comment_chars()
   {
+    trace();
     while (single_line_comment_char())
       ;
     return true;
@@ -190,12 +217,14 @@ public:
 
   bool single_line_comment_char()
   {
+    trace();
     return match([this] { return !line_terminator() && source_character(); });
   }
 
   // 7.5 Tokens
   bool token()
   {
+    trace();
     token_value = Token("null");
     auto i      = match.mark();
     sv          = {};
@@ -220,6 +249,7 @@ public:
 
   bool identifier_name()
   {
+    trace();
     if (identifier_start()) {
       while (identifier_part())
         ;
@@ -230,6 +260,7 @@ public:
 
   bool identifier_start()
   {
+    trace();
     if (unicode_letter() || match.any_of('$', '_')) {
       sv += *match;
       return true;
@@ -243,6 +274,7 @@ public:
 
   bool identifier_part()
   {
+    trace();
     if (identifier_start()) return true;
     if (unicode_combining_mark() || unicode_digit()
         || unicode_connector_punctuation()
@@ -254,25 +286,40 @@ public:
     return false;
   }
 
-  bool unicode_letter() { return match(is_unicode_letter); }
+  bool unicode_letter()
+  {
+    trace();
+    return match(is_unicode_letter);
+  }
 
-  bool unicode_combining_mark() { return match(is_unicode_combining_mark); }
+  bool unicode_combining_mark()
+  {
+    trace();
+    return match(is_unicode_combining_mark);
+  }
 
-  bool unicode_digit() { return match(is_unicode_digit); }
+  bool unicode_digit()
+  {
+    trace();
+    return match(is_unicode_digit);
+  }
 
   bool unicode_connector_punctuation()
   {
+    trace();
     return match(is_unicode_connector_punctuation);
   }
 
   bool reserved_word()
   {
+    trace();
     return keyword() || future_reserved_word() || null_literal()
            || boolean_literal();
   }
 
   bool keyword()
   {
+    trace();
     return match.any_of(
         "break", "case", "catch", "continue", "debugger", "default", "delete",
         "do", "else", "finally", "for", "function", "if", "in", "instanceof",
@@ -282,6 +329,7 @@ public:
 
   bool future_reserved_word()
   {
+    trace();
     return match.any_of(
         "class", "enum", "extends", "super", "const", "export", "import",
         "implements", "let", "private", "public", "interface", "package",
@@ -291,6 +339,7 @@ public:
   // 7.7
   bool punctuator()
   {
+    trace();
     if (match.peek('.') && match.lookahead(is_decimal_digit)) return false;
     return match.any_of(
         // Note: Must match longer strings first
@@ -300,11 +349,16 @@ public:
         ">", "<", "(", ")", "[", "]", "^", "{", "|", "}", "~");
   }
 
-  bool div_punctuator() { return match.any_of("/=", "/"); }
+  bool div_punctuator()
+  {
+    trace();
+    return match.any_of("/=", "/");
+  }
 
   // 7.8
   bool literal()
   {
+    trace();
     return null_literal() || boolean_literal() || numeric_literal()
            || string_literal() || regular_expression_literal();
   }
@@ -312,6 +366,7 @@ public:
   // 7.8.1
   bool null_literal()
   {
+    trace();
     if (match("null")) {
       token_value = Token(nullptr);
       return true;
@@ -322,6 +377,7 @@ public:
   // 7.8.2
   bool boolean_literal()
   {
+    trace();
     if (match("true")) {
       token_value = Token(true);
       return true;
@@ -338,6 +394,7 @@ public:
   double mv;
   bool   numeric_literal()
   {
+    trace();
     if (!hex_integer_literal() && !decimal_literal()) return false;
     if (identifier_start() || decimal_digit()) syntax_error();
     return true;
@@ -345,6 +402,7 @@ public:
 
   bool decimal_literal()
   {
+    trace();
     auto s0 = match.mark();
     if (match('.')) {
       if (!decimal_digits()) syntax_error();
@@ -390,6 +448,7 @@ public:
 
   bool decimal_integer_literal()
   {
+    trace();
     if (match('0')) {
       mv = 0;
       return true;
@@ -399,6 +458,7 @@ public:
 
   bool decimal_digits()
   {
+    trace();
     if (!decimal_digit()) return false;
     auto s = mv;
     while (decimal_digit()) {
@@ -410,6 +470,7 @@ public:
 
   bool decimal_digit()
   {
+    trace();
     return match([this](auto cp) {
       switch (cp) {
       case '0': mv = 0; return true;
@@ -429,6 +490,7 @@ public:
 
   bool exponent_part()
   {
+    trace();
     if (!exponent_indicator()) return false;
     if (!signed_integer()) syntax_error();
     return true;
@@ -436,11 +498,13 @@ public:
 
   bool exponent_indicator()
   {
+    trace();
     return match([](auto cp) { return cp == 'e' || cp == 'E'; });
   }
 
   bool signed_integer()
   {
+    trace();
 
     if (match("+")) {
       if (!decimal_digits()) syntax_error();
@@ -456,6 +520,7 @@ public:
 
   bool hex_integer_literal()
   {
+    trace();
     if (!match("0x") && !match("0X")) return false;
     if (!hex_digits()) syntax_error();
     return true;
@@ -463,6 +528,7 @@ public:
 
   bool hex_digits()
   {
+    trace();
     if (!hex_digit()) return false;
     long s = mv;
     while (hex_digit()) {
@@ -474,6 +540,7 @@ public:
 
   bool hex_digit()
   {
+    trace();
     return match([this](auto cp) {
       switch (cp) {
       case '0': mv = 0; return true;
@@ -510,16 +577,17 @@ public:
 
   bool string_literal()
   {
+    trace();
     if (match('"')) {
       sv = {};
       double_string_characters();
-      if (!match('"')) syntax_error();
+      if (!match('"')) syntax_error("Expected \"");
       return true;
     }
     else if (match('\'')) {
       sv = {};
       single_string_characters();
-      if (!match('\'')) syntax_error();
+      if (!match('\'')) syntax_error("Expected '");
       return true;
     }
     else
@@ -528,16 +596,19 @@ public:
 
   void double_string_characters()
   {
+    trace();
     while (double_string_character()) sv += cv;
   }
 
   void single_string_characters()
   {
+    trace();
     while (single_string_character()) sv += cv;
   }
 
   bool double_string_character()
   {
+    trace();
     return match([&](auto cp) {
       switch (cp) {
       case '"': return false;
@@ -554,6 +625,7 @@ public:
 
   bool single_string_character()
   {
+    trace();
     return match([&](auto cp) {
       switch (cp) {
       case '\'': return false;
@@ -570,6 +642,7 @@ public:
 
   bool escape_sequence()
   {
+    trace();
     if (!match.lookahead(is_decimal_digit) && match('0')) {
       // The CV of EscapeSequence :: 0 [lookahead ∉ DecimalDigit] is a <NUL>
       // character (Unicode value 0000).
@@ -582,11 +655,13 @@ public:
 
   bool character_escape_sequence()
   {
+    trace();
     return single_escape_character() || non_escape_character();
   }
 
   static bool is_single_escape_character(int cp)
   {
+    trace();
     switch (cp) {
     case 'b': return true;
     case 't': return true;
@@ -603,6 +678,7 @@ public:
 
   bool single_escape_character()
   {
+    trace();
     return match([this](auto cp) {
       switch (cp) {
       case 'b': cv  = u'\u0008'; return true;
@@ -621,6 +697,7 @@ public:
 
   static bool is_escape_character(int cp)
   {
+    trace();
     switch (cp) {
     case 'b': return true;
     case 't': return true;
@@ -649,6 +726,7 @@ public:
 
   bool non_escape_character()
   {
+    trace();
     if (match.peek(is_escape_character) || match.peek(is_line_terminator)
         || !source_character())
       return false;
@@ -662,6 +740,7 @@ public:
 
   bool hex_escape_sequence()
   {
+    trace();
     return match([this] {
       if (!match('x')) return false;
       if (!hex_digit()) return false;
@@ -674,6 +753,7 @@ public:
 
   bool unicode_escape_sequence()
   {
+    trace();
     return match([this] {
       if (!match('u')) return false;
       if (!hex_digit()) return false;
@@ -691,6 +771,7 @@ public:
   // 7.8.5
   bool regular_expression_literal()
   {
+    trace();
     auto m = match.mark();
     if (!match('/')) return false;
     if (!regular_expression_body() || !match('/')
@@ -704,11 +785,13 @@ public:
 
   bool regular_expression_body()
   {
+    trace();
     return regular_expression_first_char() && regular_expression_chars();
   }
 
   bool regular_expression_chars()
   {
+    trace();
     while (regular_expression_char())
       ;
     return true;
@@ -716,6 +799,7 @@ public:
 
   bool regular_expression_first_char()
   {
+    trace();
     return match.any_of(
         [this] {
           return !match.any_of('*', '\\', '/', '[')
@@ -727,6 +811,7 @@ public:
 
   bool regular_expression_char()
   {
+    trace();
     return match.any_of(
         [this] {
           return !match.any_of('\\', '/', '[')
@@ -738,17 +823,20 @@ public:
 
   bool regular_expression_backslash_sequence()
   {
+    trace();
     return match(
         [this] { return match('\\') && regular_expression_non_terminator(); });
   }
 
   bool regular_expression_non_terminator()
   {
+    trace();
     return match([this] { return !line_terminator() && source_character(); });
   }
 
   bool regular_expression_class()
   {
+    trace();
     return match([this] {
       return match('[') && regular_expression_class_chars() && match(']');
     });
@@ -756,6 +844,7 @@ public:
 
   bool regular_expression_class_chars()
   {
+    trace();
     while (regular_expression_class_char())
       ;
     return true;
@@ -763,6 +852,7 @@ public:
 
   bool regular_expression_class_char()
   {
+    trace();
     return match.any_of(
         [this] {
           return !match.any_of(']', '\\')
@@ -773,6 +863,7 @@ public:
 
   bool regular_expression_flags()
   {
+    trace();
     while (identifier_part())
       ;
     return true;

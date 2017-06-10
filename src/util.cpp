@@ -1,4 +1,5 @@
 #include "util.h"
+#include "config.h"
 
 #include <algorithm>
 #include <fstream>
@@ -54,8 +55,8 @@ std::string convert_utf16_to_utf8(const std::u16string& source)
   return result;
 }
 
-#ifndef HAVE_FROM_UTF8
-UnicodeString icu::UnicodeString::fromUTF8(StringPiece utf8)
+#ifndef HAVE_ICU_FROM_UTF8
+icu::UnicodeString icu::UnicodeString::fromUTF8(icu::StringPiece utf8)
 {
   int32_t    destLength;
   UErrorCode err = U_ZERO_ERROR;

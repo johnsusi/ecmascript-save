@@ -11,14 +11,14 @@ endif ()
 
 option(LTO     "Enable Link-Time-Optimization"       OFF)
 option(PGO     "Enable Profile-Guided-Optimization"  OFF)
-option(RELEASE "Enable release build"                OFF)
 option(STATIC  "Avoid dynamic libraries if possible" OFF)
 option(TESTING "Enable testing"                      OFF)
 option(BUILD_SHARED_LIBS "Generate shared library instead of static"   OFF)
 
 include(Cxx14Support)
 include(ColorDiagnostics)
-include(EnableVisibilityHidden)
+# include(EnableVisibilityHidden)
+include(Prepend)
 
 if (LTO)
   include(EnableLTO)
@@ -32,10 +32,6 @@ if (STATIC)
     set(CMAKE_EXE_LINKER_FLAGS "-static")
     list(APPEND EXTRA_LIBRARIES "-lpthread")
   endif()
-endif ()
-
-if (RELEASE)
-  add_definitions(-DECMASCRIPT_RELEASE)
 endif ()
 
 if (APPLE)
@@ -53,11 +49,6 @@ if (STATIC AND APPLE)
   add_definitions(-DU_DISABLE_RENAMING)
 endif()
 
-include(CheckOptional)
-include(checkVariant)
-
-configure_file(src/config.h.in config.h @ONLY)
-
 include_directories(
   ${CMAKE_CURRENT_BINARY_DIR}
   vendor/Catch/include
@@ -67,9 +58,21 @@ include_directories(
   ${ICU_INCLUDE_DIRS}
 )
 
-include(FromUTF8)
-
 add_definitions(-DIEEE_8087)
+
+get_directory_property(CMAKE_REQUIRED_INCLUDES INCLUDE_DIRECTORIES)
+get_directory_property(_CMAKE_REQUIRED_DEFINITIONS COMPILE_DEFINITIONS)
+prepend(CMAKE_REQUIRED_DEFINITIONS -D ${_CMAKE_REQUIRED_DEFINITIONS})
+
+set(CMAKE_REQUIRED_FLAGS "-std=c++14")
+set(CMAKE_REQUIRED_LIBRARIES "${Boost_LIBRARIES};${ICU_LIBRARIES};${EXTRA_LIBRARIES}")
+
+include(CheckFilesystem)
+include(CheckICU)
+include(CheckOptional)
+include(CheckVariant)
+
+configure_file(src/config.h.in config.h @ONLY)
 
 if (TESTING)
 
@@ -122,8 +125,8 @@ endif ()
 
 add_library(ecmascript ${SOURCES})
 
-include(GenerateExportHeader)
-generate_export_header(ecmascript)
+# include(GenerateExportHeader)
+# generate_export_header(ecmascript)
 
 add_executable(ECMAScript src/main.cpp)
 

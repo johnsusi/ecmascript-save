@@ -1,7 +1,5 @@
 include(CheckCXXSourceCompiles)
 
-set(CMAKE_REQUIRED_FLAGS "-std=c++14")
-
 check_cxx_source_compiles(
   "
     #include <optional>
@@ -13,8 +11,6 @@ check_cxx_source_compiles(
   "
   HAVE_STD_OPTIONAL
 )
-
-set(CMAKE_REQUIRED_FLAGS "-std=c++14")
 
 check_cxx_source_compiles(
   "
@@ -28,11 +24,6 @@ check_cxx_source_compiles(
   HAVE_STD_EXPERIMENTAL_OPTIONAL
 )
 
-
-set(CMAKE_REQUIRED_FLAGS "-std=c++14")
-set(CMAKE_REQUIRED_INCLUDES  "${Boost_INCLUDE_DIRS}")
-set(CMAKE_REQUIRED_LIBRARIES "${Boost_LIBRARIES}")
-
 check_cxx_source_compiles(
   "
     #include <boost/optional.hpp>
@@ -44,7 +35,3 @@ check_cxx_source_compiles(
   "
   HAVE_BOOST_OPTIONAL
 )
-
-unset(CMAKE_REQUIRED_FLAGS)
-unset(CMAKE_REQUIRED_INCLUDES)
-unset(CMAKE_REQUIRED_LIBRARIES)
