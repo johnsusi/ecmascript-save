@@ -1,0 +1,7 @@
+function(prepend var prefix)
+   set(listVar "")
+   foreach(f ${ARGN})
+      LIST(APPEND listVar "${prefix}${f}")
+   endforeach(f)
+   set(${var} "${listVar}" PARENT_SCOPE)
+endfunction()
