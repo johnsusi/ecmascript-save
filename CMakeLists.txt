@@ -10,12 +10,15 @@ if (CMAKE_VERSION VERSION_LESS 3.7)
 endif ()
 
 option(LTO     "Enable Link-Time-Optimization"       OFF)
+option(PGO     "Enable Profile-Guided-Optimization"  OFF)
 option(RELEASE "Enable release build"                OFF)
 option(STATIC  "Avoid dynamic libraries if possible" OFF)
 option(TESTING "Enable testing"                      OFF)
+option(BUILD_SHARED_LIBS "Generate shared library instead of static"   OFF)
 
 include(Cxx14Support)
 include(ColorDiagnostics)
+include(EnableVisibilityHidden)
 
 if (LTO)
   include(EnableLTO)
@@ -23,6 +26,12 @@ endif ()
 
 if (STATIC)
   set(Boost_USE_STATIC_LIBS ON)
+  if(${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
+    set(CMAKE_FIND_LIBRARY_SUFFIXES ".a")
+    set(BUILD_SHARED_LIBRARIES OFF)
+    set(CMAKE_EXE_LINKER_FLAGS "-static")
+    list(APPEND EXTRA_LIBRARIES "-lpthread")
+  endif()
 endif ()
 
 if (RELEASE)
@@ -40,12 +49,12 @@ find_package(Boost REQUIRED COMPONENTS filesystem program_options)
 find_package(ICU   REQUIRED COMPONENTS uc)
 
 if (STATIC AND APPLE)
-  message("Linking to icucore")
   set(ICU_LIBRARIES icucore)
   add_definitions(-DU_DISABLE_RENAMING)
 endif()
 
 include_directories(
+  ${CMAKE_CURRENT_BINARY_DIR}
   vendor/Catch/include
   vendor/GSL/include
   vendor/variant/include
@@ -63,16 +72,26 @@ if (TESTING)
     src/ast.cpp
     src/eval.cpp
     src/input_element.cpp
+    src/json.cpp
     src/lexer.cpp
     src/logger.cpp
     src/matcher.cpp
     src/parser.cpp
-    src/to_string.cpp
+    src/runtime.cpp
     src/token.cpp
     src/trace.cpp
     src/util.cpp
+    src/type.cpp
     src/visitor.cpp
     src/dtoa.c
+
+    src/types/undefined.cpp
+    src/types/null.cpp
+    src/types/boolean.cpp
+    src/types/number.cpp
+    src/types/string.cpp
+    src/types/object.cpp
+
   )
 
   include(WarningsAsErrors)
@@ -96,8 +115,16 @@ else ()
 
 endif ()
 
-add_executable(${PROJECT_NAME} src/main.cpp ${SOURCES})
+add_library(ecmascript ${SOURCES})
 
-target_link_libraries(${PROJECT_NAME} ${Boost_LIBRARIES} ${ICU_LIBRARIES})
+include(GenerateExportHeader)
+generate_export_header(ecmascript)
 
-set_property(TARGET ${PROJECT_NAME} PROPERTY INTERPROCEDURAL_OPTIMIZATION 1)
+add_executable(ECMAScript src/main.cpp)
+
+target_link_libraries(ECMAScript
+  ecmascript
+  ${Boost_LIBRARIES}
+  ${ICU_LIBRARIES}
+  ${EXTRA_LIBRARIES}
+)

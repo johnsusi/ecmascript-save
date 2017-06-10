@@ -4,3 +4,6 @@
 [submodule "vendor/Catch"]
 	path = vendor/Catch
 	url = https://github.com/philsquared/Catch.git
+[submodule "vendor/octane"]
+	path = vendor/octane
+	url = https://github.com/chromium/octane.git

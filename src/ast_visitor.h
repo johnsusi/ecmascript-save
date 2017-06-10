@@ -88,7 +88,7 @@ class SimplifiedYAMLVisitor : public BasicVisitor {
 
   void operator()(const StringLiteral& literal) override
   {
-    buf << quote << literal.value;
+    // buf << quote << static_cast<std::string>(literal.value);
   }
 
   void operator()(const PostfixExpression& expr) override

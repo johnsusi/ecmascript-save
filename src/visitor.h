@@ -1,6 +1,8 @@
 #ifndef ECMASCRIPT_VISITOR_H
 #define ECMASCRIPT_VISITOR_H
 
+#include <memory>
+
 struct Expression;
 struct This;
 struct Identifier;

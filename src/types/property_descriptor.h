@@ -1,0 +1,7 @@
+#ifndef ECMASCRIPT_TYPES_PROPERTY_DESCRIPTOR_H
+#define ECMASCRIPT_TYPES_PROPERTY_DESCRIPTOR_H
+
+struct PropertyDescriptor {
+};
+
+#endif

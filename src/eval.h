@@ -1,6 +1,7 @@
 #ifndef ECMASCRIPT_EVAL_H
 #define ECMASCRIPT_EVAL_H
 
+#include "ecmascript_export.h"
 #include "visitor.h"
 
 #include <string>

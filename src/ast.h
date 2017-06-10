@@ -3,15 +3,15 @@
 
 #include "visitor.h"
 
+#include "types/boolean.h"
+#include "types/number.h"
+#include "types/string.h"
+
 #include <cmath>
 #include <iostream>
 #include <memory>
-// #include <sstream>
 #include <string>
 #include <vector>
-
-// #include <boost/optional.hpp>
-// #include <boost/variant.hpp>
 
 struct Node {
   virtual ~Node() {}
@@ -60,24 +60,20 @@ struct NullLiteral : Literal {
   const char*          type() const override { return "NullLiteral"; }
 };
 struct BooleanLiteral : Literal {
-  bool value;
-  BooleanLiteral(bool value) : value(value) {}
+  Boolean value;
+  BooleanLiteral(Boolean value) : value(value) {}
   void accept(Visitor& visitor) const override { return visitor(*this); }
   const char*          type() const override { return "BooleanLiteral"; }
 };
 struct NumericLiteral : Literal {
-  double value;
+  Number value;
   NumericLiteral(double value) : value(value) {}
   void accept(Visitor& visitor) const override { return visitor(*this); }
   const char*          type() const override { return "NumericLiteral"; }
-  bool                 infinite() const { return std::isinf(value); }
-  bool                 nan() const { return std::isnan(value); }
 };
 struct StringLiteral : Literal {
-  std::u16string value;
-  StringLiteral(std::u16string value) : value(value) {}
-  StringLiteral(const std::string& value) : value(value.begin(), value.end()) {}
-  std::string to_string() const { return {value.begin(), value.end()}; }
+  String value;
+  StringLiteral(String value) : value(std::move(value)) {}
   void accept(Visitor& visitor) const override { return visitor(*this); }
   const char*          type() const override { return "StringLiteral"; }
 };
@@ -168,8 +164,8 @@ struct PropertyAssignment : Expression {
       : kind(Kind::GET), name(name), body(body)
   {
   }
-  PropertyAssignment(PropertyName* name, Identifier* parameter,
-                     FunctionBody* body)
+  PropertyAssignment(
+      PropertyName* name, Identifier* parameter, FunctionBody* body)
       : kind(Kind::SET), name(name), body(body), parameter(parameter)
   {
   }
@@ -291,8 +287,8 @@ struct BinaryExpression : Expression {
   std::string op;
   Expression* lhs;
   Expression* rhs;
-  BinaryExpression(std::string op, Expression* lhs = nullptr,
-                   Expression* rhs = nullptr)
+  BinaryExpression(
+      std::string op, Expression* lhs = nullptr, Expression* rhs = nullptr)
       : op(op), lhs(lhs), rhs(rhs)
   {
   }
@@ -304,8 +300,8 @@ struct ConditionalExpression : Expression {
   Expression* test;
   Expression* consequent;
   Expression* alternate;
-  ConditionalExpression(Expression* test, Expression* consequent,
-                        Expression* alternate)
+  ConditionalExpression(
+      Expression* test, Expression* consequent, Expression* alternate)
       : test(test), consequent(consequent), alternate(alternate)
   {
   }
@@ -314,8 +310,8 @@ struct ConditionalExpression : Expression {
 };
 
 struct AssignmentExpression : BinaryExpression {
-  AssignmentExpression(std::string op, Expression* lhs = nullptr,
-                       Expression* rhs = nullptr)
+  AssignmentExpression(
+      std::string op, Expression* lhs = nullptr, Expression* rhs = nullptr)
       : BinaryExpression(op, lhs, rhs)
   {
   }
@@ -391,8 +387,8 @@ struct IfStatement : Statement {
   Expression* test;
   Statement*  consequent;
   Statement*  alternate;
-  IfStatement(Expression* test, Statement* consequent,
-              Statement* alternate = nullptr)
+  IfStatement(
+      Expression* test, Statement* consequent, Statement* alternate = nullptr)
       : test(test), consequent(consequent), alternate(alternate)
   {
   }
@@ -423,13 +419,15 @@ struct ForStatement : Statement {
   Expression* test;
   Expression* update;
   Statement*  body;
-  ForStatement(VariableDeclarationList* init, Expression* test = nullptr,
-               Expression* update = nullptr, Statement* body = nullptr)
+  ForStatement(
+      VariableDeclarationList* init, Expression* test = nullptr,
+      Expression* update = nullptr, Statement* body = nullptr)
       : init(init), test(test), update(update), body(body)
   {
   }
-  ForStatement(Expression* init = nullptr, Expression* test = nullptr,
-               Expression* update = nullptr, Statement* body = nullptr)
+  ForStatement(
+      Expression* init = nullptr, Expression* test = nullptr,
+      Expression* update = nullptr, Statement* body = nullptr)
       : init(init), test(test), update(update), body(body)
   {
   }
@@ -442,13 +440,15 @@ struct ForInStatement : Statement {
   Expression*          left;
   Expression*          right;
   Statement*           body;
-  ForInStatement(LeftHandSideExpression* left, Expression* right = nullptr,
-                 Statement* body = nullptr)
+  ForInStatement(
+      LeftHandSideExpression* left, Expression* right = nullptr,
+      Statement* body = nullptr)
       : decl(nullptr), left(left), right(right), body(body)
   {
   }
-  ForInStatement(VariableDeclaration* decl, Expression* right = nullptr,
-                 Statement* body = nullptr)
+  ForInStatement(
+      VariableDeclaration* decl, Expression* right = nullptr,
+      Statement* body = nullptr)
       : decl(decl), left(nullptr), right(right), body(body)
   {
   }
@@ -545,8 +545,9 @@ struct TryStatement : Statement {
   Identifier* binding;
   Block*      handler;
   Block*      finalizer;
-  TryStatement(Block* block, Identifier* binding = nullptr,
-               Block* handler = nullptr, Block* finalizer = nullptr)
+  TryStatement(
+      Block* block, Identifier* binding = nullptr, Block* handler = nullptr,
+      Block* finalizer = nullptr)
       : block(block), binding(binding), handler(handler), finalizer(finalizer)
   {
   }
@@ -589,8 +590,8 @@ struct FunctionDeclaration : SourceElement {
   Identifier*          id;
   FormalParameterList* params;
   FunctionBody*        body;
-  FunctionDeclaration(Identifier* id, FormalParameterList* params,
-                      FunctionBody* body)
+  FunctionDeclaration(
+      Identifier* id, FormalParameterList* params, FunctionBody* body)
       : id(id), params(params), body(body)
   {
   }
@@ -602,8 +603,8 @@ struct FunctionExpression : Expression {
   Identifier*          id;
   FormalParameterList* params;
   FunctionBody*        body;
-  FunctionExpression(Identifier* id, FormalParameterList* params,
-                     FunctionBody* body)
+  FunctionExpression(
+      Identifier* id, FormalParameterList* params, FunctionBody* body)
       : id(id), params(params), body(body)
   {
   }
