@@ -2,6 +2,7 @@
 #define ECMASCRIPT_EVAL_VISITOR_H
 
 #include "basic_visitor.h"
+#include "optional.h"
 #include "runtime.h"
 
 #include <memory>
@@ -15,12 +16,44 @@
 //   Type                ThisBinding();
 // };
 
+struct Completion {
+  enum class Type { NORMAL, BREAK, CONTINUE, RETURN, THROW } type;
+  optional<Type>       value;
+  optional<Identifier> target;
+};
+
 struct LexicalEnvironment;
 
 struct ExecutionContext {
   LexicalEnvironment* LexicalEnvironemnt;
   LexicalEnvironment* VariableEnvironment;
   Type                ThisBinding;
+};
+
+struct EvalExpressionVisitor : public BasicVisitor {
+  std::vector<Type> stack;
+
+  void operator()(const BinaryExpression& expr) override
+  {
+    std::cout << expr.op << "\n";
+    apply(expr.lhs);
+    apply(expr.rhs);
+
+    auto rhs = stack.back();
+    stack.pop_back();
+    auto lhs = stack.back();
+    stack.pop_back();
+
+    if (expr.op == "+") {
+      Number result = ToNumber(lhs) + ToNumber(rhs);
+      stack.push_back(result);
+    }
+  }
+
+  void operator()(const NumericLiteral& literal) override
+  {
+    stack.push_back(literal.value);
+  }
 };
 
 class EvalVisitor : public BasicVisitor {
@@ -55,6 +88,16 @@ public:
     std::cout << "Entering global code\n";
     // stack.push_back(new ExecutionContext(
     //     GlobalEnironment.get(), GlobalEnvironment.get(), GlobalObject));
+    apply(program.body);
+    // for (auto stmt : *program.body->body) std::cout << "stmt\n";
+  }
+
+  void operator()(const ExpressionStatement& stmt) override
+  {
+
+    EvalExpressionVisitor v;
+    v.apply(stmt.expression);
+    std::cout << ToNumber(v.stack.back()) << std::endl;
   }
 };
 
