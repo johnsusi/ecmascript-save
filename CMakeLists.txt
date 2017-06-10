@@ -53,6 +53,11 @@ if (STATIC AND APPLE)
   add_definitions(-DU_DISABLE_RENAMING)
 endif()
 
+include(CheckOptional)
+include(checkVariant)
+
+configure_file(src/config.h.in config.h @ONLY)
+
 include_directories(
   ${CMAKE_CURRENT_BINARY_DIR}
   vendor/Catch/include
