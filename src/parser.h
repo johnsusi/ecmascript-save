@@ -32,18 +32,20 @@ class Parser {
   {
     auto debug_info = match.done() ? nullptr : match.matching()->debug_info;
     auto loc        = debug_info ? debug_info->loc() : "";
-    throw SyntaxError("InternalCompilerError: " + loc + what + "\n"
-                      + (debug_info ? debug_info->syntax_error_at() : "")
-                      + stack_trace());
+    throw SyntaxError(
+        "InternalCompilerError: " + loc + what + "\n"
+        + (debug_info ? debug_info->syntax_error_at() : "")
+        + stack_trace());
   }
 
   [[noreturn]] bool syntax_error(std::string what = {})
   {
     auto debug_info = match.done() ? nullptr : match.matching()->debug_info;
 
-    throw SyntaxError("SyntaxError: " + what + "\n"
-                      + (debug_info ? debug_info->syntax_error_at() : "")
-                      + stack_trace());
+    throw SyntaxError(
+        "SyntaxError: " + what + "\n"
+        + (debug_info ? debug_info->syntax_error_at() : "")
+        + stack_trace());
   }
 
   template <typename F>
@@ -78,8 +80,8 @@ class Parser {
       return value;
     }
     else
-      logic_error("Expected " + demangle<T>() + ", got "
-                  + stack.back()->type());
+      logic_error(
+          "Expected " + demangle<T>() + ", got " + stack.back()->type());
   }
 
   template <typename T, std::size_t I>
@@ -90,8 +92,8 @@ class Parser {
       return value;
     }
     else
-      logic_error("Expected " + demangle<T>() + ", got "
-                  + stack.back()->type());
+      logic_error(
+          "Expected " + demangle<T>() + ", got " + stack.back()->type());
   }
 
   template <typename T, typename... Ts, typename... Args>
@@ -227,7 +229,6 @@ class Parser {
     }
     else if (literal()) {
       replace<LiteralExpression, Literal>();
-      return true;
     }
     else if (array_literal()) {
       replace<ArrayExpression, ArrayLiteral>();
@@ -475,8 +476,8 @@ class Parser {
   bool unary_expression()
   {
     trace("unary_expression");
-    if (match.any_of("delete", "void", "typeof", "++", "--", "+", "-", "~",
-                     "!")) {
+    if (match.any_of(
+            "delete", "void", "typeof", "++", "--", "+", "-", "~", "!")) {
       auto expr = emplace<UnaryExpression>(*match);
       if (!unary_expression()) syntax_error("Expected UnaryExpression");
       expr->rhs = pop<Expression>();
@@ -718,8 +719,9 @@ class Parser {
   bool assignment_operator()
   {
     trace("assignment_operator");
-    return match.any_of("=", "*=", "/=", "%=", "+=", "-=", "<<=", ">>=", ">>>=",
-                        "&=", "^=", "|=");
+    return match.any_of(
+        "=",
+        "*=", "/=", "%=", "+=", "-=", "<<=", ">>=", ">>>=", "&=", "^=", "|=");
   }
 
   bool assignment_expression()
@@ -1152,8 +1154,7 @@ class Parser {
         || !match("}"))
       syntax_error();
 
-    replace<FunctionDeclaration, Identifier, FormalParameterList,
-            FunctionBody>();
+    replace<FunctionDeclaration, Identifier, FormalParameterList, FunctionBody>();
     return true;
   }
 

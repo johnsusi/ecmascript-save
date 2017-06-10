@@ -53,7 +53,7 @@ function main() {
       if (!silent) {
         console.error(err.message);
 
-        spawn(__dirname + "/dump_ast", ["--json", "-e", source])
+        spawn(__dirname + "/dump_ast", ["--json", ...source])
           .then(text => {
             console.log("Expected:");
             console.log(text);

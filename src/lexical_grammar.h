@@ -3,7 +3,6 @@
 
 #include "input_element.h"
 #include "matcher.h"
-#include "to_string.h"
 #include "token.h"
 
 #include <algorithm>
@@ -46,44 +45,6 @@ bool is_null_literal(const std::string& str);
 
 // 7.8.2
 bool is_boolean_literal(const std::string&);
-
-constexpr double pow10(int n)
-{
-  switch (n) {
-  case 0: return 1;
-  case 1: return 1e1;
-  case 2: return 1e2;
-  case 3: return 1e3;
-  case 4: return 1e4;
-  case 5: return 1e5;
-  case 6: return 1e6;
-  case 7: return 1e7;
-  case 8: return 1e8;
-  case 9: return 1e9;
-  case 10: return 1e10;
-  case 11: return 1e11;
-  case 12: return 1e12;
-  case 13: return 1e13;
-  case 14: return 1e14;
-  case 15: return 1e15;
-  case 16: return 1e16;
-  case 17: return 1e17;
-  case 18: return 1e18;
-  case 19: return 1e19;
-  case 20: return 1e20;
-  case 21: return 1e21;
-  case 22: return 1e22;
-  default:
-    return std::pow(10, n);
-    // return std::numeric_limits<double>::infinity();
-  }
-}
-
-static inline double mul_pow10(int s, int n)
-{
-  std::cout << "s: " << s << ", n: " << n << "\n";
-  return n < 0 ? s * pow10(n) : s * pow10(n);
-}
 
 template <typename T>
 class LexicalGrammar {
@@ -312,18 +273,19 @@ public:
 
   bool keyword()
   {
-    return match.any_of("break", "case", "catch", "continue", "debugger",
-                        "default", "delete", "do", "else", "finally", "for",
-                        "function", "if", "in", "instanceof", "new", "return",
-                        "switch", "this", "throw", "try", "typeof", "var",
-                        "void", "while", "with");
+    return match.any_of(
+        "break", "case", "catch", "continue", "debugger", "default", "delete",
+        "do", "else", "finally", "for", "function", "if", "in", "instanceof",
+        "new", "return", "switch", "this", "throw", "try", "typeof", "var",
+        "void", "while", "with");
   }
 
   bool future_reserved_word()
   {
-    return match.any_of("class", "enum", "extends", "super", "const", "export",
-                        "import", "implements", "let", "private", "public",
-                        "interface", "package", "protected", "static");
+    return match.any_of(
+        "class", "enum", "extends", "super", "const", "export", "import",
+        "implements", "let", "private", "public", "interface", "package",
+        "protected", "static");
   }
 
   // 7.7

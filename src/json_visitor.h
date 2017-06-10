@@ -2,7 +2,7 @@
 #define ECMASCRIPT_JSON_VISITOR_H
 
 #include "basic_visitor.h"
-#include "to_string.h"
+#include "json.h"
 #include "util.h"
 
 #include <numeric>
@@ -114,17 +114,17 @@ class JSONVisitor : public BasicVisitor {
 
   void operator()(const NumericLiteral& literal) override
   {
-    if (literal.infinite()) {
+    if (literal.value.isInfinity()) {
       buf << "{" << quote("type") << ":" << quote("LiteralInfinityExpression")
           << "}";
     }
-    else if (literal.nan()) {
+    else if (literal.value.isNaN()) {
       buf << "{" << quote("type") << ":" << quote("LiteralNaNExpression")
           << "}";
     }
     else {
       buf << "{" << quote("type") << ":" << quote("LiteralNumericExpression");
-      buf << "," << quote("value") << ":" << ToString(literal.value);
+      buf << "," << quote("value") << ":" << literal.value.ToString();
       buf << "}";
     }
   }
@@ -133,7 +133,7 @@ class JSONVisitor : public BasicVisitor {
   {
     buf << "{" << quote("type") << ":" << quote("LiteralStringExpression");
     buf << "," << quote("value") << ":"
-        << quote(convert_utf16_to_utf8(literal.value));
+        << convert_utf16_to_utf8(Quote(literal.value));
     buf << "}";
   }
 
@@ -214,7 +214,7 @@ class JSONVisitor : public BasicVisitor {
     else if (expr.num) {
       buf << "," << quote("kind") << ":" << quote("number");
       buf << "," << quote("value") << ":"
-          << "\"" << expr.num->value << "\"";
+          << "\"" << expr.num->value.ToString() << "\"";
     }
     buf << "}";
   }
