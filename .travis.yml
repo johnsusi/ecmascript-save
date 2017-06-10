@@ -1,52 +1,44 @@
-language: cpp
+# language: cpp
 
-matrix:
-  include:
-    - os: linux
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - g++-6
-      env:
-        - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6"
-  - os: linux
-      addons:
-        apt:
-          sources:
-            - llvm-toolchain-trusty
-          packages:
-            - clang-5.0
-      env:
-        - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0"
-  - os: osx
-    osx_image: xcode8
-      env:
-        - MATRIX_EVAL="brew install gcc && CC=gcc-6 && CXX=g++-6"
-  - os: osx
-    osx_image: xcode8
-      env:
-        - MATRIX_EVAL="CC=clang && CXX=clang++"
+# matrix:
+#   include:
+#     - os: linux
+#       addons:
+#         apt:
+#           sources:
+#             - ubuntu-toolchain-r-test
+#           packages:
+#             - g++-6
+#       env:
+#         - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6"
+#   - os: linux
+#       addons:
+#         apt:
+#           sources:
+#             - llvm-toolchain-trusty
+#           packages:
+#             - clang-5.0
+#       env:
+#         - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0"
+#   - os: osx
+#     osx_image: xcode8
+#       env:
+#         - MATRIX_EVAL="brew install gcc && CC=gcc-6 && CXX=g++-6"
+#   - os: osx
+#     osx_image: xcode8
+#       env:
+#         - MATRIX_EVAL="CC=clang && CXX=clang++"
 
-before_install:
-  - eval "${MATRIX_EVAL}"
-  - echo $LANG
-  - echo $LC_ALL
-  - cmake --version
-  - ${CXX} --version
-  - ninja --version
+# before_install:
+#   - eval "${MATRIX_EVAL}"
+#   - echo $LANG
+#   - echo $LC_ALL
+#   - cmake --version
+#   - ${CXX} --version
+#   - ninja --version
 
 # before_script:
 #script: rake ci
-branches:
-  only:
-  - master
-env:
-  global:
-  - LANG="en_US.UTF-8"
-
-
 
 
 language: cpp
@@ -98,3 +90,12 @@ before_script:
 script:
   - make -j 2
   - ctest -V -j 2
+
+branches:
+  only:
+  - master
+env:
+  global:
+  - LANG="en_US.UTF-8"
+
+
