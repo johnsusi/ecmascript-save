@@ -11,7 +11,7 @@ addons:
       - ubuntu-toolchain-r-test
     packages:
       - g++-6
-      - g++-7
+      # - g++-7
       - libicu-dev
       - libboost-all-dev
       - ninja-build
