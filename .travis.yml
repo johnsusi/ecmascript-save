@@ -1,4 +1,5 @@
 language: cpp
+
 sudo: false
 
 env:
@@ -19,11 +20,10 @@ addons:
 matrix:
   include:
     - os: linux
-      env: CC=g++-6 CXX=g++-6
-
-
+      env: _CC=gcc-6 _CXX=g++-6
 
 install:
+  - pip install conan
   - DEPS_DIR="${TRAVIS_BUILD_DIR}/deps"
   - mkdir -p ${DEPS_DIR} && cd ${DEPS_DIR}
   - |
@@ -36,7 +36,7 @@ install:
     fi
 
 before_script:
-  - ${CC} --version
+  - export CC=${_CC} CXX=${_CXX}
   - ninja --version
   - cmake --version
   - cd ${TRAVIS_BUILD_DIR}
