@@ -1,4 +1,6 @@
 <map id="src/input_element.h" name="src/input_element.h">
-<area shape="rect" id="node2" href="$token_8h.html" title="token.h" alt="" coords="244,79,309,104"/>
-<area shape="rect" id="node3" href="$util_8h.html" title="util.h" alt="" coords="221,152,270,177"/>
+<area shape="rect" id="node2" href="$optional_8h.html" title="optional.h" alt="" coords="277,79,356,104"/>
+<area shape="rect" id="node4" href="$token_8h.html" title="token.h" alt="" coords="439,79,504,104"/>
+<area shape="rect" id="node14" href="$variant_8h.html" title="variant.h" alt="" coords="63,79,136,104"/>
+<area shape="rect" id="node5" href="$util_8h.html" title="util.h" alt="" coords="509,152,559,177"/>
 </map>

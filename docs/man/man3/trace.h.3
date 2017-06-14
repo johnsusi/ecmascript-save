@@ -1,4 +1,4 @@
-.TH "src/trace.h" 3 "Sat Jun 10 2017" "ECMAScript" \" -*- nroff -*-
+.TH "src/trace.h" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -6,6 +6,8 @@ src/trace.h
 .SH SYNOPSIS
 .br
 .PP
+\fC#include 'config\&.h'\fP
+.br
 \fC#include <string>\fP
 .br
 \fC#include <vector>\fP
@@ -15,40 +17,30 @@ src/trace.h
 
 .in +1c
 .ti -1c
-.RI "class \fBTrace\fP"
-.br
-.ti -1c
-.RI "class \fBTraceGuard\fP"
+.RI "struct \fBTraceGuard\fP"
 .br
 .in -1c
 .SS "Macros"
 
 .in +1c
 .ti -1c
-.RI "#define \fBtrace\fP(method)"
+.RI "#define \fBtrace\fP(\&.\&.\&.)   \fBTraceGuard\fP tg_##__LINE__(__PRETTY_FUNCTION__, __FILE__, __LINE__)"
 .br
 .in -1c
 .SS "Functions"
 
 .in +1c
 .ti -1c
-.RI "\fBstd::string\fP \fBstack_trace\fP ()"
+.RI "\fBstd::vector\fP< \fBstd::string\fP > & \fBstack_trace\fP ()"
 .br
 .in -1c
 .SH "Macro Definition Documentation"
 .PP 
-.SS "#define trace(method)"
-\fBValue:\fP
-.PP
-.nf
-TraceGuard tg_##__LINE__(                                                    \
-      boost::typeindex::type_id<decltype(*this)>()\&.pretty_name()               \
-          + "::" + __func__,                                                   \
-      __FILE__, __LINE__)
-.fi
+.SS "#define trace( \&.\&.\&.)   \fBTraceGuard\fP tg_##__LINE__(__PRETTY_FUNCTION__, __FILE__, __LINE__)"
+
 .SH "Function Documentation"
 .PP 
-.SS "\fBstd::string\fP stack_trace ()"
+.SS "\fBstd::vector\fP<\fBstd::string\fP>& stack_trace ()"
 
 .SH "Author"
 .PP 

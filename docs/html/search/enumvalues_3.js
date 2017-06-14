@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['set',['SET',['../struct_property_assignment.html#a123a67b3e1b5d04a4a34b8d528e9fc96a8c52684db8f49511e9b44471716bf164',1,'PropertyAssignment']]]
+  ['exception',['Exception',['../struct_catch_1_1_result_was.html#a624e1ee3661fcf6094ceef1f654601efaa9107b7836cc7590ca668002f76d27c7',1,'Catch::ResultWas']]],
+  ['explicitfailure',['ExplicitFailure',['../struct_catch_1_1_result_was.html#a624e1ee3661fcf6094ceef1f654601efacecfc052e2499499b13304249303cc36',1,'Catch::ResultWas']]],
+  ['expressionfailed',['ExpressionFailed',['../struct_catch_1_1_result_was.html#a624e1ee3661fcf6094ceef1f654601efa5e7126b8458dc1376ac870a719f7873f',1,'Catch::ResultWas']]]
 ];

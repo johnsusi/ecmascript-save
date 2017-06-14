@@ -29,12 +29,13 @@ var searchData=
   ['basicvisitor',['BasicVisitor',['../struct_basic_visitor.html',1,'']]],
   ['bcinfo',['BCinfo',['../struct_b_cinfo.html',1,'']]],
   ['bernoulli_5fdistribution',['bernoulli_distribution',['http://en.cppreference.com/w/cpp/numeric/random/bernoulli_distribution.html',1,'std']]],
+  ['betweengenerator',['BetweenGenerator',['../class_catch_1_1_between_generator.html',1,'Catch']]],
   ['bf96',['BF96',['../struct_b_f96.html',1,'']]],
   ['bidirectional_5fiterator_5ftag',['bidirectional_iterator_tag',['http://en.cppreference.com/w/cpp/iterator/iterator_tags.html',1,'std']]],
   ['bigint',['Bigint',['../struct_bigint.html',1,'']]],
   ['binary_5ffunction',['binary_function',['http://en.cppreference.com/w/cpp/utility/functional/binary_function.html',1,'std']]],
   ['binary_5fnegate',['binary_negate',['http://en.cppreference.com/w/cpp/utility/functional/binary_negate.html',1,'std']]],
-  ['binaryexpression',['BinaryExpression',['../struct_binary_expression.html',1,'']]],
+  ['binaryexpression',['BinaryExpression',['../struct_binary_expression.html',1,'BinaryExpression'],['../class_catch_1_1_binary_expression.html',1,'Catch::BinaryExpression&lt; LhsT, Op, RhsT &gt;']]],
   ['binding',['Binding',['../struct_binding.html',1,'']]],
   ['binomial_5fdistribution',['binomial_distribution',['http://en.cppreference.com/w/cpp/numeric/random/binomial_distribution.html',1,'std']]],
   ['bit_5fand',['bit_and',['http://en.cppreference.com/w/cpp/utility/functional/bit_and.html',1,'std']]],
@@ -44,5 +45,6 @@ var searchData=
   ['block',['Block',['../struct_block.html',1,'']]],
   ['boolean',['Boolean',['../struct_boolean.html',1,'']]],
   ['booleanliteral',['BooleanLiteral',['../struct_boolean_literal.html',1,'']]],
+  ['borgtype',['BorgType',['../struct_catch_1_1_detail_1_1_borg_type.html',1,'Catch::Detail']]],
   ['breakstatement',['BreakStatement',['../struct_break_statement.html',1,'']]]
 ];

@@ -7,6 +7,7 @@ var searchData=
   ['deci',['deci',['http://en.cppreference.com/w/cpp/numeric/ratio/ratio.html',1,'std']]],
   ['declaration',['Declaration',['../struct_declaration.html',1,'']]],
   ['declarativeenvironmentrecord',['DeclarativeEnvironmentRecord',['../struct_declarative_environment_record.html',1,'']]],
+  ['decomposedexpression',['DecomposedExpression',['../struct_catch_1_1_decomposed_expression.html',1,'Catch']]],
   ['default_5fdelete',['default_delete',['http://en.cppreference.com/w/cpp/memory/default_delete.html',1,'std']]],
   ['default_5frandom_5fengine',['default_random_engine',['http://en.cppreference.com/w/cpp/numeric/random.html',1,'std']]],
   ['defaultclause',['DefaultClause',['../struct_default_clause.html',1,'']]],

@@ -1,9 +1,0 @@
-<map id="ast::SwitchStatement" name="ast::SwitchStatement">
-<area shape="rect" id="node2" href="$structast_1_1_statement.html" title="ast::Statement" alt="" coords="317,191,424,216"/>
-<area shape="rect" id="node3" href="$structast_1_1_source_element.html" title="ast::SourceElement" alt="" coords="287,92,425,117"/>
-<area shape="rect" id="node4" href="$structast_1_1_node.html" title="ast::Node" alt="" coords="213,5,291,31"/>
-<area shape="rect" id="node6" href="$structast_1_1_list.html" title="ast::List\&lt; CaseClause \&gt;" alt="" coords="34,92,197,117"/>
-<area shape="rect" id="node8" href="$structast_1_1_expression.html" title="ast::Expression" alt="" coords="170,141,283,167"/>
-<area shape="rect" id="node5" href="$structast_1_1_case_block.html" title="ast::CaseBlock" alt="" coords="61,191,171,216"/>
-<area shape="rect" id="node7" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/container/vector.html" title="std::vector\&lt; CaseClause *\&gt;" alt="" coords="5,5,189,31"/>
-</map>

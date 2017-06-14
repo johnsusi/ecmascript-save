@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['nameanddesc',['NameAndDesc',['../struct_catch_1_1_name_and_desc.html',1,'Catch']]],
   ['nano',['nano',['http://en.cppreference.com/w/cpp/numeric/ratio/ratio.html',1,'std']]],
   ['nanoseconds',['nanoseconds',['http://en.cppreference.com/w/cpp/chrono/duration.html',1,'std::chrono']]],
   ['negate',['negate',['http://en.cppreference.com/w/cpp/utility/functional/negate.html',1,'std']]],
@@ -8,9 +9,11 @@ var searchData=
   ['new_5fhandler',['new_handler',['http://en.cppreference.com/w/cpp/memory/new/new_handler.html',1,'std']]],
   ['newexpression',['NewExpression',['../struct_new_expression.html',1,'']]],
   ['node',['Node',['../struct_node.html',1,'']]],
+  ['noncopyable',['NonCopyable',['../class_catch_1_1_non_copyable.html',1,'Catch']]],
   ['normal_5fdistribution',['normal_distribution',['http://en.cppreference.com/w/cpp/numeric/random/normal_distribution.html',1,'std']]],
   ['not_5fequal_5fto',['not_equal_to',['http://en.cppreference.com/w/cpp/utility/functional/not_equal_to.html',1,'std']]],
   ['nothrow_5ft',['nothrow_t',['http://en.cppreference.com/w/cpp/memory/new/nothrow_t.html',1,'std']]],
+  ['notimplementedexception',['NotImplementedException',['../class_catch_1_1_not_implemented_exception.html',1,'Catch']]],
   ['null',['Null',['../struct_null.html',1,'']]],
   ['nullliteral',['NullLiteral',['../struct_null_literal.html',1,'']]],
   ['nullptr_5ft',['nullptr_t',['http://en.cppreference.com/w/cpp/types/nullptr_t.html',1,'std']]],

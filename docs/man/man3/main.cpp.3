@@ -1,4 +1,4 @@
-.TH "src/main.cpp" 3 "Sat Jun 10 2017" "ECMAScript" \" -*- nroff -*-
+.TH "src/main.cpp" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -6,51 +6,76 @@ src/main.cpp
 .SH SYNOPSIS
 .br
 .PP
-\fC#include 'eval\&.h'\fP
-.br
-\fC#include 'lexer\&.h'\fP
-.br
-\fC#include 'parser\&.h'\fP
-.br
-\fC#include 'util\&.h'\fP
-.br
 \fC#include 'ast_visitor\&.h'\fP
+.br
+\fC#include 'eval\&.h'\fP
 .br
 \fC#include 'eval_visitor\&.h'\fP
 .br
+\fC#include 'filesystem\&.h'\fP
+.br
 \fC#include 'json_visitor\&.h'\fP
 .br
-\fC#include <algorithm>\fP
+\fC#include 'trace\&.h'\fP
+.br
+\fC#include 'util\&.h'\fP
+.br
+\fC#include 'variant\&.h'\fP
 .br
 \fC#include <iostream>\fP
 .br
-\fC#include <iterator>\fP
-.br
 \fC#include <string>\fP
 .br
+\fC#include <unordered_map>\fP
+.br
 \fC#include <vector>\fP
-.br
-\fC#include <boost/filesystem\&.hpp>\fP
-.br
-\fC#include <boost/program_options\&.hpp>\fP
 .br
 
 .SS "Functions"
 
 .in +1c
 .ti -1c
-.RI "template<class T > \fBstd::ostream\fP & \fBoperator<<\fP (\fBstd::ostream\fP &os, const \fBstd::vector\fP< T > &v)"
+.RI "auto \fBparse_command_line\fP (int argc, const char **argv)"
 .br
 .ti -1c
 .RI "int \fBmain\fP (int argc, const char **argv)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "constexpr auto \fBusage\fP"
 .br
 .in -1c
 .SH "Function Documentation"
 .PP 
 .SS "int main (int argc, const char ** argv)"
 
-.SS "template<class T > \fBstd::ostream\fP& operator<< (\fBstd::ostream\fP & os, const \fBstd::vector\fP< T > & v)"
+.SS "auto parse_command_line (int argc, const char ** argv)"
 
+.SH "Variable Documentation"
+.PP 
+.SS "constexpr auto usage"
+\fBInitial value:\fP
+.PP
+.nf
+= R"(
+  Usage:
+
+    ECMAScript [options] file1 file2\&.\&.\&.
+    ECMAScript [options] -e script
+
+  Options:
+
+    -h [ --help      ]             Print this message
+    -v [ --verbose   ]             Be verbose
+    -c [ --compile   ]             Only run lexer and compiler
+    -e [ --eval      ] <source>    Execute <source>
+    -j [ --json      ]             Print AST as JSON (implies -p)
+    -l [ --lex       ]             Only run lexer
+)"
+.fi
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for ECMAScript from the source code\&.

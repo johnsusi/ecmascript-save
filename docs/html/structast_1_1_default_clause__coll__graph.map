@@ -1,8 +1,0 @@
-<map id="ast::DefaultClause" name="ast::DefaultClause">
-<area shape="rect" id="node2" href="$structast_1_1_case_clause.html" title="ast::CaseClause" alt="" coords="156,277,275,303"/>
-<area shape="rect" id="node3" href="$structast_1_1_node.html" title="ast::Node" alt="" coords="201,5,280,31"/>
-<area shape="rect" id="node5" href="$structast_1_1_list.html" title="ast::List\&lt; Statement \&gt;" alt="" coords="28,92,179,117"/>
-<area shape="rect" id="node7" href="$structast_1_1_expression.html" title="ast::Expression" alt="" coords="152,141,265,167"/>
-<area shape="rect" id="node4" href="$structast_1_1_statement_list.html" title="ast::StatementList" alt="" coords="39,191,167,216"/>
-<area shape="rect" id="node6" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/container/vector.html" title="std::vector\&lt; Statement *\&gt;" alt="" coords="5,5,177,31"/>
-</map>

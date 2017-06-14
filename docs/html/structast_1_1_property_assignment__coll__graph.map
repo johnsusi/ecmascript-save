@@ -1,5 +1,0 @@
-<map id="ast::PropertyAssignment" name="ast::PropertyAssignment">
-<area shape="rect" id="node2" href="$structast_1_1_expression.html" title="ast::Expression" alt="" coords="32,80,145,105"/>
-<area shape="rect" id="node4" href="$structast_1_1_property_name.html" title="ast::PropertyName" alt="" coords="148,155,280,180"/>
-<area shape="rect" id="node3" href="$structast_1_1_node.html" title="ast::Node" alt="" coords="49,5,128,31"/>
-</map>

@@ -1,4 +1,4 @@
-.TH "TraceGuard" 3 "Sat Jun 10 2017" "ECMAScript" \" -*- nroff -*-
+.TH "TraceGuard" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -12,17 +12,38 @@ TraceGuard
 
 .in +1c
 .ti -1c
-.RI "\fBTraceGuard\fP (\fBstd::string\fP, \fBstd::string\fP='unnamed', int=1)"
+.RI "\fBTraceGuard\fP (const char *\fBfunc\fP, const char *\fBfile\fP, int \fBline\fP)"
 .br
 .ti -1c
-.RI "\fB~TraceGuard\fP ()"
+.RI "\fB~TraceGuard\fP () noexcept"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "const char * \fBfunc\fP"
+.br
+.ti -1c
+.RI "const char * \fBfile\fP"
+.br
+.ti -1c
+.RI "int \fBline\fP"
 .br
 .in -1c
 .SH "Constructor & Destructor Documentation"
 .PP 
-.SS "TraceGuard::TraceGuard (\fBstd::string\fP method, \fBstd::string\fP file = \fC'unnamed'\fP, int line = \fC1\fP)"
+.SS "TraceGuard::TraceGuard (const char * func, const char * file, int line)"
 
-.SS "TraceGuard::~TraceGuard ()"
+.SS "TraceGuard::~TraceGuard ()\fC [noexcept]\fP"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "const char* TraceGuard::file"
+
+.SS "const char* TraceGuard::func"
+
+.SS "int TraceGuard::line"
 
 
 .SH "Author"

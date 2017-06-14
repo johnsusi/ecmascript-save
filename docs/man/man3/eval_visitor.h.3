@@ -1,4 +1,4 @@
-.TH "src/eval_visitor.h" 3 "Sat Jun 10 2017" "ECMAScript" \" -*- nroff -*-
+.TH "src/eval_visitor.h" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -8,12 +8,27 @@ src/eval_visitor.h
 .PP
 \fC#include 'basic_visitor\&.h'\fP
 .br
+\fC#include 'optional\&.h'\fP
+.br
 \fC#include 'runtime\&.h'\fP
+.br
+\fC#include <memory>\fP
+.br
+\fC#include <vector>\fP
 .br
 
 .SS "Classes"
 
 .in +1c
+.ti -1c
+.RI "struct \fBCompletion\fP"
+.br
+.ti -1c
+.RI "struct \fBExecutionContext\fP"
+.br
+.ti -1c
+.RI "struct \fBEvalExpressionVisitor\fP"
+.br
 .ti -1c
 .RI "class \fBEvalVisitor\fP"
 .br

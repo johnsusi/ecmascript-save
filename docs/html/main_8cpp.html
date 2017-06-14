@@ -63,59 +63,58 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">main.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="eval_8h_source.html">eval.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="lexer_8h_source.html">lexer.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="parser_8h_source.html">parser.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="util_8h_source.html">util.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="ast__visitor_8h_source.html">ast_visitor.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="ast__visitor_8h_source.html">ast_visitor.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="eval_8h_source.html">eval.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="eval__visitor_8h_source.html">eval_visitor.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="filesystem_8h_source.html">filesystem.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="json__visitor_8h_source.html">json_visitor.h</a>&quot;</code><br />
-<code>#include &lt;algorithm&gt;</code><br />
+<code>#include &quot;<a class="el" href="trace_8h_source.html">trace.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="util_8h_source.html">util.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="variant_8h_source.html">variant.h</a>&quot;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;iterator&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
+<code>#include &lt;unordered_map&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
-<code>#include &lt;boost/filesystem.hpp&gt;</code><br />
-<code>#include &lt;boost/program_options.hpp&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for main.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="main_8cpp__incl.png" border="0" usemap="#src_2main_8cpp" alt=""/></div>
 <map name="src_2main_8cpp" id="src_2main_8cpp">
-<area shape="rect" id="node2" href="eval_8h.html" title="eval.h" alt="" coords="301,299,358,324"/>
-<area shape="rect" id="node7" href="lexer_8h.html" title="lexer.h" alt="" coords="2306,79,2366,104"/>
-<area shape="rect" id="node11" href="util_8h.html" title="util.h" alt="" coords="1821,372,1870,397"/>
-<area shape="rect" id="node26" href="parser_8h.html" title="parser.h" alt="" coords="1739,225,1808,251"/>
-<area shape="rect" id="node36" href="ast__visitor_8h.html" title="ast_visitor.h" alt="" coords="1178,152,1270,177"/>
-<area shape="rect" id="node38" href="eval__visitor_8h.html" title="eval_visitor.h" alt="" coords="954,152,1052,177"/>
-<area shape="rect" id="node45" href="json__visitor_8h.html" title="json_visitor.h" alt="" coords="1351,152,1449,177"/>
-<area shape="rect" id="node4" href="visitor_8h.html" title="visitor.h" alt="" coords="636,372,703,397"/>
-<area shape="rect" id="node8" href="lexical__grammar_8h.html" title="lexical_grammar.h" alt="" coords="2437,152,2566,177"/>
-<area shape="rect" id="node9" href="input__element_8h.html" title="input_element.h" alt="" coords="2791,225,2908,251"/>
-<area shape="rect" id="node10" href="token_8h.html" title="token.h" alt="" coords="2373,299,2438,324"/>
-<area shape="rect" id="node23" href="matcher_8h.html" title="matcher.h" alt="" coords="2462,299,2541,324"/>
-<area shape="rect" id="node27" href="ast_8h.html" title="ast.h" alt="" coords="1086,299,1136,324"/>
-<area shape="rect" id="node31" href="logger_8h.html" title="logger.h" alt="" coords="1414,299,1483,324"/>
-<area shape="rect" id="node34" href="trace_8h.html" title="trace.h" alt="" coords="1882,299,1945,324"/>
-<area shape="rect" id="node37" href="basic__visitor_8h.html" title="basic_visitor.h" alt="" coords="950,225,1055,251"/>
-<area shape="rect" id="node39" href="runtime_8h.html" title="runtime.h" alt="" coords="799,225,876,251"/>
-<area shape="rect" id="node40" href="type_8h.html" title="type.h" alt="" coords="741,299,798,324"/>
-<area shape="rect" id="node46" href="json_8h.html" title="json.h" alt="" coords="1080,225,1137,251"/>
+<area shape="rect" id="node2" href="ast__visitor_8h.html" title="ast_visitor.h" alt="" coords="424,79,515,104"/>
+<area shape="rect" id="node14" href="util_8h.html" title="util.h" alt="" coords="299,152,349,177"/>
+<area shape="rect" id="node18" href="eval_8h.html" title="eval.h" alt="" coords="450,225,507,251"/>
+<area shape="rect" id="node19" href="eval__visitor_8h.html" title="eval_visitor.h" alt="" coords="779,79,877,104"/>
+<area shape="rect" id="node28" href="filesystem_8h.html" title="filesystem.h" alt="" coords="1244,79,1335,104"/>
+<area shape="rect" id="node29" href="json__visitor_8h.html" title="json_visitor.h" alt="" coords="539,79,637,104"/>
+<area shape="rect" id="node32" href="trace_8h.html" title="trace.h" alt="" coords="213,152,275,177"/>
+<area shape="rect" id="node33" href="variant_8h.html" title="variant.h" alt="" coords="1147,79,1219,104"/>
+<area shape="rect" id="node3" href="basic__visitor_8h.html" title="basic_visitor.h" alt="" coords="610,152,715,177"/>
+<area shape="rect" id="node4" href="ast_8h.html" title="ast.h" alt="" coords="604,225,655,251"/>
+<area shape="rect" id="node5" href="visitor_8h.html" title="visitor.h" alt="" coords="355,299,422,324"/>
+<area shape="rect" id="node20" href="optional_8h.html" title="optional.h" alt="" coords="993,152,1072,177"/>
+<area shape="rect" id="node22" href="runtime_8h.html" title="runtime.h" alt="" coords="891,152,968,177"/>
+<area shape="rect" id="node23" href="type_8h.html" title="type.h" alt="" coords="919,225,977,251"/>
+<area shape="rect" id="node30" href="json_8h.html" title="json.h" alt="" coords="701,225,758,251"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a4b8db62a17e01a839e499a4c59112df5"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a4b8db62a17e01a839e499a4c59112df5"><td class="memTemplItemLeft" align="right" valign="top"><a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::ostream</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a4b8db62a17e01a839e499a4c59112df5">operator&lt;&lt;</a> (<a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::ostream</a> &amp;os, const <a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector</a>&lt; T &gt; &amp;v)</td></tr>
-<tr class="separator:a4b8db62a17e01a839e499a4c59112df5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5092c9d0815b40d7efe719799057fff"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ab5092c9d0815b40d7efe719799057fff">parse_command_line</a> (int argc, const char **argv)</td></tr>
+<tr class="separator:ab5092c9d0815b40d7efe719799057fff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a217dbf8b442f20279ea00b898af96f52"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a217dbf8b442f20279ea00b898af96f52">main</a> (int argc, const char **argv)</td></tr>
 <tr class="separator:a217dbf8b442f20279ea00b898af96f52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ad9c09ac2cd495155e600d7028dae430c"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ad9c09ac2cd495155e600d7028dae430c">usage</a></td></tr>
+<tr class="separator:ad9c09ac2cd495155e600d7028dae430c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a217dbf8b442f20279ea00b898af96f52"></a>
@@ -146,25 +145,23 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a4b8db62a17e01a839e499a4c59112df5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b8db62a17e01a839e499a4c59112df5">&#9670;&nbsp;</a></span>operator<<()</h2>
+<a id="ab5092c9d0815b40d7efe719799057fff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5092c9d0815b40d7efe719799057fff">&#9670;&nbsp;</a></span>parse_command_line()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::ostream</a>&amp; operator&lt;&lt; </td>
+          <td class="memname">auto parse_command_line </td>
           <td>(</td>
-          <td class="paramtype"><a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::ostream</a> &amp;&#160;</td>
-          <td class="paramname"><em>os</em>, </td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>v</em>&#160;</td>
+          <td class="paramtype">const char **&#160;</td>
+          <td class="paramname"><em>argv</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -174,6 +171,21 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="ad9c09ac2cd495155e600d7028dae430c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9c09ac2cd495155e600d7028dae430c">&#9670;&nbsp;</a></span>usage</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto usage</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= R<span class="stringliteral">&quot;(</span></div><div class="line"><span class="stringliteral">  Usage:</span></div><div class="line"><span class="stringliteral"></span></div><div class="line"><span class="stringliteral">    ECMAScript [options] file1 file2...</span></div><div class="line"><span class="stringliteral">    ECMAScript [options] -e script</span></div><div class="line"><span class="stringliteral"></span></div><div class="line"><span class="stringliteral">  Options:</span></div><div class="line"><span class="stringliteral"></span></div><div class="line"><span class="stringliteral">    -h [ --help      ]             Print this message</span></div><div class="line"><span class="stringliteral">    -v [ --verbose   ]             Be verbose</span></div><div class="line"><span class="stringliteral">    -c [ --compile   ]             Only run lexer and compiler</span></div><div class="line"><span class="stringliteral">    -e [ --eval      ] &lt;source&gt;    Execute &lt;source&gt;</span></div><div class="line"><span class="stringliteral">    -j [ --json      ]             Print AST as JSON (implies -p)</span></div><div class="line"><span class="stringliteral">    -l [ --lex       ]             Only run lexer</span></div><div class="line"><span class="stringliteral">)&quot;</span></div></div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->

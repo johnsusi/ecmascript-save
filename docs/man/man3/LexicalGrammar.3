@@ -1,4 +1,4 @@
-.TH "LexicalGrammar< T >" 3 "Sat Jun 10 2017" "ECMAScript" \" -*- nroff -*-
+.TH "LexicalGrammar< T >" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -15,7 +15,7 @@ LexicalGrammar< T >
 .RI "template<typename It > \fBLexicalGrammar\fP (It begin, It end)"
 .br
 .ti -1c
-.RI "void \fBsyntax_error\fP ()"
+.RI "void \fBsyntax_error\fP (const \fBstd::string\fP &what={})"
 .br
 .ti -1c
 .RI "bool \fBsource_character\fP ()"
@@ -371,7 +371,7 @@ LexicalGrammar< T >
 
 .SS "template<typename T > bool \fBLexicalGrammar\fP< T >::string_literal ()\fC [inline]\fP"
 
-.SS "template<typename T > void \fBLexicalGrammar\fP< T >::syntax_error ()\fC [inline]\fP"
+.SS "template<typename T > void \fBLexicalGrammar\fP< T >::syntax_error (const \fBstd::string\fP & what = \fC{}\fP)\fC [inline]\fP"
 
 .SS "template<typename T > bool \fBLexicalGrammar\fP< T >::token ()\fC [inline]\fP"
 

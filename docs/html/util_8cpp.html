@@ -63,31 +63,33 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">util.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="util_8h_source.html">util.h</a>&quot;</code><br />
+<code>#include &quot;config.h&quot;</code><br />
 <code>#include &lt;algorithm&gt;</code><br />
 <code>#include &lt;fstream&gt;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
 <code>#include &lt;numeric&gt;</code><br />
 <code>#include &lt;sstream&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
-<code>#include &lt;boost/algorithm/string.hpp&gt;</code><br />
-<code>#include &lt;boost/core/demangle.hpp&gt;</code><br />
 <code>#include &lt;unicode/errorcode.h&gt;</code><br />
 <code>#include &lt;unicode/normalizer2.h&gt;</code><br />
 <code>#include &lt;unicode/uchar.h&gt;</code><br />
 <code>#include &lt;unicode/unistr.h&gt;</code><br />
+<code>#include &lt;unicode/unorm2.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for util.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="util_8cpp__incl.png" border="0" usemap="#src_2util_8cpp" alt=""/></div>
 <map name="src_2util_8cpp" id="src_2util_8cpp">
-<area shape="rect" id="node2" href="util_8h.html" title="util.h" alt="" coords="122,79,172,104"/>
+<area shape="rect" id="node2" href="util_8h.html" title="util.h" alt="" coords="89,79,139,104"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -101,6 +103,8 @@ This graph shows which files directly or indirectly include this file:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:ac677e4f16edff55b9d8fe71060654804"><td class="memItemLeft" align="right" valign="top">if(U_FAILURE(<a class="el" href="util_8cpp.html#a52482fdd3721e7db69dc740aefee8ad4">err</a>)) throw std&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="util_8cpp.html#ac677e4f16edff55b9d8fe71060654804">u_strFromUTF8</a> (nullptr, 0, &amp;<a class="el" href="util_8cpp.html#ae54ccf0cb2bab11513ee8239c3f7d663">destLength</a>, utf8.data(), utf8.size(), &amp;<a class="el" href="util_8cpp.html#a52482fdd3721e7db69dc740aefee8ad4">err</a>)</td></tr>
+<tr class="separator:ac677e4f16edff55b9d8fe71060654804"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e230e1ab47b787562705c322044d2a0"><td class="memItemLeft" align="right" valign="top"><a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::u16string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="util_8cpp.html#a9e230e1ab47b787562705c322044d2a0">convert_utf8_to_utf16</a> (const <a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;source)</td></tr>
 <tr class="separator:a9e230e1ab47b787562705c322044d2a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade563fe4c392b74cebcfbe8b18d6fb6d"><td class="memItemLeft" align="right" valign="top"><a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="util_8cpp.html#ade563fe4c392b74cebcfbe8b18d6fb6d">convert_utf16_to_utf8</a> (const <a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::u16string</a> &amp;source)</td></tr>
@@ -119,6 +123,17 @@ Functions</h2></td></tr>
 <tr class="separator:a679dab7615746fa3894af264eb65d0da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f1418867f20f41174c8c4dcf0c60262"><td class="memItemLeft" align="right" valign="top"><a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="util_8cpp.html#a4f1418867f20f41174c8c4dcf0c60262">stringify</a> (const <a class="elRef" doxygen="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::u16string</a> &amp;str)</td></tr>
 <tr class="separator:a4f1418867f20f41174c8c4dcf0c60262"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ae54ccf0cb2bab11513ee8239c3f7d663"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="util_8cpp.html#ae54ccf0cb2bab11513ee8239c3f7d663">destLength</a></td></tr>
+<tr class="separator:ae54ccf0cb2bab11513ee8239c3f7d663"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52482fdd3721e7db69dc740aefee8ad4"><td class="memItemLeft" align="right" valign="top">UErrorCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="util_8cpp.html#a52482fdd3721e7db69dc740aefee8ad4">err</a> = U_ZERO_ERROR</td></tr>
+<tr class="separator:a52482fdd3721e7db69dc740aefee8ad4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52c03799cd911792e573eef619747c25"><td class="memItemLeft" align="right" valign="top">std::u16 auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="util_8cpp.html#a52c03799cd911792e573eef619747c25">buffer</a> = std::make_unique&lt;UChar*&gt;(new UChar[<a class="el" href="util_8cpp.html#ae54ccf0cb2bab11513ee8239c3f7d663">destLength</a>])</td></tr>
+<tr class="separator:a52c03799cd911792e573eef619747c25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade6d6d18a46c8aa95eed5e179d003e45"><td class="memItemLeft" align="right" valign="top">return&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="util_8cpp.html#ade6d6d18a46c8aa95eed5e179d003e45">result</a></td></tr>
+<tr class="separator:ade6d6d18a46c8aa95eed5e179d003e45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="ade563fe4c392b74cebcfbe8b18d6fb6d"></a>
@@ -320,6 +335,115 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Returns the general category (short) name for the code point. If the category is not known '??' is returned. Always returns a zero terminated char array of length 3. </p>
+
+</div>
+</div>
+<a id="ac677e4f16edff55b9d8fe71060654804"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac677e4f16edff55b9d8fe71060654804">&#9670;&nbsp;</a></span>u_strFromUTF8()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">if (U_FAILURE(<a class="el" href="util_8cpp.html#a52482fdd3721e7db69dc740aefee8ad4">err</a>)) throw std u_strFromUTF8 </td>
+          <td>(</td>
+          <td class="paramtype">nullptr&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&amp;&#160;</td>
+          <td class="paramname"><em>destLength</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">utf8.&#160;</td>
+          <td class="paramname"><em>data</em>(), </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">utf8.&#160;</td>
+          <td class="paramname"><em>size</em>(), </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&amp;&#160;</td>
+          <td class="paramname"><em>err</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a52c03799cd911792e573eef619747c25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52c03799cd911792e573eef619747c25">&#9670;&nbsp;</a></span>buffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UnicodeString <a class="el" href="util_8cpp.html#ade6d6d18a46c8aa95eed5e179d003e45">result</a> * buffer = std::make_unique&lt;UChar*&gt;(new UChar[<a class="el" href="util_8cpp.html#ae54ccf0cb2bab11513ee8239c3f7d663">destLength</a>])</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae54ccf0cb2bab11513ee8239c3f7d663"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae54ccf0cb2bab11513ee8239c3f7d663">&#9670;&nbsp;</a></span>destLength</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t destLength</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a52482fdd3721e7db69dc740aefee8ad4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52482fdd3721e7db69dc740aefee8ad4">&#9670;&nbsp;</a></span>err</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">err = U_ZERO_ERROR</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ade6d6d18a46c8aa95eed5e179d003e45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade6d6d18a46c8aa95eed5e179d003e45">&#9670;&nbsp;</a></span>result</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">return result</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

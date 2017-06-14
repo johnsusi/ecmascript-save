@@ -1,4 +1,4 @@
-.TH "ExecutionContext" 3 "Sat Jun 10 2017" "ECMAScript" \" -*- nroff -*-
+.TH "ExecutionContext" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -7,7 +7,28 @@ ExecutionContext
 .br
 .PP
 .PP
-\fC#include <execution_context\&.h>\fP
+\fC#include <eval_visitor\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBLexicalEnvironment\fP * \fBLexicalEnvironemnt\fP"
+.br
+.ti -1c
+.RI "\fBLexicalEnvironment\fP * \fBVariableEnvironment\fP"
+.br
+.ti -1c
+.RI "\fBType\fP \fBThisBinding\fP"
+.br
+.in -1c
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBLexicalEnvironment\fP* ExecutionContext::LexicalEnvironemnt"
+
+.SS "\fBType\fP ExecutionContext::ThisBinding"
+
+.SS "\fBLexicalEnvironment\fP* ExecutionContext::VariableEnvironment"
+
 
 .SH "Author"
 .PP 

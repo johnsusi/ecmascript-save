@@ -1,4 +1,4 @@
-.TH "src/util.cpp" 3 "Sat Jun 10 2017" "ECMAScript" \" -*- nroff -*-
+.TH "src/util.cpp" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -8,11 +8,15 @@ src/util.cpp
 .PP
 \fC#include 'util\&.h'\fP
 .br
+\fC#include 'config\&.h'\fP
+.br
 \fC#include <algorithm>\fP
 .br
 \fC#include <fstream>\fP
 .br
 \fC#include <iostream>\fP
+.br
+\fC#include <memory>\fP
 .br
 \fC#include <numeric>\fP
 .br
@@ -22,10 +26,6 @@ src/util.cpp
 .br
 \fC#include <vector>\fP
 .br
-\fC#include <boost/algorithm/string\&.hpp>\fP
-.br
-\fC#include <boost/core/demangle\&.hpp>\fP
-.br
 \fC#include <unicode/errorcode\&.h>\fP
 .br
 \fC#include <unicode/normalizer2\&.h>\fP
@@ -34,10 +34,15 @@ src/util.cpp
 .br
 \fC#include <unicode/unistr\&.h>\fP
 .br
+\fC#include <unicode/unorm2\&.h>\fP
+.br
 
 .SS "Functions"
 
 .in +1c
+.ti -1c
+.RI "if(U_FAILURE(\fBerr\fP)) throw std \fBu_strFromUTF8\fP (nullptr, 0, &\fBdestLength\fP, utf8\&.data(), utf8\&.size(), &\fBerr\fP)"
+.br
 .ti -1c
 .RI "\fBstd::u16string\fP \fBconvert_utf8_to_utf16\fP (const \fBstd::string\fP &source)"
 .br
@@ -66,6 +71,22 @@ src/util.cpp
 .RI "\fBstd::string\fP \fBstringify\fP (const \fBstd::u16string\fP &str)"
 .br
 .in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "int32_t \fBdestLength\fP"
+.br
+.ti -1c
+.RI "UErrorCode \fBerr\fP = U_ZERO_ERROR"
+.br
+.ti -1c
+.RI "std::u16 auto \fBbuffer\fP = std::make_unique<UChar*>(new UChar[\fBdestLength\fP])"
+.br
+.ti -1c
+.RI "return \fBresult\fP"
+.br
+.in -1c
 .SH "Function Documentation"
 .PP 
 .SS "\fBstd::string\fP convert_utf16_to_utf8 (const \fBstd::u16string\fP & source)"
@@ -88,6 +109,18 @@ Left aligns \fItext\fP by first finding the left-most non-whitespace character a
 
 .SS "const char* u_charCategory (int c)"
 Returns the general category (short) name for the code point\&. If the category is not known '??' is returned\&. Always returns a zero terminated char array of length 3\&. 
+.SS "if (U_FAILURE(\fBerr\fP)) throw std u_strFromUTF8 (nullptr, 0, & destLength, utf8\&. data(), utf8\&. size(), & err)"
+
+.SH "Variable Documentation"
+.PP 
+.SS "UnicodeString \fBresult\fP * buffer = std::make_unique<UChar*>(new UChar[\fBdestLength\fP])"
+
+.SS "int32_t destLength"
+
+.SS "err = U_ZERO_ERROR"
+
+.SS "return result"
+
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for ECMAScript from the source code\&.

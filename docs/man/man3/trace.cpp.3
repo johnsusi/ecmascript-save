@@ -1,4 +1,4 @@
-.TH "src/trace.cpp" 3 "Sat Jun 10 2017" "ECMAScript" \" -*- nroff -*-
+.TH "src/trace.cpp" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -8,21 +8,19 @@ src/trace.cpp
 .PP
 \fC#include 'trace\&.h'\fP
 .br
-\fC#include <sstream>\fP
-.br
-\fC#include <string>\fP
+\fC#include <exception>\fP
 .br
 
 .SS "Functions"
 
 .in +1c
 .ti -1c
-.RI "\fBstd::string\fP \fBstack_trace\fP ()"
+.RI "\fBstd::vector\fP< \fBstd::string\fP > & \fBstack_trace\fP ()"
 .br
 .in -1c
 .SH "Function Documentation"
 .PP 
-.SS "\fBstd::string\fP stack_trace ()"
+.SS "\fBstd::vector\fP<\fBstd::string\fP>& stack_trace ()"
 
 .SH "Author"
 .PP 

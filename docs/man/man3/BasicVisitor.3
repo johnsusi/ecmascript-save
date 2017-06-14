@@ -1,4 +1,4 @@
-.TH "BasicVisitor" 3 "Sat Jun 10 2017" "ECMAScript" \" -*- nroff -*-
+.TH "BasicVisitor" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -11,7 +11,7 @@ BasicVisitor
 .PP
 Inherits \fBVisitor\fP\&.
 .PP
-Inherited by \fBEvalVisitor\fP, \fBJSONVisitor\fP, and \fBSimplifiedYAMLVisitor\fP\&.
+Inherited by \fBEvalExpressionVisitor\fP, \fBEvalVisitor\fP, \fBJSONVisitor\fP, and \fBSimplifiedYAMLVisitor\fP\&.
 .SS "Public Member Functions"
 
 .in +1c
@@ -233,6 +233,8 @@ Implements \fBVisitor\fP\&.
 
 .PP
 Implements \fBVisitor\fP\&.
+.PP
+Reimplemented in \fBEvalExpressionVisitor\fP\&.
 .SS "void BasicVisitor::operator() (const \fBStringLiteral\fP &)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
@@ -293,6 +295,8 @@ Implements \fBVisitor\fP\&.
 
 .PP
 Implements \fBVisitor\fP\&.
+.PP
+Reimplemented in \fBEvalExpressionVisitor\fP\&.
 .SS "void BasicVisitor::operator() (const \fBConditionalExpression\fP & node)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
@@ -321,6 +325,8 @@ Implements \fBVisitor\fP\&.
 
 .PP
 Implements \fBVisitor\fP\&.
+.PP
+Reimplemented in \fBEvalVisitor\fP\&.
 .SS "void BasicVisitor::operator() (const \fBIfStatement\fP & stmt)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP
@@ -417,6 +423,8 @@ Implements \fBVisitor\fP\&.
 
 .PP
 Implements \fBVisitor\fP\&.
+.PP
+Reimplemented in \fBEvalVisitor\fP\&.
 .SS "void BasicVisitor::operator() (const \fBProgramDeclaration\fP & decl)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
 
 .PP

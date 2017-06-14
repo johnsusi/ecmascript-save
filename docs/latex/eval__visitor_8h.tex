@@ -1,7 +1,10 @@
 \hypertarget{eval__visitor_8h}{}\section{src/eval\+\_\+visitor.h File Reference}
 \label{eval__visitor_8h}\index{src/eval\+\_\+visitor.\+h@{src/eval\+\_\+visitor.\+h}}
 {\ttfamily \#include \char`\"{}basic\+\_\+visitor.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}optional.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}runtime.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
 Include dependency graph for eval\+\_\+visitor.\+h\+:
 \nopagebreak
 \begin{figure}[H]
@@ -20,6 +23,12 @@ This graph shows which files directly or indirectly include this file\+:
 \end{figure}
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_completion}{Completion}
+\item 
+struct \hyperlink{struct_execution_context}{Execution\+Context}
+\item 
+struct \hyperlink{struct_eval_expression_visitor}{Eval\+Expression\+Visitor}
 \item 
 class \hyperlink{class_eval_visitor}{Eval\+Visitor}
 \end{DoxyCompactItemize}

@@ -1,4 +1,4 @@
-.TH "EvalVisitor" 3 "Sat Jun 10 2017" "ECMAScript" \" -*- nroff -*-
+.TH "EvalVisitor" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -16,9 +16,23 @@ Inherits \fBBasicVisitor\fP\&.
 .ti -1c
 .RI "\fBstd::string\fP \fBstr\fP () const"
 .br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBProgram\fP &program) override"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBExpressionStatement\fP &stmt) override"
+.br
 .in -1c
 .SH "Member Function Documentation"
 .PP 
+.SS "void EvalVisitor::operator() (const \fBProgram\fP & program)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Reimplemented from \fBBasicVisitor\fP\&.
+.SS "void EvalVisitor::operator() (const \fBExpressionStatement\fP & stmt)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Reimplemented from \fBBasicVisitor\fP\&.
 .SS "\fBstd::string\fP EvalVisitor::str () const\fC [inline]\fP"
 
 

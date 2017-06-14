@@ -1,7 +1,0 @@
-<map id="ast::StringLiteral" name="ast::StringLiteral">
-<area shape="rect" id="node2" href="$structast_1_1_literal.html" title="ast::Literal" alt="" coords="43,229,126,255"/>
-<area shape="rect" id="node3" href="$structast_1_1_primary_expression.html" title="ast::PrimaryExpression" alt="" coords="5,155,164,180"/>
-<area shape="rect" id="node4" href="$structast_1_1_expression.html" title="ast::Expression" alt="" coords="28,80,141,105"/>
-<area shape="rect" id="node5" href="$structast_1_1_node.html" title="ast::Node" alt="" coords="45,5,124,31"/>
-<area shape="rect" id="node6" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/string/basic_string.html" title="std::u16string" alt="" coords="150,229,251,255"/>
-</map>

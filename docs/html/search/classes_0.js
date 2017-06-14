@@ -13,13 +13,18 @@ var searchData=
   ['allocator',['allocator',['http://en.cppreference.com/w/cpp/memory/allocator.html',1,'std']]],
   ['allocator_5farg_5ft',['allocator_arg_t',['http://en.cppreference.com/w/cpp/memory/allocator_arg_t.html',1,'std']]],
   ['allocator_5ftraits',['allocator_traits',['http://en.cppreference.com/w/cpp/memory/allocator_traits.html',1,'std']]],
+  ['approx',['Approx',['../class_catch_1_1_detail_1_1_approx.html',1,'Catch::Detail']]],
   ['argumentlist',['ArgumentList',['../struct_argument_list.html',1,'']]],
   ['arguments',['Arguments',['../struct_arguments.html',1,'']]],
   ['array',['array',['http://en.cppreference.com/w/cpp/container/array.html',1,'std']]],
   ['arrayexpression',['ArrayExpression',['../struct_array_expression.html',1,'']]],
   ['arrayliteral',['ArrayLiteral',['../struct_array_literal.html',1,'']]],
+  ['assertioninfo',['AssertionInfo',['../struct_catch_1_1_assertion_info.html',1,'Catch']]],
+  ['assertionresult',['AssertionResult',['../class_catch_1_1_assertion_result.html',1,'Catch']]],
+  ['assertionresultdata',['AssertionResultData',['../struct_catch_1_1_assertion_result_data.html',1,'Catch']]],
   ['assignmentexpression',['AssignmentExpression',['../struct_assignment_expression.html',1,'']]],
   ['atomic',['atomic',['http://en.cppreference.com/w/cpp/atomic/atomic.html',1,'std']]],
   ['atomic_5fflag',['atomic_flag',['http://en.cppreference.com/w/cpp/atomic/atomic_flag.html',1,'std']]],
-  ['auto_5fptr',['auto_ptr',['http://en.cppreference.com/w/cpp/memory/auto_ptr.html',1,'std']]]
+  ['auto_5fptr',['auto_ptr',['http://en.cppreference.com/w/cpp/memory/auto_ptr.html',1,'std']]],
+  ['autoreg',['AutoReg',['../struct_catch_1_1_auto_reg.html',1,'Catch']]]
 ];

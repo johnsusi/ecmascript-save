@@ -1,8 +1,0 @@
-<map id="ast::VariableStatement" name="ast::VariableStatement">
-<area shape="rect" id="node2" href="$structast_1_1_statement.html" title="ast::Statement" alt="" coords="41,167,148,192"/>
-<area shape="rect" id="node3" href="$structast_1_1_source_element.html" title="ast::SourceElement" alt="" coords="5,92,143,117"/>
-<area shape="rect" id="node4" href="$structast_1_1_node.html" title="ast::Node" alt="" coords="50,5,128,31"/>
-<area shape="rect" id="node6" href="$structast_1_1_list.html" title="ast::List\&lt; VariableDeclaration \&gt;" alt="" coords="167,92,373,117"/>
-<area shape="rect" id="node5" href="$structast_1_1_variable_declaration_list.html" title="ast::VariableDeclarationList" alt="" coords="175,167,358,192"/>
-<area shape="rect" id="node7" href="/Users/john/Projects/ecmascript/docs/cppreference-doxygen-web.tag.xml$cpp/container/vector.html" title="std::vector\&lt; VariableDeclaration *\&gt;" alt="" coords="157,5,383,31"/>
-</map>

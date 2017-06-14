@@ -1,4 +1,4 @@
-.TH "Visitor" 3 "Sat Jun 10 2017" "ECMAScript" \" -*- nroff -*-
+.TH "Visitor" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -215,7 +215,7 @@ Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBNumericLiteral\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
+Implemented in \fBEvalExpressionVisitor\fP, \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBStringLiteral\fP &)\fC [pure virtual]\fP"
 
 .PP
@@ -275,7 +275,7 @@ Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBBinaryExpression\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
+Implemented in \fBBasicVisitor\fP, \fBDelegateVistor\fP, and \fBEvalExpressionVisitor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBConditionalExpression\fP &)\fC [pure virtual]\fP"
 
 .PP
@@ -303,7 +303,7 @@ Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBExpressionStatement\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
+Implemented in \fBEvalVisitor\fP, \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBIfStatement\fP &)\fC [pure virtual]\fP"
 
 .PP
@@ -399,7 +399,7 @@ Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBProgram\fP &)\fC [pure virtual]\fP"
 
 .PP
-Implemented in \fBBasicVisitor\fP, and \fBDelegateVistor\fP\&.
+Implemented in \fBBasicVisitor\fP, \fBDelegateVistor\fP, and \fBEvalVisitor\fP\&.
 .SS "virtual void Visitor::operator() (const \fBElementList\fP &)\fC [pure virtual]\fP"
 
 .PP

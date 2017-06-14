@@ -6,7 +6,8 @@
 
 
 
-Inheritance diagram for Eval\+Visitor\+:\nopagebreak
+Inheritance diagram for Eval\+Visitor\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -15,7 +16,8 @@ Inheritance diagram for Eval\+Visitor\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for Eval\+Visitor\+:\nopagebreak
+Collaboration diagram for Eval\+Visitor\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -26,10 +28,34 @@ Collaboration diagram for Eval\+Visitor\+:\nopagebreak
 \begin{DoxyCompactItemize}
 \item 
 \textbf{ std\+::string} \hyperlink{class_eval_visitor_a999cfe6d55d85b27a6dca7c5f8c2b07e}{str} () const
+\item 
+void \hyperlink{class_eval_visitor_a9300ec33c193788bec2484b0d99c7fa3}{operator()} (const \hyperlink{struct_program}{Program} \&program) override
+\item 
+void \hyperlink{class_eval_visitor_a7122ac9fb6f1ef01696296b6bd2edbeb}{operator()} (const \hyperlink{struct_expression_statement}{Expression\+Statement} \&stmt) override
 \end{DoxyCompactItemize}
 
 
 \subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_eval_visitor_a9300ec33c193788bec2484b0d99c7fa3}\label{class_eval_visitor_a9300ec33c193788bec2484b0d99c7fa3}} 
+\index{Eval\+Visitor@{Eval\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Eval\+Visitor@{Eval\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Eval\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_program}{Program} \&}]{program }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \hyperlink{struct_basic_visitor_adeaf13cc53c36c871d89d6f42a1ec8db}{Basic\+Visitor}.
+
+\mbox{\Hypertarget{class_eval_visitor_a7122ac9fb6f1ef01696296b6bd2edbeb}\label{class_eval_visitor_a7122ac9fb6f1ef01696296b6bd2edbeb}} 
+\index{Eval\+Visitor@{Eval\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Eval\+Visitor@{Eval\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Eval\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_expression_statement}{Expression\+Statement} \&}]{stmt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \hyperlink{struct_basic_visitor_a6c369f60a28dffd5149258e32a81cb6e}{Basic\+Visitor}.
+
 \mbox{\Hypertarget{class_eval_visitor_a999cfe6d55d85b27a6dca7c5f8c2b07e}\label{class_eval_visitor_a999cfe6d55d85b27a6dca7c5f8c2b07e}} 
 \index{Eval\+Visitor@{Eval\+Visitor}!str@{str}}
 \index{str@{str}!Eval\+Visitor@{Eval\+Visitor}}

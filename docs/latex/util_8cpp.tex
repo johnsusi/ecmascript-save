@@ -1,27 +1,30 @@
 \hypertarget{util_8cpp}{}\section{src/util.cpp File Reference}
 \label{util_8cpp}\index{src/util.\+cpp@{src/util.\+cpp}}
 {\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$algorithm$>$}\newline
 {\ttfamily \#include $<$fstream$>$}\newline
 {\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
 {\ttfamily \#include $<$numeric$>$}\newline
 {\ttfamily \#include $<$sstream$>$}\newline
 {\ttfamily \#include $<$string$>$}\newline
 {\ttfamily \#include $<$vector$>$}\newline
-{\ttfamily \#include $<$boost/algorithm/string.\+hpp$>$}\newline
-{\ttfamily \#include $<$boost/core/demangle.\+hpp$>$}\newline
 {\ttfamily \#include $<$unicode/errorcode.\+h$>$}\newline
 {\ttfamily \#include $<$unicode/normalizer2.\+h$>$}\newline
 {\ttfamily \#include $<$unicode/uchar.\+h$>$}\newline
 {\ttfamily \#include $<$unicode/unistr.\+h$>$}\newline
-Include dependency graph for util.\+cpp\+:\nopagebreak
+{\ttfamily \#include $<$unicode/unorm2.\+h$>$}\newline
+Include dependency graph for util.\+cpp\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{util_8cpp__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:\nopagebreak
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -30,6 +33,8 @@ This graph shows which files directly or indirectly include this file\+:\nopageb
 \end{figure}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
+\item 
+if(U\+\_\+\+F\+A\+I\+L\+U\+RE(\hyperlink{util_8cpp_a52482fdd3721e7db69dc740aefee8ad4}{err})) throw std \hyperlink{util_8cpp_ac677e4f16edff55b9d8fe71060654804}{u\+\_\+str\+From\+U\+T\+F8} (nullptr, 0, \&\hyperlink{util_8cpp_ae54ccf0cb2bab11513ee8239c3f7d663}{dest\+Length}, utf8.\+data(), utf8.\+size(), \&\hyperlink{util_8cpp_a52482fdd3721e7db69dc740aefee8ad4}{err})
 \item 
 \textbf{ std\+::u16string} \hyperlink{util_8cpp_a9e230e1ab47b787562705c322044d2a0}{convert\+\_\+utf8\+\_\+to\+\_\+utf16} (const \textbf{ std\+::string} \&source)
 \item 
@@ -48,6 +53,17 @@ static char \hyperlink{util_8cpp_ae4db72e4c53106ecca9e18f033ac6886}{to\+\_\+hex\
 static \textbf{ std\+::string} \& \hyperlink{util_8cpp_a679dab7615746fa3894af264eb65d0da}{encode} (\textbf{ std\+::string} \&str, int cp)
 \item 
 \textbf{ std\+::string} \hyperlink{util_8cpp_a4f1418867f20f41174c8c4dcf0c60262}{stringify} (const \textbf{ std\+::u16string} \&str)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \hyperlink{util_8cpp_ae54ccf0cb2bab11513ee8239c3f7d663}{dest\+Length}
+\item 
+U\+Error\+Code \hyperlink{util_8cpp_a52482fdd3721e7db69dc740aefee8ad4}{err} = U\+\_\+\+Z\+E\+R\+O\+\_\+\+E\+R\+R\+OR
+\item 
+std\+::u16 auto \hyperlink{util_8cpp_a52c03799cd911792e573eef619747c25}{buffer} = std\+::make\+\_\+unique$<$U\+Char$\ast$$>$(new U\+Char\mbox{[}\hyperlink{util_8cpp_ae54ccf0cb2bab11513ee8239c3f7d663}{dest\+Length}\mbox{]})
+\item 
+return \hyperlink{util_8cpp_ade6d6d18a46c8aa95eed5e179d003e45}{result}
 \end{DoxyCompactItemize}
 
 
@@ -108,4 +124,36 @@ Left aligns {\itshape text} by first finding the left-\/most non-\/whitespace ch
 \subsubsection{\texorpdfstring{u\+\_\+char\+Category()}{u\_charCategory()}}
 {\footnotesize\ttfamily const char$\ast$ u\+\_\+char\+Category (\begin{DoxyParamCaption}\item[{int}]{c }\end{DoxyParamCaption})}
 
-Returns the general category (short) name for the code point. If the category is not known \textquotesingle{}??\textquotesingle{} is returned. Always returns a zero terminated char array of length 3. 
+Returns the general category (short) name for the code point. If the category is not known \textquotesingle{}??\textquotesingle{} is returned. Always returns a zero terminated char array of length 3. \mbox{\Hypertarget{util_8cpp_ac677e4f16edff55b9d8fe71060654804}\label{util_8cpp_ac677e4f16edff55b9d8fe71060654804}} 
+\index{util.\+cpp@{util.\+cpp}!u\+\_\+str\+From\+U\+T\+F8@{u\+\_\+str\+From\+U\+T\+F8}}
+\index{u\+\_\+str\+From\+U\+T\+F8@{u\+\_\+str\+From\+U\+T\+F8}!util.\+cpp@{util.\+cpp}}
+\subsubsection{\texorpdfstring{u\+\_\+str\+From\+U\+T\+F8()}{u\_strFromUTF8()}}
+{\footnotesize\ttfamily if (U\+\_\+\+F\+A\+I\+L\+U\+RE(\hyperlink{util_8cpp_a52482fdd3721e7db69dc740aefee8ad4}{err})) throw std u\+\_\+str\+From\+U\+T\+F8 (\begin{DoxyParamCaption}\item[{nullptr}]{,  }\item[{0}]{,  }\item[{\&}]{dest\+Length,  }\item[{utf8.}]{data(),  }\item[{utf8.}]{size(),  }\item[{\&}]{err }\end{DoxyParamCaption})}
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{util_8cpp_a52c03799cd911792e573eef619747c25}\label{util_8cpp_a52c03799cd911792e573eef619747c25}} 
+\index{util.\+cpp@{util.\+cpp}!buffer@{buffer}}
+\index{buffer@{buffer}!util.\+cpp@{util.\+cpp}}
+\subsubsection{\texorpdfstring{buffer}{buffer}}
+{\footnotesize\ttfamily Unicode\+String \hyperlink{util_8cpp_ade6d6d18a46c8aa95eed5e179d003e45}{result} $\ast$ buffer = std\+::make\+\_\+unique$<$U\+Char$\ast$$>$(new U\+Char\mbox{[}\hyperlink{util_8cpp_ae54ccf0cb2bab11513ee8239c3f7d663}{dest\+Length}\mbox{]})}
+
+\mbox{\Hypertarget{util_8cpp_ae54ccf0cb2bab11513ee8239c3f7d663}\label{util_8cpp_ae54ccf0cb2bab11513ee8239c3f7d663}} 
+\index{util.\+cpp@{util.\+cpp}!dest\+Length@{dest\+Length}}
+\index{dest\+Length@{dest\+Length}!util.\+cpp@{util.\+cpp}}
+\subsubsection{\texorpdfstring{dest\+Length}{destLength}}
+{\footnotesize\ttfamily int32\+\_\+t dest\+Length}
+
+\mbox{\Hypertarget{util_8cpp_a52482fdd3721e7db69dc740aefee8ad4}\label{util_8cpp_a52482fdd3721e7db69dc740aefee8ad4}} 
+\index{util.\+cpp@{util.\+cpp}!err@{err}}
+\index{err@{err}!util.\+cpp@{util.\+cpp}}
+\subsubsection{\texorpdfstring{err}{err}}
+{\footnotesize\ttfamily err = U\+\_\+\+Z\+E\+R\+O\+\_\+\+E\+R\+R\+OR}
+
+\mbox{\Hypertarget{util_8cpp_ade6d6d18a46c8aa95eed5e179d003e45}\label{util_8cpp_ade6d6d18a46c8aa95eed5e179d003e45}} 
+\index{util.\+cpp@{util.\+cpp}!result@{result}}
+\index{result@{result}!util.\+cpp@{util.\+cpp}}
+\subsubsection{\texorpdfstring{result}{result}}
+{\footnotesize\ttfamily return result}
+
