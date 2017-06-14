@@ -609,12 +609,13 @@ public:
   bool double_string_character()
   {
     trace();
-    return match([&](auto cp) {
+    return match([this](auto cp) {
       switch (cp) {
       case '"': return false;
       case '\\':
-        if (line_terminator_sequence()) return double_string_character();
-        return escape_sequence();
+        if (this->line_terminator_sequence())
+          return this->double_string_character();
+        return this->escape_sequence();
       default:
         if (is_line_terminator(cp)) return false;
         cv = *match;
@@ -630,8 +631,9 @@ public:
       switch (cp) {
       case '\'': return false;
       case '\\':
-        if (line_terminator_sequence()) return single_string_character();
-        return escape_sequence();
+        if (this->line_terminator_sequence())
+          return this->single_string_character();
+        return this->escape_sequence();
       default:
         if (is_line_terminator(cp)) return false;
         cv = *match;

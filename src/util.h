@@ -5,13 +5,13 @@
 #include <string>
 #include <utility>
 
-#include <boost/core/demangle.hpp>
+// #include <boost/core/demangle.hpp>
 
 std::u16string convert_utf8_to_utf16(const std::string&);
 std::string    convert_utf16_to_utf8(const std::u16string&);
 
-std::string left_align_text(const std::string& text,
-                            const std::string& indent = "");
+std::string
+left_align_text(const std::string& text, const std::string& indent = "");
 
 const char* u_charCategory(int c);
 
@@ -24,13 +24,15 @@ std::string stringify(const std::u16string&);
 template <typename T>
 std::string demangle()
 {
-  return boost::core::demangle(typeid(T).name());
+  return "";
+  // return boost::core::demangle(typeid(T).name());
 }
 
 template <typename T>
 std::string demangle(T)
 {
-  return boost::core::demangle(typeid(T).name());
+  return "";
+  // return boost::core::demangle(typeid(T).name());
 }
 
 template <class F, size_t... Is>

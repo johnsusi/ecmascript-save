@@ -8,8 +8,6 @@
 #include <numeric>
 #include <sstream>
 
-#include <boost/algorithm/string.hpp>
-
 class JSONVisitor : public BasicVisitor {
   std::stringstream buf;
 
@@ -151,7 +149,8 @@ class JSONVisitor : public BasicVisitor {
     buf << "[";
     auto it  = literal.elements->begin();
     auto end = literal.elements->end();
-    if (it != end) apply(*it++);
+    if (it != end)
+      apply(*it++);
     while (it != end) {
       buf << ",";
       apply(*it++);
@@ -369,8 +368,14 @@ class JSONVisitor : public BasicVisitor {
       buf << "[]";
   }
 
-  void operator()(const ArgumentList& list) override { apply(list.data); }
-  void operator()(const StatementList& list) override { apply(list.data); }
+  void operator()(const ArgumentList& list) override
+  {
+    apply(list.data);
+  }
+  void operator()(const StatementList& list) override
+  {
+    apply(list.data);
+  }
 
   void operator()(const Block& stmt) override
   {
@@ -570,7 +575,8 @@ class JSONVisitor : public BasicVisitor {
     auto j = stmt.cases->end();
     auto k = i;
 
-    while (k != j && !(*k)->is_default()) ++k;
+    while (k != j && !(*k)->is_default())
+      ++k;
 
     buf << "{" << quote("type") << ":"
         << quote(k == j ? "SwitchStatement" : "SwitchStatementWithDefault");
@@ -661,7 +667,8 @@ class JSONVisitor : public BasicVisitor {
   void apply(It it, It end)
   {
     buf << "[";
-    if (it != end) apply(*it++);
+    if (it != end)
+      apply(*it++);
     while (it != end) {
       buf << ",";
       apply(*it++);
@@ -675,7 +682,10 @@ class JSONVisitor : public BasicVisitor {
     apply(list.begin(), list.end());
   }
 
-  void operator()(const SourceElements& list) override { apply(list.data); }
+  void operator()(const SourceElements& list) override
+  {
+    apply(list.data);
+  }
 
   template <typename InputIt>
   auto print_directives(InputIt first, InputIt last)
@@ -685,7 +695,8 @@ class JSONVisitor : public BasicVisitor {
       if (auto stmt = dynamic_cast<ExpressionStatement*>(*it)) {
         if (auto expr = dynamic_cast<LiteralExpression*>(stmt->expression)) {
           if (auto literal = dynamic_cast<StringLiteral*>(expr->literal)) {
-            if (it != first) buf << ",";
+            if (it != first)
+              buf << ",";
             if (literal->value == u"use strict") {
               buf << "{" << quote("type") << ":" << quote("UseStrictDirective");
               buf << "}";
@@ -767,7 +778,10 @@ class JSONVisitor : public BasicVisitor {
   }
 
 public:
-  std::string str() const { return buf.str(); }
+  std::string str() const
+  {
+    return buf.str();
+  }
 };
 
 #endif

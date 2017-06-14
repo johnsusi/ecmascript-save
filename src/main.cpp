@@ -5,12 +5,14 @@
 #include "json_visitor.h"
 #include "trace.h"
 #include "util.h"
+#include "variant.h"
 
 #include <iostream>
 #include <string>
+#include <unordered_map>
 #include <vector>
 
-#include <boost/program_options.hpp>
+// #include <boost/program_options.hpp>
 
 using namespace std::literals::string_literals;
 
@@ -24,44 +26,45 @@ constexpr auto usage = R"(
 
     -h [ --help      ]             Print this message
     -v [ --verbose   ]             Be verbose
+    -c [ --compile   ]             Only run lexer and compiler
     -e [ --eval      ] <source>    Execute <source>
-    -p [ --print-ast ]             Pretty print the resulting AST
-    -l [ --lex       ]             Only perform lexing on the input
     -j [ --json      ]             Print AST as JSON (implies -p)
+    -l [ --lex       ]             Only run lexer
 )";
 
 auto parse_command_line(int argc, const char** argv)
 {
-  using namespace std;
-  using namespace boost::program_options;
+  using result_type = variant<bool, std::string, std::vector<std::string>>;
+  std::vector<std::string> input_files;
+  std::unordered_map<std::string, result_type> result;
+  for (int i = 1; i < argc; ++i) {
+    if (argv[i][0] == '-') {
+      if (argv[i] == "-h"s || argv[i] == "--help"s)
+        result["help"] = true;
+      else if (argv[i] == "-v"s || argv[i] == "--verbose"s)
+        result["verbose"] = true;
+      else if (argv[i] == "-c"s || argv[i] == "--compile"s)
+        result["compile"] = true;
+      else if (argv[i] == "-e"s || argv[i] == "--eval"s) {
+        if (++i == argc)
+          throw std::domain_error("Missing parameter for "s + argv[i - 1]);
+        result["eval"] = std::string(argv[i]);
+      }
+      else if (argv[i] == "-j"s || argv[i] == "--json"s)
+        result["json"] = true;
+      else if (argv[i] == "-l"s || argv[i] == "--lex"s)
+        result["lex"] = true;
+      else
+        throw std::domain_error("Invalid argument: '"s + argv[i] + "'");
+    }
+    else
+      input_files.push_back(argv[i]);
+  }
 
-  options_description desc("Options");
+  if (!input_files.empty())
+    result["input-file"] = std::move(input_files);
 
-  desc.add_options()("help,h", "print usage message");
-  desc.add_options()("verbose,v", "be verbose");
-  desc.add_options()("eval,e", value<string>(), "string");
-  desc.add_options()("ast,p", "print AST to stdout");
-  desc.add_options()("lex,l", "Perform lexing only");
-  desc.add_options()("json,j", "Prist AST as JSON (implies -p)");
-
-  options_description hidden("Hidden options");
-  hidden.add_options()("input-file", value<vector<string>>(), "input file");
-
-  options_description cmdline_options;
-  cmdline_options.add(desc).add(hidden);
-
-  positional_options_description p;
-  p.add("input-file", -1);
-
-  variables_map vm;
-  store(
-      command_line_parser(argc, argv)
-          .options(cmdline_options)
-          .positional(p)
-          .run(),
-      vm);
-  notify(vm);
-  return vm;
+  return result;
 }
 
 int main(int argc, const char** argv)
@@ -70,22 +73,22 @@ int main(int argc, const char** argv)
 
   try {
 
-    auto vm = parse_command_line(argc, argv);
+    auto options = parse_command_line(argc, argv);
 
-    bool verbose = vm.count("verbose");
-    bool ast     = vm.count("json");
+    bool verbose = options.count("verbose");
 
     auto run = [&](auto source) {
 
-      if (vm.count("json")) {
+      if (options.count("json")) {
         JSONVisitor visitor;
         eval(source, visitor, verbose);
         std::cout << visitor.str() << std::endl;
       }
-      else if (vm.count("ast")) {
-        SimplifiedYAMLVisitor visitor;
+      else if (options.count("lex")) {
+      }
+      else if (options.count("compile")) {
+        BasicVisitor visitor;
         eval(source, visitor, verbose);
-        std::cout << visitor.str() << std::endl;
       }
       else {
         EvalVisitor visitor;
@@ -94,34 +97,31 @@ int main(int argc, const char** argv)
       }
     };
 
-    if (vm.count("help")) {
-      std::cout << usage;
-    }
-    else if (vm.count("eval")) {
-      run(vm["eval"].as<string>());
-    }
-    else if (vm.count("input-file")) {
-      auto filenames = vm["input-file"].as<vector<string>>();
+    if (options.count("help"))
+      cout << usage;
+    else if (options.count("eval"))
+      run(get<string>(options["eval"]));
+    else if (options.count("input-file")) {
+      auto filenames = get<vector<string>>(options["input-file"]);
+      //.as<vector<string>>();
       for (const auto& filename : filenames) {
-        if (verbose) std::cout << "Evaluating " << filename << std::endl;
+        if (verbose)
+          std::cout << "Evaluating " << filename << std::endl;
         run(read_file(filename));
       }
     }
     else { // Try reading from stdin
       auto source = read_stdin();
-      if (source.size() > 0) {
+      if (source.size() > 0)
         run(source);
-      }
-      else {
+      else
         std::cout << usage;
-      }
     }
   }
   catch (const std::exception& err) {
     cerr << err.what() << endl;
-    for (auto line : stack_trace()) {
+    for (auto line : stack_trace())
       cerr << line << endl;
-    }
     return -1;
   }
   return 0;

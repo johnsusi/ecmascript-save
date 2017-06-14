@@ -9,8 +9,8 @@
 #include <string>
 #include <vector>
 
-#include <boost/algorithm/string.hpp>
-#include <boost/core/demangle.hpp>
+// #include <boost/algorithm/string.hpp>
+// #include <boost/core/demangle.hpp>
 
 #include <unicode/errorcode.h>
 #include <unicode/normalizer2.h>
@@ -30,9 +30,11 @@ std::u16string convert_utf8_to_utf16(const std::string& source)
   ErrorCode err;
   auto      buffer     = UnicodeString::fromUTF8(source);
   auto      normalizer = Normalizer2::getNFCInstance(err);
-  if (err.isFailure()) throw std::runtime_error(err.errorName());
+  if (err.isFailure())
+    throw std::runtime_error(err.errorName());
   auto result = normalizer->normalize(buffer, err);
-  if (err.isFailure()) throw std::runtime_error(err.errorName());
+  if (err.isFailure())
+    throw std::runtime_error(err.errorName());
   return std::u16string(
       reinterpret_cast<const std::u16string::value_type*>(buffer.getBuffer()),
       buffer.length());
@@ -60,12 +62,14 @@ icu::UnicodeString icu::UnicodeString::fromUTF8(icu::StringPiece utf8)
 {
   int32_t    destLength;
   UErrorCode err = U_ZERO_ERROR;
-  if (U_FAILURE(err)) throw std::runtime_error(u_errorName(err));
+  if (U_FAILURE(err))
+    throw std::runtime_error(u_errorName(err));
   u_strFromUTF8(nullptr, 0, &destLength, utf8.data(), utf8.size(), &err);
   auto buffer = std::make_unique<UChar*>(new UChar[destLength]);
   err         = U_ZERO_ERROR;
   u_strFromUTF8(*buffer, destLength, nullptr, utf8.data(), utf8.size(), &err);
-  if (U_FAILURE(err)) throw std::runtime_error(u_errorName(err));
+  if (U_FAILURE(err))
+    throw std::runtime_error(u_errorName(err));
   UnicodeString result(*buffer, destLength);
   return result;
 }
@@ -82,9 +86,9 @@ icu::UnicodeString icu::UnicodeString::fromUTF8(icu::StringPiece utf8)
 std::string left_align_text(const std::string& text, const std::string& indent)
 {
   using namespace std;
-  using namespace boost;
+  // using namespace boost;
   vector<string> rows;
-  split(rows, text, is_any_of("\n"), token_compress_off);
+  // split(rows, text, is_any_of("\n"), token_compress_off);
 
   auto it         = rows.begin();
   int  leading_ws = 0;
@@ -162,7 +166,8 @@ const char* u_charCategory(int c)
 std::string read_file(const std::string& filename)
 {
   std::ifstream ifs(filename);
-  if (ifs.fail()) throw std::runtime_error("Error reading '" + filename + "'");
+  if (ifs.fail())
+    throw std::runtime_error("Error reading '" + filename + "'");
   using it = std::istreambuf_iterator<char>;
   return std::string(it(ifs), it());
 }

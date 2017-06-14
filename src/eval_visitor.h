@@ -60,11 +60,18 @@ class EvalVisitor : public BasicVisitor {
   //   Type                                           GlobalObject;
   //   std::unique_ptr<LexicalEnvironment>            GlobalEnvironment;
   std::vector<std::unique_ptr<ExecutionContext>> stack;
-  ExecutionContext*                              context;
-  void InitializeGlobalExecutionContext() {}
+
+  ExecutionContext* context = nullptr;
+
+  void InitializeGlobalExecutionContext()
+  {
+  }
 
 public:
-  std::string str() const { return "EvalVisitor"; }
+  std::string str() const
+  {
+    return "EvalVisitor";
+  }
 
   void operator()(const Program& program) override
   // 10.4.1 Entering Global Code

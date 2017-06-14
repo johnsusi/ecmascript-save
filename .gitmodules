@@ -7,3 +7,6 @@
 [submodule "vendor/octane"]
 	path = vendor/octane
 	url = https://github.com/chromium/octane.git
+[submodule "vendor/boost"]
+	path = vendor/boost
+	url = https://github.com/boostorg/boost.git

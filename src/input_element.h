@@ -1,15 +1,14 @@
 #ifndef ECMASCRIPT_INPUT_ELEMENT_H
 #define ECMASCRIPT_INPUT_ELEMENT_H
 
+#include "optional.h"
 #include "token.h"
+#include "variant.h"
 
 #include <algorithm>
 #include <iterator>
 #include <ostream>
 #include <string>
-
-#include <boost/optional.hpp>
-#include <boost/variant.hpp>
 
 class InputElement {
   struct Empty {
@@ -25,13 +24,14 @@ class InputElement {
   struct WhiteSpace {
   };
 
-  using Value =
-      boost::variant<Empty, Token, LineTerminator, Comment, WhiteSpace>;
+  using Value = variant<Empty, Token, LineTerminator, Comment, WhiteSpace>;
 
   Value value;
 
   InputElement() = delete;
-  InputElement(Value&& value) : value(value) {}
+  InputElement(Value&& value) : value(value)
+  {
+  }
 
 public:
   static InputElement empty();
@@ -49,7 +49,7 @@ public:
 
   explicit operator bool() const;
 
-  boost::optional<::Token> to_token() const;
+  optional<::Token> to_token() const;
   // auto size() const;
 
   // std::string string_value()  const;

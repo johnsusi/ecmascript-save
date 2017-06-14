@@ -1,6 +1,6 @@
 #include "lexer.h"
 
-#include <catch.hpp>
+#include "catch.hpp"
 
 TEST_CASE("7.8.1 Null literals")
 {

@@ -133,6 +133,7 @@ Type ToPrimitive(const Type& input, const char* PreferredType)
     // return input.value.object_value.DefaultValue(PreferredType);
     return {};
   }
+  throw std::domain_error("Unknown tag");
 }
 
 // 9.2 ToBoolean
@@ -149,6 +150,7 @@ Boolean ToBoolean(const Type& input)
     return Boolean{input.value.string_value.length() > 0};
   case Type::Tag::OBJECT_VALUE: return Boolean{true};
   }
+  throw std::domain_error("Unknown tag");
 }
 
 // 9.3 ToNumber
@@ -165,6 +167,7 @@ Number ToNumber(const Type& input)
     auto primValue = ToPrimitive(input, "Number");
     return ToNumber(primValue);
   }
+  throw std::domain_error("Unknown tag");
 }
 
 // 9.4 ToInteger
@@ -190,6 +193,7 @@ String ToString(const Type& input)
     auto primValue = ToPrimitive(input, "String");
     return ToString(primValue);
   }
+  throw std::domain_error("Unknown tag");
 }
 
 // 9.9 ToObject
@@ -204,6 +208,7 @@ Object ToObject(const Type& input)
   case Type::Tag::STRING_VALUE: return StringObject(input.value.string_value);
   case Type::Tag::OBJECT_VALUE: return input.value.object_value;
   }
+  throw std::domain_error("Unknown tag");
 }
 
 // 9.10 CheckObjectCoercible
@@ -217,6 +222,7 @@ Type CheckObjectCoercible(const Type& input)
   case Type::Tag::STRING_VALUE: return {};
   case Type::Tag::OBJECT_VALUE: return {};
   }
+  throw std::domain_error("Unknown tag");
 }
 
 // 9.11 IsCallable
@@ -230,6 +236,7 @@ bool IsCallable(const Type& x)
   case Type::Tag::STRING_VALUE: return false;
   case Type::Tag::OBJECT_VALUE: return x.value.object_value["[[Call]]"];
   }
+  throw std::domain_error("Unknown tag");
 }
 
 // 9.12 The SameValue Algorithm
@@ -284,6 +291,7 @@ bool SameValue(const Type& x, const Type& y)
   case Type::Tag::OBJECT_VALUE:
     return false; // TODO
   }
+  return false;
 }
 
 // 11.9.3 The Abstract Equality Comparison Algorithm
@@ -443,6 +451,7 @@ bool StrictEqualityComparison(const Type& x, const Type& y)
 
   // NOTE This algorithm differs from the SameValue Algorithm(9.12) in its
   // treatment of signed zeroes and NaNs.
+  return false;
 }
 
 bool operator==(const Type& x, const Type& y)

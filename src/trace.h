@@ -6,7 +6,7 @@
 #include <string>
 #include <vector>
 
-#include <boost/current_function.hpp>
+// #include <boost/current_function.hpp>
 
 std::vector<std::string>& stack_trace();
 
@@ -20,6 +20,6 @@ struct TraceGuard {
 };
 
 #define trace(...)                                                             \
-  TraceGuard tg_##__LINE__(BOOST_CURRENT_FUNCTION, __FILE__, __LINE__)
+  TraceGuard tg_##__LINE__(__PRETTY_FUNCTION__, __FILE__, __LINE__)
 
 #endif

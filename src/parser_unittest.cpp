@@ -5,7 +5,7 @@
 
 #include <iostream>
 
-#include <catch.hpp>
+#include "catch.hpp"
 
 #include <boost/algorithm/string.hpp>
 #include <boost/optional/optional_io.hpp>
