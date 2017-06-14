@@ -1,0 +1,77 @@
+.TH "Catch::IResultCapture" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Catch::IResultCapture
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <catch\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual \fB~IResultCapture\fP ()"
+.br
+.ti -1c
+.RI "virtual void \fBassertionEnded\fP (\fBAssertionResult\fP const &\fBresult\fP)=0"
+.br
+.ti -1c
+.RI "virtual bool \fBsectionStarted\fP (\fBSectionInfo\fP const &sectionInfo, \fBCounts\fP &assertions)=0"
+.br
+.ti -1c
+.RI "virtual void \fBsectionEnded\fP (\fBSectionEndInfo\fP const &endInfo)=0"
+.br
+.ti -1c
+.RI "virtual void \fBsectionEndedEarly\fP (\fBSectionEndInfo\fP const &endInfo)=0"
+.br
+.ti -1c
+.RI "virtual void \fBpushScopedMessage\fP (\fBMessageInfo\fP const &message)=0"
+.br
+.ti -1c
+.RI "virtual void \fBpopScopedMessage\fP (\fBMessageInfo\fP const &message)=0"
+.br
+.ti -1c
+.RI "virtual \fBstd::string\fP \fBgetCurrentTestName\fP () const =0"
+.br
+.ti -1c
+.RI "virtual const \fBAssertionResult\fP * \fBgetLastResult\fP () const =0"
+.br
+.ti -1c
+.RI "virtual void \fBexceptionEarlyReported\fP ()=0"
+.br
+.ti -1c
+.RI "virtual void \fBhandleFatalErrorCondition\fP (\fBstd::string\fP const &message)=0"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "virtual Catch::IResultCapture::~IResultCapture ()\fC [virtual]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual void Catch::IResultCapture::assertionEnded (\fBAssertionResult\fP const & result)\fC [pure virtual]\fP"
+
+.SS "virtual void Catch::IResultCapture::exceptionEarlyReported ()\fC [pure virtual]\fP"
+
+.SS "virtual \fBstd::string\fP Catch::IResultCapture::getCurrentTestName () const\fC [pure virtual]\fP"
+
+.SS "virtual const \fBAssertionResult\fP* Catch::IResultCapture::getLastResult () const\fC [pure virtual]\fP"
+
+.SS "virtual void Catch::IResultCapture::handleFatalErrorCondition (\fBstd::string\fP const & message)\fC [pure virtual]\fP"
+
+.SS "virtual void Catch::IResultCapture::popScopedMessage (\fBMessageInfo\fP const & message)\fC [pure virtual]\fP"
+
+.SS "virtual void Catch::IResultCapture::pushScopedMessage (\fBMessageInfo\fP const & message)\fC [pure virtual]\fP"
+
+.SS "virtual void Catch::IResultCapture::sectionEnded (\fBSectionEndInfo\fP const & endInfo)\fC [pure virtual]\fP"
+
+.SS "virtual void Catch::IResultCapture::sectionEndedEarly (\fBSectionEndInfo\fP const & endInfo)\fC [pure virtual]\fP"
+
+.SS "virtual bool Catch::IResultCapture::sectionStarted (\fBSectionInfo\fP const & sectionInfo, \fBCounts\fP & assertions)\fC [pure virtual]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

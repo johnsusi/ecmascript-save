@@ -1,0 +1,7 @@
+<map id="Catch::NonCopyable" name="Catch::NonCopyable">
+<area shape="rect" id="node2" href="$struct_catch_1_1_i_shared.html" title="Catch::IShared" alt="" coords="48,79,159,104"/>
+<area shape="rect" id="node6" href="$class_catch_1_1_section.html" title="Catch::Section" alt="" coords="183,79,291,104"/>
+<area shape="rect" id="node3" href="$struct_catch_1_1_i_test_case.html" title="Catch::ITestCase" alt="" coords="42,152,165,177"/>
+<area shape="rect" id="node4" href="$struct_catch_1_1_shared_impl.html" title="Catch::SharedImpl\&lt;\l ITestCase \&gt;" alt="" coords="34,225,173,264"/>
+<area shape="rect" id="node5" href="$class_catch_1_1_method_test_case.html" title="Catch::MethodTestCase\&lt; C \&gt;" alt="" coords="5,312,202,337"/>
+</map>

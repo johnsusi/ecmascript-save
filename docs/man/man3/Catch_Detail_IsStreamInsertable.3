@@ -1,0 +1,46 @@
+.TH "Catch::Detail::IsStreamInsertable< T >" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Catch::Detail::IsStreamInsertable< T >
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <catch\&.hpp>\fP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBvalue\fP = sizeof( testStreamable(s << t) ) == sizeof( TrueType ) }"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static \fBstd::ostream\fP & \fBs\fP"
+.br
+.ti -1c
+.RI "static T const  & \fBt\fP"
+.br
+.in -1c
+.SH "Member Enumeration Documentation"
+.PP 
+.SS "template<typename T > anonymous enum"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIvalue \fP\fP
+.SH "Member Data Documentation"
+.PP 
+.SS "template<typename T > \fBstd::ostream\fP& \fBCatch::Detail::IsStreamInsertable\fP< T >::s\fC [static]\fP"
+
+.SS "template<typename T > T const& \fBCatch::Detail::IsStreamInsertable\fP< T >::t\fC [static]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

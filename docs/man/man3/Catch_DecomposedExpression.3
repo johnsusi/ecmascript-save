@@ -1,0 +1,78 @@
+.TH "Catch::DecomposedExpression" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Catch::DecomposedExpression
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <catch\&.hpp>\fP
+.PP
+Inherited by \fBCatch::BinaryExpression< LhsT, Op, RhsT >\fP, \fBCatch::ExpressionLhs< T >\fP, \fBCatch::MatchExpression< ArgT, MatcherT >\fP, and \fBCatch::ResultBuilder\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual \fB~DecomposedExpression\fP ()"
+.br
+.ti -1c
+.RI "virtual bool \fBisBinaryExpression\fP () const"
+.br
+.ti -1c
+.RI "virtual void \fBreconstructExpression\fP (\fBstd::string\fP &dest) const =0"
+.br
+.ti -1c
+.RI "template<typename T > STATIC_ASSERT_Expression_Too_Complex_Please_Rewrite_As_Binary_Comparison & \fBoperator+\fP (T const &)"
+.br
+.ti -1c
+.RI "template<typename T > STATIC_ASSERT_Expression_Too_Complex_Please_Rewrite_As_Binary_Comparison & \fBoperator\-\fP (T const &)"
+.br
+.ti -1c
+.RI "template<typename T > STATIC_ASSERT_Expression_Too_Complex_Please_Rewrite_As_Binary_Comparison & \fBoperator*\fP (T const &)"
+.br
+.ti -1c
+.RI "template<typename T > STATIC_ASSERT_Expression_Too_Complex_Please_Rewrite_As_Binary_Comparison & \fBoperator/\fP (T const &)"
+.br
+.ti -1c
+.RI "template<typename T > STATIC_ASSERT_Expression_Too_Complex_Please_Rewrite_As_Binary_Comparison & \fBoperator%\fP (T const &)"
+.br
+.ti -1c
+.RI "template<typename T > STATIC_ASSERT_Expression_Too_Complex_Please_Rewrite_As_Binary_Comparison & \fBoperator&&\fP (T const &)"
+.br
+.ti -1c
+.RI "template<typename T > STATIC_ASSERT_Expression_Too_Complex_Please_Rewrite_As_Binary_Comparison & \fBoperator||\fP (T const &)"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "virtual Catch::DecomposedExpression::~DecomposedExpression ()\fC [inline]\fP, \fC [virtual]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual bool Catch::DecomposedExpression::isBinaryExpression () const\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Reimplemented in \fBCatch::MatchExpression< ArgT, MatcherT >\fP, and \fBCatch::BinaryExpression< LhsT, Op, RhsT >\fP\&.
+.SS "template<typename T > STATIC_ASSERT_Expression_Too_Complex_Please_Rewrite_As_Binary_Comparison& Catch::DecomposedExpression::operator% (T const &)"
+
+.SS "template<typename T > STATIC_ASSERT_Expression_Too_Complex_Please_Rewrite_As_Binary_Comparison& Catch::DecomposedExpression::operator && (T const &)"
+
+.SS "template<typename T > STATIC_ASSERT_Expression_Too_Complex_Please_Rewrite_As_Binary_Comparison& Catch::DecomposedExpression::operator* (T const &)"
+
+.SS "template<typename T > STATIC_ASSERT_Expression_Too_Complex_Please_Rewrite_As_Binary_Comparison& Catch::DecomposedExpression::operator+ (T const &)"
+
+.SS "template<typename T > STATIC_ASSERT_Expression_Too_Complex_Please_Rewrite_As_Binary_Comparison& Catch::DecomposedExpression::operator\- (T const &)"
+
+.SS "template<typename T > STATIC_ASSERT_Expression_Too_Complex_Please_Rewrite_As_Binary_Comparison& Catch::DecomposedExpression::operator/ (T const &)"
+
+.SS "template<typename T > STATIC_ASSERT_Expression_Too_Complex_Please_Rewrite_As_Binary_Comparison& Catch::DecomposedExpression::operator|| (T const &)"
+
+.SS "virtual void Catch::DecomposedExpression::reconstructExpression (\fBstd::string\fP & dest) const\fC [pure virtual]\fP"
+
+.PP
+Implemented in \fBCatch::MatchExpression< ArgT, MatcherT >\fP, \fBCatch::BinaryExpression< LhsT, Op, RhsT >\fP, \fBCatch::ExpressionLhs< T >\fP, and \fBCatch::ResultBuilder\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

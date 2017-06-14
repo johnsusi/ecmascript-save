@@ -1,0 +1,43 @@
+.TH "Catch::IGenerator< T >" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Catch::IGenerator< T >
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <catch\&.hpp>\fP
+.PP
+Inherited by \fBCatch::BetweenGenerator< T >\fP, and \fBCatch::ValuesGenerator< T >\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual \fB~IGenerator\fP ()"
+.br
+.ti -1c
+.RI "virtual T \fBgetValue\fP (\fBstd::size_t\fP index) const =0"
+.br
+.ti -1c
+.RI "virtual \fBstd::size_t\fP \fBsize\fP () const =0"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<typename T> virtual \fBCatch::IGenerator\fP< T >::~\fBIGenerator\fP ()\fC [inline]\fP, \fC [virtual]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "template<typename T> virtual T \fBCatch::IGenerator\fP< T >::getValue (\fBstd::size_t\fP index) const\fC [pure virtual]\fP"
+
+.PP
+Implemented in \fBCatch::ValuesGenerator< T >\fP, and \fBCatch::BetweenGenerator< T >\fP\&.
+.SS "template<typename T> virtual \fBstd::size_t\fP \fBCatch::IGenerator\fP< T >::size () const\fC [pure virtual]\fP"
+
+.PP
+Implemented in \fBCatch::ValuesGenerator< T >\fP, and \fBCatch::BetweenGenerator< T >\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

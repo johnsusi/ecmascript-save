@@ -1,0 +1,75 @@
+\hypertarget{struct_eval_expression_visitor}{}\section{Eval\+Expression\+Visitor Struct Reference}
+\label{struct_eval_expression_visitor}\index{Eval\+Expression\+Visitor@{Eval\+Expression\+Visitor}}
+
+
+{\ttfamily \#include $<$eval\+\_\+visitor.\+h$>$}
+
+
+
+Inheritance diagram for Eval\+Expression\+Visitor\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=193pt]{struct_eval_expression_visitor__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Eval\+Expression\+Visitor\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=266pt]{struct_eval_expression_visitor__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{struct_eval_expression_visitor_a2e82e15208fff6395063cba90be79e48}{operator()} (const \hyperlink{struct_binary_expression}{Binary\+Expression} \&expr) override
+\item 
+void \hyperlink{struct_eval_expression_visitor_a4eb471ad8286c264eb2af55aaf6c5a45}{operator()} (const \hyperlink{struct_numeric_literal}{Numeric\+Literal} \&literal) override
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ std\+::vector}$<$ \hyperlink{class_type}{Type} $>$ \hyperlink{struct_eval_expression_visitor_acff7a9754c87fac4c34bbb6ad3318cae}{stack}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_eval_expression_visitor_a2e82e15208fff6395063cba90be79e48}\label{struct_eval_expression_visitor_a2e82e15208fff6395063cba90be79e48}} 
+\index{Eval\+Expression\+Visitor@{Eval\+Expression\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Eval\+Expression\+Visitor@{Eval\+Expression\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Eval\+Expression\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_binary_expression}{Binary\+Expression} \&}]{expr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \hyperlink{struct_basic_visitor_a9433a6a9dcdd64f97ea1c392208a3305}{Basic\+Visitor}.
+
+\mbox{\Hypertarget{struct_eval_expression_visitor_a4eb471ad8286c264eb2af55aaf6c5a45}\label{struct_eval_expression_visitor_a4eb471ad8286c264eb2af55aaf6c5a45}} 
+\index{Eval\+Expression\+Visitor@{Eval\+Expression\+Visitor}!operator()@{operator()}}
+\index{operator()@{operator()}!Eval\+Expression\+Visitor@{Eval\+Expression\+Visitor}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Eval\+Expression\+Visitor\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_numeric_literal}{Numeric\+Literal} \&}]{literal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \hyperlink{struct_basic_visitor_a177e744fc03783b7fbb83d3292a7c029}{Basic\+Visitor}.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_eval_expression_visitor_acff7a9754c87fac4c34bbb6ad3318cae}\label{struct_eval_expression_visitor_acff7a9754c87fac4c34bbb6ad3318cae}} 
+\index{Eval\+Expression\+Visitor@{Eval\+Expression\+Visitor}!stack@{stack}}
+\index{stack@{stack}!Eval\+Expression\+Visitor@{Eval\+Expression\+Visitor}}
+\subsubsection{\texorpdfstring{stack}{stack}}
+{\footnotesize\ttfamily \textbf{ std\+::vector}$<$\hyperlink{class_type}{Type}$>$ Eval\+Expression\+Visitor\+::stack}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{eval__visitor_8h}{eval\+\_\+visitor.\+h}\end{DoxyCompactItemize}

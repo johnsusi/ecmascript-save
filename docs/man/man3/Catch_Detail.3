@@ -1,0 +1,88 @@
+.TH "Catch::Detail" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Catch::Detail
+.SH SYNOPSIS
+.br
+.PP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBApprox\fP"
+.br
+.ti -1c
+.RI "struct \fBBorgType\fP"
+.br
+.ti -1c
+.RI "struct \fBFalseType\fP"
+.br
+.ti -1c
+.RI "struct \fBIsStreamInsertable\fP"
+.br
+.ti -1c
+.RI "struct \fBStringMakerBase\fP"
+.br
+.ti -1c
+.RI "struct \fBStringMakerBase< true >\fP"
+.br
+.ti -1c
+.RI "struct \fBTrueType\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTrueType\fP & \fBtestStreamable\fP (\fBstd::ostream\fP &)"
+.br
+.ti -1c
+.RI "\fBFalseType\fP \fBtestStreamable\fP (\fBFalseType\fP)"
+.br
+.ti -1c
+.RI "\fBFalseType\fP \fBoperator<<\fP (\fBstd::ostream\fP const &, \fBBorgType\fP const &)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBrawMemoryToString\fP (const void *object, \fBstd::size_t\fP size)"
+.br
+.ti -1c
+.RI "template<typename T > \fBstd::string\fP \fBrawMemoryToString\fP (const T &object)"
+.br
+.ti -1c
+.RI "template<typename InputIterator > \fBstd::string\fP \fBrangeToString\fP (InputIterator first, InputIterator last)"
+.br
+.ti -1c
+.RI "template<typename T > \fBstd::string\fP \fBmakeString\fP (T const &value)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "const \fBstd::string\fP \fBunprintableString\fP"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "template<typename T > \fBstd::string\fP Catch::Detail::makeString (T const & value)"
+
+.SS "\fBFalseType\fP Catch::Detail::operator<< (\fBstd::ostream\fP const &, \fBBorgType\fP const &)"
+
+.SS "template<typename InputIterator > \fBstd::string\fP Catch::Detail::rangeToString (InputIterator first, InputIterator last)"
+
+.SS "\fBstd::string\fP Catch::Detail::rawMemoryToString (const void * object, \fBstd::size_t\fP size)"
+
+.SS "template<typename T > \fBstd::string\fP Catch::Detail::rawMemoryToString (const T & object)\fC [inline]\fP"
+
+.SS "\fBTrueType\fP& Catch::Detail::testStreamable (\fBstd::ostream\fP &)"
+
+.SS "\fBFalseType\fP Catch::Detail::testStreamable (\fBFalseType\fP)"
+
+.SH "Variable Documentation"
+.PP 
+.SS "const \fBstd::string\fP Catch::Detail::unprintableString"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

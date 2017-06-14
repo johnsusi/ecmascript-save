@@ -1,0 +1,1501 @@
+.TH "src/catch.hpp" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/catch.hpp
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <sstream>\fP
+.br
+\fC#include <algorithm>\fP
+.br
+\fC#include <string>\fP
+.br
+\fC#include <vector>\fP
+.br
+\fC#include <cstddef>\fP
+.br
+\fC#include <iomanip>\fP
+.br
+\fC#include <limits>\fP
+.br
+\fC#include <stdint\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <cmath>\fP
+.br
+\fC#include <set>\fP
+.br
+\fC#include <stdexcept>\fP
+.br
+\fC#include <iosfwd>\fP
+.br
+\fC#include <streambuf>\fP
+.br
+\fC#include <ostream>\fP
+.br
+\fC#include <fstream>\fP
+.br
+\fC#include <memory>\fP
+.br
+\fC#include <cctype>\fP
+.br
+\fC#include <map>\fP
+.br
+\fC#include <ctime>\fP
+.br
+\fC#include <assert\&.h>\fP
+.br
+\fC#include <signal\&.h>\fP
+.br
+\fC#include <cstdio>\fP
+.br
+\fC#include <iostream>\fP
+.br
+\fC#include <cerrno>\fP
+.br
+\fC#include <unistd\&.h>\fP
+.br
+\fC#include <sys/time\&.h>\fP
+.br
+\fC#include <cstring>\fP
+.br
+\fC#include <cfloat>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBCatch::CaseSensitive\fP"
+.br
+.ti -1c
+.RI "class \fBCatch::NonCopyable\fP"
+.br
+.ti -1c
+.RI "class \fBCatch::SafeBool\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::pluralise\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::SourceLineInfo\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::StreamEndStop\fP"
+.br
+.ti -1c
+.RI "class \fBCatch::NotImplementedException\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::IGeneratorInfo\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::IGeneratorsForTest\fP"
+.br
+.ti -1c
+.RI "class \fBCatch::Ptr< T >\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::IShared\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::SharedImpl< T >\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::IContext\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::IMutableContext\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::ITestCase\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::ITestCaseRegistry\fP"
+.br
+.ti -1c
+.RI "class \fBCatch::MethodTestCase< C >\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::NameAndDesc\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::AutoReg\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::ResultWas\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::ResultDisposition\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::DecomposedExpression\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::AssertionInfo\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::AssertionResultData\fP"
+.br
+.ti -1c
+.RI "class \fBCatch::AssertionResult\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::Matchers::Impl::MatchAllOf< ArgT >\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::Matchers::Impl::MatchAnyOf< ArgT >\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::Matchers::Impl::MatchNotOf< ArgT >\fP"
+.br
+.ti -1c
+.RI "class \fBCatch::Matchers::Impl::MatcherUntypedBase\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::Matchers::Impl::MatcherMethod< ObjectT >\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::Matchers::Impl::MatcherMethod< PtrT * >\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::Matchers::Impl::MatcherBase< ObjectT, ComparatorT >\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::Matchers::Impl::MatchAllOf< ArgT >\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::Matchers::Impl::MatchAnyOf< ArgT >\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::Matchers::Impl::MatchNotOf< ArgT >\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::TestFailureException\fP"
+.br
+.ti -1c
+.RI "class \fBCatch::ExpressionLhs< T >\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::CopyableStream\fP"
+.br
+.ti -1c
+.RI "class \fBCatch::ResultBuilder\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::Internal::OperatorTraits< Op >\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::Internal::OperatorTraits< IsEqualTo >\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::Internal::OperatorTraits< IsNotEqualTo >\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::Internal::OperatorTraits< IsLessThan >\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::Internal::OperatorTraits< IsGreaterThan >\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::Internal::OperatorTraits< IsLessThanOrEqualTo >\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::Internal::OperatorTraits< IsGreaterThanOrEqualTo >\fP"
+.br
+.ti -1c
+.RI "class \fBCatch::Internal::Evaluator< T1, T2, Op >\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::Internal::Evaluator< T1, T2, IsEqualTo >\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::Internal::Evaluator< T1, T2, IsNotEqualTo >\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::Internal::Evaluator< T1, T2, IsLessThan >\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::Internal::Evaluator< T1, T2, IsGreaterThan >\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::Internal::Evaluator< T1, T2, IsGreaterThanOrEqualTo >\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::Internal::Evaluator< T1, T2, IsLessThanOrEqualTo >\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::Detail::BorgType\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::Detail::TrueType\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::Detail::FalseType\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::Detail::IsStreamInsertable< T >\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::Detail::StringMakerBase< C >\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::Detail::StringMakerBase< true >\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::StringMaker< T >\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::StringMaker< T * >\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::StringMaker< R C::* >\fP"
+.br
+.ti -1c
+.RI "class \fBCatch::BinaryExpression< LhsT, Op, RhsT >\fP"
+.br
+.ti -1c
+.RI "class \fBCatch::MatchExpression< ArgT, MatcherT >\fP"
+.br
+.ti -1c
+.RI "class \fBCatch::ExpressionLhs< T >\fP"
+.br
+.ti -1c
+.RI "class \fBCatch::BinaryExpression< LhsT, Op, RhsT >\fP"
+.br
+.ti -1c
+.RI "class \fBCatch::MatchExpression< ArgT, MatcherT >\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::MessageInfo\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::MessageBuilder\fP"
+.br
+.ti -1c
+.RI "class \fBCatch::ScopedMessage\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::IResultCapture\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::IRunner\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::Counts\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::Totals\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::SectionInfo\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::SectionEndInfo\fP"
+.br
+.ti -1c
+.RI "class \fBCatch::Timer\fP"
+.br
+.ti -1c
+.RI "class \fBCatch::Section\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::IGenerator< T >\fP"
+.br
+.ti -1c
+.RI "class \fBCatch::BetweenGenerator< T >\fP"
+.br
+.ti -1c
+.RI "class \fBCatch::ValuesGenerator< T >\fP"
+.br
+.ti -1c
+.RI "class \fBCatch::CompositeGenerator< T >\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::IRegistryHub\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::IMutableRegistryHub\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::IExceptionTranslator\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::IExceptionTranslatorRegistry\fP"
+.br
+.ti -1c
+.RI "class \fBCatch::ExceptionTranslatorRegistrar\fP"
+.br
+.ti -1c
+.RI "class \fBCatch::Detail::Approx\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::Matchers::StdString::CasedString\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::Matchers::StdString::StringMatcherBase\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::Matchers::StdString::EqualsMatcher\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::Matchers::StdString::ContainsMatcher\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::Matchers::StdString::StartsWithMatcher\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::Matchers::StdString::EndsWithMatcher\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::Matchers::Vector::ContainsElementMatcher< T >\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::Matchers::Vector::ContainsMatcher< T >\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::Matchers::Vector::EqualsMatcher< T >\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::TagAlias\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::RegistrarForTagAliases\fP"
+.br
+.ti -1c
+.RI "class \fBCatch::Option< T >\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::ITagAliasRegistry\fP"
+.br
+.ti -1c
+.RI "struct \fBCatch::TestCaseInfo\fP"
+.br
+.ti -1c
+.RI "class \fBCatch::TestCase\fP"
+.br
+.in -1c
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI " \fBCatch\fP"
+.br
+.ti -1c
+.RI " \fBCatch::Matchers\fP"
+.br
+.ti -1c
+.RI " \fBCatch::Matchers::Impl\fP"
+.br
+.ti -1c
+.RI " \fBCatch::Internal\fP"
+.br
+.ti -1c
+.RI " \fBCatch::Detail\fP"
+.br
+.ti -1c
+.RI " \fBCatch::Generators\fP"
+.br
+.ti -1c
+.RI " \fBCatch::Matchers::StdString\fP"
+.br
+.ti -1c
+.RI " \fBCatch::Matchers::Vector\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBTWOBLUECUBES_CATCH_HPP_INCLUDED\fP"
+.br
+.ti -1c
+.RI "#define \fBTWOBLUECUBES_CATCH_NOTIMPLEMENTED_EXCEPTION_H_INCLUDED\fP"
+.br
+.ti -1c
+.RI "#define \fBTWOBLUECUBES_CATCH_COMMON_H_INCLUDED\fP"
+.br
+.ti -1c
+.RI "#define \fBTWOBLUECUBES_CATCH_COMPILER_CAPABILITIES_HPP_INCLUDED\fP"
+.br
+.ti -1c
+.RI "#define \fBCATCH_CONFIG_POSIX_SIGNALS\fP"
+.br
+.ti -1c
+.RI "#define \fBCATCH_INTERNAL_SUPPRESS_PARENTHESES_WARNINGS\fP"
+.br
+.ti -1c
+.RI "#define \fBCATCH_INTERNAL_UNSUPPRESS_PARENTHESES_WARNINGS\fP"
+.br
+.ti -1c
+.RI "#define \fBCATCH_INTERNAL_SUPPRESS_ETD_WARNINGS\fP"
+.br
+.ti -1c
+.RI "#define \fBCATCH_INTERNAL_UNSUPPRESS_ETD_WARNINGS\fP"
+.br
+.ti -1c
+.RI "#define \fBCATCH_NOEXCEPT\fP   throw()"
+.br
+.ti -1c
+.RI "#define \fBCATCH_NOEXCEPT_IS\fP(x)"
+.br
+.ti -1c
+.RI "#define \fBCATCH_NULL\fP   NULL"
+.br
+.ti -1c
+.RI "#define \fBCATCH_OVERRIDE\fP"
+.br
+.ti -1c
+.RI "#define \fBCATCH_AUTO_PTR\fP(T)   \fBstd::auto_ptr\fP<T>"
+.br
+.ti -1c
+.RI "#define \fBINTERNAL_CATCH_UNIQUE_NAME_LINE2\fP(name,  line)   name##line"
+.br
+.ti -1c
+.RI "#define \fBINTERNAL_CATCH_UNIQUE_NAME_LINE\fP(name,  line)   \fBINTERNAL_CATCH_UNIQUE_NAME_LINE2\fP( name, line )"
+.br
+.ti -1c
+.RI "#define \fBINTERNAL_CATCH_UNIQUE_NAME\fP(name)   \fBINTERNAL_CATCH_UNIQUE_NAME_LINE\fP( name, __LINE__ )"
+.br
+.ti -1c
+.RI "#define \fBINTERNAL_CATCH_STRINGIFY2\fP(expr)   #expr"
+.br
+.ti -1c
+.RI "#define \fBINTERNAL_CATCH_STRINGIFY\fP(expr)   \fBINTERNAL_CATCH_STRINGIFY2\fP( expr )"
+.br
+.ti -1c
+.RI "#define \fBCATCH_INTERNAL_LINEINFO\fP   ::\fBCatch::SourceLineInfo\fP( __FILE__, static_cast<\fBstd::size_t\fP>( __LINE__ ) )"
+.br
+.ti -1c
+.RI "#define \fBCATCH_INTERNAL_ERROR\fP(msg)   ::\fBCatch::throwLogicError\fP( msg, \fBCATCH_INTERNAL_LINEINFO\fP );"
+.br
+.ti -1c
+.RI "#define \fBCATCH_NOT_IMPLEMENTED\fP   throw \fBCatch::NotImplementedException\fP( \fBCATCH_INTERNAL_LINEINFO\fP )"
+.br
+.ti -1c
+.RI "#define \fBTWOBLUECUBES_CATCH_CONTEXT_H_INCLUDED\fP"
+.br
+.ti -1c
+.RI "#define \fBTWOBLUECUBES_CATCH_INTERFACES_GENERATORS_H_INCLUDED\fP"
+.br
+.ti -1c
+.RI "#define \fBTWOBLUECUBES_CATCH_PTR_HPP_INCLUDED\fP"
+.br
+.ti -1c
+.RI "#define \fBTWOBLUECUBES_CATCH_TEST_REGISTRY_HPP_INCLUDED\fP"
+.br
+.ti -1c
+.RI "#define \fBTWOBLUECUBES_CATCH_INTERFACES_TESTCASE_H_INCLUDED\fP"
+.br
+.ti -1c
+.RI "#define \fBINTERNAL_CATCH_TESTCASE2\fP(TestName,  Name,  Desc)"
+.br
+.ti -1c
+.RI "#define \fBINTERNAL_CATCH_TESTCASE\fP(Name,  Desc)   \fBINTERNAL_CATCH_TESTCASE2\fP( \fBINTERNAL_CATCH_UNIQUE_NAME\fP( ____C_A_T_C_H____T_E_S_T____ ), Name, Desc )"
+.br
+.ti -1c
+.RI "#define \fBINTERNAL_CATCH_METHOD_AS_TEST_CASE\fP(QualifiedMethod,  Name,  Desc)"
+.br
+.ti -1c
+.RI "#define \fBINTERNAL_CATCH_TEST_CASE_METHOD2\fP(TestCaseName,  ClassName,  TestName,  Desc)"
+.br
+.ti -1c
+.RI "#define \fBINTERNAL_CATCH_TEST_CASE_METHOD\fP(ClassName,  TestName,  Desc)   \fBINTERNAL_CATCH_TEST_CASE_METHOD2\fP( \fBINTERNAL_CATCH_UNIQUE_NAME\fP( ____C_A_T_C_H____T_E_S_T____ ), ClassName, TestName, Desc )"
+.br
+.ti -1c
+.RI "#define \fBINTERNAL_CATCH_REGISTER_TESTCASE\fP(Function,  Name,  Desc)"
+.br
+.ti -1c
+.RI "#define \fBTWOBLUECUBES_CATCH_CAPTURE_HPP_INCLUDED\fP"
+.br
+.ti -1c
+.RI "#define \fBTWOBLUECUBES_CATCH_RESULT_BUILDER_H_INCLUDED\fP"
+.br
+.ti -1c
+.RI "#define \fBTWOBLUECUBES_CATCH_RESULT_TYPE_H_INCLUDED\fP"
+.br
+.ti -1c
+.RI "#define \fBTWOBLUECUBES_CATCH_ASSERTIONRESULT_H_INCLUDED\fP"
+.br
+.ti -1c
+.RI "#define \fBTWOBLUECUBES_CATCH_MATCHERS_HPP_INCLUDED\fP"
+.br
+.ti -1c
+.RI "#define \fBTWOBLUECUBES_CATCH_EXPRESSION_LHS_HPP_INCLUDED\fP"
+.br
+.ti -1c
+.RI "#define \fBTWOBLUECUBES_CATCH_EVALUATE_HPP_INCLUDED\fP"
+.br
+.ti -1c
+.RI "#define \fBTWOBLUECUBES_CATCH_TOSTRING_H_INCLUDED\fP"
+.br
+.ti -1c
+.RI "#define \fBTWOBLUECUBES_CATCH_MESSAGE_H_INCLUDED\fP"
+.br
+.ti -1c
+.RI "#define \fBTWOBLUECUBES_CATCH_INTERFACES_CAPTURE_H_INCLUDED\fP"
+.br
+.ti -1c
+.RI "#define \fBTWOBLUECUBES_CATCH_DEBUGGER_H_INCLUDED\fP"
+.br
+.ti -1c
+.RI "#define \fBTWOBLUECUBES_CATCH_PLATFORM_H_INCLUDED\fP"
+.br
+.ti -1c
+.RI "#define \fBCATCH_BREAK_INTO_DEBUGGER\fP()   \fBCatch::alwaysTrue\fP();"
+.br
+.ti -1c
+.RI "#define \fBTWOBLUECUBES_CATCH_INTERFACES_RUNNER_H_INCLUDED\fP"
+.br
+.ti -1c
+.RI "#define \fBINTERNAL_CATCH_REACT\fP(resultBuilder)"
+.br
+.ti -1c
+.RI "#define \fBINTERNAL_CATCH_TEST\fP(macroName,  resultDisposition,  expr)"
+.br
+.ti -1c
+.RI "#define \fBINTERNAL_CATCH_IF\fP(macroName,  resultDisposition,  expr)"
+.br
+.ti -1c
+.RI "#define \fBINTERNAL_CATCH_ELSE\fP(macroName,  resultDisposition,  expr)"
+.br
+.ti -1c
+.RI "#define \fBINTERNAL_CATCH_NO_THROW\fP(macroName,  resultDisposition,  expr)"
+.br
+.ti -1c
+.RI "#define \fBINTERNAL_CATCH_THROWS\fP(macroName,  resultDisposition,  matcher,  expr)"
+.br
+.ti -1c
+.RI "#define \fBINTERNAL_CATCH_THROWS_AS\fP(macroName,  exceptionType,  resultDisposition,  expr)"
+.br
+.ti -1c
+.RI "#define \fBINTERNAL_CATCH_MSG\fP(messageType,  resultDisposition,  macroName,  log)"
+.br
+.ti -1c
+.RI "#define \fBINTERNAL_CATCH_INFO\fP(macroName,  log)   \fBCatch::ScopedMessage\fP \fBINTERNAL_CATCH_UNIQUE_NAME\fP( scopedMessage ) = \fBCatch::MessageBuilder\fP( macroName, \fBCATCH_INTERNAL_LINEINFO\fP, \fBCatch::ResultWas::Info\fP ) << log;"
+.br
+.ti -1c
+.RI "#define \fBINTERNAL_CHECK_THAT\fP(macroName,  matcher,  resultDisposition,  arg)"
+.br
+.ti -1c
+.RI "#define \fBTWOBLUECUBES_CATCH_SECTION_H_INCLUDED\fP"
+.br
+.ti -1c
+.RI "#define \fBTWOBLUECUBES_CATCH_SECTION_INFO_H_INCLUDED\fP"
+.br
+.ti -1c
+.RI "#define \fBTWOBLUECUBES_CATCH_TOTALS_HPP_INCLUDED\fP"
+.br
+.ti -1c
+.RI "#define \fBTWOBLUECUBES_CATCH_TIMER_H_INCLUDED\fP"
+.br
+.ti -1c
+.RI "#define \fBINTERNAL_CATCH_SECTION\fP(name,  desc)   if( \fBCatch::Section\fP const& \fBINTERNAL_CATCH_UNIQUE_NAME\fP( catch_internal_Section ) = \fBCatch::SectionInfo\fP( \fBCATCH_INTERNAL_LINEINFO\fP, name, desc ) )"
+.br
+.ti -1c
+.RI "#define \fBTWOBLUECUBES_CATCH_GENERATORS_HPP_INCLUDED\fP"
+.br
+.ti -1c
+.RI "#define \fBINTERNAL_CATCH_LINESTR2\fP(line)   #line"
+.br
+.ti -1c
+.RI "#define \fBINTERNAL_CATCH_LINESTR\fP(line)   \fBINTERNAL_CATCH_LINESTR2\fP( line )"
+.br
+.ti -1c
+.RI "#define \fBINTERNAL_CATCH_GENERATE\fP(expr)   expr\&.setFileInfo( __FILE__ '(' \fBINTERNAL_CATCH_LINESTR\fP( __LINE__ ) ')' )"
+.br
+.ti -1c
+.RI "#define \fBTWOBLUECUBES_CATCH_INTERFACES_EXCEPTION_H_INCLUDED\fP"
+.br
+.ti -1c
+.RI "#define \fBTWOBLUECUBES_CATCH_INTERFACES_REGISTRY_HUB_H_INCLUDED\fP"
+.br
+.ti -1c
+.RI "#define \fBINTERNAL_CATCH_TRANSLATE_EXCEPTION2\fP(translatorName,  signature)"
+.br
+.ti -1c
+.RI "#define \fBINTERNAL_CATCH_TRANSLATE_EXCEPTION\fP(signature)   \fBINTERNAL_CATCH_TRANSLATE_EXCEPTION2\fP( \fBINTERNAL_CATCH_UNIQUE_NAME\fP( catch_internal_ExceptionTranslator ), signature )"
+.br
+.ti -1c
+.RI "#define \fBTWOBLUECUBES_CATCH_APPROX_HPP_INCLUDED\fP"
+.br
+.ti -1c
+.RI "#define \fBTWOBLUECUBES_CATCH_MATCHERS_STRING_H_INCLUDED\fP"
+.br
+.ti -1c
+.RI "#define \fBTWOBLUECUBES_CATCH_MATCHERS_VECTOR_H_INCLUDED\fP"
+.br
+.ti -1c
+.RI "#define \fBTWOBLUECUBES_CATCH_INTERFACES_TAG_ALIAS_REGISTRY_H_INCLUDED\fP"
+.br
+.ti -1c
+.RI "#define \fBTWOBLUECUBES_CATCH_TAG_ALIAS_H_INCLUDED\fP"
+.br
+.ti -1c
+.RI "#define \fBCATCH_REGISTER_TAG_ALIAS\fP(alias,  spec)   namespace{ \fBCatch::RegistrarForTagAliases\fP \fBINTERNAL_CATCH_UNIQUE_NAME\fP( AutoRegisterTagAlias )( alias, spec, \fBCATCH_INTERNAL_LINEINFO\fP ); }"
+.br
+.ti -1c
+.RI "#define \fBTWOBLUECUBES_CATCH_OPTION_HPP_INCLUDED\fP"
+.br
+.ti -1c
+.RI "#define \fBTWOBLUECUBES_CATCH_TEST_CASE_INFO_H_INCLUDED\fP"
+.br
+.ti -1c
+.RI "#define \fBREQUIRE\fP(expr)   \fBINTERNAL_CATCH_TEST\fP( 'REQUIRE', Catch::ResultDisposition::Normal, expr  )"
+.br
+.ti -1c
+.RI "#define \fBREQUIRE_FALSE\fP(expr)   \fBINTERNAL_CATCH_TEST\fP( 'REQUIRE_FALSE', Catch::ResultDisposition::Normal | \fBCatch::ResultDisposition::FalseTest\fP, expr )"
+.br
+.ti -1c
+.RI "#define \fBREQUIRE_THROWS\fP(expr)   \fBINTERNAL_CATCH_THROWS\fP( 'REQUIRE_THROWS', Catch::ResultDisposition::Normal, '', expr )"
+.br
+.ti -1c
+.RI "#define \fBREQUIRE_THROWS_AS\fP(expr,  exceptionType)   \fBINTERNAL_CATCH_THROWS_AS\fP( 'REQUIRE_THROWS_AS', exceptionType, \fBCatch::ResultDisposition::Normal\fP, expr )"
+.br
+.ti -1c
+.RI "#define \fBREQUIRE_THROWS_WITH\fP(expr,  matcher)   \fBINTERNAL_CATCH_THROWS\fP( 'REQUIRE_THROWS_WITH', Catch::ResultDisposition::Normal, matcher, expr )"
+.br
+.ti -1c
+.RI "#define \fBREQUIRE_NOTHROW\fP(expr)   \fBINTERNAL_CATCH_NO_THROW\fP( 'REQUIRE_NOTHROW', Catch::ResultDisposition::Normal, expr )"
+.br
+.ti -1c
+.RI "#define \fBCHECK\fP(expr)   \fBINTERNAL_CATCH_TEST\fP( 'CHECK', Catch::ResultDisposition::ContinueOnFailure, expr )"
+.br
+.ti -1c
+.RI "#define \fBCHECK_FALSE\fP(expr)   \fBINTERNAL_CATCH_TEST\fP( 'CHECK_FALSE', Catch::ResultDisposition::ContinueOnFailure | \fBCatch::ResultDisposition::FalseTest\fP, expr )"
+.br
+.ti -1c
+.RI "#define \fBCHECKED_IF\fP(expr)   \fBINTERNAL_CATCH_IF\fP( 'CHECKED_IF', Catch::ResultDisposition::ContinueOnFailure, expr )"
+.br
+.ti -1c
+.RI "#define \fBCHECKED_ELSE\fP(expr)   \fBINTERNAL_CATCH_ELSE\fP( 'CHECKED_ELSE', Catch::ResultDisposition::ContinueOnFailure, expr )"
+.br
+.ti -1c
+.RI "#define \fBCHECK_NOFAIL\fP(expr)   \fBINTERNAL_CATCH_TEST\fP( 'CHECK_NOFAIL', Catch::ResultDisposition::ContinueOnFailure | \fBCatch::ResultDisposition::SuppressFail\fP, expr )"
+.br
+.ti -1c
+.RI "#define \fBCHECK_THROWS\fP(expr)   \fBINTERNAL_CATCH_THROWS\fP( 'CHECK_THROWS', Catch::ResultDisposition::ContinueOnFailure, '', expr )"
+.br
+.ti -1c
+.RI "#define \fBCHECK_THROWS_AS\fP(expr,  exceptionType)   \fBINTERNAL_CATCH_THROWS_AS\fP( 'CHECK_THROWS_AS', exceptionType, \fBCatch::ResultDisposition::ContinueOnFailure\fP, expr )"
+.br
+.ti -1c
+.RI "#define \fBCHECK_THROWS_WITH\fP(expr,  matcher)   \fBINTERNAL_CATCH_THROWS\fP( 'CHECK_THROWS_WITH', Catch::ResultDisposition::ContinueOnFailure, matcher, expr )"
+.br
+.ti -1c
+.RI "#define \fBCHECK_NOTHROW\fP(expr)   \fBINTERNAL_CATCH_NO_THROW\fP( 'CHECK_NOTHROW', Catch::ResultDisposition::ContinueOnFailure, expr )"
+.br
+.ti -1c
+.RI "#define \fBCHECK_THAT\fP(arg,  matcher)   \fBINTERNAL_CHECK_THAT\fP( 'CHECK_THAT', matcher, \fBCatch::ResultDisposition::ContinueOnFailure\fP, arg )"
+.br
+.ti -1c
+.RI "#define \fBREQUIRE_THAT\fP(arg,  matcher)   \fBINTERNAL_CHECK_THAT\fP( 'REQUIRE_THAT', matcher, \fBCatch::ResultDisposition::Normal\fP, arg )"
+.br
+.ti -1c
+.RI "#define \fBINFO\fP(msg)   \fBINTERNAL_CATCH_INFO\fP( 'INFO', msg )"
+.br
+.ti -1c
+.RI "#define \fBWARN\fP(msg)   \fBINTERNAL_CATCH_MSG\fP( 'WARN', Catch::ResultWas::Warning, \fBCatch::ResultDisposition::ContinueOnFailure\fP, msg )"
+.br
+.ti -1c
+.RI "#define \fBSCOPED_INFO\fP(msg)   \fBINTERNAL_CATCH_INFO\fP( 'INFO', msg )"
+.br
+.ti -1c
+.RI "#define \fBCAPTURE\fP(msg)   \fBINTERNAL_CATCH_INFO\fP( 'CAPTURE', #msg ' := ' << \fBCatch::toString\fP(msg) )"
+.br
+.ti -1c
+.RI "#define \fBSCOPED_CAPTURE\fP(msg)   \fBINTERNAL_CATCH_INFO\fP( 'CAPTURE', #msg ' := ' << \fBCatch::toString\fP(msg) )"
+.br
+.ti -1c
+.RI "#define \fBTEST_CASE\fP(name,  description)   \fBINTERNAL_CATCH_TESTCASE\fP( name, description )"
+.br
+.ti -1c
+.RI "#define \fBTEST_CASE_METHOD\fP(className,  name,  description)   \fBINTERNAL_CATCH_TEST_CASE_METHOD\fP( className, name, description )"
+.br
+.ti -1c
+.RI "#define \fBMETHOD_AS_TEST_CASE\fP(method,  name,  description)   \fBINTERNAL_CATCH_METHOD_AS_TEST_CASE\fP( method, name, description )"
+.br
+.ti -1c
+.RI "#define \fBREGISTER_TEST_CASE\fP(method,  name,  description)   \fBINTERNAL_CATCH_REGISTER_TESTCASE\fP( method, name, description )"
+.br
+.ti -1c
+.RI "#define \fBSECTION\fP(name,  description)   \fBINTERNAL_CATCH_SECTION\fP( name, description )"
+.br
+.ti -1c
+.RI "#define \fBFAIL\fP(msg)   \fBINTERNAL_CATCH_MSG\fP( 'FAIL', Catch::ResultWas::ExplicitFailure, \fBCatch::ResultDisposition::Normal\fP, msg )"
+.br
+.ti -1c
+.RI "#define \fBFAIL_CHECK\fP(msg)   \fBINTERNAL_CATCH_MSG\fP( 'FAIL_CHECK', Catch::ResultWas::ExplicitFailure, \fBCatch::ResultDisposition::ContinueOnFailure\fP, msg )"
+.br
+.ti -1c
+.RI "#define \fBSUCCEED\fP(msg)   \fBINTERNAL_CATCH_MSG\fP( 'SUCCEED', Catch::ResultWas::Ok, \fBCatch::ResultDisposition::ContinueOnFailure\fP, msg )"
+.br
+.ti -1c
+.RI "#define \fBANON_TEST_CASE\fP()   \fBINTERNAL_CATCH_TESTCASE\fP( '', '' )"
+.br
+.ti -1c
+.RI "#define \fBREGISTER_REPORTER\fP(name,  reporterType)   INTERNAL_CATCH_REGISTER_REPORTER( name, reporterType )"
+.br
+.ti -1c
+.RI "#define \fBREGISTER_LEGACY_REPORTER\fP(name,  reporterType)   INTERNAL_CATCH_REGISTER_LEGACY_REPORTER( name, reporterType )"
+.br
+.ti -1c
+.RI "#define \fBGENERATE\fP(expr)   \fBINTERNAL_CATCH_GENERATE\fP( expr )"
+.br
+.ti -1c
+.RI "#define \fBCATCH_TRANSLATE_EXCEPTION\fP(signature)   \fBINTERNAL_CATCH_TRANSLATE_EXCEPTION\fP( signature )"
+.br
+.ti -1c
+.RI "#define \fBSCENARIO\fP(name,  tags)   \fBTEST_CASE\fP( 'Scenario: ' name, tags )"
+.br
+.ti -1c
+.RI "#define \fBSCENARIO_METHOD\fP(className,  name,  tags)   \fBINTERNAL_CATCH_TEST_CASE_METHOD\fP( className, 'Scenario: ' name, tags )"
+.br
+.ti -1c
+.RI "#define \fBGIVEN\fP(desc)   \fBSECTION\fP( \fBstd::string\fP('   Given: ') + desc, '' )"
+.br
+.ti -1c
+.RI "#define \fBWHEN\fP(desc)   \fBSECTION\fP( \fBstd::string\fP('    When: ') + desc, '' )"
+.br
+.ti -1c
+.RI "#define \fBAND_WHEN\fP(desc)   \fBSECTION\fP( \fBstd::string\fP('And when: ') + desc, '' )"
+.br
+.ti -1c
+.RI "#define \fBTHEN\fP(desc)   \fBSECTION\fP( \fBstd::string\fP('    Then: ') + desc, '' )"
+.br
+.ti -1c
+.RI "#define \fBAND_THEN\fP(desc)   \fBSECTION\fP( \fBstd::string\fP('     And: ') + desc, '' )"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef void(* \fBCatch::TestFunction\fP) ()"
+.br
+.ti -1c
+.RI "typedef uint64_t \fBCatch::UInt64\fP"
+.br
+.ti -1c
+.RI "typedef \fBstd::string\fP(* \fBCatch::exceptionTranslateFunction\fP) ()"
+.br
+.ti -1c
+.RI "typedef \fBstd::vector\fP< const IExceptionTranslator * > \fBCatch::ExceptionTranslators\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBCatch::Internal::Operator\fP { \fBCatch::Internal::IsEqualTo\fP, \fBCatch::Internal::IsNotEqualTo\fP, \fBCatch::Internal::IsLessThan\fP, \fBCatch::Internal::IsGreaterThan\fP, \fBCatch::Internal::IsLessThanOrEqualTo\fP, \fBCatch::Internal::IsGreaterThanOrEqualTo\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<typename ContainerT > void \fBCatch::deleteAll\fP (ContainerT &container)"
+.br
+.ti -1c
+.RI "template<typename AssociativeContainerT > void \fBCatch::deleteAllValues\fP (AssociativeContainerT &container)"
+.br
+.ti -1c
+.RI "bool \fBCatch::startsWith\fP (\fBstd::string\fP const &s, \fBstd::string\fP const &prefix)"
+.br
+.ti -1c
+.RI "bool \fBCatch::startsWith\fP (\fBstd::string\fP const &s, char prefix)"
+.br
+.ti -1c
+.RI "bool \fBCatch::endsWith\fP (\fBstd::string\fP const &s, \fBstd::string\fP const &suffix)"
+.br
+.ti -1c
+.RI "bool \fBCatch::endsWith\fP (\fBstd::string\fP const &s, char suffix)"
+.br
+.ti -1c
+.RI "bool \fBCatch::contains\fP (\fBstd::string\fP const &s, \fBstd::string\fP const &infix)"
+.br
+.ti -1c
+.RI "void \fBCatch::toLowerInPlace\fP (\fBstd::string\fP &s)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBCatch::toLower\fP (\fBstd::string\fP const &s)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBCatch::trim\fP (\fBstd::string\fP const &str)"
+.br
+.ti -1c
+.RI "bool \fBCatch::replaceInPlace\fP (\fBstd::string\fP &str, \fBstd::string\fP const &replaceThis, \fBstd::string\fP const &withThis)"
+.br
+.ti -1c
+.RI "\fBstd::ostream\fP & \fBCatch::operator<<\fP (\fBstd::ostream\fP &os, SourceLineInfo const &info)"
+.br
+.ti -1c
+.RI "bool \fBCatch::isTrue\fP (bool value)"
+.br
+.ti -1c
+.RI "bool \fBCatch::alwaysTrue\fP ()"
+.br
+.ti -1c
+.RI "bool \fBCatch::alwaysFalse\fP ()"
+.br
+.ti -1c
+.RI "void \fBCatch::throwLogicError\fP (\fBstd::string\fP const &message, SourceLineInfo const &locationInfo)"
+.br
+.ti -1c
+.RI "void \fBCatch::seedRng\fP (IConfig const &config)"
+.br
+.ti -1c
+.RI "unsigned int \fBCatch::rngSeed\fP ()"
+.br
+.ti -1c
+.RI "template<typename T > T const  & \fBCatch::operator+\fP (T const &value, StreamEndStop)"
+.br
+.ti -1c
+.RI "IGeneratorsForTest * \fBCatch::createGeneratorsForTest\fP ()"
+.br
+.ti -1c
+.RI "IContext & \fBCatch::getCurrentContext\fP ()"
+.br
+.ti -1c
+.RI "IMutableContext & \fBCatch::getCurrentMutableContext\fP ()"
+.br
+.ti -1c
+.RI "void \fBCatch::cleanUpContext\fP ()"
+.br
+.ti -1c
+.RI "Stream \fBCatch::createStream\fP (\fBstd::string\fP const &streamName)"
+.br
+.ti -1c
+.RI "bool \fBCatch::matchTest\fP (TestCase const &testCase, TestSpec const &testSpec, IConfig const &config)"
+.br
+.ti -1c
+.RI "\fBstd::vector\fP< TestCase > \fBCatch::filterTests\fP (\fBstd::vector\fP< TestCase > const &testCases, TestSpec const &testSpec, IConfig const &config)"
+.br
+.ti -1c
+.RI "\fBstd::vector\fP< TestCase > const  & \fBCatch::getAllTestCasesSorted\fP (IConfig const &config)"
+.br
+.ti -1c
+.RI "void \fBCatch::registerTestCase\fP (ITestCase *testCase, char const *className, NameAndDesc const &nameAndDesc, SourceLineInfo const &lineInfo)"
+.br
+.ti -1c
+.RI "void \fBCatch::registerTestCaseFunction\fP (TestFunction function, SourceLineInfo const &lineInfo, NameAndDesc const &nameAndDesc)"
+.br
+.ti -1c
+.RI "bool \fBCatch::isOk\fP (ResultWas::OfType resultType)"
+.br
+.ti -1c
+.RI "bool \fBCatch::isJustInfo\fP (int flags)"
+.br
+.ti -1c
+.RI "ResultDisposition::Flags \fBCatch::operator|\fP (ResultDisposition::Flags lhs, ResultDisposition::Flags rhs)"
+.br
+.ti -1c
+.RI "bool \fBCatch::shouldContinueOnFailure\fP (int flags)"
+.br
+.ti -1c
+.RI "bool \fBCatch::isFalseTest\fP (int flags)"
+.br
+.ti -1c
+.RI "bool \fBCatch::shouldSuppressFailure\fP (int flags)"
+.br
+.ti -1c
+.RI "template<typename T > Impl::MatchNotOf< T > \fBCatch::Matchers::Not\fP (Impl::MatcherBase< T > const &underlyingMatcher)"
+.br
+.ti -1c
+.RI "template<typename T > Impl::MatchAllOf< T > \fBCatch::Matchers::AllOf\fP (Impl::MatcherBase< T > const &m1, Impl::MatcherBase< T > const &m2)"
+.br
+.ti -1c
+.RI "template<typename T > Impl::MatchAllOf< T > \fBCatch::Matchers::AllOf\fP (Impl::MatcherBase< T > const &m1, Impl::MatcherBase< T > const &m2, Impl::MatcherBase< T > const &m3)"
+.br
+.ti -1c
+.RI "template<typename T > Impl::MatchAnyOf< T > \fBCatch::Matchers::AnyOf\fP (Impl::MatcherBase< T > const &m1, Impl::MatcherBase< T > const &m2)"
+.br
+.ti -1c
+.RI "template<typename T > Impl::MatchAnyOf< T > \fBCatch::Matchers::AnyOf\fP (Impl::MatcherBase< T > const &m1, Impl::MatcherBase< T > const &m2, Impl::MatcherBase< T > const &m3)"
+.br
+.ti -1c
+.RI "template<typename T > T & \fBCatch::Internal::opCast\fP (T const &t)"
+.br
+.ti -1c
+.RI "template<Operator Op, typename T1 , typename T2 > bool \fBCatch::Internal::applyEvaluator\fP (T1 const &lhs, T2 const &rhs)"
+.br
+.ti -1c
+.RI "template<Operator Op, typename T1 , typename T2 > bool \fBCatch::Internal::compare\fP (T1 const &lhs, T2 const &rhs)"
+.br
+.ti -1c
+.RI "template<Operator Op> bool \fBCatch::Internal::compare\fP (unsigned int lhs, int rhs)"
+.br
+.ti -1c
+.RI "template<Operator Op> bool \fBCatch::Internal::compare\fP (unsigned long lhs, int rhs)"
+.br
+.ti -1c
+.RI "template<Operator Op> bool \fBCatch::Internal::compare\fP (unsigned char lhs, int rhs)"
+.br
+.ti -1c
+.RI "template<Operator Op> bool \fBCatch::Internal::compare\fP (unsigned int lhs, long rhs)"
+.br
+.ti -1c
+.RI "template<Operator Op> bool \fBCatch::Internal::compare\fP (unsigned long lhs, long rhs)"
+.br
+.ti -1c
+.RI "template<Operator Op> bool \fBCatch::Internal::compare\fP (unsigned char lhs, long rhs)"
+.br
+.ti -1c
+.RI "template<Operator Op> bool \fBCatch::Internal::compare\fP (int lhs, unsigned int rhs)"
+.br
+.ti -1c
+.RI "template<Operator Op> bool \fBCatch::Internal::compare\fP (int lhs, unsigned long rhs)"
+.br
+.ti -1c
+.RI "template<Operator Op> bool \fBCatch::Internal::compare\fP (int lhs, unsigned char rhs)"
+.br
+.ti -1c
+.RI "template<Operator Op> bool \fBCatch::Internal::compare\fP (long lhs, unsigned int rhs)"
+.br
+.ti -1c
+.RI "template<Operator Op> bool \fBCatch::Internal::compare\fP (long lhs, unsigned long rhs)"
+.br
+.ti -1c
+.RI "template<Operator Op> bool \fBCatch::Internal::compare\fP (long lhs, unsigned char rhs)"
+.br
+.ti -1c
+.RI "template<Operator Op, typename T > bool \fBCatch::Internal::compare\fP (long lhs, T *rhs)"
+.br
+.ti -1c
+.RI "template<Operator Op, typename T > bool \fBCatch::Internal::compare\fP (T *lhs, long rhs)"
+.br
+.ti -1c
+.RI "template<Operator Op, typename T > bool \fBCatch::Internal::compare\fP (int lhs, T *rhs)"
+.br
+.ti -1c
+.RI "template<Operator Op, typename T > bool \fBCatch::Internal::compare\fP (T *lhs, int rhs)"
+.br
+.ti -1c
+.RI "template<typename T > \fBstd::string\fP \fBCatch::toString\fP (T const  &value)"
+.br
+.RI "converts any type to a string "
+.ti -1c
+.RI "\fBstd::string\fP \fBCatch::toString\fP (\fBstd::string\fP const &value)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBCatch::toString\fP (\fBstd::wstring\fP const &value)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBCatch::toString\fP (const char *const value)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBCatch::toString\fP (char *const value)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBCatch::toString\fP (const wchar_t *const value)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBCatch::toString\fP (wchar_t *const value)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBCatch::toString\fP (int value)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBCatch::toString\fP (unsigned long value)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBCatch::toString\fP (unsigned int value)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBCatch::toString\fP (const double value)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBCatch::toString\fP (const float value)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBCatch::toString\fP (bool value)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBCatch::toString\fP (char value)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBCatch::toString\fP (signed char value)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBCatch::toString\fP (unsigned char value)"
+.br
+.ti -1c
+.RI "TrueType & \fBCatch::Detail::testStreamable\fP (\fBstd::ostream\fP &)"
+.br
+.ti -1c
+.RI "FalseType \fBCatch::Detail::testStreamable\fP (FalseType)"
+.br
+.ti -1c
+.RI "FalseType \fBCatch::Detail::operator<<\fP (\fBstd::ostream\fP const &, BorgType const &)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBCatch::Detail::rawMemoryToString\fP (const void *object, \fBstd::size_t\fP size)"
+.br
+.ti -1c
+.RI "template<typename T > \fBstd::string\fP \fBCatch::Detail::rawMemoryToString\fP (const T &object)"
+.br
+.ti -1c
+.RI "template<typename InputIterator > \fBstd::string\fP \fBCatch::Detail::rangeToString\fP (InputIterator first, InputIterator last)"
+.br
+.ti -1c
+.RI "template<typename T , typename Allocator > \fBstd::string\fP \fBCatch::toString\fP (\fBstd::vector\fP< T, Allocator > const &v)"
+.br
+.ti -1c
+.RI "template<typename T > \fBstd::string\fP \fBCatch::Detail::makeString\fP (T const &value)"
+.br
+.ti -1c
+.RI "IResultCapture & \fBCatch::getResultCapture\fP ()"
+.br
+.ti -1c
+.RI "bool \fBCatch::isDebuggerActive\fP ()"
+.br
+.ti -1c
+.RI "void \fBCatch::writeToDebugConsole\fP (\fBstd::string\fP const &text)"
+.br
+.ti -1c
+.RI "template<typename T > CompositeGenerator< T > \fBCatch::Generators::between\fP (T from, T to)"
+.br
+.ti -1c
+.RI "template<typename T > CompositeGenerator< T > \fBCatch::Generators::values\fP (T val1, T val2)"
+.br
+.ti -1c
+.RI "template<typename T > CompositeGenerator< T > \fBCatch::Generators::values\fP (T val1, T val2, T val3)"
+.br
+.ti -1c
+.RI "template<typename T > CompositeGenerator< T > \fBCatch::Generators::values\fP (T val1, T val2, T val3, T val4)"
+.br
+.ti -1c
+.RI "IRegistryHub & \fBCatch::getRegistryHub\fP ()"
+.br
+.ti -1c
+.RI "IMutableRegistryHub & \fBCatch::getMutableRegistryHub\fP ()"
+.br
+.ti -1c
+.RI "void \fBCatch::cleanUp\fP ()"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBCatch::translateActiveException\fP ()"
+.br
+.ti -1c
+.RI "template<> \fBstd::string\fP \fBCatch::toString< Detail::Approx >\fP (Detail::Approx const &value)"
+.br
+.ti -1c
+.RI "StdString::EqualsMatcher \fBCatch::Matchers::Equals\fP (\fBstd::string\fP const &str, CaseSensitive::Choice caseSensitivity=CaseSensitive::Yes)"
+.br
+.ti -1c
+.RI "StdString::ContainsMatcher \fBCatch::Matchers::Contains\fP (\fBstd::string\fP const &str, CaseSensitive::Choice caseSensitivity=CaseSensitive::Yes)"
+.br
+.ti -1c
+.RI "StdString::EndsWithMatcher \fBCatch::Matchers::EndsWith\fP (\fBstd::string\fP const &str, CaseSensitive::Choice caseSensitivity=CaseSensitive::Yes)"
+.br
+.ti -1c
+.RI "StdString::StartsWithMatcher \fBCatch::Matchers::StartsWith\fP (\fBstd::string\fP const &str, CaseSensitive::Choice caseSensitivity=CaseSensitive::Yes)"
+.br
+.ti -1c
+.RI "template<typename T > Vector::ContainsMatcher< T > \fBCatch::Matchers::Contains\fP (\fBstd::vector\fP< T > const &comparator)"
+.br
+.ti -1c
+.RI "template<typename T > Vector::ContainsElementMatcher< T > \fBCatch::Matchers::VectorContains\fP (T const &comparator)"
+.br
+.ti -1c
+.RI "template<typename T > Vector::EqualsMatcher< T > \fBCatch::Matchers::Equals\fP (\fBstd::vector\fP< T > const &comparator)"
+.br
+.ti -1c
+.RI "TestCase \fBCatch::makeTestCase\fP (ITestCase *testCase, \fBstd::string\fP const &className, \fBstd::string\fP const &name, \fBstd::string\fP const &description, SourceLineInfo const &lineInfo)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "const \fBstd::string\fP \fBCatch::Detail::unprintableString\fP"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define AND_THEN(desc)   \fBSECTION\fP( \fBstd::string\fP('     And: ') + desc, '' )"
+
+.SS "#define AND_WHEN(desc)   \fBSECTION\fP( \fBstd::string\fP('And when: ') + desc, '' )"
+
+.SS "#define ANON_TEST_CASE()   \fBINTERNAL_CATCH_TESTCASE\fP( '', '' )"
+
+.SS "#define CAPTURE(msg)   \fBINTERNAL_CATCH_INFO\fP( 'CAPTURE', #msg ' := ' << \fBCatch::toString\fP(msg) )"
+
+.SS "#define CATCH_AUTO_PTR(T)   \fBstd::auto_ptr\fP<T>"
+
+.SS "#define CATCH_BREAK_INTO_DEBUGGER()   \fBCatch::alwaysTrue\fP();"
+
+.SS "#define CATCH_CONFIG_POSIX_SIGNALS"
+
+.SS "#define CATCH_INTERNAL_ERROR(msg)   ::\fBCatch::throwLogicError\fP( msg, \fBCATCH_INTERNAL_LINEINFO\fP );"
+
+.SS "#define CATCH_INTERNAL_LINEINFO   ::\fBCatch::SourceLineInfo\fP( __FILE__, static_cast<\fBstd::size_t\fP>( __LINE__ ) )"
+
+.SS "#define CATCH_INTERNAL_SUPPRESS_ETD_WARNINGS"
+
+.SS "#define CATCH_INTERNAL_SUPPRESS_PARENTHESES_WARNINGS"
+
+.SS "#define CATCH_INTERNAL_UNSUPPRESS_ETD_WARNINGS"
+
+.SS "#define CATCH_INTERNAL_UNSUPPRESS_PARENTHESES_WARNINGS"
+
+.SS "#define CATCH_NOEXCEPT   throw()"
+
+.SS "#define CATCH_NOEXCEPT_IS(x)"
+
+.SS "#define CATCH_NOT_IMPLEMENTED   throw \fBCatch::NotImplementedException\fP( \fBCATCH_INTERNAL_LINEINFO\fP )"
+
+.SS "#define CATCH_NULL   NULL"
+
+.SS "#define CATCH_OVERRIDE"
+
+.SS "#define CATCH_REGISTER_TAG_ALIAS(alias, spec)   namespace{ \fBCatch::RegistrarForTagAliases\fP \fBINTERNAL_CATCH_UNIQUE_NAME\fP( AutoRegisterTagAlias )( alias, spec, \fBCATCH_INTERNAL_LINEINFO\fP ); }"
+
+.SS "#define CATCH_TRANSLATE_EXCEPTION(signature)   \fBINTERNAL_CATCH_TRANSLATE_EXCEPTION\fP( signature )"
+
+.SS "#define CHECK(expr)   \fBINTERNAL_CATCH_TEST\fP( 'CHECK', Catch::ResultDisposition::ContinueOnFailure, expr )"
+
+.SS "#define CHECK_FALSE(expr)   \fBINTERNAL_CATCH_TEST\fP( 'CHECK_FALSE', Catch::ResultDisposition::ContinueOnFailure | \fBCatch::ResultDisposition::FalseTest\fP, expr )"
+
+.SS "#define CHECK_NOFAIL(expr)   \fBINTERNAL_CATCH_TEST\fP( 'CHECK_NOFAIL', Catch::ResultDisposition::ContinueOnFailure | \fBCatch::ResultDisposition::SuppressFail\fP, expr )"
+
+.SS "#define CHECK_NOTHROW(expr)   \fBINTERNAL_CATCH_NO_THROW\fP( 'CHECK_NOTHROW', Catch::ResultDisposition::ContinueOnFailure, expr )"
+
+.SS "#define CHECK_THAT(arg, matcher)   \fBINTERNAL_CHECK_THAT\fP( 'CHECK_THAT', matcher, \fBCatch::ResultDisposition::ContinueOnFailure\fP, arg )"
+
+.SS "#define CHECK_THROWS(expr)   \fBINTERNAL_CATCH_THROWS\fP( 'CHECK_THROWS', Catch::ResultDisposition::ContinueOnFailure, '', expr )"
+
+.SS "#define CHECK_THROWS_AS(expr, exceptionType)   \fBINTERNAL_CATCH_THROWS_AS\fP( 'CHECK_THROWS_AS', exceptionType, \fBCatch::ResultDisposition::ContinueOnFailure\fP, expr )"
+
+.SS "#define CHECK_THROWS_WITH(expr, matcher)   \fBINTERNAL_CATCH_THROWS\fP( 'CHECK_THROWS_WITH', Catch::ResultDisposition::ContinueOnFailure, matcher, expr )"
+
+.SS "#define CHECKED_ELSE(expr)   \fBINTERNAL_CATCH_ELSE\fP( 'CHECKED_ELSE', Catch::ResultDisposition::ContinueOnFailure, expr )"
+
+.SS "#define CHECKED_IF(expr)   \fBINTERNAL_CATCH_IF\fP( 'CHECKED_IF', Catch::ResultDisposition::ContinueOnFailure, expr )"
+
+.SS "#define FAIL(msg)   \fBINTERNAL_CATCH_MSG\fP( 'FAIL', Catch::ResultWas::ExplicitFailure, \fBCatch::ResultDisposition::Normal\fP, msg )"
+
+.SS "#define FAIL_CHECK(msg)   \fBINTERNAL_CATCH_MSG\fP( 'FAIL_CHECK', Catch::ResultWas::ExplicitFailure, \fBCatch::ResultDisposition::ContinueOnFailure\fP, msg )"
+
+.SS "#define GENERATE(expr)   \fBINTERNAL_CATCH_GENERATE\fP( expr )"
+
+.SS "#define GIVEN(desc)   \fBSECTION\fP( \fBstd::string\fP('   Given: ') + desc, '' )"
+
+.SS "#define INFO(msg)   \fBINTERNAL_CATCH_INFO\fP( 'INFO', msg )"
+
+.SS "#define INTERNAL_CATCH_ELSE(macroName, resultDisposition, expr)"
+\fBValue:\fP
+.PP
+.nf
+INTERNAL_CATCH_TEST( macroName, resultDisposition, expr ); \
+    if( !Catch::getResultCapture()\&.getLastResult()->succeeded() )
+.fi
+.SS "#define INTERNAL_CATCH_GENERATE(expr)   expr\&.setFileInfo( __FILE__ '(' \fBINTERNAL_CATCH_LINESTR\fP( __LINE__ ) ')' )"
+
+.SS "#define INTERNAL_CATCH_IF(macroName, resultDisposition, expr)"
+\fBValue:\fP
+.PP
+.nf
+INTERNAL_CATCH_TEST( macroName, resultDisposition, expr ); \
+    if( Catch::getResultCapture()\&.getLastResult()->succeeded() )
+.fi
+.SS "#define INTERNAL_CATCH_INFO(macroName, log)   \fBCatch::ScopedMessage\fP \fBINTERNAL_CATCH_UNIQUE_NAME\fP( scopedMessage ) = \fBCatch::MessageBuilder\fP( macroName, \fBCATCH_INTERNAL_LINEINFO\fP, \fBCatch::ResultWas::Info\fP ) << log;"
+
+.SS "#define INTERNAL_CATCH_LINESTR(line)   \fBINTERNAL_CATCH_LINESTR2\fP( line )"
+
+.SS "#define INTERNAL_CATCH_LINESTR2(line)   #line"
+
+.SS "#define INTERNAL_CATCH_METHOD_AS_TEST_CASE(QualifiedMethod, Name, Desc)"
+\fBValue:\fP
+.PP
+.nf
+CATCH_INTERNAL_SUPPRESS_ETD_WARNINGS \
+        namespace{ Catch::AutoReg INTERNAL_CATCH_UNIQUE_NAME( autoRegistrar )( &QualifiedMethod, "&" #QualifiedMethod, Catch::NameAndDesc( Name, Desc ), CATCH_INTERNAL_LINEINFO ); } \
+        CATCH_INTERNAL_UNSUPPRESS_ETD_WARNINGS
+.fi
+.SS "#define INTERNAL_CATCH_MSG(messageType, resultDisposition, macroName, log)"
+\fBValue:\fP
+.PP
+.nf
+do { \
+            Catch::ResultBuilder __catchResult( macroName, CATCH_INTERNAL_LINEINFO, "", resultDisposition ); \
+            __catchResult << log + ::Catch::StreamEndStop(); \
+            __catchResult\&.captureResult( messageType ); \
+            INTERNAL_CATCH_REACT( __catchResult ) \
+        } while( Catch::alwaysFalse() )
+.fi
+.SS "#define INTERNAL_CATCH_NO_THROW(macroName, resultDisposition, expr)"
+\fBValue:\fP
+.PP
+.nf
+do { \
+        Catch::ResultBuilder __catchResult( macroName, CATCH_INTERNAL_LINEINFO, #expr, resultDisposition ); \
+        try { \
+            static_cast<void>(expr); \
+            __catchResult\&.captureResult( Catch::ResultWas::Ok ); \
+        } \
+        catch( \&.\&.\&. ) { \
+            __catchResult\&.useActiveException( resultDisposition ); \
+        } \
+        INTERNAL_CATCH_REACT( __catchResult ) \
+    } while( Catch::alwaysFalse() )
+.fi
+.SS "#define INTERNAL_CATCH_REACT(resultBuilder)"
+\fBValue:\fP
+.PP
+.nf
+if( resultBuilder\&.shouldDebugBreak() ) CATCH_BREAK_INTO_DEBUGGER(); \
+    resultBuilder\&.react();
+.fi
+.SS "#define INTERNAL_CATCH_REGISTER_TESTCASE(Function, Name, Desc)"
+\fBValue:\fP
+.PP
+.nf
+CATCH_INTERNAL_SUPPRESS_ETD_WARNINGS \
+        Catch::AutoReg( Function, CATCH_INTERNAL_LINEINFO, Catch::NameAndDesc( Name, Desc ) ); \
+        CATCH_INTERNAL_UNSUPPRESS_ETD_WARNINGS
+.fi
+.SS "#define INTERNAL_CATCH_SECTION(name, desc)   if( \fBCatch::Section\fP const& \fBINTERNAL_CATCH_UNIQUE_NAME\fP( catch_internal_Section ) = \fBCatch::SectionInfo\fP( \fBCATCH_INTERNAL_LINEINFO\fP, name, desc ) )"
+
+.SS "#define INTERNAL_CATCH_STRINGIFY(expr)   \fBINTERNAL_CATCH_STRINGIFY2\fP( expr )"
+
+.SS "#define INTERNAL_CATCH_STRINGIFY2(expr)   #expr"
+
+.SS "#define INTERNAL_CATCH_TEST(macroName, resultDisposition, expr)"
+\fBValue:\fP
+.PP
+.nf
+do { \
+        Catch::ResultBuilder __catchResult( macroName, CATCH_INTERNAL_LINEINFO, #expr, resultDisposition ); \
+        try { \
+            CATCH_INTERNAL_SUPPRESS_PARENTHESES_WARNINGS \
+            ( __catchResult <= expr )\&.endExpression(); \
+            CATCH_INTERNAL_UNSUPPRESS_PARENTHESES_WARNINGS \
+        } \
+        catch( \&.\&.\&. ) { \
+            __catchResult\&.useActiveException( resultDisposition ); \
+        } \
+        INTERNAL_CATCH_REACT( __catchResult ) \
+    } while( Catch::isTrue( false && static_cast<bool>( !!(expr) ) ) )
+.fi
+.SS "#define INTERNAL_CATCH_TEST_CASE_METHOD(ClassName, TestName, Desc)   \fBINTERNAL_CATCH_TEST_CASE_METHOD2\fP( \fBINTERNAL_CATCH_UNIQUE_NAME\fP( ____C_A_T_C_H____T_E_S_T____ ), ClassName, TestName, Desc )"
+
+.SS "#define INTERNAL_CATCH_TEST_CASE_METHOD2(TestCaseName, ClassName, TestName, Desc)"
+\fBValue:\fP
+.PP
+.nf
+CATCH_INTERNAL_SUPPRESS_ETD_WARNINGS \
+        namespace{ \
+            struct TestCaseName : ClassName{ \
+                void test(); \
+            }; \
+            Catch::AutoReg INTERNAL_CATCH_UNIQUE_NAME( autoRegistrar ) ( &TestCaseName::test, #ClassName, Catch::NameAndDesc( TestName, Desc ), CATCH_INTERNAL_LINEINFO ); \
+        } \
+        CATCH_INTERNAL_UNSUPPRESS_ETD_WARNINGS \
+        void TestCaseName::test()
+.fi
+.SS "#define INTERNAL_CATCH_TESTCASE(Name, Desc)   \fBINTERNAL_CATCH_TESTCASE2\fP( \fBINTERNAL_CATCH_UNIQUE_NAME\fP( ____C_A_T_C_H____T_E_S_T____ ), Name, Desc )"
+
+.SS "#define INTERNAL_CATCH_TESTCASE2(TestName, Name, Desc)"
+\fBValue:\fP
+.PP
+.nf
+static void TestName(); \
+        CATCH_INTERNAL_SUPPRESS_ETD_WARNINGS \
+        namespace{ Catch::AutoReg INTERNAL_CATCH_UNIQUE_NAME( autoRegistrar )( &TestName, CATCH_INTERNAL_LINEINFO, Catch::NameAndDesc( Name, Desc ) ); }\
+        CATCH_INTERNAL_UNSUPPRESS_ETD_WARNINGS \
+        static void TestName()
+.fi
+.SS "#define INTERNAL_CATCH_THROWS(macroName, resultDisposition, matcher, expr)"
+\fBValue:\fP
+.PP
+.nf
+do { \
+        Catch::ResultBuilder __catchResult( macroName, CATCH_INTERNAL_LINEINFO, #expr, resultDisposition, #matcher ); \
+        if( __catchResult\&.allowThrows() ) \
+            try { \
+                static_cast<void>(expr); \
+                __catchResult\&.captureResult( Catch::ResultWas::DidntThrowException ); \
+            } \
+            catch( \&.\&.\&. ) { \
+                __catchResult\&.captureExpectedException( matcher ); \
+            } \
+        else \
+            __catchResult\&.captureResult( Catch::ResultWas::Ok ); \
+        INTERNAL_CATCH_REACT( __catchResult ) \
+    } while( Catch::alwaysFalse() )
+.fi
+.SS "#define INTERNAL_CATCH_THROWS_AS(macroName, exceptionType, resultDisposition, expr)"
+\fBValue:\fP
+.PP
+.nf
+do { \
+        Catch::ResultBuilder __catchResult( macroName, CATCH_INTERNAL_LINEINFO, #expr ", " #exceptionType, resultDisposition ); \
+        if( __catchResult\&.allowThrows() ) \
+            try { \
+                static_cast<void>(expr); \
+                __catchResult\&.captureResult( Catch::ResultWas::DidntThrowException ); \
+            } \
+            catch( exceptionType ) { \
+                __catchResult\&.captureResult( Catch::ResultWas::Ok ); \
+            } \
+            catch( \&.\&.\&. ) { \
+                __catchResult\&.useActiveException( resultDisposition ); \
+            } \
+        else \
+            __catchResult\&.captureResult( Catch::ResultWas::Ok ); \
+        INTERNAL_CATCH_REACT( __catchResult ) \
+    } while( Catch::alwaysFalse() )
+.fi
+.SS "#define INTERNAL_CATCH_TRANSLATE_EXCEPTION(signature)   \fBINTERNAL_CATCH_TRANSLATE_EXCEPTION2\fP( \fBINTERNAL_CATCH_UNIQUE_NAME\fP( catch_internal_ExceptionTranslator ), signature )"
+
+.SS "#define INTERNAL_CATCH_TRANSLATE_EXCEPTION2(translatorName, signature)"
+\fBValue:\fP
+.PP
+.nf
+static std::string translatorName( signature ); \
+    namespace{ Catch::ExceptionTranslatorRegistrar INTERNAL_CATCH_UNIQUE_NAME( catch_internal_ExceptionRegistrar )( &translatorName ); }\
+    static std::string translatorName( signature )
+.fi
+.SS "#define INTERNAL_CATCH_UNIQUE_NAME(name)   \fBINTERNAL_CATCH_UNIQUE_NAME_LINE\fP( name, __LINE__ )"
+
+.SS "#define INTERNAL_CATCH_UNIQUE_NAME_LINE(name, line)   \fBINTERNAL_CATCH_UNIQUE_NAME_LINE2\fP( name, line )"
+
+.SS "#define INTERNAL_CATCH_UNIQUE_NAME_LINE2(name, line)   name##line"
+
+.SS "#define INTERNAL_CHECK_THAT(macroName, matcher, resultDisposition, arg)"
+\fBValue:\fP
+.PP
+.nf
+do { \
+        Catch::ResultBuilder __catchResult( macroName, CATCH_INTERNAL_LINEINFO, #arg ", " #matcher, resultDisposition ); \
+        try { \
+            __catchResult\&.captureMatch( arg, matcher, #matcher ); \
+        } catch( \&.\&.\&. ) { \
+            __catchResult\&.useActiveException( resultDisposition | Catch::ResultDisposition::ContinueOnFailure ); \
+        } \
+        INTERNAL_CATCH_REACT( __catchResult ) \
+    } while( Catch::alwaysFalse() )
+.fi
+.SS "#define METHOD_AS_TEST_CASE(method, name, description)   \fBINTERNAL_CATCH_METHOD_AS_TEST_CASE\fP( method, name, description )"
+
+.SS "#define REGISTER_LEGACY_REPORTER(name, reporterType)   INTERNAL_CATCH_REGISTER_LEGACY_REPORTER( name, reporterType )"
+
+.SS "#define REGISTER_REPORTER(name, reporterType)   INTERNAL_CATCH_REGISTER_REPORTER( name, reporterType )"
+
+.SS "#define REGISTER_TEST_CASE(method, name, description)   \fBINTERNAL_CATCH_REGISTER_TESTCASE\fP( method, name, description )"
+
+.SS "#define REQUIRE(expr)   \fBINTERNAL_CATCH_TEST\fP( 'REQUIRE', Catch::ResultDisposition::Normal, expr  )"
+
+.SS "#define REQUIRE_FALSE(expr)   \fBINTERNAL_CATCH_TEST\fP( 'REQUIRE_FALSE', Catch::ResultDisposition::Normal | \fBCatch::ResultDisposition::FalseTest\fP, expr )"
+
+.SS "#define REQUIRE_NOTHROW(expr)   \fBINTERNAL_CATCH_NO_THROW\fP( 'REQUIRE_NOTHROW', Catch::ResultDisposition::Normal, expr )"
+
+.SS "#define REQUIRE_THAT(arg, matcher)   \fBINTERNAL_CHECK_THAT\fP( 'REQUIRE_THAT', matcher, \fBCatch::ResultDisposition::Normal\fP, arg )"
+
+.SS "#define REQUIRE_THROWS(expr)   \fBINTERNAL_CATCH_THROWS\fP( 'REQUIRE_THROWS', Catch::ResultDisposition::Normal, '', expr )"
+
+.SS "#define REQUIRE_THROWS_AS(expr, exceptionType)   \fBINTERNAL_CATCH_THROWS_AS\fP( 'REQUIRE_THROWS_AS', exceptionType, \fBCatch::ResultDisposition::Normal\fP, expr )"
+
+.SS "#define REQUIRE_THROWS_WITH(expr, matcher)   \fBINTERNAL_CATCH_THROWS\fP( 'REQUIRE_THROWS_WITH', Catch::ResultDisposition::Normal, matcher, expr )"
+
+.SS "#define SCENARIO(name, tags)   \fBTEST_CASE\fP( 'Scenario: ' name, tags )"
+
+.SS "#define SCENARIO_METHOD(className, name, tags)   \fBINTERNAL_CATCH_TEST_CASE_METHOD\fP( className, 'Scenario: ' name, tags )"
+
+.SS "#define SCOPED_CAPTURE(msg)   \fBINTERNAL_CATCH_INFO\fP( 'CAPTURE', #msg ' := ' << \fBCatch::toString\fP(msg) )"
+
+.SS "#define SCOPED_INFO(msg)   \fBINTERNAL_CATCH_INFO\fP( 'INFO', msg )"
+
+.SS "#define SECTION(name, description)   \fBINTERNAL_CATCH_SECTION\fP( name, description )"
+
+.SS "#define SUCCEED(msg)   \fBINTERNAL_CATCH_MSG\fP( 'SUCCEED', Catch::ResultWas::Ok, \fBCatch::ResultDisposition::ContinueOnFailure\fP, msg )"
+
+.SS "#define TEST_CASE(name, description)   \fBINTERNAL_CATCH_TESTCASE\fP( name, description )"
+
+.SS "#define TEST_CASE_METHOD(className, name, description)   \fBINTERNAL_CATCH_TEST_CASE_METHOD\fP( className, name, description )"
+
+.SS "#define THEN(desc)   \fBSECTION\fP( \fBstd::string\fP('    Then: ') + desc, '' )"
+
+.SS "#define TWOBLUECUBES_CATCH_APPROX_HPP_INCLUDED"
+
+.SS "#define TWOBLUECUBES_CATCH_ASSERTIONRESULT_H_INCLUDED"
+
+.SS "#define TWOBLUECUBES_CATCH_CAPTURE_HPP_INCLUDED"
+
+.SS "#define TWOBLUECUBES_CATCH_COMMON_H_INCLUDED"
+
+.SS "#define TWOBLUECUBES_CATCH_COMPILER_CAPABILITIES_HPP_INCLUDED"
+
+.SS "#define TWOBLUECUBES_CATCH_CONTEXT_H_INCLUDED"
+
+.SS "#define TWOBLUECUBES_CATCH_DEBUGGER_H_INCLUDED"
+
+.SS "#define TWOBLUECUBES_CATCH_EVALUATE_HPP_INCLUDED"
+
+.SS "#define TWOBLUECUBES_CATCH_EXPRESSION_LHS_HPP_INCLUDED"
+
+.SS "#define TWOBLUECUBES_CATCH_GENERATORS_HPP_INCLUDED"
+
+.SS "#define TWOBLUECUBES_CATCH_HPP_INCLUDED"
+
+.SS "#define TWOBLUECUBES_CATCH_INTERFACES_CAPTURE_H_INCLUDED"
+
+.SS "#define TWOBLUECUBES_CATCH_INTERFACES_EXCEPTION_H_INCLUDED"
+
+.SS "#define TWOBLUECUBES_CATCH_INTERFACES_GENERATORS_H_INCLUDED"
+
+.SS "#define TWOBLUECUBES_CATCH_INTERFACES_REGISTRY_HUB_H_INCLUDED"
+
+.SS "#define TWOBLUECUBES_CATCH_INTERFACES_RUNNER_H_INCLUDED"
+
+.SS "#define TWOBLUECUBES_CATCH_INTERFACES_TAG_ALIAS_REGISTRY_H_INCLUDED"
+
+.SS "#define TWOBLUECUBES_CATCH_INTERFACES_TESTCASE_H_INCLUDED"
+
+.SS "#define TWOBLUECUBES_CATCH_MATCHERS_HPP_INCLUDED"
+
+.SS "#define TWOBLUECUBES_CATCH_MATCHERS_STRING_H_INCLUDED"
+
+.SS "#define TWOBLUECUBES_CATCH_MATCHERS_VECTOR_H_INCLUDED"
+
+.SS "#define TWOBLUECUBES_CATCH_MESSAGE_H_INCLUDED"
+
+.SS "#define TWOBLUECUBES_CATCH_NOTIMPLEMENTED_EXCEPTION_H_INCLUDED"
+
+.SS "#define TWOBLUECUBES_CATCH_OPTION_HPP_INCLUDED"
+
+.SS "#define TWOBLUECUBES_CATCH_PLATFORM_H_INCLUDED"
+
+.SS "#define TWOBLUECUBES_CATCH_PTR_HPP_INCLUDED"
+
+.SS "#define TWOBLUECUBES_CATCH_RESULT_BUILDER_H_INCLUDED"
+
+.SS "#define TWOBLUECUBES_CATCH_RESULT_TYPE_H_INCLUDED"
+
+.SS "#define TWOBLUECUBES_CATCH_SECTION_H_INCLUDED"
+
+.SS "#define TWOBLUECUBES_CATCH_SECTION_INFO_H_INCLUDED"
+
+.SS "#define TWOBLUECUBES_CATCH_TAG_ALIAS_H_INCLUDED"
+
+.SS "#define TWOBLUECUBES_CATCH_TEST_CASE_INFO_H_INCLUDED"
+
+.SS "#define TWOBLUECUBES_CATCH_TEST_REGISTRY_HPP_INCLUDED"
+
+.SS "#define TWOBLUECUBES_CATCH_TIMER_H_INCLUDED"
+
+.SS "#define TWOBLUECUBES_CATCH_TOSTRING_H_INCLUDED"
+
+.SS "#define TWOBLUECUBES_CATCH_TOTALS_HPP_INCLUDED"
+
+.SS "#define WARN(msg)   \fBINTERNAL_CATCH_MSG\fP( 'WARN', Catch::ResultWas::Warning, \fBCatch::ResultDisposition::ContinueOnFailure\fP, msg )"
+
+.SS "#define WHEN(desc)   \fBSECTION\fP( \fBstd::string\fP('    When: ') + desc, '' )"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

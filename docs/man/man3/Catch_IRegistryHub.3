@@ -1,0 +1,47 @@
+.TH "Catch::IRegistryHub" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Catch::IRegistryHub
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <catch\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual \fB~IRegistryHub\fP ()"
+.br
+.ti -1c
+.RI "virtual IReporterRegistry const  & \fBgetReporterRegistry\fP () const =0"
+.br
+.ti -1c
+.RI "virtual \fBITestCaseRegistry\fP const  & \fBgetTestCaseRegistry\fP () const =0"
+.br
+.ti -1c
+.RI "virtual \fBITagAliasRegistry\fP const  & \fBgetTagAliasRegistry\fP () const =0"
+.br
+.ti -1c
+.RI "virtual \fBIExceptionTranslatorRegistry\fP & \fBgetExceptionTranslatorRegistry\fP ()=0"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "virtual Catch::IRegistryHub::~IRegistryHub ()\fC [virtual]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual \fBIExceptionTranslatorRegistry\fP& Catch::IRegistryHub::getExceptionTranslatorRegistry ()\fC [pure virtual]\fP"
+
+.SS "virtual IReporterRegistry const& Catch::IRegistryHub::getReporterRegistry () const\fC [pure virtual]\fP"
+
+.SS "virtual \fBITagAliasRegistry\fP const& Catch::IRegistryHub::getTagAliasRegistry () const\fC [pure virtual]\fP"
+
+.SS "virtual \fBITestCaseRegistry\fP const& Catch::IRegistryHub::getTestCaseRegistry () const\fC [pure virtual]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

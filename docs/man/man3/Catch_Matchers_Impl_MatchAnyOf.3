@@ -1,0 +1,53 @@
+.TH "Catch::Matchers::Impl::MatchAnyOf< ArgT >" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Catch::Matchers::Impl::MatchAnyOf< ArgT >
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <catch\&.hpp>\fP
+.PP
+Inherits \fBCatch::Matchers::Impl::MatcherBase< ArgT >\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual bool \fBmatch\fP (ArgT const &arg) const \fBCATCH_OVERRIDE\fP"
+.br
+.ti -1c
+.RI "virtual \fBstd::string\fP \fBdescribe\fP () const \fBCATCH_OVERRIDE\fP"
+.br
+.ti -1c
+.RI "\fBMatchAnyOf\fP< ArgT > & \fBoperator||\fP (\fBMatcherBase\fP< ArgT > const &other)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBstd::vector\fP< \fBMatcherBase\fP< ArgT > const  * > \fBm_matchers\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Member Function Documentation"
+.PP 
+.SS "template<typename ArgT> virtual \fBstd::string\fP \fBCatch::Matchers::Impl::MatchAnyOf\fP< ArgT >::describe () const\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBCatch::Matchers::Impl::MatcherUntypedBase\fP\&.
+.SS "template<typename ArgT> virtual bool \fBCatch::Matchers::Impl::MatchAnyOf\fP< ArgT >::match (ArgT const & arg) const\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBCatch::Matchers::Impl::MatcherMethod< ArgT >\fP\&.
+.SS "template<typename ArgT> \fBMatchAnyOf\fP<ArgT>& \fBCatch::Matchers::Impl::MatchAnyOf\fP< ArgT >::operator|| (\fBMatcherBase\fP< ArgT > const & other)\fC [inline]\fP"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "template<typename ArgT> \fBstd::vector\fP<\fBMatcherBase\fP<ArgT> const*> \fBCatch::Matchers::Impl::MatchAnyOf\fP< ArgT >::m_matchers"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

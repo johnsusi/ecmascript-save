@@ -1,0 +1,68 @@
+.TH "Catch::MessageInfo" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Catch::MessageInfo
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <catch\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMessageInfo\fP (\fBstd::string\fP const &_macroName, \fBSourceLineInfo\fP const &_lineInfo, \fBResultWas::OfType\fP _type)"
+.br
+.ti -1c
+.RI "bool \fBoperator==\fP (\fBMessageInfo\fP const &other) const"
+.br
+.ti -1c
+.RI "bool \fBoperator<\fP (\fBMessageInfo\fP const &other) const"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBstd::string\fP \fBmacroName\fP"
+.br
+.ti -1c
+.RI "\fBSourceLineInfo\fP \fBlineInfo\fP"
+.br
+.ti -1c
+.RI "\fBResultWas::OfType\fP \fBtype\fP"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBmessage\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBsequence\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Catch::MessageInfo::MessageInfo (\fBstd::string\fP const & _macroName, \fBSourceLineInfo\fP const & _lineInfo, \fBResultWas::OfType\fP _type)"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "bool Catch::MessageInfo::operator< (\fBMessageInfo\fP const & other) const\fC [inline]\fP"
+
+.SS "bool Catch::MessageInfo::operator== (\fBMessageInfo\fP const & other) const\fC [inline]\fP"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBSourceLineInfo\fP Catch::MessageInfo::lineInfo"
+
+.SS "\fBstd::string\fP Catch::MessageInfo::macroName"
+
+.SS "\fBstd::string\fP Catch::MessageInfo::message"
+
+.SS "unsigned int Catch::MessageInfo::sequence"
+
+.SS "\fBResultWas::OfType\fP Catch::MessageInfo::type"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

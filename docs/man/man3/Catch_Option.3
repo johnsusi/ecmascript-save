@@ -1,0 +1,112 @@
+.TH "Catch::Option< T >" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Catch::Option< T >
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <catch\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBOption\fP ()"
+.br
+.ti -1c
+.RI "\fBOption\fP (T const &_value)"
+.br
+.ti -1c
+.RI "\fBOption\fP (\fBOption\fP const &_other)"
+.br
+.ti -1c
+.RI "\fB~Option\fP ()"
+.br
+.ti -1c
+.RI "\fBOption\fP & \fBoperator=\fP (\fBOption\fP const &_other)"
+.br
+.ti -1c
+.RI "\fBOption\fP & \fBoperator=\fP (T const &_value)"
+.br
+.ti -1c
+.RI "void \fBreset\fP ()"
+.br
+.ti -1c
+.RI "T & \fBoperator*\fP ()"
+.br
+.ti -1c
+.RI "T const  & \fBoperator*\fP () const"
+.br
+.ti -1c
+.RI "T * \fBoperator\->\fP ()"
+.br
+.ti -1c
+.RI "const T * \fBoperator\->\fP () const"
+.br
+.ti -1c
+.RI "T \fBvalueOr\fP (T const &defaultValue) const"
+.br
+.ti -1c
+.RI "bool \fBsome\fP () const"
+.br
+.ti -1c
+.RI "bool \fBnone\fP () const"
+.br
+.ti -1c
+.RI "bool \fBoperator!\fP () const"
+.br
+.ti -1c
+.RI "\fBoperator SafeBool::type\fP () const"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<typename T> \fBCatch::Option\fP< T >::\fBOption\fP ()\fC [inline]\fP"
+
+.SS "template<typename T> \fBCatch::Option\fP< T >::\fBOption\fP (T const & _value)\fC [inline]\fP"
+
+.SS "template<typename T> \fBCatch::Option\fP< T >::\fBOption\fP (\fBOption\fP< T > const & _other)\fC [inline]\fP"
+
+.SS "template<typename T> \fBCatch::Option\fP< T >::~\fBOption\fP ()\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "template<typename T> bool \fBCatch::Option\fP< T >::none () const\fC [inline]\fP"
+
+.SS "template<typename T> \fBCatch::Option\fP< T >::operator \fBSafeBool::type\fP () const\fC [inline]\fP"
+
+.SS "template<typename T> bool \fBCatch::Option\fP< T >::operator! () const\fC [inline]\fP"
+
+.SS "template<typename T> T& \fBCatch::Option\fP< T >::operator* ()\fC [inline]\fP"
+
+.SS "template<typename T> T const& \fBCatch::Option\fP< T >::operator* () const\fC [inline]\fP"
+
+.SS "template<typename T> T* \fBCatch::Option\fP< T >::operator\-> ()\fC [inline]\fP"
+
+.SS "template<typename T> const T* \fBCatch::Option\fP< T >::operator\-> () const\fC [inline]\fP"
+
+.SS "template<typename T> \fBOption\fP& \fBCatch::Option\fP< T >::operator= (\fBOption\fP< T > const & _other)\fC [inline]\fP"
+
+.SS "template<typename T> \fBOption\fP& \fBCatch::Option\fP< T >::operator= (T const & _value)\fC [inline]\fP"
+
+.SS "template<typename T> void \fBCatch::Option\fP< T >::reset ()\fC [inline]\fP"
+
+.SS "template<typename T> bool \fBCatch::Option\fP< T >::some () const\fC [inline]\fP"
+
+.SS "template<typename T> T \fBCatch::Option\fP< T >::valueOr (T const & defaultValue) const\fC [inline]\fP"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "template<typename T> long double \fBCatch::Option\fP< T >::dummy1"
+
+.SS "template<typename T> void(* \fBCatch::Option\fP< T >::dummy2) ()"
+
+.SS "template<typename T> long double \fBCatch::Option\fP< T >::dummy3"
+
+.SS "template<typename T> char \fBCatch::Option\fP< T >::storage[sizeof(T)]"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

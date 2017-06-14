@@ -1,0 +1,108 @@
+\hypertarget{struct_catch_1_1_i_result_capture}{}\section{Catch\+:\+:I\+Result\+Capture Struct Reference}
+\label{struct_catch_1_1_i_result_capture}\index{Catch\+::\+I\+Result\+Capture@{Catch\+::\+I\+Result\+Capture}}
+
+
+{\ttfamily \#include $<$catch.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{struct_catch_1_1_i_result_capture_a3bd16719d6772b7470887fc36c6d0808}{$\sim$\+I\+Result\+Capture} ()
+\item 
+virtual void \hyperlink{struct_catch_1_1_i_result_capture_ae45e08bccc5fb434656d4f2e44742223}{assertion\+Ended} (\hyperlink{class_catch_1_1_assertion_result}{Assertion\+Result} const \&\hyperlink{util_8cpp_ade6d6d18a46c8aa95eed5e179d003e45}{result})=0
+\item 
+virtual bool \hyperlink{struct_catch_1_1_i_result_capture_a5b76ed52badcb64cf374202e12b81a03}{section\+Started} (\hyperlink{struct_catch_1_1_section_info}{Section\+Info} const \&section\+Info, \hyperlink{struct_catch_1_1_counts}{Counts} \&assertions)=0
+\item 
+virtual void \hyperlink{struct_catch_1_1_i_result_capture_a4e152bc43dc0933684e31fa67a58195d}{section\+Ended} (\hyperlink{struct_catch_1_1_section_end_info}{Section\+End\+Info} const \&end\+Info)=0
+\item 
+virtual void \hyperlink{struct_catch_1_1_i_result_capture_afcc71eef8ca821ae132cced4a2be6988}{section\+Ended\+Early} (\hyperlink{struct_catch_1_1_section_end_info}{Section\+End\+Info} const \&end\+Info)=0
+\item 
+virtual void \hyperlink{struct_catch_1_1_i_result_capture_a91d154c1e087e383dcde5aad95cb6a05}{push\+Scoped\+Message} (\hyperlink{struct_catch_1_1_message_info}{Message\+Info} const \&message)=0
+\item 
+virtual void \hyperlink{struct_catch_1_1_i_result_capture_a42bcb13276706bf8c3ce081ce16d37fd}{pop\+Scoped\+Message} (\hyperlink{struct_catch_1_1_message_info}{Message\+Info} const \&message)=0
+\item 
+virtual \textbf{ std\+::string} \hyperlink{struct_catch_1_1_i_result_capture_aea1617f4a84cc648246aa3ed6918b5bf}{get\+Current\+Test\+Name} () const =0
+\item 
+virtual const \hyperlink{class_catch_1_1_assertion_result}{Assertion\+Result} $\ast$ \hyperlink{struct_catch_1_1_i_result_capture_ab18872c89fab97405a56e9c6a4919736}{get\+Last\+Result} () const =0
+\item 
+virtual void \hyperlink{struct_catch_1_1_i_result_capture_ae63ecec95db4c236c63ecf616f483810}{exception\+Early\+Reported} ()=0
+\item 
+virtual void \hyperlink{struct_catch_1_1_i_result_capture_a7d995222301e6605f26549726b30c3ee}{handle\+Fatal\+Error\+Condition} (\textbf{ std\+::string} const \&message)=0
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_catch_1_1_i_result_capture_a3bd16719d6772b7470887fc36c6d0808}\label{struct_catch_1_1_i_result_capture_a3bd16719d6772b7470887fc36c6d0808}} 
+\index{Catch\+::\+I\+Result\+Capture@{Catch\+::\+I\+Result\+Capture}!````~I\+Result\+Capture@{$\sim$\+I\+Result\+Capture}}
+\index{````~I\+Result\+Capture@{$\sim$\+I\+Result\+Capture}!Catch\+::\+I\+Result\+Capture@{Catch\+::\+I\+Result\+Capture}}
+\subsubsection{\texorpdfstring{$\sim$\+I\+Result\+Capture()}{~IResultCapture()}}
+{\footnotesize\ttfamily virtual Catch\+::\+I\+Result\+Capture\+::$\sim$\+I\+Result\+Capture (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_catch_1_1_i_result_capture_ae45e08bccc5fb434656d4f2e44742223}\label{struct_catch_1_1_i_result_capture_ae45e08bccc5fb434656d4f2e44742223}} 
+\index{Catch\+::\+I\+Result\+Capture@{Catch\+::\+I\+Result\+Capture}!assertion\+Ended@{assertion\+Ended}}
+\index{assertion\+Ended@{assertion\+Ended}!Catch\+::\+I\+Result\+Capture@{Catch\+::\+I\+Result\+Capture}}
+\subsubsection{\texorpdfstring{assertion\+Ended()}{assertionEnded()}}
+{\footnotesize\ttfamily virtual void Catch\+::\+I\+Result\+Capture\+::assertion\+Ended (\begin{DoxyParamCaption}\item[{\hyperlink{class_catch_1_1_assertion_result}{Assertion\+Result} const \&}]{result }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\mbox{\Hypertarget{struct_catch_1_1_i_result_capture_ae63ecec95db4c236c63ecf616f483810}\label{struct_catch_1_1_i_result_capture_ae63ecec95db4c236c63ecf616f483810}} 
+\index{Catch\+::\+I\+Result\+Capture@{Catch\+::\+I\+Result\+Capture}!exception\+Early\+Reported@{exception\+Early\+Reported}}
+\index{exception\+Early\+Reported@{exception\+Early\+Reported}!Catch\+::\+I\+Result\+Capture@{Catch\+::\+I\+Result\+Capture}}
+\subsubsection{\texorpdfstring{exception\+Early\+Reported()}{exceptionEarlyReported()}}
+{\footnotesize\ttfamily virtual void Catch\+::\+I\+Result\+Capture\+::exception\+Early\+Reported (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\mbox{\Hypertarget{struct_catch_1_1_i_result_capture_aea1617f4a84cc648246aa3ed6918b5bf}\label{struct_catch_1_1_i_result_capture_aea1617f4a84cc648246aa3ed6918b5bf}} 
+\index{Catch\+::\+I\+Result\+Capture@{Catch\+::\+I\+Result\+Capture}!get\+Current\+Test\+Name@{get\+Current\+Test\+Name}}
+\index{get\+Current\+Test\+Name@{get\+Current\+Test\+Name}!Catch\+::\+I\+Result\+Capture@{Catch\+::\+I\+Result\+Capture}}
+\subsubsection{\texorpdfstring{get\+Current\+Test\+Name()}{getCurrentTestName()}}
+{\footnotesize\ttfamily virtual \textbf{ std\+::string} Catch\+::\+I\+Result\+Capture\+::get\+Current\+Test\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\mbox{\Hypertarget{struct_catch_1_1_i_result_capture_ab18872c89fab97405a56e9c6a4919736}\label{struct_catch_1_1_i_result_capture_ab18872c89fab97405a56e9c6a4919736}} 
+\index{Catch\+::\+I\+Result\+Capture@{Catch\+::\+I\+Result\+Capture}!get\+Last\+Result@{get\+Last\+Result}}
+\index{get\+Last\+Result@{get\+Last\+Result}!Catch\+::\+I\+Result\+Capture@{Catch\+::\+I\+Result\+Capture}}
+\subsubsection{\texorpdfstring{get\+Last\+Result()}{getLastResult()}}
+{\footnotesize\ttfamily virtual const \hyperlink{class_catch_1_1_assertion_result}{Assertion\+Result}$\ast$ Catch\+::\+I\+Result\+Capture\+::get\+Last\+Result (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\mbox{\Hypertarget{struct_catch_1_1_i_result_capture_a7d995222301e6605f26549726b30c3ee}\label{struct_catch_1_1_i_result_capture_a7d995222301e6605f26549726b30c3ee}} 
+\index{Catch\+::\+I\+Result\+Capture@{Catch\+::\+I\+Result\+Capture}!handle\+Fatal\+Error\+Condition@{handle\+Fatal\+Error\+Condition}}
+\index{handle\+Fatal\+Error\+Condition@{handle\+Fatal\+Error\+Condition}!Catch\+::\+I\+Result\+Capture@{Catch\+::\+I\+Result\+Capture}}
+\subsubsection{\texorpdfstring{handle\+Fatal\+Error\+Condition()}{handleFatalErrorCondition()}}
+{\footnotesize\ttfamily virtual void Catch\+::\+I\+Result\+Capture\+::handle\+Fatal\+Error\+Condition (\begin{DoxyParamCaption}\item[{\textbf{ std\+::string} const \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\mbox{\Hypertarget{struct_catch_1_1_i_result_capture_a42bcb13276706bf8c3ce081ce16d37fd}\label{struct_catch_1_1_i_result_capture_a42bcb13276706bf8c3ce081ce16d37fd}} 
+\index{Catch\+::\+I\+Result\+Capture@{Catch\+::\+I\+Result\+Capture}!pop\+Scoped\+Message@{pop\+Scoped\+Message}}
+\index{pop\+Scoped\+Message@{pop\+Scoped\+Message}!Catch\+::\+I\+Result\+Capture@{Catch\+::\+I\+Result\+Capture}}
+\subsubsection{\texorpdfstring{pop\+Scoped\+Message()}{popScopedMessage()}}
+{\footnotesize\ttfamily virtual void Catch\+::\+I\+Result\+Capture\+::pop\+Scoped\+Message (\begin{DoxyParamCaption}\item[{\hyperlink{struct_catch_1_1_message_info}{Message\+Info} const \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\mbox{\Hypertarget{struct_catch_1_1_i_result_capture_a91d154c1e087e383dcde5aad95cb6a05}\label{struct_catch_1_1_i_result_capture_a91d154c1e087e383dcde5aad95cb6a05}} 
+\index{Catch\+::\+I\+Result\+Capture@{Catch\+::\+I\+Result\+Capture}!push\+Scoped\+Message@{push\+Scoped\+Message}}
+\index{push\+Scoped\+Message@{push\+Scoped\+Message}!Catch\+::\+I\+Result\+Capture@{Catch\+::\+I\+Result\+Capture}}
+\subsubsection{\texorpdfstring{push\+Scoped\+Message()}{pushScopedMessage()}}
+{\footnotesize\ttfamily virtual void Catch\+::\+I\+Result\+Capture\+::push\+Scoped\+Message (\begin{DoxyParamCaption}\item[{\hyperlink{struct_catch_1_1_message_info}{Message\+Info} const \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\mbox{\Hypertarget{struct_catch_1_1_i_result_capture_a4e152bc43dc0933684e31fa67a58195d}\label{struct_catch_1_1_i_result_capture_a4e152bc43dc0933684e31fa67a58195d}} 
+\index{Catch\+::\+I\+Result\+Capture@{Catch\+::\+I\+Result\+Capture}!section\+Ended@{section\+Ended}}
+\index{section\+Ended@{section\+Ended}!Catch\+::\+I\+Result\+Capture@{Catch\+::\+I\+Result\+Capture}}
+\subsubsection{\texorpdfstring{section\+Ended()}{sectionEnded()}}
+{\footnotesize\ttfamily virtual void Catch\+::\+I\+Result\+Capture\+::section\+Ended (\begin{DoxyParamCaption}\item[{\hyperlink{struct_catch_1_1_section_end_info}{Section\+End\+Info} const \&}]{end\+Info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\mbox{\Hypertarget{struct_catch_1_1_i_result_capture_afcc71eef8ca821ae132cced4a2be6988}\label{struct_catch_1_1_i_result_capture_afcc71eef8ca821ae132cced4a2be6988}} 
+\index{Catch\+::\+I\+Result\+Capture@{Catch\+::\+I\+Result\+Capture}!section\+Ended\+Early@{section\+Ended\+Early}}
+\index{section\+Ended\+Early@{section\+Ended\+Early}!Catch\+::\+I\+Result\+Capture@{Catch\+::\+I\+Result\+Capture}}
+\subsubsection{\texorpdfstring{section\+Ended\+Early()}{sectionEndedEarly()}}
+{\footnotesize\ttfamily virtual void Catch\+::\+I\+Result\+Capture\+::section\+Ended\+Early (\begin{DoxyParamCaption}\item[{\hyperlink{struct_catch_1_1_section_end_info}{Section\+End\+Info} const \&}]{end\+Info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\mbox{\Hypertarget{struct_catch_1_1_i_result_capture_a5b76ed52badcb64cf374202e12b81a03}\label{struct_catch_1_1_i_result_capture_a5b76ed52badcb64cf374202e12b81a03}} 
+\index{Catch\+::\+I\+Result\+Capture@{Catch\+::\+I\+Result\+Capture}!section\+Started@{section\+Started}}
+\index{section\+Started@{section\+Started}!Catch\+::\+I\+Result\+Capture@{Catch\+::\+I\+Result\+Capture}}
+\subsubsection{\texorpdfstring{section\+Started()}{sectionStarted()}}
+{\footnotesize\ttfamily virtual bool Catch\+::\+I\+Result\+Capture\+::section\+Started (\begin{DoxyParamCaption}\item[{\hyperlink{struct_catch_1_1_section_info}{Section\+Info} const \&}]{section\+Info,  }\item[{\hyperlink{struct_catch_1_1_counts}{Counts} \&}]{assertions }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{catch_8hpp}{catch.\+hpp}\end{DoxyCompactItemize}

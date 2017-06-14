@@ -1,0 +1,184 @@
+.TH "Catch::Internal" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Catch::Internal
+.SH SYNOPSIS
+.br
+.PP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBEvaluator\fP"
+.br
+.ti -1c
+.RI "struct \fBEvaluator< T1, T2, IsEqualTo >\fP"
+.br
+.ti -1c
+.RI "struct \fBEvaluator< T1, T2, IsGreaterThan >\fP"
+.br
+.ti -1c
+.RI "struct \fBEvaluator< T1, T2, IsGreaterThanOrEqualTo >\fP"
+.br
+.ti -1c
+.RI "struct \fBEvaluator< T1, T2, IsLessThan >\fP"
+.br
+.ti -1c
+.RI "struct \fBEvaluator< T1, T2, IsLessThanOrEqualTo >\fP"
+.br
+.ti -1c
+.RI "struct \fBEvaluator< T1, T2, IsNotEqualTo >\fP"
+.br
+.ti -1c
+.RI "struct \fBOperatorTraits\fP"
+.br
+.ti -1c
+.RI "struct \fBOperatorTraits< IsEqualTo >\fP"
+.br
+.ti -1c
+.RI "struct \fBOperatorTraits< IsGreaterThan >\fP"
+.br
+.ti -1c
+.RI "struct \fBOperatorTraits< IsGreaterThanOrEqualTo >\fP"
+.br
+.ti -1c
+.RI "struct \fBOperatorTraits< IsLessThan >\fP"
+.br
+.ti -1c
+.RI "struct \fBOperatorTraits< IsLessThanOrEqualTo >\fP"
+.br
+.ti -1c
+.RI "struct \fBOperatorTraits< IsNotEqualTo >\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBOperator\fP { \fBIsEqualTo\fP, \fBIsNotEqualTo\fP, \fBIsLessThan\fP, \fBIsGreaterThan\fP, \fBIsLessThanOrEqualTo\fP, \fBIsGreaterThanOrEqualTo\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<typename T > T & \fBopCast\fP (T const &t)"
+.br
+.ti -1c
+.RI "template<Operator Op, typename T1 , typename T2 > bool \fBapplyEvaluator\fP (T1 const &lhs, T2 const &rhs)"
+.br
+.ti -1c
+.RI "template<Operator Op, typename T1 , typename T2 > bool \fBcompare\fP (T1 const &lhs, T2 const &rhs)"
+.br
+.ti -1c
+.RI "template<Operator Op> bool \fBcompare\fP (unsigned int lhs, int rhs)"
+.br
+.ti -1c
+.RI "template<Operator Op> bool \fBcompare\fP (unsigned long lhs, int rhs)"
+.br
+.ti -1c
+.RI "template<Operator Op> bool \fBcompare\fP (unsigned char lhs, int rhs)"
+.br
+.ti -1c
+.RI "template<Operator Op> bool \fBcompare\fP (unsigned int lhs, long rhs)"
+.br
+.ti -1c
+.RI "template<Operator Op> bool \fBcompare\fP (unsigned long lhs, long rhs)"
+.br
+.ti -1c
+.RI "template<Operator Op> bool \fBcompare\fP (unsigned char lhs, long rhs)"
+.br
+.ti -1c
+.RI "template<Operator Op> bool \fBcompare\fP (int lhs, unsigned int rhs)"
+.br
+.ti -1c
+.RI "template<Operator Op> bool \fBcompare\fP (int lhs, unsigned long rhs)"
+.br
+.ti -1c
+.RI "template<Operator Op> bool \fBcompare\fP (int lhs, unsigned char rhs)"
+.br
+.ti -1c
+.RI "template<Operator Op> bool \fBcompare\fP (long lhs, unsigned int rhs)"
+.br
+.ti -1c
+.RI "template<Operator Op> bool \fBcompare\fP (long lhs, unsigned long rhs)"
+.br
+.ti -1c
+.RI "template<Operator Op> bool \fBcompare\fP (long lhs, unsigned char rhs)"
+.br
+.ti -1c
+.RI "template<Operator Op, typename T > bool \fBcompare\fP (long lhs, T *rhs)"
+.br
+.ti -1c
+.RI "template<Operator Op, typename T > bool \fBcompare\fP (T *lhs, long rhs)"
+.br
+.ti -1c
+.RI "template<Operator Op, typename T > bool \fBcompare\fP (int lhs, T *rhs)"
+.br
+.ti -1c
+.RI "template<Operator Op, typename T > bool \fBcompare\fP (T *lhs, int rhs)"
+.br
+.in -1c
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBCatch::Internal::Operator\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIIsEqualTo \fP\fP
+.TP
+\fB\fIIsNotEqualTo \fP\fP
+.TP
+\fB\fIIsLessThan \fP\fP
+.TP
+\fB\fIIsGreaterThan \fP\fP
+.TP
+\fB\fIIsLessThanOrEqualTo \fP\fP
+.TP
+\fB\fIIsGreaterThanOrEqualTo \fP\fP
+.SH "Function Documentation"
+.PP 
+.SS "template<Operator Op, typename T1 , typename T2 > bool Catch::Internal::applyEvaluator (T1 const & lhs, T2 const & rhs)"
+
+.SS "template<Operator Op, typename T1 , typename T2 > bool Catch::Internal::compare (T1 const & lhs, T2 const & rhs)"
+
+.SS "template<Operator Op> bool Catch::Internal::compare (unsigned int lhs, int rhs)"
+
+.SS "template<Operator Op> bool Catch::Internal::compare (unsigned long lhs, int rhs)"
+
+.SS "template<Operator Op> bool Catch::Internal::compare (unsigned char lhs, int rhs)"
+
+.SS "template<Operator Op> bool Catch::Internal::compare (unsigned int lhs, long rhs)"
+
+.SS "template<Operator Op> bool Catch::Internal::compare (unsigned long lhs, long rhs)"
+
+.SS "template<Operator Op> bool Catch::Internal::compare (unsigned char lhs, long rhs)"
+
+.SS "template<Operator Op> bool Catch::Internal::compare (int lhs, unsigned int rhs)"
+
+.SS "template<Operator Op> bool Catch::Internal::compare (int lhs, unsigned long rhs)"
+
+.SS "template<Operator Op> bool Catch::Internal::compare (int lhs, unsigned char rhs)"
+
+.SS "template<Operator Op> bool Catch::Internal::compare (long lhs, unsigned int rhs)"
+
+.SS "template<Operator Op> bool Catch::Internal::compare (long lhs, unsigned long rhs)"
+
+.SS "template<Operator Op> bool Catch::Internal::compare (long lhs, unsigned char rhs)"
+
+.SS "template<Operator Op, typename T > bool Catch::Internal::compare (long lhs, T * rhs)"
+
+.SS "template<Operator Op, typename T > bool Catch::Internal::compare (T * lhs, long rhs)"
+
+.SS "template<Operator Op, typename T > bool Catch::Internal::compare (int lhs, T * rhs)"
+
+.SS "template<Operator Op, typename T > bool Catch::Internal::compare (T * lhs, int rhs)"
+
+.SS "template<typename T > T& Catch::Internal::opCast (T const & t)\fC [inline]\fP"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

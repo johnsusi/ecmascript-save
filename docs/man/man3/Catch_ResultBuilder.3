@@ -1,0 +1,141 @@
+.TH "Catch::ResultBuilder" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Catch::ResultBuilder
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <catch\&.hpp>\fP
+.PP
+Inherits \fBCatch::DecomposedExpression\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBResultBuilder\fP (char const *macroName, \fBSourceLineInfo\fP const &lineInfo, char const *capturedExpression, \fBResultDisposition::Flags\fP resultDisposition, char const *secondArg='')"
+.br
+.ti -1c
+.RI "\fB~ResultBuilder\fP ()"
+.br
+.ti -1c
+.RI "template<typename T > \fBExpressionLhs\fP< T const  & > \fBoperator<=\fP (T const &operand)"
+.br
+.ti -1c
+.RI "\fBExpressionLhs\fP< bool > \fBoperator<=\fP (bool value)"
+.br
+.ti -1c
+.RI "template<typename T > \fBResultBuilder\fP & \fBoperator<<\fP (T const &value)"
+.br
+.ti -1c
+.RI "\fBResultBuilder\fP & \fBsetResultType\fP (\fBResultWas::OfType\fP \fBresult\fP)"
+.br
+.ti -1c
+.RI "\fBResultBuilder\fP & \fBsetResultType\fP (bool \fBresult\fP)"
+.br
+.ti -1c
+.RI "void \fBendExpression\fP (\fBDecomposedExpression\fP const &expr)"
+.br
+.ti -1c
+.RI "virtual void \fBreconstructExpression\fP (\fBstd::string\fP &dest) const \fBCATCH_OVERRIDE\fP"
+.br
+.ti -1c
+.RI "\fBAssertionResult\fP \fBbuild\fP () const"
+.br
+.ti -1c
+.RI "\fBAssertionResult\fP \fBbuild\fP (\fBDecomposedExpression\fP const &expr) const"
+.br
+.ti -1c
+.RI "void \fBuseActiveException\fP (\fBResultDisposition::Flags\fP resultDisposition=\fBResultDisposition::Normal\fP)"
+.br
+.ti -1c
+.RI "void \fBcaptureResult\fP (\fBResultWas::OfType\fP resultType)"
+.br
+.ti -1c
+.RI "void \fBcaptureExpression\fP ()"
+.br
+.ti -1c
+.RI "void \fBcaptureExpectedException\fP (\fBstd::string\fP const &expectedMessage)"
+.br
+.ti -1c
+.RI "void \fBcaptureExpectedException\fP (\fBMatchers::Impl::MatcherBase\fP< \fBstd::string\fP > const &matcher)"
+.br
+.ti -1c
+.RI "void \fBhandleResult\fP (\fBAssertionResult\fP const &\fBresult\fP)"
+.br
+.ti -1c
+.RI "void \fBreact\fP ()"
+.br
+.ti -1c
+.RI "bool \fBshouldDebugBreak\fP () const"
+.br
+.ti -1c
+.RI "bool \fBallowThrows\fP () const"
+.br
+.ti -1c
+.RI "template<typename ArgT , typename MatcherT > void \fBcaptureMatch\fP (ArgT const &arg, MatcherT const &matcher, char const *matcherString)"
+.br
+.ti -1c
+.RI "void \fBsetExceptionGuard\fP ()"
+.br
+.ti -1c
+.RI "void \fBunsetExceptionGuard\fP ()"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Catch::ResultBuilder::ResultBuilder (char const * macroName, \fBSourceLineInfo\fP const & lineInfo, char const * capturedExpression, \fBResultDisposition::Flags\fP resultDisposition, char const * secondArg = \fC''\fP)"
+
+.SS "Catch::ResultBuilder::~ResultBuilder ()"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "bool Catch::ResultBuilder::allowThrows () const"
+
+.SS "\fBAssertionResult\fP Catch::ResultBuilder::build () const"
+
+.SS "\fBAssertionResult\fP Catch::ResultBuilder::build (\fBDecomposedExpression\fP const & expr) const"
+
+.SS "void Catch::ResultBuilder::captureExpectedException (\fBstd::string\fP const & expectedMessage)"
+
+.SS "void Catch::ResultBuilder::captureExpectedException (\fBMatchers::Impl::MatcherBase\fP< \fBstd::string\fP > const & matcher)"
+
+.SS "void Catch::ResultBuilder::captureExpression ()"
+
+.SS "template<typename ArgT , typename MatcherT > void Catch::ResultBuilder::captureMatch (ArgT const & arg, MatcherT const & matcher, char const * matcherString)\fC [inline]\fP"
+
+.SS "void Catch::ResultBuilder::captureResult (\fBResultWas::OfType\fP resultType)"
+
+.SS "void Catch::ResultBuilder::endExpression (\fBDecomposedExpression\fP const & expr)"
+
+.SS "void Catch::ResultBuilder::handleResult (\fBAssertionResult\fP const & result)"
+
+.SS "template<typename T > \fBResultBuilder\fP& Catch::ResultBuilder::operator<< (T const & value)\fC [inline]\fP"
+
+.SS "\fBExpressionLhs\fP< bool > Catch::ResultBuilder::operator<= (bool value)\fC [inline]\fP"
+
+.SS "template<typename T > \fBExpressionLhs\fP< T const  & > Catch::ResultBuilder::operator<= (T const & operand)\fC [inline]\fP"
+
+.SS "void Catch::ResultBuilder::react ()"
+
+.SS "virtual void Catch::ResultBuilder::reconstructExpression (\fBstd::string\fP & dest) const\fC [virtual]\fP"
+
+.PP
+Implements \fBCatch::DecomposedExpression\fP\&.
+.SS "void Catch::ResultBuilder::setExceptionGuard ()"
+
+.SS "\fBResultBuilder\fP& Catch::ResultBuilder::setResultType (\fBResultWas::OfType\fP result)"
+
+.SS "\fBResultBuilder\fP& Catch::ResultBuilder::setResultType (bool result)"
+
+.SS "bool Catch::ResultBuilder::shouldDebugBreak () const"
+
+.SS "void Catch::ResultBuilder::unsetExceptionGuard ()"
+
+.SS "void Catch::ResultBuilder::useActiveException (\fBResultDisposition::Flags\fP resultDisposition = \fC\fBResultDisposition::Normal\fP\fP)"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

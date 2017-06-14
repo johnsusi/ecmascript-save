@@ -1,0 +1,90 @@
+.TH "Catch::Matchers" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Catch::Matchers
+.SH SYNOPSIS
+.br
+.PP
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI " \fBImpl\fP"
+.br
+.ti -1c
+.RI " \fBStdString\fP"
+.br
+.ti -1c
+.RI " \fBVector\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<typename T > \fBImpl::MatchNotOf\fP< T > \fBNot\fP (\fBImpl::MatcherBase\fP< T > const &underlyingMatcher)"
+.br
+.ti -1c
+.RI "template<typename T > \fBImpl::MatchAllOf\fP< T > \fBAllOf\fP (\fBImpl::MatcherBase\fP< T > const &m1, \fBImpl::MatcherBase\fP< T > const &m2)"
+.br
+.ti -1c
+.RI "template<typename T > \fBImpl::MatchAllOf\fP< T > \fBAllOf\fP (\fBImpl::MatcherBase\fP< T > const &m1, \fBImpl::MatcherBase\fP< T > const &m2, \fBImpl::MatcherBase\fP< T > const &m3)"
+.br
+.ti -1c
+.RI "template<typename T > \fBImpl::MatchAnyOf\fP< T > \fBAnyOf\fP (\fBImpl::MatcherBase\fP< T > const &m1, \fBImpl::MatcherBase\fP< T > const &m2)"
+.br
+.ti -1c
+.RI "template<typename T > \fBImpl::MatchAnyOf\fP< T > \fBAnyOf\fP (\fBImpl::MatcherBase\fP< T > const &m1, \fBImpl::MatcherBase\fP< T > const &m2, \fBImpl::MatcherBase\fP< T > const &m3)"
+.br
+.ti -1c
+.RI "\fBStdString::EqualsMatcher\fP \fBEquals\fP (\fBstd::string\fP const &str, \fBCaseSensitive::Choice\fP caseSensitivity=\fBCaseSensitive::Yes\fP)"
+.br
+.ti -1c
+.RI "\fBStdString::ContainsMatcher\fP \fBContains\fP (\fBstd::string\fP const &str, \fBCaseSensitive::Choice\fP caseSensitivity=\fBCaseSensitive::Yes\fP)"
+.br
+.ti -1c
+.RI "\fBStdString::EndsWithMatcher\fP \fBEndsWith\fP (\fBstd::string\fP const &str, \fBCaseSensitive::Choice\fP caseSensitivity=\fBCaseSensitive::Yes\fP)"
+.br
+.ti -1c
+.RI "\fBStdString::StartsWithMatcher\fP \fBStartsWith\fP (\fBstd::string\fP const &str, \fBCaseSensitive::Choice\fP caseSensitivity=\fBCaseSensitive::Yes\fP)"
+.br
+.ti -1c
+.RI "template<typename T > \fBVector::ContainsMatcher\fP< T > \fBContains\fP (\fBstd::vector\fP< T > const &comparator)"
+.br
+.ti -1c
+.RI "template<typename T > \fBVector::ContainsElementMatcher\fP< T > \fBVectorContains\fP (T const &comparator)"
+.br
+.ti -1c
+.RI "template<typename T > \fBVector::EqualsMatcher\fP< T > \fBEquals\fP (\fBstd::vector\fP< T > const &comparator)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "template<typename T > \fBImpl::MatchAllOf\fP<T> Catch::Matchers::AllOf (\fBImpl::MatcherBase\fP< T > const & m1, \fBImpl::MatcherBase\fP< T > const & m2)\fC [inline]\fP"
+
+.SS "template<typename T > \fBImpl::MatchAllOf\fP<T> Catch::Matchers::AllOf (\fBImpl::MatcherBase\fP< T > const & m1, \fBImpl::MatcherBase\fP< T > const & m2, \fBImpl::MatcherBase\fP< T > const & m3)\fC [inline]\fP"
+
+.SS "template<typename T > \fBImpl::MatchAnyOf\fP<T> Catch::Matchers::AnyOf (\fBImpl::MatcherBase\fP< T > const & m1, \fBImpl::MatcherBase\fP< T > const & m2)\fC [inline]\fP"
+
+.SS "template<typename T > \fBImpl::MatchAnyOf\fP<T> Catch::Matchers::AnyOf (\fBImpl::MatcherBase\fP< T > const & m1, \fBImpl::MatcherBase\fP< T > const & m2, \fBImpl::MatcherBase\fP< T > const & m3)\fC [inline]\fP"
+
+.SS "\fBStdString::ContainsMatcher\fP Catch::Matchers::Contains (\fBstd::string\fP const & str, \fBCaseSensitive::Choice\fP caseSensitivity = \fC\fBCaseSensitive::Yes\fP\fP)"
+
+.SS "template<typename T > \fBVector::ContainsMatcher\fP<T> Catch::Matchers::Contains (\fBstd::vector\fP< T > const & comparator)"
+
+.SS "\fBStdString::EndsWithMatcher\fP Catch::Matchers::EndsWith (\fBstd::string\fP const & str, \fBCaseSensitive::Choice\fP caseSensitivity = \fC\fBCaseSensitive::Yes\fP\fP)"
+
+.SS "\fBStdString::EqualsMatcher\fP Catch::Matchers::Equals (\fBstd::string\fP const & str, \fBCaseSensitive::Choice\fP caseSensitivity = \fC\fBCaseSensitive::Yes\fP\fP)"
+
+.SS "template<typename T > \fBVector::EqualsMatcher\fP<T> Catch::Matchers::Equals (\fBstd::vector\fP< T > const & comparator)"
+
+.SS "template<typename T > \fBImpl::MatchNotOf\fP<T> Catch::Matchers::Not (\fBImpl::MatcherBase\fP< T > const & underlyingMatcher)\fC [inline]\fP"
+
+.SS "\fBStdString::StartsWithMatcher\fP Catch::Matchers::StartsWith (\fBstd::string\fP const & str, \fBCaseSensitive::Choice\fP caseSensitivity = \fC\fBCaseSensitive::Yes\fP\fP)"
+
+.SS "template<typename T > \fBVector::ContainsElementMatcher\fP<T> Catch::Matchers::VectorContains (T const & comparator)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

@@ -1,0 +1,46 @@
+.TH "Catch::ITagAliasRegistry" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Catch::ITagAliasRegistry
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <catch\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual \fB~ITagAliasRegistry\fP ()"
+.br
+.ti -1c
+.RI "virtual \fBOption\fP< \fBTagAlias\fP > \fBfind\fP (\fBstd::string\fP const &alias) const =0"
+.br
+.ti -1c
+.RI "virtual \fBstd::string\fP \fBexpandAliases\fP (\fBstd::string\fP const &unexpandedTestSpec) const =0"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBITagAliasRegistry\fP const  & \fBget\fP ()"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "virtual Catch::ITagAliasRegistry::~ITagAliasRegistry ()\fC [virtual]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual \fBstd::string\fP Catch::ITagAliasRegistry::expandAliases (\fBstd::string\fP const & unexpandedTestSpec) const\fC [pure virtual]\fP"
+
+.SS "virtual \fBOption\fP<\fBTagAlias\fP> Catch::ITagAliasRegistry::find (\fBstd::string\fP const & alias) const\fC [pure virtual]\fP"
+
+.SS "static \fBITagAliasRegistry\fP const& Catch::ITagAliasRegistry::get ()\fC [static]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

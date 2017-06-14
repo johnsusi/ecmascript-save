@@ -1,0 +1,63 @@
+.TH "Catch::SourceLineInfo" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Catch::SourceLineInfo
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <catch\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSourceLineInfo\fP ()"
+.br
+.ti -1c
+.RI "\fBSourceLineInfo\fP (char const *_file, \fBstd::size_t\fP _line)"
+.br
+.ti -1c
+.RI "bool \fBempty\fP () const"
+.br
+.ti -1c
+.RI "bool \fBoperator==\fP (\fBSourceLineInfo\fP const &other) const"
+.br
+.ti -1c
+.RI "bool \fBoperator<\fP (\fBSourceLineInfo\fP const &other) const"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "char const  * \fBfile\fP"
+.br
+.ti -1c
+.RI "\fBstd::size_t\fP \fBline\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Catch::SourceLineInfo::SourceLineInfo ()"
+
+.SS "Catch::SourceLineInfo::SourceLineInfo (char const * _file, \fBstd::size_t\fP _line)"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "bool Catch::SourceLineInfo::empty () const"
+
+.SS "bool Catch::SourceLineInfo::operator< (\fBSourceLineInfo\fP const & other) const"
+
+.SS "bool Catch::SourceLineInfo::operator== (\fBSourceLineInfo\fP const & other) const"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "char const* Catch::SourceLineInfo::file"
+
+.SS "\fBstd::size_t\fP Catch::SourceLineInfo::line"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

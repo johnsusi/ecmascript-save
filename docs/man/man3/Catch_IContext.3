@@ -1,0 +1,54 @@
+.TH "Catch::IContext" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Catch::IContext
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <catch\&.hpp>\fP
+.PP
+Inherited by \fBCatch::IMutableContext\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual \fB~IContext\fP ()"
+.br
+.ti -1c
+.RI "virtual \fBIResultCapture\fP * \fBgetResultCapture\fP ()=0"
+.br
+.ti -1c
+.RI "virtual \fBIRunner\fP * \fBgetRunner\fP ()=0"
+.br
+.ti -1c
+.RI "virtual size_t \fBgetGeneratorIndex\fP (\fBstd::string\fP const &fileInfo, size_t totalSize)=0"
+.br
+.ti -1c
+.RI "virtual bool \fBadvanceGeneratorsForCurrentTest\fP ()=0"
+.br
+.ti -1c
+.RI "virtual \fBPtr\fP< IConfig const  > \fBgetConfig\fP () const =0"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "virtual Catch::IContext::~IContext ()\fC [virtual]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual bool Catch::IContext::advanceGeneratorsForCurrentTest ()\fC [pure virtual]\fP"
+
+.SS "virtual \fBPtr\fP<IConfig const> Catch::IContext::getConfig () const\fC [pure virtual]\fP"
+
+.SS "virtual size_t Catch::IContext::getGeneratorIndex (\fBstd::string\fP const & fileInfo, size_t totalSize)\fC [pure virtual]\fP"
+
+.SS "virtual \fBIResultCapture\fP* Catch::IContext::getResultCapture ()\fC [pure virtual]\fP"
+
+.SS "virtual \fBIRunner\fP* Catch::IContext::getRunner ()\fC [pure virtual]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

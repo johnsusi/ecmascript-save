@@ -1,0 +1,551 @@
+.TH "Catch" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Catch
+.SH SYNOPSIS
+.br
+.PP
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI " \fBDetail\fP"
+.br
+.ti -1c
+.RI " \fBGenerators\fP"
+.br
+.ti -1c
+.RI " \fBInternal\fP"
+.br
+.ti -1c
+.RI " \fBMatchers\fP"
+.br
+.in -1c
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBAssertionInfo\fP"
+.br
+.ti -1c
+.RI "class \fBAssertionResult\fP"
+.br
+.ti -1c
+.RI "struct \fBAssertionResultData\fP"
+.br
+.ti -1c
+.RI "struct \fBAutoReg\fP"
+.br
+.ti -1c
+.RI "class \fBBetweenGenerator\fP"
+.br
+.ti -1c
+.RI "class \fBBinaryExpression\fP"
+.br
+.ti -1c
+.RI "struct \fBCaseSensitive\fP"
+.br
+.ti -1c
+.RI "class \fBCompositeGenerator\fP"
+.br
+.ti -1c
+.RI "struct \fBCopyableStream\fP"
+.br
+.ti -1c
+.RI "struct \fBCounts\fP"
+.br
+.ti -1c
+.RI "struct \fBDecomposedExpression\fP"
+.br
+.ti -1c
+.RI "class \fBExceptionTranslatorRegistrar\fP"
+.br
+.ti -1c
+.RI "class \fBExpressionLhs\fP"
+.br
+.ti -1c
+.RI "struct \fBIContext\fP"
+.br
+.ti -1c
+.RI "struct \fBIExceptionTranslator\fP"
+.br
+.ti -1c
+.RI "struct \fBIExceptionTranslatorRegistry\fP"
+.br
+.ti -1c
+.RI "struct \fBIGenerator\fP"
+.br
+.ti -1c
+.RI "struct \fBIGeneratorInfo\fP"
+.br
+.ti -1c
+.RI "struct \fBIGeneratorsForTest\fP"
+.br
+.ti -1c
+.RI "struct \fBIMutableContext\fP"
+.br
+.ti -1c
+.RI "struct \fBIMutableRegistryHub\fP"
+.br
+.ti -1c
+.RI "struct \fBIRegistryHub\fP"
+.br
+.ti -1c
+.RI "struct \fBIResultCapture\fP"
+.br
+.ti -1c
+.RI "struct \fBIRunner\fP"
+.br
+.ti -1c
+.RI "struct \fBIShared\fP"
+.br
+.ti -1c
+.RI "struct \fBITagAliasRegistry\fP"
+.br
+.ti -1c
+.RI "struct \fBITestCase\fP"
+.br
+.ti -1c
+.RI "struct \fBITestCaseRegistry\fP"
+.br
+.ti -1c
+.RI "class \fBMatchExpression\fP"
+.br
+.ti -1c
+.RI "struct \fBMessageBuilder\fP"
+.br
+.ti -1c
+.RI "struct \fBMessageInfo\fP"
+.br
+.ti -1c
+.RI "class \fBMethodTestCase\fP"
+.br
+.ti -1c
+.RI "struct \fBNameAndDesc\fP"
+.br
+.ti -1c
+.RI "class \fBNonCopyable\fP"
+.br
+.ti -1c
+.RI "class \fBNotImplementedException\fP"
+.br
+.ti -1c
+.RI "class \fBOption\fP"
+.br
+.ti -1c
+.RI "struct \fBpluralise\fP"
+.br
+.ti -1c
+.RI "class \fBPtr\fP"
+.br
+.ti -1c
+.RI "struct \fBRegistrarForTagAliases\fP"
+.br
+.ti -1c
+.RI "class \fBResultBuilder\fP"
+.br
+.ti -1c
+.RI "struct \fBResultDisposition\fP"
+.br
+.ti -1c
+.RI "struct \fBResultWas\fP"
+.br
+.ti -1c
+.RI "class \fBSafeBool\fP"
+.br
+.ti -1c
+.RI "class \fBScopedMessage\fP"
+.br
+.ti -1c
+.RI "class \fBSection\fP"
+.br
+.ti -1c
+.RI "struct \fBSectionEndInfo\fP"
+.br
+.ti -1c
+.RI "struct \fBSectionInfo\fP"
+.br
+.ti -1c
+.RI "struct \fBSharedImpl\fP"
+.br
+.ti -1c
+.RI "struct \fBSourceLineInfo\fP"
+.br
+.ti -1c
+.RI "struct \fBStreamEndStop\fP"
+.br
+.ti -1c
+.RI "struct \fBStringMaker\fP"
+.br
+.ti -1c
+.RI "struct \fBStringMaker< R C::* >\fP"
+.br
+.ti -1c
+.RI "struct \fBStringMaker< T * >\fP"
+.br
+.ti -1c
+.RI "struct \fBTagAlias\fP"
+.br
+.ti -1c
+.RI "class \fBTestCase\fP"
+.br
+.ti -1c
+.RI "struct \fBTestCaseInfo\fP"
+.br
+.ti -1c
+.RI "struct \fBTestFailureException\fP"
+.br
+.ti -1c
+.RI "class \fBTimer\fP"
+.br
+.ti -1c
+.RI "struct \fBTotals\fP"
+.br
+.ti -1c
+.RI "class \fBValuesGenerator\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef void(* \fBTestFunction\fP) ()"
+.br
+.ti -1c
+.RI "typedef uint64_t \fBUInt64\fP"
+.br
+.ti -1c
+.RI "typedef \fBstd::string\fP(* \fBexceptionTranslateFunction\fP) ()"
+.br
+.ti -1c
+.RI "typedef \fBstd::vector\fP< const \fBIExceptionTranslator\fP * > \fBExceptionTranslators\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<typename ContainerT > void \fBdeleteAll\fP (ContainerT &container)"
+.br
+.ti -1c
+.RI "template<typename AssociativeContainerT > void \fBdeleteAllValues\fP (AssociativeContainerT &container)"
+.br
+.ti -1c
+.RI "bool \fBstartsWith\fP (\fBstd::string\fP const &s, \fBstd::string\fP const &prefix)"
+.br
+.ti -1c
+.RI "bool \fBstartsWith\fP (\fBstd::string\fP const &s, char prefix)"
+.br
+.ti -1c
+.RI "bool \fBendsWith\fP (\fBstd::string\fP const &s, \fBstd::string\fP const &suffix)"
+.br
+.ti -1c
+.RI "bool \fBendsWith\fP (\fBstd::string\fP const &s, char suffix)"
+.br
+.ti -1c
+.RI "bool \fBcontains\fP (\fBstd::string\fP const &s, \fBstd::string\fP const &infix)"
+.br
+.ti -1c
+.RI "void \fBtoLowerInPlace\fP (\fBstd::string\fP &s)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBtoLower\fP (\fBstd::string\fP const &s)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBtrim\fP (\fBstd::string\fP const &str)"
+.br
+.ti -1c
+.RI "bool \fBreplaceInPlace\fP (\fBstd::string\fP &str, \fBstd::string\fP const &replaceThis, \fBstd::string\fP const &withThis)"
+.br
+.ti -1c
+.RI "\fBstd::ostream\fP & \fBoperator<<\fP (\fBstd::ostream\fP &os, \fBSourceLineInfo\fP const &info)"
+.br
+.ti -1c
+.RI "bool \fBisTrue\fP (bool value)"
+.br
+.ti -1c
+.RI "bool \fBalwaysTrue\fP ()"
+.br
+.ti -1c
+.RI "bool \fBalwaysFalse\fP ()"
+.br
+.ti -1c
+.RI "void \fBthrowLogicError\fP (\fBstd::string\fP const &message, \fBSourceLineInfo\fP const &locationInfo)"
+.br
+.ti -1c
+.RI "void \fBseedRng\fP (IConfig const &config)"
+.br
+.ti -1c
+.RI "unsigned int \fBrngSeed\fP ()"
+.br
+.ti -1c
+.RI "template<typename T > T const  & \fBoperator+\fP (T const &value, \fBStreamEndStop\fP)"
+.br
+.ti -1c
+.RI "\fBIGeneratorsForTest\fP * \fBcreateGeneratorsForTest\fP ()"
+.br
+.ti -1c
+.RI "\fBIContext\fP & \fBgetCurrentContext\fP ()"
+.br
+.ti -1c
+.RI "\fBIMutableContext\fP & \fBgetCurrentMutableContext\fP ()"
+.br
+.ti -1c
+.RI "void \fBcleanUpContext\fP ()"
+.br
+.ti -1c
+.RI "Stream \fBcreateStream\fP (\fBstd::string\fP const &streamName)"
+.br
+.ti -1c
+.RI "bool \fBmatchTest\fP (\fBTestCase\fP const &testCase, TestSpec const &testSpec, IConfig const &config)"
+.br
+.ti -1c
+.RI "\fBstd::vector\fP< \fBTestCase\fP > \fBfilterTests\fP (\fBstd::vector\fP< \fBTestCase\fP > const &testCases, TestSpec const &testSpec, IConfig const &config)"
+.br
+.ti -1c
+.RI "\fBstd::vector\fP< \fBTestCase\fP > const  & \fBgetAllTestCasesSorted\fP (IConfig const &config)"
+.br
+.ti -1c
+.RI "void \fBregisterTestCase\fP (\fBITestCase\fP *testCase, char const *className, \fBNameAndDesc\fP const &nameAndDesc, \fBSourceLineInfo\fP const &lineInfo)"
+.br
+.ti -1c
+.RI "void \fBregisterTestCaseFunction\fP (\fBTestFunction\fP function, \fBSourceLineInfo\fP const &lineInfo, \fBNameAndDesc\fP const &nameAndDesc)"
+.br
+.ti -1c
+.RI "bool \fBisOk\fP (\fBResultWas::OfType\fP resultType)"
+.br
+.ti -1c
+.RI "bool \fBisJustInfo\fP (int flags)"
+.br
+.ti -1c
+.RI "\fBResultDisposition::Flags\fP \fBoperator|\fP (\fBResultDisposition::Flags\fP lhs, \fBResultDisposition::Flags\fP rhs)"
+.br
+.ti -1c
+.RI "bool \fBshouldContinueOnFailure\fP (int flags)"
+.br
+.ti -1c
+.RI "bool \fBisFalseTest\fP (int flags)"
+.br
+.ti -1c
+.RI "bool \fBshouldSuppressFailure\fP (int flags)"
+.br
+.ti -1c
+.RI "template<typename T > \fBstd::string\fP \fBtoString\fP (T const  &value)"
+.br
+.RI "converts any type to a string "
+.ti -1c
+.RI "\fBstd::string\fP \fBtoString\fP (\fBstd::string\fP const &value)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBtoString\fP (\fBstd::wstring\fP const &value)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBtoString\fP (const char *const value)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBtoString\fP (char *const value)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBtoString\fP (const wchar_t *const value)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBtoString\fP (wchar_t *const value)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBtoString\fP (int value)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBtoString\fP (unsigned long value)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBtoString\fP (unsigned int value)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBtoString\fP (const double value)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBtoString\fP (const float value)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBtoString\fP (bool value)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBtoString\fP (char value)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBtoString\fP (signed char value)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBtoString\fP (unsigned char value)"
+.br
+.ti -1c
+.RI "template<typename T , typename Allocator > \fBstd::string\fP \fBtoString\fP (\fBstd::vector\fP< T, Allocator > const &v)"
+.br
+.ti -1c
+.RI "\fBIResultCapture\fP & \fBgetResultCapture\fP ()"
+.br
+.ti -1c
+.RI "bool \fBisDebuggerActive\fP ()"
+.br
+.ti -1c
+.RI "void \fBwriteToDebugConsole\fP (\fBstd::string\fP const &text)"
+.br
+.ti -1c
+.RI "\fBIRegistryHub\fP & \fBgetRegistryHub\fP ()"
+.br
+.ti -1c
+.RI "\fBIMutableRegistryHub\fP & \fBgetMutableRegistryHub\fP ()"
+.br
+.ti -1c
+.RI "void \fBcleanUp\fP ()"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBtranslateActiveException\fP ()"
+.br
+.ti -1c
+.RI "template<> \fBstd::string\fP \fBtoString< Detail::Approx >\fP (\fBDetail::Approx\fP const &value)"
+.br
+.ti -1c
+.RI "\fBTestCase\fP \fBmakeTestCase\fP (\fBITestCase\fP *testCase, \fBstd::string\fP const &className, \fBstd::string\fP const &name, \fBstd::string\fP const &description, \fBSourceLineInfo\fP const &lineInfo)"
+.br
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef \fBstd::string\fP(* Catch::exceptionTranslateFunction) ()"
+
+.SS "typedef \fBstd::vector\fP<const \fBIExceptionTranslator\fP*> \fBCatch::ExceptionTranslators\fP"
+
+.SS "typedef void(* Catch::TestFunction) ()"
+
+.SS "typedef uint64_t \fBCatch::UInt64\fP"
+
+.SH "Function Documentation"
+.PP 
+.SS "bool Catch::alwaysFalse ()\fC [inline]\fP"
+
+.SS "bool Catch::alwaysTrue ()\fC [inline]\fP"
+
+.SS "void Catch::cleanUp ()"
+
+.SS "void Catch::cleanUpContext ()"
+
+.SS "bool Catch::contains (\fBstd::string\fP const & s, \fBstd::string\fP const & infix)"
+
+.SS "\fBIGeneratorsForTest\fP* Catch::createGeneratorsForTest ()"
+
+.SS "Stream Catch::createStream (\fBstd::string\fP const & streamName)"
+
+.SS "template<typename ContainerT > void Catch::deleteAll (ContainerT & container)\fC [inline]\fP"
+
+.SS "template<typename AssociativeContainerT > void Catch::deleteAllValues (AssociativeContainerT & container)\fC [inline]\fP"
+
+.SS "bool Catch::endsWith (\fBstd::string\fP const & s, \fBstd::string\fP const & suffix)"
+
+.SS "bool Catch::endsWith (\fBstd::string\fP const & s, char suffix)"
+
+.SS "\fBstd::vector\fP<\fBTestCase\fP> Catch::filterTests (\fBstd::vector\fP< \fBTestCase\fP > const & testCases, TestSpec const & testSpec, IConfig const & config)"
+
+.SS "\fBstd::vector\fP<\fBTestCase\fP> const& Catch::getAllTestCasesSorted (IConfig const & config)"
+
+.SS "\fBIContext\fP& Catch::getCurrentContext ()"
+
+.SS "\fBIMutableContext\fP& Catch::getCurrentMutableContext ()"
+
+.SS "\fBIMutableRegistryHub\fP& Catch::getMutableRegistryHub ()"
+
+.SS "\fBIRegistryHub\fP& Catch::getRegistryHub ()"
+
+.SS "\fBIResultCapture\fP& Catch::getResultCapture ()"
+
+.SS "bool Catch::isDebuggerActive ()"
+
+.SS "bool Catch::isFalseTest (int flags)\fC [inline]\fP"
+
+.SS "bool Catch::isJustInfo (int flags)\fC [inline]\fP"
+
+.SS "bool Catch::isOk (\fBResultWas::OfType\fP resultType)\fC [inline]\fP"
+
+.SS "bool Catch::isTrue (bool value)\fC [inline]\fP"
+
+.SS "\fBTestCase\fP Catch::makeTestCase (\fBITestCase\fP * testCase, \fBstd::string\fP const & className, \fBstd::string\fP const & name, \fBstd::string\fP const & description, \fBSourceLineInfo\fP const & lineInfo)"
+
+.SS "bool Catch::matchTest (\fBTestCase\fP const & testCase, TestSpec const & testSpec, IConfig const & config)"
+
+.SS "template<typename T > T const& Catch::operator+ (T const & value, \fBStreamEndStop\fP)"
+
+.SS "\fBstd::ostream\fP& Catch::operator<< (\fBstd::ostream\fP & os, \fBSourceLineInfo\fP const & info)"
+
+.SS "\fBResultDisposition::Flags\fP Catch::operator| (\fBResultDisposition::Flags\fP lhs, \fBResultDisposition::Flags\fP rhs)\fC [inline]\fP"
+
+.SS "void Catch::registerTestCase (\fBITestCase\fP * testCase, char const * className, \fBNameAndDesc\fP const & nameAndDesc, \fBSourceLineInfo\fP const & lineInfo)"
+
+.SS "void Catch::registerTestCaseFunction (\fBTestFunction\fP function, \fBSourceLineInfo\fP const & lineInfo, \fBNameAndDesc\fP const & nameAndDesc)"
+
+.SS "bool Catch::replaceInPlace (\fBstd::string\fP & str, \fBstd::string\fP const & replaceThis, \fBstd::string\fP const & withThis)"
+
+.SS "unsigned int Catch::rngSeed ()"
+
+.SS "void Catch::seedRng (IConfig const & config)"
+
+.SS "bool Catch::shouldContinueOnFailure (int flags)\fC [inline]\fP"
+
+.SS "bool Catch::shouldSuppressFailure (int flags)\fC [inline]\fP"
+
+.SS "bool Catch::startsWith (\fBstd::string\fP const & s, \fBstd::string\fP const & prefix)"
+
+.SS "bool Catch::startsWith (\fBstd::string\fP const & s, char prefix)"
+
+.SS "void Catch::throwLogicError (\fBstd::string\fP const & message, \fBSourceLineInfo\fP const & locationInfo)"
+
+.SS "\fBstd::string\fP Catch::toLower (\fBstd::string\fP const & s)"
+
+.SS "void Catch::toLowerInPlace (\fBstd::string\fP & s)"
+
+.SS "template<typename T > \fBstd::string\fP Catch::toString (T const & value)"
+
+.PP
+converts any type to a string The default template forwards on to ostringstream - except when an ostringstream overload does not exist - in which case it attempts to detect that and writes {?}\&. Overload (not specialise) this template for custom typs that you don't want to provide an ostream overload for\&. 
+.SS "\fBstd::string\fP Catch::toString (\fBstd::string\fP const & value)"
+
+.SS "\fBstd::string\fP Catch::toString (\fBstd::wstring\fP const & value)"
+
+.SS "\fBstd::string\fP Catch::toString (const char *const value)"
+
+.SS "\fBstd::string\fP Catch::toString (char *const value)"
+
+.SS "\fBstd::string\fP Catch::toString (const wchar_t *const value)"
+
+.SS "\fBstd::string\fP Catch::toString (wchar_t *const value)"
+
+.SS "\fBstd::string\fP Catch::toString (int value)"
+
+.SS "\fBstd::string\fP Catch::toString (unsigned long value)"
+
+.SS "\fBstd::string\fP Catch::toString (unsigned int value)"
+
+.SS "\fBstd::string\fP Catch::toString (const double value)"
+
+.SS "\fBstd::string\fP Catch::toString (const float value)"
+
+.SS "\fBstd::string\fP Catch::toString (bool value)"
+
+.SS "\fBstd::string\fP Catch::toString (char value)"
+
+.SS "\fBstd::string\fP Catch::toString (signed char value)"
+
+.SS "\fBstd::string\fP Catch::toString (unsigned char value)"
+
+.SS "template<typename T , typename Allocator > \fBstd::string\fP Catch::toString (\fBstd::vector\fP< T, Allocator > const & v)"
+
+.SS "template<> \fBstd::string\fP \fBCatch::toString\fP< \fBDetail::Approx\fP > (\fBDetail::Approx\fP const & value)\fC [inline]\fP"
+
+.SS "\fBstd::string\fP Catch::translateActiveException ()"
+
+.SS "\fBstd::string\fP Catch::trim (\fBstd::string\fP const & str)"
+
+.SS "void Catch::writeToDebugConsole (\fBstd::string\fP const & text)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

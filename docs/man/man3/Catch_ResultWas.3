@@ -1,0 +1,51 @@
+.TH "Catch::ResultWas" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Catch::ResultWas
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <catch\&.hpp>\fP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum \fBOfType\fP { \fBUnknown\fP = -1, \fBOk\fP = 0, \fBInfo\fP = 1, \fBWarning\fP = 2, \fBFailureBit\fP = 0x10, \fBExpressionFailed\fP = FailureBit | 1, \fBExplicitFailure\fP = FailureBit | 2, \fBException\fP = 0x100 | FailureBit, \fBThrewException\fP = Exception | 1, \fBDidntThrowException\fP = Exception | 2, \fBFatalErrorCondition\fP = 0x200 | FailureBit }"
+.br
+.in -1c
+.SH "Member Enumeration Documentation"
+.PP 
+.SS "enum \fBCatch::ResultWas::OfType\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIUnknown \fP\fP
+.TP
+\fB\fIOk \fP\fP
+.TP
+\fB\fIInfo \fP\fP
+.TP
+\fB\fIWarning \fP\fP
+.TP
+\fB\fIFailureBit \fP\fP
+.TP
+\fB\fIExpressionFailed \fP\fP
+.TP
+\fB\fIExplicitFailure \fP\fP
+.TP
+\fB\fIException \fP\fP
+.TP
+\fB\fIThrewException \fP\fP
+.TP
+\fB\fIDidntThrowException \fP\fP
+.TP
+\fB\fIFatalErrorCondition \fP\fP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

@@ -1,0 +1,62 @@
+.TH "Catch::CompositeGenerator< T >" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Catch::CompositeGenerator< T >
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <catch\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBCompositeGenerator\fP ()"
+.br
+.ti -1c
+.RI "\fBCompositeGenerator\fP (\fBCompositeGenerator\fP &other)"
+.br
+.ti -1c
+.RI "\fBCompositeGenerator\fP & \fBsetFileInfo\fP (const char *fileInfo)"
+.br
+.ti -1c
+.RI "\fB~CompositeGenerator\fP ()"
+.br
+.ti -1c
+.RI "\fBoperator T\fP () const"
+.br
+.ti -1c
+.RI "void \fBadd\fP (const \fBIGenerator\fP< T > *generator)"
+.br
+.ti -1c
+.RI "\fBCompositeGenerator\fP & \fBthen\fP (\fBCompositeGenerator\fP &other)"
+.br
+.ti -1c
+.RI "\fBCompositeGenerator\fP & \fBthen\fP (T value)"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<typename T> \fBCatch::CompositeGenerator\fP< T >::\fBCompositeGenerator\fP ()\fC [inline]\fP"
+
+.SS "template<typename T> \fBCatch::CompositeGenerator\fP< T >::\fBCompositeGenerator\fP (\fBCompositeGenerator\fP< T > & other)\fC [inline]\fP"
+
+.SS "template<typename T> \fBCatch::CompositeGenerator\fP< T >::~\fBCompositeGenerator\fP ()\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "template<typename T> void \fBCatch::CompositeGenerator\fP< T >::add (const \fBIGenerator\fP< T > * generator)\fC [inline]\fP"
+
+.SS "template<typename T> \fBCatch::CompositeGenerator\fP< T >::operator T () const\fC [inline]\fP"
+
+.SS "template<typename T> \fBCompositeGenerator\fP& \fBCatch::CompositeGenerator\fP< T >::setFileInfo (const char * fileInfo)\fC [inline]\fP"
+
+.SS "template<typename T> \fBCompositeGenerator\fP& \fBCatch::CompositeGenerator\fP< T >::then (\fBCompositeGenerator\fP< T > & other)\fC [inline]\fP"
+
+.SS "template<typename T> \fBCompositeGenerator\fP& \fBCatch::CompositeGenerator\fP< T >::then (T value)\fC [inline]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

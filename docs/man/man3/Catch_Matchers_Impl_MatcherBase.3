@@ -1,0 +1,40 @@
+.TH "Catch::Matchers::Impl::MatcherBase< ObjectT, ComparatorT >" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Catch::Matchers::Impl::MatcherBase< ObjectT, ComparatorT >
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <catch\&.hpp>\fP
+.PP
+Inherits \fBCatch::Matchers::Impl::MatcherUntypedBase\fP, and \fBCatch::Matchers::Impl::MatcherMethod< ObjectT >\fP\&.
+.PP
+Inherited by \fBCatch::Matchers::StdString::StringMatcherBase\fP, \fBCatch::Matchers::Vector::ContainsElementMatcher< T >\fP, \fBCatch::Matchers::Vector::ContainsMatcher< T >\fP, and \fBCatch::Matchers::Vector::EqualsMatcher< T >\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMatchAllOf\fP< ComparatorT > \fBoperator&&\fP (\fBMatcherBase\fP const &other) const"
+.br
+.ti -1c
+.RI "\fBMatchAnyOf\fP< ComparatorT > \fBoperator||\fP (\fBMatcherBase\fP const &other) const"
+.br
+.ti -1c
+.RI "\fBMatchNotOf\fP< ComparatorT > \fBoperator!\fP () const"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Member Function Documentation"
+.PP 
+.SS "template<typename ObjectT , typename ComparatorT > \fBMatchNotOf\fP< ComparatorT > \fBCatch::Matchers::Impl::MatcherBase\fP< ObjectT, ComparatorT >::operator! () const"
+
+.SS "template<typename ObjectT, typename ComparatorT = ObjectT> \fBMatchAllOf\fP<ComparatorT> \fBCatch::Matchers::Impl::MatcherBase\fP< ObjectT, ComparatorT >::operator && (\fBMatcherBase\fP< ObjectT, ComparatorT > const & other) const"
+
+.SS "template<typename ObjectT , typename ComparatorT > \fBMatchAnyOf\fP< ComparatorT > \fBCatch::Matchers::Impl::MatcherBase\fP< ObjectT, ComparatorT >::operator|| (\fBMatcherBase\fP< ObjectT, ComparatorT > const & other) const"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

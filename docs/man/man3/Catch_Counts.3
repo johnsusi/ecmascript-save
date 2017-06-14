@@ -1,0 +1,73 @@
+.TH "Catch::Counts" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Catch::Counts
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <catch\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBCounts\fP ()"
+.br
+.ti -1c
+.RI "\fBCounts\fP \fBoperator\-\fP (\fBCounts\fP const &other) const"
+.br
+.ti -1c
+.RI "\fBCounts\fP & \fBoperator+=\fP (\fBCounts\fP const &other)"
+.br
+.ti -1c
+.RI "\fBstd::size_t\fP \fBtotal\fP () const"
+.br
+.ti -1c
+.RI "bool \fBallPassed\fP () const"
+.br
+.ti -1c
+.RI "bool \fBallOk\fP () const"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBstd::size_t\fP \fBpassed\fP"
+.br
+.ti -1c
+.RI "\fBstd::size_t\fP \fBfailed\fP"
+.br
+.ti -1c
+.RI "\fBstd::size_t\fP \fBfailedButOk\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Catch::Counts::Counts ()\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "bool Catch::Counts::allOk () const\fC [inline]\fP"
+
+.SS "bool Catch::Counts::allPassed () const\fC [inline]\fP"
+
+.SS "\fBCounts\fP& Catch::Counts::operator+= (\fBCounts\fP const & other)\fC [inline]\fP"
+
+.SS "\fBCounts\fP Catch::Counts::operator\- (\fBCounts\fP const & other) const\fC [inline]\fP"
+
+.SS "\fBstd::size_t\fP Catch::Counts::total () const\fC [inline]\fP"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBstd::size_t\fP Catch::Counts::failed"
+
+.SS "\fBstd::size_t\fP Catch::Counts::failedButOk"
+
+.SS "\fBstd::size_t\fP Catch::Counts::passed"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

@@ -1,0 +1,56 @@
+.TH "Catch::Matchers::Impl::MatcherUntypedBase" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Catch::Matchers::Impl::MatcherUntypedBase
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <catch\&.hpp>\fP
+.PP
+Inherited by \fBCatch::Matchers::Impl::MatcherBase< ObjectT, ComparatorT >\fP, \fBCatch::Matchers::Impl::MatcherBase< ArgT >\fP, \fBCatch::Matchers::Impl::MatcherBase< std::string >\fP, \fBCatch::Matchers::Impl::MatcherBase< std::vector< T >, std::vector< T > >\fP, and \fBCatch::Matchers::Impl::MatcherBase< std::vector< T >, T >\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBstd::string\fP \fBtoString\fP () const"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual \fB~MatcherUntypedBase\fP ()"
+.br
+.ti -1c
+.RI "virtual \fBstd::string\fP \fBdescribe\fP () const =0"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBstd::string\fP \fBm_cachedToString\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "virtual Catch::Matchers::Impl::MatcherUntypedBase::~MatcherUntypedBase ()\fC [protected]\fP, \fC [virtual]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual \fBstd::string\fP Catch::Matchers::Impl::MatcherUntypedBase::describe () const\fC [protected]\fP, \fC [pure virtual]\fP"
+
+.PP
+Implemented in \fBCatch::Matchers::Vector::EqualsMatcher< T >\fP, \fBCatch::Matchers::Vector::ContainsMatcher< T >\fP, \fBCatch::Matchers::Vector::ContainsElementMatcher< T >\fP, \fBCatch::Matchers::StdString::StringMatcherBase\fP, \fBCatch::Matchers::Impl::MatchNotOf< ArgT >\fP, \fBCatch::Matchers::Impl::MatchAnyOf< ArgT >\fP, and \fBCatch::Matchers::Impl::MatchAllOf< ArgT >\fP\&.
+.SS "\fBstd::string\fP Catch::Matchers::Impl::MatcherUntypedBase::toString () const\fC [inline]\fP"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBstd::string\fP Catch::Matchers::Impl::MatcherUntypedBase::m_cachedToString\fC [mutable]\fP, \fC [protected]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

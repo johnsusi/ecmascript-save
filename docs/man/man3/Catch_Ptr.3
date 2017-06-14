@@ -1,0 +1,87 @@
+.TH "Catch::Ptr< T >" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Catch::Ptr< T >
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <catch\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPtr\fP ()"
+.br
+.ti -1c
+.RI "\fBPtr\fP (T *p)"
+.br
+.ti -1c
+.RI "\fBPtr\fP (\fBPtr\fP const &other)"
+.br
+.ti -1c
+.RI "\fB~Ptr\fP ()"
+.br
+.ti -1c
+.RI "void \fBreset\fP ()"
+.br
+.ti -1c
+.RI "\fBPtr\fP & \fBoperator=\fP (T *p)"
+.br
+.ti -1c
+.RI "\fBPtr\fP & \fBoperator=\fP (\fBPtr\fP const &other)"
+.br
+.ti -1c
+.RI "void \fBswap\fP (\fBPtr\fP &other)"
+.br
+.ti -1c
+.RI "T * \fBget\fP () const"
+.br
+.ti -1c
+.RI "T & \fBoperator*\fP () const"
+.br
+.ti -1c
+.RI "T * \fBoperator\->\fP () const"
+.br
+.ti -1c
+.RI "bool \fBoperator!\fP () const"
+.br
+.ti -1c
+.RI "\fBoperator SafeBool::type\fP () const"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<typename T> \fBCatch::Ptr\fP< T >::\fBPtr\fP ()\fC [inline]\fP"
+
+.SS "template<typename T> \fBCatch::Ptr\fP< T >::\fBPtr\fP (T * p)\fC [inline]\fP"
+
+.SS "template<typename T> \fBCatch::Ptr\fP< T >::\fBPtr\fP (\fBPtr\fP< T > const & other)\fC [inline]\fP"
+
+.SS "template<typename T> \fBCatch::Ptr\fP< T >::~\fBPtr\fP ()\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "template<typename T> T* \fBCatch::Ptr\fP< T >::get () const\fC [inline]\fP"
+
+.SS "template<typename T> \fBCatch::Ptr\fP< T >::operator \fBSafeBool::type\fP () const\fC [inline]\fP"
+
+.SS "template<typename T> bool \fBCatch::Ptr\fP< T >::operator! () const\fC [inline]\fP"
+
+.SS "template<typename T> T& \fBCatch::Ptr\fP< T >::operator* () const\fC [inline]\fP"
+
+.SS "template<typename T> T* \fBCatch::Ptr\fP< T >::operator\-> () const\fC [inline]\fP"
+
+.SS "template<typename T> \fBPtr\fP& \fBCatch::Ptr\fP< T >::operator= (T * p)\fC [inline]\fP"
+
+.SS "template<typename T> \fBPtr\fP& \fBCatch::Ptr\fP< T >::operator= (\fBPtr\fP< T > const & other)\fC [inline]\fP"
+
+.SS "template<typename T> void \fBCatch::Ptr\fP< T >::reset ()\fC [inline]\fP"
+
+.SS "template<typename T> void \fBCatch::Ptr\fP< T >::swap (\fBPtr\fP< T > & other)\fC [inline]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

@@ -1,0 +1,46 @@
+.TH "Catch::IShared" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Catch::IShared
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <catch\&.hpp>\fP
+.PP
+Inherits \fBCatch::NonCopyable\fP\&.
+.PP
+Inherited by \fBCatch::ITestCase\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual \fB~IShared\fP ()"
+.br
+.ti -1c
+.RI "virtual void \fBaddRef\fP () const =0"
+.br
+.ti -1c
+.RI "virtual void \fBrelease\fP () const =0"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "virtual Catch::IShared::~IShared ()\fC [virtual]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual void Catch::IShared::addRef () const\fC [pure virtual]\fP"
+
+.PP
+Implemented in \fBCatch::SharedImpl< ITestCase >\fP\&.
+.SS "virtual void Catch::IShared::release () const\fC [pure virtual]\fP"
+
+.PP
+Implemented in \fBCatch::SharedImpl< ITestCase >\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

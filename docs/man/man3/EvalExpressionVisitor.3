@@ -1,0 +1,47 @@
+.TH "EvalExpressionVisitor" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+EvalExpressionVisitor
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <eval_visitor\&.h>\fP
+.PP
+Inherits \fBBasicVisitor\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBBinaryExpression\fP &expr) override"
+.br
+.ti -1c
+.RI "void \fBoperator()\fP (const \fBNumericLiteral\fP &literal) override"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBstd::vector\fP< \fBType\fP > \fBstack\fP"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "void EvalExpressionVisitor::operator() (const \fBBinaryExpression\fP & expr)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Reimplemented from \fBBasicVisitor\fP\&.
+.SS "void EvalExpressionVisitor::operator() (const \fBNumericLiteral\fP & literal)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Reimplemented from \fBBasicVisitor\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBstd::vector\fP<\fBType\fP> EvalExpressionVisitor::stack"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

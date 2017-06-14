@@ -1,0 +1,53 @@
+.TH "Catch::BinaryExpression< LhsT, Op, RhsT >" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Catch::BinaryExpression< LhsT, Op, RhsT >
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <catch\&.hpp>\fP
+.PP
+Inherits \fBCatch::DecomposedExpression\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBBinaryExpression\fP (\fBResultBuilder\fP &rb, LhsT lhs, RhsT rhs)"
+.br
+.ti -1c
+.RI "\fBBinaryExpression\fP & \fBoperator=\fP (\fBBinaryExpression\fP &)"
+.br
+.ti -1c
+.RI "void \fBendExpression\fP () const"
+.br
+.ti -1c
+.RI "virtual bool \fBisBinaryExpression\fP () const \fBCATCH_OVERRIDE\fP"
+.br
+.ti -1c
+.RI "virtual void \fBreconstructExpression\fP (\fBstd::string\fP &dest) const \fBCATCH_OVERRIDE\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<typename LhsT, Internal::Operator Op, typename RhsT> \fBCatch::BinaryExpression\fP< LhsT, Op, RhsT >::\fBBinaryExpression\fP (\fBResultBuilder\fP & rb, LhsT lhs, RhsT rhs)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "template<typename LhsT, Internal::Operator Op, typename RhsT> void \fBCatch::BinaryExpression\fP< LhsT, Op, RhsT >::endExpression () const\fC [inline]\fP"
+
+.SS "template<typename LhsT, Internal::Operator Op, typename RhsT> virtual bool \fBCatch::BinaryExpression\fP< LhsT, Op, RhsT >::isBinaryExpression () const\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Reimplemented from \fBCatch::DecomposedExpression\fP\&.
+.SS "template<typename LhsT, Internal::Operator Op, typename RhsT> \fBBinaryExpression\fP& \fBCatch::BinaryExpression\fP< LhsT, Op, RhsT >::operator= (\fBBinaryExpression\fP< LhsT, Op, RhsT > &)"
+
+.SS "template<typename LhsT, Internal::Operator Op, typename RhsT> virtual void \fBCatch::BinaryExpression\fP< LhsT, Op, RhsT >::reconstructExpression (\fBstd::string\fP & dest) const\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBCatch::DecomposedExpression\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

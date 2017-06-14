@@ -1,0 +1,53 @@
+.TH "Catch::Matchers::Vector::ContainsElementMatcher< T >" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Catch::Matchers::Vector::ContainsElementMatcher< T >
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <catch\&.hpp>\fP
+.PP
+Inherits \fBCatch::Matchers::Impl::MatcherBase< ObjectT, ComparatorT >\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBContainsElementMatcher\fP (T const &comparator)"
+.br
+.ti -1c
+.RI "bool \fBmatch\fP (\fBstd::vector\fP< T > const &v) const \fBCATCH_OVERRIDE\fP"
+.br
+.ti -1c
+.RI "virtual \fBstd::string\fP \fBdescribe\fP () const \fBCATCH_OVERRIDE\fP"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "T const  & \fBm_comparator\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<typename T > \fBCatch::Matchers::Vector::ContainsElementMatcher\fP< T >::\fBContainsElementMatcher\fP (T const & comparator)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "template<typename T > virtual \fBstd::string\fP \fBCatch::Matchers::Vector::ContainsElementMatcher\fP< T >::describe () const\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBCatch::Matchers::Impl::MatcherUntypedBase\fP\&.
+.SS "template<typename T > bool \fBCatch::Matchers::Vector::ContainsElementMatcher\fP< T >::match (\fBstd::vector\fP< T > const & v) const\fC [inline]\fP"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "template<typename T > T const& \fBCatch::Matchers::Vector::ContainsElementMatcher\fP< T >::m_comparator"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

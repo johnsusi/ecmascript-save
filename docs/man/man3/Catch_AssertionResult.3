@@ -1,0 +1,123 @@
+.TH "Catch::AssertionResult" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Catch::AssertionResult
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <catch\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBAssertionResult\fP ()"
+.br
+.ti -1c
+.RI "\fBAssertionResult\fP (\fBAssertionInfo\fP const &info, \fBAssertionResultData\fP const &data)"
+.br
+.ti -1c
+.RI "\fB~AssertionResult\fP ()"
+.br
+.ti -1c
+.RI "bool \fBisOk\fP () const"
+.br
+.ti -1c
+.RI "bool \fBsucceeded\fP () const"
+.br
+.ti -1c
+.RI "\fBResultWas::OfType\fP \fBgetResultType\fP () const"
+.br
+.ti -1c
+.RI "bool \fBhasExpression\fP () const"
+.br
+.ti -1c
+.RI "bool \fBhasMessage\fP () const"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBgetExpression\fP () const"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBgetExpressionInMacro\fP () const"
+.br
+.ti -1c
+.RI "bool \fBhasExpandedExpression\fP () const"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBgetExpandedExpression\fP () const"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBgetMessage\fP () const"
+.br
+.ti -1c
+.RI "\fBSourceLineInfo\fP \fBgetSourceInfo\fP () const"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBgetTestMacroName\fP () const"
+.br
+.ti -1c
+.RI "void \fBdiscardDecomposedExpression\fP () const"
+.br
+.ti -1c
+.RI "void \fBexpandDecomposedExpression\fP () const"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBAssertionInfo\fP \fBm_info\fP"
+.br
+.ti -1c
+.RI "\fBAssertionResultData\fP \fBm_resultData\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Catch::AssertionResult::AssertionResult ()"
+
+.SS "Catch::AssertionResult::AssertionResult (\fBAssertionInfo\fP const & info, \fBAssertionResultData\fP const & data)"
+
+.SS "Catch::AssertionResult::~AssertionResult ()"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void Catch::AssertionResult::discardDecomposedExpression () const"
+
+.SS "void Catch::AssertionResult::expandDecomposedExpression () const"
+
+.SS "\fBstd::string\fP Catch::AssertionResult::getExpandedExpression () const"
+
+.SS "\fBstd::string\fP Catch::AssertionResult::getExpression () const"
+
+.SS "\fBstd::string\fP Catch::AssertionResult::getExpressionInMacro () const"
+
+.SS "\fBstd::string\fP Catch::AssertionResult::getMessage () const"
+
+.SS "\fBResultWas::OfType\fP Catch::AssertionResult::getResultType () const"
+
+.SS "\fBSourceLineInfo\fP Catch::AssertionResult::getSourceInfo () const"
+
+.SS "\fBstd::string\fP Catch::AssertionResult::getTestMacroName () const"
+
+.SS "bool Catch::AssertionResult::hasExpandedExpression () const"
+
+.SS "bool Catch::AssertionResult::hasExpression () const"
+
+.SS "bool Catch::AssertionResult::hasMessage () const"
+
+.SS "bool Catch::AssertionResult::isOk () const"
+
+.SS "bool Catch::AssertionResult::succeeded () const"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBAssertionInfo\fP Catch::AssertionResult::m_info\fC [protected]\fP"
+
+.SS "\fBAssertionResultData\fP Catch::AssertionResult::m_resultData\fC [protected]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

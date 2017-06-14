@@ -1,0 +1,52 @@
+.TH "Catch::IMutableRegistryHub" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Catch::IMutableRegistryHub
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <catch\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual \fB~IMutableRegistryHub\fP ()"
+.br
+.ti -1c
+.RI "virtual void \fBregisterReporter\fP (\fBstd::string\fP const &name, \fBPtr\fP< IReporterFactory > const &factory)=0"
+.br
+.ti -1c
+.RI "virtual void \fBregisterListener\fP (\fBPtr\fP< IReporterFactory > const &factory)=0"
+.br
+.ti -1c
+.RI "virtual void \fBregisterTest\fP (\fBTestCase\fP const &testInfo)=0"
+.br
+.ti -1c
+.RI "virtual void \fBregisterTranslator\fP (const \fBIExceptionTranslator\fP *translator)=0"
+.br
+.ti -1c
+.RI "virtual void \fBregisterTagAlias\fP (\fBstd::string\fP const &alias, \fBstd::string\fP const &tag, \fBSourceLineInfo\fP const &lineInfo)=0"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "virtual Catch::IMutableRegistryHub::~IMutableRegistryHub ()\fC [virtual]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual void Catch::IMutableRegistryHub::registerListener (\fBPtr\fP< IReporterFactory > const & factory)\fC [pure virtual]\fP"
+
+.SS "virtual void Catch::IMutableRegistryHub::registerReporter (\fBstd::string\fP const & name, \fBPtr\fP< IReporterFactory > const & factory)\fC [pure virtual]\fP"
+
+.SS "virtual void Catch::IMutableRegistryHub::registerTagAlias (\fBstd::string\fP const & alias, \fBstd::string\fP const & tag, \fBSourceLineInfo\fP const & lineInfo)\fC [pure virtual]\fP"
+
+.SS "virtual void Catch::IMutableRegistryHub::registerTest (\fBTestCase\fP const & testInfo)\fC [pure virtual]\fP"
+
+.SS "virtual void Catch::IMutableRegistryHub::registerTranslator (const \fBIExceptionTranslator\fP * translator)\fC [pure virtual]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

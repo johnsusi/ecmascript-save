@@ -1,0 +1,112 @@
+.TH "Catch::Detail::Approx" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Catch::Detail::Approx
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <catch\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBApprox\fP (double value)"
+.br
+.ti -1c
+.RI "\fBApprox\fP (\fBApprox\fP const &other)"
+.br
+.ti -1c
+.RI "\fBApprox\fP \fBoperator()\fP (double value)"
+.br
+.ti -1c
+.RI "\fBApprox\fP & \fBepsilon\fP (double newEpsilon)"
+.br
+.ti -1c
+.RI "\fBApprox\fP & \fBmargin\fP (double newMargin)"
+.br
+.ti -1c
+.RI "\fBApprox\fP & \fBscale\fP (double newScale)"
+.br
+.ti -1c
+.RI "\fBstd::string\fP \fBtoString\fP () const"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBApprox\fP \fBcustom\fP ()"
+.br
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "bool \fBoperator==\fP (double lhs, \fBApprox\fP const &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator==\fP (\fBApprox\fP const &lhs, double rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator!=\fP (double lhs, \fBApprox\fP const &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator!=\fP (\fBApprox\fP const &lhs, double rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator<=\fP (double lhs, \fBApprox\fP const &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator<=\fP (\fBApprox\fP const &lhs, double rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator>=\fP (double lhs, \fBApprox\fP const &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator>=\fP (\fBApprox\fP const &lhs, double rhs)"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Catch::Detail::Approx::Approx (double value)\fC [inline]\fP, \fC [explicit]\fP"
+
+.SS "Catch::Detail::Approx::Approx (\fBApprox\fP const & other)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "static \fBApprox\fP Catch::Detail::Approx::custom ()\fC [inline]\fP, \fC [static]\fP"
+
+.SS "\fBApprox\fP& Catch::Detail::Approx::epsilon (double newEpsilon)\fC [inline]\fP"
+
+.SS "\fBApprox\fP& Catch::Detail::Approx::margin (double newMargin)\fC [inline]\fP"
+
+.SS "\fBApprox\fP Catch::Detail::Approx::operator() (double value)\fC [inline]\fP"
+
+.SS "\fBApprox\fP& Catch::Detail::Approx::scale (double newScale)\fC [inline]\fP"
+
+.SS "\fBstd::string\fP Catch::Detail::Approx::toString () const\fC [inline]\fP"
+
+.SH "Friends And Related Function Documentation"
+.PP 
+.SS "bool operator!= (double lhs, \fBApprox\fP const & rhs)\fC [friend]\fP"
+
+.SS "bool operator!= (\fBApprox\fP const & lhs, double rhs)\fC [friend]\fP"
+
+.SS "bool operator<= (double lhs, \fBApprox\fP const & rhs)\fC [friend]\fP"
+
+.SS "bool operator<= (\fBApprox\fP const & lhs, double rhs)\fC [friend]\fP"
+
+.SS "bool operator== (double lhs, \fBApprox\fP const & rhs)\fC [friend]\fP"
+
+.SS "bool operator== (\fBApprox\fP const & lhs, double rhs)\fC [friend]\fP"
+
+.SS "bool operator>= (double lhs, \fBApprox\fP const & rhs)\fC [friend]\fP"
+
+.SS "bool operator>= (\fBApprox\fP const & lhs, double rhs)\fC [friend]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

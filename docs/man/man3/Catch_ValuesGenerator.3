@@ -1,0 +1,48 @@
+.TH "Catch::ValuesGenerator< T >" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Catch::ValuesGenerator< T >
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <catch\&.hpp>\fP
+.PP
+Inherits \fBCatch::IGenerator< T >\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBValuesGenerator\fP ()"
+.br
+.ti -1c
+.RI "void \fBadd\fP (T value)"
+.br
+.ti -1c
+.RI "virtual T \fBgetValue\fP (\fBstd::size_t\fP index) const"
+.br
+.ti -1c
+.RI "virtual \fBstd::size_t\fP \fBsize\fP () const"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<typename T> \fBCatch::ValuesGenerator\fP< T >::\fBValuesGenerator\fP ()\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "template<typename T> void \fBCatch::ValuesGenerator\fP< T >::add (T value)\fC [inline]\fP"
+
+.SS "template<typename T> virtual T \fBCatch::ValuesGenerator\fP< T >::getValue (\fBstd::size_t\fP index) const\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBCatch::IGenerator< T >\fP\&.
+.SS "template<typename T> virtual \fBstd::size_t\fP \fBCatch::ValuesGenerator\fP< T >::size () const\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Implements \fBCatch::IGenerator< T >\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

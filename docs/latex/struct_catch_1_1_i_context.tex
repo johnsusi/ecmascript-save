@@ -1,0 +1,78 @@
+\hypertarget{struct_catch_1_1_i_context}{}\section{Catch\+:\+:I\+Context Struct Reference}
+\label{struct_catch_1_1_i_context}\index{Catch\+::\+I\+Context@{Catch\+::\+I\+Context}}
+
+
+{\ttfamily \#include $<$catch.\+hpp$>$}
+
+
+
+Inheritance diagram for Catch\+:\+:I\+Context\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{struct_catch_1_1_i_context__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{struct_catch_1_1_i_context_aeb17355c1be6c2ced5407cad7202628d}{$\sim$\+I\+Context} ()
+\item 
+virtual \hyperlink{struct_catch_1_1_i_result_capture}{I\+Result\+Capture} $\ast$ \hyperlink{struct_catch_1_1_i_context_a684e4ae71d1fdf3060c352ecde1d122f}{get\+Result\+Capture} ()=0
+\item 
+virtual \hyperlink{struct_catch_1_1_i_runner}{I\+Runner} $\ast$ \hyperlink{struct_catch_1_1_i_context_af088415dde18d039ed5a2f95b02767c6}{get\+Runner} ()=0
+\item 
+virtual size\+\_\+t \hyperlink{struct_catch_1_1_i_context_a43e07088db43299ba129fbe6d3106e95}{get\+Generator\+Index} (\textbf{ std\+::string} const \&file\+Info, size\+\_\+t total\+Size)=0
+\item 
+virtual bool \hyperlink{struct_catch_1_1_i_context_a806f7c4ed24d51adae90418e661b24b7}{advance\+Generators\+For\+Current\+Test} ()=0
+\item 
+virtual \hyperlink{class_catch_1_1_ptr}{Ptr}$<$ I\+Config const  $>$ \hyperlink{struct_catch_1_1_i_context_aee81c415899262e096ad8d6f686fa365}{get\+Config} () const =0
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_catch_1_1_i_context_aeb17355c1be6c2ced5407cad7202628d}\label{struct_catch_1_1_i_context_aeb17355c1be6c2ced5407cad7202628d}} 
+\index{Catch\+::\+I\+Context@{Catch\+::\+I\+Context}!````~I\+Context@{$\sim$\+I\+Context}}
+\index{````~I\+Context@{$\sim$\+I\+Context}!Catch\+::\+I\+Context@{Catch\+::\+I\+Context}}
+\subsubsection{\texorpdfstring{$\sim$\+I\+Context()}{~IContext()}}
+{\footnotesize\ttfamily virtual Catch\+::\+I\+Context\+::$\sim$\+I\+Context (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_catch_1_1_i_context_a806f7c4ed24d51adae90418e661b24b7}\label{struct_catch_1_1_i_context_a806f7c4ed24d51adae90418e661b24b7}} 
+\index{Catch\+::\+I\+Context@{Catch\+::\+I\+Context}!advance\+Generators\+For\+Current\+Test@{advance\+Generators\+For\+Current\+Test}}
+\index{advance\+Generators\+For\+Current\+Test@{advance\+Generators\+For\+Current\+Test}!Catch\+::\+I\+Context@{Catch\+::\+I\+Context}}
+\subsubsection{\texorpdfstring{advance\+Generators\+For\+Current\+Test()}{advanceGeneratorsForCurrentTest()}}
+{\footnotesize\ttfamily virtual bool Catch\+::\+I\+Context\+::advance\+Generators\+For\+Current\+Test (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\mbox{\Hypertarget{struct_catch_1_1_i_context_aee81c415899262e096ad8d6f686fa365}\label{struct_catch_1_1_i_context_aee81c415899262e096ad8d6f686fa365}} 
+\index{Catch\+::\+I\+Context@{Catch\+::\+I\+Context}!get\+Config@{get\+Config}}
+\index{get\+Config@{get\+Config}!Catch\+::\+I\+Context@{Catch\+::\+I\+Context}}
+\subsubsection{\texorpdfstring{get\+Config()}{getConfig()}}
+{\footnotesize\ttfamily virtual \hyperlink{class_catch_1_1_ptr}{Ptr}$<$I\+Config const$>$ Catch\+::\+I\+Context\+::get\+Config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\mbox{\Hypertarget{struct_catch_1_1_i_context_a43e07088db43299ba129fbe6d3106e95}\label{struct_catch_1_1_i_context_a43e07088db43299ba129fbe6d3106e95}} 
+\index{Catch\+::\+I\+Context@{Catch\+::\+I\+Context}!get\+Generator\+Index@{get\+Generator\+Index}}
+\index{get\+Generator\+Index@{get\+Generator\+Index}!Catch\+::\+I\+Context@{Catch\+::\+I\+Context}}
+\subsubsection{\texorpdfstring{get\+Generator\+Index()}{getGeneratorIndex()}}
+{\footnotesize\ttfamily virtual size\+\_\+t Catch\+::\+I\+Context\+::get\+Generator\+Index (\begin{DoxyParamCaption}\item[{\textbf{ std\+::string} const \&}]{file\+Info,  }\item[{size\+\_\+t}]{total\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\mbox{\Hypertarget{struct_catch_1_1_i_context_a684e4ae71d1fdf3060c352ecde1d122f}\label{struct_catch_1_1_i_context_a684e4ae71d1fdf3060c352ecde1d122f}} 
+\index{Catch\+::\+I\+Context@{Catch\+::\+I\+Context}!get\+Result\+Capture@{get\+Result\+Capture}}
+\index{get\+Result\+Capture@{get\+Result\+Capture}!Catch\+::\+I\+Context@{Catch\+::\+I\+Context}}
+\subsubsection{\texorpdfstring{get\+Result\+Capture()}{getResultCapture()}}
+{\footnotesize\ttfamily virtual \hyperlink{struct_catch_1_1_i_result_capture}{I\+Result\+Capture}$\ast$ Catch\+::\+I\+Context\+::get\+Result\+Capture (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\mbox{\Hypertarget{struct_catch_1_1_i_context_af088415dde18d039ed5a2f95b02767c6}\label{struct_catch_1_1_i_context_af088415dde18d039ed5a2f95b02767c6}} 
+\index{Catch\+::\+I\+Context@{Catch\+::\+I\+Context}!get\+Runner@{get\+Runner}}
+\index{get\+Runner@{get\+Runner}!Catch\+::\+I\+Context@{Catch\+::\+I\+Context}}
+\subsubsection{\texorpdfstring{get\+Runner()}{getRunner()}}
+{\footnotesize\ttfamily virtual \hyperlink{struct_catch_1_1_i_runner}{I\+Runner}$\ast$ Catch\+::\+I\+Context\+::get\+Runner (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{catch_8hpp}{catch.\+hpp}\end{DoxyCompactItemize}

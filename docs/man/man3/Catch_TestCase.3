@@ -1,0 +1,70 @@
+.TH "Catch::TestCase" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Catch::TestCase
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <catch\&.hpp>\fP
+.PP
+Inherits \fBCatch::TestCaseInfo\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTestCase\fP (\fBITestCase\fP *testCase, \fBTestCaseInfo\fP const &info)"
+.br
+.ti -1c
+.RI "\fBTestCase\fP (\fBTestCase\fP const &other)"
+.br
+.ti -1c
+.RI "\fBTestCase\fP \fBwithName\fP (\fBstd::string\fP const &_newName) const"
+.br
+.ti -1c
+.RI "void \fBinvoke\fP () const"
+.br
+.ti -1c
+.RI "\fBTestCaseInfo\fP const  & \fBgetTestCaseInfo\fP () const"
+.br
+.ti -1c
+.RI "void \fBswap\fP (\fBTestCase\fP &other)"
+.br
+.ti -1c
+.RI "bool \fBoperator==\fP (\fBTestCase\fP const &other) const"
+.br
+.ti -1c
+.RI "bool \fBoperator<\fP (\fBTestCase\fP const &other) const"
+.br
+.ti -1c
+.RI "\fBTestCase\fP & \fBoperator=\fP (\fBTestCase\fP const &other)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Catch::TestCase::TestCase (\fBITestCase\fP * testCase, \fBTestCaseInfo\fP const & info)"
+
+.SS "Catch::TestCase::TestCase (\fBTestCase\fP const & other)"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBTestCaseInfo\fP const& Catch::TestCase::getTestCaseInfo () const"
+
+.SS "void Catch::TestCase::invoke () const"
+
+.SS "bool Catch::TestCase::operator< (\fBTestCase\fP const & other) const"
+
+.SS "\fBTestCase\fP& Catch::TestCase::operator= (\fBTestCase\fP const & other)"
+
+.SS "bool Catch::TestCase::operator== (\fBTestCase\fP const & other) const"
+
+.SS "void Catch::TestCase::swap (\fBTestCase\fP & other)"
+
+.SS "\fBTestCase\fP Catch::TestCase::withName (\fBstd::string\fP const & _newName) const"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

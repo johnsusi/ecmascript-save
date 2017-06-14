@@ -1,0 +1,35 @@
+.TH "Catch::AutoReg" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Catch::AutoReg
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <catch\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBAutoReg\fP (\fBTestFunction\fP function, \fBSourceLineInfo\fP const &lineInfo, \fBNameAndDesc\fP const &nameAndDesc)"
+.br
+.ti -1c
+.RI "template<typename C > \fBAutoReg\fP (void(C::*method)(), char const *className, \fBNameAndDesc\fP const &nameAndDesc, \fBSourceLineInfo\fP const &lineInfo)"
+.br
+.ti -1c
+.RI "\fB~AutoReg\fP ()"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Catch::AutoReg::AutoReg (\fBTestFunction\fP function, \fBSourceLineInfo\fP const & lineInfo, \fBNameAndDesc\fP const & nameAndDesc)"
+
+.SS "template<typename C > Catch::AutoReg::AutoReg (void(C::*)() method, char const * className, \fBNameAndDesc\fP const & nameAndDesc, \fBSourceLineInfo\fP const & lineInfo)\fC [inline]\fP"
+
+.SS "Catch::AutoReg::~AutoReg ()"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.

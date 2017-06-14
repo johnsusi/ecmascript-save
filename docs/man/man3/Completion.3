@@ -1,0 +1,59 @@
+.TH "Completion" 3 "Wed Jun 14 2017" "ECMAScript" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Completion
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <eval_visitor\&.h>\fP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum \fBType\fP { \fBType::NORMAL\fP, \fBType::BREAK\fP, \fBType::CONTINUE\fP, \fBType::RETURN\fP, \fBType::THROW\fP }"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "enum \fBCompletion::Type\fP \fBtype\fP"
+.br
+.ti -1c
+.RI "optional< \fBType\fP > \fBvalue\fP"
+.br
+.ti -1c
+.RI "optional< \fBIdentifier\fP > \fBtarget\fP"
+.br
+.in -1c
+.SH "Member Enumeration Documentation"
+.PP 
+.SS "enum \fBCompletion::Type\fP\fC [strong]\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fINORMAL \fP\fP
+.TP
+\fB\fIBREAK \fP\fP
+.TP
+\fB\fICONTINUE \fP\fP
+.TP
+\fB\fIRETURN \fP\fP
+.TP
+\fB\fITHROW \fP\fP
+.SH "Member Data Documentation"
+.PP 
+.SS "optional<\fBIdentifier\fP> Completion::target"
+
+.SS "enum \fBCompletion::Type\fP  Completion::type"
+
+.SS "optional<\fBType\fP> Completion::value"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ECMAScript from the source code\&.
