@@ -1,8 +1,8 @@
 
 include(CheckCXXCompilerFlag)
 
-CHECK_CXX_COMPILER_FLAG(-fcolor-diagnostics COMPILER_FLAG_SUPPORTED)
+check_cxx_compiler_flag(-fcolor-diagnostics HAVE_COLOR_DIAGNOSTICS)
 
-if (COMPILER_FLAG_SUPPORTED)
+if (HAVE_COLOR_DIAGNOSTICS)
   add_compile_options(-fcolor-diagnostics)
 endif()

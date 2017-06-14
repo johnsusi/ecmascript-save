@@ -35,14 +35,15 @@ class Token {
   static constexpr bool less(const T1* lhs, const T2* rhs)
   {
     for (; *lhs || *rhs; ++lhs, ++rhs)
-      if (*lhs != *rhs) return *lhs < *rhs;
+      if (*lhs != *rhs)
+        return *lhs < *rhs;
     return false;
   }
 
   template <typename T>
   static constexpr type_t type(const T* str)
   {
-    std::initializer_list<std::pair<const char*, type_t>> tokens{
+    constexpr std::pair<const char*, type_t> tokens[] = {
         {"!", PUNCTUATOR | 1},
         {"!=", PUNCTUATOR | 2},
         {"!==", PUNCTUATOR | 3},
@@ -140,8 +141,9 @@ class Token {
         {"~", PUNCTUATOR | 93}};
 
     // Find lower bound. The range is sorted on the first value in each pair.
-    auto count = tokens.size();
-    auto first = tokens.begin();
+    auto count = 95;
+    auto first = tokens;
+    auto last  = tokens + 95;
     while (count > 0) {
       auto it   = first;
       auto step = count / 2;
@@ -154,7 +156,8 @@ class Token {
         count = step;
     }
 
-    if (first == tokens.end() || less(str, first->first)) return 0;
+    if (first == last || less(str, first->first))
+      return 0;
     return first->second;
   }
 
@@ -164,9 +167,15 @@ class Token {
     std::nullptr_t  empty;
     double          numeric_value;
     std::u16string* string_value;
-    constexpr value_t() : empty(nullptr) {}
-    constexpr value_t(double value) : numeric_value(value) {}
-    constexpr value_t(std::u16string* value) : string_value(value) {}
+    constexpr value_t() : empty(nullptr)
+    {
+    }
+    constexpr value_t(double value) : numeric_value(value)
+    {
+    }
+    constexpr value_t(std::u16string* value) : string_value(value)
+    {
+    }
   } m_value;
 
   bool m_lt = false;
@@ -178,7 +187,9 @@ class Token {
     // if (type == 0) throw std::logic_error("");
   }
 
-  constexpr explicit Token(type_t type) : Token(type, nullptr) {}
+  constexpr explicit Token(type_t type) : Token(type, nullptr)
+  {
+  }
 
 public:
   static Token identifier(std::u16string value)
@@ -195,18 +206,30 @@ public:
       return Token(IDENTIFIER, &create_static_string(std::move(value)));
     }
   }
-  static constexpr Token null_literal() { return Token(nullptr); }
-  constexpr static Token punctuator(const char* str) { return Token(str); }
-  static Token punctuator(const std::u16string& str) { return Token(str); }
-  static Token numeric_literal(double value) { return Token(value); }
+  static constexpr Token null_literal()
+  {
+    return Token(nullptr);
+  }
+  constexpr static Token punctuator(const char* str)
+  {
+    return Token(str);
+  }
+  static Token punctuator(const std::u16string& str)
+  {
+    return Token(str);
+  }
+  static Token numeric_literal(double value)
+  {
+    return Token(value);
+  }
   static Token string_literal(std::u16string value)
   {
     return Token(STRING_LITERAL, &create_static_string(std::move(value)));
   }
   static Token regular_expression_literal(std::u16string value)
   {
-    return Token(REGULAR_EXPRESSION_LITERAL,
-                 &create_static_string(std::move(value)));
+    return Token(
+        REGULAR_EXPRESSION_LITERAL, &create_static_string(std::move(value)));
   }
   struct DebugInfo {
     virtual std::string syntax_error_at() const = 0;
@@ -215,27 +238,40 @@ public:
 
   DebugInfo* debug_info = nullptr;
 
-  Token(const std::u16string& str) : Token(type(str.data())) {}
+  Token(const std::u16string& str) : Token(type(str.data()))
+  {
+  }
 
-  constexpr Token() : Token(0, nullptr) {}
+  constexpr Token() : Token(0, nullptr)
+  {
+  }
 
   constexpr Token(const char* str) : Token(type(str))
   {
-    if (m_type == 0) throw std::logic_error("Cannot create compile time token");
+    if (m_type == 0)
+      throw std::logic_error("Cannot create compile time token");
   }
 
-  constexpr Token(const char16_t* str) : Token(type(str)) {}
+  constexpr Token(const char16_t* str) : Token(type(str))
+  {
+  }
 
-  constexpr Token(std::nullptr_t) : Token(type("null")) {}
+  constexpr Token(std::nullptr_t) : Token(type("null"))
+  {
+  }
 
   constexpr explicit Token(bool value)
       : Token(value ? type("true") : type("false"))
   {
   }
 
-  constexpr Token(double value) : Token(NUMERIC_LITERAL, value) {}
+  constexpr Token(double value) : Token(NUMERIC_LITERAL, value)
+  {
+  }
 
-  constexpr Token(std::u16string* value) : Token(STRING_LITERAL, value) {}
+  constexpr Token(std::u16string* value) : Token(STRING_LITERAL, value)
+  {
+  }
 
   constexpr Token(const Token&) = default;
 
@@ -247,9 +283,15 @@ public:
 
   constexpr Token& operator=(Token&&) = default;
 
-  constexpr type_t type() const { return m_type; }
+  constexpr type_t type() const
+  {
+    return m_type;
+  }
 
-  constexpr operator type_t() const { return m_type; }
+  constexpr operator type_t() const
+  {
+    return m_type;
+  }
 
   constexpr bool is_identifier() const
   {
@@ -266,7 +308,10 @@ public:
     return (m_type & RESERVED_WORD) > 0;
   }
 
-  constexpr bool is_keyword() const { return (m_type & KEYWORD) == KEYWORD; }
+  constexpr bool is_keyword() const
+  {
+    return (m_type & KEYWORD) == KEYWORD;
+  }
 
   constexpr bool is_future_reserved_word() const
   {
@@ -312,7 +357,10 @@ public:
     }
   }
 
-  constexpr double numeric_value() const { return m_value.numeric_value; }
+  constexpr double numeric_value() const
+  {
+    return m_value.numeric_value;
+  }
 
   std::u16string string_value() const
   {
@@ -326,7 +374,8 @@ public:
 
   constexpr bool operator==(const Token& other) const
   {
-    if (type() != other.type()) return false;
+    if (type() != other.type())
+      return false;
     switch (type()) {
     case NULL_LITERAL: return true;
     case BOOLEAN_LITERAL: return boolean_value() == other.boolean_value();
@@ -346,7 +395,8 @@ public:
   constexpr bool any_of(std::initializer_list<Token> tokens) const
   {
     for (auto it = tokens.begin(); it != tokens.end(); ++it)
-      if (*this == *it) return true;
+      if (*this == *it)
+        return true;
     return false;
   }
 
@@ -356,7 +406,10 @@ public:
     return any_of(std::initializer_list<Token>{std::forward<Args>(args)...});
   }
 
-  operator std::string() const { return to_string(); }
+  operator std::string() const
+  {
+    return to_string();
+  }
 
   std::string to_string() const
   {
@@ -462,18 +515,34 @@ public:
       return convert_utf16_to_utf8(string_value());
     case IDENTIFIER: return convert_utf16_to_utf8(string_value());
     default:
-      throw std::runtime_error("Do not know what to do with Token of type "
-                               + std::to_string(m_type));
+      throw std::runtime_error(
+          "Do not know what to do with Token of type "
+          + std::to_string(m_type));
     }
   }
 
-  void print(std::ostream& out) const { out << to_string(); }
+  void print(std::ostream& out) const
+  {
+    out << to_string();
+  }
 
-  constexpr bool preceded_by_line_terminator() const { return m_lt; }
-  constexpr void set_preceded_by_line_terminator() { m_lt = true; }
+  constexpr bool preceded_by_line_terminator() const
+  {
+    return m_lt;
+  }
+  constexpr void set_preceded_by_line_terminator()
+  {
+    m_lt = true;
+  }
 
-  constexpr bool empty() const { return m_type == 0; }
-  constexpr bool is_empty() const { return m_type == 0; }
+  constexpr bool empty() const
+  {
+    return m_type == 0;
+  }
+  constexpr bool is_empty() const
+  {
+    return m_type == 0;
+  }
 };
 
 std::ostream& operator<<(std::ostream& out, const Token& token);

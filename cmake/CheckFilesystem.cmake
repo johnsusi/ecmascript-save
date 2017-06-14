@@ -14,9 +14,6 @@ check_cxx_source_compiles(
   HAVE_STD_FILESYSTEM
 )
 
-# if (CMAKE_COMPILER_IS_GNUCXX)
-#   list(APPEND CMAKE_REQUIRED_LIBRARIES stdc++fs)
-# endif()
 check_cxx_source_compiles(
   "
     #include <experimental/filesystem>

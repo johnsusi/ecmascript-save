@@ -21,15 +21,20 @@ using variant = std::experimental::variant<Ts...>;
 
 #include <mpark/variant.hpp>
 
-template <typename... Ts>
-using variant = mpark::variant<Ts...>;
+using namespace mpark;
+
+// template <typename... Ts>
+// using variant = mpark::variant<Ts...>;
 
 #elif defined(HAVE_BOOST_VARIANT)
 
 #include <boost/variant.hpp>
+#include <boost/variant/get.hpp>
 
 template <typename... Ts>
 using variant = boost::variant<Ts...>;
+
+#define get_if boost::get
 
 #endif
 

@@ -39,28 +39,28 @@ COPY . /usr/project
 #         && \
 #     ninja && ./UnitTest
 
-RUN mkdir /build-gcc7-debug && \
-    export CC=gcc-7 CXX=g++-7 && \
-    cd /build-gcc7-debug && \
-    cmake /usr/project \
-        -GNinja \
-        -DCMAKE_BUILD_TYPE=Debug \
-        -DTESTING=YES \
-        && \
-    ninja && ./UnitTest
+# RUN mkdir /build-gcc7-debug && \
+#     export CC=gcc-7 CXX=g++-7 && \
+#     cd /build-gcc7-debug && \
+#     cmake /usr/project \
+#         -GNinja \
+#         -DCMAKE_BUILD_TYPE=Debug \
+#         -DTESTING=YES \
+#         && \
+#     ninja && ./UnitTest
 
-RUN mkdir /build-gcc7-release && \
-    export CC=gcc-7 CXX=g++-7 && \
-    cd /build-gcc7-release && \
-    cmake /usr/project \
-        -GNinja \
-        -DCMAKE_BUILD_TYPE=Release \
-        -DTESTING=YES \
-        -DSTATIC=YES \
-        -DLTO=YES \
-        -DUNITY=YES \
-        -DCMAKE_AR="/usr/bin/gcc-ar" \
-        -DCMAKE_CXX_ARCHIVE_CREATE="<CMAKE_AR> qcs <TARGET> <LINK_FLAGS> <OBJECTS>" \
-        -DCMAKE_CXX_ARCHIVE_FINISH="true" \
-        && \
-    ninja && ./UnitTest
+# RUN mkdir /build-gcc7-release && \
+#     export CC=gcc-7 CXX=g++-7 && \
+#     cd /build-gcc7-release && \
+#     cmake /usr/project \
+#         -GNinja \
+#         -DCMAKE_BUILD_TYPE=Release \
+#         -DTESTING=YES \
+#         -DSTATIC=YES \
+#         -DLTO=YES \
+#         -DUNITY=YES \
+#         -DCMAKE_AR="/usr/bin/gcc-ar" \
+#         -DCMAKE_CXX_ARCHIVE_CREATE="<CMAKE_AR> qcs <TARGET> <LINK_FLAGS> <OBJECTS>" \
+#         -DCMAKE_CXX_ARCHIVE_FINISH="true" \
+#         && \
+#     ninja && ./UnitTest
