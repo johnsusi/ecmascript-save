@@ -42,6 +42,7 @@ install:
 
 before_script:
   - export CC=${BUILD_CC} CXX=${BUILD_CXX}
+  - ${CC} --version
   - ninja --version
   - cmake --version
   - cd ${TRAVIS_BUILD_DIR}
