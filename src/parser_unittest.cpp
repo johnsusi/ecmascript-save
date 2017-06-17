@@ -36,101 +36,101 @@ std::ostream& operator<<(std::ostream& out, const Program& program)
   return out << yaml.str();
 }
 
-TEST_CASE("7.9.2 Automatic Semicolon Insertion")
-{
+// TEST_CASE("7.9.2 Automatic Semicolon Insertion")
+// {
 
-  REQUIRE_THROWS(parse("{ 1 2 } 3"));
+//   REQUIRE_THROWS(parse("{ 1 2 } 3"));
 
-  REQUIRE(parse("{ 1\n2 } 3") == R"(
-    Program
-      Block
-        ExpressionStatement
-          1
-        ExpressionStatement
-          2
-      ExpressionStatement
-        3
-  )");
+//   REQUIRE(parse("{ 1\n2 } 3") == R"(
+//     Program
+//       Block
+//         ExpressionStatement
+//           1
+//         ExpressionStatement
+//           2
+//       ExpressionStatement
+//         3
+//   )");
 
-  REQUIRE_THROWS(parse("for (a; b\n)"));
+//   REQUIRE_THROWS(parse("for (a; b\n)"));
 
-  REQUIRE(parse("return\na+b") == R"(
-    Program
-      ReturnStatement
-      ExpressionStatement
-        +
-          a
-          b
-  )");
+//   REQUIRE(parse("return\na+b") == R"(
+//     Program
+//       ReturnStatement
+//       ExpressionStatement
+//         +
+//           a
+//           b
+//   )");
 
-  REQUIRE(parse("a=b\n++c") == R"(
-    Program
-      ExpressionStatement
-        =
-          a
-          b
-      ExpressionStatement
-        ++
-          c
-  )");
-}
+//   REQUIRE(parse("a=b\n++c") == R"(
+//     Program
+//       ExpressionStatement
+//         =
+//           a
+//           b
+//       ExpressionStatement
+//         ++
+//           c
+//   )");
+// }
 
-TEST_CASE("EmptyStatement")
-{
-  REQUIRE(parse(";") == R"(
-    Program
-      EmptyStatement
-  )");
-  REQUIRE(parse(";;") == R"(
-    Program
-      EmptyStatement
-      EmptyStatement
-  )");
-}
+// TEST_CASE("EmptyStatement")
+// {
+//   REQUIRE(parse(";") == R"(
+//     Program
+//       EmptyStatement
+//   )");
+//   REQUIRE(parse(";;") == R"(
+//     Program
+//       EmptyStatement
+//       EmptyStatement
+//   )");
+// }
 
-TEST_CASE("IfStatement")
-{
-  REQUIRE(parse("if (true);") == R"(
-    Program
-      IfStatement
-        true
-        EmptyStatement
-  )");
+// TEST_CASE("IfStatement")
+// {
+//   REQUIRE(parse("if (true);") == R"(
+//     Program
+//       IfStatement
+//         true
+//         EmptyStatement
+//   )");
 
-  REQUIRE(parse("if (true);else;") == R"(
-    Program
-      IfStatement
-        true
-        EmptyStatement
-        EmptyStatement
-  )");
-}
+//   REQUIRE(parse("if (true);else;") == R"(
+//     Program
+//       IfStatement
+//         true
+//         EmptyStatement
+//         EmptyStatement
+//   )");
+// }
 
-TEST_CASE("ForStatement")
-{
-  REQUIRE(parse("for(;;);") == R"(
-    Program
-      ForStatement
-        null
-        null
-        null
-        EmptyStatement
-  )");
-}
+// TEST_CASE("ForStatement")
+// {
+//   REQUIRE(parse("for(;;);") == R"(
+//     Program
+//       ForStatement
+//         null
+//         null
+//         null
+//         EmptyStatement
+//   )");
+// }
 
-TEST_CASE("LabelledStatement")
-{
-  REQUIRE(parse("t:;") == R"(
-    Program
-      LabelledStatement
-        t
-        EmptyStatement
-  )");
-  REQUIRE(parse("t:t;") == R"(
-    Program
-      LabelledStatement
-        t
-        ExpressionStatement
-          t
-  )");
-}
+// TEST_CASE("LabelledStatement")
+// {
+//   REQUIRE(parse("t:;") == R"(
+//     Program
+//       LabelledStatement
+//         t
+//         EmptyStatement
+//   )");
+//   REQUIRE(parse("t:t;") == R"(
+//     Program
+//       LabelledStatement
+//         t
+//         ExpressionStatement
+//           t
+//   )");
+// }
