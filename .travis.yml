@@ -4,16 +4,6 @@ env:
   global:
   - LANG="en_US.UTF-8"
 
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - g++-6
-      # - g++-7
-      - libicu-dev
-      - libboost-all-dev
-      - ninja-build
 
 matrix:
   include:
@@ -23,11 +13,20 @@ matrix:
       compiler: gcc
       group: edge
       env: BUILD_CC=gcc-6 BUILD_CXX=g++-6
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-6
+            # - g++-7
+            - libicu-dev
+            - libboost-all-dev
+            - ninja-build
     - os: osx
       osx_image: xcode8.3
       compiler: clang
       env: BUILD_CC=clang BUILD_CXX=clang++
-
 
 install:
   - DEPS_DIR="${TRAVIS_BUILD_DIR}/deps"
