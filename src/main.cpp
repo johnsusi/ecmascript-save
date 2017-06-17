@@ -3,6 +3,7 @@
 #include "eval_visitor.h"
 #include "filesystem.h"
 #include "json_visitor.h"
+#include "lexer.h"
 #include "trace.h"
 #include "util.h"
 #include "variant.h"
@@ -85,10 +86,12 @@ int main(int argc, const char** argv)
         std::cout << visitor.str() << std::endl;
       }
       else if (options.count("lex")) {
+        BasicVisitor visitor;
+        eval(source, visitor, verbose, false, false);
       }
       else if (options.count("compile")) {
         BasicVisitor visitor;
-        eval(source, visitor, verbose);
+        eval(source, visitor, verbose, true, false);
       }
       else {
         EvalVisitor visitor;

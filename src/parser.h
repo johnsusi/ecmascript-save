@@ -46,17 +46,9 @@ class Parser {
         + (debug_info ? "\n" + debug_info->syntax_error_at() : ""));
   }
 
-  template <typename F>
-  void log(F&& callback)
-  {
-    if (m_logger)
-      m_logger->log(callback);
-  }
-
   template <typename T>
   void push(T* value)
   {
-    log([&](auto& log) { log << "push " << demangle(value) << "\n"; });
     stack.push_back(value);
   }
 
@@ -64,7 +56,6 @@ class Parser {
   T* emplace(Args&&... args)
   {
     T* value = new T{std::forward<Args>(args)...};
-    log([&](auto& log) { log << "emplace " << demangle(value) << "\n"; });
     storage->emplace_back(value);
     stack.push_back(value);
     return value;
@@ -74,54 +65,32 @@ class Parser {
   T* pop()
   {
     if (auto value = dynamic_cast<T*>(stack.back())) {
-      log([&](auto& log) { log << "pop " << demangle(value) << "\n"; });
       stack.pop_back();
       return value;
     }
-    else
-      logic_error(
-          "Expected " + demangle<T>() + ", got " + stack.back()->type());
+    logic_error("Expected " + demangle<T>() + ", got " + stack.back()->type());
   }
 
   template <typename T, std::size_t I>
   T* peek_at()
   {
     if (auto value = dynamic_cast<T*>(*(stack.end() - I))) {
-      log([&](auto& log) { log << "peek " << demangle(value) << "\n"; });
       return value;
     }
-    else
-      logic_error(
-          "Expected " + demangle<T>() + ", got " + stack.back()->type());
+    logic_error("Expected " + demangle<T>() + ", got " + stack.back()->type());
   }
 
   template <typename T, typename... Ts, typename... Args>
   T* replace(Args&&... args)
   {
-
     return index_apply<sizeof...(Ts)>([&](auto... Is) {
       T* value = new T{std::forward<Args>(args)...,
-                       peek_at<Ts, sizeof...(Ts) - Is>()...};
-
-      this->log([&](auto& log) {
-        log << "replace [";
-        for_each_arg(
-            [&](auto arg) { log << " " << demangle(arg) << ","; },
-            dynamic_cast<Ts*>(*(stack.end() - (sizeof...(Ts) - Is)))...);
-        log << "] with " << demangle(value) << "\n";
-      });
-
+                       this->peek_at<Ts, sizeof...(Ts) - Is>()...};
       stack.resize(stack.size() - sizeof...(Ts));
       storage->emplace_back(value);
       stack.push_back(value);
       return value;
     });
-  }
-
-  template <typename T>
-  bool last_match_is_a()
-  {
-    return !(stack.empty() || !dynamic_cast<T*>(stack.back()));
   }
 
   bool no_line_terminator_here()

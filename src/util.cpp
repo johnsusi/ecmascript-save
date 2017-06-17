@@ -19,68 +19,28 @@
 #include <unicode/unistr.h>
 #include <unicode/unorm2.h>
 
-int32_t    destLength;
-UErrorCode err = U_ZERO_ERROR;
-if (U_FAILURE(err))
-  throw std::runtime_error(u_errorName(err));
-u_strFromUTF8(nullptr, 0, &destLength, utf8.data(), utf8.size(), &err);
-std::u16
-
-    auto buffer = std::make_unique<UChar*>(new UChar[destLength]);
-err             = U_ZERO_ERROR;
-UnicodeString result(*buffer, destLength);
-return result;
-}
-
 /*!
-
   Converts \a source from UTF-8 to UTF-16 and normalised to Unicode
   Normalization Form C.
-
   Throws \a std::runtime_error on failure.
-
 */
 std::u16string convert_utf8_to_utf16(const std::string& source)
 {
-  UErrorCode err = U_ZERO_ERROR;
-  int32_t    destLength;
-
-  // Convert source to utf16
-  u_strFromUTF8(nullptr, 0, &destLength, source.data(), source.size(), &err);
-  if (U_FAILURE(err))
-    throw std::runtime_error(u_errorName(err));
-
-  std::u16string buffer;
-  buffer.reserve(destLength);
-
-  err = U_ZERO_ERROR;
-  u_strFromUTF8(*buffer, destLength, nullptr, utf8.data(), utf8.size(), &err);
-  if (U_FAILURE(err))
-    throw std::runtime_error(u_errorName(err));
-
-  // auto      normalizer = Normalizer2::getNFCInstance(err);
-  auto normalizer = unorm2_getNFCInstance(err);
+  ErrorCode err;
+  auto      buffer     = UnicodeString::fromUTF8(source);
+  auto      normalizer = Normalizer2::getNFCInstance(err);
   if (err.isFailure())
     throw std::runtime_error(err.errorName());
-  // auto result = normalizer->normalize(buffer, err);
-
-  unorm2_normalize(
-      normalizer,
-      buffer,
-      int32_t length,
-      UChar * dest,
-      int32_t capacity,
-      UErrorCode * pErrorCode) if (err.isFailure()) throw std::
-      runtime_error(err.errorName());
+  auto result = normalizer->normalize(buffer, err);
+  if (err.isFailure())
+    throw std::runtime_error(err.errorName());
   return std::u16string(
       reinterpret_cast<const std::u16string::value_type*>(buffer.getBuffer()),
       buffer.length());
 }
 
 /*!
-
   Converts \a source from UTF-16 to UTF-8.
-
 */
 std::string convert_utf16_to_utf8(const std::u16string& source)
 {
@@ -95,7 +55,7 @@ std::string convert_utf16_to_utf8(const std::u16string& source)
 }
 
 #ifndef HAVE_ICU_FROM_UTF8
-Unic::UnicodeString icu::UnicodeString::fromUTF8(icu::StringPiece utf8)
+icu::UnicodeString icu::UnicodeString::fromUTF8(icu::StringPiece utf8)
 {
   int32_t    destLength;
   UErrorCode err = U_ZERO_ERROR;

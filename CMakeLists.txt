@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.8)
 
+cmake_policy(SET CMP0056 NEW)
+
 project(ECMAScript C CXX)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
@@ -127,7 +129,8 @@ endif()
 # generate_export_header(ecmascript)
 
 get_target_property(CMAKE_REQUIRED_INCLUDES Ecmascript INCLUDE_DIRECTORIES)
-get_target_property(CMAKE_REQUIRED_LIBRARIES Ecmascript LINK_LIBRARIES)
+get_target_property(CMAKE_REQUIRED_LIBRARIES_ Ecmascript LINK_LIBRARIES)
+list(APPEND CMAKE_REQUIRED_LIBRARIES ${CMAKE_REQUIRED_LIBRARIES_})
 
 include(CheckFilesystem)
 include(CheckICU)

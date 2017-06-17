@@ -1,5 +1,9 @@
 include(CheckCXXSourceCompiles)
 
+# if (CMAKE_COMPILER_IS_GNUCXX)
+#   set(CMAKE_REQUIRED_LIBRARIES "${CMAKE_REQUIRED_LIBRARIES};-lstdc++fs")
+# endif()
+
 check_cxx_source_compiles(
   "
     #include <filesystem>

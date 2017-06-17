@@ -6,7 +6,9 @@
 
 #include <string>
 
-void eval(const std::string&, Visitor&, bool = false);
-void eval(const std::u16string&, Visitor&, bool = false);
+void eval(const std::string&, Visitor&, bool = false, bool = true, bool = true);
+void eval(
+    const std::u16string&, Visitor&, bool verbose = false, bool parse = true,
+    bool run = true);
 
 #endif
