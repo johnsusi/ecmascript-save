@@ -1,7 +1,5 @@
 language: cpp
 
-sudo: false
-
 env:
   global:
   - LANG="en_US.UTF-8"
@@ -20,10 +18,18 @@ addons:
 matrix:
   include:
     - os: linux
+      dist: trusty
+      sudo: required
+      compiler: gcc
+      group: edge
       env: BUILD_CC=gcc-6 BUILD_CXX=g++-6
+    - os: osx
+      osx_image: xcode8.3
+      compiler: clang
+      env: BUILD_CC=clang BUILD_CXX=clang++
+
 
 install:
-  # - pip install conan
   - DEPS_DIR="${TRAVIS_BUILD_DIR}/deps"
   - mkdir -p ${DEPS_DIR} && cd ${DEPS_DIR}
   - |
