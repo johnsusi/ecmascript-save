@@ -38,6 +38,7 @@ install:
       export PATH=${DEPS_DIR}/cmake/bin:${PATH}
     elif [[ "${TRAVIS_OS_NAME}" == "osx" ]]; then
       which cmake || brew install cmake
+      which ninja || brew install ninja
     fi
 
 before_script:
