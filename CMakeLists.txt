@@ -1,4 +1,8 @@
-cmake_minimum_required(VERSION 3.5)
+if (CMAKE_VERSION VERSION_LESS 3.8)
+  cmake_minimum_required(VERSION 3.5)
+else ()
+  cmake_minimum_required(VERSION 3.8)
+endif()
 
 cmake_policy(SET CMP0056 NEW)
 
@@ -10,13 +14,13 @@ if (CMAKE_VERSION VERSION_LESS 3.7)
   list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake/compat")
 endif ()
 
-option(BUILD_SHARED_LIBS "Build shared libraries"           OFF)
-option(DEFINES           "Add defines to build"             OFF)
-option(INCLUDES          "Add include directories to build" OFF)
-option(LIBRARIES         "Add libraries to build"           OFF)
-option(UNITY             "Enable unity build"               OFF)
-option(TESTING           "Enable testing"                   OFF)
-option(STATIC            "Enable static building"           OFF)
+option(BUILD_SHARED_LIBS "Build shared libraries"                       OFF)
+option(DEFINES           "Add defines to build"                         OFF)
+option(INCLUDES          "Add include directories to build"             OFF)
+option(LIBRARIES         "Add libraries to build"                       OFF)
+option(SCU               "Enable Single Compilation Unit (unity) build" OFF)
+option(TESTING           "Enable testing"                               OFF)
+option(STATIC            "Enable static building"                       OFF)
 
 include(Cxx14Support)
 
@@ -24,7 +28,7 @@ if (STATIC)
   set(CMAKE_FIND_LIBRARY_SUFFIXES ".lib;.a")
 endif()
 
-if (UNITY)
+if (SCU)
 
  add_library(Ecmascript
     src/single.cpp
@@ -41,6 +45,7 @@ else ()
     src/lexer.cpp
     src/logger.cpp
     src/matcher.cpp
+    src/options.cpp
     src/parser.cpp
     src/runtime.cpp
     src/token.cpp
@@ -99,6 +104,8 @@ if (NOT ICU_FOUND)
   target_link_libraries(Ecmascript PUBLIC ICU::uc)
 endif()
 
+target_compile_definitions(Ecmascript PUBLIC -DHAVE_CONFIG_H)
+
 add_executable(ECMAScriptBin src/main.cpp)
 target_link_libraries(ECMAScriptBin PUBLIC Ecmascript)
 set_target_properties(ECMAScriptBin
@@ -120,6 +127,12 @@ if (TESTING)
   add_executable(UnitTest src/test_runner.cpp ${UNITTEST_SOURCES})
 
   target_link_libraries(UnitTest Ecmascript)
+
+  set_target_properties(UnitTest
+    PROPERTIES
+      CXX_VISIBILITY_PRESET hidden
+      VISIBILITY_INLINES_HIDDEN 1
+  )
 
   add_test(NAME test COMMAND UnitTest)
 
