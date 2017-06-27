@@ -41,11 +41,11 @@ bool InputElement::is_empty() const
   return get_if<Empty>(&value) != nullptr;
 }
 
-bool InputElement::is_token() const
-{
-  using namespace std;
-  return get_if<Token>(&value) != nullptr;
-}
+// bool InputElement::is_token() const
+// {
+//   using namespace std;
+//   return get_if<Token>(&value) != nullptr;
+// }
 
 bool InputElement::is_line_terminator() const
 {
@@ -53,11 +53,11 @@ bool InputElement::is_line_terminator() const
   return get_if<LineTerminator>(&value) != nullptr;
 }
 
-bool InputElement::is_comment() const
-{
-  using namespace std;
-  return get_if<Comment>(&value) != nullptr;
-}
+// bool InputElement::is_comment() const
+// {
+//   using namespace std;
+//   return get_if<Comment>(&value) != nullptr;
+// }
 
 bool InputElement::is_white_space() const
 {

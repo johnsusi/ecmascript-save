@@ -35,37 +35,35 @@ constexpr auto usage = R"(
 
 auto parse_command_line(int argc, const char** argv)
 {
-  using result_type = variant<bool, std::string, std::vector<std::string>>;
-  std::vector<std::string> input_files;
-  std::unordered_map<std::string, result_type> result;
+  using namespace std;
+  Options options;
+  options["input-file"] = vector<string>();
+
   for (int i = 1; i < argc; ++i) {
     if (argv[i][0] == '-') {
       if (argv[i] == "-h"s || argv[i] == "--help"s)
-        result["help"] = true;
+        options["help"] = true;
       else if (argv[i] == "-v"s || argv[i] == "--verbose"s)
-        result["verbose"] = true;
+        options["verbose"] = true;
       else if (argv[i] == "-c"s || argv[i] == "--compile"s)
-        result["compile"] = true;
+        options["compile"] = true;
       else if (argv[i] == "-e"s || argv[i] == "--eval"s) {
         if (++i == argc)
           throw std::domain_error("Missing parameter for "s + argv[i - 1]);
-        result["eval"] = std::string(argv[i]);
+        options["eval"] = std::string(argv[i]);
       }
       else if (argv[i] == "-j"s || argv[i] == "--json"s)
-        result["json"] = true;
+        options["json"] = true;
       else if (argv[i] == "-l"s || argv[i] == "--lex"s)
-        result["lex"] = true;
+        options["lex"] = true;
       else
         throw std::domain_error("Invalid argument: '"s + argv[i] + "'");
     }
     else
-      input_files.push_back(argv[i]);
+      options["input-file"].push_back(argv[i]);
   }
 
-  if (!input_files.empty())
-    result["input-file"] = std::move(input_files);
-
-  return result;
+  return options;
 }
 
 int main(int argc, const char** argv)
@@ -82,20 +80,20 @@ int main(int argc, const char** argv)
 
       if (options.count("json")) {
         JSONVisitor visitor;
-        eval(source, visitor, verbose);
+        eval(source, visitor, options);
         std::cout << visitor.str() << std::endl;
       }
       else if (options.count("lex")) {
         BasicVisitor visitor;
-        eval(source, visitor, verbose, false, false);
+        eval(source, visitor, options);
       }
       else if (options.count("compile")) {
         BasicVisitor visitor;
-        eval(source, visitor, verbose, true, false);
+        eval(source, visitor, options);
       }
       else {
         EvalVisitor visitor;
-        eval(source, visitor, verbose);
+        eval(source, visitor, options);
         std::cout << visitor.str() << std::endl;
       }
     };
@@ -103,18 +101,16 @@ int main(int argc, const char** argv)
     if (options.count("help"))
       cout << usage;
     else if (options.count("eval"))
-      run(get<string>(options["eval"]));
-    else if (options.count("input-file")) {
-      auto filenames = get<vector<string>>(options["input-file"]);
-      //.as<vector<string>>();
-      for (const auto& filename : filenames) {
+      run(Source::from_utf8(options["eval"]));
+    else if (!options["input-file"].empty()) {
+      for (const auto& filename : options["input-file"]) {
         if (verbose)
           std::cout << "Evaluating " << filename << std::endl;
-        run(read_file(filename));
+        run(Source::from_utf8(read_file(filename)));
       }
     }
     else { // Try reading from stdin
-      auto source = read_stdin();
+      auto source = Source::from_utf8(read_stdin());
       if (source.size() > 0)
         run(source);
       else

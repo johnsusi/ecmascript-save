@@ -5,6 +5,7 @@
 #include "lexer.cpp"
 #include "logger.cpp"
 #include "matcher.cpp"
+#include "options.cpp"
 #include "parser.cpp"
 #include "runtime.cpp"
 #include "token.cpp"

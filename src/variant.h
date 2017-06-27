@@ -1,7 +1,9 @@
 #ifndef ECMASCRIPT_VARIANT_H
 #define ECMASCRIPT_VARIANT_H
 
+#ifdef HAVE_CONFIG_H
 #include "config.h"
+#endif
 
 #if defined(HAVE_STD_VARIANT)
 
@@ -28,13 +30,19 @@ using namespace mpark;
 
 #elif defined(HAVE_BOOST_VARIANT)
 
+#include <type_traits>
+#include <utility>
+
 #include <boost/variant.hpp>
 #include <boost/variant/get.hpp>
 
 template <typename... Ts>
 using variant = boost::variant<Ts...>;
 
+template <typename... Ts>
+
 #define get_if boost::get
+#define visit boost::apply_visitor
 
 #endif
 

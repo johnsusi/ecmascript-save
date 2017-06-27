@@ -1,7 +1,9 @@
 #ifndef ECMASCRIPT_FILESYSTEM_H
 #define ECMASCRIPT_FILESYSTEM_H
 
+#ifdef HAVE_CONFIG_H
 #include "config.h"
+#endif
 
 #if defined(HAVE_STD_FILESYSTEM)
 

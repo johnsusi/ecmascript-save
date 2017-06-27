@@ -7,54 +7,75 @@
 #include <chrono>
 #include <iostream>
 
-void eval(
-    const std::string& source, Visitor& visitor, bool verbose, bool parse,
-    bool run)
+struct Stopwatch {
+  decltype(std::chrono::steady_clock::now()) start;
+
+  Stopwatch()
+  {
+    reset();
+  }
+
+  void reset()
+  {
+    start = std::chrono::steady_clock::now();
+  }
+
+  void print(std::ostream& out) const
+  {
+    out << std::chrono::duration<double, std::milli>(
+               std::chrono::steady_clock::now() - start)
+               .count()
+        << "ms";
+  }
+};
+
+inline std::ostream& operator<<(std::ostream& out, const Stopwatch& value)
 {
-  return eval(convert_utf8_to_utf16(source), visitor, verbose, parse, run);
+  value.print(out);
+  return out;
 }
 
-void eval(
-    const std::u16string& source, Visitor& visitor, bool verbose, bool parse,
-    bool run)
+// std::ostream& operator<<(std::ostream& out, const Options& v)
+// {
+//   out << "Options {\n";
+
+//   auto it = v.begin();
+//   if (it != v.end())
+//     out << it->first << ": " << it->second;
+//   while (++it != v.end())
+//     out << ",\n" << it->first << ": " << it->second;
+//   out << "\n}\n";
+//   return out;
+// }
+
+void eval(const Source& source, Visitor& visitor, const Options& opts)
 {
+  auto verbose = opts.count("verbose");
+  auto parse   = true;
+  auto run     = true;
+
   auto logger = make_standard_logger(std::cout);
-  // auto lexer = make_lexer(gsl::make_span(buffer.getBuffer(),
-  // buffer.length()));
-  auto start = std::chrono::steady_clock::now();
-  auto lexer = make_lexer(source);
-  // if (verbose) lexer.verbose();
+  auto watch  = Stopwatch{};
+
+  auto lexer  = make_lexer(source);
   auto tokens = lexer.tokens();
+
   if (verbose)
-    std::cout << "Lexing took "
-              << std::chrono::duration<double, std::milli>(
-                     std::chrono::steady_clock::now() - start)
-                     .count()
-              << " ms\n";
+    std::cout << "Lexing took " << watch << "\n";
 
   if (parse) {
     auto parser = make_parser(tokens);
-    if (verbose)
-      parser.logger(logger.get());
-    start = std::chrono::steady_clock::now();
+    watch.reset();
 
     auto program = parser.parse();
     if (verbose)
-      std::cout << "Parsing took "
-                << std::chrono::duration<double, std::milli>(
-                       std::chrono::steady_clock::now() - start)
-                       .count()
-                << " ms\n";
+      std::cout << "Parsing took " << watch << "\n";
 
     if (run) {
-      start = std::chrono::steady_clock::now();
+      watch.reset();
       program.accept(visitor);
       if (verbose)
-        std::cout << "Evaluating took "
-                  << std::chrono::duration<double, std::milli>(
-                         std::chrono::steady_clock::now() - start)
-                         .count()
-                  << " ms\n";
+        std::cout << "Evaluating took " << watch << "\n";
     }
   }
 }

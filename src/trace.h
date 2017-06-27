@@ -1,7 +1,9 @@
 #ifndef ECMASCRIPT_TRACE_H
 #define ECMASCRIPT_TRACE_H
 
+#ifdef HAVE_CONFIG_H
 #include "config.h"
+#endif
 
 #include <string>
 #include <vector>

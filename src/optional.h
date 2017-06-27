@@ -1,7 +1,9 @@
 #ifndef ECMASCRIPT_OPTIONAL_H
 #define ECMASCRIPT_OPTIONAL_H
 
+#ifdef HAVE_CONFIG_H
 #include "config.h"
+#endif
 
 #if defined(HAVE_STD_OPTIONAL)
 
