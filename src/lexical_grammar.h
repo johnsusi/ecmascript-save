@@ -8,6 +8,7 @@
 
 #include <algorithm>
 #include <cmath>
+#include <iostream>
 #include <iterator>
 #include <string>
 #include <vector>
@@ -78,11 +79,14 @@ public:
   {
     trace();
     auto match_start = match.mark();
-    if (white_space()) return InputElement::white_space();
-    if (line_terminator()) return InputElement::line_terminator();
+    if (white_space())
+      return InputElement::white_space();
+    if (line_terminator())
+      return InputElement::line_terminator();
     if (comment())
       return InputElement::comment(std::u16string{match_start, match.mark()});
-    if (token()) return InputElement::token(std::move(token_value));
+    if (token())
+      return InputElement::token(std::move(token_value));
     if (div_punctuator())
       return InputElement::token(
           Token::punctuator({match_start, match.mark()}));
@@ -93,8 +97,10 @@ public:
   {
     trace();
     auto match_start = match.mark();
-    if (white_space()) return InputElement::white_space();
-    if (line_terminator()) return InputElement::line_terminator();
+    if (white_space())
+      return InputElement::white_space();
+    if (line_terminator())
+      return InputElement::line_terminator();
     if (comment())
       return InputElement::comment(std::u16string{match_start, match.mark()});
     if (token() || regular_expression_literal())
@@ -224,6 +230,7 @@ public:
   // 7.5 Tokens
   bool token()
   {
+    std::cout << "token\n";
     trace();
     token_value = Token("null");
     auto i      = match.mark();
@@ -275,7 +282,8 @@ public:
   bool identifier_part()
   {
     trace();
-    if (identifier_start()) return true;
+    if (identifier_start())
+      return true;
     if (unicode_combining_mark() || unicode_digit()
         || unicode_connector_punctuation()
         || match.any_of(0x200C, 0x200D)) {
@@ -340,7 +348,8 @@ public:
   bool punctuator()
   {
     trace();
-    if (match.peek('.') && match.lookahead(is_decimal_digit)) return false;
+    if (match.peek('.') && match.lookahead(is_decimal_digit))
+      return false;
     return match.any_of(
         // Note: Must match longer strings first
         ">>>=", "<<=", ">>=", ">>>", "!==", "===", "!=", "%=", "&&",
@@ -394,9 +403,14 @@ public:
   double mv;
   bool   numeric_literal()
   {
+    std::cout << "numeric literal\n";
     trace();
-    if (!hex_integer_literal() && !decimal_literal()) return false;
-    if (identifier_start() || decimal_digit()) syntax_error();
+    if (!hex_integer_literal() && !decimal_literal())
+      return false;
+    std::cout << "Testing for faliure\n";
+    if (identifier_start() || decimal_digit())
+      syntax_error();
+    std::cout << "No failure\n";
     return true;
   }
 
@@ -405,7 +419,8 @@ public:
     trace();
     auto s0 = match.mark();
     if (match('.')) {
-      if (!decimal_digits()) syntax_error();
+      if (!decimal_digits())
+        syntax_error();
     }
     else if (decimal_integer_literal()) {
       if (match('.')) {
@@ -459,7 +474,8 @@ public:
   bool decimal_digits()
   {
     trace();
-    if (!decimal_digit()) return false;
+    if (!decimal_digit())
+      return false;
     auto s = mv;
     while (decimal_digit()) {
       s = s * 10 + mv;
@@ -491,8 +507,10 @@ public:
   bool exponent_part()
   {
     trace();
-    if (!exponent_indicator()) return false;
-    if (!signed_integer()) syntax_error();
+    if (!exponent_indicator())
+      return false;
+    if (!signed_integer())
+      syntax_error();
     return true;
   }
 
@@ -507,11 +525,13 @@ public:
     trace();
 
     if (match("+")) {
-      if (!decimal_digits()) syntax_error();
+      if (!decimal_digits())
+        syntax_error();
       return true;
     }
     if (match("-")) {
-      if (!decimal_digits()) syntax_error();
+      if (!decimal_digits())
+        syntax_error();
       mv = -mv;
       return true;
     }
@@ -521,15 +541,18 @@ public:
   bool hex_integer_literal()
   {
     trace();
-    if (!match("0x") && !match("0X")) return false;
-    if (!hex_digits()) syntax_error();
+    if (!match("0x") && !match("0X"))
+      return false;
+    if (!hex_digits())
+      syntax_error();
     return true;
   }
 
   bool hex_digits()
   {
     trace();
-    if (!hex_digit()) return false;
+    if (!hex_digit())
+      return false;
     long s = mv;
     while (hex_digit()) {
       s = 16 * s + mv;
@@ -581,13 +604,15 @@ public:
     if (match('"')) {
       sv = {};
       double_string_characters();
-      if (!match('"')) syntax_error("Expected \"");
+      if (!match('"'))
+        syntax_error("Expected \"");
       return true;
     }
     else if (match('\'')) {
       sv = {};
       single_string_characters();
-      if (!match('\'')) syntax_error("Expected '");
+      if (!match('\''))
+        syntax_error("Expected '");
       return true;
     }
     else
@@ -597,13 +622,15 @@ public:
   void double_string_characters()
   {
     trace();
-    while (double_string_character()) sv += cv;
+    while (double_string_character())
+      sv += cv;
   }
 
   void single_string_characters()
   {
     trace();
-    while (single_string_character()) sv += cv;
+    while (single_string_character())
+      sv += cv;
   }
 
   bool double_string_character()
@@ -617,7 +644,8 @@ public:
           return this->double_string_character();
         return this->escape_sequence();
       default:
-        if (is_line_terminator(cp)) return false;
+        if (is_line_terminator(cp))
+          return false;
         cv = *match;
         return true;
       }
@@ -635,7 +663,8 @@ public:
           return this->single_string_character();
         return this->escape_sequence();
       default:
-        if (is_line_terminator(cp)) return false;
+        if (is_line_terminator(cp))
+          return false;
         cv = *match;
         return true;
       }
@@ -744,10 +773,13 @@ public:
   {
     trace();
     return match([this] {
-      if (!match('x')) return false;
-      if (!hex_digit()) return false;
+      if (!match('x'))
+        return false;
+      if (!hex_digit())
+        return false;
       cv = std::lround(mv);
-      if (!hex_digit()) return false;
+      if (!hex_digit())
+        return false;
       cv = cv * 16 + std::lround(mv);
       return true;
     });
@@ -757,14 +789,19 @@ public:
   {
     trace();
     return match([this] {
-      if (!match('u')) return false;
-      if (!hex_digit()) return false;
+      if (!match('u'))
+        return false;
+      if (!hex_digit())
+        return false;
       cv = std::lround(mv);
-      if (!hex_digit()) return false;
+      if (!hex_digit())
+        return false;
       cv = cv * 16 + std::lround(mv);
-      if (!hex_digit()) return false;
+      if (!hex_digit())
+        return false;
       cv = cv * 16 + std::lround(mv);
-      if (!hex_digit()) return false;
+      if (!hex_digit())
+        return false;
       cv = cv * 16 + std::lround(mv);
       return true;
     });
@@ -775,7 +812,8 @@ public:
   {
     trace();
     auto m = match.mark();
-    if (!match('/')) return false;
+    if (!match('/'))
+      return false;
     if (!regular_expression_body() || !match('/')
         || !regular_expression_flags())
       syntax_error();

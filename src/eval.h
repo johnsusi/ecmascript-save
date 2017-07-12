@@ -14,14 +14,14 @@ class Source {
 
   std::u16string data;
 
-  Source(std::u16string&& data) : data(std::forward<std::u16string>(data))
+  Source(std::u16string data) : data(std::move(data))
   {
   }
 
 public:
   static Source from_utf8(const std::string& s)
   {
-    return {convert_utf8_to_utf16(s)};
+    return {std::move(convert_utf8_to_utf16(s))};
   }
   static Source from_utf16(const std::u16string&);
 

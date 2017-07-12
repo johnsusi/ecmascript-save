@@ -8,6 +8,9 @@
 class Logger {
 
 public:
+  virtual ~Logger()
+  {
+  }
   virtual void log(const std::string&) = 0;
 
   template <typename T>
@@ -32,8 +35,13 @@ class StandardLogger : public Logger {
   T& out;
 
 public:
-  StandardLogger(T& out) : out(out) {}
-  void log(const std::string& what) override { out << what; }
+  StandardLogger(T& out) : out(out)
+  {
+  }
+  void log(const std::string& what) override
+  {
+    out << what;
+  }
 };
 
 template <typename T>

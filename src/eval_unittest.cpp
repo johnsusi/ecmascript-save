@@ -14,8 +14,13 @@ struct Expression {
 
 struct NumericLiteral : Expression {
   Number value;
-  NumericLiteral(Number value) : value(value) {}
-  Type eval(Context& context) const final { return value; }
+  NumericLiteral(Number value) : value(value)
+  {
+  }
+  Type eval(Context& context) const final
+  {
+    return value;
+  }
 };
 
 struct BinaryExpression : Expression {
@@ -66,7 +71,7 @@ TEST_CASE("eval")
 
   Context context;
 
-  auto result = program->eval(context);
+  // auto result = program->eval(context);
 
   // auto str = static_cast<std::string>(ToString(result));
 

@@ -27,6 +27,7 @@ class Token {
   static const type_t NUMERIC_LITERAL            = 0b0010000000000000;
   static const type_t STRING_LITERAL             = 0b0100000000000000;
   static const type_t REGULAR_EXPRESSION_LITERAL = 0b1000000000000000;
+  static const type_t LITERAL                    = 0b1111100000000000;
 
   static const type_t RESERVED_WORD =
       KEYWORD | FUTURE_RESERVED_WORD | NULL_LITERAL | BOOLEAN_LITERAL;
@@ -232,6 +233,9 @@ public:
         REGULAR_EXPRESSION_LITERAL, &create_static_string(std::move(value)));
   }
   struct DebugInfo {
+    virtual ~DebugInfo()
+    {
+    }
     virtual std::string syntax_error_at() const = 0;
     virtual std::string loc() const             = 0;
   };
@@ -346,6 +350,11 @@ public:
   constexpr bool is_regular_expression_literal() const
   {
     return (m_type & REGULAR_EXPRESSION_LITERAL) == REGULAR_EXPRESSION_LITERAL;
+  }
+
+  constexpr bool is_literal() const
+  {
+    return (m_type & LITERAL) != 0;
   }
 
   constexpr bool boolean_value() const

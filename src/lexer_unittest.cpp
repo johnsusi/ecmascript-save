@@ -11,7 +11,7 @@ TEST_CASE("7.8.1 Null literals")
 TEST_CASE("7.8.3 Numeric Literals")
 {
 
-  REQUIRE_THROWS(Lexer("3in").tokens());
+  REQUIRE_THROWS([] { Lexer("3in").tokens(); });
 
   REQUIRE(Lexer("0x1") == Lexer{Token::numeric_literal(1)});
 

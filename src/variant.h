@@ -39,8 +39,6 @@ using namespace mpark;
 template <typename... Ts>
 using variant = boost::variant<Ts...>;
 
-template <typename... Ts>
-
 #define get_if boost::get
 #define visit boost::apply_visitor
 

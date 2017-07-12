@@ -105,7 +105,6 @@ struct PrimaryExpression : LeftHandSideExpression {
 };
 
 struct ThisExpression : PrimaryExpression {
-  ThisExpression(This*) {}
   void accept(Visitor& visitor) const override { return visitor(*this); }
   const char*          type() const override { return "ThisExpression"; }
 };
