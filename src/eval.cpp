@@ -54,8 +54,7 @@ void eval(const Source& source, Visitor& visitor, const Options& opts)
   auto parse   = true;
   auto run     = true;
 
-  auto logger = make_standard_logger(std::cout);
-  auto watch  = Stopwatch{};
+  auto watch = Stopwatch{};
 
   auto lexer  = make_lexer(source);
   auto tokens = lexer.tokens();
