@@ -12,6 +12,7 @@ class Matcher {
   It m_begin, m_cur, m_end;
 
 public:
+  Matcher() {}
   Matcher(It begin, It end) : m_begin(begin), m_cur(begin), m_end(end){};
 
   bool done() const { return m_cur == m_end; }
@@ -36,6 +37,13 @@ public:
     auto m = m_cur;
     if (m_cur != m_end && pred(*m_cur++)) return true;
     return m_cur = m, false;
+  }
+
+  template <typename Member>
+  auto match(Member&& member) -> decltype( (*m_cur.*member)(), bool())
+  {
+    if (m_cur != m_end && (*m_cur.*member)()) return ++m_cur, true;
+    return false;
   }
 
   bool match(const char* value)

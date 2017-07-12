@@ -22,7 +22,7 @@ public:
 
 class Parser {
 
-  Matcher<Token, std::vector<Token>::iterator> match;
+  Matcher<Token, std::vector<Token>::const_iterator> match;
 
   std::shared_ptr<std::vector<std::unique_ptr<Node>>> storage;
   std::vector<Node*>                                  stack;
@@ -141,7 +141,7 @@ class Parser {
   bool null_literal()
   {
     trace();
-    if (!match([](const auto& token) { return token.is_null_literal(); }))
+    if (!match(&Token::is_null_literal))
       return false;
     emplace<NullLiteral>();
     return true;
@@ -150,7 +150,7 @@ class Parser {
   bool boolean_literal()
   {
     trace();
-    if (!match([](const auto& token) { return token.is_boolean_literal(); }))
+    if (!match(&Token::is_boolean_literal))
       return false;
     emplace<BooleanLiteral>(match->boolean_value());
     return true;
@@ -159,7 +159,7 @@ class Parser {
   bool numeric_literal()
   {
     trace();
-    if (!match([](const auto& token) { return token.is_numeric_literal(); }))
+    if (!match(&Token::is_numeric_literal))
       return false;
     emplace<NumericLiteral>(match->numeric_value());
     return true;
@@ -168,7 +168,7 @@ class Parser {
   bool string_literal()
   {
     trace();
-    if (!match([](const auto& token) { return token.is_string_literal(); }))
+    if (!match(&Token::is_string_literal))
       return false;
     emplace<StringLiteral>(match->string_value());
     return true;
@@ -177,9 +177,7 @@ class Parser {
   bool regular_expression_literal()
   {
     trace();
-    if (!match([](const auto& token) {
-          return token.is_regular_expression_literal();
-        }))
+    if (!match(&Token::is_regular_expression_literal))
       return false;
     emplace<RegularExpressionLiteral>(match->string_value());
     return true;
@@ -194,8 +192,7 @@ class Parser {
         syntax_error();
     }
     else if (match("this")) {
-      emplace<This>();
-      replace<ThisExpression, This>();
+      emplace<ThisExpression>();
     }
     else if (identifier()) {
       replace<IdentifierExpression, Identifier>();
