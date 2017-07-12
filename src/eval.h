@@ -14,7 +14,7 @@ class Source {
 
   std::u16string data;
 
-  Source(std::u16string&& data) : data(std::move(data))
+  Source(std::u16string&& data) : data(std::forward<std::u16string>(data))
   {
   }
 
