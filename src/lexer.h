@@ -1,168 +1,58 @@
 #ifndef ECMASCRIPT_LEXER_H
 #define ECMASCRIPT_LEXER_H
 
-#include "lexical_grammar.h"
-#include "tokens.h"
-#include "trace.h"
+#include "optional.h"
+#include "source.h"
+#include "token.h"
 
-#include <algorithm>
 #include <iterator>
+#include <memory>
 #include <string>
 #include <vector>
 
-#include <iostream>
+class Lexer {
 
-std::u16string convert_utf8_to_utf16(const std::string&);
+  struct Private;
+  const std::shared_ptr<Private> pimpl; // flyweight
 
-template <
-    typename It,
-    typename T = char16_t /*typename std::iterator_traits<It>::value_type*/>
-class BasicLexer {
-  std::unique_ptr<LexicalGrammar<T>> grammar;
-
-  struct DebugInfo : Token::DebugInfo {
-    It  s, at, to;
-    int col, row;
-
-    DebugInfo(It s, It at, It to, int col, int row)
-        : s(s), at(at), to(to), col(col), row(row)
-    {
-    }
-
-    std::string syntax_error_at() const final
-    {
-      auto it = at;
-      while (!is_line_terminator(*it) && it != s) {
-        --it;
-      }
-      std::string line1{it, at};
-      std::string line2(line1.size() - 1, '.');
-      return line1 + std::string{at, to} + "\n" + line2 + "^\n";
-    }
-
-    std::string loc() const final
-    {
-      return "[" + std::to_string(col) + ":" + std::to_string(row) + "]";
-    }
-  };
-
-  static bool reg_exp_allowed(const Token& token)
-  {
-    return token.any_of(
-        "return", "new", "delete", "throw", "else", "case", "in", "instanceof",
-        "typeof", "new", "void", "delete", "+", "-", "!", "~", "&", "|", "^",
-        "*", "/", "%", ">>", "<<", ">>>", "<", ">",
-        "<=", ">=", "==", "===", "!=", "!==", "?", "=", "+=", "-=", "/=", "*=",
-        "%=", ">>=", "<<=", ">>>=", "|=", "^=", "&=", "&&", "||", "[", "{", "(",
-        ",", ";", ":");
-  }
-
-  mutable Tokens m_tokens;
+  const std::vector<Token>& tokens() const;
 
 public:
-  BasicLexer()
+  Lexer(std::vector<Token>);
+  Lexer(Source);
+
+  Lexer(const char* source) : Lexer(Source::from_utf8(source))
+  {
+  }
+  Lexer(const std::string& source) : Lexer(Source::from_utf8(source))
   {
   }
 
-  // BasicLexer(std::initializer_list<Token> tokens) : m_tokens(tokens)
-  // {
-  // }
-
-  BasicLexer(std::vector<Token> tokens) : m_tokens(std::move(tokens))
+  auto begin() const
   {
+    return tokens().begin();
   }
 
-  template <typename It2>
-  BasicLexer(It2 begin, It2 end) : grammar(new LexicalGrammar<T>(begin, end))
+  auto end() const
   {
-    std::puts("Lexer\n");
+    return tokens().end();
   }
 
-  BasicLexer(const std::u16string& str) : BasicLexer(str.begin(), str.end())
-  {
-  }
-
-  BasicLexer(const std::string& str) : BasicLexer(convert_utf8_to_utf16(str))
-  {
-  }
-
-  Tokens tokens() const
-  {
-    trace();
-    if (m_tokens || !grammar)
-      return m_tokens;
-    bool lt  = false;
-    int  col = 0, row = 0;
-    bool re = true;
-    // auto s  = grammar->match.mark();
-    auto m = grammar->match.mark();
-    while (auto input_element = re ? grammar->input_element_reg_exp()
-                                   : grammar->input_element_div()) {
-
-      if (input_element.is_white_space())
-        col++;
-      else if (input_element.has_line_terminator()) {
-        lt  = true;
-        col = 0;
-        row++;
-      }
-      else if (auto token = input_element.to_token()) {
-        if (lt)
-          token->set_preceded_by_line_terminator();
-        // m_tokens.storage->debug_infos.push_back(std::make_unique<DebugInfo>(
-        //     s, m + 1, grammar->match.mark(), col, row));
-        // token->debug_info = m_tokens.storage->debug_infos.back().get();
-
-        re = reg_exp_allowed(*token);
-        lt = false;
-
-        m_tokens.add(*token);
-      }
-      m = grammar->match.mark();
+  struct DebugInfo {
+    virtual ~DebugInfo()
+    {
     }
-    return m_tokens;
-  }
+    virtual std::string syntax_error_at() const = 0;
+    virtual std::string loc() const             = 0;
+  };
+
+  DebugInfo* lookup(const std::vector<Token>::const_iterator&) const;
 };
 
-using Lexer = BasicLexer<std::u16string::const_iterator, char16_t>;
+bool operator==(const Lexer& lhs, const Lexer& rhs);
 
-template <typename It>
-auto make_lexer(It f, It l)
-{
-  return BasicLexer<It>{f, l};
-}
+bool operator!=(const Lexer& lhs, const Lexer& rhs);
 
-template <typename Cont>
-auto make_lexer(Cont&& cont)
-{
-  using namespace std;
-  return make_lexer(begin(cont), end(cont));
-}
-
-template <typename T>
-bool operator==(const BasicLexer<T>& lhs, const BasicLexer<T>& rhs)
-{
-  return std::equal(
-      lhs.tokens().begin(), lhs.tokens().end(), rhs.tokens().begin(),
-      rhs.tokens().end());
-}
-
-template <typename T>
-bool operator!=(const BasicLexer<T>& lhs, const BasicLexer<T>& rhs)
-{
-  return !(lhs == rhs);
-}
-
-template <typename T>
-std::ostream& operator<<(std::ostream& out, const BasicLexer<T>& lexer)
-{
-  out << "[";
-  auto it = lexer.tokens().begin();
-  out << *it++;
-  while (it != lexer.tokens().end())
-    out << ", " << *it++;
-  out << "]";
-  return out;
-}
+std::ostream& operator<<(std::ostream& out, const Lexer& lexer);
 
 #endif

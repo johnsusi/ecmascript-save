@@ -48,7 +48,9 @@ else ()
     src/options.cpp
     src/parser.cpp
     src/runtime.cpp
+    src/source.cpp
     src/token.cpp
+    src/tokens.cpp
     src/trace.cpp
     src/util.cpp
     src/type.cpp
@@ -164,3 +166,8 @@ configure_file(src/config.h.in config.h @ONLY)
 #   NAMESPACE Ecmascript::
 #   DESTINATION lib/cmake/Ecmascript
 # )
+
+
+
+# add_executable(TokenTest src/test_runner.cpp src/token.cpp src/token_unittest.cpp src/util.cpp)
+

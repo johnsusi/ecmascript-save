@@ -1,7 +1,147 @@
 #include "lexer.h"
+#include "lexical_grammar.h"
+#include "trace.h"
 #include "util.h"
 
+#include <algorithm>
+#include <iostream>
+
 #include <unicode/uchar.h>
+
+using namespace std;
+
+struct DebugInfoImpl : Lexer::DebugInfo {
+
+  using It = std::u16string::const_iterator;
+
+  It  s, at, to;
+  int col, row;
+
+  DebugInfoImpl(It s, It at, It to, int col, int row)
+      : s(s), at(at), to(to), col(col), row(row)
+  {
+  }
+
+  std::string syntax_error_at() const final
+  {
+    auto it = at;
+    while (!is_line_terminator(*it) && it != s) {
+      --it;
+    }
+    std::string line1{it, at};
+    std::string line2(line1.size() - 1, '.');
+    return line1 + std::string{at, to} + "\n" + line2 + "^\n";
+  }
+
+  std::string loc() const final
+  {
+    return "[" + std::to_string(col) + ":" + std::to_string(row) + "]";
+  }
+};
+
+static bool reg_exp_allowed(const Token& token)
+{
+  return token.any_of(
+      "return", "new", "delete", "throw", "else", "case", "in", "instanceof",
+      "typeof", "new", "void", "delete", "+", "-", "!", "~", "&", "|", "^", "*",
+      "/", "%", ">>", "<<", ">>>", "<", ">",
+      "<=", ">=", "==", "===", "!=", "!==", "?", "=", "+=", "-=", "/=", "*=",
+      "%=", ">>=", "<<=", ">>>=", "|=", "^=", "&=", "&&", "||", "[", "{", "(",
+      ",", ";", ":");
+}
+
+static void
+lex(const Source& source, vector<Token>& tokens, vector<DebugInfoImpl>& debug)
+{
+  trace();
+
+  LexicalGrammar<char16_t> grammar{source.begin(), source.end()};
+
+  bool lt  = false;
+  int  col = 0, row = 0;
+  bool re = true;
+  auto s  = grammar.match.mark();
+  auto m  = grammar.match.mark();
+  try {
+    while (auto input_element = re ? grammar.input_element_reg_exp()
+                                   : grammar.input_element_div()) {
+
+      if (input_element.is_white_space())
+        col++;
+      else if (input_element.has_line_terminator()) {
+        lt  = true;
+        col = 0;
+        row++;
+      }
+      else if (auto token = input_element.to_token()) {
+        if (lt)
+          token->set_preceded_by_line_terminator();
+        tokens.push_back(*token);
+        debug.emplace_back(s, m + 1, grammar.match.mark(), col, row);
+
+        re = reg_exp_allowed(*token);
+        lt = false;
+        col += std::distance(m, grammar.match.mark());
+      }
+      m = grammar.match.mark();
+    }
+  }
+  catch (const exception& err) {
+    DebugInfoImpl di{s, m + 1, grammar.match.mark(), col, row};
+    throw std::runtime_error(string{err.what()} + "\n" + di.syntax_error_at());
+  }
+}
+
+struct Lexer::Private {
+  Source                source;
+  vector<Token>         tokens;
+  vector<DebugInfoImpl> debug_infos;
+};
+
+Lexer::Lexer(vector<Token> tokens) : pimpl(make_shared<Private>())
+{
+  pimpl->tokens = move(tokens);
+}
+
+Lexer::Lexer(Source source) : pimpl(make_shared<Private>())
+{
+  pimpl->source = move(source);
+  lex(pimpl->source, pimpl->tokens, pimpl->debug_infos);
+}
+
+const std::vector<Token>& Lexer::tokens() const
+{
+  return pimpl->tokens;
+}
+
+Lexer::DebugInfo* Lexer::lookup(const vector<Token>::const_iterator& it) const
+{
+  auto offset = distance(begin(), it);
+  if (offset < pimpl->debug_infos.size())
+    return &pimpl->debug_infos.at(offset);
+  return nullptr;
+}
+
+bool operator==(const Lexer& lhs, const Lexer& rhs)
+{
+  return std::equal(lhs.begin(), lhs.end(), rhs.begin(), rhs.end());
+}
+
+bool operator!=(const Lexer& lhs, const Lexer& rhs)
+{
+  return !(lhs == rhs);
+}
+
+std::ostream& operator<<(std::ostream& out, const Lexer& lexer)
+{
+  out << "[";
+  auto it = lexer.begin();
+  out << *it++;
+  while (it != lexer.end())
+    out << ", " << *it++;
+  out << "]";
+  return out;
+}
 
 // 7.2
 bool is_white_space(int cp)

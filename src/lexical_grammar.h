@@ -230,7 +230,6 @@ public:
   // 7.5 Tokens
   bool token()
   {
-    std::cout << "token\n";
     trace();
     token_value = Token("null");
     auto i      = match.mark();
@@ -401,16 +400,14 @@ public:
 
   // 7.8.3
   double mv;
-  bool   numeric_literal()
+
+  bool numeric_literal()
   {
-    std::cout << "numeric literal\n";
     trace();
     if (!hex_integer_literal() && !decimal_literal())
       return false;
-    std::cout << "Testing for faliure\n";
     if (identifier_start() || decimal_digit())
       syntax_error();
-    std::cout << "No failure\n";
     return true;
   }
 

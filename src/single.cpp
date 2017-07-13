@@ -8,6 +8,7 @@
 #include "options.cpp"
 #include "parser.cpp"
 #include "runtime.cpp"
+#include "source.cpp"
 #include "token.cpp"
 #include "trace.cpp"
 #include "type.cpp"

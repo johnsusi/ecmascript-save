@@ -56,14 +56,13 @@ void eval(const Source& source, Visitor& visitor, const Options& opts)
 
   auto watch = Stopwatch{};
 
-  auto lexer  = make_lexer(source);
-  auto tokens = lexer.tokens();
+  auto lexer = Lexer{source};
 
   if (verbose)
     std::cout << "Lexing took " << watch << "\n";
 
   if (parse) {
-    auto parser = make_parser(tokens);
+    auto parser = make_parser(lexer);
     watch.reset();
 
     auto program = parser.parse();
