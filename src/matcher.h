@@ -12,14 +12,20 @@ class Matcher {
   It m_begin, m_cur, m_end;
 
 public:
-  Matcher() {}
+  Matcher()
+  {
+  }
   Matcher(It begin, It end) : m_begin(begin), m_cur(begin), m_end(end){};
 
-  bool done() const { return m_cur == m_end; }
+  bool done() const
+  {
+    return m_cur == m_end;
+  }
 
   bool match(const T& value)
   {
-    if (m_cur != m_end && *m_cur == value) return ++m_cur, true;
+    if (m_cur != m_end && *m_cur == value)
+      return ++m_cur, true;
     return false;
   }
 
@@ -27,7 +33,8 @@ public:
   auto match(Pred&& pred) -> decltype(pred(), bool())
   {
     auto m = m_cur;
-    if (pred()) return true;
+    if (pred())
+      return true;
     return m_cur = m, false;
   }
 
@@ -35,14 +42,16 @@ public:
   auto match(Pred&& pred) -> decltype(pred(*m_cur), bool())
   {
     auto m = m_cur;
-    if (m_cur != m_end && pred(*m_cur++)) return true;
+    if (m_cur != m_end && pred(*m_cur++))
+      return true;
     return m_cur = m, false;
   }
 
   template <typename Member>
-  auto match(Member&& member) -> decltype( (*m_cur.*member)(), bool())
+  auto match(Member&& member) -> decltype((*m_cur.*member)(), bool())
   {
-    if (m_cur != m_end && (*m_cur.*member)()) return ++m_cur, true;
+    if (m_cur != m_end && (*m_cur.*member)())
+      return ++m_cur, true;
     return false;
   }
 
@@ -62,7 +71,8 @@ public:
   {
     auto m = m_cur;
     while (*value) {
-      if (!match(*value++)) return m_cur = m, false;
+      if (!match(*value++))
+        return m_cur = m, false;
     }
     return true;
   }
@@ -71,7 +81,8 @@ public:
   auto rmatch(Pred&& pred) -> decltype(pred(), bool())
   {
     auto m = m_cur;
-    if (pred()) return true;
+    if (pred())
+      return true;
     return m_cur = m, false;
   }
 
@@ -81,11 +92,15 @@ public:
     auto m = m_cur;
     std::cout << "rmatch: " << (m_cur == m_begin) << (m_cur == m_end)
               << std::endl;
-    if (m_cur != m_begin && pred(*(--m_cur))) return true;
+    if (m_cur != m_begin && pred(*(--m_cur)))
+      return true;
     return m_cur = m, false;
   }
 
-  bool peek(const T& value) const { return m_cur != m_end && *m_cur == value; }
+  bool peek(const T& value) const
+  {
+    return m_cur != m_end && *m_cur == value;
+  }
 
   template <typename Pred>
   auto peek(Pred&& pred) const -> decltype(pred(*m_cur), bool())
@@ -110,15 +125,30 @@ public:
     return match(arg) || any_of(std::forward<Args>(args)...);
   }
 
-  bool any_of() { return false; }
+  bool any_of()
+  {
+    return false;
+  }
 
-  It mark() const { return m_cur; }
+  It mark() const
+  {
+    return m_cur;
+  }
 
-  void reset(It mark) { m_cur = mark; }
+  void reset(It mark)
+  {
+    m_cur = mark;
+  }
 
-  void reset() { m_cur = m_begin; }
+  void reset()
+  {
+    m_cur = m_begin;
+  }
 
-  auto distance(It mark) const { return std::distance(mark, m_cur); }
+  auto distance(It mark) const
+  {
+    return std::distance(mark, m_cur);
+  }
 
   template <typename... Args>
   bool operator()(Args&&... args)
@@ -126,16 +156,25 @@ public:
     return match(std::forward<Args>(args)...);
   }
 
-  const T* operator->() const { return matched(); }
+  const T* operator->() const
+  {
+    return matched();
+  }
 
   const T* matched() const
   {
     return m_cur != m_begin ? &*(m_cur - 1) : nullptr;
   }
 
-  const It matching() const { return m_cur; }
+  const It matching() const
+  {
+    return m_cur;
+  }
 
-  operator const T*() const { return matched(); }
+  operator const T*() const
+  {
+    return matched();
+  }
   operator const T&() const
   // Dereference without a positive match is undefined
   {
@@ -147,7 +186,10 @@ public:
   {
     return *matched();
   }
-  operator std::string() const { return *matched(); }
+  operator std::string() const
+  {
+    return *matched();
+  }
 };
 
 #endif

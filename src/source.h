@@ -10,29 +10,16 @@ class Source {
   Source(std::u16string data);
 
 public:
-  Source()
-  {
-  }
+  using iterator = std::u16string::const_iterator;
+
+  Source();
   static Source from_utf8(const std::string& s);
   static Source from_utf16(std::u16string);
 
-  explicit operator const std::u16string&() const
-  {
-    return data;
-  }
-
-  auto begin() const
-  {
-    return data.begin();
-  }
-  auto end() const
-  {
-    return data.end();
-  }
-  auto size() const
-  {
-    return data.size();
-  }
+  explicit operator const std::u16string&() const;
+  iterator    begin() const;
+  iterator    end() const;
+  std::size_t size() const;
 };
 
 #endif

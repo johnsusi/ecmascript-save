@@ -101,7 +101,6 @@ int main(int argc, const char** argv)
     if (options.count("help"))
       cout << usage;
     else if (options.count("eval")) {
-      std::cout << options["eval"] << std::endl;
       run(Source::from_utf8(options["eval"]));
     }
     else if (!options["input-file"].empty()) {

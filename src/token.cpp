@@ -2,8 +2,7 @@
 
 std::ostream& operator<<(std::ostream& out, const Token& token)
 {
-  token.print(out);
-  return out;
+  return out << token.to_string();
 }
 
 std::u16string& create_static_string(std::u16string value)

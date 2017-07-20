@@ -61,8 +61,30 @@ void eval(const Source& source, Visitor& visitor, const Options& opts)
   if (verbose)
     std::cout << "Lexing took " << watch << "\n";
 
+  if (opts.count("lex")) {
+    std::cout << "[\n";
+    auto print_token = [](auto& out, const auto& token) {
+      auto index     = token.type() & ((1 << 7) - 1);
+      auto category  = (token.type() >> 7) & ((1 << 9) - 1);
+      auto modifiers = (token.type() >> 16) & ((1 << 2) - 1);
+      out << "  { \"type\": ";
+      out << "\"" << std::bitset<2>(modifiers);
+      out << "'" << std::bitset<9>(category);
+      out << "'" << std::bitset<7>(index);
+      out << "\", \"value\": \"" << token.to_string() << "\" }";
+    };
+    auto it = lexer.begin();
+    if (it != lexer.end())
+      print_token(std::cout, *it++);
+    while (it != lexer.end()) {
+      std::cout << ",\n";
+      print_token(std::cout, *it++);
+    }
+    std::cout << "\n]\n";
+  }
+
   if (parse) {
-    auto parser = make_parser(lexer);
+    auto parser = Parser{lexer};
     watch.reset();
 
     auto program = parser.parse();

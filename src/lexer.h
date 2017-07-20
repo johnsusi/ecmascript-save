@@ -5,38 +5,33 @@
 #include "source.h"
 #include "token.h"
 
-#include <iterator>
 #include <memory>
 #include <string>
 #include <vector>
 
 class Lexer {
 
-  struct Private;
-  const std::shared_ptr<Private> pimpl; // flyweight
-
-  const std::vector<Token>& tokens() const;
+  struct LexicalGrammar;
+  const std::shared_ptr<LexicalGrammar> grammar;
 
 public:
+  using iterator = std::vector<Token>::const_iterator;
+
+  Lexer();
+  Lexer(std::initializer_list<Token>);
   Lexer(std::vector<Token>);
   Lexer(Source);
+  Lexer(const char*);
+  Lexer(const char16_t*);
 
-  Lexer(const char* source) : Lexer(Source::from_utf8(source))
-  {
-  }
-  Lexer(const std::string& source) : Lexer(Source::from_utf8(source))
-  {
-  }
+  // template <typename... Args>
+  // Lexer(Args&&... args) :
+  // Lexer(std::vector<Token>{std::forward<Args>(args)...})
+  // {
+  // }
 
-  auto begin() const
-  {
-    return tokens().begin();
-  }
-
-  auto end() const
-  {
-    return tokens().end();
-  }
+  iterator begin() const;
+  iterator end() const;
 
   struct DebugInfo {
     virtual ~DebugInfo()

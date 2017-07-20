@@ -11,26 +11,183 @@
 #include <utility>
 #include <vector>
 
-std::u16string& create_static_string(std::u16string value);
+// using std::array;
+template <typename T, std::size_t N>
+struct array {
+
+  T data[N];
+
+  constexpr std::size_t size() const
+  {
+    return N;
+  }
+
+  constexpr auto begin() const
+  {
+    return data;
+  }
+
+  constexpr auto end() const
+  {
+    return data + N;
+  }
+};
 
 class Token {
 
   using type_t = std::size_t;
 
   // Lower 7 bits reserved for type index [0 94).
-  static const type_t IDENTIFIER                 = 0b0000000010000000;
-  static const type_t KEYWORD                    = 0b0000000100000000;
-  static const type_t PUNCTUATOR                 = 0b0000001000000000;
-  static const type_t FUTURE_RESERVED_WORD       = 0b0000010000000000;
-  static const type_t NULL_LITERAL               = 0b0000100000000000;
-  static const type_t BOOLEAN_LITERAL            = 0b0001000000000000;
-  static const type_t NUMERIC_LITERAL            = 0b0010000000000000;
-  static const type_t STRING_LITERAL             = 0b0100000000000000;
-  static const type_t REGULAR_EXPRESSION_LITERAL = 0b1000000000000000;
-  static const type_t LITERAL                    = 0b1111100000000000;
+  static const type_t CATEGORY_MASK        = 0b00'111111111'0000000;
+  static const type_t INDEX_MASK           = 0b00'000000000'1111111;
+  static const type_t IDENTIFIER           = 0b00'000000001'0000000;
+  static const type_t KEYWORD              = 0b00'000000010'0000000;
+  static const type_t PUNCTUATOR           = 0b00'000000100'0000000;
+  static const type_t FUTURE_RESERVED_WORD = 0b00'000001000'0000000;
+  static const type_t NULL_LITERAL         = 0b00'000010000'0000000;
+  static const type_t BOOLEAN_LITERAL      = 0b00'000100000'0000000;
+  static const type_t NUMERIC_LITERAL      = 0b00'001000000'0000000;
+  static const type_t STRING_LITERAL       = 0b00'010000000'0000000;
+  static const type_t REG_EXP_LITERAL      = 0b00'100000000'0000000;
+  static const type_t REG_EXP_ALLOWED      = 0b01'000000000'0000000;
+  static const type_t LT_PRECEDED          = 0b10'000000000'0000000;
+
+  static const type_t LITERAL = NULL_LITERAL | BOOLEAN_LITERAL | NUMERIC_LITERAL
+                                | STRING_LITERAL | REG_EXP_LITERAL;
 
   static const type_t RESERVED_WORD =
       KEYWORD | FUTURE_RESERVED_WORD | NULL_LITERAL | BOOLEAN_LITERAL;
+
+  type_t m_type;
+
+  union value_t {
+    const char*     c_str;
+    std::nullptr_t  empty;
+    double          numeric_value;
+    std::u16string* string_value;
+    constexpr value_t() : empty(nullptr)
+    {
+    }
+    constexpr value_t(const char* c_str) : c_str(c_str)
+    {
+    }
+    constexpr value_t(double value) : numeric_value(value)
+    {
+    }
+    constexpr value_t(std::u16string* value) : string_value(value)
+    {
+    }
+  } m_value;
+
+  constexpr Token(type_t type, value_t value) : m_type(type), m_value(value)
+  {
+  }
+
+  static constexpr std::pair<const char*, Token>
+  make_token_pair(const char* str, type_t type)
+  {
+    return {str, Token{type, {str}}};
+  }
+
+  static constexpr array<std::pair<const char*, Token>, 95> make_tokens()
+  {
+    int seq = 0;
+    return {{make_token_pair("!", PUNCTUATOR | ++seq | REG_EXP_ALLOWED),
+             make_token_pair("!=", PUNCTUATOR | ++seq | REG_EXP_ALLOWED),
+             make_token_pair("!==", PUNCTUATOR | ++seq | REG_EXP_ALLOWED),
+             make_token_pair("%", PUNCTUATOR | ++seq | REG_EXP_ALLOWED),
+             make_token_pair("%=", PUNCTUATOR | ++seq | REG_EXP_ALLOWED),
+             make_token_pair("&", PUNCTUATOR | ++seq | REG_EXP_ALLOWED),
+             make_token_pair("&&", PUNCTUATOR | ++seq | REG_EXP_ALLOWED),
+             make_token_pair("&=", PUNCTUATOR | ++seq | REG_EXP_ALLOWED),
+             make_token_pair("(", PUNCTUATOR | ++seq | REG_EXP_ALLOWED),
+             make_token_pair(")", PUNCTUATOR | ++seq),
+             make_token_pair("*", PUNCTUATOR | ++seq | REG_EXP_ALLOWED),
+             make_token_pair("*=", PUNCTUATOR | ++seq | REG_EXP_ALLOWED),
+             make_token_pair("+", PUNCTUATOR | ++seq | REG_EXP_ALLOWED),
+             make_token_pair("++", PUNCTUATOR | ++seq),
+             make_token_pair("+=", PUNCTUATOR | ++seq | REG_EXP_ALLOWED),
+             make_token_pair(",", PUNCTUATOR | ++seq | REG_EXP_ALLOWED),
+             make_token_pair("-", PUNCTUATOR | ++seq | REG_EXP_ALLOWED),
+             make_token_pair("--", PUNCTUATOR | ++seq),
+             make_token_pair("-=", PUNCTUATOR | ++seq | REG_EXP_ALLOWED),
+             make_token_pair(".", PUNCTUATOR | ++seq),
+             make_token_pair("/", PUNCTUATOR | ++seq | REG_EXP_ALLOWED),
+             make_token_pair("/=", PUNCTUATOR | ++seq | REG_EXP_ALLOWED),
+             make_token_pair(":", PUNCTUATOR | ++seq | REG_EXP_ALLOWED),
+             make_token_pair(";", PUNCTUATOR | ++seq | REG_EXP_ALLOWED),
+             make_token_pair("<", PUNCTUATOR | ++seq | REG_EXP_ALLOWED),
+             make_token_pair("<<", PUNCTUATOR | ++seq | REG_EXP_ALLOWED),
+             make_token_pair("<<=", PUNCTUATOR | ++seq | REG_EXP_ALLOWED),
+             make_token_pair("<=", PUNCTUATOR | ++seq | REG_EXP_ALLOWED),
+             make_token_pair("=", PUNCTUATOR | ++seq | REG_EXP_ALLOWED),
+             make_token_pair("==", PUNCTUATOR | ++seq | REG_EXP_ALLOWED),
+             make_token_pair("===", PUNCTUATOR | ++seq | REG_EXP_ALLOWED),
+             make_token_pair(">", PUNCTUATOR | ++seq | REG_EXP_ALLOWED),
+             make_token_pair(">=", PUNCTUATOR | ++seq | REG_EXP_ALLOWED),
+             make_token_pair(">>", PUNCTUATOR | ++seq | REG_EXP_ALLOWED),
+             make_token_pair(">>=", PUNCTUATOR | ++seq | REG_EXP_ALLOWED),
+             make_token_pair(">>>", PUNCTUATOR | ++seq | REG_EXP_ALLOWED),
+             make_token_pair(">>>=", PUNCTUATOR | ++seq | REG_EXP_ALLOWED),
+             make_token_pair("?", PUNCTUATOR | ++seq | REG_EXP_ALLOWED),
+             make_token_pair("[", PUNCTUATOR | ++seq | REG_EXP_ALLOWED),
+             make_token_pair("]", PUNCTUATOR | ++seq),
+             make_token_pair("^", PUNCTUATOR | ++seq | REG_EXP_ALLOWED),
+             make_token_pair("^=", PUNCTUATOR | ++seq | REG_EXP_ALLOWED),
+             make_token_pair("break", KEYWORD | ++seq),
+             make_token_pair("case", KEYWORD | ++seq | REG_EXP_ALLOWED),
+             make_token_pair("catch", KEYWORD | ++seq),
+             make_token_pair("class", FUTURE_RESERVED_WORD | ++seq),
+             make_token_pair("const", FUTURE_RESERVED_WORD | ++seq),
+             make_token_pair("continue", KEYWORD | ++seq),
+             make_token_pair("debugger", KEYWORD | ++seq),
+             make_token_pair("default", KEYWORD | ++seq),
+             make_token_pair("delete", KEYWORD | ++seq | REG_EXP_ALLOWED),
+             make_token_pair("do", KEYWORD | ++seq),
+             make_token_pair("else", KEYWORD | ++seq | REG_EXP_ALLOWED),
+             make_token_pair("enum", FUTURE_RESERVED_WORD | ++seq),
+             make_token_pair("export", FUTURE_RESERVED_WORD | ++seq),
+             make_token_pair("extends", FUTURE_RESERVED_WORD | ++seq),
+             make_token_pair("false", BOOLEAN_LITERAL | ++seq),
+             make_token_pair("finally", KEYWORD | ++seq),
+             make_token_pair("for", KEYWORD | ++seq),
+             make_token_pair("function", KEYWORD | ++seq),
+             make_token_pair("get", IDENTIFIER | ++seq),
+             make_token_pair("if", KEYWORD | ++seq),
+             make_token_pair("implements", FUTURE_RESERVED_WORD | ++seq),
+             make_token_pair("import", FUTURE_RESERVED_WORD | ++seq),
+             make_token_pair("in", KEYWORD | ++seq | REG_EXP_ALLOWED),
+             make_token_pair("instanceof", KEYWORD | ++seq | REG_EXP_ALLOWED),
+             make_token_pair("interface", FUTURE_RESERVED_WORD | ++seq),
+             make_token_pair("let", FUTURE_RESERVED_WORD | ++seq),
+             make_token_pair("new", KEYWORD | ++seq | REG_EXP_ALLOWED),
+             make_token_pair("null", NULL_LITERAL | ++seq),
+             make_token_pair("package", FUTURE_RESERVED_WORD | ++seq),
+             make_token_pair("private", FUTURE_RESERVED_WORD | ++seq),
+             make_token_pair("protected", FUTURE_RESERVED_WORD | ++seq),
+             make_token_pair("public", FUTURE_RESERVED_WORD | ++seq),
+             make_token_pair("return", KEYWORD | ++seq | REG_EXP_ALLOWED),
+             make_token_pair("set", IDENTIFIER | ++seq),
+             make_token_pair("static", FUTURE_RESERVED_WORD | ++seq),
+             make_token_pair("super", FUTURE_RESERVED_WORD | ++seq),
+             make_token_pair("switch", KEYWORD | ++seq),
+             make_token_pair("this", KEYWORD | ++seq),
+             make_token_pair("throw", KEYWORD | ++seq | REG_EXP_ALLOWED),
+             make_token_pair("true", BOOLEAN_LITERAL | ++seq),
+             make_token_pair("try", KEYWORD | ++seq),
+             make_token_pair("typeof", KEYWORD | ++seq | REG_EXP_ALLOWED),
+             make_token_pair("var", KEYWORD | ++seq),
+             make_token_pair("void", KEYWORD | ++seq | REG_EXP_ALLOWED),
+             make_token_pair("while", KEYWORD | ++seq),
+             make_token_pair("with", KEYWORD | ++seq),
+             make_token_pair("yield", FUTURE_RESERVED_WORD | ++seq),
+             make_token_pair("{", PUNCTUATOR | ++seq | REG_EXP_ALLOWED),
+             make_token_pair("|", PUNCTUATOR | ++seq | REG_EXP_ALLOWED),
+             make_token_pair("|=", PUNCTUATOR | ++seq | REG_EXP_ALLOWED),
+             make_token_pair("||", PUNCTUATOR | ++seq | REG_EXP_ALLOWED),
+             make_token_pair("}", PUNCTUATOR | ++seq),
+             make_token_pair("~", PUNCTUATOR | ++seq | REG_EXP_ALLOWED)}};
+  }
 
   template <typename T1, typename T2>
   static constexpr bool less(const T1* lhs, const T2* rhs)
@@ -41,110 +198,26 @@ class Token {
     return false;
   }
 
-  template <typename T>
-  static constexpr type_t type(const T* str)
-  {
-    constexpr std::pair<const char*, type_t> tokens[] = {
-        {"!", PUNCTUATOR | 1},
-        {"!=", PUNCTUATOR | 2},
-        {"!==", PUNCTUATOR | 3},
-        {"%", PUNCTUATOR | 4},
-        {"%=", PUNCTUATOR | 5},
-        {"&", PUNCTUATOR | 6},
-        {"&&", PUNCTUATOR | 7},
-        {"&=", PUNCTUATOR | 8},
-        {"(", PUNCTUATOR | 9},
-        {")", PUNCTUATOR | 10},
-        {"*", PUNCTUATOR | 11},
-        {"*=", PUNCTUATOR | 12},
-        {"+", PUNCTUATOR | 13},
-        {"++", PUNCTUATOR | 14},
-        {"+=", PUNCTUATOR | 15},
-        {",", PUNCTUATOR | 16},
-        {"-", PUNCTUATOR | 17},
-        {"--", PUNCTUATOR | 18},
-        {"-=", PUNCTUATOR | 19},
-        {".", PUNCTUATOR | 20},
-        {"/", PUNCTUATOR | 21},
-        {"/=", PUNCTUATOR | 22},
-        {":", PUNCTUATOR | 23},
-        {";", PUNCTUATOR | 24},
-        {"<", PUNCTUATOR | 25},
-        {"<<", PUNCTUATOR | 26},
-        {"<<=", PUNCTUATOR | 27},
-        {"<=", PUNCTUATOR | 28},
-        {"=", PUNCTUATOR | 29},
-        {"==", PUNCTUATOR | 30},
-        {"===", PUNCTUATOR | 31},
-        {">", PUNCTUATOR | 32},
-        {">=", PUNCTUATOR | 33},
-        {">>", PUNCTUATOR | 34},
-        {">>=", PUNCTUATOR | 35},
-        {">>>", PUNCTUATOR | 36},
-        {">>>=", PUNCTUATOR | 37},
-        {"?", PUNCTUATOR | 38},
-        {"[", PUNCTUATOR | 39},
-        {"]", PUNCTUATOR | 40},
-        {"^", PUNCTUATOR | 41},
-        {"^=", PUNCTUATOR | 42},
-        {"break", KEYWORD | 43},
-        {"case", KEYWORD | 44},
-        {"catch", KEYWORD | 45},
-        {"class", FUTURE_RESERVED_WORD | 46},
-        {"const", FUTURE_RESERVED_WORD | 47},
-        {"continue", KEYWORD | 48},
-        {"debugger", KEYWORD | 49},
-        {"default", KEYWORD | 50},
-        {"delete", KEYWORD | 51},
-        {"do", KEYWORD | 52},
-        {"else", KEYWORD | 53},
-        {"enum", FUTURE_RESERVED_WORD | 54},
-        {"export", FUTURE_RESERVED_WORD | 55},
-        {"extends", FUTURE_RESERVED_WORD | 56},
-        {"false", BOOLEAN_LITERAL | 57},
-        {"finally", KEYWORD | 58},
-        {"for", KEYWORD | 59},
-        {"function", KEYWORD | 60},
-        {"get", IDENTIFIER | 101},
-        {"if", KEYWORD | 61},
-        {"implements", FUTURE_RESERVED_WORD | 62},
-        {"import", FUTURE_RESERVED_WORD | 63},
-        {"in", KEYWORD | 64},
-        {"instanceof", KEYWORD | 65},
-        {"interface", FUTURE_RESERVED_WORD | 66},
-        {"let", FUTURE_RESERVED_WORD | 67},
-        {"new", KEYWORD | 68},
-        {"null", NULL_LITERAL | 69},
-        {"package", FUTURE_RESERVED_WORD | 70},
-        {"private", FUTURE_RESERVED_WORD | 71},
-        {"protected", FUTURE_RESERVED_WORD | 72},
-        {"public", FUTURE_RESERVED_WORD | 73},
-        {"return", KEYWORD | 74},
-        {"set", IDENTIFIER | 102},
-        {"static", FUTURE_RESERVED_WORD | 75},
-        {"super", FUTURE_RESERVED_WORD | 76},
-        {"switch", KEYWORD | 77},
-        {"this", KEYWORD | 78},
-        {"throw", KEYWORD | 79},
-        {"true", BOOLEAN_LITERAL | 80},
-        {"try", KEYWORD | 81},
-        {"typeof", KEYWORD | 82},
-        {"var", KEYWORD | 83},
-        {"void", KEYWORD | 84},
-        {"while", KEYWORD | 85},
-        {"with", KEYWORD | 86},
-        {"yield", FUTURE_RESERVED_WORD | 87},
-        {"{", PUNCTUATOR | 88},
-        {"|", PUNCTUATOR | 89},
-        {"|=", PUNCTUATOR | 90},
-        {"||", PUNCTUATOR | 91},
-        {"}", PUNCTUATOR | 92},
-        {"~", PUNCTUATOR | 93}};
+  // template <typename T, typename IT>
+  // static constexpr bool less(T i, It j, It k)
+  // {
+  //   for (; *i; ++i, ++j) {
+  //     if (j == k)
+  //       return false;
+  //     if (*i != *j)
+  //       return *i < *j;
+  //   }
+  //   return j == k;
+  // }
 
+  template <typename T>
+  static constexpr Token find(const T* str)
+  {
+    constexpr auto tokens = make_tokens();
     // Find lower bound. The range is sorted on the first value in each pair.
-    auto count = 95;
-    auto first = tokens;
-    auto last  = tokens + 95;
+    auto count = tokens.size();
+    auto first = tokens.begin();
+    auto last  = tokens.end();
     while (count > 0) {
       auto it   = first;
       auto step = count / 2;
@@ -158,134 +231,66 @@ class Token {
     }
 
     if (first == last || less(str, first->first))
-      return 0;
+      return {0, {""}};
     return first->second;
   }
-
-  type_t m_type;
-
-  union value_t {
-    std::nullptr_t  empty;
-    double          numeric_value;
-    std::u16string* string_value;
-    constexpr value_t() : empty(nullptr)
-    {
-    }
-    constexpr value_t(double value) : numeric_value(value)
-    {
-    }
-    constexpr value_t(std::u16string* value) : string_value(value)
-    {
-    }
-  } m_value;
-
-  bool m_lt = false;
 
   template <typename Value>
   constexpr explicit Token(type_t type, Value value)
       : m_type(type), m_value(value)
   {
-    // if (type == 0) throw std::logic_error("");
-  }
-
-  constexpr explicit Token(type_t type) : Token(type, nullptr)
-  {
   }
 
 public:
-  static Token identifier(std::u16string value)
+  static Token identifier(std::u16string* value)
   {
-    return Token(IDENTIFIER, &create_static_string(std::move(value)));
+    return Token(IDENTIFIER, {value});
   }
 
-  static Token identifier_name(std::u16string value)
+  static Token identifier_name(std::u16string* value)
   {
-    if (auto t = type(value.data())) {
-      return Token(t);
+    if (auto token = find(value->data())) {
+      return token;
     }
-    else {
-      return Token(IDENTIFIER, &create_static_string(std::move(value)));
-    }
+    else
+      return identifier(value);
   }
+
   static constexpr Token null_literal()
   {
-    return Token(nullptr);
+    return find("null");
   }
-  constexpr static Token punctuator(const char* str)
+
+  static constexpr Token boolean_literal(bool value)
   {
-    return Token(str);
+    return value ? find("true") : find("false");
   }
-  static Token punctuator(const std::u16string& str)
-  {
-    return Token(str);
-  }
+
   static Token numeric_literal(double value)
   {
-    return Token(value);
+    return {NUMERIC_LITERAL, {value}};
   }
-  static Token string_literal(std::u16string value)
-  {
-    return Token(STRING_LITERAL, &create_static_string(std::move(value)));
-  }
-  static Token regular_expression_literal(std::u16string value)
-  {
-    return Token(
-        REGULAR_EXPRESSION_LITERAL, &create_static_string(std::move(value)));
-  }
-  struct DebugInfo {
-    virtual ~DebugInfo()
-    {
-    }
-    virtual std::string syntax_error_at() const = 0;
-    virtual std::string loc() const             = 0;
-  };
 
-  DebugInfo* debug_info = nullptr;
+  static Token string_literal(std::u16string* value)
+  {
+    return {STRING_LITERAL, {value}};
+  }
 
-  Token(const std::u16string& str) : Token(type(str.data()))
+  static Token regular_expression_literal(std::u16string* value)
+  {
+    return {REG_EXP_LITERAL, {value}};
+  }
+
+  constexpr Token() : Token(0, {""})
   {
   }
 
-  constexpr Token() : Token(0, nullptr)
-  {
-  }
-
-  constexpr Token(const char* str) : Token(type(str))
+  template <typename T>
+  constexpr Token(const T* str) : Token(find(str))
   {
     if (m_type == 0)
       throw std::logic_error("Cannot create compile time token");
   }
-
-  constexpr Token(const char16_t* str) : Token(type(str))
-  {
-  }
-
-  constexpr Token(std::nullptr_t) : Token(type("null"))
-  {
-  }
-
-  constexpr explicit Token(bool value)
-      : Token(value ? type("true") : type("false"))
-  {
-  }
-
-  constexpr Token(double value) : Token(NUMERIC_LITERAL, value)
-  {
-  }
-
-  constexpr Token(std::u16string* value) : Token(STRING_LITERAL, value)
-  {
-  }
-
-  constexpr Token(const Token&) = default;
-
-  constexpr Token(Token&&) = default;
-
-  ~Token() = default;
-
-  constexpr Token& operator=(const Token&) = default;
-
-  constexpr Token& operator=(Token&&) = default;
 
   constexpr type_t type() const
   {
@@ -295,6 +300,21 @@ public:
   constexpr operator type_t() const
   {
     return m_type;
+  }
+
+  constexpr type_t category() const
+  {
+    return m_type & CATEGORY_MASK;
+  }
+
+  constexpr type_t index() const
+  {
+    return m_type & INDEX_MASK;
+  }
+
+  explicit operator bool() const
+  {
+    return m_type != 0;
   }
 
   constexpr bool is_identifier() const
@@ -349,7 +369,7 @@ public:
 
   constexpr bool is_regular_expression_literal() const
   {
-    return (m_type & REGULAR_EXPRESSION_LITERAL) == REGULAR_EXPRESSION_LITERAL;
+    return (m_type & REG_EXP_LITERAL) == REG_EXP_LITERAL;
   }
 
   constexpr bool is_literal() const
@@ -357,11 +377,26 @@ public:
     return (m_type & LITERAL) != 0;
   }
 
+  constexpr bool is_preceded_by_line_terminator() const
+  {
+    return (m_type & LT_PRECEDED) == LT_PRECEDED;
+  }
+
+  constexpr void set_preceded_by_line_terminator()
+  {
+    m_type |= LT_PRECEDED;
+  }
+
+  constexpr bool regular_expression_allowed() const
+  {
+    return (m_type & REG_EXP_ALLOWED) == REG_EXP_ALLOWED;
+  }
+
   constexpr bool boolean_value() const
   {
-    switch (m_type) {
-    case type("true"): return true;
-    case type("false"): return false;
+    switch (m_type & 0xFFFF) {
+    case find("true"): return true;
+    case find("false"): return false;
     default: throw std::runtime_error("Invalid type");
     }
   }
@@ -373,26 +408,31 @@ public:
 
   std::u16string string_value() const
   {
-    if (is_reserved_word())
-      return convert_utf8_to_utf16(to_string());
-    else if (!m_value.string_value) {
-      return convert_utf8_to_utf16(to_string());
+    if (index() > 0) {
+      std::string s = {m_value.c_str};
+      return {s.begin(), s.end()};
     }
-    return *m_value.string_value;
+    if (is_numeric_literal()) {
+      auto s = std::to_string(numeric_value());
+      return {s.begin(), s.end()};
+    }
+    if (is_string_literal() || is_regular_expression_literal()
+        || is_identifier())
+      return *m_value.string_value;
+    return u"something else";
   }
 
   constexpr bool operator==(const Token& other) const
   {
-    if (type() != other.type())
+    if (category() != other.category())
       return false;
-    switch (type()) {
+    switch (category()) {
     case NULL_LITERAL: return true;
     case BOOLEAN_LITERAL: return boolean_value() == other.boolean_value();
     case NUMERIC_LITERAL: return numeric_value() == other.numeric_value();
     case STRING_LITERAL: return string_value() == other.string_value();
-    case REGULAR_EXPRESSION_LITERAL:
-      return string_value() == other.string_value();
-    default: return true;
+    case REG_EXP_LITERAL: return string_value() == other.string_value();
+    default: return index() == other.index();
     }
   }
 
@@ -422,135 +462,24 @@ public:
 
   std::string to_string() const
   {
-    switch (m_type) {
-    case type("!"): return "!";
-    case type("!="): return "!=";
-    case type("!=="): return "!==";
-    case type("%"): return "%";
-    case type("%="): return "%=";
-    case type("&"): return "&";
-    case type("&&"): return "&&";
-    case type("&="): return "&=";
-    case type("("): return "(";
-    case type(")"): return ")";
-    case type("*"): return "*";
-    case type("*="): return "*=";
-    case type("+"): return "+";
-    case type("++"): return "++";
-    case type("+="): return "+=";
-    case type(","): return ",";
-    case type("-"): return "-";
-    case type("--"): return "--";
-    case type("-="): return "-=";
-    case type("."): return ".";
-    case type("/"): return "/";
-    case type("/="): return "/=";
-    case type(":"): return ":";
-    case type(";"): return ";";
-    case type("<"): return "<";
-    case type("<<"): return "<<";
-    case type("<<="): return "<<=";
-    case type("<="): return "<=";
-    case type("="): return "=";
-    case type("=="): return "==";
-    case type("==="): return "===";
-    case type(">"): return ">";
-    case type(">="): return ">=";
-    case type(">>"): return ">>";
-    case type(">>="): return ">>=";
-    case type(">>>"): return ">>>";
-    case type(">>>="): return ">>>=";
-    case type("?"): return "?";
-    case type("["): return "[";
-    case type("]"): return "]";
-    case type("^"): return "^";
-    case type("^="): return "^=";
-    case type("break"): return "break";
-    case type("case"): return "case";
-    case type("catch"): return "catch";
-    case type("class"): return "class";
-    case type("const"): return "const";
-    case type("continue"): return "continue";
-    case type("debugger"): return "debugger";
-    case type("default"): return "default";
-    case type("delete"): return "delete";
-    case type("do"): return "do";
-    case type("else"): return "else";
-    case type("enum"): return "enum";
-    case type("export"): return "export";
-    case type("extends"): return "extends";
-    case type("false"): return "false";
-    case type("finally"): return "finally";
-    case type("for"): return "for";
-    case type("function"): return "function";
-    case type("get"): return "get";
-    case type("if"): return "if";
-    case type("implements"): return "implements";
-    case type("import"): return "import";
-    case type("in"): return "in";
-    case type("instanceof"): return "instanceof";
-    case type("interface"): return "interface";
-    case type("let"): return "let";
-    case type("new"): return "new";
-    case type("null"): return "null";
-    case type("package"): return "package";
-    case type("private"): return "private";
-    case type("protected"): return "protected";
-    case type("public"): return "public";
-    case type("return"): return "return";
-    case type("set"): return "set";
-    case type("static"): return "static";
-    case type("super"): return "super";
-    case type("switch"): return "switch";
-    case type("this"): return "this";
-    case type("throw"): return "throw";
-    case type("true"): return "true";
-    case type("try"): return "try";
-    case type("typeof"): return "typeof";
-    case type("var"): return "var";
-    case type("void"): return "void";
-    case type("while"): return "while";
-    case type("with"): return "with";
-    case type("yield"): return "yield";
-    case type("{"): return "{";
-    case type("|"): return "|";
-    case type("|="): return "|=";
-    case type("||"): return "||";
-    case type("}"): return "}";
-    case type("~"): return "~";
+    switch (m_type & CATEGORY_MASK) {
     case NUMERIC_LITERAL: return std::to_string(numeric_value());
     case STRING_LITERAL: return convert_utf16_to_utf8(string_value());
-    case REGULAR_EXPRESSION_LITERAL:
-      return convert_utf16_to_utf8(string_value());
+    case REG_EXP_LITERAL: return convert_utf16_to_utf8(string_value());
     case IDENTIFIER: return convert_utf16_to_utf8(string_value());
-    default:
-      throw std::runtime_error(
-          "Do not know what to do with Token of type "
-          + std::to_string(m_type));
+    default: return m_value.c_str;
     }
   }
 
-  void print(std::ostream& out) const
+  std::string to_u16string() const
   {
-    out << to_string();
-  }
-
-  constexpr bool preceded_by_line_terminator() const
-  {
-    return m_lt;
-  }
-  constexpr void set_preceded_by_line_terminator()
-  {
-    m_lt = true;
-  }
-
-  constexpr bool empty() const
-  {
-    return m_type == 0;
-  }
-  constexpr bool is_empty() const
-  {
-    return m_type == 0;
+    switch (m_type & CATEGORY_MASK) {
+    case NUMERIC_LITERAL: return std::to_string(numeric_value());
+    case STRING_LITERAL: return convert_utf16_to_utf8(string_value());
+    case REG_EXP_LITERAL: return convert_utf16_to_utf8(string_value());
+    case IDENTIFIER: return convert_utf16_to_utf8(string_value());
+    default: return m_value.c_str;
+    }
   }
 };
 
