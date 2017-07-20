@@ -50,7 +50,6 @@ else ()
     src/runtime.cpp
     src/source.cpp
     src/token.cpp
-    src/tokens.cpp
     src/trace.cpp
     src/util.cpp
     src/type.cpp
