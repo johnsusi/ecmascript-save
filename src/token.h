@@ -38,6 +38,7 @@ class Token {
   using type_t = std::size_t;
 
   // Lower 7 bits reserved for type index [0 94).
+  static const type_t TYPE_MASK            = 0b00'111111111'1111111;
   static const type_t CATEGORY_MASK        = 0b00'111111111'0000000;
   static const type_t INDEX_MASK           = 0b00'000000000'1111111;
   static const type_t IDENTIFIER           = 0b00'000000001'0000000;
@@ -294,12 +295,12 @@ public:
 
   constexpr type_t type() const
   {
-    return m_type;
+    return m_type & TYPE_MASK;
   }
 
   constexpr operator type_t() const
   {
-    return m_type;
+    return m_type & TYPE_MASK;
   }
 
   constexpr type_t category() const
@@ -394,7 +395,7 @@ public:
 
   constexpr bool boolean_value() const
   {
-    switch (m_type & 0xFFFF) {
+    switch (type()) {
     case find("true"): return true;
     case find("false"): return false;
     default: throw std::runtime_error("Invalid type");
@@ -424,7 +425,7 @@ public:
 
   constexpr bool operator==(const Token& other) const
   {
-    if (category() != other.category())
+    if (type() != other.type())
       return false;
     switch (category()) {
     case NULL_LITERAL: return true;
@@ -432,7 +433,7 @@ public:
     case NUMERIC_LITERAL: return numeric_value() == other.numeric_value();
     case STRING_LITERAL: return string_value() == other.string_value();
     case REG_EXP_LITERAL: return string_value() == other.string_value();
-    default: return index() == other.index();
+    default: return true;
     }
   }
 

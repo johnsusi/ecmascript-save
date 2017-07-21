@@ -27,18 +27,51 @@ matrix:
     - os: linux
       dist: trusty
       sudo: required
-      compiler: gcc
+      compiler: clang
       group: edge
       env: BUILD_CC=clang-3.9 BUILD_CXX=clang++-3.9 CMAKE_EXTRA=""
       addons:
         apt:
           sources:
-            - llvm-toolchain-precise-3.9
+            - llvm-toolchain-trusty-3.9
           packages:
             - clang-3.9
             - libicu-dev
             - libboost-all-dev
             - ninja-build
+
+    - os: linux
+      dist: trusty
+      sudo: required
+      compiler: clang
+      group: edge
+      env: BUILD_CC=clang-4.0 BUILD_CXX=clang++-4.0 CMAKE_EXTRA=""
+      addons:
+        apt:
+          sources:
+            - llvm-toolchain-trusty-4.0
+          packages:
+            - clang-4.0
+            - libicu-dev
+            - libboost-all-dev
+            - ninja-build
+
+    - os: linux
+      dist: trusty
+      sudo: required
+      compiler: clang
+      group: edge
+      env: BUILD_CC=clang-5.0 BUILD_CXX=clang++-5.0 CMAKE_EXTRA=""
+      addons:
+        apt:
+          sources:
+            - llvm-toolchain-trusty
+          packages:
+            - clang-5.0
+            - libicu-dev
+            - libboost-all-dev
+            - ninja-build
+
 
     - os: osx
       osx_image: xcode8.3
@@ -65,6 +98,9 @@ matrix:
       compiler: clang
       env: BUILD_CC=clang BUILD_CXX=clang++ BUILD_TYPE=Release CMAKE_EXTRA="-DICU_ROOT=/usr/local/opt/icu4c"
 
+# before_install:
+#   - eval "${MATRIX_EVAL}"
+
 install:
   - DEPS_DIR="${TRAVIS_BUILD_DIR}/deps"
   - mkdir -p ${DEPS_DIR} && cd ${DEPS_DIR}
@@ -86,6 +122,8 @@ before_script:
   - cmake --version
   - cd ${TRAVIS_BUILD_DIR}
   - cmake -H. -BBuild -DCMAKE_BUILD_TYPE="${BUILD_TYPE}" -DTESTING=YES "${CMAKE_EXTRA}"
+  - pwd
+  - ls -l
   - cd Build
 
 script:
