@@ -121,14 +121,13 @@ before_script:
   - ninja --version
   - cmake --version
   - cd ${TRAVIS_BUILD_DIR}
-  - cmake -H. -BBuild -DCMAKE_BUILD_TYPE="${BUILD_TYPE}" -DTESTING=YES "${CMAKE_EXTRA}"
-  - pwd
-  - ls -l
-  - cd Build
+  - mkdir build
+  - cd build
+  - cmake .. -GNinja -DCMAKE_BUILD_TYPE="${BUILD_TYPE}" -DTESTING=YES "${CMAKE_EXTRA}"
 
 script:
-  - make -j 2
-  - ctest -V -j 2
+  - ninja
+  - ctest
 
 branches:
   only:
