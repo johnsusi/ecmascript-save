@@ -113,7 +113,8 @@ class SyntacticGrammarImpl : public Parser::SyntacticGrammar {
     trace();
     if (!match(&Token::is_identifier))
       return false;
-    emplace<Identifier>(match->string_value());
+    emplace<IdentifierExpression>(*match.matched());
+    // emplace<Identifier>(match->string_value());
     return true;
   }
 
@@ -122,15 +123,18 @@ class SyntacticGrammarImpl : public Parser::SyntacticGrammar {
     trace();
     if (!match(&Token::is_identifier_name))
       return false;
-    emplace<Identifier>(match->string_value());
+    emplace<IdentifierExpression>(*match.matched());
+    // emplace<Identifier>(match->string_value());
     return true;
   }
 
   bool literal()
   {
     trace();
-    return null_literal() || boolean_literal() || numeric_literal()
-           || string_literal() || regular_expression_literal();
+    return (
+        null_literal() || boolean_literal() || numeric_literal()
+        || string_literal()
+        || regular_expression_literal());
   }
 
   bool null_literal()
@@ -138,7 +142,7 @@ class SyntacticGrammarImpl : public Parser::SyntacticGrammar {
     trace();
     if (!match(&Token::is_null_literal))
       return false;
-    emplace<NullLiteral>();
+    emplace<LiteralExpression>(*match.matched());
     return true;
   }
 
@@ -147,7 +151,7 @@ class SyntacticGrammarImpl : public Parser::SyntacticGrammar {
     trace();
     if (!match(&Token::is_boolean_literal))
       return false;
-    emplace<BooleanLiteral>(match->boolean_value());
+    emplace<LiteralExpression>(*match.matched());
     return true;
   }
 
@@ -156,7 +160,7 @@ class SyntacticGrammarImpl : public Parser::SyntacticGrammar {
     trace();
     if (!match(&Token::is_numeric_literal))
       return false;
-    emplace<NumericLiteral>(match->numeric_value());
+    emplace<LiteralExpression>(*match.matched());
     return true;
   }
 
@@ -165,7 +169,7 @@ class SyntacticGrammarImpl : public Parser::SyntacticGrammar {
     trace();
     if (!match(&Token::is_string_literal))
       return false;
-    emplace<StringLiteral>(match->string_value());
+    emplace<LiteralExpression>(*match.matched());
     return true;
   }
 
@@ -174,7 +178,7 @@ class SyntacticGrammarImpl : public Parser::SyntacticGrammar {
     trace();
     if (!match(&Token::is_regular_expression_literal))
       return false;
-    emplace<RegularExpressionLiteral>(match->string_value());
+    emplace<LiteralExpression>(*match.matched());
     return true;
   }
 
@@ -190,16 +194,16 @@ class SyntacticGrammarImpl : public Parser::SyntacticGrammar {
       emplace<ThisExpression>();
     }
     else if (identifier()) {
-      replace<IdentifierExpression, Identifier>();
+      // emplace<IdentifierExpression>(*match.matched());
     }
     else if (literal()) {
-      replace<LiteralExpression, Literal>();
+      // emplace<LiteralExpression>(*matched());
     }
     else if (array_literal()) {
-      replace<ArrayExpression, ArrayLiteral>();
+      // replace<ArrayExpression, ArrayLiteral>();
     }
     else if (object_literal()) {
-      replace<ObjectExpression, ObjectLiteral>();
+      // replace<ObjectExpression, ObjectLiteral>();
     }
     else
       return false;
@@ -214,7 +218,7 @@ class SyntacticGrammarImpl : public Parser::SyntacticGrammar {
     if (!element_list())
       emplace<ElementList>();
 
-    auto expr = replace<ArrayLiteral, ElementList>();
+    auto expr = replace<ArrayExpression, ElementList>();
 
     if (elision())
       expr->elision = pop<Elision>();
@@ -269,9 +273,9 @@ class SyntacticGrammarImpl : public Parser::SyntacticGrammar {
     if (!match("{"))
       return false;
     if (property_name_and_value_list())
-      replace<ObjectLiteral, PropertyNameAndValueList>();
+      replace<ObjectExpression, PropertyNameAndValueList>();
     else
-      emplace<ObjectLiteral>();
+      emplace<ObjectExpression>();
     match(",");
     if (!match("}"))
       syntax_error("Expected }");
@@ -318,7 +322,7 @@ class SyntacticGrammarImpl : public Parser::SyntacticGrammar {
           || !function_body()
           || !match("}"))
         syntax_error("set");
-      replace<PropertyAssignment, PropertyName, Identifier, FunctionBody>();
+      replace<PropertyAssignment, PropertyName, IdentifierExpression, FunctionBody>();
       return true;
     }
     else
@@ -329,15 +333,11 @@ class SyntacticGrammarImpl : public Parser::SyntacticGrammar {
   {
     trace();
     if (identifier_name()) {
-      replace<PropertyName, Identifier>();
+      replace<PropertyName, IdentifierExpression>();
       return true;
     }
-    else if (string_literal()) {
-      replace<PropertyName, StringLiteral>();
-      return true;
-    }
-    else if (numeric_literal()) {
-      replace<PropertyName, NumericLiteral>();
+    else if (string_literal() || numeric_literal()) {
+      replace<PropertyName, LiteralExpression>();
       return true;
     }
     else
@@ -374,7 +374,7 @@ class SyntacticGrammarImpl : public Parser::SyntacticGrammar {
       else if (match(".")) {
         if (!identifier_name())
           syntax_error();
-        replace<MemberExpression, Expression, Identifier>();
+        replace<MemberExpression, Expression, IdentifierExpression>();
       }
       else
         break;
@@ -406,7 +406,7 @@ class SyntacticGrammarImpl : public Parser::SyntacticGrammar {
       else if (match(".")) {
         if (!identifier_name())
           syntax_error();
-        replace<MemberExpression, Expression, Identifier>();
+        replace<MemberExpression, Expression, IdentifierExpression>();
       }
       else
         break;
@@ -451,23 +451,47 @@ class SyntacticGrammarImpl : public Parser::SyntacticGrammar {
     return true;
   }
 
+  static constexpr bool is_postfix_operator(const Token& token)
+  {
+    switch (token) {
+    case Token("++"): return true;
+    case Token("--"): return true;
+    default: return false;
+    }
+  }
+
   bool postfix_expression()
   {
     trace();
     if (!left_hand_side_expression())
       return false;
     if (no_line_terminator_here()) {
-      if (match("++") || match("--"))
+      if (match(is_postfix_operator))
         replace<PostfixExpression, Expression>(match);
     }
     return true;
   }
 
+  static constexpr bool is_unary_operator(const Token& token)
+  {
+    switch (token) {
+    case Token("delete"): return true;
+    case Token("void"): return true;
+    case Token("typeof"): return true;
+    case Token("++"): return true;
+    case Token("--"): return true;
+    case Token("+"): return true;
+    case Token("-"): return true;
+    case Token("~"): return true;
+    case Token("!"): return true;
+    default: return false;
+    }
+  }
+
   bool unary_expression()
   {
     trace();
-    if (match.any_of(
-            "delete", "void", "typeof", "++", "--", "+", "-", "~", "!")) {
+    if (match(is_unary_operator)) {
       auto expr = emplace<UnaryExpression>(*match);
       if (!unary_expression())
         syntax_error("Expected UnaryExpression");
@@ -477,12 +501,22 @@ class SyntacticGrammarImpl : public Parser::SyntacticGrammar {
     return postfix_expression();
   }
 
+  static constexpr bool is_multiplicative_operator(const Token& token)
+  {
+    switch (token) {
+    case Token("*"): return true;
+    case Token("/"): return true;
+    case Token("%"): return true;
+    default: return false;
+    }
+  }
+
   bool multiplicative_expression()
   {
     trace();
     if (!unary_expression())
       return false;
-    while (match.any_of("*", "/", "%")) {
+    while (match(is_multiplicative_operator)) {
       auto expr = replace<BinaryExpression, Expression>(*match);
       if (!unary_expression())
         syntax_error("Expected UnaryExpression");
@@ -519,18 +553,43 @@ class SyntacticGrammarImpl : public Parser::SyntacticGrammar {
     return true;
   }
 
+  static constexpr bool is_relational_operator(const Token& token)
+  {
+    switch (token) {
+    case Token("<"): return true;
+    case Token(">"): return true;
+    case Token("<="): return true;
+    case Token(">="): return true;
+    case Token("instanceof"): return true;
+    case Token("in"): return true;
+    default: return false;
+    }
+  }
+
   bool relational_expression()
   {
     trace();
     if (!shift_expression())
       return false;
-    while (match.any_of("<", ">", "<=", ">=", "instanceof", "in")) {
+    while (match(is_relational_operator)) {
       auto expr = replace<BinaryExpression, Expression>(match);
       if (!shift_expression())
         syntax_error("Expected ShiftExpression");
       expr->rhs = pop<Expression>();
     }
     return true;
+  }
+
+  static constexpr bool is_relational_operator_no_in(const Token& token)
+  {
+    switch (token) {
+    case Token("<"): return true;
+    case Token(">"): return true;
+    case Token("<="): return true;
+    case Token(">="): return true;
+    case Token("instanceof"): return true;
+    default: return false;
+    }
   }
 
   bool relational_expression_no_in()
@@ -538,7 +597,7 @@ class SyntacticGrammarImpl : public Parser::SyntacticGrammar {
     trace();
     if (!shift_expression())
       return false;
-    while (match.any_of("<", ">", "<=", ">=", "instanceof")) {
+    while (match(is_relational_operator_no_in)) {
       auto expr = replace<BinaryExpression, Expression>(match);
       if (!shift_expression())
         syntax_error("Expected ShiftExpression");
@@ -547,12 +606,23 @@ class SyntacticGrammarImpl : public Parser::SyntacticGrammar {
     return true;
   }
 
+  static constexpr bool is_equality_operator(const Token& token)
+  {
+    switch (token) {
+    case Token("=="): return true;
+    case Token("!="): return true;
+    case Token("==="): return true;
+    case Token("!=="): return true;
+    default: return false;
+    }
+  }
+
   bool equality_expression()
   {
     trace();
     if (!relational_expression())
       return false;
-    while (match.any_of("==", "!=", "===", "!==")) {
+    while (match(is_equality_operator)) {
       auto expr = emplace<BinaryExpression>(match, pop<Expression>());
       if (!relational_expression())
         syntax_error();
@@ -566,7 +636,7 @@ class SyntacticGrammarImpl : public Parser::SyntacticGrammar {
     trace();
     if (!relational_expression_no_in())
       return false;
-    while (match.any_of("==", "!=", "===", "!==")) {
+    while (match(is_equality_operator)) {
       auto expr = emplace<BinaryExpression>(match, pop<Expression>());
       if (!relational_expression_no_in())
         syntax_error();
@@ -715,12 +785,20 @@ class SyntacticGrammarImpl : public Parser::SyntacticGrammar {
     return true;
   }
 
+  static constexpr bool is_conditional_operator(const Token& token)
+  {
+    switch (token) {
+    case Token("?"): return true;
+    default: return false;
+    }
+  }
+
   bool conditional_expression()
   {
     trace();
     if (!logical_or_expression())
       return false;
-    if (match("?")) {
+    if (match(is_conditional_operator)) {
       if (!assignment_expression() || !match(":") || !assignment_expression())
         syntax_error();
       replace<ConditionalExpression, Expression, Expression, Expression>();
@@ -733,7 +811,7 @@ class SyntacticGrammarImpl : public Parser::SyntacticGrammar {
     trace();
     if (!logical_or_expression_no_in())
       return false;
-    if (match("?")) {
+    if (match(is_conditional_operator)) {
       if (!assignment_expression() || !match(":")
           || !assignment_expression_no_in())
         syntax_error();
@@ -742,12 +820,23 @@ class SyntacticGrammarImpl : public Parser::SyntacticGrammar {
     return true;
   }
 
-  bool assignment_operator()
+  static constexpr bool is_assignment_operator(const Token& token)
   {
-    trace();
-    return match.any_of(
-        "=",
-        "*=", "/=", "%=", "+=", "-=", "<<=", ">>=", ">>>=", "&=", "^=", "|=");
+    switch (token) {
+    case Token("="): return true;
+    case Token("*="): return true;
+    case Token("/="): return true;
+    case Token("%="): return true;
+    case Token("+="): return true;
+    case Token("-="): return true;
+    case Token("<<="): return true;
+    case Token(">>="): return true;
+    case Token(">>>="): return true;
+    case Token("&="): return true;
+    case Token("^="): return true;
+    case Token("|="): return true;
+    default: return false;
+    }
   }
 
   bool assignment_expression()
@@ -755,7 +844,7 @@ class SyntacticGrammarImpl : public Parser::SyntacticGrammar {
     trace();
     if (!conditional_expression())
       return false;
-    if (assignment_operator()) {
+    if (match(is_assignment_operator)) {
       auto expr = emplace<AssignmentExpression>(match, pop<Expression>());
       if (!assignment_expression())
         syntax_error();
@@ -769,7 +858,7 @@ class SyntacticGrammarImpl : public Parser::SyntacticGrammar {
     trace();
     if (!conditional_expression_no_in())
       return false;
-    if (assignment_operator()) {
+    if (match(is_assignment_operator)) {
       auto expr = emplace<AssignmentExpression>(match, pop<Expression>());
       if (!assignment_expression_no_in())
         syntax_error();
@@ -888,7 +977,7 @@ class SyntacticGrammarImpl : public Parser::SyntacticGrammar {
     trace();
     if (!identifier())
       return false;
-    auto id = pop<Identifier>();
+    auto id = pop<IdentifierExpression>();
     if (initializer())
       emplace<VariableDeclaration>(id, pop<Expression>());
     else
@@ -901,7 +990,7 @@ class SyntacticGrammarImpl : public Parser::SyntacticGrammar {
     trace();
     if (!identifier())
       return false;
-    auto id = pop<Identifier>();
+    auto id = pop<IdentifierExpression>();
     if (initializer_no_in())
       emplace<VariableDeclaration>(id, pop<Expression>());
     else
@@ -1063,8 +1152,9 @@ class SyntacticGrammarImpl : public Parser::SyntacticGrammar {
     trace();
     if (!match("continue"))
       return false;
-    auto label = (no_line_terminator_here() && identifier()) ? pop<Identifier>()
-                                                             : nullptr;
+    auto label = (no_line_terminator_here() && identifier())
+                     ? pop<IdentifierExpression>()
+                     : nullptr;
     if (!automatic_semicolon_insertion())
       syntax_error();
     emplace<ContinueStatement>(label);
@@ -1076,8 +1166,9 @@ class SyntacticGrammarImpl : public Parser::SyntacticGrammar {
     trace();
     if (!match("break"))
       return false;
-    auto label = (no_line_terminator_here() && identifier()) ? pop<Identifier>()
-                                                             : nullptr;
+    auto label = (no_line_terminator_here() && identifier())
+                     ? pop<IdentifierExpression>()
+                     : nullptr;
 
     if (!automatic_semicolon_insertion())
       syntax_error("missing ;");
@@ -1172,7 +1263,7 @@ class SyntacticGrammarImpl : public Parser::SyntacticGrammar {
       if (!statement())
         syntax_error();
       auto stmt  = pop<Statement>();
-      auto label = pop<Identifier>();
+      auto label = pop<IdentifierExpression>();
       emplace<LabelledStatement>(label, stmt);
       return true;
     });
@@ -1202,7 +1293,7 @@ class SyntacticGrammarImpl : public Parser::SyntacticGrammar {
       if (!match("(") || !identifier() || !match(")") || !block())
         syntax_error();
       stmt->handler = pop<Block>();
-      stmt->binding = pop<Identifier>();
+      stmt->binding = pop<IdentifierExpression>();
     }
     if (match("finally")) {
       if (!block())
@@ -1238,7 +1329,7 @@ class SyntacticGrammarImpl : public Parser::SyntacticGrammar {
         || !match("}"))
       syntax_error();
 
-    replace<FunctionDeclaration, Identifier, FormalParameterList, FunctionBody>();
+    replace<FunctionDeclaration, IdentifierExpression, FormalParameterList, FunctionBody>();
     return true;
   }
 
@@ -1248,24 +1339,12 @@ class SyntacticGrammarImpl : public Parser::SyntacticGrammar {
     if (!match("function"))
       return false;
 
-    auto id = identifier() ? pop<Identifier>() : nullptr;
+    auto id = identifier() ? pop<IdentifierExpression>() : nullptr;
 
-    if (!match("("))
-      syntax_error("Expected (");
-    if (!formal_parameter_list())
-      syntax_error("Expected FormalParameterList");
-    if (!match(")"))
-      syntax_error("Expected )");
-    if (!match("{"))
-      syntax_error("Expected {");
-    if (!function_body())
-      syntax_error("Expected FunctionBody");
-    if (!match("}"))
-      syntax_error("Expected }");
-    // if (!match("(") || !formal_parameter_list() || !match(")") || !match("{")
-    //     || !function_body()
-    //     || !match("}"))
-    //   syntax_error();
+    if (!match("(") || !formal_parameter_list() || !match(")") || !match("{")
+        || !function_body()
+        || !match("}"))
+      syntax_error();
 
     auto body   = pop<FunctionBody>();
     auto params = pop<FormalParameterList>();
@@ -1278,7 +1357,7 @@ class SyntacticGrammarImpl : public Parser::SyntacticGrammar {
     trace();
     auto list = emplace<FormalParameterList>();
     while (identifier()) {
-      list->push_back(pop<Identifier>());
+      list->push_back(pop<IdentifierExpression>());
       if (!match(","))
         break;
     }
@@ -1338,6 +1417,7 @@ public:
   }
 };
 
+using namespace std;
 class StdLogger {
 public:
   template <typename Callable>

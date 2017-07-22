@@ -1,6 +1,7 @@
 #ifndef ECMASCRIPT_AST_H
 #define ECMASCRIPT_AST_H
 
+#include "token.h"
 #include "visitor.h"
 
 #include "types/boolean.h"
@@ -68,121 +69,118 @@ struct List : virtual Node {
   }
 };
 
-struct This : Node {
-  void accept(Visitor& visitor) const override
-  {
-    return visitor(*this);
-  }
-  const char* type() const override
-  {
-    return "This";
-  }
-};
-struct Identifier : Node {
-  std::u16string value;
-  Identifier(std::u16string value) : value(value)
-  {
-  }
-  std::string to_string() const
-  {
-    return {value.begin(), value.end()};
-  }
-  void accept(Visitor& visitor) const override
-  {
-    return visitor(*this);
-  }
-  const char* type() const override
-  {
-    return "Identifier";
-  }
-};
+// struct This : Node {
+//   void accept(Visitor& visitor) const override
+//   {
+//     return visitor(*this);
+//   }
+//   const char* type() const override
+//   {
+//     return "This";
+//   }
+// };
+// struct Identifier : Node {
+//   std::u16string value;
+//   Identifier(std::u16string value) : value(value)
+//   {
+//   }
+//   std::string to_string() const
+//   {
+//     return {value.begin(), value.end()};
+//   }
+//   void accept(Visitor& visitor) const override
+//   {
+//     return visitor(*this);
+//   }
+//   const char* type() const override
+//   {
+//     return "Identifier";
+//   }
+// };
 
-struct Literal : Node {
-};
+// struct Literal : Node {
+//   Token literal;
 
-struct NullLiteral : Literal {
-  void accept(Visitor& visitor) const override
-  {
-    return visitor(*this);
-  }
-  const char* type() const override
-  {
-    return "NullLiteral";
-  }
-};
-struct BooleanLiteral : Literal {
-  Boolean value;
-  BooleanLiteral(Boolean value) : value(value)
-  {
-  }
-  void accept(Visitor& visitor) const override
-  {
-    return visitor(*this);
-  }
-  const char* type() const override
-  {
-    return "BooleanLiteral";
-  }
-};
-struct NumericLiteral : Literal {
-  Number value;
-  NumericLiteral(double value) : value(value)
-  {
-  }
-  void accept(Visitor& visitor) const override
-  {
-    return visitor(*this);
-  }
-  const char* type() const override
-  {
-    return "NumericLiteral";
-  }
-};
-struct StringLiteral : Literal {
-  String value;
-  StringLiteral(String value) : value(std::move(value))
-  {
-  }
-  void accept(Visitor& visitor) const override
-  {
-    return visitor(*this);
-  }
-  const char* type() const override
-  {
-    return "StringLiteral";
-  }
-};
-struct RegularExpressionLiteral : Literal {
-  std::u16string value;
-  RegularExpressionLiteral(std::u16string value) : value(value)
-  {
-  }
-  void accept(Visitor& visitor) const override
-  {
-    return visitor(*this);
-  }
-  const char* type() const override
-  {
-    return "RegularExpressionLiteral";
-  }
-};
+//   Literal(Token literal) : literal(literal)
+//   {
+//   }
+//   void accept(Visitor& visitor) const final
+//   {
+//     return visitor(*this);
+//   }
 
-struct ArrayLiteral : Node {
-  ElementList* elements;
-  Elision*     elision;
-  ArrayLiteral(ElementList* elements = nullptr, Elision* elision = nullptr)
-      : elements(elements), elision(elision)
-  {
-  }
-  void accept(Visitor& visitor) const override
-  {
-    return visitor(*this);
-  }
-  const char* type() const override
-  {
-    return "ArrayLiteral";
-  }
-};
+//   const char* type() const override
+//   {
+//     return "Literal";
+//   }
+// };
+
+// struct NullLiteral : Literal {
+//   void accept(Visitor& visitor) const override
+//   {
+//     return visitor(*this);
+//   }
+//   const char* type() const override
+//   {
+//     return "NullLiteral";
+//   }
+// };
+// struct BooleanLiteral : Literal {
+//   Boolean value;
+//   BooleanLiteral(Boolean value) : value(value)
+//   {
+//   }
+//   void accept(Visitor& visitor) const override
+//   {
+//     return visitor(*this);
+//   }
+//   const char* type() const override
+//   {
+//     return "BooleanLiteral";
+//   }
+// };
+// struct NumericLiteral : Literal {
+//   Number value;
+//   NumericLiteral(double value) : value(value)
+//   {
+//   }
+//   void accept(Visitor& visitor) const override
+//   {
+//     return visitor(*this);
+//   }
+//   const char* type() const override
+//   {
+//     return "NumericLiteral";
+//   }
+// };
+// struct StringLiteral : Literal {
+//   String value;
+//   StringLiteral(String value) : value(std::move(value))
+//   {
+//   }
+//   void accept(Visitor& visitor) const override
+//   {
+//     return visitor(*this);
+//   }
+//   const char* type() const override
+//   {
+//     return "StringLiteral";
+//   }
+// };
+// struct RegularExpressionLiteral : Literal {
+//   std::u16string value;
+//   RegularExpressionLiteral(std::u16string value) : value(value)
+//   {
+//   }
+//   void accept(Visitor& visitor) const override
+//   {
+//     return visitor(*this);
+//   }
+//   const char* type() const override
+//   {
+//     return "RegularExpressionLiteral";
+//   }
+// };
 
 struct Expression : virtual Node {
 };
@@ -205,8 +203,8 @@ struct ThisExpression : PrimaryExpression {
 };
 
 struct IdentifierExpression : PrimaryExpression {
-  Identifier* identifier;
-  IdentifierExpression(Identifier* identifier) : identifier(identifier)
+  Token identifier;
+  IdentifierExpression(Token identifier) : identifier(identifier)
   {
   }
   void accept(Visitor& visitor) const override
@@ -220,8 +218,8 @@ struct IdentifierExpression : PrimaryExpression {
 };
 
 struct LiteralExpression : PrimaryExpression {
-  Literal* literal;
-  LiteralExpression(Literal* literal) : literal(literal)
+  Token literal;
+  LiteralExpression(Token literal) : literal(literal)
   {
   }
   void accept(Visitor& visitor) const override
@@ -235,10 +233,13 @@ struct LiteralExpression : PrimaryExpression {
 };
 
 struct ArrayExpression : PrimaryExpression {
-  ArrayLiteral* array;
-  ArrayExpression(ArrayLiteral* array) : array(array)
+  ElementList* elements;
+  Elision*     elision;
+  ArrayExpression(ElementList* elements = nullptr, Elision* elision = nullptr)
+      : elements(elements), elision(elision)
   {
   }
+
   void accept(Visitor& visitor) const override
   {
     return visitor(*this);
@@ -250,10 +251,15 @@ struct ArrayExpression : PrimaryExpression {
 };
 
 struct ObjectExpression : PrimaryExpression {
-  ObjectLiteral* object;
-  ObjectExpression(ObjectLiteral* object) : object(object)
+  PropertyNameAndValueList* declarations;
+  ObjectExpression(PropertyNameAndValueList* declarations = nullptr)
+      : declarations(declarations)
   {
   }
+
+  // ObjectExpression(ObjectLiteral* object) : object(object)
+  // {
+  // }
   void accept(Visitor& visitor) const override
   {
     return visitor(*this);
@@ -265,16 +271,12 @@ struct ObjectExpression : PrimaryExpression {
 };
 
 struct PropertyName : Expression {
-  Identifier*     identifier = nullptr;
-  StringLiteral*  str        = nullptr;
-  NumericLiteral* num        = nullptr;
-  PropertyName(Identifier* identifier) : identifier(identifier)
+  IdentifierExpression* identifier = nullptr;
+  LiteralExpression*    literal    = nullptr;
+  PropertyName(IdentifierExpression* identifier) : identifier(identifier)
   {
   }
-  PropertyName(StringLiteral* str) : str(str)
-  {
-  }
-  PropertyName(NumericLiteral* num) : num(num)
+  PropertyName(LiteralExpression* literal) : literal(literal)
   {
   }
   void accept(Visitor& visitor) const override
@@ -289,10 +291,10 @@ struct PropertyName : Expression {
 
 struct PropertyAssignment : Expression {
   enum class Kind { INIT, GET, SET } kind;
-  PropertyName* name;
-  Expression*   expression = nullptr;
-  FunctionBody* body       = nullptr;
-  Identifier*   parameter  = nullptr;
+  PropertyName*         name;
+  Expression*           expression = nullptr;
+  FunctionBody*         body       = nullptr;
+  IdentifierExpression* parameter  = nullptr;
   PropertyAssignment(PropertyName* name, Expression* expression)
       : kind(Kind::INIT), name(name), expression(expression)
   {
@@ -304,7 +306,7 @@ struct PropertyAssignment : Expression {
   {
   }
   PropertyAssignment(
-      PropertyName* name, Identifier* parameter, FunctionBody* body)
+      PropertyName* name, IdentifierExpression* parameter, FunctionBody* body)
       : kind(Kind::SET), name(name), body(body), parameter(parameter)
   {
   }
@@ -361,27 +363,27 @@ struct PropertyNameAndValueList : List<PropertyAssignment> {
   }
 };
 
-struct ObjectLiteral : PrimaryExpression {
-  PropertyNameAndValueList* declarations;
-  ObjectLiteral(PropertyNameAndValueList* declarations = nullptr)
-      : declarations(declarations)
-  {
-  }
-  void accept(Visitor& visitor) const override
-  {
-    return visitor(*this);
-  }
-  const char* type() const override
-  {
-    return "ObjectLiteral";
-  }
-};
+// struct ObjectLiteral : PrimaryExpression {
+//   PropertyNameAndValueList* declarations;
+//   ObjectLiteral(PropertyNameAndValueList* declarations = nullptr)
+//       : declarations(declarations)
+//   {
+//   }
+//   void accept(Visitor& visitor) const override
+//   {
+//     return visitor(*this);
+//   }
+//   const char* type() const override
+//   {
+//     return "ObjectLiteral";
+//   }
+// };
 
 struct MemberExpression : Expression {
-  Expression* object;
-  Identifier* property;
-  Expression* expression;
-  MemberExpression(Expression* object, Identifier* property)
+  Expression*           object;
+  IdentifierExpression* property;
+  Expression*           expression;
+  MemberExpression(Expression* object, IdentifierExpression* property)
       : object(object), property(property), expression(nullptr)
   {
   }
@@ -497,11 +499,11 @@ struct UnaryExpression : Expression {
 };
 
 struct BinaryExpression : Expression {
-  std::string op;
+  Token       op;
   Expression* lhs;
   Expression* rhs;
   BinaryExpression(
-      std::string op, Expression* lhs = nullptr, Expression* rhs = nullptr)
+      Token op, Expression* lhs = nullptr, Expression* rhs = nullptr)
       : op(op), lhs(lhs), rhs(rhs)
   {
   }
@@ -536,7 +538,7 @@ struct ConditionalExpression : Expression {
 
 struct AssignmentExpression : BinaryExpression {
   AssignmentExpression(
-      std::string op, Expression* lhs = nullptr, Expression* rhs = nullptr)
+      Token op, Expression* lhs = nullptr, Expression* rhs = nullptr)
       : BinaryExpression(op, lhs, rhs)
   {
   }
@@ -551,9 +553,10 @@ struct AssignmentExpression : BinaryExpression {
 };
 
 struct VariableDeclaration : Expression {
-  Identifier* identifier;
-  Expression* initializer;
-  VariableDeclaration(Identifier* identifier, Expression* initializer = nullptr)
+  IdentifierExpression* identifier;
+  Expression*           initializer;
+  VariableDeclaration(
+      IdentifierExpression* identifier, Expression* initializer = nullptr)
       : identifier(identifier), initializer(initializer)
   {
   }
@@ -766,8 +769,8 @@ struct ForInStatement : Statement {
 };
 
 struct ContinueStatement : Statement {
-  Identifier* label;
-  ContinueStatement(Identifier* label = nullptr) : label(label)
+  IdentifierExpression* label;
+  ContinueStatement(IdentifierExpression* label = nullptr) : label(label)
   {
   }
   void accept(Visitor& visitor) const override
@@ -781,8 +784,8 @@ struct ContinueStatement : Statement {
 };
 
 struct BreakStatement : Statement {
-  Identifier* label;
-  BreakStatement(Identifier* label = nullptr) : label(label)
+  IdentifierExpression* label;
+  BreakStatement(IdentifierExpression* label = nullptr) : label(label)
   {
   }
   void accept(Visitor& visitor) const override
@@ -828,9 +831,9 @@ struct WithStatement : Statement {
 };
 
 struct LabelledStatement : Statement {
-  Identifier* label;
-  Statement*  body;
-  LabelledStatement(Identifier* label, Statement* body)
+  IdentifierExpression* label;
+  Statement*            body;
+  LabelledStatement(IdentifierExpression* label, Statement* body)
       : label(label), body(body)
   {
   }
@@ -923,13 +926,13 @@ struct ThrowStatement : Statement {
 };
 
 struct TryStatement : Statement {
-  Block*      block;
-  Identifier* binding;
-  Block*      handler;
-  Block*      finalizer;
+  Block*                block;
+  IdentifierExpression* binding;
+  Block*                handler;
+  Block*                finalizer;
   TryStatement(
-      Block* block, Identifier* binding = nullptr, Block* handler = nullptr,
-      Block* finalizer = nullptr)
+      Block* block, IdentifierExpression* binding = nullptr,
+      Block* handler = nullptr, Block* finalizer = nullptr)
       : block(block), binding(binding), handler(handler), finalizer(finalizer)
   {
   }
@@ -972,7 +975,7 @@ struct SourceElements : List<SourceElement> {
   }
 };
 
-struct FormalParameterList : List<Identifier> {
+struct FormalParameterList : List<IdentifierExpression> {
   void accept(Visitor& visitor) const override
   {
     return visitor(*this);
@@ -999,11 +1002,11 @@ struct FunctionBody : SourceElements {
 };
 
 struct FunctionDeclaration : SourceElement {
-  Identifier*          id;
-  FormalParameterList* params;
-  FunctionBody*        body;
+  IdentifierExpression* id;
+  FormalParameterList*  params;
+  FunctionBody*         body;
   FunctionDeclaration(
-      Identifier* id, FormalParameterList* params, FunctionBody* body)
+      IdentifierExpression* id, FormalParameterList* params, FunctionBody* body)
       : id(id), params(params), body(body)
   {
   }
@@ -1018,11 +1021,11 @@ struct FunctionDeclaration : SourceElement {
 };
 
 struct FunctionExpression : Expression {
-  Identifier*          id;
-  FormalParameterList* params;
-  FunctionBody*        body;
+  IdentifierExpression* id;
+  FormalParameterList*  params;
+  FunctionBody*         body;
   FunctionExpression(
-      Identifier* id, FormalParameterList* params, FunctionBody* body)
+      IdentifierExpression* id, FormalParameterList* params, FunctionBody* body)
       : id(id), params(params), body(body)
   {
   }

@@ -1,3 +1,4 @@
+#include "token.h"
 #include "type.h"
 
 #include "catch.hpp"
@@ -24,11 +25,11 @@ struct NumericLiteral : Expression {
 };
 
 struct BinaryExpression : Expression {
-  std::string op;
+  Token       op;
   Expression* left;
   Expression* right;
 
-  BinaryExpression(std::string op, Expression* left, Expression* right)
+  BinaryExpression(Token op, Expression* left, Expression* right)
       : op(op), left(left), right(right)
   {
   }

@@ -76,101 +76,104 @@ class JSONVisitor : public BasicVisitor {
     }
   }
 
-  void operator()(const Identifier& id) override
-  {
-    // buf << "{" << quote("type") << ":" << quote("IdentifierExpression");
-    // buf << "," << quote("identifier") << ":";
-    buf << "{" << quote("type") << ":" << quote("Identifier");
-    buf << "," << quote("name") << ":"
-        << quote(convert_utf16_to_utf8(id.value));
-    buf << "}";
-    // buf << "}";
-  }
+  // void operator()(const Identifier& id) override
+  // {
+  //   // buf << "{" << quote("type") << ":" << quote("IdentifierExpression");
+  //   // buf << "," << quote("identifier") << ":";
+  //   buf << "{" << quote("type") << ":" << quote("Identifier");
+  //   buf << "," << quote("name") << ":"
+  //       << quote(convert_utf16_to_utf8(id.value));
+  //   buf << "}";
+  //   // buf << "}";
+  // }
 
   void operator()(const IdentifierExpression& expr) override
   {
     buf << "{" << quote("type") << ":" << quote("IdentifierExpression");
-    buf << "," << quote("identifier") << ":";
-    apply(expr.identifier);
+    buf << "," << quote("identifier") << ":" << expr.identifier.to_string();
+    // apply(expr.identifier);
     buf << "}";
   }
 
   // void operator()(const PrimaryExpression& expr) override {}
 
-  void operator()(const NullLiteral& literal) override
-  {
-    buf << "{" << quote("type") << ":" << quote("LiteralNullExpression");
-    buf << "}";
-  }
+  // void operator()(const NullLiteral& literal) override
+  // {
+  //   buf << "{" << quote("type") << ":" << quote("LiteralNullExpression");
+  //   buf << "}";
+  // }
 
-  void operator()(const BooleanLiteral& literal) override
-  {
-    buf << "{" << quote("type") << ":" << quote("LiteralBooleanExpression");
-    buf << "," << quote("value") << ":" << (literal.value ? "true" : "false");
-    buf << "}";
-  }
+  // void operator()(const BooleanLiteral& literal) override
+  // {
+  //   buf << "{" << quote("type") << ":" << quote("LiteralBooleanExpression");
+  //   buf << "," << quote("value") << ":" << (literal.value ? "true" :
+  //   "false");
+  //   buf << "}";
+  // }
 
-  void operator()(const NumericLiteral& literal) override
-  {
-    if (literal.value.isInfinity()) {
-      buf << "{" << quote("type") << ":" << quote("LiteralInfinityExpression")
-          << "}";
-    }
-    else if (literal.value.isNaN()) {
-      buf << "{" << quote("type") << ":" << quote("LiteralNaNExpression")
-          << "}";
-    }
-    else {
-      buf << "{" << quote("type") << ":" << quote("LiteralNumericExpression");
-      buf << "," << quote("value") << ":" << literal.value.ToString();
-      buf << "}";
-    }
-  }
+  // void operator()(const NumericLiteral& literal) override
+  // {
+  //   if (literal.value.isInfinity()) {
+  //     buf << "{" << quote("type") << ":" <<
+  //     quote("LiteralInfinityExpression")
+  //         << "}";
+  //   }
+  //   else if (literal.value.isNaN()) {
+  //     buf << "{" << quote("type") << ":" << quote("LiteralNaNExpression")
+  //         << "}";
+  //   }
+  //   else {
+  //     buf << "{" << quote("type") << ":" <<
+  //     quote("LiteralNumericExpression");
+  //     buf << "," << quote("value") << ":" << literal.value.ToString();
+  //     buf << "}";
+  //   }
+  // }
 
-  void operator()(const StringLiteral& literal) override
-  {
-    buf << "{" << quote("type") << ":" << quote("LiteralStringExpression");
-    buf << "," << quote("value") << ":"
-        << convert_utf16_to_utf8(Quote(literal.value));
-    buf << "}";
-  }
+  // void operator()(const StringLiteral& literal) override
+  // {
+  //   buf << "{" << quote("type") << ":" << quote("LiteralStringExpression");
+  //   buf << "," << quote("value") << ":"
+  //       << convert_utf16_to_utf8(Quote(literal.value));
+  //   buf << "}";
+  // }
 
-  void operator()(const RegularExpressionLiteral& literal) override
-  {
-    buf << "{" << quote("type") << ":" << quote("LiteralRegExpExpression");
-    buf << "," << quote("value") << ":"
-        << quote(convert_utf16_to_utf8(literal.value));
-    buf << "}";
-  }
+  // void operator()(const RegularExpressionLiteral& literal) override
+  // {
+  //   buf << "{" << quote("type") << ":" << quote("LiteralRegExpExpression");
+  //   buf << "," << quote("value") << ":"
+  //       << quote(convert_utf16_to_utf8(literal.value));
+  //   buf << "}";
+  // }
 
-  void operator()(const ArrayLiteral& literal) override
-  {
+  // void operator()(const ArrayLiteral& literal) override
+  // {
 
-    buf << "[";
-    auto it  = literal.elements->begin();
-    auto end = literal.elements->end();
-    if (it != end)
-      apply(*it++);
-    while (it != end) {
-      buf << ",";
-      apply(*it++);
-    }
-    if (auto el = literal.elision) {
-      for (std::size_t i = 1; i < el->count; ++i) {
-        buf << ","
-            << "null";
-      }
-    }
-    buf << "]";
-  }
+  //   buf << "[";
+  //   auto it  = literal.elements->begin();
+  //   auto end = literal.elements->end();
+  //   if (it != end)
+  //     apply(*it++);
+  //   while (it != end) {
+  //     buf << ",";
+  //     apply(*it++);
+  //   }
+  //   if (auto el = literal.elision) {
+  //     for (std::size_t i = 1; i < el->count; ++i) {
+  //       buf << ","
+  //           << "null";
+  //     }
+  //   }
+  //   buf << "]";
+  // }
 
-  void operator()(const ObjectLiteral& literal) override
-  {
-    if (literal.declarations)
-      apply(literal.declarations);
-    else
-      buf << "[]";
-  }
+  // void operator()(const ObjectLiteral& literal) override
+  // {
+  //   if (literal.declarations)
+  //     apply(literal.declarations);
+  //   else
+  //     buf << "[]";
+  // }
 
   void operator()(const ThisExpression& expr) override
   {
@@ -178,11 +181,65 @@ class JSONVisitor : public BasicVisitor {
     buf << "}";
   }
 
+  void operator()(const LiteralExpression& expr) override
+  {
+    if (expr.literal.is_null_literal()) {
+      buf << "{" << quote("type") << ":" << quote("LiteralNullExpression")
+          << "}";
+    }
+    else if (expr.literal.is_boolean_literal()) {
+      buf << "{" << quote("type") << ":" << quote("LiteralBooleanExpression")
+          << "," << quote("value") << ":" << expr.literal.to_string() << "}";
+    }
+    else if (expr.literal.is_numeric_literal()) {
+      auto value = Number(expr.literal.numeric_value());
+      if (value.isInfinity()) {
+        buf << "{" << quote("type") << ":" << quote("LiteralInfinityExpression")
+            << "}";
+      }
+      else if (value.isNaN()) {
+        buf << "{" << quote("type") << ":" << quote("LiteralNaNExpression")
+            << "}";
+      }
+      else {
+        buf << "{" << quote("type") << ":" << quote("LiteralNumericExpression")
+            << "," << quote("value") << ":" << value.ToString() << "}";
+      }
+    }
+    else if (expr.literal.is_string_literal()) {
+      buf << "{" << quote("type") << ":" << quote("LiteralStringExpression")
+          << "," << quote("value") << ":" << expr.literal.to_string() << "}";
+    }
+    else if (expr.literal.is_regular_expression_literal()) {
+      buf << "{" << quote("type") << ":" << quote("LiteralRegExpExpression")
+          << "," << quote("value") << ":" << expr.literal.to_string() << "}";
+    }
+    else
+      throw std::logic_error(
+          "Invalid literal token: " + expr.literal.to_string());
+  }
+
   void operator()(const ArrayExpression& expr) override
   {
     buf << "{" << quote("type") << ":" << quote("ArrayExpression");
     buf << "," << quote("elements") << ":";
-    apply(expr.array);
+    // apply(expr.array);
+    buf << "[";
+    auto it  = expr.elements->begin();
+    auto end = expr.elements->end();
+    if (it != end)
+      apply(*it++);
+    while (it != end) {
+      buf << ",";
+      apply(*it++);
+    }
+    if (auto el = expr.elision) {
+      for (std::size_t i = 1; i < el->count; ++i) {
+        buf << ","
+            << "null";
+      }
+    }
+    buf << "]";
     buf << "}";
   }
 
@@ -190,10 +247,15 @@ class JSONVisitor : public BasicVisitor {
   {
     buf << "{" << quote("type") << ":" << quote("ObjectExpression");
     buf << "," << quote("properties") << ":";
-    if (expr.object)
-      apply(expr.object);
+    // if (expr.object) {
+    // apply(expr.object);
+    if (expr.declarations)
+      apply(expr.declarations);
     else
       buf << "[]";
+    // }
+    // else
+    //   buf << "[]";
     buf << "}";
   }
 
@@ -203,17 +265,13 @@ class JSONVisitor : public BasicVisitor {
     if (expr.identifier) {
       buf << "," << quote("kind") << ":" << quote("identifier");
       buf << "," << quote("value") << ":"
-          << quote(convert_utf16_to_utf8(expr.identifier->value));
+          << expr.identifier->identifier.to_string();
     }
-    else if (expr.str) {
-      buf << "," << quote("kind") << ":" << quote("string");
-      buf << "," << quote("value") << ":"
-          << quote(convert_utf16_to_utf8(expr.str->value));
-    }
-    else if (expr.num) {
-      buf << "," << quote("kind") << ":" << quote("number");
-      buf << "," << quote("value") << ":"
-          << "\"" << expr.num->value.ToString() << "\"";
+    else if (expr.literal) {
+      auto kind =
+          expr.literal->literal.is_string_literal() ? "string" : "number";
+      buf << "," << quote("kind") << ":" << quote(kind);
+      buf << "," << quote("value") << ":" << expr.literal->literal.to_string();
     }
     buf << "}";
   }
@@ -694,18 +752,18 @@ class JSONVisitor : public BasicVisitor {
     while (it != last) {
       if (auto stmt = dynamic_cast<ExpressionStatement*>(*it)) {
         if (auto expr = dynamic_cast<LiteralExpression*>(stmt->expression)) {
-          if (auto literal = dynamic_cast<StringLiteral*>(expr->literal)) {
+
+          if (expr->literal.is_string_literal()) {
             if (it != first)
               buf << ",";
-            if (literal->value == u"use strict") {
-              buf << "{" << quote("type") << ":" << quote("UseStrictDirective");
-              buf << "}";
+            if (expr->literal == u"use strict") {
+              buf << "{" << quote("type") << ":" << quote("UseStrictDirective")
+                  << "}";
             }
             else {
-              buf << "{" << quote("type") << ":" << quote("UnknownDirective");
-              buf << "," << quote("value") << ":"
-                  << quote(convert_utf16_to_utf8(literal->value));
-              buf << "}";
+              buf << "{" << quote("type") << ":" << quote("UnknownDirective")
+                  << "," << quote("value") << ":" << expr->literal.to_string()
+                  << "}";
             }
             ++it;
             continue;

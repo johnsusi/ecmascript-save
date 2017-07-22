@@ -199,18 +199,6 @@ class Token {
     return false;
   }
 
-  // template <typename T, typename IT>
-  // static constexpr bool less(T i, It j, It k)
-  // {
-  //   for (; *i; ++i, ++j) {
-  //     if (j == k)
-  //       return false;
-  //     if (*i != *j)
-  //       return *i < *j;
-  //   }
-  //   return j == k;
-  // }
-
   template <typename T>
   static constexpr Token find(const T* str)
   {
@@ -243,6 +231,17 @@ class Token {
   }
 
 public:
+  constexpr Token() : Token(0, {""})
+  {
+  }
+
+  template <typename T>
+  constexpr Token(const T* str) : Token(find(str))
+  {
+    if (m_type == 0)
+      throw std::logic_error("Cannot create compile time token");
+  }
+
   static Token identifier(std::u16string* value)
   {
     return Token(IDENTIFIER, {value});
@@ -259,12 +258,12 @@ public:
 
   static constexpr Token null_literal()
   {
-    return find("null");
+    return Token("null");
   }
 
   static constexpr Token boolean_literal(bool value)
   {
-    return value ? find("true") : find("false");
+    return value ? Token("true") : Token("false");
   }
 
   static Token numeric_literal(double value)
@@ -280,17 +279,6 @@ public:
   static Token regular_expression_literal(std::u16string* value)
   {
     return {REG_EXP_LITERAL, {value}};
-  }
-
-  constexpr Token() : Token(0, {""})
-  {
-  }
-
-  template <typename T>
-  constexpr Token(const T* str) : Token(find(str))
-  {
-    if (m_type == 0)
-      throw std::logic_error("Cannot create compile time token");
   }
 
   constexpr type_t type() const
@@ -320,7 +308,7 @@ public:
 
   constexpr bool is_identifier() const
   {
-    return (m_type & IDENTIFIER) == IDENTIFIER;
+    return (m_type & IDENTIFIER) != 0;
   }
 
   constexpr bool is_identifier_name() const
@@ -330,47 +318,47 @@ public:
 
   constexpr bool is_reserved_word() const
   {
-    return (m_type & RESERVED_WORD) > 0;
+    return (m_type & RESERVED_WORD) != 0;
   }
 
   constexpr bool is_keyword() const
   {
-    return (m_type & KEYWORD) == KEYWORD;
+    return (m_type & KEYWORD) != 0;
   }
 
   constexpr bool is_future_reserved_word() const
   {
-    return (m_type & FUTURE_RESERVED_WORD) == FUTURE_RESERVED_WORD;
+    return (m_type & FUTURE_RESERVED_WORD) != 0;
   }
 
   constexpr bool is_punctuator() const
   {
-    return (m_type & PUNCTUATOR) == PUNCTUATOR;
+    return (m_type & PUNCTUATOR) != 0;
   }
 
   constexpr bool is_null_literal() const
   {
-    return (m_type & NULL_LITERAL) == NULL_LITERAL;
+    return (m_type & NULL_LITERAL) != 0;
   }
 
   constexpr bool is_boolean_literal() const
   {
-    return (m_type & BOOLEAN_LITERAL) == BOOLEAN_LITERAL;
+    return (m_type & BOOLEAN_LITERAL) != 0;
   }
 
   constexpr bool is_numeric_literal() const
   {
-    return (m_type & NUMERIC_LITERAL) == NUMERIC_LITERAL;
+    return (m_type & NUMERIC_LITERAL) != 0;
   }
 
   constexpr bool is_string_literal() const
   {
-    return (m_type & STRING_LITERAL) == STRING_LITERAL;
+    return (m_type & STRING_LITERAL) != 0;
   }
 
   constexpr bool is_regular_expression_literal() const
   {
-    return (m_type & REG_EXP_LITERAL) == REG_EXP_LITERAL;
+    return (m_type & REG_EXP_LITERAL) != 0;
   }
 
   constexpr bool is_literal() const

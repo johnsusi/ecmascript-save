@@ -45,70 +45,88 @@ struct DebugInfoImpl : Lexer::DebugInfo {
   }
 };
 
+template <typename... Args>
+constexpr bool _any_of(const Token& token, Args&&... args)
+{
+
+  bool r[sizeof...(Args)] = {
+      (token.type() == Token(std::forward<Args>(args)).type())... //
+  };
+
+  int sum = 0;
+  for (std::size_t i = 0; i < sizeof...(Args); ++i) {
+    if (r[i])
+      ++sum;
+  }
+  return sum == 1; // _any_of(token, tokens);
+}
+
 static bool reg_exp_allowed(const Token& token)
 {
-  switch (token) {
-  case Token("!"): return true;
-  case Token("!="): return true;
-  case Token("!=="): return true;
-  case Token("%"): return true;
-  case Token("%="): return true;
-  case Token("&"): return true;
-  case Token("&&"): return true;
-  case Token("&="): return true;
-  case Token("("): return true;
-  case Token("*"): return true;
-  case Token("*="): return true;
-  case Token("+"): return true;
-  case Token("+="): return true;
-  case Token(","): return true;
-  case Token("-"): return true;
-  case Token("-="): return true;
-  case Token("/"): return true;
-  case Token("/="): return true;
-  case Token(":"): return true;
-  case Token(";"): return true;
-  case Token("<"): return true;
-  case Token("<<"): return true;
-  case Token("<<="): return true;
-  case Token("<="): return true;
-  case Token("="): return true;
-  case Token("=="): return true;
-  case Token("==="): return true;
-  case Token(">"): return true;
-  case Token(">="): return true;
-  case Token(">>"): return true;
-  case Token(">>="): return true;
-  case Token(">>>"): return true;
-  case Token(">>>="): return true;
-  case Token("?"): return true;
-  case Token("["): return true;
-  case Token("^"): return true;
-  case Token("^="): return true;
-  case Token("case"): return true;
-  case Token("delete"): return true;
-  case Token("else"): return true;
-  case Token("in"): return true;
-  case Token("instanceof"): return true;
-  case Token("new"): return true;
-  case Token("return"): return true;
-  case Token("throw"): return true;
-  case Token("typeof"): return true;
-  case Token("void"): return true;
-  case Token("{"): return true;
-  case Token("|"): return true;
-  case Token("|="): return true;
-  case Token("||"): return true;
-  case Token("~"): return true;
-  default: return false;
-  }
-  // return token.any_of(
-  //     "return", "new", "delete", "throw", "else", "case", "in", "instanceof",
-  //     "typeof", "void", "+", "-", "!", "~", "&", "|", "^", "*", "/", "%",
-  //     ">>",
-  //     "<<", ">>>", "<", ">", "<=", ">=", "==", "===", "!=", "!==", "?", "=",
-  //     "+=", "-=", "/=", "*=", "%=", ">>=", "<<=", ">>>=", "|=", "^=", "&=",
-  //     "&&", "||", "[", "{", "(", ",", ";", ":");
+  // switch (token) {
+  // case Token("!"): return true;
+  // case Token("!="): return true;
+  // case Token("!=="): return true;
+  // case Token("%"): return true;
+  // case Token("%="): return true;
+  // case Token("&"): return true;
+  // case Token("&&"): return true;
+  // case Token("&="): return true;
+  // case Token("("): return true;
+  // case Token("*"): return true;
+  // case Token("*="): return true;
+  // case Token("+"): return true;
+  // case Token("+="): return true;
+  // case Token(","): return true;
+  // case Token("-"): return true;
+  // case Token("-="): return true;
+  // case Token("/"): return true;
+  // case Token("/="): return true;
+  // case Token(":"): return true;
+  // case Token(";"): return true;
+  // case Token("<"): return true;
+  // case Token("<<"): return true;
+  // case Token("<<="): return true;
+  // case Token("<="): return true;
+  // case Token("="): return true;
+  // case Token("=="): return true;
+  // case Token("==="): return true;
+  // case Token(">"): return true;
+  // case Token(">="): return true;
+  // case Token(">>"): return true;
+  // case Token(">>="): return true;
+  // case Token(">>>"): return true;
+  // case Token(">>>="): return true;
+  // case Token("?"): return true;
+  // case Token("["): return true;
+  // case Token("^"): return true;
+  // case Token("^="): return true;
+  // case Token("case"): return true;
+  // case Token("delete"): return true;
+  // case Token("else"): return true;
+  // case Token("in"): return true;
+  // case Token("instanceof"): return true;
+  // case Token("new"): return true;
+  // case Token("return"): return true;
+  // case Token("throw"): return true;
+  // case Token("typeof"): return true;
+  // case Token("void"): return true;
+  // case Token("{"): return true;
+  // case Token("|"): return true;
+  // case Token("|="): return true;
+  // case Token("||"): return true;
+  // case Token("~"): return true;
+  // default: return false;
+  // }
+  return token.regular_expression_allowed();
+  // return _any_of(
+  //     token, "return", "new", "delete", "throw", "else", "case", "in",
+  //     "instanceof", "typeof", "void", "+", "-", "!", "~", "&", "|", "^", "*",
+  //     "/", "%", ">>", "<<", ">>>", "<", ">",
+  //     "<=", ">=", "==", "===", "!=", "!==", "?", "=", "+=", "-=", "/=", "*=",
+  //     "%=", ">>=", "<<=", ">>>=", "|=", "^=", "&=", "&&", "||", "[", "{",
+  //     "(",
+  //     ",", ";", ":");
 }
 
 // 7.2

@@ -12,14 +12,14 @@ matrix:
       sudo: required
       compiler: gcc
       group: edge
-      env: BUILD_CC=gcc-6 BUILD_CXX=g++-6 CMAKE_EXTRA=""
+      env: BUILD_CC=gcc-7 BUILD_CXX=g++-7 CMAKE_EXTRA=""
       addons:
         apt:
           sources:
             - ubuntu-toolchain-r-test
           packages:
-            - g++-6
-            # - g++-7
+            # - g++-6
+            - g++-7
             - libicu-dev
             - libboost-all-dev
             - ninja-build
@@ -73,6 +73,10 @@ matrix:
             - ninja-build
 
 
+    - os: osx
+      osx_image: xcode9
+      compiler: clang
+      env: BUILD_CC=clang BUILD_CXX=clang++ BUILD_TYPE=Release CMAKE_EXTRA="-DICU_ROOT=/usr/local/opt/icu4c"
     - os: osx
       osx_image: xcode8.3
       compiler: clang

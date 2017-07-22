@@ -81,15 +81,15 @@ struct ProgramDeclaration;
 
 struct Visitor {
 
-  virtual void operator()(const This&)                     = 0;
-  virtual void operator()(const Identifier&)               = 0;
-  virtual void operator()(const NullLiteral&)              = 0;
-  virtual void operator()(const BooleanLiteral&)           = 0;
-  virtual void operator()(const NumericLiteral&)           = 0;
-  virtual void operator()(const StringLiteral&)            = 0;
-  virtual void operator()(const RegularExpressionLiteral&) = 0;
-  virtual void operator()(const ArrayLiteral&)             = 0;
-  virtual void operator()(const ObjectLiteral&)            = 0;
+  // virtual void operator()(const This&)                     = 0;
+  // virtual void operator()(const Identifier&)               = 0;
+  // virtual void operator()(const NullLiteral&)              = 0;
+  // virtual void operator()(const BooleanLiteral&)           = 0;
+  // virtual void operator()(const NumericLiteral&)           = 0;
+  // virtual void operator()(const StringLiteral&)            = 0;
+  // virtual void operator()(const RegularExpressionLiteral&) = 0;
+  // virtual void operator()(const ArrayLiteral&)             = 0;
+  // virtual void operator()(const ObjectLiteral&)            = 0;
 
   virtual void operator()(const ThisExpression&)        = 0;
   virtual void operator()(const IdentifierExpression&)  = 0;

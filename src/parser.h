@@ -2,6 +2,7 @@
 #define ECMASCRIPT_PARSER_H
 
 #include "ast.h"
+#include "lexer.h"
 #include "matcher.h"
 #include "token.h"
 #include "trace.h"

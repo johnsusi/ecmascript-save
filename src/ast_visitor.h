@@ -18,21 +18,35 @@ class SimplifiedYAMLVisitor : public BasicVisitor {
     stream_t& print(const T& value)
     {
       buf << m_indent;
-      if (m_quote) buf << "\"";
+      if (m_quote)
+        buf << "\"";
       buf << value;
-      if (m_quote) buf << "\"";
+      if (m_quote)
+        buf << "\"";
       buf << "\n";
       m_quote = false;
       return *this;
     }
 
-    stream_t& operator<<(bool value) { return print(value ? "true" : "false"); }
+    stream_t& operator<<(bool value)
+    {
+      return print(value ? "true" : "false");
+    }
 
-    stream_t& operator<<(const char* value) { return print(value); }
+    stream_t& operator<<(const char* value)
+    {
+      return print(value);
+    }
 
-    stream_t& operator<<(const std::string& value) { return print(value); }
+    stream_t& operator<<(const std::string& value)
+    {
+      return print(value);
+    }
 
-    stream_t& operator<<(double value) { return print(value); }
+    stream_t& operator<<(double value)
+    {
+      return print(value);
+    }
 
     stream_t& operator<<(const std::u16string& value)
     {
@@ -41,7 +55,8 @@ class SimplifiedYAMLVisitor : public BasicVisitor {
 
     stream_t& operator<<(Node* node)
     {
-      if (node) node->accept(*visitor);
+      if (node)
+        node->accept(*visitor);
       return *this;
     }
 
@@ -50,7 +65,9 @@ class SimplifiedYAMLVisitor : public BasicVisitor {
       return modifier(*this);
     }
 
-    stream_t(Visitor* visitor) : visitor(visitor) {}
+    stream_t(Visitor* visitor) : visitor(visitor)
+    {
+    }
 
   } buf = stream_t(this);
 
@@ -72,24 +89,30 @@ class SimplifiedYAMLVisitor : public BasicVisitor {
     return out;
   }
 
-  void operator()(const Identifier& id) override { buf << id.value; }
+  // void operator()(const Identifier& id) override
+  // {
+  //   buf << id.value;
+  // }
 
-  void operator()(const NullLiteral& literal) override { buf << "null"; }
+  // void operator()(const NullLiteral& literal) override
+  // {
+  //   buf << "null";
+  // }
 
-  void operator()(const BooleanLiteral& literal) override
-  {
-    buf << literal.value;
-  }
+  // void operator()(const BooleanLiteral& literal) override
+  // {
+  //   buf << literal.value;
+  // }
 
-  void operator()(const NumericLiteral& literal) override
-  {
-    buf << literal.value;
-  }
+  // void operator()(const NumericLiteral& literal) override
+  // {
+  //   buf << literal.value;
+  // }
 
-  void operator()(const StringLiteral& literal) override
-  {
-    // buf << quote << static_cast<std::string>(literal.value);
-  }
+  // void operator()(const StringLiteral& literal) override
+  // {
+  //   // buf << quote << static_cast<std::string>(literal.value);
+  // }
 
   void operator()(const PostfixExpression& expr) override
   {
@@ -103,7 +126,7 @@ class SimplifiedYAMLVisitor : public BasicVisitor {
 
   void operator()(const BinaryExpression& expr) override
   {
-    buf << expr.op << indent << expr.lhs << expr.rhs << unindent;
+    buf << expr.op.to_string() << indent << expr.lhs << expr.rhs << unindent;
   }
 
   void operator()(const CallExpression& expr) override
@@ -126,7 +149,10 @@ class SimplifiedYAMLVisitor : public BasicVisitor {
     buf << "Block" << indent << stmt.body << unindent;
   }
 
-  void operator()(const EmptyStatement&) override { buf << "EmptyStatement"; }
+  void operator()(const EmptyStatement&) override
+  {
+    buf << "EmptyStatement";
+  }
 
   void operator()(const ExpressionStatement& stmt) override
   {
@@ -183,7 +209,10 @@ class SimplifiedYAMLVisitor : public BasicVisitor {
   }
 
 public:
-  std::string str() const { return buf.buf.str(); }
+  std::string str() const
+  {
+    return buf.buf.str();
+  }
 };
 
 #endif

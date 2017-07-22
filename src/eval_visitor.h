@@ -4,6 +4,7 @@
 #include "basic_visitor.h"
 #include "optional.h"
 #include "runtime.h"
+#include "variant.h"
 
 #include <memory>
 #include <vector>
@@ -18,8 +19,8 @@
 
 struct Completion {
   enum class Type { NORMAL, BREAK, CONTINUE, RETURN, THROW } type;
-  optional<Type>       value;
-  optional<Identifier> target;
+  optional<Type>  value;
+  optional<Token> target;
 };
 
 struct LexicalEnvironment;
@@ -50,10 +51,10 @@ struct EvalExpressionVisitor : public BasicVisitor {
     }
   }
 
-  void operator()(const NumericLiteral& literal) override
-  {
-    stack.push_back(literal.value);
-  }
+  // void operator()(const NumericLiteral& literal) override
+  // {
+  //   stack.push_back(literal.value);
+  // }
 };
 
 class EvalVisitor : public BasicVisitor {
@@ -101,6 +102,8 @@ public:
 
   void operator()(const ExpressionStatement& stmt) override
   {
+    // 1. Let exprRef be the result of evaluating Expression.
+    // 2. Return (normal, GetValue(exprRef), empty).
 
     EvalExpressionVisitor v;
     v.apply(stmt.expression);
