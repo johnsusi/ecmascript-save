@@ -87,11 +87,18 @@ class JSONVisitor : public BasicVisitor {
   //   // buf << "}";
   // }
 
+  void print_identifier(const Token& value)
+  {
+    buf << "{" << quote("name") << ":" << quote(value.to_string());
+    buf << "," << quote("type") << ":" << quote("Identifier");
+    buf << "}";
+  }
+
   void operator()(const IdentifierExpression& expr) override
   {
     buf << "{" << quote("type") << ":" << quote("IdentifierExpression");
-    buf << "," << quote("identifier") << ":" << expr.identifier.to_string();
-    // apply(expr.identifier);
+    buf << "," << quote("identifier") << ":";
+    print_identifier(expr.identifier);
     buf << "}";
   }
 
@@ -208,11 +215,13 @@ class JSONVisitor : public BasicVisitor {
     }
     else if (expr.literal.is_string_literal()) {
       buf << "{" << quote("type") << ":" << quote("LiteralStringExpression")
-          << "," << quote("value") << ":" << expr.literal.to_string() << "}";
+          << "," << quote("value") << ":" << quote(expr.literal.to_string())
+          << "}";
     }
     else if (expr.literal.is_regular_expression_literal()) {
       buf << "{" << quote("type") << ":" << quote("LiteralRegExpExpression")
-          << "," << quote("value") << ":" << expr.literal.to_string() << "}";
+          << "," << quote("value") << ":" << quote(expr.literal.to_string())
+          << "}";
     }
     else
       throw std::logic_error(
@@ -262,16 +271,17 @@ class JSONVisitor : public BasicVisitor {
   void operator()(const PropertyName& expr) override
   {
     buf << "{" << quote("type") << ":" << quote("PropertyName");
-    if (expr.identifier) {
+    if (expr.value.is_identifier_name()) {
       buf << "," << quote("kind") << ":" << quote("identifier");
-      buf << "," << quote("value") << ":"
-          << expr.identifier->identifier.to_string();
+      buf << "," << quote("value") << ":" << quote(expr.value.to_string());
     }
-    else if (expr.literal) {
-      auto kind =
-          expr.literal->literal.is_string_literal() ? "string" : "number";
-      buf << "," << quote("kind") << ":" << quote(kind);
-      buf << "," << quote("value") << ":" << expr.literal->literal.to_string();
+    else if (expr.value.is_string_literal()) {
+      buf << "," << quote("kind") << ":" << quote("string");
+      buf << "," << quote("value") << ":" << quote(expr.value.to_string());
+    }
+    else if (expr.value.is_numeric_literal()) {
+      buf << "," << quote("kind") << ":" << quote("number");
+      buf << "," << quote("value") << ":" << quote(Number(expr.value.numeric_value()).ToString());
     }
     buf << "}";
   }
@@ -307,6 +317,14 @@ class JSONVisitor : public BasicVisitor {
       break;
     }
   }
+
+  void operator()(const PropertySetParameterList& expr) override
+  {
+    buf << "{" << quote("type") << ":" << quote("Identifier");
+    buf << "," << quote("name") << ":" << quote(expr.value.to_string());
+    buf << "}";
+  }
+
   void operator()(const PostfixExpression& expr) override
   {
     buf << "{" << quote("type") << ":" << quote("PostfixExpression");
@@ -359,7 +377,11 @@ class JSONVisitor : public BasicVisitor {
     apply(expr.object);
     if (expr.property) {
       buf << "," << quote("property") << ":";
-      apply(expr.property);
+      buf << "{" << quote("name") << ":"
+          << quote(expr.property.to_string());
+      buf << "," << quote("type") << ":" << quote("Identifier");
+      buf << "}";
+      // apply(expr.property);
     }
     else {
       buf << "," << quote("expression") << ":";
@@ -408,7 +430,7 @@ class JSONVisitor : public BasicVisitor {
     buf << "{" << quote("type") << ":" << quote("FunctionExpression");
     buf << "," << quote("name") << ":";
     if (expr.id)
-      apply(expr.id);
+      print_identifier(expr.id);
     else
       buf << "null";
     buf << "," << quote("parameters") << ":";
@@ -467,7 +489,11 @@ class JSONVisitor : public BasicVisitor {
   {
     buf << "{" << quote("type") << ":" << quote("VariableDeclarator");
     buf << "," << quote("binding") << ":";
-    apply(decl.identifier);
+    buf << "{" << quote("name") << ":"
+        << quote(decl.identifier.to_string());
+    buf << "," << quote("type") << ":" << quote("Identifier");
+    buf << "}";
+    // apply(decl.identifier);
     buf << "," << quote("init") << ":";
     if (decl.initializer)
       apply(decl.initializer);
@@ -576,10 +602,8 @@ class JSONVisitor : public BasicVisitor {
   {
     buf << "{" << quote("type") << ":" << quote("ContinueStatement");
     buf << "," << quote("label") << ":";
-    if (stmt.label)
-      apply(stmt.label);
-    else
-      buf << "null";
+    if (stmt.label) print_identifier(stmt.label);
+    else buf << "null";
     buf << "}";
   }
 
@@ -587,10 +611,8 @@ class JSONVisitor : public BasicVisitor {
   {
     buf << "{" << quote("type") << ":" << quote("BreakStatement");
     buf << "," << quote("label") << ":";
-    if (stmt.label)
-      apply(stmt.label);
-    else
-      buf << "null";
+    if (stmt.label) print_identifier(stmt.label);
+    else buf << "null";
     buf << "}";
   }
 
@@ -620,7 +642,7 @@ class JSONVisitor : public BasicVisitor {
   {
     buf << "{" << quote("type") << ":" << quote("LabeledStatement");
     buf << "," << quote("label") << ":";
-    apply(stmt.label);
+    print_identifier(stmt.label);
     buf << "," << quote("body") << ":";
     apply(stmt.body);
     buf << "}";
@@ -697,7 +719,9 @@ class JSONVisitor : public BasicVisitor {
     if (stmt.handler) {
       buf << "{" << quote("type") << ":" << quote("CatchClause");
       buf << "," << quote("binding") << ":";
-      apply(stmt.binding);
+      buf << "{" << quote("type") << ":" << quote("Identifier");
+      buf << "," << quote("name") << ":" << quote(stmt.binding.to_string());
+      buf << "}";
       buf << "," << quote("body") << ":";
 
       buf << "{" << quote("type") << ":" << quote("Block");
@@ -756,7 +780,7 @@ class JSONVisitor : public BasicVisitor {
           if (expr->literal.is_string_literal()) {
             if (it != first)
               buf << ",";
-            if (expr->literal == u"use strict") {
+            if (expr->literal == Token::string_literal(u"use strict")) {
               buf << "{" << quote("type") << ":" << quote("UseStrictDirective")
                   << "}";
             }
@@ -806,8 +830,13 @@ class JSONVisitor : public BasicVisitor {
   {
     buf << "{" << quote("type") << ":" << quote("FunctionDeclaration");
     buf << "," << quote("name") << ":";
-    if (decl.id)
-      apply(decl.id);
+    if (decl.id) {
+      buf << "{" << quote("name") << ":"
+          << quote(decl.id.to_string());
+      buf << "," << quote("type") << ":" << quote("Identifier");
+      buf << "}";
+      // apply(decl.id);
+    }
     else
       buf << "null";
     buf << "," << quote("parameters") << ":";
@@ -832,7 +861,20 @@ class JSONVisitor : public BasicVisitor {
 
   void operator()(const FormalParameterList& list) override
   {
-    apply(list.begin(), list.end());
+    buf << "[";
+    auto it = list.begin();
+    if (it != list.end()) {
+      print_identifier(*it);
+      ++it;
+    }
+    while (it != list.end()) {
+      buf << ",";
+      print_identifier(*it);
+      ++it;
+    }
+
+    buf << "]";
+    // apply(list.begin(), list.end());
   }
 
 public:

@@ -13,6 +13,7 @@ struct StringLiteral;
 struct RegularExpressionLiteral;
 struct PropertyName;
 struct PropertyAssignment;
+struct PropertySetParameterList;
 struct Elision;
 struct ElementList;
 struct ArrayLiteral;
@@ -135,6 +136,7 @@ struct Visitor {
   virtual void operator()(const Elision&)             = 0;
   virtual void operator()(const PropertyName&)        = 0;
   virtual void operator()(const PropertyAssignment&)  = 0;
+  virtual void operator()(const PropertySetParameterList&) = 0;
   virtual void operator()(const Arguments&)           = 0;
   virtual void operator()(const Program&)             = 0;
 

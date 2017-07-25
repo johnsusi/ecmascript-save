@@ -202,6 +202,19 @@ struct ThisExpression : PrimaryExpression {
   }
 };
 
+// struct Identifier : Expression {
+//   Token value;
+//   Identifier(Token value) : value(value) {}
+//   void accept(Visitor& visitor) const override
+//   {
+//     return visitor(*this);
+//   }
+//   const char* type() const override
+//   {
+//     return "Identifier";
+//   }
+// };
+
 struct IdentifierExpression : PrimaryExpression {
   Token identifier;
   IdentifierExpression(Token identifier) : identifier(identifier)
@@ -271,14 +284,18 @@ struct ObjectExpression : PrimaryExpression {
 };
 
 struct PropertyName : Expression {
-  IdentifierExpression* identifier = nullptr;
-  LiteralExpression*    literal    = nullptr;
-  PropertyName(IdentifierExpression* identifier) : identifier(identifier)
+  Token value;
+  PropertyName(Token value) : value(value)
   {
   }
-  PropertyName(LiteralExpression* literal) : literal(literal)
-  {
-  }
+  // IdentifierExpression* identifier = nullptr;
+  // LiteralExpression*    literal    = nullptr;
+  // PropertyName(IdentifierExpression* identifier) : identifier(identifier)
+  // {
+  // }
+  // PropertyName(LiteralExpression* literal) : literal(literal)
+  // {
+  // }
   void accept(Visitor& visitor) const override
   {
     return visitor(*this);
@@ -289,12 +306,25 @@ struct PropertyName : Expression {
   }
 };
 
+struct PropertySetParameterList : Expression {
+  Token value;
+  PropertySetParameterList(Token value) : value(value) {}
+  void accept(Visitor& visitor) const override
+  {
+    return visitor(*this);
+  }
+  const char* type() const override
+  {
+    return "PropertySetParameterList";
+  }
+};
+
 struct PropertyAssignment : Expression {
   enum class Kind { INIT, GET, SET } kind;
   PropertyName*         name;
   Expression*           expression = nullptr;
   FunctionBody*         body       = nullptr;
-  IdentifierExpression* parameter  = nullptr;
+  PropertySetParameterList* parameter  = nullptr;
   PropertyAssignment(PropertyName* name, Expression* expression)
       : kind(Kind::INIT), name(name), expression(expression)
   {
@@ -306,7 +336,7 @@ struct PropertyAssignment : Expression {
   {
   }
   PropertyAssignment(
-      PropertyName* name, IdentifierExpression* parameter, FunctionBody* body)
+      PropertyName* name, PropertySetParameterList* parameter, FunctionBody* body)
       : kind(Kind::SET), name(name), body(body), parameter(parameter)
   {
   }
@@ -380,15 +410,15 @@ struct PropertyNameAndValueList : List<PropertyAssignment> {
 // };
 
 struct MemberExpression : Expression {
-  Expression*           object;
-  IdentifierExpression* property;
-  Expression*           expression;
-  MemberExpression(Expression* object, IdentifierExpression* property)
-      : object(object), property(property), expression(nullptr)
+  Token       property;
+  Expression* object;
+  Expression* expression;
+  MemberExpression(const Token& property, Expression* object)
+      : property(property), object(object), expression(nullptr)
   {
   }
   MemberExpression(Expression* object, Expression* expression)
-      : object(object), property(nullptr), expression(expression)
+      : object(object), expression(expression)
   {
   }
   void accept(Visitor& visitor) const override
@@ -553,10 +583,10 @@ struct AssignmentExpression : BinaryExpression {
 };
 
 struct VariableDeclaration : Expression {
-  IdentifierExpression* identifier;
+  Token identifier;
   Expression*           initializer;
   VariableDeclaration(
-      IdentifierExpression* identifier, Expression* initializer = nullptr)
+      const Token& identifier, Expression* initializer = nullptr)
       : identifier(identifier), initializer(initializer)
   {
   }
@@ -769,8 +799,9 @@ struct ForInStatement : Statement {
 };
 
 struct ContinueStatement : Statement {
-  IdentifierExpression* label;
-  ContinueStatement(IdentifierExpression* label = nullptr) : label(label)
+  Token label;
+
+  ContinueStatement(Token label = {}) : label(label)
   {
   }
   void accept(Visitor& visitor) const override
@@ -784,10 +815,11 @@ struct ContinueStatement : Statement {
 };
 
 struct BreakStatement : Statement {
-  IdentifierExpression* label;
-  BreakStatement(IdentifierExpression* label = nullptr) : label(label)
+  Token label;
+  BreakStatement(Token label = {}) : label(label)
   {
   }
+
   void accept(Visitor& visitor) const override
   {
     return visitor(*this);
@@ -831,9 +863,9 @@ struct WithStatement : Statement {
 };
 
 struct LabelledStatement : Statement {
-  IdentifierExpression* label;
+  Token label;
   Statement*            body;
-  LabelledStatement(IdentifierExpression* label, Statement* body)
+  LabelledStatement(Token label, Statement* body)
       : label(label), body(body)
   {
   }
@@ -927,11 +959,12 @@ struct ThrowStatement : Statement {
 
 struct TryStatement : Statement {
   Block*                block;
-  IdentifierExpression* binding;
+  Token binding;
   Block*                handler;
   Block*                finalizer;
   TryStatement(
-      Block* block, IdentifierExpression* binding = nullptr,
+      Block* block,
+      Token binding = {},
       Block* handler = nullptr, Block* finalizer = nullptr)
       : block(block), binding(binding), handler(handler), finalizer(finalizer)
   {
@@ -975,7 +1008,43 @@ struct SourceElements : List<SourceElement> {
   }
 };
 
-struct FormalParameterList : List<IdentifierExpression> {
+struct FormalParameterList : Node {
+
+  std::vector<Token> data;
+
+  auto front() const
+  {
+    return data.front();
+  }
+  auto back() const
+  {
+    return data.back();
+  }
+  void pop_back()
+  {
+    data.pop_back();
+  }
+  void push_back(const Token& value)
+  {
+    data.push_back(value);
+  }
+  auto begin() const
+  {
+    return data.begin();
+  }
+  auto end() const
+  {
+    return data.end();
+  }
+  auto operator[](std::size_t index)
+  {
+    return data[index];
+  }
+  auto size() const
+  {
+    return data.size();
+  }
+
   void accept(Visitor& visitor) const override
   {
     return visitor(*this);
@@ -1002,11 +1071,10 @@ struct FunctionBody : SourceElements {
 };
 
 struct FunctionDeclaration : SourceElement {
-  IdentifierExpression* id;
+  Token id;
   FormalParameterList*  params;
   FunctionBody*         body;
-  FunctionDeclaration(
-      IdentifierExpression* id, FormalParameterList* params, FunctionBody* body)
+  FunctionDeclaration(Token id, FormalParameterList* params, FunctionBody* body)
       : id(id), params(params), body(body)
   {
   }
@@ -1021,11 +1089,14 @@ struct FunctionDeclaration : SourceElement {
 };
 
 struct FunctionExpression : Expression {
-  IdentifierExpression* id;
+  Token id;
   FormalParameterList*  params;
   FunctionBody*         body;
-  FunctionExpression(
-      IdentifierExpression* id, FormalParameterList* params, FunctionBody* body)
+  FunctionExpression(FormalParameterList* params = nullptr, FunctionBody* body = nullptr) :
+    params(params), body(body)
+  {
+  }
+  FunctionExpression(Token id, FormalParameterList* params = nullptr, FunctionBody* body = nullptr)
       : id(id), params(params), body(body)
   {
   }

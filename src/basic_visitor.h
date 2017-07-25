@@ -64,7 +64,7 @@ struct BasicVisitor : Visitor {
   }
   void operator()(const MemberExpression& node) override
   {
-    apply(node.object, node.property);
+    apply(node.object);
   }
   void operator()(const NewExpression& node) override
   {
@@ -98,7 +98,7 @@ struct BasicVisitor : Visitor {
 
   void operator()(const FunctionExpression& node) override
   {
-    apply(node.id, node.params, node.body);
+    apply(node.params, node.body);
   }
 
   void operator()(const Block& node) override
@@ -134,11 +134,9 @@ struct BasicVisitor : Visitor {
   }
   void operator()(const ContinueStatement& stmt) override
   {
-    apply(stmt.label);
   }
   void operator()(const BreakStatement& stmt) override
   {
-    apply(stmt.label);
   }
   void operator()(const ReturnStatement& stmt) override
   {
@@ -150,7 +148,7 @@ struct BasicVisitor : Visitor {
   }
   void operator()(const LabelledStatement& stmt) override
   {
-    apply(stmt.label, stmt.body);
+    apply(stmt.body);
   }
   void operator()(const SwitchStatement& stmt) override
   {
@@ -179,7 +177,7 @@ struct BasicVisitor : Visitor {
 
   void operator()(const FunctionDeclaration& decl) override
   {
-    apply(decl.id, decl.params, decl.body);
+    apply(decl.params, decl.body);
   }
   void operator()(const FunctionBody& node) override
   {
@@ -188,7 +186,7 @@ struct BasicVisitor : Visitor {
 
   void operator()(const VariableDeclaration& decl) override
   {
-    apply(decl.identifier, decl.initializer);
+    apply(decl.initializer);
   }
   void operator()(const Elision&) override
   {
@@ -208,6 +206,11 @@ struct BasicVisitor : Visitor {
       break;
     }
   }
+
+  void operator()(const PropertySetParameterList& node) override
+  {
+  }
+
   void operator()(const Arguments& node) override
   {
     apply(node.list);
@@ -251,7 +254,7 @@ struct BasicVisitor : Visitor {
   }
   void operator()(const FormalParameterList& list) override
   {
-    apply(list.data);
+    // apply(list.data);
   }
 };
 

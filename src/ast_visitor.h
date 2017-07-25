@@ -141,7 +141,7 @@ class SimplifiedYAMLVisitor : public BasicVisitor {
 
   void operator()(const MemberExpression& expr) override
   {
-    buf << "." << indent << expr.object << expr.property << unindent;
+    buf << "." << indent << expr.object << expr.property.to_string() << unindent;
   }
 
   void operator()(const Block& stmt) override
@@ -185,12 +185,12 @@ class SimplifiedYAMLVisitor : public BasicVisitor {
 
   void operator()(const ContinueStatement& stmt) override
   {
-    buf << "ContinueStatement" << indent << stmt.label << unindent;
+    buf << "ContinueStatement" << indent << stmt.label.to_string() << unindent;
   }
 
   void operator()(const BreakStatement& stmt) override
   {
-    buf << "BreakStatement" << indent << stmt.label << unindent;
+    buf << "BreakStatement" << indent << stmt.label.to_string() << unindent;
   }
 
   void operator()(const ReturnStatement& stmt) override
@@ -200,7 +200,7 @@ class SimplifiedYAMLVisitor : public BasicVisitor {
 
   void operator()(const LabelledStatement& stmt) override
   {
-    buf << "LabelledStatement" << indent << stmt.label << stmt.body << unindent;
+    buf << "LabelledStatement" << indent << stmt.label.to_string() << stmt.body << unindent;
   }
 
   void operator()(const Program& program) override

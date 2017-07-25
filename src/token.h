@@ -65,7 +65,7 @@ class Token {
     const char*     c_str;
     std::nullptr_t  empty;
     double          numeric_value;
-    std::u16string* string_value;
+    const char16_t* string_value;
     constexpr value_t() : empty(nullptr)
     {
     }
@@ -75,7 +75,7 @@ class Token {
     constexpr value_t(double value) : numeric_value(value)
     {
     }
-    constexpr value_t(std::u16string* value) : string_value(value)
+    constexpr value_t(const char16_t* value) : string_value(value)
     {
     }
   } m_value;
@@ -242,14 +242,14 @@ public:
       throw std::logic_error("Cannot create compile time token");
   }
 
-  static Token identifier(std::u16string* value)
+  static Token identifier(const char16_t* value)
   {
     return Token(IDENTIFIER, {value});
   }
 
-  static Token identifier_name(std::u16string* value)
+  static Token identifier_name(const char16_t* value)
   {
-    if (auto token = find(value->data())) {
+    if (auto token = find(value)) {
       return token;
     }
     else
@@ -271,12 +271,12 @@ public:
     return {NUMERIC_LITERAL, {value}};
   }
 
-  static Token string_literal(std::u16string* value)
+  static Token string_literal(const char16_t* value)
   {
     return {STRING_LITERAL, {value}};
   }
 
-  static Token regular_expression_literal(std::u16string* value)
+  static Token regular_expression_literal(const char16_t* value)
   {
     return {REG_EXP_LITERAL, {value}};
   }
@@ -407,7 +407,7 @@ public:
     }
     if (is_string_literal() || is_regular_expression_literal()
         || is_identifier())
-      return *m_value.string_value;
+      return {m_value.string_value};
     return u"something else";
   }
 

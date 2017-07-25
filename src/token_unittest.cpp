@@ -23,9 +23,7 @@ TEST_CASE("BooleanLiteral")
 TEST_CASE("IdentifierName")
 {
 
-  std::u16string name{u"class"};
-
-  auto token = Token::identifier_name(&name);
+  auto token = Token::identifier_name(u"class");
 
   REQUIRE(token.is_reserved_word());
   REQUIRE(token.string_value() == u"class");
@@ -36,9 +34,7 @@ TEST_CASE("IdentifierName")
 TEST_CASE("get")
 {
 
-  std::u16string name{u"get"};
-
-  auto token = Token::identifier_name(&name);
+  auto token = Token::identifier_name(u"get");
 
   REQUIRE(token.is_identifier());
   REQUIRE(token.string_value() == u"get");
