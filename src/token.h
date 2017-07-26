@@ -2,6 +2,7 @@
 #define ECMASCRIPT_TOKEN_H
 
 #include "util.h"
+#include "types/number.h"
 
 #include <algorithm>
 #include <cstddef>
@@ -470,6 +471,16 @@ public:
     default: return m_value.c_str;
     }
   }
+
+  Number to_number() const
+  {
+    return { numeric_value() };
+  }
+
+  // constexpr String to_string() const
+  // {
+  //   return { string_value() };
+  // }
 };
 
 std::ostream& operator<<(std::ostream& out, const Token& token);

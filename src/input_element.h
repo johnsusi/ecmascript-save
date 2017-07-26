@@ -10,6 +10,8 @@
 #include <ostream>
 #include <string>
 
+bool is_line_terminator(int);
+
 class InputElement {
   struct Empty {
   };
