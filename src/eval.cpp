@@ -4,6 +4,7 @@
 #include "logger.h"
 #include "parser.h"
 
+#include <bitset>
 #include <chrono>
 #include <iostream>
 
