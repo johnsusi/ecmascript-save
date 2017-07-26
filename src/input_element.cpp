@@ -38,7 +38,7 @@ InputElement InputElement::token(::Token value)
 bool InputElement::is_empty() const
 {
   using namespace std;
-  return get_if<Empty>(&value) != nullptr;
+  return mpark::get_if<Empty>(&value) != nullptr;
 }
 
 // bool InputElement::is_token() const
@@ -50,7 +50,7 @@ bool InputElement::is_empty() const
 bool InputElement::is_line_terminator() const
 {
   using namespace std;
-  return get_if<LineTerminator>(&value) != nullptr;
+  return mpark::get_if<LineTerminator>(&value) != nullptr;
 }
 
 // bool InputElement::is_comment() const
@@ -62,7 +62,7 @@ bool InputElement::is_line_terminator() const
 bool InputElement::is_white_space() const
 {
   using namespace std;
-  return get_if<WhiteSpace>(&value) != nullptr;
+  return mpark::get_if<WhiteSpace>(&value) != nullptr;
 }
 
 bool InputElement::has_line_terminator() const
@@ -70,7 +70,7 @@ bool InputElement::has_line_terminator() const
   using namespace std;
   if (is_line_terminator())
     return true;
-  if (auto comment = get_if<Comment>(&value)) {
+  if (auto comment = mpark::get_if<Comment>(&value)) {
     return std::find_if(
                comment->value.begin(), comment->value.end(),
                ::is_line_terminator)
@@ -87,7 +87,7 @@ InputElement::operator bool() const
 optional<::Token> InputElement::to_token() const
 {
   using namespace std;
-  if (auto o = get_if<Token>(&value))
+  if (auto o = mpark::get_if<Token>(&value))
     return o->value;
   return {};
 }

@@ -1,7 +1,7 @@
 #ifndef ECMASCRIPT_OPTIONS_H
 #define ECMASCRIPT_OPTIONS_H
 
-#include "variant.h"
+#include "variant.hpp"
 
 #include <iosfwd>
 #include <memory>
@@ -12,7 +12,7 @@
 class Options {
   using Key = std::string;
   using Option =
-      variant<bool, int, double, std::string, std::vector<std::string>>;
+      mpark::variant<bool, int, double, std::string, std::vector<std::string>>;
   using Data = std::unordered_map<std::string, Option>;
 
   std::shared_ptr<Data> data = std::make_shared<Data>();
@@ -81,7 +81,7 @@ class Options {
   }
 
   template <typename... Ts>
-  Option make_option(const variant<Ts...>& v)
+  Option make_option(const mpark::variant<Ts...>& v)
   {
     using namespace std;
     return visit([](auto value) { return value; }, v);

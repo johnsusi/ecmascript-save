@@ -149,7 +149,7 @@ list(APPEND CMAKE_REQUIRED_LIBRARIES ${CMAKE_REQUIRED_LIBRARIES_})
 include(CheckFilesystem)
 include(CheckICU)
 include(CheckOptional)
-include(CheckVariant)
+# include(CheckVariant)
 
 configure_file(src/config.h.in config.h @ONLY)
 

@@ -6,7 +6,7 @@
 #include "lexer.h"
 #include "trace.h"
 #include "util.h"
-#include "variant.h"
+#include "variant.hpp"
 
 #include <iostream>
 #include <string>

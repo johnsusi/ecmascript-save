@@ -3,7 +3,7 @@
 
 #include "optional.h"
 #include "token.h"
-#include "variant.h"
+#include "variant.hpp"
 
 #include <algorithm>
 #include <iterator>
@@ -26,7 +26,7 @@ class InputElement {
   struct WhiteSpace {
   };
 
-  using Value = variant<Empty, Token, LineTerminator, Comment, WhiteSpace>;
+  using Value = mpark::variant<Empty, Token, LineTerminator, Comment, WhiteSpace>;
 
   Value value;
 
