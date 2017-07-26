@@ -88,21 +88,21 @@ matrix:
     #         - libboost-all-dev
     #         - ninja-build
 
-    # - os: linux
-    #   dist: trusty
-    #   sudo: required
-    #   compiler: clang
-    #   group: edge
-    #   env: BUILD_CC=clang-5.0 BUILD_CXX=clang++-5.0 CMAKE_EXTRA=""
-    #   addons:
-    #     apt:
-    #       sources:
-    #         - llvm-toolchain-trusty
-    #       packages:
-    #         - clang-5.0
-    #         - libicu-dev
-    #         - libboost-all-dev
-    #         - ninja-build
+    - os: linux
+      dist: trusty
+      sudo: required
+      compiler: clang
+      group: edge
+      env: BUILD_CC=clang-5.0 BUILD_CXX=clang++-5.0 CMAKE_EXTRA=""
+      addons:
+        apt:
+          sources:
+            - llvm-toolchain-trusty
+          packages:
+            - clang-5.0
+            - libicu-dev
+            - libboost-all-dev
+            - ninja-build
 
 
     - os: osx
@@ -146,7 +146,8 @@ install:
       mkdir cmake && travis_retry wget --no-check-certificate --quiet -O - ${CMAKE_URL} | tar --strip-components=1 -xz -C cmake
       export PATH=${DEPS_DIR}/cmake/bin:${PATH}
     elif [[ "${TRAVIS_OS_NAME}" == "osx" ]]; then
-      brew update && brew upgrade
+      brew update
+      brew upgrade
       which cmake || brew install cmake
       which ninja || brew install ninja
       brew install icu4c
