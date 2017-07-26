@@ -22,7 +22,8 @@ static constexpr char16_t ToHexDigit(int x)
   case 0xD: return u'd';
   case 0xE: return u'e';
   case 0xF: return u'f';
-  default: return fail_with_logic_error("ToHexDigit called with invalid input ");
+  default: return 0;
+  // default: return fail_with_logic_error("ToHexDigit called with invalid input ");
   // default: throw std::logic_error("ToHexDigit called with invalid input ");
   }
 }

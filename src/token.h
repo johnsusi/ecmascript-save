@@ -64,10 +64,9 @@ class Token {
 
   union value_t {
     const char*     c_str;
-    std::nullptr_t  empty;
     double          numeric_value;
-    const char16_t* string_value;
-    constexpr value_t() : empty(nullptr)
+    std::u16string* string_value;
+    constexpr value_t() : c_str(nullptr)
     {
     }
     constexpr value_t(const char* c_str) : c_str(c_str)
@@ -76,7 +75,7 @@ class Token {
     constexpr value_t(double value) : numeric_value(value)
     {
     }
-    constexpr value_t(const char16_t* value) : string_value(value)
+    constexpr value_t(std::u16string* value) : string_value(value)
     {
     }
   } m_value;
@@ -200,6 +199,13 @@ class Token {
     return false;
   }
 
+  template <typename T1, typename T2>
+  static constexpr bool equal(const T1* lhs, const T2* rhs)
+  {
+    for (; *lhs || *rhs; ++lhs, ++rhs)
+      if (*lhs != *rhs) return false;
+    return true;
+  }
   template <typename T>
   static constexpr Token find(const T* str)
   {
@@ -243,14 +249,14 @@ public:
       throw std::logic_error("Cannot create compile time token");
   }
 
-  static Token identifier(const char16_t* value)
+  static Token identifier(std::u16string* value)
   {
     return Token(IDENTIFIER, {value});
   }
 
-  static Token identifier_name(const char16_t* value)
+  static Token identifier_name(std::u16string* value)
   {
-    if (auto token = find(value)) {
+    if (auto token = find(value->data())) {
       return token;
     }
     else
@@ -272,12 +278,12 @@ public:
     return {NUMERIC_LITERAL, {value}};
   }
 
-  static Token string_literal(const char16_t* value)
+  static Token string_literal(std::u16string* value)
   {
     return {STRING_LITERAL, {value}};
   }
 
-  static Token regular_expression_literal(const char16_t* value)
+  static Token regular_expression_literal(std::u16string* value)
   {
     return {REG_EXP_LITERAL, {value}};
   }
@@ -384,6 +390,7 @@ public:
 
   constexpr bool boolean_value() const
   {
+    // return m_value.boolean_value;
     switch (type()) {
     case find("true"): return true;
     case find("false"): return false;
@@ -397,23 +404,24 @@ public:
     return m_value.numeric_value;
   }
 
-  std::u16string string_value() const
+  constexpr std::u16string* string_value() const
   {
-    if (index() > 0) {
-      std::string s = {m_value.c_str};
-      return {s.begin(), s.end()};
-    }
-    if (is_numeric_literal()) {
-      auto s = std::to_string(numeric_value());
-      return {s.begin(), s.end()};
-    }
-    if (is_string_literal() || is_regular_expression_literal()
-        || is_identifier())
-      return {m_value.string_value};
-    return u"something else";
+    return m_value.string_value;
+    // if (index() > 0) {
+    //   std::string s = {m_value.c_str};
+    //   return {s.begin(), s.end()};
+    // }
+    // if (is_numeric_literal()) {
+    //   auto s = std::to_string(numeric_value());
+    //   return {s.begin(), s.end()};
+    // }
+    // if (is_string_literal() || is_regular_expression_literal()
+    //     || is_identifier())
+    //   return {m_value.string_value};
+    // return u"something else";
   }
 
-  bool operator==(const Token& other) const
+  constexpr bool operator==(const Token& other) const
   {
     if (type() != other.type())
       return false;
@@ -423,11 +431,12 @@ public:
     case NUMERIC_LITERAL: return numeric_value() == other.numeric_value();
     case STRING_LITERAL: return string_value() == other.string_value();
     case REG_EXP_LITERAL: return string_value() == other.string_value();
+    case IDENTIFIER: return string_value() == other.string_value();
     default: return true;
     }
   }
 
-  bool operator!=(const Token& other) const
+  constexpr bool operator!=(const Token& other) const
   {
     return !operator==(other);
   }
@@ -455,23 +464,23 @@ public:
   {
     switch (m_type & CATEGORY_MASK) {
     case NUMERIC_LITERAL: return std::to_string(numeric_value());
-    case STRING_LITERAL: return convert_utf16_to_utf8(string_value());
-    case REG_EXP_LITERAL: return convert_utf16_to_utf8(string_value());
-    case IDENTIFIER: return convert_utf16_to_utf8(string_value());
+    case STRING_LITERAL: return convert_utf16_to_utf8(*string_value());
+    case REG_EXP_LITERAL: return convert_utf16_to_utf8(*string_value());
+    case IDENTIFIER: return convert_utf16_to_utf8(*string_value());
     default: return m_value.c_str;
     }
   }
 
-  std::string to_u16string() const
-  {
-    switch (m_type & CATEGORY_MASK) {
-    case NUMERIC_LITERAL: return std::to_string(numeric_value());
-    case STRING_LITERAL: return convert_utf16_to_utf8(string_value());
-    case REG_EXP_LITERAL: return convert_utf16_to_utf8(string_value());
-    case IDENTIFIER: return convert_utf16_to_utf8(string_value());
-    default: return m_value.c_str;
-    }
-  }
+  // std::string to_u16string() const
+  // {
+  //   switch (m_type & CATEGORY_MASK) {
+  //   case NUMERIC_LITERAL: return std::to_string(numeric_value());
+  //   case STRING_LITERAL: return convert_utf16_to_utf8(*string_value());
+  //   case REG_EXP_LITERAL: return convert_utf16_to_utf8(*string_value());
+  //   case IDENTIFIER: return convert_utf16_to_utf8(*string_value());
+  //   default: return m_value.c_str;
+  //   }
+  // }
 
   Number to_number() const
   {

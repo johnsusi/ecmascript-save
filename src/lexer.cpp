@@ -499,7 +499,7 @@ struct Lexer::LexicalGrammar {
     sv          = {};
     if (identifier_name()) { // std::u16string{i, match.mark()}
       strings.push_back(std::make_unique<std::u16string>(sv));
-      token_value = Token::identifier_name(strings.back().get()->data());
+      token_value = Token::identifier_name(strings.back().get());
       return true;
     }
     if (punctuator()) {
@@ -512,7 +512,7 @@ struct Lexer::LexicalGrammar {
     }
     if (string_literal()) {
       strings.push_back(std::make_unique<std::u16string>(sv));
-      token_value = Token::string_literal(strings.back().get()->data());
+      token_value = Token::string_literal(strings.back().get());
       return true;
     }
     return false;
@@ -1083,7 +1083,7 @@ struct Lexer::LexicalGrammar {
     sv = {m, match.mark()};
     strings.push_back(std::make_unique<std::u16string>(sv));
     token_value =
-        Token::regular_expression_literal(strings.back().get()->data());
+        Token::regular_expression_literal(strings.back().get());
     return true;
   }
 

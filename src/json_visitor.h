@@ -780,7 +780,7 @@ class JSONVisitor : public BasicVisitor {
           if (expr->literal.is_string_literal()) {
             if (it != first)
               buf << ",";
-            if (expr->literal == Token::string_literal(u"use strict")) {
+            if (expr->literal == u"use strict") {
               buf << "{" << quote("type") << ":" << quote("UseStrictDirective")
                   << "}";
             }
