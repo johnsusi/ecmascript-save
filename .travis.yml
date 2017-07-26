@@ -103,8 +103,8 @@ matrix:
             - libicu-dev
             - libboost-all-dev
             - ninja-build
-
-
+            - libc++-dev
+            - libc++abi-dev
     - os: osx
       osx_image: xcode9
       compiler: clang
