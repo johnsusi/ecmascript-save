@@ -88,23 +88,7 @@ matrix:
     #         - libboost-all-dev
     #         - ninja-build
 
-    - os: linux
-      dist: trusty
-      sudo: required
-      compiler: clang
-      group: edge
-      env: BUILD_CC=clang-5.0 BUILD_CXX=clang++-5.0 CMAKE_EXTRA=""
-      addons:
-        apt:
-          sources:
-            - llvm-toolchain-trusty
-          packages:
-            - clang-5.0
-            - libicu-dev
-            - libboost-all-dev
-            - ninja-build
-            - libc++-dev
-            - libc++abi-dev
+
     - os: osx
       osx_image: xcode9
       compiler: clang
@@ -133,9 +117,25 @@ matrix:
       osx_image: xcode6.4
       compiler: clang
       env: BUILD_CC=clang BUILD_CXX=clang++ BUILD_TYPE=Release CMAKE_EXTRA="-DICU_ROOT=/usr/local/opt/icu4c"
-
-# before_install:
-#   - eval "${MATRIX_EVAL}"
+    allow_failures:
+      - os: linux
+        dist: trusty
+        sudo: required
+        compiler: clang
+        group: edge
+        env: BUILD_CC=clang-5.0 BUILD_CXX=clang++-5.0 CMAKE_EXTRA=""
+        addons:
+          apt:
+            sources:
+              - llvm-toolchain-trusty
+            packages:
+              - g++-7
+              - clang-5.0
+              - libicu-dev
+              - libboost-all-dev
+              - ninja-build
+              - libc++-dev
+              - libc++abi-dev
 
 install:
   - DEPS_DIR="${TRAVIS_BUILD_DIR}/deps"
