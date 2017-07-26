@@ -387,7 +387,8 @@ public:
     switch (type()) {
     case find("true"): return true;
     case find("false"): return false;
-    default: throw std::runtime_error("Invalid type");
+    default: return fail_with_logic_error("Invalid type");
+    // default: throw std::runtime_error("Invalid type");
     }
   }
 
@@ -412,7 +413,7 @@ public:
     return u"something else";
   }
 
-  constexpr bool operator==(const Token& other) const
+  bool operator==(const Token& other) const
   {
     if (type() != other.type())
       return false;
@@ -426,12 +427,12 @@ public:
     }
   }
 
-  constexpr bool operator!=(const Token& other) const
+  bool operator!=(const Token& other) const
   {
     return !operator==(other);
   }
 
-  constexpr bool any_of(std::initializer_list<Token> tokens) const
+  bool any_of(std::initializer_list<Token> tokens) const
   {
     for (auto it = tokens.begin(); it != tokens.end(); ++it)
       if (*this == *it)

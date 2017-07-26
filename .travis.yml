@@ -10,7 +10,7 @@ matrix:
     - os: linux
       dist: trusty
       sudo: required
-      compiler: gcc
+      compiler: gcc-7
       group: edge
       env: BUILD_CC=gcc-7 BUILD_CXX=g++-7 CMAKE_EXTRA=""
       addons:
@@ -20,6 +20,38 @@ matrix:
           packages:
             # - g++-6
             - g++-7
+            - libicu-dev
+            - libboost-all-dev
+            - ninja-build
+
+    - os: linux
+      dist: trusty
+      sudo: required
+      compiler: gcc-6
+      group: edge
+      env: BUILD_CC=gcc-6 BUILD_CXX=g++-6 CMAKE_EXTRA=""
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-6
+            - libicu-dev
+            - libboost-all-dev
+            - ninja-build
+
+    - os: linux
+      dist: trusty
+      sudo: required
+      compiler: gcc-5
+      group: edge
+      env: BUILD_CC=gcc-5 BUILD_CXX=g++-5 CMAKE_EXTRA=""
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-5
             - libicu-dev
             - libboost-all-dev
             - ninja-build
@@ -56,51 +88,51 @@ matrix:
     #         - libboost-all-dev
     #         - ninja-build
 
-    - os: linux
-      dist: trusty
-      sudo: required
-      compiler: clang
-      group: edge
-      env: BUILD_CC=clang-5.0 BUILD_CXX=clang++-5.0 CMAKE_EXTRA=""
-      addons:
-        apt:
-          sources:
-            - llvm-toolchain-trusty
-          packages:
-            - clang-5.0
-            - libicu-dev
-            - libboost-all-dev
-            - ninja-build
+    # - os: linux
+    #   dist: trusty
+    #   sudo: required
+    #   compiler: clang
+    #   group: edge
+    #   env: BUILD_CC=clang-5.0 BUILD_CXX=clang++-5.0 CMAKE_EXTRA=""
+    #   addons:
+    #     apt:
+    #       sources:
+    #         - llvm-toolchain-trusty
+    #       packages:
+    #         - clang-5.0
+    #         - libicu-dev
+    #         - libboost-all-dev
+    #         - ninja-build
 
 
     - os: osx
       osx_image: xcode9
       compiler: clang
       env: BUILD_CC=clang BUILD_CXX=clang++ BUILD_TYPE=Release CMAKE_EXTRA="-DICU_ROOT=/usr/local/opt/icu4c"
-    # - os: osx
-    #   osx_image: xcode8.3
-    #   compiler: clang
-    #   env: BUILD_CC=clang BUILD_CXX=clang++ BUILD_TYPE=Release CMAKE_EXTRA="-DICU_ROOT=/usr/local/opt/icu4c"
-    # - os: osx
-    #   osx_image: xcode8.2
-    #   compiler: clang
-    #   env: BUILD_CC=clang BUILD_CXX=clang++ BUILD_TYPE=Release CMAKE_EXTRA="-DICU_ROOT=/usr/local/opt/icu4c"
-    # - os: osx
-    #   osx_image: xcode8.1
-    #   compiler: clang
-    #   env: BUILD_CC=clang BUILD_CXX=clang++ BUILD_TYPE=Release CMAKE_EXTRA="-DICU_ROOT=/usr/local/opt/icu4c"
-    # - os: osx
-    #   osx_image: xcode8
-    #   compiler: clang
-    #   env: BUILD_CC=clang BUILD_CXX=clang++ BUILD_TYPE=Release CMAKE_EXTRA="-DICU_ROOT=/usr/local/opt/icu4c"
-    # - os: osx
-    #   osx_image: xcode7.3
-    #   compiler: clang
-    #   env: BUILD_CC=clang BUILD_CXX=clang++ BUILD_TYPE=Release CMAKE_EXTRA="-DICU_ROOT=/usr/local/opt/icu4c"
-    # - os: osx
-    #   osx_image: xcode6.4
-    #   compiler: clang
-    #   env: BUILD_CC=clang BUILD_CXX=clang++ BUILD_TYPE=Release CMAKE_EXTRA="-DICU_ROOT=/usr/local/opt/icu4c"
+    - os: osx
+      osx_image: xcode8.3
+      compiler: clang
+      env: BUILD_CC=clang BUILD_CXX=clang++ BUILD_TYPE=Release CMAKE_EXTRA="-DICU_ROOT=/usr/local/opt/icu4c"
+    - os: osx
+      osx_image: xcode8.2
+      compiler: clang
+      env: BUILD_CC=clang BUILD_CXX=clang++ BUILD_TYPE=Release CMAKE_EXTRA="-DICU_ROOT=/usr/local/opt/icu4c"
+    - os: osx
+      osx_image: xcode8.1
+      compiler: clang
+      env: BUILD_CC=clang BUILD_CXX=clang++ BUILD_TYPE=Release CMAKE_EXTRA="-DICU_ROOT=/usr/local/opt/icu4c"
+    - os: osx
+      osx_image: xcode8
+      compiler: clang
+      env: BUILD_CC=clang BUILD_CXX=clang++ BUILD_TYPE=Release CMAKE_EXTRA="-DICU_ROOT=/usr/local/opt/icu4c"
+    - os: osx
+      osx_image: xcode7.3
+      compiler: clang
+      env: BUILD_CC=clang BUILD_CXX=clang++ BUILD_TYPE=Release CMAKE_EXTRA="-DICU_ROOT=/usr/local/opt/icu4c"
+    - os: osx
+      osx_image: xcode6.4
+      compiler: clang
+      env: BUILD_CC=clang BUILD_CXX=clang++ BUILD_TYPE=Release CMAKE_EXTRA="-DICU_ROOT=/usr/local/opt/icu4c"
 
 # before_install:
 #   - eval "${MATRIX_EVAL}"

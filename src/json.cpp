@@ -1,8 +1,9 @@
 #include "json.h"
+#include "util.h"
 
 #include <stdexcept>
 
-static inline constexpr char16_t ToHexDigit(int x)
+static constexpr char16_t ToHexDigit(int x)
 {
   switch (x) {
   case 0x0: return u'0';
@@ -21,7 +22,8 @@ static inline constexpr char16_t ToHexDigit(int x)
   case 0xD: return u'd';
   case 0xE: return u'e';
   case 0xF: return u'f';
-  default: throw std::logic_error("ToHexDigit called with invalid input ");
+  default: return fail_with_logic_error("ToHexDigit called with invalid input ");
+  // default: throw std::logic_error("ToHexDigit called with invalid input ");
   }
 }
 

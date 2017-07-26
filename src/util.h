@@ -58,4 +58,10 @@ void for_each_arg(F&& fun, Args&&... args)
   (void)t{(fun(std::forward<Args>(args)), 0)...};
 }
 
+constexpr auto fail_with_logic_error(const char* what)
+{
+  bool cond = false;
+  return !cond ? throw std::runtime_error(what) : 1;
+}
+
 #endif
