@@ -23,6 +23,6 @@ jobs:
     - name: configure
       run: make configure CXX=clang++
     - name: make
-      run: make build
+      run: make dump build
     - name: test
       run: make test
