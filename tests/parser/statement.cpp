@@ -3,40 +3,37 @@
 
 TEST_CASE("assign", "[parser]")
 {
-
     auto s = Statement {};
-    REQUIRE(s.is_empty());
+    REQUIRE(s.empty());
     s = EmptyStatement {};
-    REQUIRE(s.is_a<EmptyStatement>());
-
+    REQUIRE(s.holds<EmptyStatement>());
     s = BlockStatement {};
-    REQUIRE(s.is_a<BlockStatement>());
-
+    REQUIRE(s.holds<BlockStatement>());
     s = VariableStatement {};
-    REQUIRE(s.is_a<VariableStatement>());
+    REQUIRE(s.holds<VariableStatement>());
     s = ExpressionStatement {};
-    REQUIRE(s.is_a<ExpressionStatement>());
+    REQUIRE(s.holds<ExpressionStatement>());
     s = IfStatement {};
-    REQUIRE(s.is_a<IfStatement>());
+    REQUIRE(s.holds<IfStatement>());
     s = IterationStatement {};
-    REQUIRE(s.is_a<IterationStatement>());
+    REQUIRE(s.holds<IterationStatement>());
     s = ContinueStatement {};
-    REQUIRE(s.is_a<ContinueStatement>());
+    REQUIRE(s.holds<ContinueStatement>());
     s = BreakStatement {};
-    REQUIRE(s.is_a<BreakStatement>());
+    REQUIRE(s.holds<BreakStatement>());
     s = ReturnStatement {};
-    REQUIRE(s.is_a<ReturnStatement>());
+    REQUIRE(s.holds<ReturnStatement>());
     s = WithStatement {};
-    REQUIRE(s.is_a<WithStatement>());
+    REQUIRE(s.holds<WithStatement>());
     s = LabelledStatement {};
-    REQUIRE(s.is_a<LabelledStatement>());
+    REQUIRE(s.holds<LabelledStatement>());
     s = SwitchStatement {};
-    REQUIRE(s.is_a<SwitchStatement>());
+    REQUIRE(s.holds<SwitchStatement>());
     s = ThrowStatement {};
-    REQUIRE(s.is_a<ThrowStatement>());
+    REQUIRE(s.holds<ThrowStatement>());
     s = TryStatement {};
-    REQUIRE(s.is_a<TryStatement>());
+    REQUIRE(s.holds<TryStatement>());
     s = DebuggerStatement {};
-    REQUIRE(s.is_a<DebuggerStatement>());
+    REQUIRE(s.holds<DebuggerStatement>());
 
 }

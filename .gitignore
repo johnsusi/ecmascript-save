@@ -1,7 +1,5 @@
 CMakeUserPresets.json
 
-vcpkg/
-vcpkg_installed/
 build/
 out/
 

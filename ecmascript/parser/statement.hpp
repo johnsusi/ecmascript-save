@@ -127,34 +127,24 @@ struct Statement
 
 
     template <typename T>
-    constexpr bool is_a() const noexcept;
-
-    constexpr bool is_empty() const noexcept;
-
-    template <typename T>
-    Statement& operator=(T&& other);
-
-};
-
-
-
-    template <typename T>
-    constexpr bool Statement::is_a() const noexcept
+    constexpr bool holds() const noexcept
     {
         return std::holds_alternative<T>(data);
     }
 
-    constexpr bool Statement::is_empty() const noexcept
+    constexpr bool empty() const noexcept
     {
         return std::holds_alternative<std::monostate>(data);
     }
-
+    
     template <typename T>
-    Statement& Statement::operator=(T&& other)
+    Statement& operator=(T&& other)
     {
         data = std::move(other);
         return *this;
     }
+
+};
 
 
 #endif
