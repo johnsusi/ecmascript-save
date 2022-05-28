@@ -24,6 +24,8 @@ add_executable(es main.cpp)
 target_compile_features(es PRIVATE cxx_std_20)
 target_link_libraries(es PRIVATE libecmascript)
 
+install(TARGETS es RUNTIME DESTINATION bin)
+
 add_executable(unittests
     parser/parser.test.cpp
 )

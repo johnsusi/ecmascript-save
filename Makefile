@@ -9,8 +9,9 @@ current_dir := $(dir $(mkfile_path))
 VCPKG_ROOT ?= $(current_dir)vcpkg
 vcpkg_dir := $(abspath $(VCPKG_ROOT))
 
-.PHONY: all configure build test publish clean vcpkg
-all: configure build test publish
+.PHONY: all configure build test package clean
+all:
+	@echo "Usage:                                                              "
 
 $(vcpkg_dir):
 	@echo "Missing vcpkg at $(vcpkg_dir)! Install vcpkg using:                 "
@@ -39,13 +40,12 @@ build:
 test: build
 	@cmake --build $(build_dir) --target test
 
-publish: build
-	@cpack $(build_dir) -GZIP
+package: build
+	@cpack -B $(build_dir) -G ZIP
 
 clean:
 	@rm -Rf $(out_dir)
 
 ci: configure build test
 
-dump:
-	$(foreach v, $(.VARIABLES), $(info $(v) = $($(v))))
+cd: configure build test package

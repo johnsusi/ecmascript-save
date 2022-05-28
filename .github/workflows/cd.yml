@@ -1,0 +1,64 @@
+on:
+  push:
+    tags:
+    - v*
+
+jobs:
+
+  release-macos:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        submodules: recursive
+    - run: brew install ninja
+    - run: make cd preset=release CXX=clang++
+    - uses: actions/upload-artifact@v3
+      with:
+        name: macos-artifact
+        path: out/release/ecmascript.tgz
+
+  build-ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        submodules: recursive
+    - run: sudo apt-get install ninja-build
+    - run: make cd preset=release CXX=clang++-12
+    - uses: actions/upload-artifact@v3
+      with:
+        name: ubuntu-artifact
+        path: out/release/ecmascript.tgz
+
+  build-windows:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        submodules: recursive
+    - uses: ilammy/msvc-dev-cmd@v1
+    - run: choco install ninja
+    - run: make cd preset=release CXX=cl
+    - uses: actions/upload-artifact@v3
+      with:
+        name: windows-artifact
+        path: out/release/ecmascript.zip
+
+  release-artifacts:
+    runs-on: ubuntu-latest
+    needs:
+      - build-macos
+      - build-ubuntu
+      - build-windows
+    steps:
+    - uses: actions/download-artifact@v3
+    - uses: actions/create-release@v1
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        body: TBD
+        draft: true
+        prerelease: false

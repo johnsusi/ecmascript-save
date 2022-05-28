@@ -1,23 +1,23 @@
-install(EXPORT  "${CMAKE_PROJECT_NAME}Targets"
-    FILE        "${CMAKE_PROJECT_NAME}Targets.cmake"
-    COMPONENT   "${CMAKE_PROJECT_NAME}_Development"
-    NAMESPACE   "${CMAKE_PROJECT_NAME}::"
-    DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/${CMAKE_PROJECT_NAME}"
-)
+# install(EXPORT  "${CMAKE_PROJECT_NAME}Targets"
+#     FILE        "${CMAKE_PROJECT_NAME}Targets.cmake"
+#     COMPONENT   "${CMAKE_PROJECT_NAME}_Development"
+#     NAMESPACE   "${CMAKE_PROJECT_NAME}::"
+#     DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/${CMAKE_PROJECT_NAME}"
+# )
 
-include(CMakePackageConfigHelpers)
-write_basic_package_version_file("${CMAKE_PROJECT_NAME}ConfigVersion.cmake"
-    VERSION "${CMAKE_PROJECT_VERSION}"
-    COMPATIBILITY SameMajorVersion
-)
+# include(CMakePackageConfigHelpers)
+# write_basic_package_version_file("${CMAKE_PROJECT_NAME}ConfigVersion.cmake"
+#     VERSION "${CMAKE_PROJECT_VERSION}"
+#     COMPATIBILITY SameMajorVersion
+# )
 
-configure_file(cmake/config.cmake.in "${CMAKE_PROJECT_NAME}Config.cmake" @ONLY)
+# configure_file(cmake/config.cmake.in "${CMAKE_PROJECT_NAME}Config.cmake" @ONLY)
 
-install(FILES
-    "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_PROJECT_NAME}Config.cmake"
-    "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_PROJECT_NAME}ConfigVersion.cmake"
-    DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/${CMAKE_PROJECT_NAME}"
-)
+# install(FILES
+#     "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_PROJECT_NAME}Config.cmake"
+#     "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_PROJECT_NAME}ConfigVersion.cmake"
+#     DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/${CMAKE_PROJECT_NAME}"
+# )
 
 set(CPACK_PACKAGE_VENDOR              "John Susi")
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "${CMAKE_PROJECT_DESCRIPTION}")

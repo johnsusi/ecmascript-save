@@ -48,4 +48,4 @@ endif()
 #     set(CMAKE_INSTALL_RPATH $ORIGIN)
 # endif()
 
-# include(Pack)
+include(Pack)

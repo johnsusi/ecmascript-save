@@ -76,5 +76,8 @@
     },
     "cSpell.words": [
         "onenine"
-    ]
+    ],
+    "yaml.schemas": {
+        "https://json.schemastore.org/github-workflow.json": "file:///home/john/Projects/ecmascript/.github/workflows/build.yml"
+    }
 }

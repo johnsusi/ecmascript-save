@@ -1,13 +1,15 @@
-name: "Build"
-
 on:
   push:
-    branches: [ main ]
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
 
 jobs:
 
   build-macos-clang13:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
     - uses: actions/checkout@v3
       with:
