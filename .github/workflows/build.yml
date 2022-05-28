@@ -16,9 +16,7 @@ jobs:
       with:
         submodules: recursive
     - run: sudo apt-get install ninja-build
-    - run: make configure preset=release-clang12
-    - run: make build
-    - run: make test
+    - run: make ci preset=release-clang12
 
   build-windows-msvc:
     runs-on: windows-latest
@@ -27,9 +25,7 @@ jobs:
       with:
         submodules: recursive
     - run: choco install ninja
-    - run: make configure
-    - run: make build
-    - run: make test
+    - run: make ci
 
 
 

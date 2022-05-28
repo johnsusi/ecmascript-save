@@ -45,5 +45,7 @@ publish: build
 clean:
 	@rm -Rf $(out_dir)
 
+ci: configure build test
+
 dump:
 	$(foreach v, $(.VARIABLES), $(info $(v) = $($(v))))
