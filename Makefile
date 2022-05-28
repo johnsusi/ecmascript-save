@@ -29,6 +29,13 @@ $(vcpkg_dir):
 	@false
 
 $(build_dir)/CMakeCache.txt: CMakeLists.txt | $(vcpkg_dir)
+	which ninja
+	which clang++
+	which g++
+	cmake --version
+	ninja --version
+	clang++ --version
+	g++ --version
 	@VCPKG_ROOT=$(vcpkg_dir) VERBOSE=1 cmake --preset=$(preset) . || cat /home/runner/work/ecmascript/ecmascript/out/build/debug/CMakeFiles/CMakeOutput.log
 
 configure: $(build_dir)/CMakeCache.txt
