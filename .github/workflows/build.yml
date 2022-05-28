@@ -1,0 +1,19 @@
+name: "Build"
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: configure
+      run: make vcpkg configure
+    - name: make
+      run: make build
+    - name: test
+      run: make test
