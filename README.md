@@ -3,7 +3,9 @@ ECMAScript
 
 This is an implementation of ECMA-262 5.1 edition.
 
-[![Coverage Status](https://coveralls.io/repos/github/johnsusi/ecmascript/badge.svg?branch=main)](https://coveralls.io/github/johnsusi/ecmascript?branch=main)
+![Coverage Status](https://coveralls.io/repos/github/johnsusi/ecmascript/badge.svg?branch=main)
+![Build Status](https://github.com/johnsusi/ecmascript/actions/workflows/ci.yml/badge.svg)
+
 
 ## Dependencies
 
