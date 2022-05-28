@@ -15,7 +15,11 @@ jobs:
       with:
         submodules: recursive
     - run: sudo apt-get install ninja-build lcov
-    - run: make configure test-report preset=coverage CXX=g++-11"
+    - run: make configure test-report preset=debug CXX=g++-11 CXXFLAGS="--coverage"
+    - uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        path-to-lcov: out/build/debug/lcov.info
 
   build-macos-clang13:
     runs-on: macos-latest
