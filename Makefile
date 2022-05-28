@@ -38,7 +38,17 @@ build:
 	@cmake --build $(build_dir)
 
 test: build
-	@cmake --build $(build_dir) --target test
+	@ctest --test-dir $(build_dir)
+
+test-report: test
+	@lcov --rc lcov_branch_coverage=1 -d $(build_dir) -z
+	@lcov --rc lcov_branch_coverage=1 -d $(build_dir) -c -i -o $(build_dir)/coverage.base
+	@ctest --test-dir $(build_dir)
+	@lcov --rc lcov_branch_coverage=1 -d $(build_dir) -c -o $(build_dir)/coverage.info
+	@lcov --rc lcov_branch_coverage=1 -a $(build_dir)/coverage.base -a $(build_dir)/coverage.info -o $(build_dir)/coverage.total
+	@lcov --rc lcov_branch_coverage=1 -r $(build_dir)/coverage.total '/usr/*' '*/test/*' '*/vcpkg_installed/*' '*/CMakeFiles/*' -o $(build_dir)/coverage.cleaned
+	@genhtml --legend --branch-coverage --highlight -o $(build_dir)/report $(build_dir)/coverage.cleaned
+	@rm $(build_dir)/coverage.*
 
 package: build
 	@cpack -B $(build_dir) -G ZIP

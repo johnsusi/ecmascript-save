@@ -8,8 +8,19 @@ on:
 
 jobs:
 
+  test:
+    runs-on: ubuntu-22.04
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        submodules: recursive
+    - run: sudo apt-get install ninja-build lcov
+    - run: make configure test-report preset=coverage CXX=g++-11"
+
   build-macos-clang13:
     runs-on: macos-latest
+    needs:
+      - test
     steps:
     - uses: actions/checkout@v3
       with:
@@ -19,6 +30,8 @@ jobs:
 
   build-ubuntu-clang12:
     runs-on: ubuntu-latest
+    needs:
+      - test
     steps:
     - uses: actions/checkout@v3
       with:
@@ -28,6 +41,8 @@ jobs:
 
   build-ubuntu-gcc11:
     runs-on: ubuntu-22.04
+    needs:
+      - test
     steps:
     - uses: actions/checkout@v3
       with:
@@ -37,6 +52,8 @@ jobs:
 
   build-windows-msvc:
     runs-on: windows-latest
+    needs:
+      - test
     steps:
     - uses: actions/checkout@v3
       with:
@@ -47,6 +64,8 @@ jobs:
 
   build-windows-clang:
     runs-on: windows-latest
+    needs:
+      - test
     steps:
     - uses: actions/checkout@v3
       with:
