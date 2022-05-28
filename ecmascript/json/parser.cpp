@@ -1,5 +1,7 @@
 #include "json.hpp"
 
+#include <stdexcept>
+
 bool match(auto &&it, auto end, auto &&pred)
 {
     auto jt = it;

@@ -1,24 +1,35 @@
+preset := debug
+out_dir := out
+build_dir := $(out_dir)/build/$(preset)
+toolchain_file := ./vcpkg/scripts/buildsystems/vcpkg.cmake
+libraries := catch2
+mkfile_path := $(abspath $(lastword $(MAKEFILE_LIST)))
+current_dir := $(dir $(mkfile_path))
 
-build_dir := build/debug
+VCPKG_ROOT ?= $(current_dir)/vcpkg
 
-$(build_dir):
-	mkdir -p $@
-
-@PHONY: all
+@PHONY: all init configure dependencies build test publish clean
 all: build
 
-@PHONY: configure
-configure: $(build_dir)
-	CXX=clang++ cmake -S . -B $(build_dir) -GNinja -DCMAKE_TOOLCHAIN_FILE=./vcpkg/scripts/buildsystems/vcpkg.cmake
+init: | $(VCPKG_ROOT)
+	echo "root is $(VCPKG_ROOT)"
 
-@PHONY: build
+$(VCPKG_ROOT):
+	git clone https://github.com/microsoft/vcpkg $(VCPKG_ROOT)
+
+$(build_dir)/CMakeCache.txt: CMakeLists.txt
+	CXX=clang++ VCPKG_ROOT=$(VCPKG_ROOT) cmake --preset=$(preset) .
+
+configure: $(build_dir)/CMakeCache.txt
+
 build: configure
 	cmake --build $(build_dir)
 
-@PHONY: publish
+test: build
+	cmake --build $(build_dir) --target test
+
 publish: build
 	cpack $(build_dir) -GZIP
 
-@PHONY: clean
 clean:
-	rm -Rf $(build_dir)
+	rm -Rf $(out_dir)

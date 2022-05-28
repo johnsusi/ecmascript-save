@@ -1,4 +1,12 @@
+CMakeUserPresets.json
+
+vcpkg/
+vcpkg_installed/
 build/
+out/
+
+.vscode/*.log
+**/node_modules/
 
 # Prerequisites
 *.d
