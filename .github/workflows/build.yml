@@ -21,7 +21,7 @@ jobs:
       with:
         submodules: recursive
     - name: configure
-      run: make configure
+      run: make configure CXX=clang++
     - name: make
       run: make build
     - name: test
