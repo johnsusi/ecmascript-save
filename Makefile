@@ -34,7 +34,7 @@ $(build_dir)/CMakeCache.txt: CMakeLists.txt | $(vcpkg_dir)
 	clang++ --version
 	clang++-12 --version
 	g++ --version
-	g++-11 --version
+	g++-10 --version
 	@VCPKG_ROOT=$(vcpkg_dir) VERBOSE=1 cmake --preset=$(preset) . || cat /home/runner/work/ecmascript/ecmascript/out/build/debug/CMakeFiles/CMakeOutput.log
 
 configure: $(build_dir)/CMakeCache.txt
