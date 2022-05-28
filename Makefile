@@ -1,8 +1,6 @@
-preset := debug
+preset := release
 out_dir := out
 build_dir := $(out_dir)/build/$(preset)
-toolchain_file := ./vcpkg/scripts/buildsystems/vcpkg.cmake
-libraries := catch2
 mkfile_path := $(abspath $(lastword $(MAKEFILE_LIST)))
 current_dir := $(dir $(mkfile_path))
 
@@ -56,6 +54,6 @@ package: build
 clean:
 	@rm -Rf $(out_dir)
 
-ci: configure build test
+ci: build test
 
-cd: configure build test package
+cd: build test package

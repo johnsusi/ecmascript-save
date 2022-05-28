@@ -14,8 +14,13 @@ jobs:
     - uses: actions/checkout@v3
       with:
         submodules: recursive
+    - uses: actions/cache@v3
+      with:
+        path: |
+          ~/.cache/vcpkg
+        key: ${{ runner.os }}-vcpkg        
     - run: sudo apt-get install ninja-build lcov
-    - run: make configure CXX=g++-11 CXXFLAGS="--coverage"
+    - run: make configure preset=debug CXX=g++-11 CXXFLAGS="--coverage"
     - run: make test-report preset=debug
     - uses: coverallsapp/github-action@master
       with:
@@ -31,7 +36,8 @@ jobs:
       with:
         submodules: recursive
     - run: brew install ninja
-    - run: make ci preset=release CXX=clang++
+    - run: make configure CXX=clang++
+    - run: make ci
 
   build-ubuntu-clang12:
     runs-on: ubuntu-latest
@@ -46,9 +52,9 @@ jobs:
         path: |
           ~/.cache/vcpkg
         key: ${{ runner.os }}-vcpkg
-
     - run: sudo apt-get install ninja-build
-    - run: make ci preset=release CXX=clang++-12
+    - run: make configure CXX=clang++-12
+    - run: make ci
 
   build-ubuntu-gcc10:
     runs-on: ubuntu-latest
@@ -58,8 +64,14 @@ jobs:
     - uses: actions/checkout@v3
       with:
         submodules: recursive
+    - uses: actions/cache@v3
+      with:
+        path: |
+          ~/.cache/vcpkg
+        key: ${{ runner.os }}-vcpkg
     - run: sudo apt-get install ninja-build
-    - run: make ci preset=release CXX=g++-10
+    - run: make configure CXX=g++-10
+    - run: make ci
 
   build-windows-msvc:
     runs-on: windows-latest
@@ -69,9 +81,15 @@ jobs:
     - uses: actions/checkout@v3
       with:
         submodules: recursive
+    - uses: actions/cache@v3
+      with:
+        path: |
+          ~/.cache/vcpkg
+        key: ${{ runner.os }}-vcpkg
     - uses: ilammy/msvc-dev-cmd@v1
     - run: choco install ninja
-    - run: make ci preset=release CXX=cl
+    - run: make configure CXX=cl
+    - run: make ci
 
   build-windows-clang:
     runs-on: windows-latest
@@ -81,5 +99,11 @@ jobs:
     - uses: actions/checkout@v3
       with:
         submodules: recursive
+    - uses: actions/cache@v3
+      with:
+        path: |
+          ~/.cache/vcpkg
+        key: ${{ runner.os }}-vcpkg        
     - run: choco install ninja
-    - run: make ci preset=release CXX=clang++
+    - run: make configure CXX=clang++
+    - run: make ci
