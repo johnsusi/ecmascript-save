@@ -15,7 +15,7 @@ all: configure build test publish
 $(vcpkg_dir):
 	@echo "Missing vcpkg at $(vcpkg_dir)! Install vcpkg using:                 "
 	@echo "                                                                    "
-	@echo "  make vcpkg                                                        "
+	@echo "  git clone https://github.com/microsoft/vcpkg                      "
 	@echo "                                                                    "
 	@echo "For more information on how to install vcpkg go to                  "
 	@echo "                                                                    "

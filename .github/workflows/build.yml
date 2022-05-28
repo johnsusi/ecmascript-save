@@ -3,20 +3,35 @@ name: "Build"
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
 
+  build-macos-clang13:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        submodules: recursive
+    - run: brew install ninja
+    - run: make ci preset=release CXX=clang++-13
+
   build-ubuntu-clang12:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
       with:
         submodules: recursive
     - run: sudo apt-get install ninja-build
-    - run: make ci preset=release CXX=clang++
+    - run: make ci preset=release CXX=clang++-12
+
+  build-ubuntu-gcc11:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        submodules: recursive
+    - run: sudo apt-get install ninja-build
+    - run: make ci preset=release CXX=g++-11
 
   build-windows-msvc:
     runs-on: windows-latest
@@ -26,21 +41,14 @@ jobs:
         submodules: recursive
     - uses: ilammy/msvc-dev-cmd@v1
     - run: choco install ninja
-    - run: make ci preset=release
+    - run: make ci preset=release CXX=cl
 
-
-
-  # build:
-  #   strategy:
-  #     matrix:
-  #       os:
-  #         - ubuntu-latest
-  #         - windows-latest
-  #         - macos-latest
-  #   runs-on: ${{ matrix.os }}
-  #   - if: matrix.os == 'windows-latest'
-  #     name: Install windows dependencies
-  #     run: choco install ninja
-  #   - if: matrix.os == 'macos-latest'
-  #     name: Install macos dependencies
-  #     run: brew install ninja     
+  build-windows-clang:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        submodules: recursive
+    - uses: ilammy/msvc-dev-cmd@v1
+    - run: choco install ninja
+    - run: make ci preset=release CXX=clang++-13
