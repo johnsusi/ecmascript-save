@@ -44,3 +44,6 @@ publish: build
 
 clean:
 	@rm -Rf $(out_dir)
+
+dump:
+	$(foreach v, $(.VARIABLES), $(info $(v) = $($(v))))
