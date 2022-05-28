@@ -12,7 +12,7 @@ jobs:
       with:
         submodules: recursive
     - run: brew install ninja
-    - run: make cd preset=release CXX=clang++
+    - run: make cd preset=release CXX=$(brew --prefix llvm)/bin/clang++
     - uses: actions/upload-artifact@v3
       with:
         name: macos-artifact

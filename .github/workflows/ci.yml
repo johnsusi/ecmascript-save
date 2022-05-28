@@ -15,7 +15,7 @@ jobs:
       with:
         submodules: recursive
     - run: brew install ninja
-    - run: make ci preset=release CXX=clang++
+    - run: make ci preset=release CXX=$(brew --prefix llvm)/bin/clang
 
   build-ubuntu-clang12:
     runs-on: ubuntu-latest
