@@ -14,7 +14,7 @@ jobs:
     - name: info
       run: env
     - name: configure
-      run: make configure
+      run: make configure VCPKG_ROOT=$VCPKG_INSTALLATION_ROOT
     - name: make
       run: make build
     - name: test
