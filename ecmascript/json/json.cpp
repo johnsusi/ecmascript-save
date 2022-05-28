@@ -7,8 +7,8 @@
 
 bool JsonValue::string_t::operator<(const JsonValue::string_t &other) const
 {
-    return std::string_view(start, end) <
-           std::string_view(other.start, other.end);
+    return std::string(start, end) <
+           std::string(other.start, other.end);
 }
 
 JsonValue::JsonValue(value_t value) : _value(value)
@@ -78,12 +78,12 @@ std::ostream &operator<<(std::ostream &out, const JsonValue::true_t &value)
 
 std::ostream &operator<<(std::ostream &out, const JsonValue::number_t &value)
 {
-    return out << std::string_view(value.start, value.end);
+    return out << std::string(value.start, value.end);
 }
 
 std::ostream &operator<<(std::ostream &out, const JsonValue::string_t &value)
 {
-    return out << "\"" << std::string_view(value.start, value.end) << "\"";
+    return out << "\"" << std::string(value.start, value.end) << "\"";
 }
 
 std::ostream &operator<<(std::ostream &out, const JsonValue::array_t &value)
@@ -105,10 +105,10 @@ std::ostream &operator<<(std::ostream &out, const JsonValue::array_t &value)
 std::ostream &operator<<(std::ostream &out, const JsonValue::object_t &value)
 {
     auto insertion_index = std::vector<JsonValue::string_t>();
-    
+
     for (const auto &[key, val] : value.members)
         insertion_index.push_back(key);
-    
+
     std::sort(insertion_index.begin(), insertion_index.end(), [](const auto& lhs, const auto& rhs) {
         return lhs.start < rhs.start;
     });
@@ -123,7 +123,7 @@ std::ostream &operator<<(std::ostream &out, const JsonValue::object_t &value)
         else
             out << ",";
         out << key << ":" << value.members.at(key);
-    }   
+    }
     out << "}";
     return out;
 }
