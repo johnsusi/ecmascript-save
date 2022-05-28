@@ -29,9 +29,6 @@ $(vcpkg_dir):
 	@false
 
 $(build_dir)/CMakeCache.txt: CMakeLists.txt | $(vcpkg_dir)
-	which ninja
-	which clang++
-	which g++
 	cmake --version
 	ninja --version
 	clang++ --version
