@@ -15,7 +15,8 @@ jobs:
       with:
         submodules: recursive
     - run: sudo apt-get install ninja-build lcov
-    - run: make configure test-report preset=debug CXX=g++-11 CXXFLAGS="--coverage"
+    - run: make configure CXX=g++-11 CXXFLAGS="--coverage"
+    - run: make test-report preset=debug
     - uses: coverallsapp/github-action@master
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -40,6 +41,12 @@ jobs:
     - uses: actions/checkout@v3
       with:
         submodules: recursive
+    - uses: actions/cache@v3
+      with:
+        path: |
+          ~/.cache/vcpkg
+        key: ${{ runner.os }}-vcpkg
+
     - run: sudo apt-get install ninja-build
     - run: make ci preset=release CXX=clang++-12
 
