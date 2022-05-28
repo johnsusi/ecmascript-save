@@ -16,6 +16,7 @@ jobs:
           - macos-latest
     runs-on: ${{ matrix.os }}
     steps:
+    - uses: seanmiddleditch/gha-setup-ninja@master
     - uses: actions/checkout@v3
       with:
         submodules: recursive
