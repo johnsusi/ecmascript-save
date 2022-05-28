@@ -29,7 +29,7 @@ $(vcpkg_dir):
 	@false
 
 $(build_dir)/CMakeCache.txt: CMakeLists.txt | $(vcpkg_dir)
-	@VCPKG_ROOT=$(vcpkg_dir) cmake --preset=$(preset) .
+	@VCPKG_ROOT=$(vcpkg_dir) VERBOSE=1 cmake --preset=$(preset) .
 
 configure: $(build_dir)/CMakeCache.txt
 
@@ -44,6 +44,3 @@ publish: build
 
 clean:
 	@rm -Rf $(out_dir)
-
-vcpkg:
-	@git clone https://github.com/microsoft/vcpkg
