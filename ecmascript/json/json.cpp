@@ -7,8 +7,8 @@
 
 bool JsonValue::string_t::operator<(const JsonValue::string_t &other) const
 {
-    return std::string_view(start, std::distance(start, end)) <
-           std::string_view(other.start, std::distance(other.start, other.end));
+    return std::string_view(start, end) <
+           std::string_view(other.start, other.end);
 }
 
 JsonValue::JsonValue(value_t value) : _value(value)
@@ -78,12 +78,12 @@ std::ostream &operator<<(std::ostream &out, const JsonValue::true_t &value)
 
 std::ostream &operator<<(std::ostream &out, const JsonValue::number_t &value)
 {
-    return out << std::string_view(value.start, std::distance(value.start, value.end));
+    return out << std::string_view(value.start, value.end);
 }
 
 std::ostream &operator<<(std::ostream &out, const JsonValue::string_t &value)
 {
-    return out << "\"" << std::string_view(value.start, std::distance(value.start, value.end)) << "\"";
+    return out << "\"" << std::string_view(value.start, value.end) << "\"";
 }
 
 std::ostream &operator<<(std::ostream &out, const JsonValue::array_t &value)
