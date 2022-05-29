@@ -1,2 +1,4 @@
-vcpkg/**
+docs/**
 out/**
+tools/**
+coverage/**

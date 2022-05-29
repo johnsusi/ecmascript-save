@@ -27,18 +27,18 @@ $(vcpkg_dir):
 	@echo "                                                                    "
 	@false
 
-$(build_dir)/CMakeCache.txt: CMakeLists.txt | $(vcpkg_dir)
-	@VCPKG_ROOT=$(vcpkg_dir) VERBOSE=1 cmake --preset=$(preset) .
+$(build_dir):
+	@VCPKG_ROOT=$(vcpkg_dir) cmake --preset=$(preset) .
 
-configure: $(build_dir)/CMakeCache.txt
+configure: | $(build_dir)
 
-build:
+build: configure
 	@cmake --build $(build_dir)
 
 test: build
 	@ctest --test-dir $(build_dir)
 
-test-report: test
+test-report: build
 	@lcov --rc lcov_branch_coverage=1 -d $(build_dir) -z
 	@lcov --rc lcov_branch_coverage=1 -d $(build_dir) -c -i -o $(build_dir)/coverage.base
 	@ctest --test-dir $(build_dir)

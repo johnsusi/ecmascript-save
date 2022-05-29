@@ -20,8 +20,7 @@ jobs:
           ~/.cache/vcpkg
         key: ${{ runner.os }}-vcpkg        
     - run: sudo apt-get install ninja-build lcov
-    - run: make configure preset=debug CXX=g++-11 CXXFLAGS="--coverage"
-    - run: make test-report preset=debug
+    - run: make test-report preset=debug CXX=g++-11 CXXFLAGS="--coverage"
     - uses: coverallsapp/github-action@master
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -36,8 +35,7 @@ jobs:
       with:
         submodules: recursive
     - run: brew install ninja
-    - run: make configure CXX=clang++
-    - run: make ci
+    - run: make ci CXX=clang++
 
   build-ubuntu-clang12:
     runs-on: ubuntu-latest
@@ -53,8 +51,7 @@ jobs:
           ~/.cache/vcpkg
         key: ${{ runner.os }}-vcpkg
     - run: sudo apt-get install ninja-build
-    - run: make configure CXX=clang++-12
-    - run: make ci
+    - run: make ci CXX=clang++-12
 
   build-ubuntu-gcc10:
     runs-on: ubuntu-latest
@@ -70,8 +67,7 @@ jobs:
           ~/.cache/vcpkg
         key: ${{ runner.os }}-vcpkg
     - run: sudo apt-get install ninja-build
-    - run: make configure CXX=g++-10
-    - run: make ci
+    - run: make ci CXX=g++-10
 
   build-windows-msvc:
     runs-on: windows-latest
@@ -88,8 +84,7 @@ jobs:
         key: ${{ runner.os }}-vcpkg
     - uses: ilammy/msvc-dev-cmd@v1
     - run: choco install ninja
-    - run: make configure CXX=cl
-    - run: make ci
+    - run: make ci CXX=cl
 
   build-windows-clang:
     runs-on: windows-latest
@@ -105,5 +100,4 @@ jobs:
           ~/.cache/vcpkg
         key: ${{ runner.os }}-vcpkg        
     - run: choco install ninja
-    - run: make configure CXX=clang++
-    - run: make ci
+    - run: make ci CXX=clang++
