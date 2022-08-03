@@ -47,6 +47,10 @@ using Expression = std::variant<std::monostate, ThisExpression, IdentifierExpres
 struct ExpressionRef
 {
     std::unique_ptr<Expression> data;
+    ExpressionRef();
+    ExpressionRef(Expression &&other);
+    ExpressionRef(ExpressionRef &&other);
+    ExpressionRef &operator=(ExpressionRef &&other);
     ExpressionRef &operator=(Expression &&other);
     operator Expression &();
     bool operator==(const ExpressionRef &other) const;
@@ -86,11 +90,11 @@ struct ObjectExpression
 
 struct GroupingExpression
 {
-    std::vector<Expression> expressions;
+    std::vector<ExpressionRef> expressions;
     bool operator==(const GroupingExpression &other) const;
 };
 
-using Arguments = std::vector<Expression>;
+using Arguments = std::vector<ExpressionRef>;
 
 struct MemberExpression
 {

@@ -2,6 +2,19 @@
 
 using namespace ecmascript;
 
+ExpressionRef::ExpressionRef() = default;
+ExpressionRef::ExpressionRef(ExpressionRef &&other) = default;
+
+ExpressionRef::ExpressionRef(Expression &&other) : data(new Expression{std::move(other)})
+{
+}
+
+ExpressionRef &ExpressionRef::operator=(ExpressionRef &&other)
+{
+    std::swap(data, other.data);
+    return *this;
+}
+
 ExpressionRef &ExpressionRef::operator=(Expression &&other)
 {
     data.reset(new Expression{std::move(other)});
@@ -13,7 +26,14 @@ ExpressionRef::operator Expression &()
     return *data.get();
 }
 
-bool ExpressionRef::operator==(const ExpressionRef &other) const = default;
+bool ExpressionRef::operator==(const ExpressionRef &other) const
+{
+    if (!data)
+        return !other.data;
+    if (!other.data)
+        return false;
+    return *data.get() == *other.data.get();
+}
 
 struct VariantEqualsOperator
 {

@@ -88,7 +88,9 @@ bool Token::isDivPunctuator() const
 
 bool Token::isIdentifier() const
 {
-    return false;
+    if (!std::holds_alternative<IdentifierName>(type))
+        return false;
+    return !isReservedWord();
 }
 
 bool Token::separatedWithLineTerminator() const

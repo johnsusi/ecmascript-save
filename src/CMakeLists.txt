@@ -84,6 +84,12 @@ add_unit_test(
 )
 
 add_unit_test(
+    ecmascript/parser/expression.test.cpp
+    ecmascript
+)
+
+
+add_unit_test(
     ecmascript/parser/grammar.test.cpp
     ecmascript
 )

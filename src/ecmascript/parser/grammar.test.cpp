@@ -50,7 +50,7 @@ TEST_CASE("Variable Statement", "[parser]")
     };
     auto tokens = {
         Token("var"),
-        Token("x"),
+        Token("x", Token::IdentifierName{}),
         Token(";"),
     };
     auto actual = Statement{};

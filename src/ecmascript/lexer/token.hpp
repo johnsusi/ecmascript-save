@@ -23,10 +23,10 @@ class Token
     {
     };
 
-    constexpr Token()
+    Token()
     {
     }
-    constexpr Token(const char *value, auto type) : value(value), type(type)
+    Token(const char *value, auto type) : value(value), type(type)
     {
     }
 
@@ -36,7 +36,7 @@ class Token
             type = Punctuator{};
     }
 
-    constexpr Token(std::string value) : value(value)
+    Token(std::string_view value) : value(value)
     {
     }
 
