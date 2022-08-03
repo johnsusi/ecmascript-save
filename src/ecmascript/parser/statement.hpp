@@ -32,7 +32,7 @@ struct ThrowStatement;
 struct TryStatement;
 struct DebuggerStatement;
 
-using Statement = std::variant<std::monostate, BlockStatement, VariableStatement, EmptyStatement>;
+using Statement = std::variant<std::monostate, BlockStatement, VariableStatement, EmptyStatement, ExpressionStatement>;
 
 // using Statement =
 //     std::variant<std::monostate, BlockStatement, VariableStatement, EmptyStatement, ExpressionStatement, IfStatement,
@@ -78,7 +78,7 @@ struct EmptyStatement
 struct ExpressionStatement
 {
     Expression expression;
-    bool operator==(const ExpressionStatement &other) const = default;
+    bool operator==(const ExpressionStatement &other) const;
 };
 
 struct IfStatement

@@ -45,3 +45,5 @@ bool operator==(const Statement &lhs, const Statement &rhs)
 }
 
 bool BlockStatement::operator==(const BlockStatement &other) const = default;
+
+bool ExpressionStatement::operator==(const ExpressionStatement &other) const = default;

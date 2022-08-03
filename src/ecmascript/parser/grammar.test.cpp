@@ -2,6 +2,8 @@
 
 #include <catch2/catch_test_macros.hpp>
 
+#include <vector>
+
 using namespace ecmascript;
 
 TEST_CASE("Block Statement", "[parser]")
@@ -25,13 +27,13 @@ TEST_CASE("Block Statement", "[parser]")
     SECTION("Block With Statements")
     {
         auto expected = Statement{
-            BlockStatement{
-                {
-                    Statement{EmptyStatement{}},
-                    Statement{EmptyStatement{}},
-                    Statement{EmptyStatement{}},
-                },
-            },
+            BlockStatement{.statements =
+                               {
+                                   Statement(EmptyStatement{}),
+                                   Statement(EmptyStatement{}),
+                                   Statement(EmptyStatement{}),
+                               }},
+
         };
         auto tokens = {
             Token("{"), Token(";"), Token(";"), Token(";"), Token("}"),
@@ -72,3 +74,22 @@ TEST_CASE("Empty Statement", "[parser]")
     REQUIRE(ok);
     REQUIRE(expected == actual);
 }
+
+// TEST_CASE("Expression Statement", "[parser]")
+// {
+//     auto expected = Statement{
+//         ExpressionStatement{
+//             Expression{
+//                 ThisExpression{},
+//             },
+//         },
+//     };
+//     auto tokens = {
+//         Token("this"),
+//         Token(";"),
+//     };
+//     auto actual = Statement{};
+//     bool ok = is_expression_statement(tokens.begin(), tokens.end(), actual);
+//     REQUIRE(ok);
+//     REQUIRE(expected == actual);
+// }

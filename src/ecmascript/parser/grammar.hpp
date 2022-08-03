@@ -147,7 +147,7 @@ auto is_member_expression(auto &&it, auto end, auto &result)
                 throw SyntaxError("Expected <Expression>", it, end);
             if (!is_match(it, end, "]"))
                 throw SyntaxError("Expected ']", it, end);
-            temp = MemberExpression{std::move(temp), std::move(expression)};
+            temp = MemberExpression(std::move(temp), std::move(expression));
         }
         else if (is_match(it, end, "."))
         {
@@ -184,7 +184,7 @@ auto is_left_hand_side_expression(auto &&it, auto end, auto &result)
     auto arguments = Arguments{};
     if (is_arguments(it, end, arguments))
     {
-        temp = CallExpression{std::move(temp), std::move(arguments)};
+        temp = CallExpression(std::move(temp), std::move(arguments));
     }
     else if (is_match(it, end, "["))
     {
@@ -193,14 +193,14 @@ auto is_left_hand_side_expression(auto &&it, auto end, auto &result)
             throw SyntaxError("Expected <Expression>", it, end);
         if (!is_match(it, end, "]"))
             throw SyntaxError("Expected ']'", it, end);
-        temp = MemberExpression{std::move(temp), std::move(expression)};
+        temp = MemberExpression(std::move(temp), std::move(expression));
     }
     else if (is_match(it, end, "."))
     {
         auto expression = Expression{};
         if (!is_identifier_name(it, end, expression))
             throw SyntaxError("Expected <IdentifierName>", it, end);
-        temp = MemberExpression{std::move(temp), std::move(expression)};
+        temp = MemberExpression(std::move(temp), std::move(expression));
     }
     result = std::move(temp);
     return true;
@@ -214,7 +214,7 @@ auto is_postfix_expression(auto &&it, auto end, auto &result)
         return false;
     std::string op;
     if (!lookahead(it, end, &Token::separatedWithLineTerminator) && is_oneof(it, end, operators, op))
-        temp = PostfixExpression{std::move(op), std::move(temp)};
+        temp = PostfixExpression(std::move(op), std::move(temp));
     result = std::move(temp);
     return true;
 }
@@ -346,7 +346,7 @@ auto is_block_statement(auto &&it, auto end, auto &result)
         return false;
     auto temp = BlockStatement{};
     for (auto stmt = Statement{}; is_statement(it, end, stmt);)
-        temp.statements.push_back(stmt);
+        temp.statements.emplace_back(std::move(stmt));
     if (!is_match(it, end, "}"))
         throw SyntaxError("Expected '}'", it, end);
     result = std::move(temp);
@@ -390,12 +390,12 @@ auto is_expression_statement(auto &&it, auto end, auto &result)
 {
     if (lookahead(it, end, "{") || lookahead(it, end, "function"))
         return false;
-    auto temp = ExpressionStatement{};
-    if (!is_expression(it, end, temp.expression))
-        return false;
-    if (!is_semicolon(it, end))
-        throw SyntaxError("Expected ';'", it, end);
-    result = std::move(temp);
+    // auto temp = ExpressionStatement{};
+    // if (!is_expression(it, end, temp.expression))
+    //     return false;
+    // if (!is_semicolon(it, end))
+    //     throw SyntaxError("Expected ';'", it, end);
+    // result = std::move(temp);
     return true;
 }
 

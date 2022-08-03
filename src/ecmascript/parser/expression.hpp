@@ -37,19 +37,19 @@ struct LogicalORExpression;
 struct ConditionalExpression;
 struct AssignmentExpression;
 
-using Expression = std::variant<std::monostate, ThisExpression, IdentifierExpression, LiteralExpression,
+using Expression = std::variant<std::monostate, ThisExpression, GroupingExpression, MemberExpression/*IdentifierExpression, LiteralExpression,
                                 ArrayExpression, ObjectExpression, GroupingExpression, MemberExpression, NewExpression,
                                 CallExpression, PostfixExpression, UnaryExpression, MultiplicativeExpression,
                                 AdditiveExpression, ShiftExpression, RelationalExpression, EqualityExpression,
                                 BitwiseANDExpression, BitwiseXORExpression, BitwiseORExpression, LogicalANDExpression,
-                                LogicalORExpression, ConditionalExpression, AssignmentExpression>;
+                                LogicalORExpression, ConditionalExpression, AssignmentExpression*/>;
 
 struct ExpressionRef
 {
     std::unique_ptr<Expression> data;
-    ExpressionRef();
-    ExpressionRef(Expression &&other);
-    ExpressionRef(ExpressionRef &&other);
+    explicit ExpressionRef();
+    explicit ExpressionRef(Expression &&other);
+    explicit ExpressionRef(ExpressionRef &&other);
     ExpressionRef &operator=(ExpressionRef &&other);
     ExpressionRef &operator=(Expression &&other);
     operator Expression &();
@@ -90,7 +90,7 @@ struct ObjectExpression
 
 struct GroupingExpression
 {
-    std::vector<ExpressionRef> expressions;
+    std::vector<Expression> expressions;
     bool operator==(const GroupingExpression &other) const;
 };
 

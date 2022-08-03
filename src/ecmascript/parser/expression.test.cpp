@@ -11,9 +11,9 @@ TEST_CASE("ThisExpression", "[parser]")
 
 TEST_CASE("Expressions", "[parser]")
 {
-    auto x = Expression{ThisExpression{}};
-    auto y = ExpressionRef{std::move(x)};
-    auto z = ExpressionRef{Expression{ThisExpression{}}};
+    auto x = Expression(ThisExpression());
+    auto y = ExpressionRef(std::move(x));
+    auto z = ExpressionRef(Expression(ThisExpression()));
 
     REQUIRE(y == z);
 }
