@@ -147,7 +147,7 @@ auto is_member_expression(auto &&it, auto end, auto &result)
                 throw SyntaxError("Expected <Expression>", it, end);
             if (!is_match(it, end, "]"))
                 throw SyntaxError("Expected ']", it, end);
-            temp = MemberExpression(std::move(temp), std::move(expression));
+            temp = MemberExpression{std::move(temp), std::move(expression)};
         }
         else if (is_match(it, end, "."))
         {
@@ -184,7 +184,7 @@ auto is_left_hand_side_expression(auto &&it, auto end, auto &result)
     auto arguments = Arguments{};
     if (is_arguments(it, end, arguments))
     {
-        temp = CallExpression(std::move(temp), std::move(arguments));
+        temp = CallExpression{std::move(temp), std::move(arguments)};
     }
     else if (is_match(it, end, "["))
     {
@@ -193,14 +193,14 @@ auto is_left_hand_side_expression(auto &&it, auto end, auto &result)
             throw SyntaxError("Expected <Expression>", it, end);
         if (!is_match(it, end, "]"))
             throw SyntaxError("Expected ']'", it, end);
-        temp = MemberExpression(std::move(temp), std::move(expression));
+        temp = MemberExpression{std::move(temp), std::move(expression)};
     }
     else if (is_match(it, end, "."))
     {
         auto expression = Expression{};
         if (!is_identifier_name(it, end, expression))
             throw SyntaxError("Expected <IdentifierName>", it, end);
-        temp = MemberExpression(std::move(temp), std::move(expression));
+        temp = MemberExpression{std::move(temp), std::move(expression)};
     }
     result = std::move(temp);
     return true;
@@ -214,7 +214,7 @@ auto is_postfix_expression(auto &&it, auto end, auto &result)
         return false;
     std::string op;
     if (!lookahead(it, end, &Token::separatedWithLineTerminator) && is_oneof(it, end, operators, op))
-        temp = PostfixExpression(std::move(op), std::move(temp));
+        temp = PostfixExpression{std::move(op), std::move(temp)};
     result = std::move(temp);
     return true;
 }
@@ -312,13 +312,30 @@ auto is_bitwise_or_expression(auto &&it, auto end, auto &result)
 auto is_logical_and_expression(auto &&it, auto end, auto &result)
 {
     constexpr std::array operators{"&&"};
-    return is_binary_expression<LogicalANDExpression>(it, end, operators, is_bitwise_or_expression, result);
+    // return is_binary_expression<LogicalANDExpression>(it, end, operators, is_bitwise_or_expression, result);
+    return false;
 }
 
 auto is_logical_or_expression(auto &&it, auto end, auto &result)
 {
     constexpr std::array operators{"||"};
-    return is_binary_expression<LogicalORExpression>(it, end, operators, is_logical_and_expression, result);
+
+    if (!is_logical_and_expression(it, end, result))
+        return false;
+
+    while (it != end)
+    {
+        if (std::find(operators.begin(), operators.end(), *it) == operators.end())
+            break;
+        std::string op = *it++;
+        auto temp = Expression{};
+        if (!is_logical_and_expression(it, end, temp))
+            throw SyntaxError("Expected <LogicalAndExpression>", it, end);
+        result = LogicalORExpression{std::move(op), std::move(result), std::move(temp)};
+    }
+    return true;
+
+    // return is_binary_expression<LogicalORExpression>(it, end, operators, is_logical_and_expression, result);
 }
 
 auto is_conditional_expression(auto &&it, auto end, auto &result)
@@ -336,8 +353,7 @@ auto is_assignment_expression(auto &&it, auto end, auto &result)
 
 auto is_expression(auto &&it, auto end, auto &result)
 {
-    return false;
-    // return is_assignment_expression(it, end, result);
+    return is_assignment_expression(it, end, result);
 }
 
 auto is_block_statement(auto &&it, auto end, auto &result)
@@ -390,12 +406,12 @@ auto is_expression_statement(auto &&it, auto end, auto &result)
 {
     if (lookahead(it, end, "{") || lookahead(it, end, "function"))
         return false;
-    // auto temp = ExpressionStatement{};
-    // if (!is_expression(it, end, temp.expression))
-    //     return false;
-    // if (!is_semicolon(it, end))
-    //     throw SyntaxError("Expected ';'", it, end);
-    // result = std::move(temp);
+    auto temp = ExpressionStatement{};
+    if (!is_expression(it, end, temp.expression))
+        return false;
+    if (!is_semicolon(it, end))
+        throw SyntaxError("Expected ';'", it, end);
+    result = std::move(temp);
     return true;
 }
 

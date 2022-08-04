@@ -9,6 +9,56 @@
 namespace ecmascript
 {
 
+struct VariantEqualsOperator
+{
+    template <typename T> bool operator()(const T &lhs, const T &rhs) const
+    {
+        return lhs == rhs;
+    }
+
+    template <typename T1, typename T2> bool operator()(const T1 &, const T2 &) const
+    {
+        return false;
+    }
+};
+
+template <typename T> struct RecursiveWrapper
+{
+    std::unique_ptr<T> data;
+    RecursiveWrapper() = default;
+    RecursiveWrapper(auto &&...args) : data(std::make_unique<T>(std::forward<decltype(args)>(args)...))
+    {
+    }
+    RecursiveWrapper(RecursiveWrapper &&) = default;
+    RecursiveWrapper(const RecursiveWrapper &other) : data(std::make_unique<T>(*other.data.get()))
+    {
+    }
+    RecursiveWrapper &operator=(RecursiveWrapper &&) = default;
+    RecursiveWrapper &operator=(const RecursiveWrapper &other)
+    {
+        data.reset(new T{*other.data.get()});
+        return *this;
+    }
+
+    operator T &()
+    {
+        return *data.get();
+    }
+    operator const T &() const
+    {
+        return *data.get();
+    }
+
+    bool operator==(const RecursiveWrapper &other) const
+    {
+        if (!data)
+            return !other.data;
+        if (!other.data)
+            return false;
+        return std::visit(VariantEqualsOperator{}, *data.get(), *other.data.get());
+    }
+};
+
 struct ThisExpression;
 struct IdentifierExpression;
 struct LiteralExpression;
@@ -37,25 +87,14 @@ struct LogicalORExpression;
 struct ConditionalExpression;
 struct AssignmentExpression;
 
-using Expression = std::variant<std::monostate, ThisExpression, GroupingExpression, MemberExpression/*IdentifierExpression, LiteralExpression,
+using Expression = std::variant<std::monostate, ThisExpression, IdentifierExpression, LiteralExpression,
                                 ArrayExpression, ObjectExpression, GroupingExpression, MemberExpression, NewExpression,
                                 CallExpression, PostfixExpression, UnaryExpression, MultiplicativeExpression,
                                 AdditiveExpression, ShiftExpression, RelationalExpression, EqualityExpression,
                                 BitwiseANDExpression, BitwiseXORExpression, BitwiseORExpression, LogicalANDExpression,
-                                LogicalORExpression, ConditionalExpression, AssignmentExpression*/>;
+                                LogicalORExpression, ConditionalExpression, AssignmentExpression>;
 
-struct ExpressionRef
-{
-    std::unique_ptr<Expression> data;
-    explicit ExpressionRef();
-    explicit ExpressionRef(Expression &&other);
-    explicit ExpressionRef(ExpressionRef &&other);
-    ExpressionRef &operator=(ExpressionRef &&other);
-    ExpressionRef &operator=(Expression &&other);
-    operator Expression &();
-    bool operator==(const ExpressionRef &other) const;
-};
-
+using ExpressionRef = RecursiveWrapper<Expression>;
 struct ThisExpression
 {
     bool operator==(const ThisExpression &other) const = default;
@@ -74,7 +113,7 @@ struct LiteralExpression
 struct ArrayExpression
 {
     std::vector<Expression> elements;
-    bool operator==(const ArrayExpression &other) const;
+    bool operator==(const ArrayExpression &other) const = default;
 };
 
 struct PropertyAssignment
@@ -91,7 +130,7 @@ struct ObjectExpression
 struct GroupingExpression
 {
     std::vector<Expression> expressions;
-    bool operator==(const GroupingExpression &other) const;
+    bool operator==(const GroupingExpression &other) const = default;
 };
 
 using Arguments = std::vector<ExpressionRef>;
@@ -106,14 +145,14 @@ struct NewExpression
 {
     ExpressionRef expression;
     Arguments arguments;
-    bool operator==(const NewExpression &other) const;
+    bool operator==(const NewExpression &other) const = default;
 };
 
 struct CallExpression
 {
     ExpressionRef expression;
     Arguments arguments;
-    bool operator==(const CallExpression &other) const;
+    bool operator==(const CallExpression &other) const = default;
 };
 
 struct PostfixExpression
@@ -198,7 +237,5 @@ struct AssignmentExpression : BinaryExpression
 };
 
 } // namespace ecmascript
-
-bool operator==(const ecmascript::Expression &lhs, const ecmascript::Expression &rhs);
 
 #endif

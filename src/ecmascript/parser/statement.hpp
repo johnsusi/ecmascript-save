@@ -39,17 +39,7 @@ using Statement = std::variant<std::monostate, BlockStatement, VariableStatement
 //                  IterationStatement, ContinueStatement, BreakStatement, ReturnStatement, WithStatement,
 //                  LabelledStatement, SwitchStatement, ThrowStatement, TryStatement, DebuggerStatement>;
 
-struct StatementRef
-{
-    std::unique_ptr<Statement> data;
-    StatementRef() = default;
-    StatementRef(StatementRef &&) = default;
-    StatementRef(Statement &&);
-    StatementRef &operator=(Statement &&);
-    operator Statement &();
-
-    bool operator==(const StatementRef &other) const;
-};
+using StatementRef = RecursiveWrapper<Statement>;
 
 struct BlockStatement
 {
@@ -168,7 +158,5 @@ struct DebuggerStatement
 };
 
 } // namespace ecmascript
-
-bool operator==(const ecmascript::Statement &lhs, const ecmascript::Statement &rhs);
 
 #endif

@@ -27,12 +27,13 @@ TEST_CASE("Block Statement", "[parser]")
     SECTION("Block With Statements")
     {
         auto expected = Statement{
-            BlockStatement{.statements =
-                               {
-                                   Statement(EmptyStatement{}),
-                                   Statement(EmptyStatement{}),
-                                   Statement(EmptyStatement{}),
-                               }},
+            BlockStatement{
+                {
+                    EmptyStatement{},
+                    EmptyStatement{},
+                    EmptyStatement{},
+                },
+            },
 
         };
         auto tokens = {
@@ -75,21 +76,21 @@ TEST_CASE("Empty Statement", "[parser]")
     REQUIRE(expected == actual);
 }
 
-// TEST_CASE("Expression Statement", "[parser]")
-// {
-//     auto expected = Statement{
-//         ExpressionStatement{
-//             Expression{
-//                 ThisExpression{},
-//             },
-//         },
-//     };
-//     auto tokens = {
-//         Token("this"),
-//         Token(";"),
-//     };
-//     auto actual = Statement{};
-//     bool ok = is_expression_statement(tokens.begin(), tokens.end(), actual);
-//     REQUIRE(ok);
-//     REQUIRE(expected == actual);
-// }
+TEST_CASE("Expression Statement", "[parser]")
+{
+    auto expected = Statement{
+        ExpressionStatement{
+            Expression{
+                ThisExpression{},
+            },
+        },
+    };
+    auto tokens = {
+        Token("this"),
+        Token(";"),
+    };
+    auto actual = Statement{};
+    bool ok = is_expression_statement(tokens.begin(), tokens.end(), actual);
+    REQUIRE(ok);
+    REQUIRE(expected == actual);
+}
