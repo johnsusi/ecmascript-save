@@ -1,6 +1,6 @@
 include build/make/defaults.mk
 
-preset := release
+preset ?= release
 out_dir := out
 current_dir := $(dir $(mkfile_path))
 build_dir := $(out_dir)/build/$(preset)

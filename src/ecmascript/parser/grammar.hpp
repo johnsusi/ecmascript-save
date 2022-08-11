@@ -21,14 +21,14 @@ struct SyntaxError : std::runtime_error
     }
 };
 
-auto is_match(auto &&it, auto end, auto &&what)
+bool is_match(auto &&it, auto end, auto &&what)
 {
     if (it == end || *it != what)
         return false;
     return ++it, true;
 }
 
-auto is_match(auto &&it, auto end, auto &&what, auto &result)
+bool is_match(auto &&it, auto end, auto &&what, auto &result)
 {
     if (it == end || *it != what)
         return false;
@@ -36,9 +36,9 @@ auto is_match(auto &&it, auto end, auto &&what, auto &result)
     return ++it, true;
 }
 
-auto is_oneof(auto &&it, auto end, const std::vector<Token> &oneof, auto &result)
+template <typename T> bool is_match(auto &&it, auto end, std::initializer_list<T> what, auto &result)
 {
-    if (it == end || std::none_of(oneof.begin(), oneof.end(), *it))
+    if (it == end || std::find(what.begin(), what.end(), *it) == what.end())
         return false;
     result = *it;
     return ++it, true;
@@ -51,17 +51,25 @@ bool is_match(auto &&it, auto end, bool (Token::*what)() const)
     return ++it, true;
 }
 
+bool is_match(auto &&it, auto end, bool (Token::*what)() const, auto &result)
+{
+    if (it == end || !(it->*what)())
+        return false;
+    result = *it;
+    return ++it, true;
+}
+
 template <typename... Args> bool lookahead(auto it, auto end, Args &&...what)
 {
     return (is_match(it, end, std::forward<Args>(what)) && ...);
 }
 
-auto is_line_terminator(auto it, auto end)
+bool is_line_terminator(auto it, auto end)
 {
     return it != end && it->separatedWithLineTerminator();
 }
 
-auto is_semicolon(auto &&it, auto end)
+bool is_semicolon(auto &&it, auto end)
 {
     // 7.9.1 Rules of Automatic Semicolon Insertion
     if (it == end)
@@ -73,7 +81,7 @@ auto is_semicolon(auto &&it, auto end)
     return false;
 }
 
-auto is_this(auto &&it, auto end, auto &result)
+bool is_this(auto &&it, auto end, auto &result)
 {
     if (!is_match(it, end, "this"))
         return false;
@@ -81,42 +89,64 @@ auto is_this(auto &&it, auto end, auto &result)
     return true;
 }
 
-auto is_identifier(auto &&it, auto end, auto &result)
+bool is_identifier(auto &&it, auto end, Expression &result)
 {
-    if (!lookahead(it, end, &Token::isIdentifier))
+    std::string s;
+    if (!is_match(it, end, &Token::isIdentifier, s))
         return false;
-    // result = Identifier{it->value};
-    ++it;
+    result = IdentifierExpression{s};
     return true;
 }
 
-auto is_literal(auto &&it, auto end, auto &result)
+bool is_identifier(auto &&it, auto end, Identifier &result)
+{
+    return is_match(it, end, &Token::isIdentifier, result.value);
+}
+
+bool is_identifier_name(auto &&it, auto end, auto &result)
+{
+    std::string s;
+    if (!is_match(it, end, &Token::isIdentifierName, s))
+        return false;
+    // result = Identifier{it->value};
+    return true;
+}
+
+bool is_literal(auto &&it, auto end, auto &result)
+{
+    if (is_match(it, end, "null"))
+        result = LiteralExpression{NullLiteral{}};
+    else if (is_match(it, end, "false"))
+        result = LiteralExpression{BooleanLiteral{false}};
+    else if (is_match(it, end, "true"))
+        result = LiteralExpression{BooleanLiteral{true}};
+    else
+        return false;
+    return true;
+}
+
+bool is_array_literal(auto &&it, auto end, auto &result)
 {
     return false;
 }
 
-auto is_array_literal(auto &&it, auto end, auto &result)
+bool is_object_literal(auto &&it, auto end, auto &result)
 {
     return false;
 }
 
-auto is_object_literal(auto &&it, auto end, auto &result)
+bool is_grouping(auto &&it, auto end, auto &result)
 {
     return false;
 }
 
-auto is_grouping(auto &&it, auto end, auto &result)
-{
-    return false;
-}
-
-auto is_primary_expression(auto &&it, auto end, auto &result)
+bool is_primary_expression(auto &&it, auto end, auto &result)
 {
     return is_this(it, end, result) || is_identifier(it, end, result) || is_literal(it, end, result) ||
            is_array_literal(it, end, result) || is_object_literal(it, end, result) || is_grouping(it, end, result);
 }
 
-auto is_arguments(auto &&it, auto end, auto &result)
+bool is_arguments(auto &&it, auto end, auto &result)
 {
     if (!is_match(it, end, "("))
         return false;
@@ -130,40 +160,39 @@ auto is_arguments(auto &&it, auto end, auto &result)
     if (!is_match(it, end, ")"))
         throw SyntaxError("Expected ')'", it, end);
     result = std::move(temp);
+    return true;
 }
 
-auto is_member_expression(auto &&it, auto end, auto &result)
+bool is_member_expression(auto &&it, auto end, auto &result)
 {
-    auto temp = Expression{};
-    if (!is_primary_expression(it, end, temp) /*|| !is_function_expression(it, end, temp)*/)
+    if (!is_primary_expression(it, end, result) /*|| !is_function_expression(it, end, temp)*/)
         return false;
 
     while (true)
     {
         if (is_match(it, end, "["))
         {
-            auto expression = Expression{};
-            if (!is_expression(it, end, expression))
+            auto temp = Expression{};
+            if (!is_expression(it, end, temp))
                 throw SyntaxError("Expected <Expression>", it, end);
             if (!is_match(it, end, "]"))
                 throw SyntaxError("Expected ']", it, end);
-            temp = MemberExpression{std::move(temp), std::move(expression)};
+            result = MemberExpression{std::move(result), std::move(temp)};
         }
         else if (is_match(it, end, "."))
         {
             auto identifier = Expression{};
             if (!is_identifier_name(it, end, identifier))
                 throw SyntaxError("Expected <IdentifierName>", it, end);
-            temp = MemberExpression{std::move(result), std::move(identifier)};
+            result = MemberExpression{std::move(result), std::move(identifier)};
         }
         else
             break;
     }
-    result = std::move(temp);
     return true;
 }
 
-auto is_new_expression(auto &&it, auto end, auto &result)
+bool is_new_expression(auto &&it, auto end, auto &result)
 {
     if (!is_match(it, end, "new"))
         return is_member_expression(it, end, result);
@@ -175,175 +204,208 @@ auto is_new_expression(auto &&it, auto end, auto &result)
     return true;
 }
 
-auto is_left_hand_side_expression(auto &&it, auto end, auto &result)
+bool is_left_hand_side_expression(auto &&it, auto end, auto &result)
 {
-    auto temp = Expression{};
-    if (!is_new_expression(it, end, temp))
+    if (!is_new_expression(it, end, result))
         return false;
 
     auto arguments = Arguments{};
     if (is_arguments(it, end, arguments))
     {
-        temp = CallExpression{std::move(temp), std::move(arguments)};
+        // temp = CallExpression{std::move(temp), std::move(arguments)};
+        return false;
     }
     else if (is_match(it, end, "["))
     {
-        auto expression = Expression{};
-        if (!is_expression(it, end, expression))
-            throw SyntaxError("Expected <Expression>", it, end);
-        if (!is_match(it, end, "]"))
-            throw SyntaxError("Expected ']'", it, end);
-        temp = MemberExpression{std::move(temp), std::move(expression)};
+        // auto expression = Expression{};
+        // if (!is_expression(it, end, expression))
+        //     throw SyntaxError("Expected <Expression>", it, end);
+        // if (!is_match(it, end, "]"))
+        //     throw SyntaxError("Expected ']'", it, end);
+        // temp = MemberExpression{std::move(temp), std::move(expression)};
+        return false;
     }
     else if (is_match(it, end, "."))
     {
-        auto expression = Expression{};
-        if (!is_identifier_name(it, end, expression))
-            throw SyntaxError("Expected <IdentifierName>", it, end);
-        temp = MemberExpression{std::move(temp), std::move(expression)};
-    }
-    result = std::move(temp);
-    return true;
-}
-
-auto is_postfix_expression(auto &&it, auto end, auto &result)
-{
-    auto temp = Expression{};
-    constexpr std::array operators{"++", "--"};
-    if (!is_left_hand_side_expression(it, end, temp))
+        // auto expression = Expression{};
+        // if (!is_identifier_name(it, end, expression))
+        //     throw SyntaxError("Expected <IdentifierName>", it, end);
+        // temp = MemberExpression{std::move(temp), std::move(expression)};
         return false;
-    std::string op;
-    if (!lookahead(it, end, &Token::separatedWithLineTerminator) && is_oneof(it, end, operators, op))
-        temp = PostfixExpression{std::move(op), std::move(temp)};
-    result = std::move(temp);
+    }
+    // result = std::move(temp);
     return true;
 }
 
-auto is_unary_expression(auto &&it, auto end, auto &result)
+bool is_postfix_expression(auto &&it, auto end, auto &result)
 {
-    constexpr std::array operators{"delete", "void", "typeof", "++", "--", "+", "-", "~", "!"};
-    std::string op;
-    if (is_oneof(it, end, operators, op))
+    if (!is_left_hand_side_expression(it, end, result))
+        return false;
+    if (std::string op; !lookahead(it, end, &Token::separatedWithLineTerminator) && is_match(it, end, {"++", "--"}, op))
+        result = PostfixExpression{std::move(op), std::move(result)};
+    return true;
+}
+
+bool is_unary_expression(auto &&it, auto end, auto &result)
+{
+    if (std::string op; is_match(it, end, {"delete", "void", "typeof", "++", "--", "+", "-", "~", "!"}, op))
     {
-        auto temp = UnaryExpression{std::move(op)};
-        if (!is_unary_expression(it, end, temp.rhs))
+        auto temp = Expression{};
+        if (!is_unary_expression(it, end, temp))
             throw SyntaxError("Expected <UnaryExpression>", it, end);
-        result = std::move(temp);
+        result = UnaryExpression{std::move(op), std::move(temp)};
         return true;
     }
+
     return is_postfix_expression(it, end, result);
 }
 
-template <typename T> auto is_binary_expression(auto &&it, auto end, auto &&operators, auto &&is_leaf, auto &result)
+bool is_multiplicative_expression(auto &&it, auto end, auto &result)
 {
-    auto temp = Expression{};
-    if (!is_leaf(it, end, temp))
+    if (!is_unary_expression(it, end, result))
         return false;
-
-    while (it != end)
+    for (std::string op; is_match(it, end, {"*", "/", "%"}, op);)
     {
-        if (std::find(operators.begin(), operators.end(), *it) == operators.end())
-            break;
-        std::string op = *it++;
-        auto rhs = Expression{};
-        if (!is_leaf(it, end, rhs))
-            throw SyntaxError("Expected <...>", it, end);
-        temp = T{std::move(op), std::move(temp), std::move(rhs)};
+        auto temp = Expression{};
+        if (!is_unary_expression(it, end, temp))
+            throw SyntaxError("Expected <UnaryExpression>", it, end);
+        result = MultiplicativeExpression{std::move(op), std::move(result), std::move(temp)};
     }
-    // for (std::string op; is_oneof(it, end, operators, op);)
-    // {
-    //     auto rhs = Expression{};
-    //     if (!is_leaf(it, end, rhs))
-    //         throw SyntaxError("Expected <...>", it, end);
-    //     temp = T{std::move(op), std::move(temp), std::move(rhs)};
-    // }
-    result = std::move(temp);
     return true;
 }
 
-auto is_multiplicative_expression(auto &&it, auto end, auto &result)
+bool is_additive_expression(auto &&it, auto end, auto &result)
 {
-    constexpr std::array operators{"*", "/", "%"};
-    return is_binary_expression<MultiplicativeExpression>(it, end, operators, is_unary_expression, result);
+    if (!is_multiplicative_expression(it, end, result))
+        return false;
+    for (std::string op; is_match(it, end, {"+", "-"}, op);)
+    {
+        auto temp = Expression{};
+        if (!is_multiplicative_expression(it, end, temp))
+            throw SyntaxError("Expected <MultiplicativeExpression>", it, end);
+        result = AdditiveExpression{std::move(op), std::move(result), std::move(temp)};
+    }
+    return true;
 }
 
-auto is_additive_expression(auto &&it, auto end, auto &result)
+bool is_shift_expression(auto &&it, auto end, auto &result)
 {
-    constexpr std::array operators{"+", "-"};
-    return is_binary_expression<AdditiveExpression>(it, end, operators, is_multiplicative_expression, result);
+    if (!is_additive_expression(it, end, result))
+        return false;
+    for (std::string op; is_match(it, end, {"<<", ">>", "<<<"}, op);)
+    {
+        auto temp = Expression{};
+        if (!is_additive_expression(it, end, temp))
+            throw SyntaxError("Expected <AdditiveExpression>", it, end);
+        result = ShiftExpression{std::move(op), std::move(result), std::move(temp)};
+    }
+    return true;
 }
 
-auto is_shift_expression(auto &&it, auto end, auto &result)
+bool is_relational_expression(auto &&it, auto end, auto &result)
 {
-    constexpr std::array operators{"<<", ">>", "<<<"};
-    return is_binary_expression<ShiftExpression>(it, end, operators, is_additive_expression, result);
+    if (!is_shift_expression(it, end, result))
+        return false;
+    for (std::string op; is_match(it, end, {"<", ">", "<=", ">=", "instanceof"}, op);)
+    {
+        auto temp = Expression{};
+        if (!is_shift_expression(it, end, temp))
+            throw SyntaxError("Expected <ShiftExpression>", it, end);
+        result = RelationalExpression{std::move(op), std::move(result), std::move(temp)};
+    }
+    return true;
 }
 
-auto is_relational_expression(auto &&it, auto end, auto &result)
+bool is_equality_expression(auto &&it, auto end, auto &result)
 {
-    constexpr std::array operators{"<", ">", "<=", ">=", "instanceof"};
-    return is_binary_expression<RelationalExpression>(it, end, operators, is_shift_expression, result);
+    if (!is_relational_expression(it, end, result))
+        return false;
+    for (std::string op; is_match(it, end, {"==", "!=", "===", "!=="}, op);)
+    {
+        auto temp = Expression{};
+        if (!is_relational_expression(it, end, temp))
+            throw SyntaxError("Expected <RelationalExpression>", it, end);
+        result = EqualityExpression{std::move(op), std::move(result), std::move(temp)};
+    }
+    return true;
 }
 
-auto is_equality_expression(auto &&it, auto end, auto &result)
+bool is_bitwise_and_expression(auto &&it, auto end, auto &result)
 {
-    constexpr std::array operators{"==", "!=", "===", "!=="};
-    return is_binary_expression<EqualityExpression>(it, end, operators, is_relational_expression, result);
+    if (!is_equality_expression(it, end, result))
+        return false;
+    for (std::string op; is_match(it, end, "&", op);)
+    {
+        auto temp = Expression{};
+        if (!is_equality_expression(it, end, temp))
+            throw SyntaxError("Expected <EqualityExpression>", it, end);
+        result = BitwiseANDExpression{std::move(op), std::move(result), std::move(temp)};
+    }
+    return true;
 }
 
-auto is_bitwise_and_expression(auto &&it, auto end, auto &result)
+bool is_bitwise_xor_expression(auto &&it, auto end, auto &result)
 {
-    constexpr std::array operators{"&"};
-    return is_binary_expression<BitwiseANDExpression>(it, end, operators, is_relational_expression, result);
+    if (!is_bitwise_and_expression(it, end, result))
+        return false;
+    for (std::string op; is_match(it, end, "|", op);)
+    {
+        auto temp = Expression{};
+        if (!is_bitwise_and_expression(it, end, temp))
+            throw SyntaxError("Expected <BitwiseANDExpression>", it, end);
+        result = BitwiseXORExpression{std::move(op), std::move(result), std::move(temp)};
+    }
+    return true;
 }
 
-auto is_bitwise_xor_expression(auto &&it, auto end, auto &result)
+bool is_bitwise_or_expression(auto &&it, auto end, auto &result)
 {
-    constexpr std::array operators{"^"};
-    return is_binary_expression<BitwiseXORExpression>(it, end, operators, is_bitwise_and_expression, result);
+    if (!is_bitwise_xor_expression(it, end, result))
+        return false;
+    for (std::string op; is_match(it, end, "|", op);)
+    {
+        auto temp = Expression{};
+        if (!is_bitwise_xor_expression(it, end, temp))
+            throw SyntaxError("Expected <BitwiseXORExpression>", it, end);
+        result = BitwiseORExpression{std::move(op), std::move(result), std::move(temp)};
+    }
+    return true;
 }
 
-auto is_bitwise_or_expression(auto &&it, auto end, auto &result)
+bool is_logical_and_expression(auto &&it, auto end, auto &result)
 {
-    constexpr std::array operators{"|"};
-    return is_binary_expression<BitwiseORExpression>(it, end, operators, is_bitwise_xor_expression, result);
+    if (!is_bitwise_or_expression(it, end, result))
+        return false;
+    for (std::string op; is_match(it, end, "&&", op);)
+    {
+        auto temp = Expression{};
+        if (!is_bitwise_or_expression(it, end, temp))
+            throw SyntaxError("Expected <BitwiseORExpression>", it, end);
+        result = LogicalANDExpression{std::move(op), std::move(result), std::move(temp)};
+    }
+    return true;
 }
 
-auto is_logical_and_expression(auto &&it, auto end, auto &result)
+bool is_logical_or_expression(auto &&it, auto end, auto &result)
 {
-    constexpr std::array operators{"&&"};
-    // return is_binary_expression<LogicalANDExpression>(it, end, operators, is_bitwise_or_expression, result);
-    return false;
-}
-
-auto is_logical_or_expression(auto &&it, auto end, auto &result)
-{
-    constexpr std::array operators{"||"};
-
     if (!is_logical_and_expression(it, end, result))
         return false;
-
-    while (it != end)
+    for (std::string op; is_match(it, end, "||", op);)
     {
-        if (std::find(operators.begin(), operators.end(), *it) == operators.end())
-            break;
-        std::string op = *it++;
         auto temp = Expression{};
         if (!is_logical_and_expression(it, end, temp))
             throw SyntaxError("Expected <LogicalAndExpression>", it, end);
         result = LogicalORExpression{std::move(op), std::move(result), std::move(temp)};
     }
     return true;
-
-    // return is_binary_expression<LogicalORExpression>(it, end, operators, is_logical_and_expression, result);
 }
 
-auto is_conditional_expression(auto &&it, auto end, auto &result)
+bool is_conditional_expression(auto &&it, auto end, auto &result)
 {
     return is_logical_or_expression(it, end, result);
 }
 
-auto is_assignment_expression(auto &&it, auto end, auto &result)
+bool is_assignment_expression(auto &&it, auto end, auto &result)
 {
     return is_conditional_expression(it, end, result);
     // constexpr static std::vector<Token> operators = { "=", "*=", "/=", "%=", "+=", "-=", "<<=", ">>=", ">>>=", "&=",
@@ -351,12 +413,12 @@ auto is_assignment_expression(auto &&it, auto end, auto &result)
     // result);
 }
 
-auto is_expression(auto &&it, auto end, auto &result)
+bool is_expression(auto &&it, auto end, auto &result)
 {
     return is_assignment_expression(it, end, result);
 }
 
-auto is_block_statement(auto &&it, auto end, auto &result)
+bool is_block_statement(auto &&it, auto end, auto &result)
 {
     if (!is_match(it, end, "{"))
         return false;
@@ -369,7 +431,7 @@ auto is_block_statement(auto &&it, auto end, auto &result)
     return true;
 }
 
-auto is_variable_declaration(auto &&it, auto end, auto &result)
+bool is_variable_declaration(auto &&it, auto end, auto &result)
 {
     auto temp = VariableDeclaration{};
     auto identifier = Identifier{};
@@ -381,7 +443,7 @@ auto is_variable_declaration(auto &&it, auto end, auto &result)
     return true;
 }
 
-auto is_variable_statement(auto &&it, auto end, auto &result)
+bool is_variable_statement(auto &&it, auto end, auto &result)
 {
     if (!is_match(it, end, "var"))
         return false;
@@ -394,7 +456,7 @@ auto is_variable_statement(auto &&it, auto end, auto &result)
     return true;
 }
 
-auto is_empty_statement(auto &&it, auto end, auto &result)
+bool is_empty_statement(auto &&it, auto end, auto &result)
 {
     if (!is_match(it, end, ";"))
         return false;
@@ -402,7 +464,7 @@ auto is_empty_statement(auto &&it, auto end, auto &result)
     return true;
 }
 
-auto is_expression_statement(auto &&it, auto end, auto &result)
+bool is_expression_statement(auto &&it, auto end, auto &result)
 {
     if (lookahead(it, end, "{") || lookahead(it, end, "function"))
         return false;
@@ -415,7 +477,7 @@ auto is_expression_statement(auto &&it, auto end, auto &result)
     return true;
 }
 
-auto is_if_statement(auto &&it, auto end, auto &result)
+bool is_if_statement(auto &&it, auto end, auto &result)
 {
     if (!is_match(it, end, "if"))
         return false;
@@ -434,7 +496,7 @@ auto is_if_statement(auto &&it, auto end, auto &result)
     return true;
 }
 
-auto is_do_iteration_statement(auto &&it, auto end, auto &result)
+bool is_do_iteration_statement(auto &&it, auto end, auto &result)
 {
     if (!is_match(it, end, "do"))
         return false;
@@ -445,7 +507,7 @@ auto is_do_iteration_statement(auto &&it, auto end, auto &result)
         throw new SyntaxError("Expected 'while'", it, end);
     if (!is_match(it, end, "("))
         throw new SyntaxError("Expected '('", it, end);
-    if (!is_expression(it, end, temp.postExpression))
+    if (!is_expression(it, end, temp.postTestExpression))
         throw new SyntaxError("Expected <Expression>", it, end);
     if (!is_match(it, end, ")"))
         throw new SyntaxError("Expected ')'", it, end);
@@ -455,14 +517,14 @@ auto is_do_iteration_statement(auto &&it, auto end, auto &result)
     return true;
 }
 
-auto is_while_iteration_statement(auto &&it, auto end, auto &result)
+bool is_while_iteration_statement(auto &&it, auto end, auto &result)
 {
     if (!is_match(it, end, "while"))
         return false;
     auto temp = IterationStatement{};
     if (!is_match(it, end, "("))
         throw new SyntaxError("Expected '('", it, end);
-    if (!is_expression(it, end, temp.preExpression))
+    if (!is_expression(it, end, temp.preTestExpression))
         throw new SyntaxError("Expected <Expression>", it, end);
     if (!is_match(it, end, ")"))
         throw new SyntaxError("Expected ')'", it, end);
@@ -472,7 +534,7 @@ auto is_while_iteration_statement(auto &&it, auto end, auto &result)
     return true;
 }
 
-auto is_for_iteration_statement(auto &&it, auto end, auto &result)
+bool is_for_iteration_statement(auto &&it, auto end, auto &result)
 {
     if (!is_match(it, end, "for"))
         return false;
@@ -504,13 +566,13 @@ auto is_for_iteration_statement(auto &&it, auto end, auto &result)
     return true;
 }
 
-auto is_iteration_statement(auto &&it, auto end, auto &result)
+bool is_iteration_statement(auto &&it, auto end, auto &result)
 {
     return is_do_iteration_statement(it, end, result) || is_while_iteration_statement(it, end, result) ||
            is_for_iteration_statement(it, end, result);
 }
 
-auto is_continue_statement(auto &&it, auto end, auto &result)
+bool is_continue_statement(auto &&it, auto end, auto &result)
 {
     if (!is_match(it, end, "continue"))
         return false;
@@ -523,7 +585,7 @@ auto is_continue_statement(auto &&it, auto end, auto &result)
     return true;
 }
 
-auto is_break_statement(auto &&it, auto end, auto &result)
+bool is_break_statement(auto &&it, auto end, auto &result)
 {
     if (!is_match(it, end, "break"))
         return false;
@@ -536,20 +598,20 @@ auto is_break_statement(auto &&it, auto end, auto &result)
     return true;
 }
 
-auto is_return_statement(auto &&it, auto end, auto &result)
+bool is_return_statement(auto &&it, auto end, auto &result)
 {
     if (!is_match(it, end, "return"))
         return false;
     auto temp = ReturnStatement{};
     if (!lookahead(it, end, &Token::separatedWithLineTerminator))
-        is_identifier(it, end, temp.expression);
+        is_expression(it, end, temp.expression);
     if (!is_semicolon(it, end))
         throw SyntaxError("Expected ';'", it, end);
     result = std::move(temp);
     return true;
 }
 
-auto is_with_statement(auto &&it, auto end, auto &result)
+bool is_with_statement(auto &&it, auto end, auto &result)
 {
     if (!is_match(it, end, "with"))
         return false;
@@ -563,10 +625,10 @@ auto is_with_statement(auto &&it, auto end, auto &result)
     if (!is_statement(it, end, temp.statement))
         throw SyntaxError("Expected <Statement>", it, end);
     result = std::move(temp);
-    return false;
+    return true;
 }
 
-auto is_labelled_statement(auto &&it, auto end, auto &result)
+bool is_labelled_statement(auto &&it, auto end, auto &result)
 {
     if (!lookahead(it, end, &Token::isIdentifier, ":"))
         return false;
@@ -579,7 +641,7 @@ auto is_labelled_statement(auto &&it, auto end, auto &result)
     return true;
 }
 
-auto is_switch_statement(auto &&it, auto end, auto &result)
+bool is_switch_statement(auto &&it, auto end, auto &result)
 {
     if (!is_match(it, end, "switch"))
         return false;
@@ -626,7 +688,7 @@ auto is_switch_statement(auto &&it, auto end, auto &result)
     return true;
 }
 
-auto is_throw_statement(auto &&it, auto end, auto &result)
+bool is_throw_statement(auto &&it, auto end, auto &result)
 {
     if (!is_match(it, end, "throw"))
         return false;
@@ -639,7 +701,7 @@ auto is_throw_statement(auto &&it, auto end, auto &result)
     return true;
 }
 
-auto is_try_statement(auto &&it, auto end, auto &result)
+bool is_try_statement(auto &&it, auto end, auto &result)
 {
     if (!is_match(it, end, "try"))
         return false;
@@ -667,7 +729,7 @@ auto is_try_statement(auto &&it, auto end, auto &result)
     return true;
 }
 
-auto is_debugger_statement(auto &&it, auto end, auto &result)
+bool is_debugger_statement(auto &&it, auto end, auto &result)
 {
     if (!is_match(it, end, "debugger"))
         return false;
@@ -677,7 +739,7 @@ auto is_debugger_statement(auto &&it, auto end, auto &result)
     return true;
 }
 
-auto is_statement(auto &&it, auto end, auto &result) -> bool
+bool is_statement(auto &&it, auto end, auto &result)
 {
     return is_block_statement(it, end, result) || // is_variable_statement(it, end, result) ||
            is_empty_statement(it, end, result)    /* || is_expression_statement(it, end, result) ||

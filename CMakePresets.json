@@ -33,6 +33,13 @@
             "cacheVariables": {
                 "CMAKE_CXX_COMPILER": "g++-11"
             }
+        },
+        {
+            "name": "clang",
+            "inherits": "debug",
+            "cacheVariables": {
+                "CMAKE_CXX_COMPILER": "clang"
+            }
         }
     ]
 }

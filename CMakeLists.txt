@@ -15,7 +15,6 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/build/cmake")
 
 include(test)
 
-
 add_subdirectory(src)
 
 if (BUILD_TESTS)

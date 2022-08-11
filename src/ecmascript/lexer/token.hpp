@@ -40,6 +40,10 @@ class Token
     {
     }
 
+    Token(double value) : value(std::to_string(value)), type(NumericLiteral{})
+    {
+    }
+
     bool operator==(std::string_view other) const;
     operator std::string() const;
 
