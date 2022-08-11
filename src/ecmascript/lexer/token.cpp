@@ -33,7 +33,7 @@ bool Token::isBooleanLiteral() const
 
 bool Token::isNumericLiteral() const
 {
-    return false;
+    return std::holds_alternative<NumericLiteral>(type);
 }
 
 bool Token::isStringLiteral() const

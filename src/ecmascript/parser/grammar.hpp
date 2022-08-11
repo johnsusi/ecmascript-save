@@ -120,6 +120,8 @@ bool is_literal(auto &&it, auto end, auto &result)
         result = LiteralExpression{BooleanLiteral{false}};
     else if (is_match(it, end, "true"))
         result = LiteralExpression{BooleanLiteral{true}};
+    else if (std::string s; is_match(it, end, &Token::isNumericLiteral, s))
+        result = LiteralExpression{NumericLiteral{std::stod(s)}};
     else
         return false;
     return true;

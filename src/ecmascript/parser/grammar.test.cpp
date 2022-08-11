@@ -334,21 +334,37 @@ TEST_CASE("SwitchStatement", "[parser]")
     auto expected = Statement{
         SwitchStatement{
             .expression = IdentifierExpression{"x"},
+            .defaultClause =
+                {
+                    .statements =
+                        StatementList{
+                            EmptyStatement{},
+                        },
+                },
             .caseClauses =
                 {
                     CaseClause{
-                        .expression = LiteralExpression{NumericLiteral{5.0}},
+                        .expression = LiteralExpression{NumericLiteral{5}},
+                        .statements =
+                            StatementList{
+                                EmptyStatement{},
+                            },
+                    },
+                    CaseClause{
+                        .expression = LiteralExpression{NumericLiteral{6}},
                         .statements =
                             StatementList{
                                 EmptyStatement{},
                             },
                     },
                 },
+
         },
     };
     auto tokens = {
-        Token("switch"), Token("("), Token("x"), Token(")"), Token("{"),
-        Token("case"),   Token(5),   Token(":"), Token(";"), Token("}"),
+        Token("switch"), Token("("), Token("x"), Token(")"),       Token("{"), Token("case"),
+        Token(5),        Token(":"), Token(";"), Token("default"), Token(":"), Token(";"),
+        Token("case"),   Token(6),   Token(":"), Token(";"),       Token("}"),
     };
     auto actual = Statement{};
     bool ok = is_switch_statement(tokens.begin(), tokens.end(), actual);
